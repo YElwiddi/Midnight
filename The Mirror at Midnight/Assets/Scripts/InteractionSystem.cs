@@ -67,9 +67,10 @@ public class InteractionSystem : MonoBehaviour
         {
             // Check if the hit object implements IInteractable
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            
+            Debug.Log("Raycast out");
             if (interactable != null)
             {
+                Debug.Log("Interactable item found");
                 // New interactable found
                 if (currentInteractable != interactable)
                 {
