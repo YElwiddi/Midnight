@@ -6,6 +6,14 @@ public class InteractableItem : MonoBehaviour, IInteractable
     [Header("Item Settings")]
     public string itemName = "Item";
     public string interactionVerb = "pick up";
+    public string itemDescription = "";
+    public Sprite itemIcon;
+    
+    [Header("Inventory Settings")]
+    public bool addToInventory = true;
+    public bool isStackable = true;
+    public int quantity = 1;
+    public int maxStackSize = 99;
     
     [Header("Interaction Effects")]
     public bool highlightWhenLookedAt = true;
@@ -16,7 +24,8 @@ public class InteractableItem : MonoBehaviour, IInteractable
     [Header("On Interaction")]
     public bool destroyOnInteract = true;
     public float destroyDelay = 0.2f;
-    public bool addToInventory = true;
+    public AudioClip pickupSound;
+    public GameObject pickupEffectPrefab;
     
     // Private variables
     private Color originalColor;
@@ -59,16 +68,42 @@ public class InteractableItem : MonoBehaviour, IInteractable
         // Perform interaction logic
         if (addToInventory)
         {
-            // Add to inventory system if you have one
-            // For example: InventoryManager.Instance.AddItem(itemID);
-            Debug.Log($"Added {itemName} to inventory");
+            // Add to player's inventory
+            PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            if (inventory != null)
+            {
+                // Create inventory item
+                PlayerInventory.InventoryItem item = new PlayerInventory.InventoryItem(itemName, itemDescription, itemIcon);
+                item.quantity = quantity;
+                item.isStackable = isStackable;
+                item.maxStackSize = maxStackSize;
+                
+                // Add the item to inventory
+                bool added = inventory.AddItem(item);
+                
+                if (!added)
+                {
+                    Debug.LogWarning($"Couldn't add {itemName} to inventory. Inventory might be full.");
+                    return; // Don't destroy the item if it couldn't be added
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No PlayerInventory component found in scene.");
+            }
         }
         
         // Play pickup sound if you have one
-        // AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+        if (pickupSound != null)
+        {
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+        }
         
         // Create a pickup effect if you want one
-        // Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
+        if (pickupEffectPrefab != null)
+        {
+            Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
+        }
         
         // Destroy the object if set to do so
         if (destroyOnInteract)
