@@ -11,12 +11,17 @@ public class Movement : MonoBehaviour
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    [Tooltip("Set this higher to make movement more responsive")]
+    public float movementSharpness = 15.0f;
     
     [Header("Camera Settings")]
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
-    public float lookXLimit = 45.0f;
-
+    [Tooltip("Maximum vertical angle in degrees - set close to 90 for full up/down look")]
+    public float lookXLimit = 89f; // Changed from 45 to 89 for near-full vertical rotation
+    [Tooltip("Invert the vertical camera axis")]
+    public bool invertMouseY = false;
+    
     // Private variables
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
@@ -41,6 +46,22 @@ public class Movement : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        // Initialize rotation from current camera orientation
+        if (playerCamera != null)
+        {
+            rotationX = playerCamera.transform.localEulerAngles.x;
+            
+            // Adjust angles over 180 to be negative for proper clamping
+            if (rotationX > 180)
+            {
+                rotationX -= 360;
+            }
+            
+            // Ensure initial rotation is within bounds
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        }
     }
 
     void Update()
@@ -57,8 +78,26 @@ public class Movement : MonoBehaviour
             float curSpeedX = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical");
             float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
             
+            // Store vertical movement
             float movementDirectionY = moveDirection.y;
-            moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+            
+            // Calculate target movement direction
+            Vector3 targetDirection = (forward * curSpeedX) + (right * curSpeedY);
+            
+            // Apply sharper movement by directly setting the movement direction
+            // instead of smoothly interpolating
+            if (movementSharpness > 0)
+            {
+                // Direct movement with high sharpness for more responsive control
+                moveDirection.x = targetDirection.x;
+                moveDirection.z = targetDirection.z;
+            }
+            else
+            {
+                // Fallback to original behavior if sharpness is disabled
+                moveDirection.x = targetDirection.x;
+                moveDirection.z = targetDirection.z;
+            }
 
             // Jump only if canJump is true
             if (canJump && Input.GetButton("Jump") && characterController.isGrounded)
@@ -76,8 +115,18 @@ public class Movement : MonoBehaviour
                 moveDirection.y -= gravity * Time.deltaTime;
             }
 
-            // Move the controller
+            // Move the controller with direct input for sharper response
             characterController.Move(moveDirection * Time.deltaTime);
+            
+            // If no input, quickly stop horizontal movement to prevent sliding
+            if (Mathf.Approximately(Input.GetAxis("Vertical"), 0) && 
+                Mathf.Approximately(Input.GetAxis("Horizontal"), 0) && 
+                characterController.isGrounded)
+            {
+                // Reset horizontal movement immediately when no input is detected
+                moveDirection.x = 0;
+                moveDirection.z = 0;
+            }
         }
         else
         {
@@ -91,19 +140,33 @@ public class Movement : MonoBehaviour
             
             // Apply only gravity when movement is disabled
             characterController.Move(new Vector3(0, moveDirection.y, 0) * Time.deltaTime);
+            
+            // Reset horizontal movement completely when disabled
+            moveDirection.x = 0;
+            moveDirection.z = 0;
         }
 
         // Camera rotation - only if canControlCamera is true
         if (canControlCamera && canMove)
         {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+            // Get mouse input and apply inversion if needed
+            float mouseY = Input.GetAxis("Mouse Y");
+            if (invertMouseY)
+                mouseY = -mouseY;
+                
+            // Apply the mouse input to rotation
+            rotationX += -mouseY * lookSpeed;
+            
+            // Clamp the vertical rotation to avoid flipping
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             
+            // Apply rotation to camera
             if (playerCamera != null)
             {
                 playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             }
             
+            // Rotate the player horizontally (left/right)
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
