@@ -1929,7 +1929,7 @@ GameObject:
   - component: {fileID: 693143218}
   - component: {fileID: 693143217}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2879,6 +2879,99 @@ Transform:
   m_Children: []
   m_Father: {fileID: 205350757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1030352487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1484397886876476834, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_Name
+      value: test_item_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484397886876476834, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.659
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840472691119091063, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: itemName
+      value: Cellar Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: highlightColor.b
+      value: 0.19999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: highlightColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: highlightColor.r
+      value: 0.29905546
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
 --- !u!1 &1057315314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,6 +3807,7 @@ MonoBehaviour:
   itemSlotPrefab: {fileID: 0}
   toggleInventoryKey: 105
   hideMouseCursorWhenClosed: 1
+  disableCameraMovementWhenOpen: 1
 --- !u!114 &1274838759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4776,6 +4870,18 @@ PrefabInstance:
       propertyPath: itemName
       value: Cellar Key
       objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: highlightColor.b
+      value: 0.19999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: highlightColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318347256440779606, guid: 00ab42cfb9c132c4fb6feb540d40d112, type: 3}
+      propertyPath: highlightColor.r
+      value: 0.29905546
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4859,6 +4965,7 @@ SceneRoots:
   - {fileID: 6326635951262031644}
   - {fileID: 205350757}
   - {fileID: 5371820260826846082}
+  - {fileID: 1030352487}
   - {fileID: 1120807324}
   - {fileID: 508798964}
   - {fileID: 693143220}

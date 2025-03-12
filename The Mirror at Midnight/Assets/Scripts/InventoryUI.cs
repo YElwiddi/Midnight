@@ -14,9 +14,11 @@ public class InventoryUI : MonoBehaviour
     [Header("UI Settings")]
     public KeyCode toggleInventoryKey = KeyCode.I;
     public bool hideMouseCursorWhenClosed = true;
+    public bool disableCameraMovementWhenOpen = true;
     
-    // Reference to the player's inventory
+    // References
     private PlayerInventory playerInventory;
+    private Movement movementScript;
     
     void Start()
     {
@@ -32,6 +34,21 @@ public class InventoryUI : MonoBehaviour
             Debug.LogError("InventoryUI: No PlayerInventory script found!");
             enabled = false;
             return;
+        }
+        
+        // Get reference to the movement script
+        if (disableCameraMovementWhenOpen)
+        {
+            movementScript = GetComponent<Movement>();
+            if (movementScript == null)
+            {
+                movementScript = FindObjectOfType<Movement>();
+            }
+            
+            if (movementScript == null)
+            {
+                Debug.LogWarning("InventoryUI: No Movement script found! Camera control will not be disabled when inventory is open.");
+            }
         }
         
         // Check if UI references are set
@@ -98,12 +115,45 @@ public class InventoryUI : MonoBehaviour
                 // Show cursor
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                
+                // Disable camera movement
+                if (disableCameraMovementWhenOpen && movementScript != null)
+                {
+                    // Try to use the enhanced methods if available
+                    try
+                    {
+                        movementScript.DisableCameraControl();
+                    }
+                    catch
+                    {
+                        // Fall back to the basic flag if enhanced methods aren't available
+                        movementScript.canMove = false;
+                    }
+                }
             }
-            else if (hideMouseCursorWhenClosed)
+            else
             {
+                // Re-enable camera movement
+                if (disableCameraMovementWhenOpen && movementScript != null)
+                {
+                    // Try to use the enhanced methods if available
+                    try
+                    {
+                        movementScript.EnableCameraControl();
+                    }
+                    catch
+                    {
+                        // Fall back to the basic flag if enhanced methods aren't available
+                        movementScript.canMove = true;
+                    }
+                }
+                
                 // Hide and lock cursor when closing inventory
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                if (hideMouseCursorWhenClosed)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
             }
         }
     }
