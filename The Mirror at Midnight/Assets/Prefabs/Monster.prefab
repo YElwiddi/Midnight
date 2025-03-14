@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 8468428197156125234}
   - component: {fileID: 4934458778875258810}
   - component: {fileID: 5458708418241391810}
+  - component: {fileID: 3751438370526808696}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Player
@@ -341,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   minimumDistance: 1.5
   rotateToFacePlayer: 1
   rotationSpeed: 5
@@ -394,6 +395,30 @@ MonoBehaviour:
   minDistance: 2
   useLogarithmicFalloff: 1
   volumeSmoothTime: 0.5
+--- !u!114 &3751438370526808696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702604840889906672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7352e2c0b4c1be143bad611d088917b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  monsterFace: {fileID: 2066837859536953339}
+  scareAudioSource: {fileID: 0}
+  scareSound: {fileID: 8300000, guid: 546b100181552704fb959787f463535c, type: 3}
+  triggerDistance: 2
+  camPanSpeed: 5
+  gameOverDelay: 3
+  shakeIntensity: 1
+  shakeDuration: 3
+  decreaseAmount: 0.8
+  gameOverUI: {fileID: 0}
+  fadeSpeed: 1
 --- !u!1 &1087281728564016609
 GameObject:
   m_ObjectHideFlags: 0
