@@ -40,17 +40,27 @@ public class DialogueSystem : MonoBehaviour, IInteractable
     public int activeDialogueTreeIndex = 0;
     
     [Header("UI Settings")]
-    public float dialogueBoxWidth = 600f;
-    public float dialogueBoxHeight = 300f;
-    public float optionHeight = 50f;
-    public float optionPadding = 10f;
-    public Color dialogueBackgroundColor = new Color(0, 0, 0, 0.8f);
+    public float dialogueBoxWidth = 500f;
+    public float dialogueBoxHeight = 250f;
+    public float optionHeight = 40f;
+    public float optionPadding = 5f;
+    
+    // Background is now fully transparent by default
+    public Color dialogueBackgroundColor = new Color(0, 0, 0, 0);
+    public Color nameBackgroundColor = new Color(0, 0, 0, 0.5f); // Semi-transparent for name panel
     public Color optionBackgroundColor = new Color(0.2f, 0.2f, 0.2f, 1f);
     public Color optionHoverColor = new Color(0.3f, 0.3f, 0.5f, 1f);
+    
+    // Text colors
     public Color textColor = Color.white;
     public Color nameTextColor = new Color(1f, 0.8f, 0.2f, 1f);
-    public int fontSize = 20;
-    public int nameFontSize = 24;
+    
+    // Font settings
+    public int fontSize = 16;
+    public int nameFontSize = 20;
+    
+    [Header("Horror Font Settings")]
+    public TMP_FontAsset horrorFont; // Reference to a horror-style font asset
     
     // Reference to player
     private GameObject player;
@@ -263,30 +273,70 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         canvasObj.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         canvasObj.AddComponent<GraphicRaycaster>();
         
-        // Create main panel
+        // Create main panel - Now with completely transparent background
         dialoguePanel = CreatePanel(canvasObj.transform, "DialoguePanel", 
-            new Vector2(0, 0), new Vector2(dialogueBoxWidth, dialogueBoxHeight), 
-            dialogueBackgroundColor);
+            new Vector2(0, -Screen.height/4), new Vector2(dialogueBoxWidth, dialogueBoxHeight * 0.7f), 
+            new Color(0, 0, 0, 0));
         
-        // Create NPC name text
+        // Ensure the image component uses a transparent raycast target
+        Image panelImage = dialoguePanel.GetComponent<Image>();
+        panelImage.raycastTarget = false; // Allows clicks to pass through
+        
+        // Create NPC name text - Semi-transparent background for visibility
         GameObject namePanel = CreatePanel(dialoguePanel.transform, "NamePanel",
-            new Vector2(-dialogueBoxWidth/2 + 100, dialogueBoxHeight/2 + 20), 
-            new Vector2(180, 40), 
-            dialogueBackgroundColor);
+            new Vector2(-dialogueBoxWidth/2 + 80, dialogueBoxHeight * 0.35f - 10), 
+            new Vector2(140, 30), 
+            nameBackgroundColor);
             
         npcNameComponent = CreateTextComponent(namePanel.transform, "NPCName", 
             npcName, nameFontSize, nameTextColor, TextAlignmentOptions.Center);
         
-        // Create main text area
-        GameObject textArea = CreatePanel(dialoguePanel.transform, "TextArea",
-            new Vector2(0, 50), 
-            new Vector2(dialogueBoxWidth - 40, dialogueBoxHeight/2), 
-            new Color(0,0,0,0));
+        // Apply horror font if assigned
+        if (horrorFont != null)
+        {
+            npcNameComponent.font = horrorFont;
+        }
+        
+        // Add some horror-style text effects
+        npcNameComponent.enableVertexGradient = true;
+        npcNameComponent.colorGradient = new VertexGradient(
+            nameTextColor,
+            nameTextColor,
+            new Color(nameTextColor.r * 0.5f, nameTextColor.g * 0.3f, nameTextColor.b * 0.3f, nameTextColor.a),
+            new Color(nameTextColor.r * 0.5f, nameTextColor.g * 0.3f, nameTextColor.b * 0.3f, nameTextColor.a)
+        );
+        
+        // Create main text area - Truly transparent background with no Image component
+        GameObject textArea = new GameObject("TextArea");
+        textArea.transform.SetParent(dialoguePanel.transform, false);
+        
+        RectTransform textAreaRect = textArea.AddComponent<RectTransform>();
+        textAreaRect.anchorMin = new Vector2(0.5f, 0.5f);
+        textAreaRect.anchorMax = new Vector2(0.5f, 0.5f);
+        textAreaRect.pivot = new Vector2(0.5f, 0.5f);
+        textAreaRect.anchoredPosition = new Vector2(0, 30);
+        textAreaRect.sizeDelta = new Vector2(dialogueBoxWidth - 40, dialogueBoxHeight * 0.3f);
             
         npcTextComponent = CreateTextComponent(textArea.transform, "NPCText", 
             "Dialogue text goes here.", fontSize, textColor, TextAlignmentOptions.TopLeft);
         
-        // Options area will be created dynamically for each node
+        // Apply horror font to dialogue text
+        if (horrorFont != null)
+        {
+            npcTextComponent.font = horrorFont;
+        }
+        
+        // Add some additional horror text styling
+        npcTextComponent.enableVertexGradient = true;
+        npcTextComponent.colorGradient = new VertexGradient(
+            textColor,
+            textColor,
+            new Color(textColor.r * 0.8f, textColor.g * 0.8f, textColor.b * 0.8f, textColor.a),
+            new Color(textColor.r * 0.7f, textColor.g * 0.7f, textColor.b * 0.7f, textColor.a)
+        );
+        
+        // Optional - Add a slight character spacing for creepy effect
+        npcTextComponent.characterSpacing = 2f;
         
         // Initially hide the dialogue UI
         dialogueCanvas.gameObject.SetActive(false);
@@ -304,8 +354,27 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         rect.anchoredPosition = position;
         rect.sizeDelta = size;
         
-        Image image = panel.AddComponent<Image>();
-        image.color = color;
+        // For completely transparent panels, we can skip adding an Image component
+        if (color.a > 0)
+        {
+            Image image = panel.AddComponent<Image>();
+            image.color = color;
+            
+            // For semi-transparent panels, use a special sprite
+            if (color.a < 1)
+            {
+                // Use a simple transparent sprite if available
+                image.sprite = null; // You can assign a transparent sprite in the inspector
+                image.type = Image.Type.Sliced;
+            }
+        }
+        else if (name != "TextArea") // Still add image for non-text areas but make it invisible
+        {
+            // Add an invisible image component for layout purposes only
+            Image image = panel.AddComponent<Image>();
+            image.color = new Color(0, 0, 0, 0);
+            image.raycastTarget = false; // Disable raycast for truly transparent areas
+        }
         
         return panel;
     }
@@ -329,23 +398,47 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         tmp.alignment = alignment;
         tmp.enableWordWrapping = true;
         
+        // Apply horror font if assigned
+        if (horrorFont != null)
+        {
+            tmp.font = horrorFont;
+        }
+        
         return tmp;
     }
     
     private void CreateOptionButton(string text, int nextNodeId, int index)
     {
-        float buttonY = -dialogueBoxHeight/2 + 80 + (optionHeight + optionPadding) * index;
+        // Reduced option height and spacing
+        float buttonHeight = optionHeight * 0.8f;
+        float buttonPadding = optionPadding * 0.5f;
+        float buttonY = -dialogueBoxHeight * 0.35f + 60 + (buttonHeight + buttonPadding) * index;
         
-        // Create button background
+        // Create button background - Buttons remain with background for usability
         GameObject button = CreatePanel(dialoguePanel.transform, $"Option_{index}",
             new Vector2(0, buttonY), 
-            new Vector2(dialogueBoxWidth - 80, optionHeight), 
+            new Vector2(dialogueBoxWidth - 100, buttonHeight), 
             optionBackgroundColor);
             
         // Add text
         TextMeshProUGUI buttonText = CreateTextComponent(button.transform, "OptionText", 
-            text, fontSize - 2, textColor, TextAlignmentOptions.Left);
+            text, fontSize - 4, textColor, TextAlignmentOptions.Left);
             
+        // Apply horror font to option text
+        if (horrorFont != null)
+        {
+            buttonText.font = horrorFont;
+        }
+        
+        // Add horror-style text effects to options
+        buttonText.enableVertexGradient = true;
+        buttonText.colorGradient = new VertexGradient(
+            textColor,
+            textColor,
+            new Color(textColor.r * 0.8f, textColor.g * 0.8f, textColor.b * 0.8f, textColor.a),
+            new Color(textColor.r * 0.7f, textColor.g * 0.7f, textColor.b * 0.7f, textColor.a)
+        );
+        
         // Add button component
         Button buttonComponent = button.AddComponent<Button>();
         ColorBlock colors = buttonComponent.colors;
