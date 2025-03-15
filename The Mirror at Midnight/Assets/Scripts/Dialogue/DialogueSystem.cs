@@ -62,6 +62,13 @@ public class DialogueSystem : MonoBehaviour, IInteractable
     [Header("Horror Font Settings")]
     public TMP_FontAsset horrorFont; // Reference to a horror-style font asset
     
+    [Header("Text Typing Settings")]
+    public float typingSpeed = 0.05f; // Seconds per character
+    public AudioClip typingSoundEffect; // Optional sound effect for typing
+    [Range(0.0f, 1.0f)]
+    public float typingSoundVolume = 0.5f;
+    public float typingSoundFrequency = 0.15f; // How often to play the sound (in seconds)
+    
     // Reference to player
     private GameObject player;
     private Movement playerMovement;
@@ -78,6 +85,10 @@ public class DialogueSystem : MonoBehaviour, IInteractable
     private int currentNodeId = 0;
     private bool isInDialogue = false;
     private Vector3 originalNpcHeadRotation;
+    private Coroutine typingCoroutine;
+    private bool isTyping = false;
+    private AudioSource audioSource;
+    private float lastTypingSoundTime = 0f;
     
     void Start()
     {
@@ -101,6 +112,16 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         
         // Create UI elements but keep them inactive until dialogue starts
         CreateDialogueUI();
+        
+        // Setup audio source for typing sounds
+        if (typingSoundEffect != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = typingSoundEffect;
+            audioSource.volume = typingSoundVolume;
+            audioSource.loop = false;
+            audioSource.playOnAwake = false;
+        }
     }
     
     void Update()
@@ -118,6 +139,12 @@ public class DialogueSystem : MonoBehaviour, IInteractable
                     Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
                     npcHead.rotation = Quaternion.Slerp(npcHead.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                 }
+            }
+            
+            // Check for input to skip typing effect
+            if (isTyping && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            {
+                CompleteTypingEffect();
             }
             
             // Check for escape key to exit dialogue
@@ -183,8 +210,16 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         if (!isInDialogue)
             return;
             
+        // Stop typing coroutine if running
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+        
         // Set state
         isInDialogue = false;
+        isTyping = false;
         
         // Restore player controls
         if (playerMovement != null)
@@ -218,16 +253,109 @@ public class DialogueSystem : MonoBehaviour, IInteractable
             return;
         }
         
-        // Display NPC text
-        npcTextComponent.text = node.npcText;
-        
         // Clear existing option buttons
+        ClearOptionButtons();
+        
+        // Start the typing effect for NPC text
+        typingCoroutine = StartCoroutine(TypeText(node));
+    }
+    
+    private void ClearOptionButtons()
+    {
         foreach (GameObject button in optionButtons)
         {
             Destroy(button);
         }
         optionButtons.Clear();
+    }
+    
+    private void SelectOption(int nextNodeId)
+    {
+        // Clear any typing coroutine
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+            isTyping = false;
+        }
         
+        // Special case: -1 means end dialogue
+        if (nextNodeId == -1)
+        {
+            EndDialogue();
+            return;
+        }
+        
+        // Navigate to the next node
+        currentNodeId = nextNodeId;
+        DisplayNode(currentNodeId);
+    }
+    
+    private void CompleteTypingEffect()
+    {
+        if (isTyping && typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+            isTyping = false;
+            
+            // Get current node
+            DialogueTree activeTree = dialogueTrees[activeDialogueTreeIndex];
+            DialogueNode node = activeTree.nodes.Find(n => n.id == currentNodeId);
+            
+            if (node != null)
+            {
+                // Show the full text immediately
+                npcTextComponent.text = node.npcText;
+                
+                // Create option buttons
+                CreateOptionsForNode(node);
+            }
+        }
+    }
+    
+    private IEnumerator TypeText(DialogueNode node)
+    {
+        isTyping = true;
+        
+        // Reset typing sound timer
+        lastTypingSoundTime = 0f;
+        
+        // Clear the text first
+        npcTextComponent.text = "";
+        
+        // Type the text character by character
+        string fullText = node.npcText;
+        for (int i = 0; i < fullText.Length; i++)
+        {
+            // Add next character
+            npcTextComponent.text = fullText.Substring(0, i + 1);
+            
+            // Play typing sound effect at intervals
+            if (audioSource != null && typingSoundEffect != null)
+            {
+                float timeSinceLastSound = Time.time - lastTypingSoundTime;
+                if (timeSinceLastSound >= typingSoundFrequency)
+                {
+                    audioSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f); // Slight pitch variation
+                    audioSource.Play();
+                    lastTypingSoundTime = Time.time;
+                }
+            }
+            
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        
+        // Typing is done
+        isTyping = false;
+        typingCoroutine = null;
+        
+        // Create option buttons only after text is fully displayed
+        CreateOptionsForNode(node);
+    }
+    
+    private void CreateOptionsForNode(DialogueNode node)
+    {
         // If it's an end node, show a "Close" button instead of options
         if (node.isEndNode || node.options.Count == 0)
         {
@@ -240,20 +368,6 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         {
             CreateOptionButton(node.options[i].optionText, node.options[i].nextNodeId, i);
         }
-    }
-    
-    private void SelectOption(int nextNodeId)
-    {
-        // Special case: -1 means end dialogue
-        if (nextNodeId == -1)
-        {
-            EndDialogue();
-            return;
-        }
-        
-        // Navigate to the next node
-        currentNodeId = nextNodeId;
-        DisplayNode(currentNodeId);
     }
     
     #endregion
@@ -318,7 +432,7 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         textAreaRect.sizeDelta = new Vector2(dialogueBoxWidth - 40, dialogueBoxHeight * 0.3f);
             
         npcTextComponent = CreateTextComponent(textArea.transform, "NPCText", 
-            "Dialogue text goes here.", fontSize, textColor, TextAlignmentOptions.TopLeft);
+            "", fontSize, textColor, TextAlignmentOptions.TopLeft);
         
         // Apply horror font to dialogue text
         if (horrorFont != null)
