@@ -4245,6 +4245,10 @@ PrefabInstance:
       propertyPath: responseOptions.Array.data[0].responseText
       value: Sugandese
       objectReference: {fileID: 0}
+    - target: {fileID: 6957259873217136684, guid: 2cd381879afd6604db1d8e7f6232ec65, type: 3}
+      propertyPath: requiredItemName
+      value: Cellar Key
+      objectReference: {fileID: 0}
     - target: {fileID: 7380863764986579837, guid: 2cd381879afd6604db1d8e7f6232ec65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.44469
