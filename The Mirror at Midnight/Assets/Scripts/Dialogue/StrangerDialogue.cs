@@ -10,6 +10,10 @@ public class StrangerDialogue : MonoBehaviour
     [Header("Required Items")]
     public string requiredItemName = "Cellar Key";
     
+    // Index references for our dialogue trees
+    private int regularDialogueIndex = 0;
+    private int keyDialogueIndex = 1;
+    
     void Start()
     {
         // Get reference to the DialogueSystem component
@@ -32,18 +36,43 @@ public class StrangerDialogue : MonoBehaviour
         // Initialize both dialogue trees
         SetupStrangerDialogue();
         SetupKeyDialogue();
+        
+        // Subscribe to the DialogueSystem's interact event
+        dialogueSystem.onCustomInteract += OnInteractionStarted;
     }
     
-    public string GetInteractionPrompt()
+    private void OnDestroy()
     {
-        return "talk to Mysterious Stranger";
+        // Clean up event subscription when this object is destroyed
+        if (dialogueSystem != null)
+        {
+            dialogueSystem.onCustomInteract -= OnInteractionStarted;
+        }
+    }
+    
+    // This method will be called when the player interacts with the NPC
+    private void OnInteractionStarted()
+    {
+        // Check inventory for Cellar Key and set appropriate dialogue tree
+        bool hasKey = CheckForItem(requiredItemName);
+        
+        if (hasKey)
+        {
+            Debug.Log($"Player has the {requiredItemName} - Using Key Dialogue Tree");
+            dialogueSystem.SetActiveDialogueTree(keyDialogueIndex);
+        }
+        else
+        {
+            Debug.Log($"Player does not have the {requiredItemName} - Using Regular Dialogue Tree");
+            dialogueSystem.SetActiveDialogueTree(regularDialogueIndex);
+        }
     }
     
     void SetupStrangerDialogue()
     {
         // Create a dialogue tree for the stranger
         DialogueTree strangerDialogue = new DialogueTree();
-        strangerDialogue.dialogueName = "Mysterious Stranger";
+        //strangerDialogue.dialogueName = "Mysterious Stranger";
         
         // Node 0: Initial greeting
         DialogueNode greetingNode = new DialogueNode();
@@ -110,7 +139,7 @@ public class StrangerDialogue : MonoBehaviour
     {
         // Create a dialogue tree for when player has the key
         DialogueTree keyDialogue = new DialogueTree();
-        keyDialogue.dialogueName = "Mysterious Stranger";
+        //keyDialogue.dialogueName = "Mysterious Stranger";
         
         // Node 0: Initial reaction to the key
         DialogueNode keyReactionNode = new DialogueNode();

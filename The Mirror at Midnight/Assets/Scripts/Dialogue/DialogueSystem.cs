@@ -203,35 +203,38 @@ public string GetInteractionPrompt()
     #region Dialogue Control
     
     public void StartDialogue()
+{
+    if (isInDialogue || dialogueTrees.Count == 0 || 
+        activeDialogueTreeIndex < 0 || activeDialogueTreeIndex >= dialogueTrees.Count)
     {
-        if (isInDialogue || dialogueTrees.Count == 0 || 
-            activeDialogueTreeIndex < 0 || activeDialogueTreeIndex >= dialogueTrees.Count)
-        {
-            Debug.LogWarning("DialogueSystem: Cannot start dialogue. Check dialogue data configuration.");
-            return;
-        }
-        
-        // Set state
-        isInDialogue = true;
-        
-        // Modify player controls
-        if (playerMovement != null)
-        {
-            playerMovement.DisableCameraControl();
-            playerMovement.canMove = false;
-        }
-        
-        // Show cursor
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        
-        // Activate dialogue UI
-        dialogueCanvas.gameObject.SetActive(true);
-        
-        // Start with the first node (usually id 0)
-        currentNodeId = 0;
-        DisplayNode(currentNodeId);
+        Debug.LogWarning("DialogueSystem: Cannot start dialogue. Check dialogue data configuration.");
+        return;
     }
+    
+    // Fire custom interact event for StrangerDialogue to hook into
+    onCustomInteract?.Invoke();
+    
+    // Set state
+    isInDialogue = true;
+    
+    // Modify player controls
+    if (playerMovement != null)
+    {
+        playerMovement.DisableCameraControl();
+        playerMovement.canMove = false;
+    }
+    
+    // Show cursor
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
+    
+    // Activate dialogue UI
+    dialogueCanvas.gameObject.SetActive(true);
+    
+    // Start with the first node (usually id 0)
+    currentNodeId = 0;
+    DisplayNode(currentNodeId);
+}
     
     public void EndDialogue()
     {
@@ -270,23 +273,37 @@ public string GetInteractionPrompt()
     }
     
     private void DisplayNode(int nodeId)
+{
+    DialogueTree activeTree = dialogueTrees[activeDialogueTreeIndex];
+    DialogueNode node = activeTree.nodes.Find(n => n.id == nodeId);
+    
+    if (node == null)
     {
-        DialogueTree activeTree = dialogueTrees[activeDialogueTreeIndex];
-        DialogueNode node = activeTree.nodes.Find(n => n.id == nodeId);
-        
-        if (node == null)
-        {
-            Debug.LogError($"DialogueSystem: Node with ID {nodeId} not found!");
-            EndDialogue();
-            return;
-        }
-        
-        // Clear existing option buttons
-        ClearOptionButtons();
-        
-        // Start the typing effect for NPC text
-        typingCoroutine = StartCoroutine(TypeText(node));
+        Debug.LogError($"DialogueSystem: Node with ID {nodeId} not found!");
+        EndDialogue();
+        return;
     }
+    
+    // Log which dialogue tree is being used and whether player has Cellar Key
+    if (nodeId == 0) // First node - print info only once at the start
+    {
+        string treeName = activeDialogueTreeIndex == 0 ? "Regular Dialogue Tree" : "Cellar Key Dialogue Tree";
+        Debug.Log($"DialogueSystem: Displaying dialogue from {treeName}");
+        
+        // Check if player has the Cellar Key
+        if (playerInventory != null)
+        {
+            bool hasKey = playerInventory.HasItem("Cellar Key");
+            Debug.Log($"DialogueSystem: Player has Cellar Key: {hasKey}");
+        }
+    }
+    
+    // Clear existing option buttons
+    ClearOptionButtons();
+    
+    // Start the typing effect for NPC text
+    typingCoroutine = StartCoroutine(TypeText(node));
+}
     
     private void ClearOptionButtons()
     {
