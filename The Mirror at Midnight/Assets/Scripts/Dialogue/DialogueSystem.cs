@@ -30,6 +30,9 @@ public class DialogueTree
 
 public class DialogueSystem : MonoBehaviour, IInteractable
 {
+    // Add a custom event for StrangerDialogue to hook into
+    public event Action onCustomInteract;
+    
     [Header("NPC Settings")]
     public string npcName = "NPC";
     public Transform npcHead;
@@ -73,6 +76,7 @@ public class DialogueSystem : MonoBehaviour, IInteractable
     private GameObject player;
     private Movement playerMovement;
     private Transform playerCamera;
+    private PlayerInventory playerInventory;
     
     // UI Components
     private Canvas dialogueCanvas;
@@ -122,6 +126,10 @@ public class DialogueSystem : MonoBehaviour, IInteractable
             audioSource.loop = false;
             audioSource.playOnAwake = false;
         }
+
+        // Get players inventory
+        playerInventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerInventory>();
+
     }
     
     void Update()
@@ -155,23 +163,43 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         }
     }
     
-    #region IInteractable Implementation
-    
-    public void Interact()
+#region IInteractable Implementation
+
+public void Interact()
+{
+    // Check if an IInteractable component with higher priority exists on this GameObject
+    IInteractable[] interactables = GetComponents<IInteractable>();
+    if (interactables.Length > 1 && interactables[0] != this)
     {
-        if (!isInDialogue)
-        {
-            StartDialogue();
-        }
+        // Let the higher priority IInteractable handle the interaction
+        return;
     }
-    
-    public string GetInteractionPrompt()
+
+    // Default behavior
+    Debug.Log("DialogueSystem: Using default interaction");
+    //Debug.Log("Checking player inventory: " + playerInventory.GetAllItems()[0]);
+    Debug.Log("Checking if we have cellar key: " + playerInventory.HasItem("Cellar Key"));
+    if (!isInDialogue)
     {
-        return "talk to " + npcName;
+        StartDialogue();
     }
-    
-    #endregion
-    
+}
+
+public string GetInteractionPrompt()
+{
+    // Check if another IInteractable exists on this GameObject
+    IInteractable[] interactables = GetComponents<IInteractable>();
+    if (interactables.Length > 1 && interactables[0] != this)
+    {
+        // Let the higher priority IInteractable handle the prompt
+        return interactables[0].GetInteractionPrompt();
+    }
+
+    return "talk to " + npcName;
+}
+
+#endregion
+        
     #region Dialogue Control
     
     public void StartDialogue()
@@ -579,6 +607,13 @@ public class DialogueSystem : MonoBehaviour, IInteractable
         if (index >= 0 && index < dialogueTrees.Count)
         {
             activeDialogueTreeIndex = index;
+            // Update the name display
+            if (npcNameComponent != null && dialogueTrees[index].dialogueName != null)
+            {
+                npcName = dialogueTrees[index].dialogueName;
+                npcNameComponent.text = npcName;
+            }
+            Debug.Log($"DialogueSystem: Set active dialogue tree to index {index}, name: {dialogueTrees[index].dialogueName}");
         }
         else
         {

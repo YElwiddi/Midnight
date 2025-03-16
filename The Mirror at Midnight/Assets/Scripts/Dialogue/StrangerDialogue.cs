@@ -7,9 +7,8 @@ public class StrangerDialogue : MonoBehaviour
     private DialogueSystem dialogueSystem;
     private PlayerInventory playerInventory;
     
-    // You can specify required items for specific dialogue branches
     [Header("Required Items")]
-    public string requiredItemName;
+    public string requiredItemName = "Cellar Key";
     
     void Start()
     {
@@ -30,8 +29,14 @@ public class StrangerDialogue : MonoBehaviour
             Debug.LogWarning("PlayerInventory not found! Item-based dialogue will not work.");
         }
         
-        // Initialize the dialogue tree
+        // Initialize both dialogue trees
         SetupStrangerDialogue();
+        SetupKeyDialogue();
+    }
+    
+    public string GetInteractionPrompt()
+    {
+        return "talk to Mysterious Stranger";
     }
     
     void SetupStrangerDialogue()
@@ -62,7 +67,6 @@ public class StrangerDialogue : MonoBehaviour
             nextNodeId = 2 
         });
         
-        
         questionNode.options.Add(new DialogueOption { 
             optionText = "Goodbye.", 
             nextNodeId = 3 
@@ -72,7 +76,6 @@ public class StrangerDialogue : MonoBehaviour
         DialogueNode locationNode = new DialogueNode();
         locationNode.id = 2;
         locationNode.npcText = "Oh, you're not from here.";
-        
         
         // Only one option for Node 2 - continue
         locationNode.options.Add(new DialogueOption { 
@@ -84,35 +87,13 @@ public class StrangerDialogue : MonoBehaviour
         DialogueNode goodbyeNode = new DialogueNode();
         goodbyeNode.id = 3;
         goodbyeNode.npcText = "Farewell, traveler.";
-       /* if (CheckForItem(requiredItemName)){
-            nextNodeId = 5;
-        }
-        else{
-            goodbyeNode.isEndNode = true;
-        }*/
-        //goodbyeNode.isEndNode = true; // This ends the dialogue
+        goodbyeNode.isEndNode = true; // This ends the dialogue
         
         // Node 4: Warning
         DialogueNode warningNode = new DialogueNode();
         warningNode.id = 4;
-        warningNode.npcText = "You'd better be careful...";
-       // warningNode.isEndNode = true; // This ends the dialogue
-        
-        // Node 5: Response to showing the coin (only appears if player has the coin)
-        DialogueNode coinNode = new DialogueNode();
-        coinNode.id = 5;
-        coinNode.npcText = "Ah, you've found the cellar key. I've been looking for that.";
-        
-        coinNode.options.Add(new DialogueOption { 
-            optionText = "What can you tell me about it?", 
-            nextNodeId = 6 
-        });
-        
-        // Node 6: Information about the coin
-        DialogueNode coinInfoNode = new DialogueNode();
-        coinInfoNode.id = 6;
-        coinInfoNode.npcText = "That key opens the cellar beneath the old mansion. They say there are valuable treasures hidden down there, but also great danger.";
-        coinInfoNode.isEndNode = true; // This ends the dialogue
+        warningNode.npcText = "You'd better be careful... I've heard there are strange things hidden in this town.";
+        warningNode.isEndNode = true; // This ends the dialogue
         
         // Add all nodes to the dialogue tree
         strangerDialogue.nodes.Add(greetingNode);
@@ -120,46 +101,107 @@ public class StrangerDialogue : MonoBehaviour
         strangerDialogue.nodes.Add(locationNode);
         strangerDialogue.nodes.Add(goodbyeNode);
         strangerDialogue.nodes.Add(warningNode);
-        strangerDialogue.nodes.Add(coinNode);
-        strangerDialogue.nodes.Add(coinInfoNode);
         
         // Add the dialogue tree to the dialogue system
         dialogueSystem.dialogueTrees.Add(strangerDialogue);
-        
-        // Set active dialogue tree
-        dialogueSystem.activeDialogueTreeIndex = 0;
     }
     
-    // Method to refresh dialogue based on current inventory
-    public void RefreshDialogue()
+    void SetupKeyDialogue()
     {
-        // Remove existing dialogue tree
-        if (dialogueSystem.dialogueTrees.Count > 0)
-        {
-            dialogueSystem.dialogueTrees.RemoveAt(0);
-        }
+        // Create a dialogue tree for when player has the key
+        DialogueTree keyDialogue = new DialogueTree();
+        keyDialogue.dialogueName = "Mysterious Stranger";
         
-        // Set up a new dialogue tree with current inventory state
-        SetupStrangerDialogue();
+        // Node 0: Initial reaction to the key
+        DialogueNode keyReactionNode = new DialogueNode();
+        keyReactionNode.id = 0;
+        keyReactionNode.npcText = "Wait... that looks familiar. Is that the Cellar Key you're carrying?";
         
-        // Reset dialogue to start
-        ResetDialogue();
+        // Options for key reaction
+        keyReactionNode.options.Add(new DialogueOption { 
+            optionText = "Yes, I found it. What do you know about it?", 
+            nextNodeId = 1 
+        });
+        
+        keyReactionNode.options.Add(new DialogueOption { 
+            optionText = "That's none of your business.", 
+            nextNodeId = 2 
+        });
+        
+        // Node 1: Information about the key
+        DialogueNode keyInfoNode = new DialogueNode();
+        keyInfoNode.id = 1;
+        keyInfoNode.npcText = "That key opens the cellar beneath the old mansion. They say there are valuable treasures hidden down there, but also great danger.";
+        
+        keyInfoNode.options.Add(new DialogueOption { 
+            optionText = "Tell me more about this danger.", 
+            nextNodeId = 3 
+        });
+        
+        keyInfoNode.options.Add(new DialogueOption { 
+            optionText = "Where is this mansion?", 
+            nextNodeId = 4 
+        });
+        
+        // Node 2: Negative response
+        DialogueNode negativeNode = new DialogueNode();
+        negativeNode.id = 2;
+        negativeNode.npcText = "Very well. Keep your secrets. But be warned - some doors are better left locked.";
+        negativeNode.isEndNode = true;
+        
+        // Node 3: Danger information
+        DialogueNode dangerInfoNode = new DialogueNode();
+        dangerInfoNode.id = 3;
+        dangerInfoNode.npcText = "They say the previous owner of the mansion conducted strange experiments in that cellar. Some nights, people claim to hear unnatural sounds coming from beneath the ground...";
+        
+        dangerInfoNode.options.Add(new DialogueOption { 
+            optionText = "Where is this mansion?", 
+            nextNodeId = 4 
+        });
+        
+        dangerInfoNode.options.Add(new DialogueOption { 
+            optionText = "That's enough information. Goodbye.", 
+            nextNodeId = 5 
+        });
+        
+        // Node 4: Location information
+        DialogueNode locationInfoNode = new DialogueNode();
+        locationInfoNode.id = 4;
+        locationInfoNode.npcText = "The old Darkwood Mansion stands at the end of the northern path, just beyond the cemetery. You can't miss it - it's the only building still standing in that area.";
+        
+        locationInfoNode.options.Add(new DialogueOption { 
+            optionText = "Thank you for the information.", 
+            nextNodeId = 5 
+        });
+        
+        // Node 5: Ending
+        DialogueNode endingNode = new DialogueNode();
+        endingNode.id = 5;
+        endingNode.npcText = "Be careful. If you use that key... well, just remember I warned you.";
+        endingNode.isEndNode = true;
+        
+        // Add all nodes to the dialogue tree
+        keyDialogue.nodes.Add(keyReactionNode);
+        keyDialogue.nodes.Add(keyInfoNode);
+        keyDialogue.nodes.Add(negativeNode);
+        keyDialogue.nodes.Add(dangerInfoNode);
+        keyDialogue.nodes.Add(locationInfoNode);
+        keyDialogue.nodes.Add(endingNode);
+        
+        // Add the dialogue tree to the dialogue system
+        dialogueSystem.dialogueTrees.Add(keyDialogue);
     }
     
-    // Method to reset dialogue if needed
-    public void ResetDialogue()
-    {
-        dialogueSystem.SetActiveDialogueTree(0); // Set active tree
-        dialogueSystem.StartDialogue(); // Start from the beginning
-    }
-    
-    // You can also add a method to check for specific items and change dialogue dynamically
-    public bool CheckForItem(string itemName)
+    // Method to check for specific items in inventory
+    private bool CheckForItem(string itemName)
     {
         if (playerInventory != null)
         {
-            return playerInventory.HasItem(itemName);
+            bool hasItem = playerInventory.HasItem(itemName);
+            Debug.Log($"Checking for item: {itemName}, result: {hasItem}");
+            return hasItem;
         }
+        Debug.Log("PlayerInventory is null, cannot check for item");
         return false;
     }
 }

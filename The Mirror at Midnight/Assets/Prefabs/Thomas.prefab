@@ -87,6 +87,10 @@ MonoBehaviour:
   fontSize: 12
   nameFontSize: 24
   horrorFont: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+  typingSpeed: 0.05
+  typingSoundEffect: {fileID: 0}
+  typingSoundVolume: 0.5
+  typingSoundFrequency: 0.15
 --- !u!114 &6957259873217136684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0000d4c4f7a16498d67cb2870fe087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItemName: Cellar Key
 --- !u!1001 &1260431960585526477
 PrefabInstance:
   m_ObjectHideFlags: 0
