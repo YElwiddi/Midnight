@@ -145,6 +145,9 @@ GameObject:
   - component: {fileID: 5249875727381572662}
   - component: {fileID: 6669960495308543047}
   - component: {fileID: 6231214942555130268}
+  - component: {fileID: 575716216275353444}
+  - component: {fileID: 3213670726030204281}
+  - component: {fileID: 3048021864464542667}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -261,7 +264,7 @@ MonoBehaviour:
   movementSharpness: 15
   playerCamera: {fileID: 1263639387377172890}
   lookSpeed: 2
-  lookXLimit: 45
+  lookXLimit: 89
   invertMouseY: 0
   canMove: 1
   canControlCamera: 1
@@ -293,6 +296,67 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &575716216275353444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210292650286847324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2751b20e0182f5a45ad74a60ff2913dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySlots: 20
+  autoEquipItems: 0
+  enableEvents: 1
+--- !u!114 &3213670726030204281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210292650286847324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b0923d70a2055439000505a8fd7e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 0}
+  itemsGrid: {fileID: 0}
+  itemSlotPrefab: {fileID: 0}
+  toggleInventoryKey: 105
+  hideMouseCursorWhenClosed: 1
+  disableCameraMovementWhenOpen: 1
+--- !u!114 &3048021864464542667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210292650286847324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a611d7b31f18ade4a842ab4a46e5e281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneUI: {fileID: 0}
+  homeScreen: {fileID: 0}
+  messagesApp: {fileID: 0}
+  contactListScreen: {fileID: 0}
+  contact1ConversationScreen: {fileID: 0}
+  contact2ConversationScreen: {fileID: 0}
+  responsePromptPanel: {fileID: 0}
+  responsePromptText: {fileID: 0}
+  responseOption1: {fileID: 0}
+  responseOption2: {fileID: 0}
+  contact1Name: Alex
+  contact2Name: Jamie
+  togglePhoneKey: 120
+  conversations: []
+  contact1Prompts: []
+  contact2Prompts: []
 --- !u!1 &8462231869378288041
 GameObject:
   m_ObjectHideFlags: 0

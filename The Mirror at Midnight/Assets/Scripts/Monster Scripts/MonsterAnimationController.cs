@@ -141,7 +141,6 @@ public class MonsterAnimationController : MonoBehaviour
             // Monster is moving if it's following the player and not at minimum distance
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             isMoving = distanceToPlayer > moveScript.minimumDistance;
-            Debug.Log($"Using moveScript to determine movement. IsMoving: {isMoving}");
         }
         else
         {
@@ -149,7 +148,6 @@ public class MonsterAnimationController : MonoBehaviour
             Vector3 movement = transform.position - lastPosition;
             float speed = movement.magnitude / Time.deltaTime;
             isMoving = speed > movementThreshold;
-            Debug.Log($"Using position tracking for movement. Speed: {speed}, IsMoving: {isMoving}");
         }
         
         // Store current position for next frame
