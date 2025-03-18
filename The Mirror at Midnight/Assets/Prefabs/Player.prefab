@@ -405,8 +405,8 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   startsEnabled: 0
   toggleKey: 102
-  intensity: 3
-  range: 40
+  intensity: 6
+  range: 150
   spotAngle: 55
   lightColor: {r: 1, g: 1, b: 1, a: 1}
   toggleOnSound: {fileID: 8300000, guid: 56b2290a94af0824fbee72b22be8c03b, type: 3}
