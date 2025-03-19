@@ -266,6 +266,12 @@ MonoBehaviour:
   lookSpeed: 2
   lookXLimit: 89
   invertMouseY: 0
+  footstepAudioSource: {fileID: 0}
+  walkingFootstepSounds: []
+  runningFootstepSounds: []
+  walkingFootstepInterval: 0.5
+  runningFootstepInterval: 0.3
+  footstepVolume: 0.201
   canMove: 1
   canControlCamera: 1
   canRun: 1

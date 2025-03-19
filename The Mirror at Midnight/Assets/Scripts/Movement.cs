@@ -22,10 +22,23 @@ public class Movement : MonoBehaviour
     [Tooltip("Invert the vertical camera axis")]
     public bool invertMouseY = false;
     
+    [Header("Footstep Sound Settings")]
+    public AudioSource footstepAudioSource;
+    public AudioClip[] walkingFootstepSounds;
+    public AudioClip[] runningFootstepSounds;
+    [Tooltip("Time between footstep sounds when walking")]
+    public float walkingFootstepInterval = 0.5f;
+    [Tooltip("Time between footstep sounds when running")]
+    public float runningFootstepInterval = 0.3f;
+    [Range(0f, 1f)]
+    public float footstepVolume = 0.7f;
+    
     // Private variables
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
+    private float footstepTimer = 0;
+    private bool wasGrounded = false;
     
     // Input locks
     [Header("Input Control")]
@@ -62,11 +75,22 @@ public class Movement : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
         }
+        
+        // Create AudioSource if not assigned
+        if (footstepAudioSource == null)
+        {
+            footstepAudioSource = gameObject.AddComponent<AudioSource>();
+            footstepAudioSource.spatialBlend = 1.0f; // Make sound 3D
+            footstepAudioSource.volume = footstepVolume;
+        }
     }
 
     void Update()
     {
         // Movement is allowed if canMove is true
+        bool isMoving = false;
+        bool isRunning = false;
+        
         if (canMove)
         {
             // We are grounded, so recalculate move direction based on axes
@@ -74,7 +98,7 @@ public class Movement : MonoBehaviour
             Vector3 right = transform.TransformDirection(Vector3.right);
             
             // Press Left Shift to run (only if canRun is true)
-            bool isRunning = canRun && Input.GetKey(KeyCode.LeftShift);
+            isRunning = canRun && Input.GetKey(KeyCode.LeftShift);
             float curSpeedX = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical");
             float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
             
@@ -83,6 +107,9 @@ public class Movement : MonoBehaviour
             
             // Calculate target movement direction
             Vector3 targetDirection = (forward * curSpeedX) + (right * curSpeedY);
+            
+            // Check if player is moving horizontally
+            isMoving = !Mathf.Approximately(targetDirection.magnitude, 0);
             
             // Apply sharper movement by directly setting the movement direction
             // instead of smoothly interpolating
@@ -127,6 +154,18 @@ public class Movement : MonoBehaviour
                 moveDirection.x = 0;
                 moveDirection.z = 0;
             }
+            
+            // Handle footsteps
+            HandleFootsteps(isMoving, isRunning);
+            
+            // Check for landing after being in the air
+            if (characterController.isGrounded && !wasGrounded)
+            {
+                PlayLandingSound();
+            }
+            
+            // Update grounded state for next frame
+            wasGrounded = characterController.isGrounded;
         }
         else
         {
@@ -144,6 +183,9 @@ public class Movement : MonoBehaviour
             // Reset horizontal movement completely when disabled
             moveDirection.x = 0;
             moveDirection.z = 0;
+            
+            // Update grounded state for next frame
+            wasGrounded = characterController.isGrounded;
         }
 
         // Camera rotation - only if canControlCamera is true
@@ -168,6 +210,70 @@ public class Movement : MonoBehaviour
             
             // Rotate the player horizontally (left/right)
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+    }
+    
+    // Handle playing footstep sounds based on movement
+    private void HandleFootsteps(bool isMoving, bool isRunning)
+    {
+        if (characterController.isGrounded && isMoving)
+        {
+            // Determine the appropriate footstep interval
+            float footstepInterval = isRunning ? runningFootstepInterval : walkingFootstepInterval;
+            
+            // Update the timer
+            footstepTimer += Time.deltaTime;
+            
+            // Play footstep sound when interval is reached
+            if (footstepTimer >= footstepInterval)
+            {
+                PlayFootstepSound(isRunning);
+                footstepTimer = 0f;
+            }
+        }
+        else
+        {
+            // Reset timer when not moving or not grounded
+            footstepTimer = 0f;
+        }
+    }
+    
+    // Play appropriate footstep sound
+    private void PlayFootstepSound(bool isRunning)
+    {
+        if (footstepAudioSource != null)
+        {
+            AudioClip[] soundArray = isRunning ? runningFootstepSounds : walkingFootstepSounds;
+            
+            // Check if we have any footstep sounds assigned
+            if (soundArray != null && soundArray.Length > 0)
+            {
+                // Pick a random sound from the array
+                AudioClip footstepSound = soundArray[Random.Range(0, soundArray.Length)];
+                
+                if (footstepSound != null)
+                {
+                    // Set volume and play the sound
+                    footstepAudioSource.volume = footstepVolume;
+                    footstepAudioSource.PlayOneShot(footstepSound);
+                }
+            }
+        }
+    }
+    
+    // Play a sound when landing from a jump or fall
+    private void PlayLandingSound()
+    {
+        if (footstepAudioSource != null && walkingFootstepSounds != null && walkingFootstepSounds.Length > 0)
+        {
+            // Use walking footstep for landing or create dedicated landing sounds if desired
+            AudioClip landSound = walkingFootstepSounds[Random.Range(0, walkingFootstepSounds.Length)];
+            if (landSound != null)
+            {
+                // Play landing sound at slightly higher volume
+                footstepAudioSource.volume = Mathf.Min(footstepVolume * 1.2f, 1.0f);
+                footstepAudioSource.PlayOneShot(landSound);
+            }
         }
     }
     
