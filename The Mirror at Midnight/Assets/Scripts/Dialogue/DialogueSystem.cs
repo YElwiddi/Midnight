@@ -195,7 +195,7 @@ public string GetInteractionPrompt()
         return interactables[0].GetInteractionPrompt();
     }
 
-    return "talk to " + npcName;
+    return npcName;
 }
 
 #endregion

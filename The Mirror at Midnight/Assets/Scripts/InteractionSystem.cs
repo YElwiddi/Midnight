@@ -81,7 +81,8 @@ public class InteractionSystem : MonoBehaviour
                     // Update prompt text
                     if (promptText != null)
                     {
-                        promptText.text = $"Press {interactKey} to {interactable.GetInteractionPrompt()}";
+                        // Commenting this out because when I go to interact with car I dont want it to say "Press E to car"
+                        //promptText.text = $"Press {interactKey} to {interactable.GetInteractionPrompt()}";
                         promptText.gameObject.SetActive(true);
                     }
                     
