@@ -77,7 +77,7 @@ public class StrangerDialogue : MonoBehaviour
         // Node 0: Initial greeting
         DialogueNode greetingNode = new DialogueNode();
         greetingNode.id = 0;
-        greetingNode.npcText = "Hello.";
+        greetingNode.npcText = "...";
         
         // Only one option for Node 0 - continue
         greetingNode.options.Add(new DialogueOption { 
@@ -88,48 +88,87 @@ public class StrangerDialogue : MonoBehaviour
         // Node 1: Question from NPC
         DialogueNode questionNode = new DialogueNode();
         questionNode.id = 1;
-        questionNode.npcText = "What brings you here?";
+        questionNode.npcText = "What do you want?";
         
         // Options for Node 1
         questionNode.options.Add(new DialogueOption { 
-            optionText = "Where am I?", 
+            optionText = "My car broke down up the road... would you be able to give me a hand?", 
             nextNodeId = 2 
         });
         
         questionNode.options.Add(new DialogueOption { 
-            optionText = "Goodbye.", 
+            optionText = "I'm looking for two friends, have you seen anyone pass by here?", 
             nextNodeId = 3 
         });
         
-        // Node 2: Response to "Where am I?"
-        DialogueNode locationNode = new DialogueNode();
-        locationNode.id = 2;
-        locationNode.npcText = "Oh, you're not from here.";
+        DialogueNode cantHelpNode = new DialogueNode();
+        cantHelpNode.id = 2;
+        cantHelpNode.npcText = "Can't help ya.";
         
-        // Only one option for Node 2 - continue
-        locationNode.options.Add(new DialogueOption { 
+        cantHelpNode.options.Add(new DialogueOption { 
             optionText = "[CONTINUE]", 
-            nextNodeId = 4 
+            nextNodeId = 7
+        });
+        //continue branch here
+        
+        DialogueNode dotdotdotNode1 = new DialogueNode();
+        dotdotdotNode1.id = 3;
+        dotdotdotNode1.npcText = "...";
+
+        dotdotdotNode1.options.Add(new DialogueOption { 
+            optionText = "[CONTINUE]", 
+            nextNodeId = 4
+        });
+
+        // Node 4: Continuation
+        DialogueNode whereTheyGoNode = new DialogueNode();
+        whereTheyGoNode.id = 4;
+        whereTheyGoNode.npcText = "Yeah. Think I saw a car pass by here. Stopped down the road. One of 'em started yelling a bunch, and then she wandered off.";
+                
+        whereTheyGoNode.options.Add(new DialogueOption { 
+            optionText = "Did you see which way the girl went?", 
+            nextNodeId = 5 
+        });
+
+        whereTheyGoNode.options.Add(new DialogueOption { 
+            optionText = "Did you see which way the car went?", 
+            nextNodeId = 6
         });
         
-        // Node 3: Response to "Goodbye"
-        DialogueNode goodbyeNode = new DialogueNode();
-        goodbyeNode.id = 3;
-        goodbyeNode.npcText = "Farewell, traveler.";
-        goodbyeNode.isEndNode = true; // This ends the dialogue
+
+        DialogueNode whereLadyNode = new DialogueNode();
+        whereLadyNode.id = 5;
+        whereLadyNode.npcText = "Yeah. The lady wandered off into the woods, towards the house up the hill. She seemed pretty upset.";
         
-        // Node 4: Warning
-        DialogueNode warningNode = new DialogueNode();
-        warningNode.id = 4;
-        warningNode.npcText = "You'd better be careful... I've heard there are strange things hidden in this town.";
-        warningNode.isEndNode = true; // This ends the dialogue
+        whereLadyNode.options.Add(new DialogueOption { 
+            optionText = "Thanks, I guess.", 
+            nextNodeId = 7 
+        });
+
+
+        DialogueNode whereManNode = new DialogueNode();
+        whereManNode.id = 6;
+        whereManNode.npcText = "Yeah. Drove towards the warehouse. The car looked pretty messed up.";
+        whereLadyNode.options.Add(new DialogueOption { 
+            optionText = "Alright, thanks.", 
+            nextNodeId = 7 
+        });
+
+        DialogueNode byeNode = new DialogueNode();
+        byeNode.id = 7;
+        byeNode.npcText = "Yeah, sure.";
+        byeNode.isEndNode = true;
+
         
         // Add all nodes to the dialogue tree
         strangerDialogue.nodes.Add(greetingNode);
         strangerDialogue.nodes.Add(questionNode);
-        strangerDialogue.nodes.Add(locationNode);
-        strangerDialogue.nodes.Add(goodbyeNode);
-        strangerDialogue.nodes.Add(warningNode);
+        strangerDialogue.nodes.Add(cantHelpNode);
+        strangerDialogue.nodes.Add(dotdotdotNode1);
+        strangerDialogue.nodes.Add(whereTheyGoNode);
+        strangerDialogue.nodes.Add(whereLadyNode);
+        strangerDialogue.nodes.Add(whereManNode);
+        strangerDialogue.nodes.Add(byeNode);
         
         // Add the dialogue tree to the dialogue system
         dialogueSystem.dialogueTrees.Add(strangerDialogue);
