@@ -9,14 +9,27 @@ public class RegionTrigger : MonoBehaviour
     public string targetTag = "Player";
     [Tooltip("Should the trigger only activate once? (Recommended to leave this enabled)")]
     public bool triggerOnce = true;
-    [Tooltip("Optional delay before executing the trigger action")]
-    public float triggerDelay = 0f;
+    
+    [Header("Audio Settings")]
+    [Tooltip("Enable to play a sound when trigger activates")]
+    public bool playSound = false;
+    [Tooltip("The audio clip to play when triggered")]
+    public AudioClip triggerSound;
+    [Tooltip("Volume for the trigger sound (0-1)")]
+    [Range(0f, 1f)]
+    public float soundVolume = 1f;
+    [Tooltip("Delay before playing the sound (seconds)")]
+    public float soundDelay = 0f;
 
     [Header("Actions")]
     [Tooltip("Enable to start a dialogue when trigger activates")]
     public bool startDialogue = false;
+    [Tooltip("Delay before starting dialogue (seconds)")]
+    public float dialogueDelay = 0f;
     [Tooltip("Enable to spawn an object when trigger activates")]
     public bool spawnObject = false;
+    [Tooltip("Delay before spawning the object (seconds)")]
+    public float spawnDelay = 0f;
 
     [Header("Dialogue Settings")]
     [Tooltip("Reference to the DialogueSystem component")]
@@ -36,6 +49,19 @@ public class RegionTrigger : MonoBehaviour
 
     // State tracking
     private bool hasTriggered = false;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        // Check if we have an AudioSource component, add one if needed
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null && playSound)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1.0f; // 3D sound
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -51,14 +77,20 @@ public class RegionTrigger : MonoBehaviour
 
     private void ExecuteTrigger()
     {
-        // If there's a delay, start the coroutine, otherwise perform actions immediately
-        if (triggerDelay > 0)
+        // Start all action coroutines with their specific delays
+        if (playSound)
         {
-            StartCoroutine(DelayedTrigger());
+            StartCoroutine(PlaySoundWithDelay());
         }
-        else
+
+        if (startDialogue)
         {
-            PerformActions();
+            StartCoroutine(StartDialogueWithDelay());
+        }
+
+        if (spawnObject)
+        {
+            StartCoroutine(SpawnObjectWithDelay());
         }
         
         // Option to disable the collider after triggering to ensure it can't be triggered again
@@ -73,31 +105,36 @@ public class RegionTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayedTrigger()
+    private IEnumerator PlaySoundWithDelay()
     {
-        yield return new WaitForSeconds(triggerDelay);
-        PerformActions();
-    }
-
-    private void PerformActions()
-    {
-        if (startDialogue)
+        if (soundDelay > 0)
         {
-            StartDialogue();
+            yield return new WaitForSeconds(soundDelay);
         }
 
-        if (spawnObject)
+        if (triggerSound != null && audioSource != null)
         {
-            SpawnObject();
+            audioSource.clip = triggerSound;
+            audioSource.volume = soundVolume;
+            audioSource.Play();
+        }
+        else if (triggerSound == null)
+        {
+            Debug.LogWarning("RegionTrigger: Trigger sound is missing!");
         }
     }
 
-    private void StartDialogue()
+    private IEnumerator StartDialogueWithDelay()
     {
+        if (dialogueDelay > 0)
+        {
+            yield return new WaitForSeconds(dialogueDelay);
+        }
+        
         if (dialogueSystem == null)
         {
             Debug.LogError("RegionTrigger: DialogueSystem reference is missing!");
-            return;
+            yield break;
         }
 
         // Change dialogue tree if specified
@@ -113,12 +150,17 @@ public class RegionTrigger : MonoBehaviour
         }
     }
 
-    private void SpawnObject()
+    private IEnumerator SpawnObjectWithDelay()
     {
+        if (spawnDelay > 0)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+        }
+
         if (objectToSpawn == null)
         {
             Debug.LogError("RegionTrigger: Object to spawn is missing!");
-            return;
+            yield break;
         }
 
         // Determine spawn position
@@ -177,6 +219,18 @@ public class RegionTrigger : MonoBehaviour
             else
                 Gizmos.color = new Color(1f, 1f, 0f, 0.3f); // Yellow for no action selected
             
+            // Add sound indicator to color
+            if (playSound)
+            {
+                // Make the color slightly more red to indicate sound
+                Gizmos.color = new Color(
+                    Mathf.Min(1f, Gizmos.color.r + 0.2f),
+                    Gizmos.color.g * 0.9f,
+                    Gizmos.color.b * 0.9f,
+                    Gizmos.color.a
+                );
+            }
+            
             // Draw appropriate gizmo based on collider type
             if (col is BoxCollider)
             {
@@ -221,6 +275,13 @@ public class RegionTrigger : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(spawnPoint.position, 0.25f);
+        }
+        
+        // Draw sound indicator if enabled
+        if (playSound)
+        {
+            Gizmos.color = new Color(1f, 0.5f, 0.5f, 0.7f);
+            Gizmos.DrawIcon(transform.position + Vector3.up * 1.2f, "AudioSource Gizmo", true);
         }
     }
 }
