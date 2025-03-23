@@ -14,6 +14,10 @@ public class StrangerDialogue : MonoBehaviour
     private int regularDialogueIndex = 0;
     private int keyDialogueIndex = 1;
     
+    // This will track if we've completed a conversation already
+    private bool isAnnoyed = false;
+    private bool hasCompletedDialogue = false;
+    
     void Start()
     {
         // Get reference to the DialogueSystem component
@@ -33,9 +37,10 @@ public class StrangerDialogue : MonoBehaviour
             Debug.LogWarning("PlayerInventory not found! Item-based dialogue will not work.");
         }
         
-        // Initialize both dialogue trees
+        // Initialize all dialogue trees
         SetupStrangerDialogue();
         SetupKeyDialogue();
+        SetupAnnoyedDialogue();
         
         // Subscribe to the DialogueSystem's interact event
         dialogueSystem.onCustomInteract += OnInteractionStarted;
@@ -61,6 +66,12 @@ public class StrangerDialogue : MonoBehaviour
             Debug.Log($"Player has the {requiredItemName} - Using Key Dialogue Tree");
             dialogueSystem.SetActiveDialogueTree(keyDialogueIndex);
         }
+        else if (hasCompletedDialogue)
+        {
+            Debug.Log("Player has already completed a conversation - Using Annoyed Dialogue Tree");
+            isAnnoyed = true;
+            dialogueSystem.SetActiveDialogueTree(2); // Index 2 will be the annoyed dialogue
+        }
         else
         {
             Debug.Log($"Player does not have the {requiredItemName} - Using Regular Dialogue Tree");
@@ -68,11 +79,32 @@ public class StrangerDialogue : MonoBehaviour
         }
     }
     
+    // We'll check this in Update to see if dialogue ended
+    private bool wasInDialogue = false;
+    
+    private void Update()
+    {
+        // Check if we're currently in dialogue
+        bool currentlyInDialogue = dialogueSystem != null && dialogueSystem.IsInDialogue();
+        
+        // If we WERE in dialogue, but now we're NOT (dialogue just ended)
+        if (wasInDialogue && !currentlyInDialogue && !hasCompletedDialogue && 
+            dialogueSystem.activeDialogueTreeIndex == regularDialogueIndex)
+        {
+            // Mark that we've completed a dialogue
+            hasCompletedDialogue = true;
+            Debug.Log("Dialogue completed - NPC will be annoyed next time");
+        }
+        
+        // Update our tracking of dialogue state for the next frame
+        wasInDialogue = currentlyInDialogue;
+    }
+    
     void SetupStrangerDialogue()
     {
         // Create a dialogue tree for the stranger
         DialogueTree strangerDialogue = new DialogueTree();
-        //strangerDialogue.dialogueName = "Mysterious Stranger";
+        strangerDialogue.dialogueName = "Thomas";
         
         // Node 0: Initial greeting
         DialogueNode greetingNode = new DialogueNode();
@@ -107,9 +139,8 @@ public class StrangerDialogue : MonoBehaviour
         
         cantHelpNode.options.Add(new DialogueOption { 
             optionText = "[CONTINUE]", 
-            nextNodeId = 7
+            nextNodeId = 8
         });
-        //continue branch here
         
         DialogueNode dotdotdotNode1 = new DialogueNode();
         dotdotdotNode1.id = 3;
@@ -135,22 +166,28 @@ public class StrangerDialogue : MonoBehaviour
             nextNodeId = 6
         });
         
-
         DialogueNode whereLadyNode = new DialogueNode();
         whereLadyNode.id = 5;
         whereLadyNode.npcText = "Yeah. The lady wandered off into the woods, towards the house up the hill. She seemed pretty upset.";
         
         whereLadyNode.options.Add(new DialogueOption { 
-            optionText = "Thanks, I guess.", 
+            optionText = "Alright, thanks.", 
             nextNodeId = 7 
         });
-
+        whereLadyNode.options.Add(new DialogueOption { 
+            optionText = "Thanks, I guess...", 
+            nextNodeId = 7 
+        });
 
         DialogueNode whereManNode = new DialogueNode();
         whereManNode.id = 6;
         whereManNode.npcText = "Yeah. Drove towards the warehouse. The car looked pretty messed up.";
-        whereLadyNode.options.Add(new DialogueOption { 
+        whereManNode.options.Add(new DialogueOption { 
             optionText = "Alright, thanks.", 
+            nextNodeId = 7 
+        });
+        whereManNode.options.Add(new DialogueOption { 
+            optionText = "Thanks, I guess...", 
             nextNodeId = 7 
         });
 
@@ -159,6 +196,10 @@ public class StrangerDialogue : MonoBehaviour
         byeNode.npcText = "Yeah, sure.";
         byeNode.isEndNode = true;
 
+        DialogueNode byeNode2 = new DialogueNode();
+        byeNode2.id = 8;
+        byeNode2.npcText = "Don't go looking for any trouble.";
+        byeNode2.isEndNode = true;
         
         // Add all nodes to the dialogue tree
         strangerDialogue.nodes.Add(greetingNode);
@@ -169,16 +210,34 @@ public class StrangerDialogue : MonoBehaviour
         strangerDialogue.nodes.Add(whereLadyNode);
         strangerDialogue.nodes.Add(whereManNode);
         strangerDialogue.nodes.Add(byeNode);
+        strangerDialogue.nodes.Add(byeNode2);
         
         // Add the dialogue tree to the dialogue system
         dialogueSystem.dialogueTrees.Add(strangerDialogue);
+    }
+    
+    // Create a separate "annoyed" dialogue tree
+    void SetupAnnoyedDialogue()
+    {
+        DialogueTree annoyedDialogue = new DialogueTree();
+        annoyedDialogue.dialogueName = "Thomas";
+        
+        DialogueNode annoyedNode = new DialogueNode();
+        annoyedNode.id = 0;
+        annoyedNode.npcText = "I'm busy.";
+        annoyedNode.isEndNode = true;
+        
+        annoyedDialogue.nodes.Add(annoyedNode);
+        
+        // Add the dialogue tree to the dialogue system
+        dialogueSystem.dialogueTrees.Add(annoyedDialogue);
     }
     
     void SetupKeyDialogue()
     {
         // Create a dialogue tree for when player has the key
         DialogueTree keyDialogue = new DialogueTree();
-        //keyDialogue.dialogueName = "Mysterious Stranger";
+        keyDialogue.dialogueName = "Thomas";
         
         // Node 0: Initial reaction to the key
         DialogueNode keyReactionNode = new DialogueNode();

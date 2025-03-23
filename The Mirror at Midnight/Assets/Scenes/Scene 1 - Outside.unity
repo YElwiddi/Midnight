@@ -715,6 +715,131 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &97127398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97127403}
+  - component: {fileID: 97127402}
+  - component: {fileID: 97127401}
+  - component: {fileID: 97127399}
+  - component: {fileID: 97127404}
+  m_Layer: 0
+  m_Name: MansionRegion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &97127399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97127398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8257163b9555c174e97f6126b29676c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: 
+  npcHead: {fileID: 0}
+  rotationSpeed: 5
+  dialogueTrees: []
+  activeDialogueTreeIndex: 0
+  dialogueBoxWidth: 500
+  dialogueBoxHeight: 250
+  optionHeight: 40
+  optionPadding: 5
+  dialogueBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  nameBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  optionBackgroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  optionHoverColor: {r: 0.3, g: 0.3, b: 0.5, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  nameTextColor: {r: 1, g: 0.8, b: 0.2, a: 1}
+  fontSize: 16
+  nameFontSize: 20
+  horrorFont: {fileID: 0}
+  typingSpeed: 0.05
+  typingSoundEffect: {fileID: 0}
+  typingSoundVolume: 0.5
+  typingSoundFrequency: 0.15
+--- !u!135 &97127401
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97127398}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &97127402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97127398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f34de0047ae948478ebd410a7a262a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  triggerOnce: 1
+  triggerDelay: 0
+  startDialogue: 1
+  spawnObject: 0
+  dialogueSystem: {fileID: 97127399}
+  dialogueTreeIndex: 0
+  objectToSpawn: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  randomPositionOffset: {x: 0, y: 0, z: 0}
+  destroyAfterSeconds: 0
+--- !u!4 &97127403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97127398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 259.1, y: 37.1, z: 346.6}
+  m_LocalScale: {x: 60, y: 60, z: 65}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97127404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97127398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afc43ac60360da4caf1e9af7c4c4dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &106769214
 GameObject:
   m_ObjectHideFlags: 0
@@ -9193,15 +9318,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24
+      value: 266.5
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53.21
+      value: 285.4
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12968,3 +13093,4 @@ SceneRoots:
   - {fileID: 1981141692}
   - {fileID: 1057449672}
   - {fileID: 823460421}
+  - {fileID: 97127403}
