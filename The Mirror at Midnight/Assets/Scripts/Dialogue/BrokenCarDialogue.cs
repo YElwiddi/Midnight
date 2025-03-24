@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// This script sets up a dialogue for the player talking to themselves in a mansion
-public class TalkToSelfMansion : MonoBehaviour
+// This script sets up a dialogue for a mysterious stranger NPC
+public class BrokenCarDialogue : MonoBehaviour
 {
     private DialogueSystem dialogueSystem;
     private PlayerInventory playerInventory;
@@ -25,8 +25,8 @@ public class TalkToSelfMansion : MonoBehaviour
         }
         
         
-        // Initialize the dialogue tree
-        SetUpMansionSelfTalkDialogue();
+        // Initialize both dialogue trees
+        BrokenCarDialogueSetup();
         
         // Subscribe to the DialogueSystem's interact event
         dialogueSystem.onCustomInteract += OnInteractionStarted;
@@ -41,49 +41,52 @@ public class TalkToSelfMansion : MonoBehaviour
         }
     }
     
-    // This method will be called when the player interacts with the trigger
+    // This method will be called when the player interacts with the NPC
     private void OnInteractionStarted()
     {
+
         dialogueSystem.SetActiveDialogueTree(regularDialogueIndex);
+        
     }
     
-    void SetUpMansionSelfTalkDialogue()
+    void BrokenCarDialogueSetup()
     {
-        // Create a dialogue tree for self-talk
-        DialogueTree mansionDialogue = new DialogueTree();
+        // Create a dialogue tree for the stranger
+        DialogueTree carDialogue = new DialogueTree();
+        //strangerDialogue.dialogueName = "Mysterious Stranger";
         
-        // Node 0: Initial thought
-        DialogueNode firstThoughtNode = new DialogueNode();
-        firstThoughtNode.id = 0;
-        firstThoughtNode.npcText = "What was that?!";
+        // Node 0: Initial greeting
+        DialogueNode greetingNode = new DialogueNode();
+        greetingNode.id = 0;
+        greetingNode.npcText = "This car is burned to a crisp. I can't make out the license plate...";
         
-        firstThoughtNode.options.Add(new DialogueOption { 
+        greetingNode.options.Add(new DialogueOption { 
             optionText = "[CONTINUE]", 
             nextNodeId = 1 
         });
         
-        // Node 1: Second thought
-        DialogueNode secondThoughtNode = new DialogueNode();
-        secondThoughtNode.id = 1;
-        secondThoughtNode.npcText = "Was that Jane's voice?";
+        DialogueNode questionNode = new DialogueNode();
+        questionNode.id = 1;
+        questionNode.npcText = "There doesn't appear to be anything inside.";
         
-        secondThoughtNode.options.Add(new DialogueOption { 
+        questionNode.options.Add(new DialogueOption { 
             optionText = "[CONTINUE]", 
             nextNodeId = 2 
         });
         
-        // Node 2: Final thought
-        DialogueNode finalThoughtNode = new DialogueNode();
-        finalThoughtNode.id = 2;
-        finalThoughtNode.npcText = "I don't see her... What would she be doing in this run-down abandoned house?";
-        finalThoughtNode.isEndNode = true; // This ends the dialogue
+        DialogueNode locationNode = new DialogueNode();
+        locationNode.id = 2;
+        locationNode.npcText = "What is this car even doing out here? There's no road.";
+        locationNode.isEndNode = true;
         
+
+
         // Add all nodes to the dialogue tree
-        mansionDialogue.nodes.Add(firstThoughtNode);
-        mansionDialogue.nodes.Add(secondThoughtNode);
-        mansionDialogue.nodes.Add(finalThoughtNode);
+        carDialogue.nodes.Add(greetingNode);
+        carDialogue.nodes.Add(questionNode);
+        carDialogue.nodes.Add(locationNode);
         
         // Add the dialogue tree to the dialogue system
-        dialogueSystem.dialogueTrees.Add(mansionDialogue);
+        dialogueSystem.dialogueTrees.Add(carDialogue);
     }
 }
