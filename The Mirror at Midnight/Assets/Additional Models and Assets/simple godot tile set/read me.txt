@@ -1,0 +1,20 @@
+The example.exe shows a simple implementation of the tile set in Godot
+
+The projects contain's the Godot file tiles.tres, this should be used with the grid node, preferable with 1x,1y,1z setting
+And scaling on the y axis set to 1.5. To recreate the example add fog and appropiate lighting.
+
+Each wall can be found individually: wall1 - wall4
+And lastly, as one object at walls
+
+If used in Godot, I would recommend importing each wall seperately.
+
+
+
+
+
+
+
+credits:
+
+Thank you to "DevLogLogan" on youtube for tutorial which I followed to make this
+and to https://ambientcg.com/ for the cc0 assets used for the textures.
