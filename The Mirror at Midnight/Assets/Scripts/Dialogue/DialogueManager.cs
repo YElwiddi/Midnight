@@ -62,10 +62,12 @@ public class DialogueManager : MonoBehaviour
             Debug.Log(dialogueLine);
         }
         else{
-            ExitDialogue();
+            StartCoroutine(ExitDialogue());
         }
     }
-    private void ExitDialogue(){
+    private IEnumerator ExitDialogue(){
+        yield return null;
+
         Debug.Log("Exiting dialogue");
 
         dialoguePlaying = false;
