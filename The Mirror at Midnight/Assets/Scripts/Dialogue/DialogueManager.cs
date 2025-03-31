@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset inkJson;
     private Story story;
     private bool dialoguePlaying = false;
+    public PlayerEvent playerEventSystem;
 
     private void Update() {
         CheckForContinueInput();
@@ -46,6 +47,7 @@ public class DialogueManager : MonoBehaviour
         if (dialoguePlaying){
             return;
         }
+        playerEventSystem.DisableMovement();
         dialoguePlaying = true;
         if (!knotName.Equals("")){
             story.ChoosePathString(knotName);
@@ -67,7 +69,7 @@ public class DialogueManager : MonoBehaviour
     }
     private IEnumerator ExitDialogue(){
         yield return null;
-
+        playerEventSystem.EnableMovement();
         Debug.Log("Exiting dialogue");
 
         dialoguePlaying = false;
