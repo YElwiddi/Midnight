@@ -1761,7 +1761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 702604840889906672, guid: 7d1b7df891bf3214a8dc9cd5a2be072b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 702604840889906672, guid: 7d1b7df891bf3214a8dc9cd5a2be072b, type: 3}
       propertyPath: m_TagString
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJson: {fileID: 4900000, guid: eb8525dbbd36ac1469fe89681a07ea56, type: 3}
-  playerEventSystem: {fileID: 2004037223}
+  player: {fileID: 2004037223}
 --- !u!1 &517834196
 GameObject:
   m_ObjectHideFlags: 0

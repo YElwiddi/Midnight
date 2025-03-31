@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Movement))]
-public class PlayerEvent : MonoBehaviour
+public class PlayerEvents : MonoBehaviour
 {
     // Reference to the Movement script
     private Movement playerMovement;
