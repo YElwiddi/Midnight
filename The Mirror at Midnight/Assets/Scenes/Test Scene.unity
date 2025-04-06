@@ -6080,6 +6080,10 @@ PrefabInstance:
       propertyPath: phoneUI
       value: 
       objectReference: {fileID: 772549135}
+    - target: {fileID: 3048021864464542667, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3213670726030204281, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: inventoryPanel
       value: 
@@ -6535,6 +6539,10 @@ PrefabInstance:
     - target: {fileID: 8768155854118396935, guid: 4a8695403ea91454096458b188077a60, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768155854118396935, guid: 4a8695403ea91454096458b188077a60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

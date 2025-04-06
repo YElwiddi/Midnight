@@ -44,11 +44,13 @@ public class DialogueManager : MonoBehaviour
 
 
     private void EnterDialogue(string knotName){
+        Debug.Log("enter dialogue called");
         if (dialoguePlaying){
             return;
         }
         player.DisableMovement();
         dialoguePlaying = true;
+        GameEventsManager.instance.dialogueEvents.DialogueStarted();
         if (!knotName.Equals("")){
             story.ChoosePathString(knotName);
         }
@@ -61,6 +63,7 @@ public class DialogueManager : MonoBehaviour
     private void ContinueOrExitStory(){
         if (story.canContinue){
             string dialogueLine = story.Continue();
+            GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine);
             Debug.Log(dialogueLine);
         }
         else{
@@ -73,6 +76,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Exiting dialogue");
 
         dialoguePlaying = false;
+        GameEventsManager.instance.dialogueEvents.DialogueFinished();
 
         story.ResetState();
     }

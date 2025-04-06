@@ -11,6 +11,7 @@ public class DialogueInteractable : MonoBehaviour, IInteractable
     
     public void Interact()
     {
+        Debug.Log("Interact successful");
         // Trigger the dialogue event with the specified knot name
         if (!string.IsNullOrEmpty(knotName))
         {
