@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7380863764986579837}
   - component: {fileID: 1845477580277643547}
-  - component: {fileID: 7676002760884471738}
-  - component: {fileID: 6957259873217136684}
   m_Layer: 6
   m_Name: Thomas
   m_TagString: Untagged
@@ -57,53 +55,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.7, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7676002760884471738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767055355421772689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8257163b9555c174e97f6126b29676c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: Thomas
-  npcHead: {fileID: 4890531459255373710}
-  rotationSpeed: 5
-  dialogueTrees: []
-  activeDialogueTreeIndex: 0
-  dialogueBoxWidth: 600
-  dialogueBoxHeight: 300
-  optionHeight: 50
-  optionPadding: 10
-  dialogueBackgroundColor: {r: 0, g: 0, b: 0, a: 0.8}
-  nameBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  optionBackgroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-  optionHoverColor: {r: 0.3, g: 0.3, b: 0.5, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
-  nameTextColor: {r: 1, g: 1, b: 1, a: 1}
-  fontSize: 12
-  nameFontSize: 24
-  horrorFont: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
-  typingSpeed: 0.05
-  typingSoundEffect: {fileID: 0}
-  typingSoundVolume: 0.5
-  typingSoundFrequency: 0.15
---- !u!114 &6957259873217136684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767055355421772689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0000d4c4f7a16498d67cb2870fe087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredItemName: Cellar Key
 --- !u!1001 &1260431960585526477
 PrefabInstance:
   m_ObjectHideFlags: 0
