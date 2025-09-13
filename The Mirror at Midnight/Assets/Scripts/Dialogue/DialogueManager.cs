@@ -22,6 +22,9 @@ public class DialogueManager : MonoBehaviour
     // Reference to GameManager for variable changes
     private GameManager gameManager;
 
+    // Reference to Movement script for controlling player input
+    private Movement movementScript;
+
     private static DialogueManager instance;
 
     private void Awake()
@@ -33,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         instance = this;
 
         gameManager = FindObjectOfType<GameManager>();
+        movementScript = FindObjectOfType<Movement>();
     }
 
     public static DialogueManager GetInstance()
@@ -58,6 +62,13 @@ public class DialogueManager : MonoBehaviour
         if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.Space))
         {
             ContinueStory();
+        }
+
+        // Allow ESC key to close dialogue
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("ESC pressed - closing dialogue");
+            ExitDialogueMode();
         }
     }
 
@@ -114,7 +125,10 @@ public class DialogueManager : MonoBehaviour
         if (canvas != null)
         {
             Debug.Log($"Canvas render mode: {canvas.renderMode}");
-            Debug.Log($"Canvas sort order: {canvas.sortingOrder}");
+            Debug.Log($"Canvas sort order before: {canvas.sortingOrder}");
+            // Ensure dialogue canvas is on top
+            canvas.sortingOrder = Mathf.Max(canvas.sortingOrder, 100);
+            Debug.Log($"Canvas sort order after: {canvas.sortingOrder}");
         }
 
         if (dialoguePanel != null)
@@ -126,11 +140,18 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        // Unlock cursor and disable player input during dialogue
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        if (movementScript != null)
+        {
+            movementScript.DisableAllInput();
+        }
+
         // Bind external functions if needed
         currentStory.BindExternalFunction("ChangeGameVariable", (string varName, int value) => {
             gameManager.ChangeVariable(varName, value);
         });
-        currentStory = new Story(inkJSON.text);
 
         // Make sure to start at the beginning
         if (currentStory.canContinue)
@@ -141,6 +162,42 @@ public class DialogueManager : MonoBehaviour
                 currentStory.ChoosePathString("start");
             }
         }
+        // Position the choice container at the bottom of the dialogue panel
+        if (choiceButtonContainer != null)
+        {
+            RectTransform containerRect = choiceButtonContainer.GetComponent<RectTransform>();
+            if (containerRect != null)
+            {
+                containerRect.anchorMin = new Vector2(0, 0);
+                containerRect.anchorMax = new Vector2(1, 0);
+                containerRect.anchoredPosition = new Vector2(0, 60); // Position from bottom
+                containerRect.sizeDelta = new Vector2(-100, 100); // Leave margins
+                Debug.Log($"Set choice container position: {containerRect.anchoredPosition}");
+            }
+
+            // Disable any layout components that might interfere with manual positioning
+            HorizontalLayoutGroup horizLayout = choiceButtonContainer.GetComponent<HorizontalLayoutGroup>();
+            if (horizLayout != null)
+            {
+                horizLayout.enabled = false;
+                Debug.Log("Disabled HorizontalLayoutGroup on choice container");
+            }
+
+            VerticalLayoutGroup vertLayout = choiceButtonContainer.GetComponent<VerticalLayoutGroup>();
+            if (vertLayout != null)
+            {
+                vertLayout.enabled = false;
+                Debug.Log("Disabled VerticalLayoutGroup on choice container");
+            }
+
+            LayoutGroup layoutGroup = choiceButtonContainer.GetComponent<LayoutGroup>();
+            if (layoutGroup != null)
+            {
+                layoutGroup.enabled = false;
+                Debug.Log("Disabled LayoutGroup on choice container");
+            }
+        }
+
         // Start the dialogue
         ContinueStory();
     }
@@ -154,11 +211,13 @@ public class DialogueManager : MonoBehaviour
         // Apply any variable changes from Ink to GameManager
         ApplyVariableChanges();
 
-        // Optional: Resume game if it was paused
-        // Time.timeScale = 1f;
-
-        // Optional: Re-enable player movement
-        // You can add code here to re-enable your player controller
+        // Lock cursor and re-enable player input
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        if (movementScript != null)
+        {
+            movementScript.EnableAllInput();
+        }
     }
 
     private void ContinueStory()
@@ -192,6 +251,9 @@ public class DialogueManager : MonoBehaviour
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
+        Debug.Log($"=== DisplayChoices Called ===");
+        Debug.Log($"Number of choices: {currentChoices.Count}");
+
         // Clear existing choice buttons
         foreach (Transform child in choiceButtonContainer)
         {
@@ -199,16 +261,79 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Create button for each choice
-        foreach (Choice choice in currentChoices)
+        for (int i = 0; i < currentChoices.Count; i++)
         {
+            Choice choice = currentChoices[i];
+            Debug.Log($"Creating button for choice: {choice.text}");
             GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceButtonContainer);
-            choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
+            if (choiceButton != null)
+            {
+                Debug.Log("Choice button instantiated successfully");
 
-            // Capture the index for the button click
-            int choiceIndex = choice.index;
-            choiceButton.GetComponent<Button>().onClick.AddListener(() => {
-                MakeChoice(choiceIndex);
-            });
+                // Position buttons horizontally
+                RectTransform buttonRect = choiceButton.GetComponent<RectTransform>();
+                if (buttonRect != null)
+                {
+                    // Calculate horizontal position
+                    float containerWidth = 800f; // Approximate container width (screen width - margins)
+                    float spacing = containerWidth / (currentChoices.Count + 1);
+                    float xPos = (i + 1) * spacing - containerWidth / 2;
+                    buttonRect.anchoredPosition = new Vector2(xPos, 0);
+                    Debug.Log($"Set button position: {buttonRect.anchoredPosition}");
+                }
+
+                Debug.Log($"Button active: {choiceButton.activeSelf}");
+                Debug.Log($"Button position: {choiceButton.transform.localPosition}");
+                Debug.Log($"Button scale: {choiceButton.transform.localScale}");
+
+                // Ensure the button is active
+                if (!choiceButton.activeSelf)
+                {
+                    choiceButton.SetActive(true);
+                    Debug.Log("Activated choice button");
+                }
+
+                TextMeshProUGUI textComponent = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+                if (textComponent != null)
+                {
+                    textComponent.text = choice.text;
+                    textComponent.fontSize = textComponent.fontSize / 2f; // Make font size half
+                    Debug.Log($"Set button text to: {choice.text}");
+                    Debug.Log($"Set button font size to: {textComponent.fontSize}");
+                    Debug.Log($"Text component active: {textComponent.gameObject.activeSelf}");
+                }
+                else
+                {
+                    Debug.LogError("TextMeshProUGUI component not found on choice button");
+                }
+
+                Button buttonComponent = choiceButton.GetComponent<Button>();
+                if (buttonComponent != null)
+                {
+                    // Capture the index for the button click
+                    int choiceIndex = choice.index;
+                    buttonComponent.onClick.AddListener(() => {
+                        MakeChoice(choiceIndex);
+                    });
+                    Debug.Log("Button click listener added");
+                }
+                else
+                {
+                    Debug.LogError("Button component not found on choice button");
+                }
+            }
+            else
+            {
+                Debug.LogError("Failed to instantiate choice button");
+            }
+        }
+
+        Debug.Log($"Choice container position: {choiceButtonContainer.localPosition}");
+        Debug.Log($"Choice container active: {choiceButtonContainer.gameObject.activeSelf}");
+
+        if (currentChoices.Count == 0)
+        {
+            Debug.Log("No choices to display - player can continue with space or wait");
         }
     }
 
