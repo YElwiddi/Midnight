@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Handle continue with space key if there are no choices
-        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.Space))
+        if (currentStory.currentChoices.Count == 0 && Input.GetMouseButtonDown(0))
         {
             ContinueStory();
         }
@@ -346,18 +347,25 @@ public class DialogueManager : MonoBehaviour
     private void ApplyVariableChanges()
     {
         // Get variables from Ink and apply to GameManager
-        int karma = (int)currentStory.variablesState["player_karma"];
-        bool questAccepted = (bool)currentStory.variablesState["quest_accepted"];
-
-        // Update GameManager variables
-        if (gameManager != null)
+        try
         {
-            gameManager.playerKarma = karma;
-            gameManager.questAccepted = questAccepted;
+            int karma = (int)currentStory.variablesState["player_karma"];
+            bool questAccepted = (bool)currentStory.variablesState["quest_accepted"];
 
-            Debug.Log($"Updated GameManager - Karma: {karma}, Quest Accepted: {questAccepted}");
+            // Update GameManager variables
+            if (gameManager != null)
+            {
+                gameManager.playerKarma = karma;
+                gameManager.questAccepted = questAccepted;
+
+                Debug.Log($"Updated GameManager - Karma: {karma}, Quest Accepted: {questAccepted}");
+            }
         }
-    }
+        catch (Exception e)
+        {
+            Debug.Log("No attributes found");
+        }
+        }
 
     public bool IsDialoguePlaying()
     {

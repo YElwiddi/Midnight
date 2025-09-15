@@ -1,24 +1,44 @@
 VAR player_karma = 0
-VAR quest_accepted = false
 
 === start ===
-Hello there, traveler! I haven't seen you around these parts before.
+...
+Are you just going to keep staring?
 
-+ [I'm just passing through.]
-    -> passing_through
++ [Where the hell am I?]
+    -> WhereAmI
     
-+ [I'm looking for adventure!]
-    -> seeking_adventure
++ [Who are you?]
+    -> WhoAreYou
 
-=== passing_through ===
-Ah, a wanderer then. Well, be careful out there. 
-The roads aren't as safe as they used to be.
+=== WhereAmI ===
+Well, we seem to be in some sort of dark dungeon.
+
++ [Thanks. You're a lot of help.]
+    -> Helpful
++ [I just woke up here. Can you show me the way out?]
+    -> HelpMeOut
+
+=== HelpMeOut ===
+The only way out is the same way you came in!
+Also, you'd better keep your voice down, friend.
+    + [Why?]
+    -> WhosWatching
+
+=== WhoAreYou ===
+Kind of you to ask.
+But that's not important right now. She's watching and listening.
++ [Who's watching?]
+    -> WhosWatching
+    
+=== WhosWatching ===
+Ah, nevermind. I'm sure you'll be acquainted soon. Best of luck!
+-> END
+
+
+=== Helpful ===
+No problem!
+Next time, try asking nicely.
+You won't get far with that attitude.
 ~ player_karma = player_karma - 1
 -> END
 
-=== seeking_adventure ===
-Adventure, you say? Well, you've come to the right place!
-I have a quest that needs a brave soul like yourself.
-~ player_karma = player_karma + 2
-~ quest_accepted = true
--> END
