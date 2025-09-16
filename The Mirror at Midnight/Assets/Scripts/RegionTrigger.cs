@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -284,4 +284,4 @@ public class RegionTrigger : MonoBehaviour
             Gizmos.DrawIcon(transform.position + Vector3.up * 1.2f, "AudioSource Gizmo", true);
         }
     }
-}
+}*/
