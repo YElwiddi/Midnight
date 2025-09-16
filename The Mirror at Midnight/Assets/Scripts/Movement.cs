@@ -243,7 +243,7 @@ public class Movement : MonoBehaviour
     {
         if (footstepAudioSource != null)
         {
-            AudioClip[] soundArray = isRunning ? runningFootstepSounds : walkingFootstepSounds;
+            AudioClip[] soundArray = isRunning ? walkingFootstepSounds : walkingFootstepSounds;
             
             // Check if we have any footstep sounds assigned
             if (soundArray != null && soundArray.Length > 0)

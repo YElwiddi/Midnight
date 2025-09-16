@@ -713,6 +713,42 @@ PrefabInstance:
       propertyPath: foliageLayers.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: runningSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: walkingSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: footstepVolume
+      value: 0.144
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: movementSharpness
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: walkingFootstepInterval
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: walkingFootstepSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: walkingFootstepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 25c730e71c2e48c46a89d9524ab0f0b5, type: 3}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: walkingFootstepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0cc48bd2ceaf724fbd02ecf7204c350, type: 3}
+    - target: {fileID: 6669960495308543047, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: walkingFootstepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4a370ec5b1e488468ec0b1b49610d91, type: 3}
     - target: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_Name
       value: Player
