@@ -56,6 +56,14 @@ public class NPCInteraction : MonoBehaviour, IInteractable
         if (!dialogueManager.IsDialoguePlaying())
         {
             Debug.Log($"Starting dialogue with {npcName}");
+
+            // Make NPC face the player
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                transform.LookAt(playerObj.transform);
+            }
+
             StartDialogue();
         }
         else
@@ -73,7 +81,7 @@ public class NPCInteraction : MonoBehaviour, IInteractable
 
     private void StartDialogue()
     {
-        dialogueManager.EnterDialogueMode(inkJSONAsset);
+        dialogueManager.EnterDialogueMode(inkJSONAsset, transform);
     }
 
     // Optional: Visual feedback when player is near

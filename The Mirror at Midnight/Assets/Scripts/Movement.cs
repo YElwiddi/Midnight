@@ -46,13 +46,17 @@ public class Movement : MonoBehaviour
     [Header("Input Control")]
     [Tooltip("Set this to false to disable all player movement and camera rotation")]
     public bool canMove = true;
-    
+
     [Tooltip("If true, player can still move but not control the camera")]
     public bool canControlCamera = true;
-    
+
     [Tooltip("If true, player can still walk but not run or jump")]
     public bool canRun = true;
     public bool canJump = true;
+
+    // Dialogue camera control
+    public bool isInDialogue = false;
+    public Transform dialogueTarget;
 
     void Start()
     {
@@ -235,21 +239,30 @@ public class Movement : MonoBehaviour
             float mouseY = Input.GetAxis("Mouse Y");
             if (invertMouseY)
                 mouseY = -mouseY;
-                
+
             // Apply the mouse input to rotation
             rotationX += -mouseY * lookSpeed;
-            
+
             // Clamp the vertical rotation to avoid flipping
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            
+
             // Apply rotation to camera
             if (playerCamera != null)
             {
                 playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             }
-            
+
             // Rotate the player horizontally (left/right)
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+
+        // Handle dialogue camera facing
+        if (isInDialogue && dialogueTarget != null && playerCamera != null)
+        {
+            Vector3 targetPosition = dialogueTarget.position + Vector3.up * 0.5f; // Adjust 0.5f as needed
+            Vector3 direction = targetPosition - playerCamera.transform.position;
+            Vector3 localDirection = transform.InverseTransformDirection(direction);
+            playerCamera.transform.localRotation = Quaternion.LookRotation(localDirection);
         }
     }
     
@@ -364,5 +377,19 @@ public class Movement : MonoBehaviour
     public void EnableCameraControl()
     {
         canControlCamera = true;
+    }
+
+    // Public method to set camera target for dialogue
+    public void SetCameraTarget(Transform target)
+    {
+        dialogueTarget = target;
+        isInDialogue = true;
+    }
+
+    // Public method to clear camera target after dialogue
+    public void ClearCameraTarget()
+    {
+        dialogueTarget = null;
+        isInDialogue = false;
     }
 }

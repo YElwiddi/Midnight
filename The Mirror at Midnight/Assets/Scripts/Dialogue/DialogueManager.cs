@@ -26,6 +26,9 @@ public class DialogueManager : MonoBehaviour
     // Reference to Movement script for controlling player input
     private Movement movementScript;
 
+    // Current NPC being interacted with
+    private Transform currentNPC;
+
     private static DialogueManager instance;
 
     private void Awake()
@@ -73,14 +76,19 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform)
     {
         Debug.Log("=== EnterDialogueMode Called ===");
         Debug.Log($"inkJSON is null: {inkJSON == null}");
+        Debug.Log($"npcTransform is null: {npcTransform == null}");
         Debug.Log($"dialoguePanel is null: {dialoguePanel == null}");
         Debug.Log($"dialogueText is null: {dialogueText == null}");
         Debug.Log($"choiceButtonPrefab is null: {choiceButtonPrefab == null}");
         Debug.Log($"choiceButtonContainer is null: {choiceButtonContainer == null}");
+
+        // Set current NPC
+        currentNPC = npcTransform;
+
         dialoguePanel.SetActive(true);
         Debug.Log($"Dialogue Panel active after: {dialoguePanel.activeSelf}");
 
@@ -147,6 +155,8 @@ public class DialogueManager : MonoBehaviour
         if (movementScript != null)
         {
             movementScript.DisableAllInput();
+            // Set camera to face NPC
+            movementScript.SetCameraTarget(currentNPC);
         }
 
         // Bind external functions if needed
@@ -212,13 +222,16 @@ public class DialogueManager : MonoBehaviour
         // Apply any variable changes from Ink to GameManager
         ApplyVariableChanges();
 
-        // Lock cursor and re-enable player input
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Clear camera target and re-enable player input
         if (movementScript != null)
         {
+            movementScript.ClearCameraTarget();
             movementScript.EnableAllInput();
         }
+
+        // Lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void ContinueStory()
