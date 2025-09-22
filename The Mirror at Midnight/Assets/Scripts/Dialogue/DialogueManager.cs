@@ -164,6 +164,12 @@ public class DialogueManager : MonoBehaviour
             gameManager.ChangeVariable(varName, value);
         });
 
+        // Set initial values from GameManager to Ink variables
+        if (gameManager != null)
+        {
+            currentStory.variablesState["player_karma"] = gameManager.playerKarma;
+        }
+
         // Make sure to start at the beginning
         if (currentStory.canContinue)
         {
@@ -360,25 +366,41 @@ public class DialogueManager : MonoBehaviour
     private void ApplyVariableChanges()
     {
         // Get variables from Ink and apply to GameManager
+        if (currentStory == null || gameManager == null)
+        {
+            Debug.LogWarning("Story or GameManager is null, skipping variable sync");
+            return;
+        }
+
         try
         {
-            int karma = (int)currentStory.variablesState["player_karma"];
-            bool questAccepted = (bool)currentStory.variablesState["quest_accepted"];
-
-            // Update GameManager variables
-            if (gameManager != null)
+            // Try to get player_karma
+            object karmaValue = null;
+            try 
             {
-                gameManager.playerKarma = karma;
-                gameManager.questAccepted = questAccepted;
-
-                Debug.Log($"Updated GameManager - Karma: {karma}, Quest Accepted: {questAccepted}");
+                karmaValue = currentStory.variablesState["player_karma"];
+            }
+            catch 
+            {
+                // Variable doesn't exist
+            }
+            
+            if (karmaValue != null)
+            {
+                gameManager.playerKarma = Convert.ToInt32(karmaValue);
+                Debug.Log($"Updated GameManager - Karma: {gameManager.playerKarma}");
+            }
+            else
+            {
+                Debug.Log("player_karma variable not found in Ink story");
             }
         }
         catch (Exception e)
         {
-            Debug.Log("No attributes found");
+            Debug.LogError($"Error applying variable changes: {e.Message}");
+            Debug.LogError($"Stack trace: {e.StackTrace}");
         }
-        }
+    }
 
     public bool IsDialoguePlaying()
     {
