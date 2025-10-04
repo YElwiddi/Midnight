@@ -14,6 +14,17 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject choiceButtonPrefab;
     [SerializeField] private Transform choiceButtonContainer;
 
+    [Header("Choice Button Layout")]
+    [SerializeField] private ChoiceLayoutMode layoutMode = ChoiceLayoutMode.Horizontal;
+    [SerializeField] private Vector2 containerAnchorMin = new Vector2(0, 0);
+    [SerializeField] private Vector2 containerAnchorMax = new Vector2(1, 0);
+    [SerializeField] private Vector2 containerAnchoredPosition = new Vector2(0, 60);
+    [SerializeField] private Vector2 containerSizeDelta = new Vector2(-100, 100);
+    [SerializeField] private float buttonSpacing = 10f;
+    [SerializeField] private Vector2 buttonSize = new Vector2(200, 50);
+    [SerializeField] private float fontSizeMultiplier = 0.5f;
+    [SerializeField] private bool useLayoutGroup = false;
+
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSONAsset;
 
@@ -30,6 +41,13 @@ public class DialogueManager : MonoBehaviour
     private Transform currentNPC;
 
     private static DialogueManager instance;
+
+    public enum ChoiceLayoutMode
+    {
+        Horizontal,
+        Vertical,
+        Grid
+    }
 
     private void Awake()
     {
@@ -179,44 +197,112 @@ public class DialogueManager : MonoBehaviour
                 currentStory.ChoosePathString("start");
             }
         }
-        // Position the choice container at the bottom of the dialogue panel
-        if (choiceButtonContainer != null)
-        {
-            RectTransform containerRect = choiceButtonContainer.GetComponent<RectTransform>();
-            if (containerRect != null)
-            {
-                containerRect.anchorMin = new Vector2(0, 0);
-                containerRect.anchorMax = new Vector2(1, 0);
-                containerRect.anchoredPosition = new Vector2(0, 60); // Position from bottom
-                containerRect.sizeDelta = new Vector2(-100, 100); // Leave margins
-                Debug.Log($"Set choice container position: {containerRect.anchoredPosition}");
-            }
 
-            // Disable any layout components that might interfere with manual positioning
-            HorizontalLayoutGroup horizLayout = choiceButtonContainer.GetComponent<HorizontalLayoutGroup>();
-            if (horizLayout != null)
-            {
-                horizLayout.enabled = false;
-                Debug.Log("Disabled HorizontalLayoutGroup on choice container");
-            }
-
-            VerticalLayoutGroup vertLayout = choiceButtonContainer.GetComponent<VerticalLayoutGroup>();
-            if (vertLayout != null)
-            {
-                vertLayout.enabled = false;
-                Debug.Log("Disabled VerticalLayoutGroup on choice container");
-            }
-
-            LayoutGroup layoutGroup = choiceButtonContainer.GetComponent<LayoutGroup>();
-            if (layoutGroup != null)
-            {
-                layoutGroup.enabled = false;
-                Debug.Log("Disabled LayoutGroup on choice container");
-            }
-        }
+        // Setup choice container with inspector values
+        SetupChoiceContainer();
 
         // Start the dialogue
         ContinueStory();
+    }
+
+    private void SetupChoiceContainer()
+    {
+        if (choiceButtonContainer == null)
+        {
+            Debug.LogWarning("Choice button container is null");
+            return;
+        }
+
+        RectTransform containerRect = choiceButtonContainer.GetComponent<RectTransform>();
+        if (containerRect != null)
+        {
+            containerRect.anchorMin = containerAnchorMin;
+            containerRect.anchorMax = containerAnchorMax;
+            containerRect.anchoredPosition = containerAnchoredPosition;
+            containerRect.sizeDelta = containerSizeDelta;
+            Debug.Log($"Set choice container - AnchorMin: {containerAnchorMin}, AnchorMax: {containerAnchorMax}");
+            Debug.Log($"Set choice container - Position: {containerAnchoredPosition}, SizeDelta: {containerSizeDelta}");
+        }
+
+        // Enable or disable layout groups based on inspector setting
+        if (!useLayoutGroup)
+        {
+            DisableLayoutGroups();
+        }
+        else
+        {
+            EnableLayoutGroup();
+        }
+    }
+
+    private void DisableLayoutGroups()
+    {
+        HorizontalLayoutGroup horizLayout = choiceButtonContainer.GetComponent<HorizontalLayoutGroup>();
+        if (horizLayout != null)
+        {
+            horizLayout.enabled = false;
+            Debug.Log("Disabled HorizontalLayoutGroup on choice container");
+        }
+
+        VerticalLayoutGroup vertLayout = choiceButtonContainer.GetComponent<VerticalLayoutGroup>();
+        if (vertLayout != null)
+        {
+            vertLayout.enabled = false;
+            Debug.Log("Disabled VerticalLayoutGroup on choice container");
+        }
+
+        LayoutGroup layoutGroup = choiceButtonContainer.GetComponent<LayoutGroup>();
+        if (layoutGroup != null)
+        {
+            layoutGroup.enabled = false;
+            Debug.Log("Disabled LayoutGroup on choice container");
+        }
+    }
+
+    private void EnableLayoutGroup()
+    {
+        // Remove existing layout groups
+        HorizontalLayoutGroup horizLayout = choiceButtonContainer.GetComponent<HorizontalLayoutGroup>();
+        VerticalLayoutGroup vertLayout = choiceButtonContainer.GetComponent<VerticalLayoutGroup>();
+        GridLayoutGroup gridLayout = choiceButtonContainer.GetComponent<GridLayoutGroup>();
+
+        if (horizLayout != null) Destroy(horizLayout);
+        if (vertLayout != null) Destroy(vertLayout);
+        if (gridLayout != null) Destroy(gridLayout);
+
+        // Add appropriate layout group based on mode
+        switch (layoutMode)
+        {
+            case ChoiceLayoutMode.Horizontal:
+                HorizontalLayoutGroup hLayout = choiceButtonContainer.gameObject.AddComponent<HorizontalLayoutGroup>();
+                hLayout.spacing = buttonSpacing;
+                hLayout.childAlignment = TextAnchor.MiddleCenter;
+                hLayout.childControlWidth = false;
+                hLayout.childControlHeight = false;
+                hLayout.childForceExpandWidth = false;
+                hLayout.childForceExpandHeight = false;
+                Debug.Log("Enabled HorizontalLayoutGroup");
+                break;
+
+            case ChoiceLayoutMode.Vertical:
+                VerticalLayoutGroup vLayout = choiceButtonContainer.gameObject.AddComponent<VerticalLayoutGroup>();
+                vLayout.spacing = buttonSpacing;
+                vLayout.childAlignment = TextAnchor.MiddleCenter;
+                vLayout.childControlWidth = false;
+                vLayout.childControlHeight = false;
+                vLayout.childForceExpandWidth = false;
+                vLayout.childForceExpandHeight = false;
+                Debug.Log("Enabled VerticalLayoutGroup");
+                break;
+
+            case ChoiceLayoutMode.Grid:
+                GridLayoutGroup gLayout = choiceButtonContainer.gameObject.AddComponent<GridLayoutGroup>();
+                gLayout.spacing = new Vector2(buttonSpacing, buttonSpacing);
+                gLayout.cellSize = buttonSize;
+                gLayout.childAlignment = TextAnchor.MiddleCenter;
+                Debug.Log("Enabled GridLayoutGroup");
+                break;
+        }
     }
 
     private void ExitDialogueMode()
@@ -286,20 +372,24 @@ public class DialogueManager : MonoBehaviour
             Choice choice = currentChoices[i];
             Debug.Log($"Creating button for choice: {choice.text}");
             GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceButtonContainer);
+            
             if (choiceButton != null)
             {
                 Debug.Log("Choice button instantiated successfully");
 
-                // Position buttons horizontally
-                RectTransform buttonRect = choiceButton.GetComponent<RectTransform>();
-                if (buttonRect != null)
+                // Position buttons if not using layout groups
+                if (!useLayoutGroup)
                 {
-                    // Calculate horizontal position
-                    float containerWidth = 800f; // Approximate container width (screen width - margins)
-                    float spacing = containerWidth / (currentChoices.Count + 1);
-                    float xPos = (i + 1) * spacing - containerWidth / 2;
-                    buttonRect.anchoredPosition = new Vector2(xPos, 0);
-                    Debug.Log($"Set button position: {buttonRect.anchoredPosition}");
+                    PositionChoiceButton(choiceButton, i, currentChoices.Count);
+                }
+                else
+                {
+                    // Set button size for layout groups
+                    RectTransform buttonRect = choiceButton.GetComponent<RectTransform>();
+                    if (buttonRect != null)
+                    {
+                        buttonRect.sizeDelta = buttonSize;
+                    }
                 }
 
                 Debug.Log($"Button active: {choiceButton.activeSelf}");
@@ -313,34 +403,8 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log("Activated choice button");
                 }
 
-                TextMeshProUGUI textComponent = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
-                if (textComponent != null)
-                {
-                    textComponent.text = choice.text;
-                    textComponent.fontSize = textComponent.fontSize / 2f; // Make font size half
-                    Debug.Log($"Set button text to: {choice.text}");
-                    Debug.Log($"Set button font size to: {textComponent.fontSize}");
-                    Debug.Log($"Text component active: {textComponent.gameObject.activeSelf}");
-                }
-                else
-                {
-                    Debug.LogError("TextMeshProUGUI component not found on choice button");
-                }
-
-                Button buttonComponent = choiceButton.GetComponent<Button>();
-                if (buttonComponent != null)
-                {
-                    // Capture the index for the button click
-                    int choiceIndex = choice.index;
-                    buttonComponent.onClick.AddListener(() => {
-                        MakeChoice(choiceIndex);
-                    });
-                    Debug.Log("Button click listener added");
-                }
-                else
-                {
-                    Debug.LogError("Button component not found on choice button");
-                }
+                SetupChoiceButtonText(choiceButton, choice.text);
+                SetupChoiceButtonListener(choiceButton, choice.index);
             }
             else
             {
@@ -354,6 +418,105 @@ public class DialogueManager : MonoBehaviour
         if (currentChoices.Count == 0)
         {
             Debug.Log("No choices to display - player can continue with space or wait");
+        }
+    }
+
+    private void PositionChoiceButton(GameObject choiceButton, int index, int totalChoices)
+    {
+        RectTransform buttonRect = choiceButton.GetComponent<RectTransform>();
+        if (buttonRect == null) return;
+
+        // Set button size
+        buttonRect.sizeDelta = buttonSize;
+
+        switch (layoutMode)
+        {
+            case ChoiceLayoutMode.Horizontal:
+                PositionHorizontal(buttonRect, index, totalChoices);
+                break;
+
+            case ChoiceLayoutMode.Vertical:
+                PositionVertical(buttonRect, index, totalChoices);
+                break;
+
+            case ChoiceLayoutMode.Grid:
+                PositionGrid(buttonRect, index, totalChoices);
+                break;
+        }
+
+        Debug.Log($"Set button {index} position: {buttonRect.anchoredPosition}");
+    }
+
+    private void PositionHorizontal(RectTransform buttonRect, int index, int totalChoices)
+    {
+        RectTransform containerRect = choiceButtonContainer.GetComponent<RectTransform>();
+        float containerWidth = containerRect.rect.width;
+        
+        float totalButtonWidth = (buttonSize.x * totalChoices) + (buttonSpacing * (totalChoices - 1));
+        float startX = -totalButtonWidth / 2 + buttonSize.x / 2;
+        float xPos = startX + index * (buttonSize.x + buttonSpacing);
+        
+        buttonRect.anchoredPosition = new Vector2(xPos, 0);
+    }
+
+    private void PositionVertical(RectTransform buttonRect, int index, int totalChoices)
+    {
+        float totalButtonHeight = (buttonSize.y * totalChoices) + (buttonSpacing * (totalChoices - 1));
+        float startY = totalButtonHeight / 2 - buttonSize.y / 2;
+        float yPos = startY - index * (buttonSize.y + buttonSpacing);
+        
+        buttonRect.anchoredPosition = new Vector2(0, yPos);
+    }
+
+    private void PositionGrid(RectTransform buttonRect, int index, int totalChoices)
+    {
+        // Calculate grid dimensions (2 columns)
+        int columns = 2;
+        int row = index / columns;
+        int col = index % columns;
+        
+        float xPos = (col - 0.5f) * (buttonSize.x + buttonSpacing);
+        float yPos = -row * (buttonSize.y + buttonSpacing);
+        
+        buttonRect.anchoredPosition = new Vector2(xPos, yPos);
+    }
+
+    private void SetupChoiceButtonText(GameObject choiceButton, string choiceText)
+    {
+        TextMeshProUGUI textComponent = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+        if (textComponent != null)
+        {
+            textComponent.text = choiceText;
+            
+            // Apply font size multiplier
+            if (fontSizeMultiplier != 1f)
+            {
+                textComponent.fontSize = textComponent.fontSize * fontSizeMultiplier;
+            }
+            
+            Debug.Log($"Set button text to: {choiceText}");
+            Debug.Log($"Set button font size to: {textComponent.fontSize}");
+            Debug.Log($"Text component active: {textComponent.gameObject.activeSelf}");
+        }
+        else
+        {
+            Debug.LogError("TextMeshProUGUI component not found on choice button");
+        }
+    }
+
+    private void SetupChoiceButtonListener(GameObject choiceButton, int choiceIndex)
+    {
+        Button buttonComponent = choiceButton.GetComponent<Button>();
+        if (buttonComponent != null)
+        {
+            buttonComponent.onClick.AddListener(() => {
+                MakeChoice(choiceIndex);
+            });
+            Debug.Log("Button click listener added");
+        }
+        else
+        {
+            Debug.LogError("Button component not found on choice button");
         }
     }
 
