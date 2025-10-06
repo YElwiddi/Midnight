@@ -25,6 +25,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float fontSizeMultiplier = 0.5f;
     [SerializeField] private bool useLayoutGroup = false;
 
+    [Header("Choice Button Text Style")]
+    [SerializeField] private TMP_FontAsset choiceButtonFont;
+    [SerializeField] private FontStyles choiceButtonFontStyle = FontStyles.Normal;
+    [SerializeField] private Color choiceButtonTextColor = Color.white;
+    [SerializeField] private float choiceButtonFontSize = 24f;
+    [SerializeField] private float choiceButtonTextScale = 1f;
+
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSONAsset;
 
@@ -486,16 +493,51 @@ public class DialogueManager : MonoBehaviour
         TextMeshProUGUI textComponent = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
         if (textComponent != null)
         {
+            // Fix text stretching by setting proper RectTransform anchors
+            RectTransform textRect = textComponent.GetComponent<RectTransform>();
+            if (textRect != null)
+            {
+                // Set anchors to stretch to fill the button
+                textRect.anchorMin = Vector2.zero;
+                textRect.anchorMax = Vector2.one;
+                textRect.offsetMin = Vector2.zero;
+                textRect.offsetMax = Vector2.zero;
+                
+                // Apply text scale
+                textRect.localScale = new Vector3(choiceButtonTextScale, choiceButtonTextScale, 1f);
+            }
+            
             textComponent.text = choiceText;
             
-            // Apply font size multiplier
-            if (fontSizeMultiplier != 1f)
+            // Disable auto-sizing to prevent stretching
+            textComponent.enableAutoSizing = false;
+            
+            // Apply custom font if specified
+            if (choiceButtonFont != null)
             {
+                textComponent.font = choiceButtonFont;
+            }
+            
+            // Apply font style
+            textComponent.fontStyle = choiceButtonFontStyle;
+            
+            // Apply text color
+            textComponent.color = choiceButtonTextColor;
+            
+            // Apply font size (can use either the new fontSize or the multiplier for backward compatibility)
+            if (choiceButtonFontSize > 0)
+            {
+                textComponent.fontSize = choiceButtonFontSize;
+            }
+            else if (fontSizeMultiplier != 1f)
+            {
+                // Fallback to multiplier if new fontSize not set
                 textComponent.fontSize = textComponent.fontSize * fontSizeMultiplier;
             }
             
             Debug.Log($"Set button text to: {choiceText}");
             Debug.Log($"Set button font size to: {textComponent.fontSize}");
+            Debug.Log($"Set button text scale to: {choiceButtonTextScale}");
             Debug.Log($"Text component active: {textComponent.gameObject.activeSelf}");
         }
         else

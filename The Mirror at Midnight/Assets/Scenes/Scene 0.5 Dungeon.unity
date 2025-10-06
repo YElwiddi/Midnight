@@ -164,11 +164,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: layoutMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: buttonSize.x
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: buttonSize.y
@@ -187,17 +187,49 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 298267601}
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: fontSizeMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: choiceButtonFontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: containerAnchorMin.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: containerAnchorMin.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: containerSizeDelta.x
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: choiceButtonContainer
       value: 
       objectReference: {fileID: 1970289417}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: choiceButtonTextScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: choiceButtonTextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: choiceButtonTextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: choiceButtonTextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: containerAnchoredPosition.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8270174334491739874, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: m_Name
       value: DialogueManager
@@ -983,11 +1015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197340754517563907, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 197340754517563907, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 197340754517563907, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1120,6 +1152,14 @@ PrefabInstance:
     - target: {fileID: 6729171260964434663, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544965332368744123, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544965332368744123, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7544965332368744123, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
       propertyPath: m_AnchoredPosition.y
