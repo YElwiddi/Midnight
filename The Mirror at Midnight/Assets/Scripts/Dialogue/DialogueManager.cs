@@ -17,11 +17,12 @@ public class DialogueManager : MonoBehaviour
     [Header("Choice Button Layout")]
     [SerializeField] private ChoiceLayoutMode layoutMode = ChoiceLayoutMode.Horizontal;
     [SerializeField] private Vector2 containerAnchorMin = new Vector2(0, 0);
-    [SerializeField] private Vector2 containerAnchorMax = new Vector2(1, 0);
-    [SerializeField] private Vector2 containerAnchoredPosition = new Vector2(0, 60);
-    [SerializeField] private Vector2 containerSizeDelta = new Vector2(-100, 100);
+    [SerializeField] private Vector2 containerAnchorMax = new Vector2(0, 0);
+    [SerializeField] private Vector2 containerAnchoredPosition = new Vector2(300, 60);
+    [SerializeField] private Vector2 containerSizeDelta = new Vector2(1000, 100);
     [SerializeField] private float buttonSpacing = 10f;
-    [SerializeField] private Vector2 buttonSize = new Vector2(200, 50);
+    [SerializeField] private Vector2 buttonSize = new Vector2(450, 80);
+    [SerializeField] private Vector2 buttonPositionOffset = new Vector2(0, 0);
     [SerializeField] private float fontSizeMultiplier = 0.5f;
     [SerializeField] private bool useLayoutGroup = false;
 
@@ -29,7 +30,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_FontAsset choiceButtonFont;
     [SerializeField] private FontStyles choiceButtonFontStyle = FontStyles.Normal;
     [SerializeField] private Color choiceButtonTextColor = Color.white;
-    [SerializeField] private float choiceButtonFontSize = 24f;
+    [SerializeField] private float choiceButtonFontSize = 16f;
     [SerializeField] private float choiceButtonTextScale = 1f;
 
     [Header("Ink JSON")]
@@ -378,7 +379,7 @@ public class DialogueManager : MonoBehaviour
         {
             Choice choice = currentChoices[i];
             Debug.Log($"Creating button for choice: {choice.text}");
-            GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceButtonContainer);
+            GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceButtonContainer, false);
             
             if (choiceButton != null)
             {
@@ -412,6 +413,10 @@ public class DialogueManager : MonoBehaviour
 
                 SetupChoiceButtonText(choiceButton, choice.text);
                 SetupChoiceButtonListener(choiceButton, choice.index);
+                
+                // Force UI layout rebuild to ensure hitboxes align with visuals
+                Canvas.ForceUpdateCanvases();
+                UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(choiceButton.GetComponent<RectTransform>());
             }
             else
             {
@@ -433,8 +438,21 @@ public class DialogueManager : MonoBehaviour
         RectTransform buttonRect = choiceButton.GetComponent<RectTransform>();
         if (buttonRect == null) return;
 
+        // Reset transform to clean slate
+        buttonRect.localScale = Vector3.one;
+        buttonRect.localRotation = Quaternion.identity;
+        
+        // Ensure anchors and pivot are set to center for proper positioning
+        // This aligns the clickable hitbox with the visual button
+        buttonRect.anchorMin = new Vector2(0.5f, 0.5f);
+        buttonRect.anchorMax = new Vector2(0.5f, 0.5f);
+        buttonRect.pivot = new Vector2(0.5f, 0.5f);
+
         // Set button size
         buttonRect.sizeDelta = buttonSize;
+        
+        // Reset position before calculating new position
+        buttonRect.anchoredPosition = Vector2.zero;
 
         switch (layoutMode)
         {
@@ -463,7 +481,7 @@ public class DialogueManager : MonoBehaviour
         float startX = -totalButtonWidth / 2 + buttonSize.x / 2;
         float xPos = startX + index * (buttonSize.x + buttonSpacing);
         
-        buttonRect.anchoredPosition = new Vector2(xPos, 0);
+        buttonRect.anchoredPosition = new Vector2(xPos + buttonPositionOffset.x, buttonPositionOffset.y);
     }
 
     private void PositionVertical(RectTransform buttonRect, int index, int totalChoices)
@@ -472,7 +490,7 @@ public class DialogueManager : MonoBehaviour
         float startY = totalButtonHeight / 2 - buttonSize.y / 2;
         float yPos = startY - index * (buttonSize.y + buttonSpacing);
         
-        buttonRect.anchoredPosition = new Vector2(0, yPos);
+        buttonRect.anchoredPosition = new Vector2(buttonPositionOffset.x, yPos + buttonPositionOffset.y);
     }
 
     private void PositionGrid(RectTransform buttonRect, int index, int totalChoices)
@@ -485,7 +503,7 @@ public class DialogueManager : MonoBehaviour
         float xPos = (col - 0.5f) * (buttonSize.x + buttonSpacing);
         float yPos = -row * (buttonSize.y + buttonSpacing);
         
-        buttonRect.anchoredPosition = new Vector2(xPos, yPos);
+        buttonRect.anchoredPosition = new Vector2(xPos + buttonPositionOffset.x, yPos + buttonPositionOffset.y);
     }
 
     private void SetupChoiceButtonText(GameObject choiceButton, string choiceText)
@@ -497,14 +515,15 @@ public class DialogueManager : MonoBehaviour
             RectTransform textRect = textComponent.GetComponent<RectTransform>();
             if (textRect != null)
             {
-                // Set anchors to stretch to fill the button
+                // Set anchors to stretch to fill the button with padding
                 textRect.anchorMin = Vector2.zero;
                 textRect.anchorMax = Vector2.one;
-                textRect.offsetMin = Vector2.zero;
-                textRect.offsetMax = Vector2.zero;
+                textRect.offsetMin = new Vector2(10, 5); // Left and bottom padding
+                textRect.offsetMax = new Vector2(-10, -5); // Right and top padding
                 
-                // Apply text scale
-                textRect.localScale = new Vector3(choiceButtonTextScale, choiceButtonTextScale, 1f);
+                // DO NOT scale the text transform - this causes hitbox misalignment!
+                // Use font size instead
+                textRect.localScale = Vector3.one;
             }
             
             textComponent.text = choiceText;
