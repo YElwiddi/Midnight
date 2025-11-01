@@ -1,8 +1,5 @@
-VAR player_karma = 0
-
-
 === start ===
-Okay… okay, what the hell—where am I? This isn’t the club… this isn’t anywhere! Oh my god, did someone drug me? Did I get kidnapped? Oh my god, oh my god—HELLO?!
+Okay… okay, what the hell—where am I? Oh my god, did someone drug me? Did I get kidnapped? Oh my god, oh my god—HELLO?!
 
 If this is some creep’s idea of a joke, you picked the wrong girl. I swear, I will kill you if you touch me! You hear me?!
 

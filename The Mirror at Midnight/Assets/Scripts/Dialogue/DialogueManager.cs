@@ -193,7 +193,23 @@ public class DialogueManager : MonoBehaviour
         // Set initial values from GameManager to Ink variables
         if (gameManager != null)
         {
-            currentStory.variablesState["player_karma"] = gameManager.playerKarma;
+            try
+            {
+                // Only set player_karma if it exists in the Ink story
+                if (currentStory.variablesState.GlobalVariableExistsWithName("player_karma"))
+                {
+                    currentStory.variablesState["player_karma"] = gameManager.playerKarma;
+                    Debug.Log($"Set player_karma to {gameManager.playerKarma}");
+                }
+                else
+                {
+                    Debug.Log("player_karma variable not found in this Ink story - skipping initialization");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Could not set player_karma variable: {e.Message}");
+            }
         }
 
         // Make sure to start at the beginning
@@ -429,7 +445,16 @@ public class DialogueManager : MonoBehaviour
 
         if (currentChoices.Count == 0)
         {
-            Debug.Log("No choices to display - player can continue with space or wait");
+            // If there are no choices and the story can't continue, end the dialogue
+            if (!currentStory.canContinue)
+            {
+                Debug.Log("No choices and story cannot continue - ending dialogue");
+                ExitDialogueMode();
+            }
+            else
+            {
+                Debug.Log("No choices to display - player can continue with space or wait");
+            }
         }
     }
 
