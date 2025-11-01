@@ -521,9 +521,8 @@ public class DialogueManager : MonoBehaviour
                 textRect.offsetMin = new Vector2(10, 5); // Left and bottom padding
                 textRect.offsetMax = new Vector2(-10, -5); // Right and top padding
                 
-                // DO NOT scale the text transform - this causes hitbox misalignment!
-                // Use font size instead
-                textRect.localScale = Vector3.one;
+                // Note: Do NOT reset localScale here - let the prefab control it
+                // textRect.localScale = Vector3.one; // Commented out to preserve prefab scale settings
             }
             
             textComponent.text = choiceText;
