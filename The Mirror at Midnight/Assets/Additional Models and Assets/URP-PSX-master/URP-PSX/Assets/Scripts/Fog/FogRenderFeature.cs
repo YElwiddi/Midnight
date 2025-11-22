@@ -16,7 +16,7 @@ namespace PSX
         //ScripstableRendererFeature is an abstract class, you need this method
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            fogPass.Setup(renderer.cameraColorTarget);
+            fogPass.Setup(renderer.cameraColorTargetHandle);
             renderer.EnqueuePass(fogPass);
         }
     }

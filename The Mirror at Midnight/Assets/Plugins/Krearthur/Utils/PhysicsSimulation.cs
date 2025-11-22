@@ -162,7 +162,7 @@ public class PhysicsSimulation : MonoBehaviour
             transform.rotation = originalRotation;
             if (rigidbody != null)
             {
-                rigidbody.velocity = Vector3.zero;
+                rigidbody.linearVelocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
             }
         }

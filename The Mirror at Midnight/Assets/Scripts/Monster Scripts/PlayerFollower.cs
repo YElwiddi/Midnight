@@ -140,9 +140,9 @@ public class MonsterFollow : MonoBehaviour
                     rb.AddForce(direction * movementForce);
                     
                     // Optional: cap maximum velocity to prevent excessive momentum
-                    if (rb.velocity.magnitude > moveSpeed)
+                    if (rb.linearVelocity.magnitude > moveSpeed)
                     {
-                        rb.velocity = rb.velocity.normalized * moveSpeed;
+                        rb.linearVelocity = rb.linearVelocity.normalized * moveSpeed;
                     }
                 }
             }

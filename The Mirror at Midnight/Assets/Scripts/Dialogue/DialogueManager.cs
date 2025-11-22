@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Vector2 containerAnchoredPosition = new Vector2(300, 60);
     [SerializeField] private Vector2 containerSizeDelta = new Vector2(1000, 100);
     [SerializeField] private float buttonSpacing = 10f;
-    [SerializeField] private Vector2 buttonSize = new Vector2(450, 80);
+    [SerializeField] private Vector2 buttonSize = new Vector2(200, 8500);
     [SerializeField] private Vector2 buttonPositionOffset = new Vector2(0, 0);
     [SerializeField] private float fontSizeMultiplier = 0.5f;
     [SerializeField] private bool useLayoutGroup = false;
@@ -91,7 +91,17 @@ public class DialogueManager : MonoBehaviour
         // Handle continue with space key if there are no choices
         if (currentStory.currentChoices.Count == 0 && Input.GetMouseButtonDown(0))
         {
-            ContinueStory();
+            // Check if story can continue
+            if (currentStory.canContinue)
+            {
+                ContinueStory();
+            }
+            else
+            {
+                // Story is finished, exit dialogue mode
+                Debug.Log("Story finished - exiting dialogue mode");
+                ExitDialogueMode();
+            }
         }
 
         // Allow ESC key to close dialogue
@@ -420,6 +430,16 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log($"Button position: {choiceButton.transform.localPosition}");
                 Debug.Log($"Button scale: {choiceButton.transform.localScale}");
 
+                // Debug the Image component size
+                UnityEngine.UI.Image img = choiceButton.GetComponent<UnityEngine.UI.Image>();
+                if (img != null)
+                {
+                    RectTransform imgRect = img.GetComponent<RectTransform>();
+                    Debug.Log($"Image RectTransform sizeDelta: {imgRect.sizeDelta}");
+                    Debug.Log($"Image RectTransform rect size: {imgRect.rect.size}");
+                    Debug.Log($"Image RectTransform anchors - Min: {imgRect.anchorMin}, Max: {imgRect.anchorMax}");
+                }
+
                 // Ensure the button is active
                 if (!choiceButton.activeSelf)
                 {
@@ -445,16 +465,7 @@ public class DialogueManager : MonoBehaviour
 
         if (currentChoices.Count == 0)
         {
-            // If there are no choices and the story can't continue, end the dialogue
-            if (!currentStory.canContinue)
-            {
-                Debug.Log("No choices and story cannot continue - ending dialogue");
-                ExitDialogueMode();
-            }
-            else
-            {
-                Debug.Log("No choices to display - player can continue with space or wait");
-            }
+            Debug.Log("No choices to display - player can click to continue or exit");
         }
     }
 
@@ -475,7 +486,9 @@ public class DialogueManager : MonoBehaviour
 
         // Set button size
         buttonRect.sizeDelta = buttonSize;
-        
+        Debug.Log($"Set button RectTransform sizeDelta to: {buttonSize}");
+        Debug.Log($"Button RectTransform actual sizeDelta after setting: {buttonRect.sizeDelta}");
+
         // Reset position before calculating new position
         buttonRect.anchoredPosition = Vector2.zero;
 
