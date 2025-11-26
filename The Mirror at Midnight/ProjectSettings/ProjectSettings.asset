@@ -707,14 +707,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: The Mirror at Midnight
-  metroPackageVersion: 
-  metroCertificatePath: 
-  metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
+  metroPackageName: Familiar
+  metroPackageVersion:
+  metroCertificatePath:
+  metroCertificatePassword:
+  metroCertificateSubject:
+  metroCertificateIssuer:
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: The Mirror at Midnight
+  metroApplicationDescription: Familiar
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -789,7 +789,7 @@ PlayerSettings:
   cloudProjectId: 79ebdf69-b00a-4613-a315-38296aea5ec0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: The Mirror at Midnight
+  projectName: Familiar
   organizationId: nikkone
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
