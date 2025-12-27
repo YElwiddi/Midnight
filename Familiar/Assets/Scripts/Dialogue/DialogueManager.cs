@@ -371,6 +371,24 @@ public class DialogueManager : MonoBehaviour
             string storyText = currentStory.Continue();
             Debug.Log($"Story text: {storyText}");
             Debug.Log($"Setting dialogue text to: {storyText}");
+
+            // Skip empty dialogue nodes (e.g., when a choice goes directly to END)
+            if (string.IsNullOrWhiteSpace(storyText) && currentStory.currentChoices.Count == 0)
+            {
+                // If there's more content, continue to it; otherwise exit
+                if (currentStory.canContinue)
+                {
+                    ContinueStory();
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Empty text with no choices and no more content, exiting dialogue");
+                    ExitDialogueMode();
+                    return;
+                }
+            }
+
             dialogueText.text = storyText;
 
             // Check if text was actually set

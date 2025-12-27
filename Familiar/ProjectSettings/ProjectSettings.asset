@@ -708,11 +708,11 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Familiar
-  metroPackageVersion:
-  metroCertificatePath:
-  metroCertificatePassword:
-  metroCertificateSubject:
-  metroCertificateIssuer:
+  metroPackageVersion: 
+  metroCertificatePath: 
+  metroCertificatePassword: 
+  metroCertificateSubject: 
+  metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Familiar
   wsaImages: {}
@@ -789,7 +789,7 @@ PlayerSettings:
   cloudProjectId: 79ebdf69-b00a-4613-a315-38296aea5ec0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Familiar
+  projectName: The Mirror at Midnight
   organizationId: nikkone
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
