@@ -28,7 +28,7 @@ MonoBehaviour:
     moveSpeed: 4.5
     waitForInteraction: 0
     waitTime: 0
-  inkDialogue: {fileID: 4900000, guid: 77fc751a669e814458941c0572d8144b, type: 3}
+  inkDialogue: {fileID: 4900000, guid: feeaf3669d531f147847edf81865ca05, type: 3}
   dialogueKnot: 
   exitBehavior: 2
   exitPointName: NPCRightPoint

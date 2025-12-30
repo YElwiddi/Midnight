@@ -456,10 +456,18 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
-            if (currentStory.variablesState.GlobalVariableExistsWithName("player_karma"))
-            {
-                currentStory.variablesState["player_karma"] = gameManager.playerKarma;
-            }
+            if (currentStory.variablesState.GlobalVariableExistsWithName("player_friendly"))
+                currentStory.variablesState["player_friendly"] = gameManager.player_friendly;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("player_scared"))
+                currentStory.variablesState["player_scared"] = gameManager.player_scared;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("player_brave"))
+                currentStory.variablesState["player_brave"] = gameManager.player_brave;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("player_mean"))
+                currentStory.variablesState["player_mean"] = gameManager.player_mean;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("player_smart"))
+                currentStory.variablesState["player_smart"] = gameManager.player_smart;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("player_stupid"))
+                currentStory.variablesState["player_stupid"] = gameManager.player_stupid;
         }
         catch (Exception e)
         {
@@ -473,22 +481,33 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
-            object karmaValue = null;
-            try
-            {
-                karmaValue = currentStory.variablesState["player_karma"];
-            }
-            catch { }
-
-            if (karmaValue != null)
-            {
-                gameManager.playerKarma = Convert.ToInt32(karmaValue);
-            }
+            SyncSingleVariableFromInk("player_friendly", v => gameManager.player_friendly = v);
+            SyncSingleVariableFromInk("player_scared", v => gameManager.player_scared = v);
+            SyncSingleVariableFromInk("player_brave", v => gameManager.player_brave = v);
+            SyncSingleVariableFromInk("player_mean", v => gameManager.player_mean = v);
+            SyncSingleVariableFromInk("player_smart", v => gameManager.player_smart = v);
+            SyncSingleVariableFromInk("player_stupid", v => gameManager.player_stupid = v);
         }
         catch (Exception e)
         {
             Debug.LogWarning($"DialogueManager: Error syncing variables from Ink: {e.Message}");
         }
+    }
+
+    private void SyncSingleVariableFromInk(string varName, Action<int> setter)
+    {
+        try
+        {
+            if (currentStory.variablesState.GlobalVariableExistsWithName(varName))
+            {
+                object value = currentStory.variablesState[varName];
+                if (value != null)
+                {
+                    setter(Convert.ToInt32(value));
+                }
+            }
+        }
+        catch { }
     }
     #endregion
 }

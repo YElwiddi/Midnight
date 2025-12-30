@@ -3,12 +3,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Player Stats")]
-    public int playerKarma = 0;
-    public bool questAccepted = false;
-
-    [Header("Other Game Variables")]
-    public int playerGold = 100;
-    public int playerLevel = 1;
+    public int player_friendly = 0;
+    public int player_scared = 0;
+    public int player_brave = 0;
+    public int player_mean = 0;
+    public int player_smart = 0;
+    public int player_stupid = 0;
 
     private static GameManager instance;
 
@@ -29,17 +29,29 @@ public class GameManager : MonoBehaviour
     {
         switch (varName)
         {
-            case "karma":
-                playerKarma += value;
-                Debug.Log($"Karma changed by {value}. New karma: {playerKarma}");
+            case "friendly":
+                player_friendly += value;
+                Debug.Log($"Friendly changed by {value}. New value: {player_friendly}");
                 break;
-            case "gold":
-                playerGold += value;
-                Debug.Log($"Gold changed by {value}. New gold: {playerGold}");
+            case "scared":
+                player_scared += value;
+                Debug.Log($"Scared changed by {value}. New value: {player_scared}");
                 break;
-            case "level":
-                playerLevel = value;
-                Debug.Log($"Level set to: {playerLevel}");
+            case "brave":
+                player_brave += value;
+                Debug.Log($"Brave changed by {value}. New value: {player_brave}");
+                break;
+            case "mean":
+                player_mean += value;
+                Debug.Log($"Mean changed by {value}. New value: {player_mean}");
+                break;
+            case "smart":
+                player_smart += value;
+                Debug.Log($"Smart changed by {value}. New value: {player_smart}");
+                break;
+            case "stupid":
+                player_stupid += value;
+                Debug.Log($"Stupid changed by {value}. New value: {player_stupid}");
                 break;
             default:
                 Debug.LogWarning($"Variable {varName} not found in GameManager");
@@ -47,21 +59,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetQuestStatus(string questName, bool status)
-    {
-        if (questName == "main_quest")
-        {
-            questAccepted = status;
-            Debug.Log($"Quest '{questName}' accepted: {status}");
-        }
-    }
-
     // Method to display current stats (for debugging)
     private void OnGUI()
     {
-        GUI.Box(new Rect(10, 10, 200, 90), "Game Stats");
-        GUI.Label(new Rect(20, 30, 180, 20), $"Karma: {playerKarma}");
-        GUI.Label(new Rect(20, 50, 180, 20), $"Gold: {playerGold}");
-        GUI.Label(new Rect(20, 70, 180, 20), $"Quest Accepted: {questAccepted}");
+        GUI.Box(new Rect(10, 10, 200, 150), "Player Stats");
+        GUI.Label(new Rect(20, 30, 180, 20), $"Friendly: {player_friendly}");
+        GUI.Label(new Rect(20, 50, 180, 20), $"Scared: {player_scared}");
+        GUI.Label(new Rect(20, 70, 180, 20), $"Brave: {player_brave}");
+        GUI.Label(new Rect(20, 90, 180, 20), $"Mean: {player_mean}");
+        GUI.Label(new Rect(20, 110, 180, 20), $"Smart: {player_smart}");
+        GUI.Label(new Rect(20, 130, 180, 20), $"Stupid: {player_stupid}");
     }
 }
