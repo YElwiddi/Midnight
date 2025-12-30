@@ -21,6 +21,12 @@ public class Movement : MonoBehaviour
     public float lookXLimit = 89f; // Changed from 45 to 89 for near-full vertical rotation
     [Tooltip("Invert the vertical camera axis")]
     public bool invertMouseY = false;
+
+    [Header("Dialogue Camera Settings")]
+    [Tooltip("Height offset from NPC pivot point to look at during dialogue (e.g., 1.6 for head height)")]
+    public float dialogueLookHeight = 1.6f;
+    [Tooltip("How quickly the camera rotates to face the NPC during dialogue")]
+    public float dialogueCameraSpeed = 5f;
     
     [Header("Footstep Sound Settings")]
     public AudioSource footstepAudioSource;
@@ -259,10 +265,15 @@ public class Movement : MonoBehaviour
         // Handle dialogue camera facing
         if (isInDialogue && dialogueTarget != null && playerCamera != null)
         {
-            Vector3 targetPosition = dialogueTarget.position + Vector3.up * 0.5f; // Adjust 0.5f as needed
+            Vector3 targetPosition = dialogueTarget.position + Vector3.up * dialogueLookHeight;
             Vector3 direction = targetPosition - playerCamera.transform.position;
             Vector3 localDirection = transform.InverseTransformDirection(direction);
-            playerCamera.transform.localRotation = Quaternion.LookRotation(localDirection);
+            Quaternion targetRotation = Quaternion.LookRotation(localDirection);
+            playerCamera.transform.localRotation = Quaternion.Slerp(
+                playerCamera.transform.localRotation,
+                targetRotation,
+                dialogueCameraSpeed * Time.deltaTime
+            );
         }
     }
     

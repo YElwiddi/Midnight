@@ -55,6 +55,9 @@ public class NPCInteraction : MonoBehaviour, IInteractable
         // Check if dialogue is not already playing
         if (!dialogueManager.IsDialoguePlaying())
         {
+            // Cancel any active simple dialogue first
+            SimpleDialogueTrigger.CancelActiveSimpleDialogue();
+
             Debug.Log($"Starting dialogue with {npcName}");
 
             // Make NPC face the player

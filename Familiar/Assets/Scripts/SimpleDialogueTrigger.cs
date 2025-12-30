@@ -34,6 +34,45 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     private bool isDisplaying = false;
     private Coroutine displayCoroutine;
 
+    // Static reference to currently active simple dialogue (for interruption)
+    private static SimpleDialogueTrigger activeInstance;
+
+    /// <summary>
+    /// Returns true if any SimpleDialogueTrigger is currently displaying.
+    /// </summary>
+    public static bool IsAnySimpleDialogueActive => activeInstance != null && activeInstance.isDisplaying;
+
+    /// <summary>
+    /// Cancels any currently active simple dialogue immediately.
+    /// Call this before starting NPC dialogue to prevent conflicts.
+    /// </summary>
+    public static void CancelActiveSimpleDialogue()
+    {
+        if (activeInstance != null && activeInstance.isDisplaying)
+        {
+            activeInstance.CancelDialogue();
+        }
+    }
+
+    /// <summary>
+    /// Cancels this dialogue immediately.
+    /// </summary>
+    public void CancelDialogue()
+    {
+        if (displayCoroutine != null)
+        {
+            StopCoroutine(displayCoroutine);
+            displayCoroutine = null;
+        }
+        isDisplaying = false;
+        if (activeInstance == this)
+        {
+            activeInstance = null;
+        }
+        // Don't hide UI here - the NPC dialogue will take over
+        Debug.Log("SimpleDialogueTrigger: Dialogue cancelled for NPC dialogue");
+    }
+
     private void Start()
     {
         if (dialogueUI == null)
@@ -86,6 +125,7 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     private IEnumerator ShowDialogueForDuration()
     {
         isDisplaying = true;
+        activeInstance = this;
 
         // Show the dialogue
         dialogueUI.Show();
@@ -111,8 +151,12 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         // Wait for duration after text is fully displayed
         yield return new WaitForSeconds(displayDuration);
 
-        // Hide the dialogue
-        dialogueUI.Hide();
+        // Only hide if we're still the active dialogue (not interrupted by NPC dialogue)
+        if (activeInstance == this)
+        {
+            dialogueUI.Hide();
+            activeInstance = null;
+        }
 
         isDisplaying = false;
     }
