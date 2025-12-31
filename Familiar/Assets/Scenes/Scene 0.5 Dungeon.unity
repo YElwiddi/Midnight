@@ -14658,7 +14658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
   interactionPrompt: Read
-  backgroundImage: {fileID: 21300000, guid: 5c87c020f23c8464fb8cf8c4f1b76ebb, type: 3}
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
   pages:
   - Your task here is to ensure the security and integrtity of this graveyard to
     allow the departed souls their chance at a peaceful rest. You will ensure to
