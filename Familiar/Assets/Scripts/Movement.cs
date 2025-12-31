@@ -43,10 +43,11 @@ public class Movement : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
-    private float footstepTimer = 0;
     private bool wasGrounded = false;
-    private bool wasMovementDisabled = false; // Track when movement was just re-enabled
-    private float movementReenabledCooldown = 0f; // Cooldown after re-enabling movement
+
+    // Footstep audio state
+    private float lastFootstepTime;
+    private float footstepCooldownUntil;
     
     // Input locks
     [Header("Input Control")]
@@ -99,67 +100,29 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        // Update cooldown timer
-        if (movementReenabledCooldown > 0)
-        {
-            movementReenabledCooldown -= Time.deltaTime;
-        }
-        
-        // Movement is allowed if canMove is true
         bool isMoving = false;
         bool isRunning = false;
-        
+
         if (canMove)
         {
-            // Check if movement was just re-enabled
-            if (wasMovementDisabled)
-            {
-                wasMovementDisabled = false;
-                movementReenabledCooldown = 0.5f; // Half second cooldown for sounds
-                footstepTimer = 0f; // Reset timer
-                
-                // Clear all queued audio
-                if (footstepAudioSource != null)
-                {
-                    footstepAudioSource.Stop();
-                    footstepAudioSource.clip = null;
-                }
-            }
-            
-            // We are grounded, so recalculate move direction based on axes
+            // Calculate movement direction
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
-            
-            // Press Left Shift to run (only if canRun is true)
-            isRunning = canRun && Input.GetKey(KeyCode.LeftShift);
-            float curSpeedX = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical");
-            float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
-            
-            // Store vertical movement
-            float movementDirectionY = moveDirection.y;
-            
-            // Calculate target movement direction
-            Vector3 targetDirection = (forward * curSpeedX) + (right * curSpeedY);
-            
-            // Check if player is moving horizontally
-            isMoving = !Mathf.Approximately(targetDirection.magnitude, 0);
-            
-            // Apply sharper movement by directly setting the movement direction
-            // instead of smoothly interpolating
-            if (movementSharpness > 0)
-            {
-                // Direct movement with high sharpness for more responsive control
-                moveDirection.x = targetDirection.x;
-                moveDirection.z = targetDirection.z;
-            }
-            else
-            {
-                // Fallback to original behavior if sharpness is disabled
-                moveDirection.x = targetDirection.x;
-                moveDirection.z = targetDirection.z;
-            }
 
-            // Jump only if canJump is true
+            isRunning = canRun && Input.GetKey(KeyCode.LeftShift);
+            float speed = isRunning ? runningSpeed : walkingSpeed;
+            float curSpeedX = speed * Input.GetAxis("Vertical");
+            float curSpeedY = speed * Input.GetAxis("Horizontal");
+
+            float movementDirectionY = moveDirection.y;
+            Vector3 targetDirection = (forward * curSpeedX) + (right * curSpeedY);
+
+            isMoving = targetDirection.sqrMagnitude > 0.01f;
+
+            moveDirection.x = targetDirection.x;
+            moveDirection.z = targetDirection.z;
+
+            // Jump
             if (canJump && Input.GetButton("Jump") && characterController.isGrounded)
             {
                 moveDirection.y = jumpSpeed;
@@ -175,66 +138,39 @@ public class Movement : MonoBehaviour
                 moveDirection.y -= gravity * Time.deltaTime;
             }
 
-            // Move the controller with direct input for sharper response
             characterController.Move(moveDirection * Time.deltaTime);
-            
-            // If no input, quickly stop horizontal movement to prevent sliding
-            if (Mathf.Approximately(Input.GetAxis("Vertical"), 0) && 
-                Mathf.Approximately(Input.GetAxis("Horizontal"), 0) && 
-                characterController.isGrounded)
+
+            // Stop horizontal movement when no input
+            if (!isMoving && characterController.isGrounded)
             {
-                // Reset horizontal movement immediately when no input is detected
                 moveDirection.x = 0;
                 moveDirection.z = 0;
             }
-            
-            // Handle footsteps ONLY if cooldown has expired
-            if (movementReenabledCooldown <= 0)
+
+            // Handle footstep sounds
+            UpdateFootsteps(isMoving, isRunning);
+
+            // Landing sound
+            if (characterController.isGrounded && !wasGrounded)
             {
-                HandleFootsteps(isMoving, isRunning);
+                TryPlayLandingSound();
             }
-            
-            // Check for landing after being in the air (also respect cooldown)
-            if (characterController.isGrounded && !wasGrounded && movementReenabledCooldown <= 0)
-            {
-                PlayLandingSound();
-            }
-            
-            // Update grounded state for next frame
+
             wasGrounded = characterController.isGrounded;
         }
         else
         {
-            // Mark that movement is disabled
-            if (!wasMovementDisabled)
-            {
-                wasMovementDisabled = true;
-                footstepTimer = 0f;
-                
-                // Stop all audio
-                if (footstepAudioSource != null)
-                {
-                    footstepAudioSource.Stop();
-                    footstepAudioSource.clip = null;
-                }
-            }
-            
-            // Reset vertical movement when canMove is false
-            // This prevents "storing" jump input while paused
+            // Apply gravity only when movement disabled
             moveDirection.y -= gravity * Time.deltaTime;
             if (characterController.isGrounded)
             {
                 moveDirection.y = 0;
             }
-            
-            // Apply only gravity when movement is disabled
+
             characterController.Move(new Vector3(0, moveDirection.y, 0) * Time.deltaTime);
-            
-            // Reset horizontal movement completely when disabled
+
             moveDirection.x = 0;
             moveDirection.z = 0;
-            
-            // Update grounded state for next frame
             wasGrounded = characterController.isGrounded;
         }
 
@@ -277,101 +213,95 @@ public class Movement : MonoBehaviour
         }
     }
     
-    // Handle playing footstep sounds based on movement
-    private void HandleFootsteps(bool isMoving, bool isRunning)
+    private void UpdateFootsteps(bool isMoving, bool isRunning)
     {
-        if (characterController.isGrounded && isMoving)
+        // Only play footsteps when grounded and moving
+        if (!characterController.isGrounded || !isMoving)
+            return;
+
+        // Check if enough time has passed since last footstep
+        float interval = isRunning ? runningFootstepInterval : walkingFootstepInterval;
+        float timeSinceLastStep = Time.time - lastFootstepTime;
+
+        if (timeSinceLastStep >= interval && Time.time >= footstepCooldownUntil)
         {
-            // Determine the appropriate footstep interval
-            float footstepInterval = isRunning ? runningFootstepInterval : walkingFootstepInterval;
-            
-            // Update the timer
-            footstepTimer += Time.deltaTime;
-            
-            // Play footstep sound when interval is reached
-            if (footstepTimer >= footstepInterval)
-            {
-                PlayFootstepSound(isRunning);
-                footstepTimer = 0f;
-            }
-        }
-        else
-        {
-            // Reset timer when not moving or not grounded
-            footstepTimer = 0f;
+            PlayFootstepSound(isRunning);
+            lastFootstepTime = Time.time;
         }
     }
-    
-    // Play appropriate footstep sound
+
     private void PlayFootstepSound(bool isRunning)
+    {
+        if (footstepAudioSource == null)
+            return;
+
+        // Don't play if already playing a footstep
+        if (footstepAudioSource.isPlaying)
+            return;
+
+        AudioClip[] sounds = isRunning ? runningFootstepSounds : walkingFootstepSounds;
+
+        // Fallback to walking sounds if running sounds not assigned
+        if ((sounds == null || sounds.Length == 0) && walkingFootstepSounds != null)
+            sounds = walkingFootstepSounds;
+
+        if (sounds == null || sounds.Length == 0)
+            return;
+
+        AudioClip clip = sounds[Random.Range(0, sounds.Length)];
+        if (clip != null)
+        {
+            footstepAudioSource.clip = clip;
+            footstepAudioSource.volume = footstepVolume;
+            footstepAudioSource.Play();
+        }
+    }
+
+    private void TryPlayLandingSound()
+    {
+        // Respect cooldown to prevent sounds on movement re-enable
+        if (Time.time < footstepCooldownUntil)
+            return;
+
+        // Don't play if already playing a footstep
+        if (footstepAudioSource == null || footstepAudioSource.isPlaying)
+            return;
+
+        if (walkingFootstepSounds == null || walkingFootstepSounds.Length == 0)
+            return;
+
+        AudioClip clip = walkingFootstepSounds[Random.Range(0, walkingFootstepSounds.Length)];
+        if (clip != null)
+        {
+            footstepAudioSource.clip = clip;
+            footstepAudioSource.volume = footstepVolume * 1.2f;
+            footstepAudioSource.Play();
+            lastFootstepTime = Time.time;
+        }
+    }
+
+    private void StopFootstepAudio()
     {
         if (footstepAudioSource != null)
         {
-            // Use correct sound array based on running state
-            AudioClip[] soundArray = isRunning ? walkingFootstepSounds : walkingFootstepSounds;
-            
-            // Check if we have any footstep sounds assigned
-            if (soundArray != null && soundArray.Length > 0)
-            {
-                // Pick a random sound from the array
-                AudioClip footstepSound = soundArray[Random.Range(0, soundArray.Length)];
-                
-                if (footstepSound != null)
-                {
-                    // Set volume and play the sound
-                    footstepAudioSource.volume = footstepVolume;
-                    footstepAudioSource.PlayOneShot(footstepSound);
-                }
-            }
+            footstepAudioSource.Stop();
         }
+        footstepCooldownUntil = Time.time + 0.5f;
+        lastFootstepTime = 0f;
     }
     
-    // Play a sound when landing from a jump or fall
-    private void PlayLandingSound()
-    {
-        if (footstepAudioSource != null && walkingFootstepSounds != null && walkingFootstepSounds.Length > 0)
-        {
-            // Use walking footstep for landing or create dedicated landing sounds if desired
-            AudioClip landSound = walkingFootstepSounds[Random.Range(0, walkingFootstepSounds.Length)];
-            if (landSound != null)
-            {
-                // Play landing sound at slightly higher volume
-                footstepAudioSource.volume = Mathf.Min(footstepVolume * 1.2f, 1.0f);
-                footstepAudioSource.PlayOneShot(landSound);
-            }
-        }
-    }
-    
-    // Public method to completely disable player input
     public void DisableAllInput()
     {
         canMove = false;
         canControlCamera = false;
         canRun = false;
         canJump = false;
-        
-        // Clear audio state
-        footstepTimer = 0f;
-        if (footstepAudioSource != null)
-        {
-            footstepAudioSource.Stop();
-            footstepAudioSource.clip = null;
-        }
+        StopFootstepAudio();
     }
-    
-    // Public method to completely enable player input
+
     public void EnableAllInput()
     {
-        // Clear audio state before enabling
-        footstepTimer = 0f;
-        movementReenabledCooldown = 0.5f; // Set cooldown
-        
-        if (footstepAudioSource != null)
-        {
-            footstepAudioSource.Stop();
-            footstepAudioSource.clip = null;
-        }
-        
+        StopFootstepAudio();
         canMove = true;
         canControlCamera = true;
         canRun = true;

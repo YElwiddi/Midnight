@@ -60,7 +60,25 @@ public class ReadableUI : MonoBehaviour
 
     private void Start()
     {
-        // Find crosshair object (created by CrosshairManager)
+        FindCrosshair();
+    }
+
+    private void FindCrosshair()
+    {
+        if (crosshairObject != null) return;
+
+        // Method 1: Find via CrosshairManager's canvas
+        if (crosshairManager != null && crosshairManager.uiCanvas != null)
+        {
+            Transform crosshair = crosshairManager.uiCanvas.transform.Find("Crosshair");
+            if (crosshair != null)
+            {
+                crosshairObject = crosshair.gameObject;
+                return;
+            }
+        }
+
+        // Method 2: Find by name (fallback)
         GameObject crosshairCanvas = GameObject.Find("CrosshairCanvas");
         if (crosshairCanvas != null)
         {
@@ -215,6 +233,12 @@ public class ReadableUI : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.DisableAllInput();
+        }
+
+        // Find crosshair if not found yet (safety net for timing issues)
+        if (crosshairObject == null)
+        {
+            FindCrosshair();
         }
 
         // Hide crosshair
