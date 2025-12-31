@@ -13,6 +13,23 @@ public class ReadableUI : MonoBehaviour
     public static ReadableUI Instance => instance;
     #endregion
 
+    #region Text Overrides
+    public struct TextOverrides
+    {
+        public TMP_FontAsset font;
+        public TextAlignmentOptions? alignment;
+        public Vector4? margins;
+        public float? lineSpacing;
+        public float? fontSize;
+    }
+
+    private TMP_FontAsset defaultFont;
+    private TextAlignmentOptions defaultAlignment;
+    private Vector4 defaultMargins;
+    private float defaultLineSpacing;
+    private float defaultFontSize;
+    #endregion
+
     #region UI References
     [Header("UI Panel References")]
     [Tooltip("The root panel that contains the readable UI. Will be shown/hidden.")]
@@ -61,6 +78,16 @@ public class ReadableUI : MonoBehaviour
     private void Start()
     {
         FindCrosshair();
+
+        // Store default text settings
+        if (contentText != null)
+        {
+            defaultFont = contentText.font;
+            defaultAlignment = contentText.alignment;
+            defaultMargins = contentText.margin;
+            defaultLineSpacing = contentText.lineSpacing;
+            defaultFontSize = contentText.fontSize;
+        }
     }
 
     private void FindCrosshair()
@@ -115,7 +142,8 @@ public class ReadableUI : MonoBehaviour
     /// </summary>
     /// <param name="pages">Array of page text content</param>
     /// <param name="background">Optional background sprite (book, scroll, etc.)</param>
-    public void Open(string[] pages, Sprite background = null)
+    /// <param name="overrides">Optional text formatting overrides</param>
+    public void Open(string[] pages, Sprite background = null, TextOverrides overrides = default)
     {
         if (pages == null || pages.Length == 0)
         {
@@ -136,6 +164,21 @@ public class ReadableUI : MonoBehaviour
         else if (backgroundImage != null)
         {
             backgroundImage.enabled = false;
+        }
+
+        // Apply text overrides
+        if (contentText != null)
+        {
+            if (overrides.font != null)
+                contentText.font = overrides.font;
+            if (overrides.alignment.HasValue)
+                contentText.alignment = overrides.alignment.Value;
+            if (overrides.margins.HasValue)
+                contentText.margin = overrides.margins.Value;
+            if (overrides.lineSpacing.HasValue)
+                contentText.lineSpacing = overrides.lineSpacing.Value;
+            if (overrides.fontSize.HasValue)
+                contentText.fontSize = overrides.fontSize.Value;
         }
 
         // Show panel
@@ -163,6 +206,16 @@ public class ReadableUI : MonoBehaviour
         isOpen = false;
         currentPages = null;
         currentPageIndex = 0;
+
+        // Restore default text settings
+        if (contentText != null)
+        {
+            contentText.font = defaultFont;
+            contentText.alignment = defaultAlignment;
+            contentText.margin = defaultMargins;
+            contentText.lineSpacing = defaultLineSpacing;
+            contentText.fontSize = defaultFontSize;
+        }
 
         // Hide panel
         if (readablePanel != null)

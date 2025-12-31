@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Component for interactable readable objects (books, notes, tombstones, etc.)
@@ -14,6 +15,26 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
     [Header("Appearance")]
     [Tooltip("Background image displayed when reading (book texture, scroll, etc.)")]
     [SerializeField] private Sprite backgroundImage;
+
+    [Header("Text Overrides (Optional)")]
+    [Tooltip("Override the default font. Leave empty to use default.")]
+    [SerializeField] private TMP_FontAsset fontOverride;
+
+    [Tooltip("Override text alignment. Check to apply custom alignment.")]
+    [SerializeField] private bool overrideAlignment;
+    [SerializeField] private TextAlignmentOptions textAlignment = TextAlignmentOptions.TopLeft;
+
+    [Tooltip("Override text position/margins. Check to apply custom margins.")]
+    [SerializeField] private bool overrideMargins;
+    [SerializeField] private Vector4 textMargins = Vector4.zero;
+
+    [Tooltip("Override line spacing (space between lines). Check to apply.")]
+    [SerializeField] private bool overrideLineSpacing;
+    [SerializeField] private float lineSpacing = 0f;
+
+    [Tooltip("Override font size. Check to apply.")]
+    [SerializeField] private bool overrideFontSize;
+    [SerializeField] private float fontSize = 24f;
 
     [Header("Content")]
     [Tooltip("Pages of text content. Each element is one page.")]
@@ -47,7 +68,15 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
             return;
         }
 
-        readableUI.Open(pages, backgroundImage);
+        var overrides = new ReadableUI.TextOverrides
+        {
+            font = fontOverride,
+            alignment = overrideAlignment ? textAlignment : null,
+            margins = overrideMargins ? textMargins : null,
+            lineSpacing = overrideLineSpacing ? lineSpacing : null,
+            fontSize = overrideFontSize ? fontSize : null
+        };
+        readableUI.Open(pages, backgroundImage, overrides);
     }
 
     public string GetInteractionPrompt()

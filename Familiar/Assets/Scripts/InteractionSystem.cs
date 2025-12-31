@@ -12,8 +12,6 @@ public class InteractionSystem : MonoBehaviour
     
     [Header("UI References")]
     public Canvas uiCanvas;
-    public Color highlightCrosshairColor = Color.yellow;
-    private Color defaultCrosshairColor;
     
     [Header("Interaction Prompt")]
     public bool showInteractionPrompt = true;
@@ -34,11 +32,7 @@ public class InteractionSystem : MonoBehaviour
         crosshairManager = GetComponent<CrosshairManager>();
         if (crosshairManager == null)
             crosshairManager = FindObjectOfType<CrosshairManager>();
-            
-        // Cache default crosshair color
-        if (crosshairManager != null)
-            defaultCrosshairColor = crosshairManager.crosshairColor;
-            
+
         // Set up interaction prompt if enabled
         if (showInteractionPrompt)
             SetupInteractionPrompt();
@@ -61,7 +55,7 @@ public class InteractionSystem : MonoBehaviour
         // Cast a ray from the center of the screen
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
-        
+
         // Check if ray hits an interactable object
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableMask))
         {
@@ -70,14 +64,9 @@ public class InteractionSystem : MonoBehaviour
 
             if (interactable != null)
             {
-                
                 // New interactable found
                 if (currentInteractable != interactable)
                 {
-                    // Change crosshair color to indicate interactable
-                    if (crosshairManager != null)
-                        crosshairManager.SetCrosshairColor(highlightCrosshairColor);
-                    
                     // Update prompt text
                     if (promptText != null)
                     {
@@ -85,35 +74,28 @@ public class InteractionSystem : MonoBehaviour
                         //promptText.text = $"Press {interactKey} to {interactable.GetInteractionPrompt()}";
                         promptText.gameObject.SetActive(true);
                     }
-                    
+
                     // Set current interactable
                     currentInteractable = interactable;
                 }
-            }
-            else
-            {
-                ClearInteractable();
+
+                // Always keep crosshair highlighted while looking at interactable
+                if (crosshairManager != null)
+                    crosshairManager.SetHighlighted(true);
+
+                return;
             }
         }
-        else
-        {
-            ClearInteractable();
-        }
-    }
-    
-    void ClearInteractable()
-    {
+
+        // Not looking at an interactable - clear state
+        if (crosshairManager != null)
+            crosshairManager.SetHighlighted(false);
+
         if (currentInteractable != null)
         {
-            // Reset crosshair color
-            if (crosshairManager != null)
-                crosshairManager.SetCrosshairColor(defaultCrosshairColor);
-            
-            // Hide prompt text
             if (promptText != null)
                 promptText.gameObject.SetActive(false);
-            
-            // Clear current interactable
+
             currentInteractable = null;
         }
     }

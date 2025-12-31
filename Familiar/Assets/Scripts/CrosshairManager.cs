@@ -5,138 +5,256 @@ public class CrosshairManager : MonoBehaviour
 {
     [Header("Crosshair Settings")]
     public Color crosshairColor = Color.white;
-    public float crosshairSize = 10f;
-    public float crosshairThickness = 2f;
-    public float crosshairGap = 5f;
-    
+    public Color highlightColor = Color.white;
+    public float circleSize = 20f;
+    public float ringThickness = 2f;
+    public float fillGap = 3f;
+
+    [Header("Sprites (Optional)")]
+    [Tooltip("Leave empty to use procedurally generated circles")]
+    public Sprite hollowCircleSprite;
+    public Sprite filledCircleSprite;
+
     [Header("References")]
     public Canvas uiCanvas;
-    
+
     // Crosshair elements
-    private RectTransform topLine;
-    private RectTransform bottomLine;
-    private RectTransform leftLine;
-    private RectTransform rightLine;
-    private RectTransform centerDot;
-    
+    private RectTransform crosshairParent;
+    private Image outerRing;
+    private Image innerFill;
+    private bool isHighlighted;
+
     private void Start()
     {
         if (uiCanvas == null)
         {
-            // Create a canvas if none is provided
             CreateUICanvas();
         }
-        
-        // Create the crosshair elements
+
         CreateCrosshair();
-        
-        // Show cursor if it was hidden by your Movement script
-        if (Cursor.visible == false)
-        {
-            // You might want to keep your original cursor settings,
-            // but the crosshair will now function as your cursor
-            // If you still want to hide the system cursor, leave these lines active
-            // Cursor.lockState = CursorLockMode.Locked;
-            // Cursor.visible = false;
-        }
     }
-    
+
     private void CreateUICanvas()
     {
-        // Create a new GameObject for the canvas
         GameObject canvasObject = new GameObject("CrosshairCanvas");
         uiCanvas = canvasObject.AddComponent<Canvas>();
-        
-        // Set the canvas to be screen-space overlay
         uiCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        
-        // Add a CanvasScaler component
+        uiCanvas.sortingOrder = 100;
+
         CanvasScaler scaler = canvasObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920, 1080);
-        
-        // Add a GraphicRaycaster component
+
         canvasObject.AddComponent<GraphicRaycaster>();
-        
-        // Make sure the canvas persists between scenes if needed
         DontDestroyOnLoad(canvasObject);
     }
-    
+
     private void CreateCrosshair()
     {
-        // Create parent object to hold all crosshair elements
-        GameObject crosshairParent = new GameObject("Crosshair");
-        crosshairParent.transform.SetParent(uiCanvas.transform, false);
-        RectTransform crosshairRect = crosshairParent.AddComponent<RectTransform>();
-        crosshairRect.anchoredPosition = Vector2.zero;
-        crosshairRect.sizeDelta = new Vector2(crosshairSize * 2, crosshairSize * 2);
-        crosshairRect.anchorMin = new Vector2(0.5f, 0.5f);
-        crosshairRect.anchorMax = new Vector2(0.5f, 0.5f);
-        crosshairRect.pivot = new Vector2(0.5f, 0.5f);
-        
-        // Create center dot
-        centerDot = CreateCrosshairElement(crosshairRect, "CenterDot");
-        centerDot.sizeDelta = new Vector2(crosshairThickness, crosshairThickness);
-        Image centerImage = centerDot.GetComponent<Image>();
-        centerImage.color = crosshairColor;
-        
-        // Create top line
-        topLine = CreateCrosshairElement(crosshairRect, "TopLine");
-        topLine.sizeDelta = new Vector2(crosshairThickness, crosshairSize / 2);
-        topLine.anchoredPosition = new Vector2(0, crosshairGap + crosshairSize / 4);
-        
-        // Create bottom line
-        bottomLine = CreateCrosshairElement(crosshairRect, "BottomLine");
-        bottomLine.sizeDelta = new Vector2(crosshairThickness, crosshairSize / 2);
-        bottomLine.anchoredPosition = new Vector2(0, -crosshairGap - crosshairSize / 4);
-        
-        // Create left line
-        leftLine = CreateCrosshairElement(crosshairRect, "LeftLine");
-        leftLine.sizeDelta = new Vector2(crosshairSize / 2, crosshairThickness);
-        leftLine.anchoredPosition = new Vector2(-crosshairGap - crosshairSize / 4, 0);
-        
-        // Create right line
-        rightLine = CreateCrosshairElement(crosshairRect, "RightLine");
-        rightLine.sizeDelta = new Vector2(crosshairSize / 2, crosshairThickness);
-        rightLine.anchoredPosition = new Vector2(crosshairGap + crosshairSize / 4, 0);
+        // Create parent object
+        GameObject parentObj = new GameObject("Crosshair");
+        parentObj.transform.SetParent(uiCanvas.transform, false);
+        crosshairParent = parentObj.AddComponent<RectTransform>();
+        crosshairParent.anchoredPosition = Vector2.zero;
+        crosshairParent.sizeDelta = new Vector2(circleSize, circleSize);
+        crosshairParent.anchorMin = new Vector2(0.5f, 0.5f);
+        crosshairParent.anchorMax = new Vector2(0.5f, 0.5f);
+        crosshairParent.pivot = new Vector2(0.5f, 0.5f);
+
+        if (hollowCircleSprite != null && filledCircleSprite != null)
+        {
+            // Use provided sprites
+            CreateSpriteBasedCrosshair();
+        }
+        else
+        {
+            // Create procedural circle crosshair
+            CreateProceduralCrosshair();
+        }
+
+        // Start in default (hollow) state
+        SetHighlighted(false);
     }
-    
-    private RectTransform CreateCrosshairElement(RectTransform parent, string name)
+
+    private void CreateSpriteBasedCrosshair()
     {
-        GameObject element = new GameObject(name);
-        element.transform.SetParent(parent, false);
-        
-        RectTransform rect = element.AddComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        
-        Image image = element.AddComponent<Image>();
-        image.color = crosshairColor;
-        
-        return rect;
+        // Outer ring (hollow circle)
+        GameObject ringObj = new GameObject("OuterRing");
+        ringObj.transform.SetParent(crosshairParent, false);
+        RectTransform ringRect = ringObj.AddComponent<RectTransform>();
+        ringRect.anchoredPosition = Vector2.zero;
+        ringRect.sizeDelta = new Vector2(circleSize, circleSize);
+        ringRect.anchorMin = new Vector2(0.5f, 0.5f);
+        ringRect.anchorMax = new Vector2(0.5f, 0.5f);
+
+        outerRing = ringObj.AddComponent<Image>();
+        outerRing.sprite = hollowCircleSprite;
+        outerRing.color = crosshairColor;
+
+        // Inner fill (solid circle) - shown when highlighted, with gap from ring
+        GameObject fillObj = new GameObject("InnerFill");
+        fillObj.transform.SetParent(crosshairParent, false);
+        RectTransform fillRect = fillObj.AddComponent<RectTransform>();
+        fillRect.anchoredPosition = Vector2.zero;
+        float fillSize = circleSize - (ringThickness * 2) - (fillGap * 2);
+        fillRect.sizeDelta = new Vector2(fillSize, fillSize);
+        fillRect.anchorMin = new Vector2(0.5f, 0.5f);
+        fillRect.anchorMax = new Vector2(0.5f, 0.5f);
+
+        innerFill = fillObj.AddComponent<Image>();
+        innerFill.sprite = filledCircleSprite;
+        innerFill.color = highlightColor;
+        innerFill.gameObject.SetActive(false);
     }
-    
-    // Optional: Method to dynamically change crosshair color
+
+    private void CreateProceduralCrosshair()
+    {
+        // Outer ring (hollow circle)
+        GameObject ringObj = new GameObject("OuterRing");
+        ringObj.transform.SetParent(crosshairParent, false);
+        RectTransform ringRect = ringObj.AddComponent<RectTransform>();
+        ringRect.anchoredPosition = Vector2.zero;
+        ringRect.sizeDelta = new Vector2(circleSize, circleSize);
+        ringRect.anchorMin = new Vector2(0.5f, 0.5f);
+        ringRect.anchorMax = new Vector2(0.5f, 0.5f);
+
+        outerRing = ringObj.AddComponent<Image>();
+        outerRing.color = crosshairColor;
+        outerRing.sprite = CreateRingSprite(64, ringThickness / circleSize);
+
+        // Inner fill (solid circle for highlighted state, smaller to show gap)
+        GameObject fillObj = new GameObject("InnerFill");
+        fillObj.transform.SetParent(crosshairParent, false);
+        RectTransform fillRect = fillObj.AddComponent<RectTransform>();
+        fillRect.anchoredPosition = Vector2.zero;
+        float fillSize = circleSize - (ringThickness * 2) - (fillGap * 2);
+        fillRect.sizeDelta = new Vector2(fillSize, fillSize);
+        fillRect.anchorMin = new Vector2(0.5f, 0.5f);
+        fillRect.anchorMax = new Vector2(0.5f, 0.5f);
+
+        innerFill = fillObj.AddComponent<Image>();
+        innerFill.sprite = CreateCircleSprite(64);
+        innerFill.color = highlightColor;
+        innerFill.gameObject.SetActive(false);
+    }
+
+    private Sprite CreateCircleSprite(int resolution)
+    {
+        Texture2D texture = new Texture2D(resolution, resolution);
+        texture.filterMode = FilterMode.Bilinear;
+
+        float radius = resolution / 2f;
+        Vector2 center = new Vector2(radius, radius);
+
+        for (int x = 0; x < resolution; x++)
+        {
+            for (int y = 0; y < resolution; y++)
+            {
+                float distance = Vector2.Distance(new Vector2(x, y), center);
+                if (distance < radius - 1)
+                {
+                    texture.SetPixel(x, y, Color.white);
+                }
+                else if (distance < radius)
+                {
+                    float alpha = radius - distance;
+                    texture.SetPixel(x, y, new Color(1, 1, 1, alpha));
+                }
+                else
+                {
+                    texture.SetPixel(x, y, Color.clear);
+                }
+            }
+        }
+
+        texture.Apply();
+        return Sprite.Create(texture, new Rect(0, 0, resolution, resolution), new Vector2(0.5f, 0.5f));
+    }
+
+    private Sprite CreateRingSprite(int resolution, float thicknessRatio)
+    {
+        Texture2D texture = new Texture2D(resolution, resolution);
+        texture.filterMode = FilterMode.Bilinear;
+
+        float outerRadius = resolution / 2f;
+        float innerRadius = outerRadius * (1f - thicknessRatio * 2f);
+        Vector2 center = new Vector2(outerRadius, outerRadius);
+
+        for (int x = 0; x < resolution; x++)
+        {
+            for (int y = 0; y < resolution; y++)
+            {
+                float distance = Vector2.Distance(new Vector2(x, y), center);
+
+                // Outside outer edge
+                if (distance >= outerRadius)
+                {
+                    texture.SetPixel(x, y, Color.clear);
+                }
+                // Anti-alias outer edge
+                else if (distance > outerRadius - 1)
+                {
+                    float alpha = outerRadius - distance;
+                    texture.SetPixel(x, y, new Color(1, 1, 1, alpha));
+                }
+                // Inside inner edge (hollow center)
+                else if (distance < innerRadius - 1)
+                {
+                    texture.SetPixel(x, y, Color.clear);
+                }
+                // Anti-alias inner edge
+                else if (distance < innerRadius)
+                {
+                    float alpha = distance - (innerRadius - 1);
+                    texture.SetPixel(x, y, new Color(1, 1, 1, alpha));
+                }
+                // Ring area
+                else
+                {
+                    texture.SetPixel(x, y, Color.white);
+                }
+            }
+        }
+
+        texture.Apply();
+        return Sprite.Create(texture, new Rect(0, 0, resolution, resolution), new Vector2(0.5f, 0.5f));
+    }
+
+    public void SetHighlighted(bool highlighted)
+    {
+        isHighlighted = highlighted;
+
+        if (innerFill != null)
+        {
+            innerFill.gameObject.SetActive(highlighted);
+        }
+
+        if (outerRing != null)
+        {
+            outerRing.color = highlighted ? highlightColor : crosshairColor;
+        }
+    }
+
+    // Legacy method for compatibility - maps to SetHighlighted
     public void SetCrosshairColor(Color newColor)
     {
-        crosshairColor = newColor;
-        
-        // Update all crosshair elements with the new color
-        centerDot.GetComponent<Image>().color = newColor;
-        topLine.GetComponent<Image>().color = newColor;
-        bottomLine.GetComponent<Image>().color = newColor;
-        leftLine.GetComponent<Image>().color = newColor;
-        rightLine.GetComponent<Image>().color = newColor;
+        // Check if this is the highlight color or default color
+        if (newColor == highlightColor || newColor == Color.yellow)
+        {
+            SetHighlighted(true);
+        }
+        else
+        {
+            SetHighlighted(false);
+        }
     }
-    
-    // Optional: Method to show/hide parts of the crosshair
+
     public void SetCrosshairStyle(bool showCenterDot, bool showLines)
     {
-        centerDot.gameObject.SetActive(showCenterDot);
-        topLine.gameObject.SetActive(showLines);
-        bottomLine.gameObject.SetActive(showLines);
-        leftLine.gameObject.SetActive(showLines);
-        rightLine.gameObject.SetActive(showLines);
+        // Legacy method - now controls visibility of the crosshair
+        if (crosshairParent != null)
+        {
+            crosshairParent.gameObject.SetActive(showCenterDot || showLines);
+        }
     }
 }

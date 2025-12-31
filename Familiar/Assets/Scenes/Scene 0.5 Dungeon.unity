@@ -2456,9 +2456,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7263668736578322502, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7263668736578322502, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6677921500060161684, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6677921500060161684, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425297361431200182, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425297361431200182, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -480124977025108630, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -466278219447207981, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: -466278219447207981, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Name
       value: Interior Cabin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637597153138615248, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637597153138615248, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 7498342553130148555, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Name
@@ -2467,6 +2511,18 @@ PrefabInstance:
     - target: {fileID: 7498342553130148555, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985287004061811103, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209844127609915945, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209844127609915945, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -6078,7 +6134,8 @@ GameObject:
   - component: {fileID: 443418785}
   - component: {fileID: 443418784}
   - component: {fileID: 443418783}
-  m_Layer: 0
+  - component: {fileID: 443418786}
+  m_Layer: 6
   m_Name: Tombstone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6178,6 +6235,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443418781}
   m_Mesh: {fileID: -8834378528603856437, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!114 &443418786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443418781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: e97b7e75370c4e24ea05c35919d3d84e, type: 3}
+  fontOverride: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+  overrideAlignment: 1
+  textAlignment: 514
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 24
+  pages:
+  - 'Here lies Zackary Holmes
+
+    Father of One
+
+    1952-1998
+
+'
 --- !u!1001 &452851386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8759,6 +8847,83 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3725152457051043143, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1001 &670626848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -99.102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -28.276
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 160.034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5008263
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5008262
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49917242
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4991724
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 094ac818600bda042a8bae691919857c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 094ac818600bda042a8bae691919857c, type: 2}
+    - target: {fileID: 919132149155446097, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
+      propertyPath: m_Name
+      value: PSXCross
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
 --- !u!1 &672681927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5008242330949673629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
@@ -12804,7 +12969,8 @@ GameObject:
   - component: {fileID: 1018908921}
   - component: {fileID: 1018908920}
   - component: {fileID: 1018908919}
-  m_Layer: 0
+  - component: {fileID: 1018908922}
+  m_Layer: 6
   m_Name: Tombstone1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12904,6 +13070,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018908917}
   m_Mesh: {fileID: -8834378528603856437, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!114 &1018908922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018908917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: e97b7e75370c4e24ea05c35919d3d84e, type: 3}
+  fontOverride: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+  overrideAlignment: 1
+  textAlignment: 514
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 24
+  pages:
+  - 'Here lies Edward Holmes
+
+    Beloved Son, A Devoted Friend
+
+    1981-1997'
 --- !u!1 &1020068868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2629183479884307771, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
@@ -14659,6 +14854,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
   interactionPrompt: Read
   backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: b0f6221376c15b44aab4947b5f4886ad, type: 2}
+  overrideAlignment: 0
+  textAlignment: 272
+  overrideMargins: 0
+  textMargins: {x: 30, y: 30, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 1
+  fontSize: 16
   pages:
   - Your task here is to ensure the security and integrtity of this graveyard to
     allow the departed souls their chance at a peaceful rest. You will ensure to
@@ -16912,7 +17116,8 @@ GameObject:
   - component: {fileID: 1481168063}
   - component: {fileID: 1481168062}
   - component: {fileID: 1481168061}
-  m_Layer: 0
+  - component: {fileID: 1481168064}
+  m_Layer: 6
   m_Name: Tombstone1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17012,6 +17217,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481168059}
   m_Mesh: {fileID: -8834378528603856437, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!114 &1481168064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481168059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: e97b7e75370c4e24ea05c35919d3d84e, type: 3}
+  fontOverride: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+  overrideAlignment: 1
+  textAlignment: 514
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 1
+  lineSpacing: 50
+  overrideFontSize: 0
+  fontSize: 24
+  pages:
+  - 'Here lies Anthony Anderson
+
+    Father of Three
+
+    1947-1988'
 --- !u!1 &1484702872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4735190472508743368, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
@@ -17383,6 +17617,18 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 143300272}
+    - target: {fileID: 2609216575494347371, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: crosshairColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609216575494347371, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: crosshairColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609216575494347371, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: crosshairColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3048021864464542667, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: phoneUI
       value: 
@@ -17478,6 +17724,18 @@ PrefabInstance:
     - target: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127340128868563144, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: highlightCrosshairColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127340128868563144, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: highlightCrosshairColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127340128868563144, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      propertyPath: highlightCrosshairColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18331,7 +18589,8 @@ GameObject:
   - component: {fileID: 1616474002}
   - component: {fileID: 1616474001}
   - component: {fileID: 1616474000}
-  m_Layer: 0
+  - component: {fileID: 1616474003}
+  m_Layer: 6
   m_Name: Tombstone1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18431,6 +18690,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616473998}
   m_Mesh: {fileID: -8834378528603856437, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!114 &1616474003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616473998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: e97b7e75370c4e24ea05c35919d3d84e, type: 3}
+  fontOverride: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+  overrideAlignment: 0
+  textAlignment: 514
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 1
+  lineSpacing: 50
+  overrideFontSize: 0
+  fontSize: 24
+  pages:
+  - 'Here lies Mei Huang
+
+    Wife, Mother of One
+
+    1933-1999'
 --- !u!1 &1627877025
 GameObject:
   m_ObjectHideFlags: 0
@@ -25737,3 +26025,4 @@ SceneRoots:
   - {fileID: 1556411089}
   - {fileID: 1426520907}
   - {fileID: 1041983016}
+  - {fileID: 670626848}
