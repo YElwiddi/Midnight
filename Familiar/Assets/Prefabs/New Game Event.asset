@@ -32,3 +32,8 @@ MonoBehaviour:
   dialogueKnot: 
   exitBehavior: 2
   exitPointName: NPCRightPoint
+  exitDialogues:
+  - dialogueText: What was Hector doing out here this late?
+    speakerName: 
+    delayAfterExit: 1
+    displayDuration: 4

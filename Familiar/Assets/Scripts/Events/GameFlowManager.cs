@@ -228,7 +228,8 @@ public class GameFlowManager : MonoBehaviour
             currentEvent.dialogueKnot,
             currentEvent.exitBehavior,
             currentEvent.exitPointName,
-            currentEvent.eventName
+            currentEvent.eventName,
+            currentEvent.exitDialogues
         );
 
         // Fire event started

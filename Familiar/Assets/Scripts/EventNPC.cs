@@ -29,6 +29,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     [HideInInspector] public string dialogueKnot;
     [HideInInspector] public NPCExitBehavior exitBehavior;
     [HideInInspector] public string exitPointName;
+    [HideInInspector] public ExitDialogueData[] exitDialogues;
     #endregion
 
     #region Inspector Settings
@@ -51,6 +52,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     private NavMeshAgent agent;
     private Animator animator;
     private DialogueManager dialogueManager;
+    private DialogueUI dialogueUI;
 
     private int currentWaypointIndex = 0;
     private NPCState currentState = NPCState.Idle;
@@ -90,6 +92,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     private void Start()
     {
         dialogueManager = DialogueManager.GetInstance();
+        dialogueUI = FindFirstObjectByType<DialogueUI>();
 
         if (dialogueManager != null)
         {
@@ -123,13 +126,15 @@ public class EventNPC : MonoBehaviour, IInteractable
     /// Called by GameFlowManager after spawning.
     /// </summary>
     public void Initialize(WaypointData[] waypointData, TextAsset dialogue, string knot,
-                           NPCExitBehavior exit, string exitPoint, string name = null)
+                           NPCExitBehavior exit, string exitPoint, string name = null,
+                           ExitDialogueData[] exitDialogueData = null)
     {
         waypoints = waypointData;
         inkDialogue = dialogue;
         dialogueKnot = knot;
         exitBehavior = exit;
         exitPointName = exitPoint;
+        exitDialogues = exitDialogueData;
 
         if (!string.IsNullOrEmpty(name))
         {
@@ -311,6 +316,18 @@ public class EventNPC : MonoBehaviour, IInteractable
         Debug.Log($"EventNPC {npcName}: Dialogue ended, continuing to next waypoint");
         hasCompletedDialogue = true;
 
+        // Start exit dialogues right after main dialogue ends
+        if (exitDialogues != null && exitDialogues.Length > 0)
+        {
+            foreach (var exitDialogue in exitDialogues)
+            {
+                if (!string.IsNullOrEmpty(exitDialogue.dialogueText))
+                {
+                    StartCoroutine(ShowExitDialogue(exitDialogue));
+                }
+            }
+        }
+
         currentWaypointIndex++;
         MoveToNextWaypoint();
     }
@@ -353,6 +370,38 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         SetWalkingState(true);
         Debug.Log($"EventNPC {npcName}: Walking to exit point '{exitPointName}'");
+    }
+
+    private IEnumerator ShowExitDialogue(ExitDialogueData dialogueData)
+    {
+        yield return new WaitForSeconds(dialogueData.delayAfterExit);
+
+        if (dialogueUI == null)
+        {
+            Debug.LogWarning($"EventNPC {npcName}: Cannot show exit dialogue - DialogueUI not found");
+            yield break;
+        }
+
+        // Don't show if main dialogue is playing
+        if (dialogueManager != null && dialogueManager.IsDialoguePlaying())
+        {
+            Debug.Log($"EventNPC {npcName}: Skipping exit dialogue - main dialogue is playing");
+            yield break;
+        }
+
+        Debug.Log($"EventNPC {npcName}: Showing exit dialogue");
+
+        dialogueUI.Show();
+        string speaker = string.IsNullOrEmpty(dialogueData.speakerName) ? null : dialogueData.speakerName;
+        dialogueUI.SetDialogueText(dialogueData.dialogueText, speaker);
+
+        yield return new WaitForSeconds(dialogueData.displayDuration);
+
+        // Only hide if we're not in a main dialogue
+        if (dialogueManager == null || !dialogueManager.IsDialoguePlaying())
+        {
+            dialogueUI.Hide();
+        }
     }
 
     private void CompleteEvent()

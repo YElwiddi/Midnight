@@ -11,6 +11,28 @@ public enum NPCExitBehavior
 }
 
 /// <summary>
+/// Configuration for a simple dialogue that plays during the NPC's exit.
+/// </summary>
+[System.Serializable]
+public class ExitDialogueData
+{
+    [Tooltip("The dialogue text to display")]
+    [TextArea(2, 5)]
+    public string dialogueText = "";
+
+    [Tooltip("Speaker name (leave empty for no speaker)")]
+    public string speakerName = "";
+
+    [Tooltip("Delay in seconds after the NPC starts walking away before this dialogue plays")]
+    [Range(0f, 30f)]
+    public float delayAfterExit = 2f;
+
+    [Tooltip("How long the dialogue stays on screen")]
+    [Range(1f, 10f)]
+    public float displayDuration = 3f;
+}
+
+/// <summary>
 /// Configuration for a single waypoint in the NPC's path.
 /// </summary>
 [System.Serializable]
@@ -66,4 +88,8 @@ public class GameEvent : ScriptableObject
 
     [Tooltip("Name of the exit point GameObject (only used if exitBehavior is ContinueWalking)")]
     public string exitPointName = "NPCExitPoint";
+
+    [Header("Exit Dialogues")]
+    [Tooltip("Simple dialogues that play while the NPC is walking away (after main dialogue)")]
+    public ExitDialogueData[] exitDialogues;
 }
