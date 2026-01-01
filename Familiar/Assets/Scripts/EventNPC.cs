@@ -39,6 +39,10 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     [Header("Movement Settings")]
     [SerializeField] private float arrivalThreshold = 0.5f;
+
+    [Header("Camera Settings")]
+    [Tooltip("Camera look height when NPC is kneeling (lower than standing)")]
+    [SerializeField] private float kneelingCameraHeight = 0.8f;
     #endregion
 
     #region Events
@@ -216,14 +220,18 @@ public class EventNPC : MonoBehaviour, IInteractable
         currentState = NPCState.InDialogue;
         Debug.Log($"EventNPC {npcName}: Starting dialogue (knot: {(string.IsNullOrEmpty(knotToUse) ? "default" : knotToUse)})");
 
+        // Check if NPC is kneeling to adjust camera height
+        bool isKneeling = currentIdleAnimationBool == "IsKneeling";
+        float cameraHeight = isKneeling ? kneelingCameraHeight : -1f;
+
         // Start dialogue
         if (!string.IsNullOrEmpty(knotToUse))
         {
-            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform);
+            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform, cameraHeight);
         }
         else
         {
-            dialogueManager.EnterDialogueMode(dialogueToUse, transform);
+            dialogueManager.EnterDialogueMode(dialogueToUse, transform, cameraHeight);
         }
     }
 
@@ -244,6 +252,11 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         // Clear any previous idle animation
         ClearCurrentIdleAnimation();
+
+        // Re-enable NavMeshAgent in case it was disabled for an arrival animation
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        agent.isStopped = false;
 
         WaypointData waypoint = waypoints[currentWaypointIndex];
         GameObject waypointObj = GameObject.Find(waypoint.waypointName);
@@ -299,13 +312,49 @@ public class EventNPC : MonoBehaviour, IInteractable
         WaypointData waypoint = waypoints[currentWaypointIndex];
         Debug.Log($"EventNPC {npcName}: Arrived at waypoint '{waypoint.waypointName}'");
 
-        // Trigger arrival animation if specified
+        // If there's an arrival animation, wait for NavMeshAgent to fully settle before playing it
         if (!string.IsNullOrEmpty(waypoint.arrivalAnimationTrigger))
         {
-            TriggerAnimation(waypoint.arrivalAnimationTrigger);
-            Debug.Log($"EventNPC {npcName}: Playing arrival animation '{waypoint.arrivalAnimationTrigger}'");
+            StartCoroutine(PlayArrivalAnimationAfterSettling(waypoint));
+        }
+        else
+        {
+            // No arrival animation, proceed immediately
+            FinalizeWaypointArrival(waypoint);
+        }
+    }
+
+    private IEnumerator PlayArrivalAnimationAfterSettling(WaypointData waypoint)
+    {
+        // Stop the NavMeshAgent from controlling position during animation
+        agent.isStopped = true;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+
+        // Wait a frame for everything to settle
+        yield return null;
+
+        // Raycast down to find the actual ground position
+        Vector3 rayOrigin = transform.position + Vector3.up * 2f;
+        if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, 10f, ~0, QueryTriggerInteraction.Ignore))
+        {
+            transform.position = hit.point;
+            Debug.Log($"EventNPC {npcName}: Snapped to ground at Y={hit.point.y}");
+        }
+        else if (NavMesh.SamplePosition(transform.position, out NavMeshHit navHit, 2f, NavMesh.AllAreas))
+        {
+            // Fallback to NavMesh sampling if raycast fails
+            transform.position = navHit.position;
         }
 
+        TriggerAnimation(waypoint.arrivalAnimationTrigger);
+        Debug.Log($"EventNPC {npcName}: Playing arrival animation '{waypoint.arrivalAnimationTrigger}'");
+
+        FinalizeWaypointArrival(waypoint);
+    }
+
+    private void FinalizeWaypointArrival(WaypointData waypoint)
+    {
         // Set idle animation bool if specified (for looping idle animations)
         if (!string.IsNullOrEmpty(waypoint.idleAnimationBool))
         {

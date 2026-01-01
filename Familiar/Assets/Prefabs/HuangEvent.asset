@@ -40,7 +40,7 @@ MonoBehaviour:
     idleAnimationBool: 
     branchVariable: allowed_inside
     branchValue: true
-    branchToWaypoint: HuangGraveSite
+    branchToWaypoint: GraveyardCrossRoads
     waypointId: 
   - waypointName: NPCCenterPoint
     moveSpeed: 3
@@ -55,11 +55,24 @@ MonoBehaviour:
     branchValue: false
     branchToWaypoint: NPCRightPoint
     waypointId: 
+  - waypointName: GraveyardCrossRoads
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
   - waypointName: HuangGraveSite
     moveSpeed: 3
     waitForInteraction: 1
     waitTime: 0
-    inkDialogue: {fileID: 0}
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
@@ -68,9 +81,35 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+  - waypointName: GraveyardCrossRoads
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: NPCCenterPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
   - waypointName: NPCRightPoint
     moveSpeed: 3
-    waitForInteraction: 1
+    waitForInteraction: 0
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 

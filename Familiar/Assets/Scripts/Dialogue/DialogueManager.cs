@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     private GameManager gameManager;
     private Movement movementScript;
     private Transform currentNPC;
+    private float customCameraHeight = -1f; // -1 means use default height
     private static DialogueManager instance;
     #endregion
 
@@ -151,7 +152,8 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     /// <param name="inkJSON">The compiled Ink JSON asset</param>
     /// <param name="npcTransform">Optional transform of the NPC being talked to (for camera focus)</param>
-    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform = null)
+    /// <param name="cameraHeight">Optional camera look height (-1 to use default)</param>
+    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform = null, float cameraHeight = -1f)
     {
         if (inkJSON == null)
         {
@@ -166,6 +168,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentNPC = npcTransform;
+        customCameraHeight = cameraHeight;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
 
@@ -199,7 +202,8 @@ public class DialogueManager : MonoBehaviour
     /// <param name="inkJSON">The compiled Ink JSON asset</param>
     /// <param name="knotName">Name of the knot to start from</param>
     /// <param name="npcTransform">Optional NPC transform</param>
-    public void EnterDialogueMode(TextAsset inkJSON, string knotName, Transform npcTransform = null)
+    /// <param name="cameraHeight">Optional camera look height (-1 to use default)</param>
+    public void EnterDialogueMode(TextAsset inkJSON, string knotName, Transform npcTransform = null, float cameraHeight = -1f)
     {
         if (inkJSON == null)
         {
@@ -214,6 +218,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentNPC = npcTransform;
+        customCameraHeight = cameraHeight;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
 
@@ -230,9 +235,16 @@ public class DialogueManager : MonoBehaviour
         SyncVariablesToInk();
 
         // Jump to specified knot
-        if (!string.IsNullOrEmpty(knotName) && currentStory.KnotContainerWithName(knotName) != null)
+        if (!string.IsNullOrEmpty(knotName))
         {
-            currentStory.ChoosePathString(knotName);
+            if (currentStory.KnotContainerWithName(knotName) != null)
+            {
+                currentStory.ChoosePathString(knotName);
+            }
+            else
+            {
+                Debug.LogWarning($"DialogueManager: Knot '{knotName}' not found in ink file! Starting from beginning.");
+            }
         }
 
         OnDialogueStarted?.Invoke();
@@ -264,6 +276,7 @@ public class DialogueManager : MonoBehaviour
 
         currentNPC = null;
         currentStory = null;
+        customCameraHeight = -1f;
 
         OnDialogueEnded?.Invoke();
     }
@@ -321,6 +334,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (currentStory != null && currentStory.currentChoices.Count == 0)
             {
+                Debug.Log("DialogueManager: Story cannot continue and has no choices - exiting dialogue");
                 ExitDialogueMode();
             }
             return;
@@ -430,7 +444,14 @@ public class DialogueManager : MonoBehaviour
 
                 if (currentNPC != null)
                 {
-                    movementScript.SetCameraTarget(currentNPC);
+                    if (customCameraHeight >= 0)
+                    {
+                        movementScript.SetCameraTarget(currentNPC, customCameraHeight);
+                    }
+                    else
+                    {
+                        movementScript.SetCameraTarget(currentNPC);
+                    }
                 }
             }
         }

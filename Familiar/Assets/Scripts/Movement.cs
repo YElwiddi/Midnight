@@ -64,6 +64,7 @@ public class Movement : MonoBehaviour
     // Dialogue camera control
     public bool isInDialogue = false;
     public Transform dialogueTarget;
+    private float defaultDialogueLookHeight;
 
     void Start()
     {
@@ -96,6 +97,9 @@ public class Movement : MonoBehaviour
             footstepAudioSource.spatialBlend = 1.0f; // Make sound 3D
             footstepAudioSource.volume = footstepVolume;
         }
+
+        // Store default dialogue look height
+        defaultDialogueLookHeight = dialogueLookHeight;
     }
 
     void Update()
@@ -327,10 +331,19 @@ public class Movement : MonoBehaviour
         isInDialogue = true;
     }
 
+    // Public method to set camera target with custom height (for kneeling NPCs, etc.)
+    public void SetCameraTarget(Transform target, float customLookHeight)
+    {
+        dialogueTarget = target;
+        dialogueLookHeight = customLookHeight;
+        isInDialogue = true;
+    }
+
     // Public method to clear camera target after dialogue
     public void ClearCameraTarget()
     {
         dialogueTarget = null;
+        dialogueLookHeight = defaultDialogueLookHeight;
         isInDialogue = false;
     }
 }
