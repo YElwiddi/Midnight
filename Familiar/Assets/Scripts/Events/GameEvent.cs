@@ -52,6 +52,13 @@ public class WaypointData
     [Range(0f, 30f)]
     public float waitTime = 0f;
 
+    [Header("Dialogue (Optional - overrides event default)")]
+    [Tooltip("Ink dialogue to use at this waypoint. If empty, uses the event's default dialogue.")]
+    public TextAsset inkDialogue;
+
+    [Tooltip("Knot/stitch to start from in the dialogue. If empty, starts from beginning or 'start' knot.")]
+    public string dialogueKnot = "";
+
     [Header("Animation Settings")]
     [Tooltip("Animation trigger to set when moving TO this waypoint (e.g., 'Run', 'Sneak'). Leave empty for default walk.")]
     public string movementAnimationTrigger = "";

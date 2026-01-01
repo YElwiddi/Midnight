@@ -18072,7 +18072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.62
+      value: 18.24
       objectReference: {fileID: 0}
     - target: {fileID: 8294953645395177519, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18778,13 +18778,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 0
-    singleEvent: {fileID: 11400000, guid: 7488f4a3b16e73948a08a92d375e9b58, type: 2}
-    eventGroup: []
   - selectionMode: 1
     singleEvent: {fileID: 0}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
+  - selectionMode: 0
+    singleEvent: {fileID: 11400000, guid: 7488f4a3b16e73948a08a92d375e9b58, type: 2}
+    eventGroup: []
   autoStartOnAwake: 1
   startDelay: 1
   eventTransitionDelay: 0.5

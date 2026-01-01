@@ -19,25 +19,69 @@ MonoBehaviour:
   - waypointName: NPCCenterPoint
     moveSpeed: 4.5
     waitForInteraction: 0
-    waitTime: 10
+    waitTime: 5
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
   - waypointName: NPCGatePoint
     moveSpeed: 4.5
     waitForInteraction: 1
     waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: true
+    branchToWaypoint: HuangGraveSite
+    waypointId: 
   - waypointName: NPCCenterPoint
-    moveSpeed: 4.5
+    moveSpeed: 3
     waitForInteraction: 0
     waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
-  inkDialogue: {fileID: 4900000, guid: feeaf3669d531f147847edf81865ca05, type: 3}
+    branchVariable: allowed_inside
+    branchValue: false
+    branchToWaypoint: NPCRightPoint
+    waypointId: 
+  - waypointName: HuangGraveSite
+    moveSpeed: 3
+    waitForInteraction: 1
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: IsKneeling
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: NPCRightPoint
+    moveSpeed: 3
+    waitForInteraction: 1
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  inkDialogue: {fileID: 4900000, guid: 56226e2e9ea3fa649895f44edf185ad6, type: 3}
   dialogueKnot: 
   exitBehavior: 2
   exitPointName: NPCRightPoint

@@ -182,9 +182,14 @@ public class EventNPC : MonoBehaviour, IInteractable
             }
         }
 
-        if (inkDialogue == null)
+        // Get dialogue from current waypoint, or fall back to event default
+        WaypointData currentWaypoint = waypoints[currentWaypointIndex];
+        TextAsset dialogueToUse = currentWaypoint.inkDialogue != null ? currentWaypoint.inkDialogue : inkDialogue;
+        string knotToUse = !string.IsNullOrEmpty(currentWaypoint.dialogueKnot) ? currentWaypoint.dialogueKnot : dialogueKnot;
+
+        if (dialogueToUse == null)
         {
-            Debug.LogError($"EventNPC {npcName}: No Ink dialogue assigned!");
+            Debug.LogError($"EventNPC {npcName}: No Ink dialogue assigned for waypoint or event!");
             return;
         }
 
@@ -209,16 +214,16 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
 
         currentState = NPCState.InDialogue;
-        Debug.Log($"EventNPC {npcName}: Starting dialogue");
+        Debug.Log($"EventNPC {npcName}: Starting dialogue (knot: {(string.IsNullOrEmpty(knotToUse) ? "default" : knotToUse)})");
 
         // Start dialogue
-        if (!string.IsNullOrEmpty(dialogueKnot))
+        if (!string.IsNullOrEmpty(knotToUse))
         {
-            dialogueManager.EnterDialogueMode(inkDialogue, dialogueKnot, transform);
+            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform);
         }
         else
         {
-            dialogueManager.EnterDialogueMode(inkDialogue, transform);
+            dialogueManager.EnterDialogueMode(dialogueToUse, transform);
         }
     }
 
