@@ -58,6 +58,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     private NPCState currentState = NPCState.Idle;
     private Transform currentTargetWaypoint;
     private bool hasCompletedDialogue = false;
+    private string currentIdleAnimationBool = "";
     #endregion
 
     #region Unity Lifecycle
@@ -236,6 +237,9 @@ public class EventNPC : MonoBehaviour, IInteractable
             return;
         }
 
+        // Clear any previous idle animation
+        ClearCurrentIdleAnimation();
+
         WaypointData waypoint = waypoints[currentWaypointIndex];
         GameObject waypointObj = GameObject.Find(waypoint.waypointName);
 
@@ -253,6 +257,13 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         SetWalkingState(true);
         currentState = NPCState.Walking;
+
+        // Trigger custom movement animation if specified
+        if (!string.IsNullOrEmpty(waypoint.movementAnimationTrigger))
+        {
+            TriggerAnimation(waypoint.movementAnimationTrigger);
+            Debug.Log($"EventNPC {npcName}: Playing movement animation '{waypoint.movementAnimationTrigger}'");
+        }
 
         Debug.Log($"EventNPC {npcName}: Moving to waypoint '{waypoint.waypointName}' at speed {waypoint.moveSpeed}");
     }
@@ -283,6 +294,19 @@ public class EventNPC : MonoBehaviour, IInteractable
         WaypointData waypoint = waypoints[currentWaypointIndex];
         Debug.Log($"EventNPC {npcName}: Arrived at waypoint '{waypoint.waypointName}'");
 
+        // Trigger arrival animation if specified
+        if (!string.IsNullOrEmpty(waypoint.arrivalAnimationTrigger))
+        {
+            TriggerAnimation(waypoint.arrivalAnimationTrigger);
+            Debug.Log($"EventNPC {npcName}: Playing arrival animation '{waypoint.arrivalAnimationTrigger}'");
+        }
+
+        // Set idle animation bool if specified (for looping idle animations)
+        if (!string.IsNullOrEmpty(waypoint.idleAnimationBool))
+        {
+            SetIdleAnimation(waypoint.idleAnimationBool, true);
+        }
+
         if (waypoint.waitForInteraction)
         {
             currentState = NPCState.WaitingForInteraction;
@@ -295,8 +319,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
         else
         {
-            currentWaypointIndex++;
-            MoveToNextWaypoint();
+            AdvanceToNextWaypoint();
         }
     }
 
@@ -305,8 +328,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         Debug.Log($"EventNPC {npcName}: Waiting for {waitTime} seconds");
         yield return new WaitForSeconds(waitTime);
 
-        currentWaypointIndex++;
-        MoveToNextWaypoint();
+        AdvanceToNextWaypoint();
     }
 
     private void HandleDialogueEnded()
@@ -328,13 +350,71 @@ public class EventNPC : MonoBehaviour, IInteractable
             }
         }
 
+        AdvanceToNextWaypoint();
+    }
+
+    private void AdvanceToNextWaypoint()
+    {
+        WaypointData currentWaypoint = waypoints[currentWaypointIndex];
+
+        // Check for branching condition
+        if (!string.IsNullOrEmpty(currentWaypoint.branchVariable) &&
+            !string.IsNullOrEmpty(currentWaypoint.branchToWaypoint))
+        {
+            bool conditionMet = EventVariables.CheckVariable(
+                currentWaypoint.branchVariable,
+                currentWaypoint.branchValue
+            );
+
+            if (conditionMet)
+            {
+                int branchIndex = FindWaypointIndex(currentWaypoint.branchToWaypoint);
+                if (branchIndex >= 0)
+                {
+                    Debug.Log($"EventNPC {npcName}: Branch condition met ({currentWaypoint.branchVariable} = {currentWaypoint.branchValue}), jumping to '{currentWaypoint.branchToWaypoint}'");
+                    currentWaypointIndex = branchIndex;
+                    MoveToNextWaypoint();
+                    return;
+                }
+                else
+                {
+                    Debug.LogWarning($"EventNPC {npcName}: Branch target waypoint '{currentWaypoint.branchToWaypoint}' not found!");
+                }
+            }
+            else
+            {
+                Debug.Log($"EventNPC {npcName}: Branch condition not met ({currentWaypoint.branchVariable} != {currentWaypoint.branchValue}), continuing normally");
+            }
+        }
+
+        // Default: advance to next waypoint in sequence
         currentWaypointIndex++;
         MoveToNextWaypoint();
+    }
+
+    private int FindWaypointIndex(string waypointNameOrId)
+    {
+        for (int i = 0; i < waypoints.Length; i++)
+        {
+            // Check waypointId first (if set), then waypointName
+            string id = !string.IsNullOrEmpty(waypoints[i].waypointId)
+                ? waypoints[i].waypointId
+                : waypoints[i].waypointName;
+
+            if (id == waypointNameOrId)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void HandleWaypointsCompleted()
     {
         Debug.Log($"EventNPC {npcName}: All waypoints completed, handling exit behavior: {exitBehavior}");
+
+        // Clear any idle animation before finishing
+        ClearCurrentIdleAnimation();
 
         switch (exitBehavior)
         {
@@ -355,6 +435,9 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     private void MoveToExitPoint()
     {
+        // Clear any idle animation before exiting
+        ClearCurrentIdleAnimation();
+
         GameObject exitObj = GameObject.Find(exitPointName);
 
         if (exitObj == null)
@@ -425,6 +508,45 @@ public class EventNPC : MonoBehaviour, IInteractable
         else
         {
             Debug.LogWarning($"EventNPC {npcName}: Cannot set walking state - no Animator!");
+        }
+    }
+
+    private void TriggerAnimation(string triggerName)
+    {
+        if (animator != null && !string.IsNullOrEmpty(triggerName))
+        {
+            animator.SetTrigger(triggerName);
+        }
+        else if (animator == null)
+        {
+            Debug.LogWarning($"EventNPC {npcName}: Cannot trigger animation '{triggerName}' - no Animator!");
+        }
+    }
+
+    private void SetIdleAnimation(string boolName, bool value)
+    {
+        if (animator != null && !string.IsNullOrEmpty(boolName))
+        {
+            animator.SetBool(boolName, value);
+            if (value)
+            {
+                currentIdleAnimationBool = boolName;
+            }
+            Debug.Log($"EventNPC {npcName}: Set idle animation '{boolName}' = {value}");
+        }
+        else if (animator == null)
+        {
+            Debug.LogWarning($"EventNPC {npcName}: Cannot set idle animation '{boolName}' - no Animator!");
+        }
+    }
+
+    private void ClearCurrentIdleAnimation()
+    {
+        if (!string.IsNullOrEmpty(currentIdleAnimationBool) && animator != null)
+        {
+            animator.SetBool(currentIdleAnimationBool, false);
+            Debug.Log($"EventNPC {npcName}: Cleared idle animation '{currentIdleAnimationBool}'");
+            currentIdleAnimationBool = "";
         }
     }
     #endregion

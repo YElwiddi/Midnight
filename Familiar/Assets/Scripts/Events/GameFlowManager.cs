@@ -14,8 +14,8 @@ public class GameFlowManager : MonoBehaviour
 
     #region Inspector Settings
     [Header("Event Queue")]
-    [Tooltip("List of events to execute in order")]
-    [SerializeField] private List<GameEvent> eventQueue = new List<GameEvent>();
+    [Tooltip("List of event entries to execute in order. Each entry can be a single event or a random selection from a group.")]
+    [SerializeField] private List<EventQueueEntry> eventQueue = new List<EventQueueEntry>();
 
     [Header("Settings")]
     [Tooltip("Automatically start the first event when the scene loads")]
@@ -115,17 +115,38 @@ public class GameFlowManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Starts a specific event by name.
+    /// Starts a specific event by name. Searches through single events and event groups.
     /// </summary>
     public void StartEventByName(string eventName)
     {
         for (int i = 0; i < eventQueue.Count; i++)
         {
-            if (eventQueue[i].eventName == eventName)
+            EventQueueEntry entry = eventQueue[i];
+            if (entry == null) continue;
+
+            if (entry.selectionMode == EventSelectionMode.Single)
             {
-                currentEventIndex = i;
-                StartCurrentEvent();
-                return;
+                if (entry.singleEvent != null && entry.singleEvent.eventName == eventName)
+                {
+                    currentEventIndex = i;
+                    StartCurrentEvent();
+                    return;
+                }
+            }
+            else if (entry.selectionMode == EventSelectionMode.RandomFromGroup)
+            {
+                // Check if any event in the group matches
+                foreach (var groupEvent in entry.eventGroup)
+                {
+                    if (groupEvent != null && groupEvent.eventName == eventName)
+                    {
+                        // Force this specific event instead of random selection
+                        currentEventIndex = i;
+                        currentEvent = groupEvent;
+                        StartEventDirectly(groupEvent);
+                        return;
+                    }
+                }
             }
         }
 
@@ -133,19 +154,45 @@ public class GameFlowManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds an event to the queue.
+    /// Adds a single event to the queue.
     /// </summary>
     public void AddEvent(GameEvent gameEvent)
     {
-        eventQueue.Add(gameEvent);
+        var entry = new EventQueueEntry
+        {
+            selectionMode = EventSelectionMode.Single,
+            singleEvent = gameEvent
+        };
+        eventQueue.Add(entry);
     }
 
     /// <summary>
-    /// Inserts an event at a specific index.
+    /// Adds an event queue entry to the queue.
+    /// </summary>
+    public void AddEventEntry(EventQueueEntry entry)
+    {
+        eventQueue.Add(entry);
+    }
+
+    /// <summary>
+    /// Inserts a single event at a specific index.
     /// </summary>
     public void InsertEvent(int index, GameEvent gameEvent)
     {
-        eventQueue.Insert(index, gameEvent);
+        var entry = new EventQueueEntry
+        {
+            selectionMode = EventSelectionMode.Single,
+            singleEvent = gameEvent
+        };
+        eventQueue.Insert(index, entry);
+    }
+
+    /// <summary>
+    /// Inserts an event queue entry at a specific index.
+    /// </summary>
+    public void InsertEventEntry(int index, EventQueueEntry entry)
+    {
+        eventQueue.Insert(index, entry);
     }
 
     /// <summary>
@@ -170,22 +217,15 @@ public class GameFlowManager : MonoBehaviour
     #endregion
 
     #region Private Methods
-    private void StartCurrentEvent()
+    private void StartEventDirectly(GameEvent gameEvent)
     {
-        if (currentEventIndex >= eventQueue.Count)
+        if (gameEvent == null)
         {
-            Debug.LogWarning("GameFlowManager: No more events to start!");
+            Debug.LogError("GameFlowManager: Cannot start null event!");
             return;
         }
 
-        currentEvent = eventQueue[currentEventIndex];
-
-        if (currentEvent == null)
-        {
-            Debug.LogError($"GameFlowManager: Event at index {currentEventIndex} is null!");
-            StartNextEvent();
-            return;
-        }
+        currentEvent = gameEvent;
 
         if (currentEvent.npcPrefab == null)
         {
@@ -241,6 +281,35 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    private void StartCurrentEvent()
+    {
+        if (currentEventIndex >= eventQueue.Count)
+        {
+            Debug.LogWarning("GameFlowManager: No more events to start!");
+            return;
+        }
+
+        EventQueueEntry entry = eventQueue[currentEventIndex];
+
+        if (entry == null)
+        {
+            Debug.LogError($"GameFlowManager: Event entry at index {currentEventIndex} is null!");
+            StartNextEvent();
+            return;
+        }
+
+        GameEvent selectedEvent = entry.GetEvent();
+
+        if (selectedEvent == null)
+        {
+            Debug.LogError($"GameFlowManager: No valid event from entry at index {currentEventIndex} ({entry.GetDisplayName()})!");
+            StartNextEvent();
+            return;
+        }
+
+        StartEventDirectly(selectedEvent);
+    }
+
     private void HandleNPCEventCompleted()
     {
         if (currentNPC != null)
@@ -271,47 +340,68 @@ public class GameFlowManager : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         // Visualize spawn points and waypoints for configured events
-        foreach (var gameEvent in eventQueue)
+        foreach (var entry in eventQueue)
         {
-            if (gameEvent == null) continue;
+            if (entry == null) continue;
 
-            // Draw spawn point
-            GameObject spawnPoint = GameObject.Find(gameEvent.spawnPointName);
-            if (spawnPoint != null)
+            // Get all events to visualize from this entry
+            List<GameEvent> eventsToVisualize = new List<GameEvent>();
+            if (entry.selectionMode == EventSelectionMode.Single && entry.singleEvent != null)
             {
-                Gizmos.color = Color.green;
-                Gizmos.DrawWireSphere(spawnPoint.transform.position, 0.5f);
+                eventsToVisualize.Add(entry.singleEvent);
             }
-
-            // Draw waypoints
-            Vector3? previousPos = spawnPoint?.transform.position;
-            Gizmos.color = Color.yellow;
-
-            foreach (var waypoint in gameEvent.waypoints)
+            else if (entry.selectionMode == EventSelectionMode.RandomFromGroup)
             {
-                GameObject waypointObj = GameObject.Find(waypoint.waypointName);
-                if (waypointObj != null)
+                foreach (var groupEvent in entry.eventGroup)
                 {
-                    Gizmos.DrawWireSphere(waypointObj.transform.position, 0.3f);
-
-                    if (previousPos.HasValue)
-                    {
-                        Gizmos.color = Color.cyan;
-                        Gizmos.DrawLine(previousPos.Value, waypointObj.transform.position);
-                        Gizmos.color = Color.yellow;
-                    }
-
-                    previousPos = waypointObj.transform.position;
+                    if (groupEvent != null)
+                        eventsToVisualize.Add(groupEvent);
                 }
             }
 
-            // Draw exit point
-            GameObject exitPoint = GameObject.Find(gameEvent.exitPointName);
-            if (exitPoint != null && previousPos.HasValue)
+            foreach (var gameEvent in eventsToVisualize)
             {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(exitPoint.transform.position, 0.3f);
-                Gizmos.DrawLine(previousPos.Value, exitPoint.transform.position);
+                // Draw spawn point
+                GameObject spawnPoint = GameObject.Find(gameEvent.spawnPointName);
+                if (spawnPoint != null)
+                {
+                    Gizmos.color = Color.green;
+                    Gizmos.DrawWireSphere(spawnPoint.transform.position, 0.5f);
+                }
+
+                // Draw waypoints
+                Vector3? previousPos = spawnPoint?.transform.position;
+                Gizmos.color = Color.yellow;
+
+                if (gameEvent.waypoints != null)
+                {
+                    foreach (var waypoint in gameEvent.waypoints)
+                    {
+                        GameObject waypointObj = GameObject.Find(waypoint.waypointName);
+                        if (waypointObj != null)
+                        {
+                            Gizmos.DrawWireSphere(waypointObj.transform.position, 0.3f);
+
+                            if (previousPos.HasValue)
+                            {
+                                Gizmos.color = Color.cyan;
+                                Gizmos.DrawLine(previousPos.Value, waypointObj.transform.position);
+                                Gizmos.color = Color.yellow;
+                            }
+
+                            previousPos = waypointObj.transform.position;
+                        }
+                    }
+                }
+
+                // Draw exit point
+                GameObject exitPoint = GameObject.Find(gameEvent.exitPointName);
+                if (exitPoint != null && previousPos.HasValue)
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawWireSphere(exitPoint.transform.position, 0.3f);
+                    Gizmos.DrawLine(previousPos.Value, exitPoint.transform.position);
+                }
             }
         }
     }

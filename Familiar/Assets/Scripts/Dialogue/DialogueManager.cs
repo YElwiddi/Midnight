@@ -448,6 +448,27 @@ public class DialogueManager : MonoBehaviour
                 gameManager.ChangeVariable(varName, value);
             }
         });
+
+        // Bind SetEventVar function for event branching
+        // Usage in Ink: ~ SetEventVar("allowed_inside", true)
+        currentStory.BindExternalFunction("SetEventVar", (string varName, bool value) =>
+        {
+            EventVariables.SetVariable(varName, value);
+        });
+
+        // Overload for string values
+        // Usage in Ink: ~ SetEventVarString("destination", "inside")
+        currentStory.BindExternalFunction("SetEventVarString", (string varName, string value) =>
+        {
+            EventVariables.SetVariable(varName, value);
+        });
+
+        // Overload for int values
+        // Usage in Ink: ~ SetEventVarInt("choice_index", 2)
+        currentStory.BindExternalFunction("SetEventVarInt", (string varName, int value) =>
+        {
+            EventVariables.SetVariable(varName, value);
+        });
     }
 
     private void SyncVariablesToInk()

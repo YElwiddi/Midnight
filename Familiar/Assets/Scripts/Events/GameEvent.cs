@@ -51,6 +51,29 @@ public class WaypointData
     [Tooltip("Time to wait at this waypoint before continuing (ignored if waitForInteraction is true)")]
     [Range(0f, 30f)]
     public float waitTime = 0f;
+
+    [Header("Animation Settings")]
+    [Tooltip("Animation trigger to set when moving TO this waypoint (e.g., 'Run', 'Sneak'). Leave empty for default walk.")]
+    public string movementAnimationTrigger = "";
+
+    [Tooltip("Animation trigger to play once when arriving at this waypoint (e.g., 'Kneel', 'Wave')")]
+    public string arrivalAnimationTrigger = "";
+
+    [Tooltip("Animation bool to set while idle/waiting at this waypoint (e.g., 'IsKneeling'). Will be set to false when leaving.")]
+    public string idleAnimationBool = "";
+
+    [Header("Branching (Optional)")]
+    [Tooltip("Event variable name to check after this waypoint completes (e.g., 'allowed_inside'). Set via Ink: ~ SetEventVar(\"allowed_inside\", true)")]
+    public string branchVariable = "";
+
+    [Tooltip("Value to compare against (e.g., 'true', 'false', or any string)")]
+    public string branchValue = "";
+
+    [Tooltip("Name of the waypoint to jump to if condition is met. Must match another waypoint's waypointName.")]
+    public string branchToWaypoint = "";
+
+    [Tooltip("Optional: Unique ID for this waypoint (used as a branch target). If empty, waypointName is used.")]
+    public string waypointId = "";
 }
 
 /// <summary>
