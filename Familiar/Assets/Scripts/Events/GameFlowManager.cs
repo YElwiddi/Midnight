@@ -44,6 +44,7 @@ public class GameFlowManager : MonoBehaviour
     private GameEvent currentEvent;
     private EventNPC currentNPC;
     private bool isRunning = false;
+    private HashSet<GameEvent> previouslySelectedEvents = new HashSet<GameEvent>();
     #endregion
 
     #region Unity Lifecycle
@@ -81,6 +82,7 @@ public class GameFlowManager : MonoBehaviour
     public void StartFirstEvent()
     {
         currentEventIndex = 0;
+        previouslySelectedEvents.Clear();
         StartCurrentEvent();
     }
 
@@ -298,7 +300,8 @@ public class GameFlowManager : MonoBehaviour
             return;
         }
 
-        GameEvent selectedEvent = entry.GetEvent();
+        // Pass previously selected events for exclusion filtering
+        GameEvent selectedEvent = entry.GetEvent(previouslySelectedEvents);
 
         if (selectedEvent == null)
         {
@@ -306,6 +309,9 @@ public class GameFlowManager : MonoBehaviour
             StartNextEvent();
             return;
         }
+
+        // Track this event as selected for future exclusion
+        previouslySelectedEvents.Add(selectedEvent);
 
         StartEventDirectly(selectedEvent);
     }

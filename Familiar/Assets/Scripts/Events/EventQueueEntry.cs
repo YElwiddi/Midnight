@@ -26,11 +26,23 @@ public class EventQueueEntry
     [Tooltip("Group of events to randomly select from (when Selection Mode is RandomFromGroup)")]
     public List<GameEvent> eventGroup = new List<GameEvent>();
 
+    [Tooltip("If enabled, events that were already selected in previous queue entries will be excluded from random selection")]
+    public bool excludePreviouslySelectedEvents = false;
+
     /// <summary>
     /// Gets the event to execute based on the selection mode.
     /// Returns null if no valid event is available.
     /// </summary>
     public GameEvent GetEvent()
+    {
+        return GetEvent(null);
+    }
+
+    /// <summary>
+    /// Gets the event to execute based on the selection mode, optionally excluding previously selected events.
+    /// </summary>
+    /// <param name="eventsToExclude">Set of events to exclude from random selection (only used if excludePreviouslySelectedEvents is true)</param>
+    public GameEvent GetEvent(HashSet<GameEvent> eventsToExclude)
     {
         switch (selectionMode)
         {
@@ -45,9 +57,16 @@ public class EventQueueEntry
                 }
                 // Filter out null entries
                 var validEvents = eventGroup.FindAll(e => e != null);
+
+                // If exclusion is enabled and we have events to exclude, filter them out
+                if (excludePreviouslySelectedEvents && eventsToExclude != null && eventsToExclude.Count > 0)
+                {
+                    validEvents = validEvents.FindAll(e => !eventsToExclude.Contains(e));
+                }
+
                 if (validEvents.Count == 0)
                 {
-                    Debug.LogWarning("EventQueueEntry: Event group has no valid events!");
+                    Debug.LogWarning("EventQueueEntry: Event group has no valid events after exclusion!");
                     return null;
                 }
                 int randomIndex = Random.Range(0, validEvents.Count);

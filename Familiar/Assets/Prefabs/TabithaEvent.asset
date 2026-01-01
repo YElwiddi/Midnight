@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
+  m_Name: TabithaEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEvent
+  eventName: Start Event
+  npcPrefab: {fileID: 3767055355421772689, guid: 167bf02fd3210e842a1a7edef705ec69, type: 3}
+  spawnPointName: NPCLeftPoint
+  waypoints:
+  - waypointName: NPCCenterPoint
+    moveSpeed: 4.5
+    waitForInteraction: 0
+    waitTime: 5
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: NPCGatePoint
+    moveSpeed: 4.5
+    waitForInteraction: 1
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: true
+    branchToWaypoint: GraveyardCrossRoads
+    waypointId: 
+  - waypointName: NPCCenterPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: false
+    branchToWaypoint: NPCRightPoint
+    waypointId: 
+  - waypointName: GraveyardCrossRoads
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: HuangGraveSite
+    moveSpeed: 3
+    waitForInteraction: 1
+    waitTime: 0
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: IsKneeling
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: GraveyardCrossRoads
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: NPCCenterPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  - waypointName: NPCRightPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    waitTime: 0
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+  inkDialogue: {fileID: 4900000, guid: 56226e2e9ea3fa649895f44edf185ad6, type: 3}
+  dialogueKnot: 
+  exitBehavior: 2
+  exitPointName: NPCRightPoint
+  exitDialogues: []
