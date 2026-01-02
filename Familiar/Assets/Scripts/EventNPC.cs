@@ -63,6 +63,11 @@ public class EventNPC : MonoBehaviour, IInteractable
     private Transform currentTargetWaypoint;
     private bool hasCompletedDialogue = false;
     private string currentIdleAnimationBool = "";
+
+    // Interaction delay tracking
+    private float interactableAtTime = 0f;
+    private bool isWaitingToBeInteractable = false;
+    private Coroutine waitingDialogueCoroutine;
     #endregion
 
     #region Unity Lifecycle
@@ -176,6 +181,21 @@ public class EventNPC : MonoBehaviour, IInteractable
             return;
         }
 
+        // Check if NPC is still in the "not yet interactable" period
+        if (isWaitingToBeInteractable && Time.time < interactableAtTime)
+        {
+            WaypointData currentWaypoint = waypoints[currentWaypointIndex];
+            if (!string.IsNullOrEmpty(currentWaypoint.waitingDialogueText))
+            {
+                ShowWaitingDialogue(currentWaypoint.waitingDialogueText, currentWaypoint.waitingDialogueSpeaker);
+            }
+            Debug.Log($"EventNPC {npcName}: Not yet interactable, {interactableAtTime - Time.time:F1}s remaining");
+            return;
+        }
+
+        // Clear the waiting flag now that we're interactable
+        isWaitingToBeInteractable = false;
+
         if (dialogueManager == null)
         {
             dialogueManager = DialogueManager.GetInstance();
@@ -187,9 +207,9 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
 
         // Get dialogue from current waypoint, or fall back to event default
-        WaypointData currentWaypoint = waypoints[currentWaypointIndex];
-        TextAsset dialogueToUse = currentWaypoint.inkDialogue != null ? currentWaypoint.inkDialogue : inkDialogue;
-        string knotToUse = !string.IsNullOrEmpty(currentWaypoint.dialogueKnot) ? currentWaypoint.dialogueKnot : dialogueKnot;
+        WaypointData currentWaypoint2 = waypoints[currentWaypointIndex];
+        TextAsset dialogueToUse = currentWaypoint2.inkDialogue != null ? currentWaypoint2.inkDialogue : inkDialogue;
+        string knotToUse = !string.IsNullOrEmpty(currentWaypoint2.dialogueKnot) ? currentWaypoint2.dialogueKnot : dialogueKnot;
 
         if (dialogueToUse == null)
         {
@@ -204,6 +224,17 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         // Cancel any active simple dialogue first
         SimpleDialogueTrigger.CancelActiveSimpleDialogue();
+
+        // Cancel any waiting dialogue that might be showing
+        if (waitingDialogueCoroutine != null)
+        {
+            StopCoroutine(waitingDialogueCoroutine);
+            waitingDialogueCoroutine = null;
+            if (dialogueUI != null)
+            {
+                dialogueUI.Hide();
+            }
+        }
 
         // Face the player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -233,6 +264,53 @@ public class EventNPC : MonoBehaviour, IInteractable
         {
             dialogueManager.EnterDialogueMode(dialogueToUse, transform, cameraHeight);
         }
+    }
+
+    private void ShowWaitingDialogue(string text, string speaker)
+    {
+        // Don't show if already showing a waiting dialogue
+        if (waitingDialogueCoroutine != null)
+        {
+            return;
+        }
+
+        waitingDialogueCoroutine = StartCoroutine(ShowWaitingDialogueCoroutine(text, speaker));
+    }
+
+    private IEnumerator ShowWaitingDialogueCoroutine(string text, string speaker)
+    {
+        if (dialogueUI == null)
+        {
+            dialogueUI = FindFirstObjectByType<DialogueUI>();
+            if (dialogueUI == null)
+            {
+                Debug.LogWarning($"EventNPC {npcName}: Cannot show waiting dialogue - DialogueUI not found");
+                waitingDialogueCoroutine = null;
+                yield break;
+            }
+        }
+
+        // Don't show if main dialogue is playing
+        if (dialogueManager != null && dialogueManager.IsDialoguePlaying())
+        {
+            waitingDialogueCoroutine = null;
+            yield break;
+        }
+
+        dialogueUI.Show();
+        string speakerName = string.IsNullOrEmpty(speaker) ? null : speaker;
+        dialogueUI.SetDialogueText(text, speakerName);
+
+        // Show for 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Only hide if we're not in a main dialogue
+        if (dialogueManager == null || !dialogueManager.IsDialoguePlaying())
+        {
+            dialogueUI.Hide();
+        }
+
+        waitingDialogueCoroutine = null;
     }
 
     public string GetInteractionPrompt()
@@ -364,7 +442,19 @@ public class EventNPC : MonoBehaviour, IInteractable
         if (waypoint.waitForInteraction)
         {
             currentState = NPCState.WaitingForInteraction;
-            Debug.Log($"EventNPC {npcName}: Waiting for player interaction");
+
+            // Handle interaction delay
+            if (waypoint.timeUntilInteractable > 0)
+            {
+                isWaitingToBeInteractable = true;
+                interactableAtTime = Time.time + waypoint.timeUntilInteractable;
+                Debug.Log($"EventNPC {npcName}: Waiting for player interaction (interactable in {waypoint.timeUntilInteractable}s)");
+            }
+            else
+            {
+                isWaitingToBeInteractable = false;
+                Debug.Log($"EventNPC {npcName}: Waiting for player interaction");
+            }
         }
         else if (waypoint.waitTime > 0)
         {

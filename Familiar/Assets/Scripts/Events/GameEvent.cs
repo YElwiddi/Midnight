@@ -48,6 +48,17 @@ public class WaypointData
     [Tooltip("If true, NPC will wait for player interaction (E key) before continuing")]
     public bool waitForInteraction = false;
 
+    [Tooltip("Time in seconds before the NPC becomes interactable after arriving (only used if waitForInteraction is true)")]
+    [Range(0f, 30f)]
+    public float timeUntilInteractable = 0f;
+
+    [Tooltip("Simple dialogue shown if player tries to interact before timeUntilInteractable has passed")]
+    [TextArea(1, 3)]
+    public string waitingDialogueText = "";
+
+    [Tooltip("Speaker name for the waiting dialogue (leave empty for no speaker)")]
+    public string waitingDialogueSpeaker = "";
+
     [Tooltip("Time to wait at this waypoint before continuing (ignored if waitForInteraction is true)")]
     [Range(0f, 30f)]
     public float waitTime = 0f;

@@ -19,7 +19,10 @@ MonoBehaviour:
   - waypointName: NPCCenterPoint
     moveSpeed: 4.5
     waitForInteraction: 0
-    waitTime: 5
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
@@ -32,8 +35,11 @@ MonoBehaviour:
   - waypointName: NPCGatePoint
     moveSpeed: 4.5
     waitForInteraction: 1
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
-    inkDialogue: {fileID: 0}
+    inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
@@ -45,6 +51,9 @@ MonoBehaviour:
   - waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -58,6 +67,9 @@ MonoBehaviour:
   - waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -68,15 +80,18 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
-  - waypointName: HuangGraveSite
+  - waypointName: CenterOfMap
     moveSpeed: 3
     waitForInteraction: 1
+    timeUntilInteractable: 10
+    waitingDialogueText: I should give her a moment...
+    waitingDialogueSpeaker: 20
     waitTime: 0
-    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    inkDialogue: {fileID: 4900000, guid: 34d5934b448fbf548b0770489e57634a, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
-    idleAnimationBool: IsKneeling
+    idleAnimationBool: IsPraying
     branchVariable: 
     branchValue: 
     branchToWaypoint: 
@@ -84,6 +99,9 @@ MonoBehaviour:
   - waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -97,6 +115,9 @@ MonoBehaviour:
   - waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -110,6 +131,9 @@ MonoBehaviour:
   - waypointName: NPCRightPoint
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -120,7 +144,7 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
-  inkDialogue: {fileID: 4900000, guid: 56226e2e9ea3fa649895f44edf185ad6, type: 3}
+  inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
   dialogueKnot: 
   exitBehavior: 2
   exitPointName: NPCRightPoint
