@@ -36,6 +36,7 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueIsPlaying;
     private GameManager gameManager;
     private Movement movementScript;
+    private CrosshairManager crosshairManager;
     private Transform currentNPC;
     private float customCameraHeight = -1f; // -1 means use default height
     private static DialogueManager instance;
@@ -66,6 +67,7 @@ public class DialogueManager : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
         movementScript = FindObjectOfType<Movement>();
+        crosshairManager = FindObjectOfType<CrosshairManager>();
 
         // Auto-find DialogueUI if not assigned
         if (dialogueUI == null)
@@ -429,6 +431,11 @@ public class DialogueManager : MonoBehaviour
                 movementScript.EnableAllInput();
             }
 
+            if (crosshairManager != null)
+            {
+                crosshairManager.Show();
+            }
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -437,6 +444,11 @@ public class DialogueManager : MonoBehaviour
             // Disable player input
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            if (crosshairManager != null)
+            {
+                crosshairManager.Hide();
+            }
 
             if (movementScript != null)
             {

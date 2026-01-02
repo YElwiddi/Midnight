@@ -48,6 +48,9 @@ public class EventNPC : MonoBehaviour, IInteractable
     #region Events
     /// <summary>Fired when this NPC has completed its entire event sequence.</summary>
     public event Action OnNPCEventCompleted;
+
+    /// <summary>Fired when this NPC arrives at a waypoint. Parameter is the waypoint name.</summary>
+    public event Action<string> OnWaypointReached;
     #endregion
 
     #region Private Fields
@@ -389,6 +392,9 @@ public class EventNPC : MonoBehaviour, IInteractable
     {
         WaypointData waypoint = waypoints[currentWaypointIndex];
         Debug.Log($"EventNPC {npcName}: Arrived at waypoint '{waypoint.waypointName}'");
+
+        // Fire waypoint reached event
+        OnWaypointReached?.Invoke(waypoint.waypointName);
 
         // If there's an arrival animation, wait for NavMeshAgent to fully settle before playing it
         if (!string.IsNullOrEmpty(waypoint.arrivalAnimationTrigger))

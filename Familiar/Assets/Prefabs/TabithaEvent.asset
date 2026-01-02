@@ -149,3 +149,29 @@ MonoBehaviour:
   exitBehavior: 2
   exitPointName: NPCRightPoint
   exitDialogues: []
+  backgroundNPCs:
+  - npcName: Headless Man
+    npcPrefab: {fileID: 3767055355421772689, guid: dc64650b2ebd88e44ade27e14f3d38dc, type: 3}
+    spawnPointName: LeftOfGate
+    spawnTrigger: 1
+    spawnDelay: 2
+    triggerWaypointName: CenterOfMap
+    waypoints:
+    - waypointName: RightOfGate
+      moveSpeed: 3.25
+      waitForInteraction: 0
+      timeUntilInteractable: 0
+      waitingDialogueText: 
+      waitingDialogueSpeaker: 
+      waitTime: 0
+      inkDialogue: {fileID: 0}
+      dialogueKnot: 
+      movementAnimationTrigger: 
+      arrivalAnimationTrigger: 
+      idleAnimationBool: 
+      branchVariable: 
+      branchValue: 
+      branchToWaypoint: 
+      waypointId: 
+    exitBehavior: 0
+    exitPointName: RightOfGate

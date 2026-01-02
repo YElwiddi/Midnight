@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,6 +46,7 @@ public class GameFlowManager : MonoBehaviour
     private EventNPC currentNPC;
     private bool isRunning = false;
     private HashSet<GameEvent> previouslySelectedEvents = new HashSet<GameEvent>();
+    private List<BackgroundNPCData> pendingWaypointTriggeredNPCs = new List<BackgroundNPCData>();
     #endregion
 
     #region Unity Lifecycle
@@ -260,8 +262,9 @@ public class GameFlowManager : MonoBehaviour
             currentNPC = npcObject.AddComponent<EventNPC>();
         }
 
-        // Subscribe to NPC completion event
+        // Subscribe to NPC events
         currentNPC.OnNPCEventCompleted += HandleNPCEventCompleted;
+        currentNPC.OnWaypointReached += HandleMainNPCWaypointReached;
 
         // Initialize the NPC
         currentNPC.Initialize(
@@ -281,6 +284,122 @@ public class GameFlowManager : MonoBehaviour
         {
             GameEventsManager.instance.gameFlowEvents?.EventStarted(currentEvent.eventName);
         }
+
+        // Spawn background NPCs (concurrent, non-blocking)
+        SpawnBackgroundNPCs(currentEvent);
+    }
+
+    private void SpawnBackgroundNPCs(GameEvent gameEvent)
+    {
+        // Clear any pending waypoint-triggered NPCs from previous events
+        pendingWaypointTriggeredNPCs.Clear();
+
+        if (gameEvent.backgroundNPCs == null || gameEvent.backgroundNPCs.Length == 0)
+        {
+            return;
+        }
+
+        foreach (var bgNPC in gameEvent.backgroundNPCs)
+        {
+            if (bgNPC == null || bgNPC.npcPrefab == null)
+            {
+                continue;
+            }
+
+            switch (bgNPC.spawnTrigger)
+            {
+                case BackgroundNPCSpawnTrigger.OnEventStart:
+                    if (bgNPC.spawnDelay > 0)
+                    {
+                        StartCoroutine(SpawnBackgroundNPCDelayed(bgNPC));
+                    }
+                    else
+                    {
+                        SpawnBackgroundNPC(bgNPC);
+                    }
+                    break;
+
+                case BackgroundNPCSpawnTrigger.OnWaypointReached:
+                    // Queue this NPC to spawn when the main NPC reaches the trigger waypoint
+                    if (!string.IsNullOrEmpty(bgNPC.triggerWaypointName))
+                    {
+                        pendingWaypointTriggeredNPCs.Add(bgNPC);
+                        Debug.Log($"GameFlowManager: Background NPC '{bgNPC.npcName}' will spawn when main NPC reaches '{bgNPC.triggerWaypointName}'");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"GameFlowManager: Background NPC '{bgNPC.npcName}' has OnWaypointReached trigger but no waypoint name specified!");
+                    }
+                    break;
+            }
+        }
+    }
+
+    private void HandleMainNPCWaypointReached(string waypointName)
+    {
+        // Check if any pending background NPCs should spawn at this waypoint
+        for (int i = pendingWaypointTriggeredNPCs.Count - 1; i >= 0; i--)
+        {
+            var bgNPC = pendingWaypointTriggeredNPCs[i];
+            if (bgNPC.triggerWaypointName == waypointName)
+            {
+                Debug.Log($"GameFlowManager: Waypoint '{waypointName}' reached - spawning background NPC '{bgNPC.npcName}'");
+
+                if (bgNPC.spawnDelay > 0)
+                {
+                    StartCoroutine(SpawnBackgroundNPCDelayed(bgNPC));
+                }
+                else
+                {
+                    SpawnBackgroundNPC(bgNPC);
+                }
+
+                // Remove from pending list
+                pendingWaypointTriggeredNPCs.RemoveAt(i);
+            }
+        }
+    }
+
+    private IEnumerator SpawnBackgroundNPCDelayed(BackgroundNPCData bgNPC)
+    {
+        yield return new WaitForSeconds(bgNPC.spawnDelay);
+        SpawnBackgroundNPC(bgNPC);
+    }
+
+    private void SpawnBackgroundNPC(BackgroundNPCData bgNPC)
+    {
+        // Find spawn point
+        GameObject spawnPoint = GameObject.Find(bgNPC.spawnPointName);
+        if (spawnPoint == null)
+        {
+            Debug.LogError($"GameFlowManager: Background NPC spawn point '{bgNPC.spawnPointName}' not found!");
+            return;
+        }
+
+        // Spawn NPC
+        GameObject npcObject = Instantiate(bgNPC.npcPrefab,
+                                           spawnPoint.transform.position,
+                                           spawnPoint.transform.rotation);
+
+        // Add or get EventNPC component
+        EventNPC eventNPC = npcObject.GetComponent<EventNPC>();
+        if (eventNPC == null)
+        {
+            eventNPC = npcObject.AddComponent<EventNPC>();
+        }
+
+        // Initialize the background NPC (no dialogue, no exit dialogues)
+        eventNPC.Initialize(
+            bgNPC.waypoints,
+            null,  // No ink dialogue
+            "",    // No dialogue knot
+            bgNPC.exitBehavior,
+            bgNPC.exitPointName,
+            bgNPC.npcName,
+            null   // No exit dialogues
+        );
+
+        Debug.Log($"GameFlowManager: Spawned background NPC '{bgNPC.npcName}'");
     }
 
     private void StartCurrentEvent()
@@ -296,6 +415,14 @@ public class GameFlowManager : MonoBehaviour
         if (entry == null)
         {
             Debug.LogError($"GameFlowManager: Event entry at index {currentEventIndex} is null!");
+            StartNextEvent();
+            return;
+        }
+
+        // Check if the condition for this entry is met
+        if (!entry.CheckCondition())
+        {
+            Debug.Log($"GameFlowManager: Condition not met for entry at index {currentEventIndex} ({entry.GetDisplayName()}), skipping...");
             StartNextEvent();
             return;
         }
@@ -321,7 +448,11 @@ public class GameFlowManager : MonoBehaviour
         if (currentNPC != null)
         {
             currentNPC.OnNPCEventCompleted -= HandleNPCEventCompleted;
+            currentNPC.OnWaypointReached -= HandleMainNPCWaypointReached;
         }
+
+        // Clear any pending waypoint-triggered NPCs that didn't spawn
+        pendingWaypointTriggeredNPCs.Clear();
 
         string eventName = currentEvent?.eventName ?? "Unknown";
         Debug.Log($"GameFlowManager: Event '{eventName}' completed");

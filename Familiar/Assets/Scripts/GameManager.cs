@@ -10,7 +10,14 @@ public class GameManager : MonoBehaviour
     public int player_smart = 0;
     public int player_stupid = 0;
 
+    [Header("Bool Flags")]
+    public bool metHuang = false;
+    public bool helpedHuang = false;
+    public bool metCat = false;
+    public bool befriendedCat = false;
+
     private static GameManager instance;
+    public static GameManager Instance => instance;
 
     private void Awake()
     {
@@ -23,6 +30,60 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    /// <summary>
+    /// Gets an integer stat value by name.
+    /// </summary>
+    public int GetStatValue(string statName)
+    {
+        switch (statName.ToLower())
+        {
+            case "friendly": return player_friendly;
+            case "scared": return player_scared;
+            case "brave": return player_brave;
+            case "mean": return player_mean;
+            case "smart": return player_smart;
+            case "stupid": return player_stupid;
+            default:
+                Debug.LogWarning($"GameManager: Stat '{statName}' not found");
+                return 0;
+        }
+    }
+
+    /// <summary>
+    /// Gets a bool flag value by name.
+    /// </summary>
+    public bool GetBoolValue(string boolName)
+    {
+        switch (boolName.ToLower())
+        {
+            case "methuang": return metHuang;
+            case "helpedhuang": return helpedHuang;
+            case "metcat": return metCat;
+            case "befriendedcat": return befriendedCat;
+            default:
+                Debug.LogWarning($"GameManager: Bool '{boolName}' not found");
+                return false;
+        }
+    }
+
+    /// <summary>
+    /// Sets a bool flag value by name.
+    /// </summary>
+    public void SetBoolValue(string boolName, bool value)
+    {
+        switch (boolName.ToLower())
+        {
+            case "methuang": metHuang = value; break;
+            case "helpedhuang": helpedHuang = value; break;
+            case "metcat": metCat = value; break;
+            case "befriendedcat": befriendedCat = value; break;
+            default:
+                Debug.LogWarning($"GameManager: Bool '{boolName}' not found");
+                break;
+        }
+        Debug.Log($"GameManager: {boolName} set to {value}");
     }
 
     public void ChangeVariable(string varName, int value)

@@ -11,6 +11,29 @@ public enum EventSelectionMode
 }
 
 /// <summary>
+/// Defines the type of condition to check before playing an event.
+/// </summary>
+public enum EventConditionType
+{
+    None,           // No condition, always play
+    IntStat,        // Check an integer stat from GameManager
+    BoolFlag        // Check a bool flag from GameManager
+}
+
+/// <summary>
+/// Defines comparison operators for integer stat conditions.
+/// </summary>
+public enum StatComparison
+{
+    Equals,
+    NotEquals,
+    GreaterThan,
+    LessThan,
+    GreaterOrEqual,
+    LessOrEqual
+}
+
+/// <summary>
 /// Wrapper class that represents an entry in the event queue.
 /// Can be either a single event or a random selection from a group of events.
 /// </summary>
@@ -28,6 +51,25 @@ public class EventQueueEntry
 
     [Tooltip("If enabled, events that were already selected in previous queue entries will be excluded from random selection")]
     public bool excludePreviouslySelectedEvents = false;
+
+    [Header("Condition (Optional)")]
+    [Tooltip("Type of condition to check before playing this event")]
+    public EventConditionType conditionType = EventConditionType.None;
+
+    [Tooltip("Name of the stat to check (e.g., 'friendly', 'brave') - used when Condition Type is IntStat")]
+    public string statName = "";
+
+    [Tooltip("How to compare the stat value - used when Condition Type is IntStat")]
+    public StatComparison statComparison = StatComparison.GreaterOrEqual;
+
+    [Tooltip("Value to compare against - used when Condition Type is IntStat")]
+    public int statValue = 0;
+
+    [Tooltip("Name of the bool flag to check (e.g., 'metHuang', 'helpedHuang') - used when Condition Type is BoolFlag")]
+    public string boolName = "";
+
+    [Tooltip("Required value of the bool flag - used when Condition Type is BoolFlag")]
+    public bool boolValue = true;
 
     /// <summary>
     /// Gets the event to execute based on the selection mode.
@@ -95,5 +137,76 @@ public class EventQueueEntry
             default:
                 return "(Unknown)";
         }
+    }
+
+    /// <summary>
+    /// Checks if the condition for this event entry is met.
+    /// Returns true if there's no condition or if the condition passes.
+    /// </summary>
+    public bool CheckCondition()
+    {
+        if (conditionType == EventConditionType.None)
+        {
+            return true;
+        }
+
+        GameManager gameManager = GameManager.Instance;
+        if (gameManager == null)
+        {
+            Debug.LogWarning("EventQueueEntry: GameManager not found, skipping condition check");
+            return true;
+        }
+
+        switch (conditionType)
+        {
+            case EventConditionType.IntStat:
+                return CheckIntStatCondition(gameManager);
+
+            case EventConditionType.BoolFlag:
+                return CheckBoolCondition(gameManager);
+
+            default:
+                return true;
+        }
+    }
+
+    private bool CheckIntStatCondition(GameManager gameManager)
+    {
+        if (string.IsNullOrEmpty(statName))
+        {
+            Debug.LogWarning("EventQueueEntry: Stat name is empty for IntStat condition");
+            return true;
+        }
+
+        int currentValue = gameManager.GetStatValue(statName);
+
+        bool result = statComparison switch
+        {
+            StatComparison.Equals => currentValue == statValue,
+            StatComparison.NotEquals => currentValue != statValue,
+            StatComparison.GreaterThan => currentValue > statValue,
+            StatComparison.LessThan => currentValue < statValue,
+            StatComparison.GreaterOrEqual => currentValue >= statValue,
+            StatComparison.LessOrEqual => currentValue <= statValue,
+            _ => true
+        };
+
+        Debug.Log($"EventQueueEntry: Condition check - {statName} ({currentValue}) {statComparison} {statValue} = {result}");
+        return result;
+    }
+
+    private bool CheckBoolCondition(GameManager gameManager)
+    {
+        if (string.IsNullOrEmpty(boolName))
+        {
+            Debug.LogWarning("EventQueueEntry: Bool name is empty for BoolFlag condition");
+            return true;
+        }
+
+        bool currentValue = gameManager.GetBoolValue(boolName);
+        bool result = currentValue == boolValue;
+
+        Debug.Log($"EventQueueEntry: Condition check - {boolName} ({currentValue}) == {boolValue} = {result}");
+        return result;
     }
 }

@@ -95,6 +95,53 @@ public class WaypointData
 }
 
 /// <summary>
+/// Defines when a background NPC should spawn.
+/// </summary>
+public enum BackgroundNPCSpawnTrigger
+{
+    OnEventStart,       // Spawn when the main event starts (with optional delay)
+    OnWaypointReached   // Spawn when the main NPC reaches a specific waypoint
+}
+
+/// <summary>
+/// Configuration for a background NPC that spawns concurrently with the main event.
+/// These NPCs run independently and don't block the main event flow.
+/// </summary>
+[System.Serializable]
+public class BackgroundNPCData
+{
+    [Tooltip("Name for this background NPC (for debugging)")]
+    public string npcName = "Background NPC";
+
+    [Tooltip("The NPC prefab to spawn")]
+    public GameObject npcPrefab;
+
+    [Tooltip("Name of the GameObject where this NPC will spawn")]
+    public string spawnPointName;
+
+    [Header("Spawn Trigger")]
+    [Tooltip("When to spawn this background NPC")]
+    public BackgroundNPCSpawnTrigger spawnTrigger = BackgroundNPCSpawnTrigger.OnEventStart;
+
+    [Tooltip("Delay in seconds before spawning (used with OnEventStart trigger)")]
+    [Range(0f, 60f)]
+    public float spawnDelay = 0f;
+
+    [Tooltip("Name of the waypoint that triggers spawning (used with OnWaypointReached trigger)")]
+    public string triggerWaypointName = "";
+
+    [Header("Movement")]
+    [Tooltip("Ordered list of waypoints this NPC will travel through")]
+    public WaypointData[] waypoints;
+
+    [Tooltip("What happens to this NPC after completing all waypoints")]
+    public NPCExitBehavior exitBehavior = NPCExitBehavior.Destroy;
+
+    [Tooltip("Name of the exit point GameObject (only used if exitBehavior is ContinueWalking)")]
+    public string exitPointName = "";
+}
+
+/// <summary>
 /// ScriptableObject that defines a game event with NPC spawning, movement, and dialogue.
 /// Create via: Right-click → Create → Game → Game Event
 /// </summary>
@@ -133,4 +180,8 @@ public class GameEvent : ScriptableObject
     [Header("Exit Dialogues")]
     [Tooltip("Simple dialogues that play while the NPC is walking away (after main dialogue)")]
     public ExitDialogueData[] exitDialogues;
+
+    [Header("Background NPCs (Concurrent)")]
+    [Tooltip("Additional NPCs that spawn and run concurrently with this event. They don't block the main event flow.")]
+    public BackgroundNPCData[] backgroundNPCs;
 }

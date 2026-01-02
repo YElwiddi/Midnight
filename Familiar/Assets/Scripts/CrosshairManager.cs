@@ -257,4 +257,20 @@ public class CrosshairManager : MonoBehaviour
             crosshairParent.gameObject.SetActive(showCenterDot || showLines);
         }
     }
+
+    public void Hide()
+    {
+        if (crosshairParent != null)
+        {
+            crosshairParent.gameObject.SetActive(false);
+        }
+    }
+
+    public void Show()
+    {
+        if (crosshairParent != null)
+        {
+            crosshairParent.gameObject.SetActive(true);
+        }
+    }
 }
