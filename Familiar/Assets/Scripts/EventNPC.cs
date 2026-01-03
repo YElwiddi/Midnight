@@ -43,6 +43,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     [Header("Camera Settings")]
     [Tooltip("Camera look height when NPC is kneeling (lower than standing)")]
     [SerializeField] private float kneelingCameraHeight = 0.8f;
+
     #endregion
 
     #region Events
@@ -71,6 +72,13 @@ public class EventNPC : MonoBehaviour, IInteractable
     private float interactableAtTime = 0f;
     private bool isWaitingToBeInteractable = false;
     private Coroutine waitingDialogueCoroutine;
+
+    // Proximity sound tracking
+    private Transform playerTransform;
+    private Camera mainCamera;
+    private bool wasInProximity = false;
+    private Renderer npcRenderer;
+    private int lastSoundPlayedForWaypoint = -1;
     #endregion
 
     #region Unity Lifecycle
@@ -111,6 +119,15 @@ public class EventNPC : MonoBehaviour, IInteractable
         {
             dialogueManager.OnDialogueEnded += HandleDialogueEnded;
         }
+
+        // Setup for proximity sound
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+        }
+        mainCamera = Camera.main;
+        npcRenderer = GetComponentInChildren<Renderer>();
     }
 
     private void OnDestroy()
@@ -130,6 +147,8 @@ public class EventNPC : MonoBehaviour, IInteractable
                 CheckArrival();
                 break;
         }
+
+        CheckProximitySound();
     }
     #endregion
 
@@ -386,6 +405,84 @@ public class EventNPC : MonoBehaviour, IInteractable
 
             HandleWaypointArrival();
         }
+    }
+
+    private void CheckProximitySound()
+    {
+        // Skip if no waypoints or invalid index
+        if (waypoints == null || currentWaypointIndex < 0 || currentWaypointIndex >= waypoints.Length) return;
+        if (playerTransform == null || mainCamera == null) return;
+
+        WaypointData waypoint = waypoints[currentWaypointIndex];
+
+        // Skip if no sound configured for this waypoint
+        if (waypoint.proximitySound == null || waypoint.proximitySoundTrigger == ProximitySoundTrigger.None) return;
+
+        // Check if sound should play based on current state
+        bool shouldCheckSound = false;
+        switch (waypoint.proximitySoundTrigger)
+        {
+            case ProximitySoundTrigger.WhileMoving:
+                shouldCheckSound = (currentState == NPCState.Walking);
+                break;
+            case ProximitySoundTrigger.WhileAtWaypoint:
+                shouldCheckSound = (currentState == NPCState.Idle || currentState == NPCState.WaitingForInteraction);
+                break;
+            case ProximitySoundTrigger.Both:
+                shouldCheckSound = (currentState == NPCState.Walking || currentState == NPCState.Idle || currentState == NPCState.WaitingForInteraction);
+                break;
+        }
+
+        if (!shouldCheckSound) return;
+
+        // Skip if already played sound for this waypoint
+        if (lastSoundPlayedForWaypoint == currentWaypointIndex) return;
+
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        bool isInRange = distance <= waypoint.proximitySoundRange;
+
+        // Check if NPC is visible to camera (only if required)
+        bool isVisible = true;
+        if (isInRange && waypoint.requirePlayerLooking)
+        {
+            // Use renderer visibility (set by Unity when in camera frustum)
+            if (npcRenderer != null)
+            {
+                isVisible = npcRenderer.isVisible;
+            }
+            else
+            {
+                // Fallback: check if in front of camera
+                Vector3 toNPC = (transform.position - mainCamera.transform.position).normalized;
+                isVisible = Vector3.Dot(mainCamera.transform.forward, toNPC) > 0.5f;
+            }
+
+            // Occlusion check - raycast to see if NPC is behind a wall
+            if (isVisible)
+            {
+                Vector3 npcCenter = transform.position + Vector3.up; // Aim at NPC's chest height
+                Vector3 dirToNPC = npcCenter - mainCamera.transform.position;
+                if (Physics.Raycast(mainCamera.transform.position, dirToNPC.normalized, out RaycastHit hit, dirToNPC.magnitude))
+                {
+                    // If we hit something that isn't this NPC, they're occluded
+                    if (!hit.transform.IsChildOf(transform) && hit.transform != transform)
+                    {
+                        isVisible = false;
+                    }
+                }
+            }
+        }
+
+        bool isInProximity = isInRange && isVisible;
+
+        // Play sound when entering proximity
+        if (isInProximity && !wasInProximity)
+        {
+            AudioSource.PlayClipAtPoint(waypoint.proximitySound, transform.position, waypoint.proximitySoundVolume);
+            lastSoundPlayedForWaypoint = currentWaypointIndex;
+        }
+
+        wasInProximity = isInProximity;
     }
 
     private void HandleWaypointArrival()

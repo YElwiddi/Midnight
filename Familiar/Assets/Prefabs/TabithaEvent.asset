@@ -32,6 +32,11 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCGatePoint
     moveSpeed: 4.5
     waitForInteraction: 1
@@ -48,6 +53,11 @@ MonoBehaviour:
     branchValue: true
     branchToWaypoint: GraveyardCrossRoads
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
@@ -64,6 +74,11 @@ MonoBehaviour:
     branchValue: false
     branchToWaypoint: NPCRightPoint
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
@@ -80,6 +95,11 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: CenterOfMap
     moveSpeed: 3
     waitForInteraction: 1
@@ -96,6 +116,11 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
@@ -112,6 +137,11 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
@@ -128,6 +158,11 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCRightPoint
     moveSpeed: 3
     waitForInteraction: 0
@@ -144,6 +179,11 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
   dialogueKnot: 
   exitBehavior: 2
@@ -158,7 +198,7 @@ MonoBehaviour:
     triggerWaypointName: CenterOfMap
     waypoints:
     - waypointName: RightOfGate
-      moveSpeed: 6
+      moveSpeed: 8
       waitForInteraction: 0
       timeUntilInteractable: 0
       waitingDialogueText: 
@@ -173,5 +213,10 @@ MonoBehaviour:
       branchValue: 
       branchToWaypoint: 
       waypointId: 
+      proximitySound: {fileID: 8300000, guid: e231cdd7c37e1c6449032c852ea81d79, type: 3}
+      proximitySoundRange: 30
+      proximitySoundVolume: 1
+      proximitySoundTrigger: 1
+      requirePlayerLooking: 1
     exitBehavior: 0
     exitPointName: RightOfGate

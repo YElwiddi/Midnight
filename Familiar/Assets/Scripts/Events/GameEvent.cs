@@ -92,6 +92,35 @@ public class WaypointData
 
     [Tooltip("Optional: Unique ID for this waypoint (used as a branch target). If empty, waypointName is used.")]
     public string waypointId = "";
+
+    [Header("Proximity Sound (Optional)")]
+    [Tooltip("Sound to play when player sees NPC and is within range")]
+    public AudioClip proximitySound;
+
+    [Tooltip("Maximum distance from player to trigger the sound")]
+    [Range(1f, 50f)]
+    public float proximitySoundRange = 10f;
+
+    [Tooltip("Volume of the proximity sound")]
+    [Range(0f, 1f)]
+    public float proximitySoundVolume = 1f;
+
+    [Tooltip("When to check for proximity sound")]
+    public ProximitySoundTrigger proximitySoundTrigger = ProximitySoundTrigger.None;
+
+    [Tooltip("If true, sound only plays when player is looking at the NPC. If false, plays when in range regardless of view direction.")]
+    public bool requirePlayerLooking = true;
+}
+
+/// <summary>
+/// When the proximity sound should be checked/played.
+/// </summary>
+public enum ProximitySoundTrigger
+{
+    None,               // No proximity sound for this waypoint
+    WhileMoving,        // Play while NPC is moving TO this waypoint
+    WhileAtWaypoint,    // Play while NPC is idle/waiting AT this waypoint
+    Both                // Play during both moving and waiting
 }
 
 /// <summary>
