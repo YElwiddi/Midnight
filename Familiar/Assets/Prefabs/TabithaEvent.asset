@@ -150,15 +150,15 @@ MonoBehaviour:
   exitPointName: NPCRightPoint
   exitDialogues: []
   backgroundNPCs:
-  - npcName: Headless Man
-    npcPrefab: {fileID: 3767055355421772689, guid: dc64650b2ebd88e44ade27e14f3d38dc, type: 3}
+  - npcName: GraveRobber
+    npcPrefab: {fileID: 3767055355421772689, guid: e0696bd419fdc4645915f55e99a98f1d, type: 3}
     spawnPointName: LeftOfGate
     spawnTrigger: 1
     spawnDelay: 2
     triggerWaypointName: CenterOfMap
     waypoints:
     - waypointName: RightOfGate
-      moveSpeed: 3.25
+      moveSpeed: 6
       waitForInteraction: 0
       timeUntilInteractable: 0
       waitingDialogueText: 

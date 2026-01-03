@@ -8530,6 +8530,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeldItem
   currentItemId: 
+--- !u!208 &600123176
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600123156}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &613321995
 GameObject:
   m_ObjectHideFlags: 0
@@ -18509,6 +18525,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 600123166}
+    - targetCorrespondingSourceObject: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 600123176}
   m_SourcePrefab: {fileID: 100100000, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
 --- !u!1 &1541440843
 GameObject:
@@ -19177,17 +19196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 1
-    singleEvent: {fileID: 0}
-    eventGroup:
-    - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
-    excludePreviouslySelectedEvents: 1
-    conditionType: 0
-    statName: 
-    statComparison: 4
-    statValue: 0
-    boolName: 
-    boolValue: 1
   - selectionMode: 0
     singleEvent: {fileID: 11400000, guid: 7488f4a3b16e73948a08a92d375e9b58, type: 2}
     eventGroup: []
@@ -19204,6 +19212,17 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
     - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
     excludePreviouslySelectedEvents: 0
+    conditionType: 0
+    statName: 
+    statComparison: 4
+    statValue: 0
+    boolName: 
+    boolValue: 1
+  - selectionMode: 1
+    singleEvent: {fileID: 0}
+    eventGroup:
+    - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
+    excludePreviouslySelectedEvents: 1
     conditionType: 0
     statName: 
     statComparison: 4
