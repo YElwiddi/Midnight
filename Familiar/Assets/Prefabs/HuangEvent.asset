@@ -19,6 +19,9 @@ MonoBehaviour:
   - waypointName: NPCCenterPoint
     moveSpeed: 4.5
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 5
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -29,9 +32,17 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCGatePoint
     moveSpeed: 4.5
     waitForInteraction: 1
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -42,9 +53,17 @@ MonoBehaviour:
     branchValue: true
     branchToWaypoint: GraveyardCrossRoads
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -55,9 +74,17 @@ MonoBehaviour:
     branchValue: false
     branchToWaypoint: NPCRightPoint
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -68,9 +95,17 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: HuangGraveSite
     moveSpeed: 3
     waitForInteraction: 1
+    timeUntilInteractable: 5
+    waitingDialogueText: Let's give him a moment...
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
     dialogueKnot: 
@@ -81,9 +116,17 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -94,9 +137,17 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -107,9 +158,17 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   - waypointName: NPCRightPoint
     moveSpeed: 3
     waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
     waitTime: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
@@ -120,8 +179,14 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
   inkDialogue: {fileID: 4900000, guid: 56226e2e9ea3fa649895f44edf185ad6, type: 3}
   dialogueKnot: 
   exitBehavior: 2
   exitPointName: NPCRightPoint
   exitDialogues: []
+  backgroundNPCs: []

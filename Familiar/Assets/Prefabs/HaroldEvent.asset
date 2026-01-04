@@ -33,7 +33,7 @@ MonoBehaviour:
     branchToWaypoint: 
     waypointId: 
     proximitySound: {fileID: 0}
-    proximitySoundRange: 0
+    proximitySoundRange: 1
     proximitySoundVolume: 0
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
@@ -45,6 +45,111 @@ MonoBehaviour:
     waitingDialogueSpeaker: 
     waitTime: 10
     inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: false
+    branchToWaypoint: NPCCenterPoint
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+  - waypointName: BackRightGraveYard
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: He seems to be fidgeting around.
+    waitingDialogueSpeaker: 
+    waitTime: 10
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+  - waypointName: CenterOfMap
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+  - waypointName: TimothySite
+    moveSpeed: 3.96
+    waitForInteraction: 1
+    timeUntilInteractable: 10
+    waitingDialogueText: He appears to be zoning out. I should give him a moment.
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    inkDialogue: {fileID: 4900000, guid: f83db97df404c2343857f071b399d0ac, type: 3}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+  - waypointName: NPCCenterPoint
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: He appears to be staring out into the distance...
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 0
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+  - waypointName: NPCRightPoint
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: 
     arrivalAnimationTrigger: 

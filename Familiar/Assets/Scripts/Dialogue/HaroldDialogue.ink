@@ -12,7 +12,7 @@ VAR player_stupid = 0
 Evening.
 Didn’t expect anyone at the gate this late.
 
-Name’s Harold Vunderbilt.
+Name’s Harold Vonderbolt.
 I need to step inside for a moment.
 
 + [Visiting hours are over. What’s your business here?]
@@ -27,14 +27,14 @@ I need to step inside for a moment.
 Straight question.
 I like that.
 
-I’m here to see an old friend.
+I’m here to see my brother.
 Timothy.
 Good man. Bad luck.
 
 Didn’t think he’d end up here.
 Funny how things go.
 
-+ [Which Timothy?]
++ [How did you know Timothy?]
     ~player_smart = player_smart + 1
     -> harold_details
 + [Why come so late?]
@@ -59,14 +59,14 @@ Timothy wouldn’t forgive me if I didn’t.
 
 === harold_details ===
 #speaker: Harold Vunderbilt
-We did business together.
-Long time ago.
+We grew up together.
+Shared a name. Shared a roof.
+Shared more mistakes than I care to count.
+
 I owe him a moment.
+Family has a way of demanding that.
 
-People forget fast when money’s involved.
-I try not to.
-
-+ [Business partner?]
++ [Your brother?]
     ~player_smart = player_smart + 1
     -> harold_partner
 + [Do you have any proof?]
@@ -78,8 +78,8 @@ I try not to.
 Privacy.
 That’s all.
 
-Some conversations don’t belong in daylight.
-Even when they’re one-sided.
+Some things are easier to say
+when no one’s listening back.
 
 I say what I need to say.
 Then I leave.
@@ -92,7 +92,8 @@ Careful.
 You’re doing your job.
 So am I.
 
-No harm in a visit.
+No trouble.
+Just a brother standing where he has to.
 
 Let’s not turn this into something tedious.
 
@@ -100,23 +101,23 @@ Let’s not turn this into something tedious.
 
 === harold_partner ===
 #speaker: Harold Vunderbilt
-Partner.
-Competitor.
-Friend.
+Brother.
+Older, if that matters.
+Usually does.
 
-Depends on the year you ask about.
-Timothy understood that.
-
-He always did.
+We didn’t always agree.
+But blood’s blood.
+Tim understood that.
 
 -> harold_request
 
 === harold_id ===
 #speaker: Harold Vunderbilt
-ID?
-I travel light.
+Proof?
+I don’t carry mementos.
 
-Besides, names don’t mean much once you’re inside the ground.
+And family names don’t mean much
+once someone’s in the ground.
 You should know that better than anyone.
 
 But if it helps...
@@ -144,10 +145,11 @@ I’ll stay out of your way.
 Good.
 I knew you’d see reason.
 
-Timothy always said
-people reveal themselves at gates.
-
+Family doesn’t get many chances
+to say goodbye properly.
 I won’t forget this.
+
+ ~ SetEventVar("allowed_inside", true)
 
 -> END
 
@@ -159,6 +161,8 @@ Still.
 Rules are useful things.
 Until they aren’t.
 
-Have a quiet night.
+Give my brother a quiet night, then.
+
+ ~ SetEventVar("allowed_inside", false)
 
 -> END

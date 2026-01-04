@@ -198,7 +198,7 @@ MonoBehaviour:
     triggerWaypointName: CenterOfMap
     waypoints:
     - waypointName: RightOfGate
-      moveSpeed: 8
+      moveSpeed: 9
       waitForInteraction: 0
       timeUntilInteractable: 0
       waitingDialogueText: 
