@@ -27,6 +27,16 @@ public class GameFlowManager : MonoBehaviour
 
     [Tooltip("Delay between events (seconds)")]
     [SerializeField] private float eventTransitionDelay = 0.5f;
+
+    [Header("Player References (for Spawn Conditions)")]
+    [Tooltip("The player's transform - used for zone spawn conditions")]
+    [SerializeField] private Transform playerTransform;
+
+    [Tooltip("The player's camera - used for facing spawn conditions")]
+    [SerializeField] private Camera playerCamera;
+
+    [Tooltip("How often to check spawn conditions (seconds)")]
+    [SerializeField] private float spawnConditionCheckInterval = 0.1f;
     #endregion
 
     #region Events
@@ -47,6 +57,8 @@ public class GameFlowManager : MonoBehaviour
     private bool isRunning = false;
     private HashSet<GameEvent> previouslySelectedEvents = new HashSet<GameEvent>();
     private List<BackgroundNPCData> pendingWaypointTriggeredNPCs = new List<BackgroundNPCData>();
+    private Coroutine waitingForSpawnConditionsCoroutine;
+    private bool isWaitingForSpawnConditions = false;
     #endregion
 
     #region Unity Lifecycle
@@ -218,6 +230,11 @@ public class GameFlowManager : MonoBehaviour
     /// Gets the current event (may be null if not running).
     /// </summary>
     public GameEvent GetCurrentEvent() => currentEvent;
+
+    /// <summary>
+    /// Returns true if currently waiting for spawn conditions to be met.
+    /// </summary>
+    public bool IsWaitingForSpawnConditions() => isWaitingForSpawnConditions;
     #endregion
 
     #region Private Methods
@@ -439,6 +456,53 @@ public class GameFlowManager : MonoBehaviour
 
         // Track this event as selected for future exclusion
         previouslySelectedEvents.Add(selectedEvent);
+
+        // Check if this entry has spawn conditions that need to be met
+        if (entry.HasSpawnConditions())
+        {
+            // Start waiting for spawn conditions
+            if (waitingForSpawnConditionsCoroutine != null)
+            {
+                StopCoroutine(waitingForSpawnConditionsCoroutine);
+            }
+            waitingForSpawnConditionsCoroutine = StartCoroutine(WaitForSpawnConditions(entry, selectedEvent));
+        }
+        else
+        {
+            // No spawn conditions, start immediately
+            StartEventDirectly(selectedEvent);
+        }
+    }
+
+    private IEnumerator WaitForSpawnConditions(EventQueueEntry entry, GameEvent selectedEvent)
+    {
+        isWaitingForSpawnConditions = true;
+        Debug.Log($"GameFlowManager: Waiting for spawn conditions for event '{selectedEvent.eventName}'...");
+
+        // Try to auto-find player references if not set
+        if (playerTransform == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTransform = player.transform;
+            }
+        }
+
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+
+        // Wait until spawn conditions are met
+        while (!entry.CheckSpawnConditions(playerTransform, playerCamera))
+        {
+            yield return new WaitForSeconds(spawnConditionCheckInterval);
+        }
+
+        Debug.Log($"GameFlowManager: Spawn conditions met for event '{selectedEvent.eventName}'!");
+        isWaitingForSpawnConditions = false;
+        waitingForSpawnConditionsCoroutine = null;
 
         StartEventDirectly(selectedEvent);
     }

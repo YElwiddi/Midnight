@@ -510,18 +510,16 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
-            if (currentStory.variablesState.GlobalVariableExistsWithName("player_friendly"))
-                currentStory.variablesState["player_friendly"] = gameManager.player_friendly;
             if (currentStory.variablesState.GlobalVariableExistsWithName("player_scared"))
                 currentStory.variablesState["player_scared"] = gameManager.player_scared;
-            if (currentStory.variablesState.GlobalVariableExistsWithName("player_brave"))
-                currentStory.variablesState["player_brave"] = gameManager.player_brave;
             if (currentStory.variablesState.GlobalVariableExistsWithName("player_mean"))
                 currentStory.variablesState["player_mean"] = gameManager.player_mean;
-            if (currentStory.variablesState.GlobalVariableExistsWithName("player_smart"))
-                currentStory.variablesState["player_smart"] = gameManager.player_smart;
             if (currentStory.variablesState.GlobalVariableExistsWithName("player_stupid"))
                 currentStory.variablesState["player_stupid"] = gameManager.player_stupid;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("SpiritAngered"))
+                currentStory.variablesState["SpiritAngered"] = gameManager.SpiritAngered;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("GraveRobberSetup"))
+                currentStory.variablesState["GraveRobberSetup"] = gameManager.GraveRobberSetup;
         }
         catch (Exception e)
         {
@@ -535,12 +533,11 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
-            SyncSingleVariableFromInk("player_friendly", v => gameManager.player_friendly = v);
             SyncSingleVariableFromInk("player_scared", v => gameManager.player_scared = v);
-            SyncSingleVariableFromInk("player_brave", v => gameManager.player_brave = v);
             SyncSingleVariableFromInk("player_mean", v => gameManager.player_mean = v);
-            SyncSingleVariableFromInk("player_smart", v => gameManager.player_smart = v);
             SyncSingleVariableFromInk("player_stupid", v => gameManager.player_stupid = v);
+            SyncSingleVariableFromInk("SpiritAngered", v => gameManager.SpiritAngered = v);
+            SyncSingleVariableFromInk("GraveRobberSetup", v => gameManager.GraveRobberSetup = v);
         }
         catch (Exception e)
         {

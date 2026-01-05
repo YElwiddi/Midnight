@@ -1,11 +1,10 @@
 EXTERNAL SetEventVar(varName, value)
 
-VAR player_friendly = 0
 VAR player_mean = 0
 VAR player_scared = 0
-VAR player_smart = 0
-VAR player_brave = 0
 VAR player_stupid = 0
+VAR SpiritAngered = 0
+VAR GraveRobberSetup = 0
 
 === start ===
 #speaker: Harold Vunderbilt
@@ -16,10 +15,9 @@ Name’s Harold Vonderbolt.
 I need to step inside for a moment.
 
 + [Visiting hours are over. What’s your business here?]
-    ~player_brave = player_brave + 1
+    ~player_mean = player_mean + 1
     -> harold_business
 + [Can I help you with something, sir?]
-    ~player_friendly = player_friendly + 1
     -> harold_polite
 
 === harold_business ===
@@ -35,10 +33,9 @@ Didn’t think he’d end up here.
 Funny how things go.
 
 + [How did you know Timothy?]
-    ~player_smart = player_smart + 1
     -> harold_details
 + [Why come so late?]
-    ~player_scared = player_scared + 1
+    ~player_stupid = player_stupid + 1
     -> harold_late
 
 === harold_polite ===
@@ -51,7 +48,6 @@ Just paying respects.
 Timothy wouldn’t forgive me if I didn’t.
 
 + [You’re being vague.]
-    ~player_smart = player_smart + 1
     -> harold_details
 + [I’ll need more than that.]
     ~player_mean = player_mean + 1
@@ -67,10 +63,8 @@ I owe him a moment.
 Family has a way of demanding that.
 
 + [Your brother?]
-    ~player_smart = player_smart + 1
     -> harold_partner
 + [Do you have any proof?]
-    ~player_brave = player_brave + 1
     -> harold_id
 
 === harold_late ===
@@ -134,10 +128,9 @@ Just a few minutes.
 I’ll stay out of your way.
 
 + [Alright. Be quick.]
-    ~player_friendly = player_friendly + 1
+    ~GraveRobberSetup = GraveRobberSetup + 1
     -> harold_allow
 + [No. I can’t allow it.]
-    ~player_mean = player_mean + 1
     -> harold_deny
 
 === harold_allow ===

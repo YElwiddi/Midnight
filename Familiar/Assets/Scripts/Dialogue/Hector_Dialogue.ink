@@ -1,8 +1,5 @@
-VAR player_friendly = 0
 VAR player_mean = 0
 VAR player_scared = 0
-VAR player_smart = 0
-VAR player_brave = 0
 VAR player_stupid = 0
 
 === start ===
@@ -11,10 +8,9 @@ Hey Brian! I came by to see how you've been.
 I'm sorry you had to take the night shift here. This place couldn't look more depressing.
 
 + [It's not that bad...]
-    ~player_brave = player_brave + 1
     -> brave_response
 + [I appreciate you coming by, Hector. It's good to see you.]
-    ~player_friendly = player_friendly + 1
+    ~player_mean = player_mean - 1
     -> friendly_response
     
 === brave_response ===
@@ -37,7 +33,6 @@ How about I head home to grab some equipment, and then we go track it down toget
     ~player_scared = player_scared + 1
     -> scared_response
 + [Real funny, Hector.]
-    ~player_smart = player_smart + 1
     -> smart_response_2
     
 === scared_response ===
@@ -65,7 +60,7 @@ Feels a bit off, but I guess you're getting paid well at least, right?
     ~player_stupid = player_stupid + 1
     -> stupid_response
 + [I guess.]
-    ~player_smart = player_smart + 1
+    ~player_mean = player_mean + 1
     -> smart_response
     
 === friendly_response ===
@@ -77,7 +72,7 @@ Feels a bit off, but I guess you're getting paid well at least, right?
     ~player_stupid = player_stupid + 1
     -> stupid_response
 + [I guess.]
-    ~player_smart = player_smart + 1
+    ~player_mean = player_mean + 1
     -> smart_response
 
 === stupid_response ===

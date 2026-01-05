@@ -1,10 +1,9 @@
 EXTERNAL SetEventVar(varName, value)
-VAR player_friendly = 0
 VAR player_mean = 0
 VAR player_scared = 0
-VAR player_smart = 0
-VAR player_brave = 0
 VAR player_stupid = 0
+VAR SpiritAngered = 0
+VAR GraveRobberSetup = 0
 
 === start ===
 #speaker: Tabitha
@@ -18,7 +17,6 @@ I was hoping you’d be on duty tonight.
     ~player_mean = player_mean + 1
     -> tabitha_direct
 + [Can I help you with something?]
-    ~player_friendly = player_friendly + 1
     -> tabitha_friendly
 
 === tabitha_direct ===
@@ -35,7 +33,6 @@ You don’t see them.
 But they notice places like this.
 
 + [That sounds like nonsense.]
-    ~player_smart = player_smart + 1
     -> tabitha_dismiss
 + [Protect it how?]
     ~player_scared = player_scared + 1
@@ -54,7 +51,6 @@ This graveyard feels thin.
 Like a door left unlocked.
 
 + [You expect me to believe that?]
-    ~player_smart = player_smart + 1
     -> tabitha_dismiss
 + [What kind of rites?]
     ~player_scared = player_scared + 1
@@ -96,8 +92,9 @@ Then I’ll be gone.
 You won’t owe me anything.
 
 + [Alright. Go ahead, but I’m watching you.]
-    ~player_brave = player_brave + 1
      ~ SetEventVar("allowed_inside", true)
+     ~SpiritAngered = SpiritAngered - 1
+     ~GraveRobberSetup = GraveRobberSetup + 1
     -> tabitha_allow
 + [No. I can’t let you in.]
     ~player_mean = player_mean + 1

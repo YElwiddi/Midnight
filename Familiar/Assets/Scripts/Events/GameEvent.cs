@@ -42,7 +42,7 @@ public class WaypointData
     public string waypointName;
 
     [Tooltip("Movement speed to reach this waypoint")]
-    [Range(0.5f, 10f)]
+    [Range(0.5f, 25f)]
     public float moveSpeed = 3f;
 
     [Tooltip("If true, NPC will wait for player interaction (E key) before continuing")]

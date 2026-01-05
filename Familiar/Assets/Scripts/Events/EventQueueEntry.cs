@@ -16,8 +16,8 @@ public enum EventSelectionMode
 public enum EventConditionType
 {
     None,           // No condition, always play
-    IntStat,        // Check an integer stat from GameManager
-    BoolFlag        // Check a bool flag from GameManager
+    IntStat,        // Check an integer stat against a fixed value
+    StatVsStat      // Compare one stat against another stat
 }
 
 /// <summary>
@@ -31,6 +31,18 @@ public enum StatComparison
     LessThan,
     GreaterOrEqual,
     LessOrEqual
+}
+
+/// <summary>
+/// Defines what spawn conditions must be met for the NPC to appear.
+/// </summary>
+public enum SpawnConditionRequirement
+{
+    None,           // No spawn conditions, spawn immediately
+    ZoneOnly,       // Only check if player is in zone
+    FacingOnly,     // Only check if player is facing object
+    Both,           // Both zone and facing conditions must be true
+    Either          // Either zone or facing condition must be true
 }
 
 /// <summary>
@@ -56,20 +68,27 @@ public class EventQueueEntry
     [Tooltip("Type of condition to check before playing this event")]
     public EventConditionType conditionType = EventConditionType.None;
 
-    [Tooltip("Name of the stat to check (e.g., 'friendly', 'brave') - used when Condition Type is IntStat")]
+    [Tooltip("Name of the stat to check (e.g., 'player_scared', 'player_mean', 'SpiritAngered') - used for IntStat and StatVsStat conditions")]
     public string statName = "";
 
-    [Tooltip("How to compare the stat value - used when Condition Type is IntStat")]
+    [Tooltip("How to compare the stat value - used for IntStat and StatVsStat conditions")]
     public StatComparison statComparison = StatComparison.GreaterOrEqual;
 
     [Tooltip("Value to compare against - used when Condition Type is IntStat")]
     public int statValue = 0;
 
-    [Tooltip("Name of the bool flag to check (e.g., 'metHuang', 'helpedHuang') - used when Condition Type is BoolFlag")]
-    public string boolName = "";
+    [Tooltip("Name of the second stat to compare against - used when Condition Type is StatVsStat")]
+    public string compareToStatName = "";
 
-    [Tooltip("Required value of the bool flag - used when Condition Type is BoolFlag")]
-    public bool boolValue = true;
+    [Header("Spawn Conditions (Optional)")]
+    [Tooltip("What spawn conditions must be met before the NPC appears")]
+    public SpawnConditionRequirement spawnConditionRequirement = SpawnConditionRequirement.None;
+
+    [Tooltip("Name of the trigger zone the player must enter (used when SpawnConditionRequirement includes zone check)")]
+    public string requiredZoneName = "";
+
+    [Tooltip("Name of the object the player must be facing/looking at (used when SpawnConditionRequirement includes facing check)")]
+    public string requiredFacingObjectName = "";
 
     /// <summary>
     /// Gets the event to execute based on the selection mode.
@@ -162,8 +181,8 @@ public class EventQueueEntry
             case EventConditionType.IntStat:
                 return CheckIntStatCondition(gameManager);
 
-            case EventConditionType.BoolFlag:
-                return CheckBoolCondition(gameManager);
+            case EventConditionType.StatVsStat:
+                return CheckStatVsStatCondition(gameManager);
 
             default:
                 return true;
@@ -195,18 +214,144 @@ public class EventQueueEntry
         return result;
     }
 
-    private bool CheckBoolCondition(GameManager gameManager)
+    private bool CheckStatVsStatCondition(GameManager gameManager)
     {
-        if (string.IsNullOrEmpty(boolName))
+        if (string.IsNullOrEmpty(statName))
         {
-            Debug.LogWarning("EventQueueEntry: Bool name is empty for BoolFlag condition");
+            Debug.LogWarning("EventQueueEntry: First stat name is empty for StatVsStat condition");
             return true;
         }
 
-        bool currentValue = gameManager.GetBoolValue(boolName);
-        bool result = currentValue == boolValue;
+        if (string.IsNullOrEmpty(compareToStatName))
+        {
+            Debug.LogWarning("EventQueueEntry: Second stat name (compareToStatName) is empty for StatVsStat condition");
+            return true;
+        }
 
-        Debug.Log($"EventQueueEntry: Condition check - {boolName} ({currentValue}) == {boolValue} = {result}");
+        int firstStatValue = gameManager.GetStatValue(statName);
+        int secondStatValue = gameManager.GetStatValue(compareToStatName);
+
+        bool result = statComparison switch
+        {
+            StatComparison.Equals => firstStatValue == secondStatValue,
+            StatComparison.NotEquals => firstStatValue != secondStatValue,
+            StatComparison.GreaterThan => firstStatValue > secondStatValue,
+            StatComparison.LessThan => firstStatValue < secondStatValue,
+            StatComparison.GreaterOrEqual => firstStatValue >= secondStatValue,
+            StatComparison.LessOrEqual => firstStatValue <= secondStatValue,
+            _ => true
+        };
+
+        Debug.Log($"EventQueueEntry: StatVsStat check - {statName} ({firstStatValue}) {statComparison} {compareToStatName} ({secondStatValue}) = {result}");
         return result;
+    }
+
+    /// <summary>
+    /// Checks if the spawn conditions for this event entry are met.
+    /// Returns true if there are no spawn conditions or if the required conditions pass.
+    /// </summary>
+    /// <param name="playerTransform">The player's transform for position/facing checks</param>
+    /// <param name="playerCamera">The player's camera for facing raycast checks</param>
+    public bool CheckSpawnConditions(Transform playerTransform, Camera playerCamera)
+    {
+        if (spawnConditionRequirement == SpawnConditionRequirement.None)
+        {
+            return true;
+        }
+
+        bool inZone = CheckZoneCondition(playerTransform);
+        bool facingObject = CheckFacingCondition(playerCamera);
+
+        bool result = spawnConditionRequirement switch
+        {
+            SpawnConditionRequirement.ZoneOnly => inZone,
+            SpawnConditionRequirement.FacingOnly => facingObject,
+            SpawnConditionRequirement.Both => inZone && facingObject,
+            SpawnConditionRequirement.Either => inZone || facingObject,
+            _ => true
+        };
+
+        Debug.Log($"EventQueueEntry: Spawn condition check - Zone({requiredZoneName})={inZone}, Facing({requiredFacingObjectName})={facingObject}, Requirement={spawnConditionRequirement}, Result={result}");
+        return result;
+    }
+
+    /// <summary>
+    /// Checks if the player is currently inside the required zone.
+    /// </summary>
+    private bool CheckZoneCondition(Transform playerTransform)
+    {
+        if (string.IsNullOrEmpty(requiredZoneName))
+        {
+            // No zone specified, condition passes
+            return true;
+        }
+
+        if (playerTransform == null)
+        {
+            Debug.LogWarning("EventQueueEntry: Player transform is null for zone check");
+            return false;
+        }
+
+        // Find the zone by name
+        GameObject zoneObject = GameObject.Find(requiredZoneName);
+        if (zoneObject == null)
+        {
+            Debug.LogWarning($"EventQueueEntry: Zone '{requiredZoneName}' not found");
+            return false;
+        }
+
+        Collider zoneCollider = zoneObject.GetComponent<Collider>();
+        if (zoneCollider == null)
+        {
+            Debug.LogWarning($"EventQueueEntry: Zone '{requiredZoneName}' has no Collider component");
+            return false;
+        }
+
+        // Check if the player's position is within the collider bounds
+        return zoneCollider.bounds.Contains(playerTransform.position);
+    }
+
+    /// <summary>
+    /// Checks if the player is currently facing/looking at the required object.
+    /// </summary>
+    private bool CheckFacingCondition(Camera playerCamera)
+    {
+        if (string.IsNullOrEmpty(requiredFacingObjectName))
+        {
+            // No facing object specified, condition passes
+            return true;
+        }
+
+        if (playerCamera == null)
+        {
+            Debug.LogWarning("EventQueueEntry: Player camera is null for facing check");
+            return false;
+        }
+
+        // Raycast from camera to see what player is looking at
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            // Check if the hit object or any of its parents match the required name
+            Transform current = hit.transform;
+            while (current != null)
+            {
+                if (current.name == requiredFacingObjectName)
+                {
+                    return true;
+                }
+                current = current.parent;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if this event entry has any spawn conditions that need to be checked.
+    /// </summary>
+    public bool HasSpawnConditions()
+    {
+        return spawnConditionRequirement != SpawnConditionRequirement.None;
     }
 }
