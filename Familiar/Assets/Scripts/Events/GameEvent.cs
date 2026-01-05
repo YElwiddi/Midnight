@@ -265,6 +265,10 @@ public class GameEvent : ScriptableObject
     [Tooltip("Optional: specific knot/stitch to start dialogue from")]
     public string dialogueKnot = "";
 
+    [Tooltip("Override typewriter speed for this NPC's dialogue (characters per second). 0 = use default from DialogueUISettings.")]
+    [Range(0f, 200f)]
+    public float typewriterSpeed = 0f;
+
     [Header("Exit Behavior")]
     [Tooltip("What happens to the NPC after completing all waypoints")]
     public NPCExitBehavior exitBehavior = NPCExitBehavior.ContinueWalking;

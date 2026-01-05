@@ -443,7 +443,8 @@ public class GameFlowManager : MonoBehaviour
             currentEvent.exitBehavior,
             currentEvent.exitPointName,
             currentEvent.eventName,
-            currentEvent.exitDialogues
+            currentEvent.exitDialogues,
+            currentEvent.typewriterSpeed
         );
 
         // Fire event started

@@ -30,6 +30,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     [HideInInspector] public NPCExitBehavior exitBehavior;
     [HideInInspector] public string exitPointName;
     [HideInInspector] public ExitDialogueData[] exitDialogues;
+    [HideInInspector] public float typewriterSpeed;
     #endregion
 
     #region Inspector Settings
@@ -170,7 +171,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     /// </summary>
     public void Initialize(WaypointData[] waypointData, TextAsset dialogue, string knot,
                            NPCExitBehavior exit, string exitPoint, string name = null,
-                           ExitDialogueData[] exitDialogueData = null)
+                           ExitDialogueData[] exitDialogueData = null, float dialogueTypewriterSpeed = 0f)
     {
         waypoints = waypointData;
         inkDialogue = dialogue;
@@ -178,6 +179,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         exitBehavior = exit;
         exitPointName = exitPoint;
         exitDialogues = exitDialogueData;
+        typewriterSpeed = dialogueTypewriterSpeed;
 
         if (!string.IsNullOrEmpty(name))
         {
@@ -291,11 +293,11 @@ public class EventNPC : MonoBehaviour, IInteractable
         // Start dialogue
         if (!string.IsNullOrEmpty(knotToUse))
         {
-            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform, cameraHeight);
+            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform, cameraHeight, typewriterSpeed);
         }
         else
         {
-            dialogueManager.EnterDialogueMode(dialogueToUse, transform, cameraHeight);
+            dialogueManager.EnterDialogueMode(dialogueToUse, transform, cameraHeight, typewriterSpeed);
         }
     }
 

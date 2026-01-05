@@ -63,6 +63,7 @@ public class DialogueUI : MonoBehaviour
     private Coroutine fadeCoroutine;
     private bool isTypewriting;
     private string fullDialogueText;
+    private float overrideTypewriterSpeed = 0f;
     #endregion
 
     #region Unity Lifecycle
@@ -153,7 +154,9 @@ public class DialogueUI : MonoBehaviour
         }
 
         // Apply text with or without typewriter effect
-        if (uiSettings != null && uiSettings.useTypewriterEffect)
+        // Use typewriter if: override speed is set OR settings has it enabled
+        bool useTypewriter = overrideTypewriterSpeed > 0f || (uiSettings != null && uiSettings.useTypewriterEffect);
+        if (useTypewriter)
         {
             if (typewriterCoroutine != null) StopCoroutine(typewriterCoroutine);
             typewriterCoroutine = StartCoroutine(TypewriterEffect(text));
@@ -274,6 +277,24 @@ public class DialogueUI : MonoBehaviour
         uiSettings = settings;
         ApplyDialogueTextStyle();
     }
+
+    /// <summary>
+    /// Sets an override typewriter speed for the current dialogue session.
+    /// Call with 0 to use default speed from settings.
+    /// </summary>
+    /// <param name="speed">Characters per second (0 = use default)</param>
+    public void SetTypewriterSpeedOverride(float speed)
+    {
+        overrideTypewriterSpeed = speed;
+    }
+
+    /// <summary>
+    /// Clears the typewriter speed override, reverting to default settings.
+    /// </summary>
+    public void ClearTypewriterSpeedOverride()
+    {
+        overrideTypewriterSpeed = 0f;
+    }
     #endregion
 
     #region Private Methods
@@ -393,7 +414,11 @@ public class DialogueUI : MonoBehaviour
         isTypewriting = true;
         dialogueText.text = "";
 
-        float delay = 1f / uiSettings.typewriterSpeed;
+        // Use override speed if set, otherwise use settings speed (default to 50 if no settings)
+        float speed = overrideTypewriterSpeed > 0f
+            ? overrideTypewriterSpeed
+            : (uiSettings != null ? uiSettings.typewriterSpeed : 50f);
+        float delay = 1f / speed;
 
         foreach (char c in text)
         {

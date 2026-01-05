@@ -155,7 +155,8 @@ public class DialogueManager : MonoBehaviour
     /// <param name="inkJSON">The compiled Ink JSON asset</param>
     /// <param name="npcTransform">Optional transform of the NPC being talked to (for camera focus)</param>
     /// <param name="cameraHeight">Optional camera look height (-1 to use default)</param>
-    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform = null, float cameraHeight = -1f)
+    /// <param name="typewriterSpeed">Optional typewriter speed override (0 = use default)</param>
+    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform = null, float cameraHeight = -1f, float typewriterSpeed = 0f)
     {
         if (inkJSON == null)
         {
@@ -173,6 +174,9 @@ public class DialogueManager : MonoBehaviour
         customCameraHeight = cameraHeight;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
+
+        // Set typewriter speed override
+        dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
 
         // Show UI
         dialogueUI.Show();
@@ -205,7 +209,8 @@ public class DialogueManager : MonoBehaviour
     /// <param name="knotName">Name of the knot to start from</param>
     /// <param name="npcTransform">Optional NPC transform</param>
     /// <param name="cameraHeight">Optional camera look height (-1 to use default)</param>
-    public void EnterDialogueMode(TextAsset inkJSON, string knotName, Transform npcTransform = null, float cameraHeight = -1f)
+    /// <param name="typewriterSpeed">Optional typewriter speed override (0 = use default)</param>
+    public void EnterDialogueMode(TextAsset inkJSON, string knotName, Transform npcTransform = null, float cameraHeight = -1f, float typewriterSpeed = 0f)
     {
         if (inkJSON == null)
         {
@@ -223,6 +228,9 @@ public class DialogueManager : MonoBehaviour
         customCameraHeight = cameraHeight;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
+
+        // Set typewriter speed override
+        dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
 
         // Show UI
         dialogueUI.Show();
@@ -267,9 +275,10 @@ public class DialogueManager : MonoBehaviour
         // Sync variables back to GameManager
         SyncVariablesFromInk();
 
-        // Hide UI
+        // Clear typewriter speed override and hide UI
         if (dialogueUI != null)
         {
+            dialogueUI.ClearTypewriterSpeedOverride();
             dialogueUI.Hide();
         }
 

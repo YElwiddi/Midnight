@@ -19689,6 +19689,7 @@ MonoBehaviour:
     statComparison: 4
     statValue: 0
     compareToStatName: 
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 0
     requiredZoneName: 
     requiredFacingObjectName: 
@@ -19705,6 +19706,7 @@ MonoBehaviour:
     statComparison: 4
     statValue: 0
     compareToStatName: 
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 0
     requiredZoneName: 
     requiredFacingObjectName: 
@@ -19721,6 +19723,7 @@ MonoBehaviour:
     statComparison: 4
     statValue: 0
     compareToStatName: 
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 0
     requiredZoneName: 
     requiredFacingObjectName: 
@@ -19737,6 +19740,7 @@ MonoBehaviour:
     statComparison: 4
     statValue: 0
     compareToStatName: 
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 0
     requiredZoneName: 
     requiredFacingObjectName: 
@@ -19749,6 +19753,7 @@ MonoBehaviour:
     statComparison: 4
     statValue: 0
     compareToStatName: GraveRobberSetup
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 3
     requiredZoneName: BehindGate
     requiredFacingObjectName: DoNotPass1
@@ -19756,11 +19761,12 @@ MonoBehaviour:
     singleEvent: {fileID: 11400000, guid: 10440e00be23d4348afa8c67293397f8, type: 2}
     eventGroup: []
     excludePreviouslySelectedEvents: 0
-    conditionType: 0
+    conditionType: 2
     statName: SpiritAngered
     statComparison: 4
     statValue: 0
     compareToStatName: GraveRobberSetup
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 1
     requiredZoneName: YureiJumpscareZone
     requiredFacingObjectName: 
@@ -19769,10 +19775,11 @@ MonoBehaviour:
     eventGroup: []
     excludePreviouslySelectedEvents: 0
     conditionType: 2
-    statName: GraveRobbberSetup
+    statName: GraveRbbberSetup
     statComparison: 2
     statValue: 0
     compareToStatName: SpiritAngered
+    waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 3
     requiredZoneName: BehindGate
     requiredFacingObjectName: DoNotPass1
