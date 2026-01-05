@@ -38,7 +38,17 @@ public class ExitDialogueData
 [System.Serializable]
 public class WaypointData
 {
-    [Tooltip("Name of the GameObject to use as the waypoint target")]
+    [Tooltip("If true, waypoint is calculated relative to player position instead of using a named GameObject")]
+    public bool usePlayerRelativePosition = false;
+
+    [Tooltip("Distance in front of the player for this waypoint (only used if usePlayerRelativePosition is true)")]
+    [Range(0.5f, 50f)]
+    public float distanceFromPlayer = 3f;
+
+    [Tooltip("Height offset from player's Y position (only used if usePlayerRelativePosition is true). 0 = same height as player.")]
+    public float heightOffset = 0f;
+
+    [Tooltip("Name of the GameObject to use as the waypoint target (ignored if usePlayerRelativePosition is true)")]
     public string waypointName;
 
     [Tooltip("Movement speed to reach this waypoint")]
@@ -62,6 +72,16 @@ public class WaypointData
     [Tooltip("Time to wait at this waypoint before continuing (ignored if waitForInteraction is true)")]
     [Range(0f, 30f)]
     public float waitTime = 0f;
+
+    [Tooltip("If true, NPC will continuously rotate to face the player while waiting at this waypoint")]
+    public bool facePlayerWhileWaiting = false;
+
+    [Tooltip("If true, NPC will continuously rotate to keep their back to the player while waiting (faces away)")]
+    public bool backToPlayerWhileWaiting = false;
+
+    [Tooltip("How fast the NPC rotates to face/away from the player (degrees per second). Higher = snappier.")]
+    [Range(1f, 360f)]
+    public float playerTrackingRotationSpeed = 120f;
 
     [Header("Dialogue (Optional - overrides event default)")]
     [Tooltip("Ink dialogue to use at this waypoint. If empty, uses the event's default dialogue.")]
@@ -145,7 +165,17 @@ public class BackgroundNPCData
     [Tooltip("The NPC prefab to spawn")]
     public GameObject npcPrefab;
 
-    [Tooltip("Name of the GameObject where this NPC will spawn")]
+    [Tooltip("If true, spawns in front of the player instead of at a spawn point")]
+    public bool spawnInFrontOfPlayer = false;
+
+    [Tooltip("Distance in front of the player to spawn (only used if spawnInFrontOfPlayer is true)")]
+    [Range(0.5f, 50f)]
+    public float spawnDistanceFromPlayer = 3f;
+
+    [Tooltip("Height offset from player's Y position (only used if spawnInFrontOfPlayer is true). 0 = same height as player.")]
+    public float spawnHeightOffset = 0f;
+
+    [Tooltip("Name of the GameObject where this NPC will spawn (ignored if spawnInFrontOfPlayer is true)")]
     public string spawnPointName;
 
     [Header("Spawn Trigger")]
@@ -158,6 +188,19 @@ public class BackgroundNPCData
 
     [Tooltip("Name of the waypoint that triggers spawning (used with OnWaypointReached trigger)")]
     public string triggerWaypointName = "";
+
+    [Header("Spawn Rotation")]
+    [Tooltip("If true, the spawned NPC will face the player upon spawn")]
+    public bool facePlayerOnSpawn = false;
+
+    [Tooltip("If true, the spawned NPC will have its back to the player upon spawn (faces away)")]
+    public bool backToPlayerOnSpawn = false;
+
+    [Tooltip("Custom rotation offset (X, Y, Z) applied to the spawned NPC. Applied after face/back to player.")]
+    public Vector3 spawnRotationOffset = Vector3.zero;
+
+    [Tooltip("If true, uses the custom spawnRotationOffset instead of the spawn point's rotation")]
+    public bool useCustomRotation = false;
 
     [Header("Movement")]
     [Tooltip("Ordered list of waypoints this NPC will travel through")]
@@ -185,8 +228,31 @@ public class GameEvent : ScriptableObject
     [Tooltip("The NPC prefab to spawn for this event")]
     public GameObject npcPrefab;
 
-    [Tooltip("Name of the GameObject where the NPC will spawn")]
+    [Tooltip("If true, spawns in front of the player instead of at a spawn point")]
+    public bool spawnInFrontOfPlayer = false;
+
+    [Tooltip("Distance in front of the player to spawn (only used if spawnInFrontOfPlayer is true)")]
+    [Range(0.5f, 50f)]
+    public float spawnDistanceFromPlayer = 3f;
+
+    [Tooltip("Height offset from player's Y position (only used if spawnInFrontOfPlayer is true). 0 = same height as player.")]
+    public float spawnHeightOffset = 0f;
+
+    [Tooltip("Name of the GameObject where the NPC will spawn (ignored if spawnInFrontOfPlayer is true)")]
     public string spawnPointName = "NPCLeftPoint";
+
+    [Header("Spawn Rotation")]
+    [Tooltip("If true, the spawned NPC will face the player upon spawn")]
+    public bool facePlayerOnSpawn = false;
+
+    [Tooltip("If true, the spawned NPC will have its back to the player upon spawn (faces away)")]
+    public bool backToPlayerOnSpawn = false;
+
+    [Tooltip("Custom rotation offset (X, Y, Z) applied to the spawned NPC. Applied after face/back to player.")]
+    public Vector3 spawnRotationOffset = Vector3.zero;
+
+    [Tooltip("If true, uses the custom spawnRotationOffset instead of the spawn point's rotation")]
+    public bool useCustomRotation = false;
 
     [Header("Waypoints")]
     [Tooltip("Ordered list of waypoints the NPC will travel through")]

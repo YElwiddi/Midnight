@@ -79,6 +79,11 @@ public class EventNPC : MonoBehaviour, IInteractable
     private bool wasInProximity = false;
     private Renderer npcRenderer;
     private int lastSoundPlayedForWaypoint = -1;
+
+    // Face/back to player tracking
+    private bool shouldTrackPlayer = false;
+    private bool trackingBackToPlayer = false;
+    private float playerTrackingSpeed = 120f;
     #endregion
 
     #region Unity Lifecycle
@@ -146,6 +151,12 @@ public class EventNPC : MonoBehaviour, IInteractable
             case NPCState.Exiting:
                 CheckArrival();
                 break;
+        }
+
+        // Handle continuous player tracking rotation
+        if (shouldTrackPlayer && (currentState == NPCState.Idle || currentState == NPCState.WaitingForInteraction))
+        {
+            RotateRelativeToPlayer();
         }
 
         CheckProximitySound();
@@ -350,8 +361,9 @@ public class EventNPC : MonoBehaviour, IInteractable
             return;
         }
 
-        // Clear any previous idle animation
+        // Clear any previous idle animation and player tracking state
         ClearCurrentIdleAnimation();
+        shouldTrackPlayer = false;
 
         // Re-enable NavMeshAgent in case it was disabled for an arrival animation
         agent.updatePosition = true;
@@ -359,20 +371,47 @@ public class EventNPC : MonoBehaviour, IInteractable
         agent.isStopped = false;
 
         WaypointData waypoint = waypoints[currentWaypointIndex];
-        GameObject waypointObj = GameObject.Find(waypoint.waypointName);
+        Vector3 targetPosition;
+        string waypointDescription;
 
-        if (waypointObj == null)
+        if (waypoint.usePlayerRelativePosition)
         {
-            Debug.LogError($"EventNPC {npcName}: Waypoint '{waypoint.waypointName}' not found!");
-            currentWaypointIndex++;
-            MoveToNextWaypoint();
-            return;
+            // Calculate position relative to player
+            targetPosition = CalculatePlayerRelativePosition(waypoint.distanceFromPlayer, waypoint.heightOffset);
+            waypointDescription = $"in front of player ({waypoint.distanceFromPlayer}m)";
+
+            if (targetPosition == Vector3.zero)
+            {
+                Debug.LogError($"EventNPC {npcName}: Failed to calculate player-relative waypoint position!");
+                currentWaypointIndex++;
+                MoveToNextWaypoint();
+                return;
+            }
+
+            // Create a temporary transform reference for arrival handling
+            currentTargetWaypoint = null;
+        }
+        else
+        {
+            // Use named waypoint object
+            GameObject waypointObj = GameObject.Find(waypoint.waypointName);
+
+            if (waypointObj == null)
+            {
+                Debug.LogError($"EventNPC {npcName}: Waypoint '{waypoint.waypointName}' not found!");
+                currentWaypointIndex++;
+                MoveToNextWaypoint();
+                return;
+            }
+
+            targetPosition = waypointObj.transform.position;
+            currentTargetWaypoint = waypointObj.transform;
+            waypointDescription = waypoint.waypointName;
         }
 
-        currentTargetWaypoint = waypointObj.transform;
         agent.speed = waypoint.moveSpeed;
         agent.acceleration = 999f; // Instant acceleration
-        agent.SetDestination(currentTargetWaypoint.position);
+        agent.SetDestination(targetPosition);
 
         SetWalkingState(true);
         currentState = NPCState.Walking;
@@ -384,7 +423,46 @@ public class EventNPC : MonoBehaviour, IInteractable
             Debug.Log($"EventNPC {npcName}: Playing movement animation '{waypoint.movementAnimationTrigger}'");
         }
 
-        Debug.Log($"EventNPC {npcName}: Moving to waypoint '{waypoint.waypointName}' at speed {waypoint.moveSpeed}");
+        Debug.Log($"EventNPC {npcName}: Moving to waypoint '{waypointDescription}' at speed {waypoint.moveSpeed}");
+    }
+
+    private Vector3 CalculatePlayerRelativePosition(float distance, float heightOffset)
+    {
+        if (playerTransform == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTransform = player.transform;
+            }
+        }
+
+        if (playerTransform == null)
+        {
+            Debug.LogError("EventNPC: Cannot calculate player-relative position - no player found!");
+            return Vector3.zero;
+        }
+
+        // Use camera forward direction if available, otherwise player forward
+        Vector3 forwardDirection;
+        if (mainCamera != null)
+        {
+            forwardDirection = mainCamera.transform.forward;
+        }
+        else
+        {
+            forwardDirection = playerTransform.forward;
+        }
+
+        // Flatten to horizontal plane
+        forwardDirection.y = 0;
+        forwardDirection.Normalize();
+
+        // Calculate position in front of player
+        Vector3 position = playerTransform.position + forwardDirection * distance;
+        position.y = playerTransform.position.y + heightOffset;
+
+        return position;
     }
 
     private void CheckArrival()
@@ -489,10 +567,16 @@ public class EventNPC : MonoBehaviour, IInteractable
     private void HandleWaypointArrival()
     {
         WaypointData waypoint = waypoints[currentWaypointIndex];
-        Debug.Log($"EventNPC {npcName}: Arrived at waypoint '{waypoint.waypointName}'");
+        string waypointDescription = waypoint.usePlayerRelativePosition
+            ? $"in front of player ({waypoint.distanceFromPlayer}m)"
+            : waypoint.waypointName;
+        Debug.Log($"EventNPC {npcName}: Arrived at waypoint '{waypointDescription}'");
 
-        // Fire waypoint reached event
-        OnWaypointReached?.Invoke(waypoint.waypointName);
+        // Fire waypoint reached event (use waypointId if available, otherwise waypointName or description)
+        string waypointId = !string.IsNullOrEmpty(waypoint.waypointId) ? waypoint.waypointId
+            : !string.IsNullOrEmpty(waypoint.waypointName) ? waypoint.waypointName
+            : waypointDescription;
+        OnWaypointReached?.Invoke(waypointId);
 
         // If there's an arrival animation, wait for NavMeshAgent to fully settle before playing it
         if (!string.IsNullOrEmpty(waypoint.arrivalAnimationTrigger))
@@ -543,6 +627,15 @@ public class EventNPC : MonoBehaviour, IInteractable
             SetIdleAnimation(waypoint.idleAnimationBool, true);
         }
 
+        // Set up player tracking behavior
+        shouldTrackPlayer = waypoint.facePlayerWhileWaiting || waypoint.backToPlayerWhileWaiting;
+        trackingBackToPlayer = waypoint.backToPlayerWhileWaiting;
+        playerTrackingSpeed = waypoint.playerTrackingRotationSpeed;
+
+        string trackingStatus = shouldTrackPlayer
+            ? (trackingBackToPlayer ? " [back to player]" : " [facing player]")
+            : "";
+
         if (waypoint.waitForInteraction)
         {
             currentState = NPCState.WaitingForInteraction;
@@ -552,30 +645,54 @@ public class EventNPC : MonoBehaviour, IInteractable
             {
                 isWaitingToBeInteractable = true;
                 interactableAtTime = Time.time + waypoint.timeUntilInteractable;
-                Debug.Log($"EventNPC {npcName}: Waiting for player interaction (interactable in {waypoint.timeUntilInteractable}s)");
+                Debug.Log($"EventNPC {npcName}: Waiting for player interaction (interactable in {waypoint.timeUntilInteractable}s){trackingStatus}");
             }
             else
             {
                 isWaitingToBeInteractable = false;
-                Debug.Log($"EventNPC {npcName}: Waiting for player interaction");
+                Debug.Log($"EventNPC {npcName}: Waiting for player interaction{trackingStatus}");
             }
         }
         else if (waypoint.waitTime > 0)
         {
             currentState = NPCState.Idle;
+            Debug.Log($"EventNPC {npcName}: Waiting for {waypoint.waitTime}s{trackingStatus}");
             StartCoroutine(WaitAtWaypoint(waypoint.waitTime));
         }
         else
         {
+            shouldTrackPlayer = false; // Not waiting, so don't need to track player
             AdvanceToNextWaypoint();
         }
     }
 
+    private void RotateRelativeToPlayer()
+    {
+        if (playerTransform == null) return;
+
+        Vector3 directionToPlayer = playerTransform.position - transform.position;
+        directionToPlayer.y = 0;
+
+        if (directionToPlayer.sqrMagnitude < 0.001f) return;
+
+        // If back to player, flip the direction
+        if (trackingBackToPlayer)
+        {
+            directionToPlayer = -directionToPlayer;
+        }
+
+        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRotation,
+            playerTrackingSpeed * Time.deltaTime
+        );
+    }
+
     private IEnumerator WaitAtWaypoint(float waitTime)
     {
-        Debug.Log($"EventNPC {npcName}: Waiting for {waitTime} seconds");
         yield return new WaitForSeconds(waitTime);
-
+        shouldTrackPlayer = false; // Stop tracking player when done waiting
         AdvanceToNextWaypoint();
     }
 

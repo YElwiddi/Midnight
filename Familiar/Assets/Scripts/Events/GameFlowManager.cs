@@ -238,6 +238,125 @@ public class GameFlowManager : MonoBehaviour
     #endregion
 
     #region Private Methods
+    /// <summary>
+    /// Calculates spawn position in front of the player.
+    /// </summary>
+    private Vector3 CalculateSpawnPositionInFrontOfPlayer(float distance, float heightOffset)
+    {
+        Transform player = playerTransform;
+        Camera cam = playerCamera;
+
+        // Try to find player if not cached
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+        }
+
+        // Try to find camera if not cached
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+
+        if (player == null)
+        {
+            Debug.LogError("GameFlowManager: Cannot spawn in front of player - no player found!");
+            return Vector3.zero;
+        }
+
+        // Use camera forward direction (horizontal only) if available, otherwise use player forward
+        Vector3 forwardDirection;
+        if (cam != null)
+        {
+            forwardDirection = cam.transform.forward;
+        }
+        else
+        {
+            forwardDirection = player.forward;
+        }
+
+        // Flatten to horizontal plane
+        forwardDirection.y = 0;
+        forwardDirection.Normalize();
+
+        // Calculate spawn position
+        Vector3 spawnPos = player.position + forwardDirection * distance;
+        spawnPos.y = player.position.y + heightOffset;
+
+        return spawnPos;
+    }
+
+    /// <summary>
+    /// Calculates the spawn rotation based on event settings.
+    /// </summary>
+    private Quaternion CalculateSpawnRotation(Transform spawnPoint, bool facePlayer, bool backToPlayer, bool useCustomRotation, Vector3 rotationOffset, Vector3 spawnPosition)
+    {
+        Quaternion baseRotation;
+
+        if (facePlayer || backToPlayer)
+        {
+            // Find player and face them (or away from them)
+            Transform player = playerTransform;
+            if (player == null)
+            {
+                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                if (playerObj != null)
+                {
+                    player = playerObj.transform;
+                }
+            }
+
+            if (player != null)
+            {
+                // Calculate direction to player (ignoring Y to keep NPC upright)
+                Vector3 directionToPlayer = player.position - spawnPosition;
+                directionToPlayer.y = 0;
+
+                if (directionToPlayer.sqrMagnitude > 0.001f)
+                {
+                    // If backToPlayer, flip the direction
+                    if (backToPlayer)
+                    {
+                        directionToPlayer = -directionToPlayer;
+                    }
+                    baseRotation = Quaternion.LookRotation(directionToPlayer);
+                }
+                else
+                {
+                    baseRotation = spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("GameFlowManager: facePlayerOnSpawn/backToPlayerOnSpawn is true but no player found! Using spawn point rotation.");
+                baseRotation = spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
+            }
+        }
+        else if (useCustomRotation)
+        {
+            // Use custom rotation as the base (absolute rotation)
+            baseRotation = Quaternion.Euler(rotationOffset);
+            return baseRotation; // Return early, no offset needed
+        }
+        else
+        {
+            // Use spawn point rotation as base (or identity if no spawn point)
+            baseRotation = spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
+        }
+
+        // Apply rotation offset
+        if (rotationOffset != Vector3.zero)
+        {
+            baseRotation *= Quaternion.Euler(rotationOffset);
+        }
+
+        return baseRotation;
+    }
+
     private void StartEventDirectly(GameEvent gameEvent)
     {
         if (gameEvent == null)
@@ -258,19 +377,52 @@ public class GameFlowManager : MonoBehaviour
         isRunning = true;
         Debug.Log($"GameFlowManager: Starting event '{currentEvent.eventName}'");
 
-        // Find spawn point
-        GameObject spawnPoint = GameObject.Find(currentEvent.spawnPointName);
-        if (spawnPoint == null)
+        // Determine spawn position
+        Vector3 spawnPosition;
+        Transform spawnPointTransform = null;
+
+        if (currentEvent.spawnInFrontOfPlayer)
         {
-            Debug.LogError($"GameFlowManager: Spawn point '{currentEvent.spawnPointName}' not found!");
-            StartNextEvent();
-            return;
+            spawnPosition = CalculateSpawnPositionInFrontOfPlayer(
+                currentEvent.spawnDistanceFromPlayer,
+                currentEvent.spawnHeightOffset
+            );
+
+            if (spawnPosition == Vector3.zero)
+            {
+                Debug.LogError($"GameFlowManager: Failed to calculate spawn position in front of player for event '{currentEvent.eventName}'!");
+                StartNextEvent();
+                return;
+            }
         }
+        else
+        {
+            // Find spawn point
+            GameObject spawnPoint = GameObject.Find(currentEvent.spawnPointName);
+            if (spawnPoint == null)
+            {
+                Debug.LogError($"GameFlowManager: Spawn point '{currentEvent.spawnPointName}' not found!");
+                StartNextEvent();
+                return;
+            }
+            spawnPosition = spawnPoint.transform.position;
+            spawnPointTransform = spawnPoint.transform;
+        }
+
+        // Calculate spawn rotation
+        Quaternion spawnRotation = CalculateSpawnRotation(
+            spawnPointTransform,
+            currentEvent.facePlayerOnSpawn,
+            currentEvent.backToPlayerOnSpawn,
+            currentEvent.useCustomRotation,
+            currentEvent.spawnRotationOffset,
+            spawnPosition
+        );
 
         // Spawn NPC
         GameObject npcObject = Instantiate(currentEvent.npcPrefab,
-                                           spawnPoint.transform.position,
-                                           spawnPoint.transform.rotation);
+                                           spawnPosition,
+                                           spawnRotation);
 
         // Add or get EventNPC component
         currentNPC = npcObject.GetComponent<EventNPC>();
@@ -385,18 +537,50 @@ public class GameFlowManager : MonoBehaviour
 
     private void SpawnBackgroundNPC(BackgroundNPCData bgNPC)
     {
-        // Find spawn point
-        GameObject spawnPoint = GameObject.Find(bgNPC.spawnPointName);
-        if (spawnPoint == null)
+        // Determine spawn position
+        Vector3 spawnPosition;
+        Transform spawnPointTransform = null;
+
+        if (bgNPC.spawnInFrontOfPlayer)
         {
-            Debug.LogError($"GameFlowManager: Background NPC spawn point '{bgNPC.spawnPointName}' not found!");
-            return;
+            spawnPosition = CalculateSpawnPositionInFrontOfPlayer(
+                bgNPC.spawnDistanceFromPlayer,
+                bgNPC.spawnHeightOffset
+            );
+
+            if (spawnPosition == Vector3.zero)
+            {
+                Debug.LogError($"GameFlowManager: Failed to calculate spawn position in front of player for background NPC '{bgNPC.npcName}'!");
+                return;
+            }
         }
+        else
+        {
+            // Find spawn point
+            GameObject spawnPoint = GameObject.Find(bgNPC.spawnPointName);
+            if (spawnPoint == null)
+            {
+                Debug.LogError($"GameFlowManager: Background NPC spawn point '{bgNPC.spawnPointName}' not found!");
+                return;
+            }
+            spawnPosition = spawnPoint.transform.position;
+            spawnPointTransform = spawnPoint.transform;
+        }
+
+        // Calculate spawn rotation
+        Quaternion spawnRotation = CalculateSpawnRotation(
+            spawnPointTransform,
+            bgNPC.facePlayerOnSpawn,
+            bgNPC.backToPlayerOnSpawn,
+            bgNPC.useCustomRotation,
+            bgNPC.spawnRotationOffset,
+            spawnPosition
+        );
 
         // Spawn NPC
         GameObject npcObject = Instantiate(bgNPC.npcPrefab,
-                                           spawnPoint.transform.position,
-                                           spawnPoint.transform.rotation);
+                                           spawnPosition,
+                                           spawnRotation);
 
         // Add or get EventNPC component
         EventNPC eventNPC = npcObject.GetComponent<EventNPC>();
@@ -529,11 +713,30 @@ public class GameFlowManager : MonoBehaviour
             GameEventsManager.instance.gameFlowEvents?.EventCompleted(eventName);
         }
 
+        // Get wait time from current entry before clearing state
+        float waitTime = 0f;
+        if (currentEventIndex >= 0 && currentEventIndex < eventQueue.Count)
+        {
+            EventQueueEntry currentEntry = eventQueue[currentEventIndex];
+            if (currentEntry != null)
+            {
+                waitTime = currentEntry.waitTimeBeforeNextEvent;
+            }
+        }
+
         currentNPC = null;
         currentEvent = null;
 
-        // Move to next event
-        StartNextEvent();
+        // Move to next event (with optional delay)
+        if (waitTime > 0f)
+        {
+            Debug.Log($"GameFlowManager: Waiting {waitTime}s before next event");
+            Invoke(nameof(StartNextEvent), waitTime);
+        }
+        else
+        {
+            StartNextEvent();
+        }
     }
     #endregion
 

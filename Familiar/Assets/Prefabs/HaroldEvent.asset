@@ -51,7 +51,7 @@ MonoBehaviour:
     idleAnimationBool: 
     branchVariable: allowed_inside
     branchValue: false
-    branchToWaypoint: NPCCenterPoint
+    branchToWaypoint: NPCCenterPointExit
     waypointId: 
     proximitySound: {fileID: 0}
     proximitySoundRange: 1
@@ -121,14 +121,14 @@ MonoBehaviour:
     proximitySoundVolume: 0
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
-  - waypointName: NPCCenterPoint
+  - waypointName: NPCCenterPointExit
     moveSpeed: 3.96
     waitForInteraction: 0
     timeUntilInteractable: 10
     waitingDialogueText: He appears to be staring out into the distance...
     waitingDialogueSpeaker: 
     waitTime: 0
-    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    inkDialogue: {fileID: 0}
     dialogueKnot: 
     movementAnimationTrigger: 
     arrivalAnimationTrigger: 

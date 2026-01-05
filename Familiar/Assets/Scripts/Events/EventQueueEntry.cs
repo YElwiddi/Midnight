@@ -80,6 +80,11 @@ public class EventQueueEntry
     [Tooltip("Name of the second stat to compare against - used when Condition Type is StatVsStat")]
     public string compareToStatName = "";
 
+    [Header("Timing")]
+    [Tooltip("Time to wait (in seconds) after this event completes before starting the next event")]
+    [Range(0f, 120f)]
+    public float waitTimeBeforeNextEvent = 0f;
+
     [Header("Spawn Conditions (Optional)")]
     [Tooltip("What spawn conditions must be met before the NPC appears")]
     public SpawnConditionRequirement spawnConditionRequirement = SpawnConditionRequirement.None;
@@ -313,6 +318,7 @@ public class EventQueueEntry
 
     /// <summary>
     /// Checks if the player is currently facing/looking at the required object.
+    /// First checks for FacingTarget components (no collider needed), then falls back to raycast.
     /// </summary>
     private bool CheckFacingCondition(Camera playerCamera)
     {
@@ -328,7 +334,17 @@ public class EventQueueEntry
             return false;
         }
 
-        // Raycast from camera to see what player is looking at
+        // First, check for FacingTarget components (no collider required)
+        FacingTarget[] facingTargets = Object.FindObjectsByType<FacingTarget>(FindObjectsSortMode.None);
+        foreach (var target in facingTargets)
+        {
+            if (target.targetId == requiredFacingObjectName && target.IsCameraFacing(playerCamera))
+            {
+                return true;
+            }
+        }
+
+        // Fallback: Raycast from camera to see what player is looking at (requires collider)
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {

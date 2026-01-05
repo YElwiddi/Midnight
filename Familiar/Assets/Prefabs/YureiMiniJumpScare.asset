@@ -10,19 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
-  m_Name: RobberMiniJumpScare
+  m_Name: YureiMiniJumpScare
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
-  npcPrefab: {fileID: 3767055355421772689, guid: e0696bd419fdc4645915f55e99a98f1d, type: 3}
-  spawnPointName: RightOfGate
+  npcPrefab: {fileID: 676162034635823457, guid: 688385fc0147b2a40a62cb241a2004b3, type: 3}
+  spawnInFrontOfPlayer: 1
+  spawnDistanceFromPlayer: 6
+  spawnHeightOffset: 0
+  spawnPointName: YureiMiniJumpscare
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 1
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
   waypoints:
-  - waypointName: LeftOfGate
-    moveSpeed: 10
+  - usePlayerRelativePosition: 1
+    distanceFromPlayer: 6
+    heightOffset: 0
+    waypointName: 
+    moveSpeed: 25
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
-    waitTime: 0
+    waitTime: 2
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 1
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
@@ -32,14 +45,14 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
-    proximitySound: {fileID: 8300000, guid: e231cdd7c37e1c6449032c852ea81d79, type: 3}
-    proximitySoundRange: 30
+    proximitySound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
+    proximitySoundRange: 40
     proximitySoundVolume: 1
-    proximitySoundTrigger: 1
+    proximitySoundTrigger: 2
     requirePlayerLooking: 0
   inkDialogue: {fileID: 0}
   dialogueKnot: 
   exitBehavior: 0
-  exitPointName: LeftOfGate
+  exitPointName: FrontOfCrypt
   exitDialogues: []
   backgroundNPCs: []
