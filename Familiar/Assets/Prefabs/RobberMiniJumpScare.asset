@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
   npcPrefab: {fileID: 3767055355421772689, guid: e0696bd419fdc4645915f55e99a98f1d, type: 3}
-  spawnPointName: LeftOfGate
+  spawnPointName: RightOfGate
   waypoints:
-  - waypointName: RightOfGate
-    moveSpeed: 15
+  - waypointName: LeftOfGate
+    moveSpeed: 12
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
@@ -40,6 +40,6 @@ MonoBehaviour:
   inkDialogue: {fileID: 0}
   dialogueKnot: 
   exitBehavior: 0
-  exitPointName: RightOfGate
+  exitPointName: LeftOfGate
   exitDialogues: []
   backgroundNPCs: []

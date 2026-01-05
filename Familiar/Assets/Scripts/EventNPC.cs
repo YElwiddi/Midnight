@@ -371,6 +371,7 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         currentTargetWaypoint = waypointObj.transform;
         agent.speed = waypoint.moveSpeed;
+        agent.acceleration = 999f; // Instant acceleration
         agent.SetDestination(currentTargetWaypoint.position);
 
         SetWalkingState(true);
@@ -696,6 +697,7 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         currentState = NPCState.Exiting;
         agent.speed = waypoints.Length > 0 ? waypoints[waypoints.Length - 1].moveSpeed : 3f;
+        agent.acceleration = 999f; // Instant acceleration
         agent.SetDestination(exitObj.transform.position);
 
         SetWalkingState(true);
