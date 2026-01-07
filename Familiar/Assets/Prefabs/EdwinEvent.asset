@@ -29,10 +29,10 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 5
     waitForInteraction: 0
-    timeUntilInteractable: 0
+    timeUntilInteractable: 5
     waitingDialogueText: 
     waitingDialogueSpeaker: 
-    waitTime: 1.1
+    waitTime: 1.4
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
@@ -58,7 +58,7 @@ MonoBehaviour:
     waitForInteraction: 1
     timeUntilInteractable: 0
     waitingDialogueText: 
-    waitingDialogueSpeaker: 
+    waitingDialogueSpeaker: 5
     waitTime: 0
     facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
@@ -82,19 +82,19 @@ MonoBehaviour:
     heightOffset: 0
     waypointName: EdwinSite
     moveSpeed: 3
-    waitForInteraction: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
+    waitForInteraction: 1
+    timeUntilInteractable: 6.7
+    waitingDialogueText: Let's give him a moment...
+    waitingDialogueSpeaker: 20
     waitTime: 7
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
+    inkDialogue: {fileID: 4900000, guid: 1f754fb052553724aa1b3a815edf3004, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
-    idleAnimationBool: 
+    idleAnimationBool: IsKneeling
     branchVariable: 
     branchValue: 
     branchToWaypoint: 
@@ -108,7 +108,7 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 5
+    moveSpeed: 2.8
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
