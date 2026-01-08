@@ -9747,11 +9747,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 094ac818600bda042a8bae691919857c, type: 2}
+      objectReference: {fileID: 2100000, guid: 3354ad603038cdf4eab0a6f325cb41e6, type: 2}
     - target: {fileID: -7511558181221131132, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 094ac818600bda042a8bae691919857c, type: 2}
+      objectReference: {fileID: 2100000, guid: 3354ad603038cdf4eab0a6f325cb41e6, type: 2}
     - target: {fileID: 919132149155446097, guid: 12fbb92677bd7b9409a907831d78506e, type: 3}
       propertyPath: m_Name
       value: PSXCross
@@ -20543,6 +20543,20 @@ MonoBehaviour:
     compareToStatName: SpiritAngered
     waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 3
+    requiredZoneName: BehindGate
+    requiredFacingObjectName: DoNotPass1
+  - selectionMode: 1
+    singleEvent: {fileID: 0}
+    eventGroup:
+    - {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
+    excludePreviouslySelectedEvents: 0
+    conditionType: 2
+    statName: GraveRobberSetup
+    statComparison: 2
+    statValue: 0
+    compareToStatName: SpiritAngered
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 1
     requiredZoneName: BehindGate
     requiredFacingObjectName: DoNotPass1
   autoStartOnAwake: 1
