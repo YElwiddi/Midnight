@@ -85,6 +85,9 @@ public class EventNPC : MonoBehaviour, IInteractable
     private bool shouldTrackPlayer = false;
     private bool trackingBackToPlayer = false;
     private float playerTrackingSpeed = 120f;
+
+    // Background NPC blocking
+    private bool isWaitingForBackgroundNPC = false;
     #endregion
 
     #region Unity Lifecycle
@@ -204,6 +207,38 @@ public class EventNPC : MonoBehaviour, IInteractable
     public void SetNPCName(string name)
     {
         npcName = name;
+    }
+
+    /// <summary>
+    /// Sets whether this NPC should wait for a background NPC to complete.
+    /// Called by GameFlowManager when a blocking background NPC is spawned.
+    /// </summary>
+    public void SetWaitingForBackgroundNPC(bool waiting)
+    {
+        isWaitingForBackgroundNPC = waiting;
+        Debug.Log($"EventNPC {npcName}: SetWaitingForBackgroundNPC({waiting})");
+    }
+
+    /// <summary>
+    /// Resumes this NPC after a blocking background NPC has completed.
+    /// Called by GameFlowManager when the background NPC fires OnNPCEventCompleted.
+    /// </summary>
+    public void ResumeFromBackgroundNPCWait()
+    {
+        if (isWaitingForBackgroundNPC)
+        {
+            isWaitingForBackgroundNPC = false;
+            Debug.Log($"EventNPC {npcName}: Resuming after background NPC completed");
+            AdvanceToNextWaypoint();
+        }
+    }
+
+    /// <summary>
+    /// Returns true if this NPC is currently waiting for a background NPC to complete.
+    /// </summary>
+    public bool IsWaitingForBackgroundNPC()
+    {
+        return isWaitingForBackgroundNPC;
     }
     #endregion
 
@@ -661,6 +696,12 @@ public class EventNPC : MonoBehaviour, IInteractable
             Debug.Log($"EventNPC {npcName}: Waiting for {waypoint.waitTime}s{trackingStatus}");
             StartCoroutine(WaitAtWaypoint(waypoint.waitTime));
         }
+        else if (isWaitingForBackgroundNPC)
+        {
+            // Blocking background NPC was spawned - wait until it completes
+            currentState = NPCState.Idle;
+            Debug.Log($"EventNPC {npcName}: Waiting for blocking background NPC to complete{trackingStatus}");
+        }
         else
         {
             shouldTrackPlayer = false; // Not waiting, so don't need to track player
@@ -695,6 +736,15 @@ public class EventNPC : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(waitTime);
         shouldTrackPlayer = false; // Stop tracking player when done waiting
+
+        // If waiting for a blocking background NPC, don't advance yet
+        // ResumeFromBackgroundNPCWait() will be called when the background NPC completes
+        if (isWaitingForBackgroundNPC)
+        {
+            Debug.Log($"EventNPC {npcName}: Wait time elapsed but still waiting for blocking background NPC");
+            yield break;
+        }
+
         AdvanceToNextWaypoint();
     }
 
@@ -715,6 +765,14 @@ public class EventNPC : MonoBehaviour, IInteractable
                     StartCoroutine(ShowExitDialogue(exitDialogue));
                 }
             }
+        }
+
+        // If waiting for a blocking background NPC, don't advance yet
+        if (isWaitingForBackgroundNPC)
+        {
+            currentState = NPCState.Idle;
+            Debug.Log($"EventNPC {npcName}: Dialogue ended but still waiting for blocking background NPC");
+            return;
         }
 
         AdvanceToNextWaypoint();

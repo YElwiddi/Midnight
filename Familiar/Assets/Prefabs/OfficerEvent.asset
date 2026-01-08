@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: OfficerEvent
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
-  npcPrefab: {fileID: 3767055355421772689, guid: 3c3283526696ea54fbbc78e489e6fe89, type: 3}
+  npcPrefab: {fileID: 919132149155446097, guid: 6319ca86cff919b459ce87769fc34781, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 3
   spawnHeightOffset: 0
-  spawnPointName: NPCRightPoint
+  spawnPointName: NPCLeftPoint
   facePlayerOnSpawn: 0
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
@@ -27,7 +27,34 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 5
+    moveSpeed: 7
+    waitForInteraction: 0
+    timeUntilInteractable: 5
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCRightPoint
+    moveSpeed: 7
     waitForInteraction: 0
     timeUntilInteractable: 5
     waitingDialogueText: 
@@ -53,19 +80,19 @@ MonoBehaviour:
   inkDialogue: {fileID: 4900000, guid: 6c7bdf100bb9d3649beebb940d2a5176, type: 3}
   dialogueKnot: 
   typewriterSpeed: 60
-  exitBehavior: 2
+  exitBehavior: 0
   exitPointName: NPCRightPoint
   exitDialogues: []
   backgroundNPCs:
-  - npcName: 
-    npcPrefab: {fileID: 0}
+  - npcName: Officer James
+    npcPrefab: {fileID: 3767055355421772689, guid: 3ff179bc21a9f914c93596069d0f62f5, type: 3}
     spawnInFrontOfPlayer: 0
     spawnDistanceFromPlayer: 0
     spawnHeightOffset: 0
-    spawnPointName: 
+    spawnPointName: NPCCenterPoint
     spawnTrigger: 1
     spawnDelay: 0
-    triggerWaypointName: 
+    triggerWaypointName: NPCCenterPoint
     facePlayerOnSpawn: 0
     backToPlayerOnSpawn: 0
     spawnRotationOffset: {x: 0, y: 0, z: 0}
@@ -74,8 +101,35 @@ MonoBehaviour:
     - usePlayerRelativePosition: 0
       distanceFromPlayer: 0
       heightOffset: 0
-      waypointName: 
-      moveSpeed: 0
+      waypointName: NPCGatePoint
+      moveSpeed: 5
+      waitForInteraction: 1
+      timeUntilInteractable: 0
+      waitingDialogueText: 
+      waitingDialogueSpeaker: 
+      waitTime: 0
+      facePlayerWhileWaiting: 0
+      backToPlayerWhileWaiting: 0
+      playerTrackingRotationSpeed: 0
+      inkDialogue: {fileID: 0}
+      dialogueKnot: 
+      movementAnimationTrigger: IsWalking
+      arrivalAnimationTrigger: 
+      idleAnimationBool: 
+      branchVariable: 
+      branchValue: 
+      branchToWaypoint: 
+      waypointId: 
+      proximitySound: {fileID: 0}
+      proximitySoundRange: 0
+      proximitySoundVolume: 0
+      proximitySoundTrigger: 0
+      requirePlayerLooking: 0
+    - usePlayerRelativePosition: 0
+      distanceFromPlayer: 0
+      heightOffset: 0
+      waypointName: NPCCenterPoint
+      moveSpeed: 5
       waitForInteraction: 0
       timeUntilInteractable: 0
       waitingDialogueText: 
@@ -86,7 +140,7 @@ MonoBehaviour:
       playerTrackingRotationSpeed: 0
       inkDialogue: {fileID: 0}
       dialogueKnot: 
-      movementAnimationTrigger: 
+      movementAnimationTrigger: IsWalking
       arrivalAnimationTrigger: 
       idleAnimationBool: 
       branchVariable: 
@@ -99,4 +153,8 @@ MonoBehaviour:
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
     exitBehavior: 0
-    exitPointName: 
+    exitPointName: NPCCenterPoint
+    blockMainNPCUntilComplete: 1
+    inkDialogue: {fileID: 4900000, guid: 6c7bdf100bb9d3649beebb940d2a5176, type: 3}
+    dialogueKnot: 
+    typewriterSpeed: 25

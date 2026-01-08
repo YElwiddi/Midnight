@@ -211,6 +211,21 @@ public class BackgroundNPCData
 
     [Tooltip("Name of the exit point GameObject (only used if exitBehavior is ContinueWalking)")]
     public string exitPointName = "";
+
+    [Header("Blocking Behavior")]
+    [Tooltip("If true, the main NPC will wait at the trigger waypoint until this background NPC completes all waypoints")]
+    public bool blockMainNPCUntilComplete = false;
+
+    [Header("Dialogue (Optional)")]
+    [Tooltip("Ink dialogue for this background NPC (enables interaction)")]
+    public TextAsset inkDialogue;
+
+    [Tooltip("Starting knot/stitch for the dialogue")]
+    public string dialogueKnot = "";
+
+    [Tooltip("Override typewriter speed for this NPC's dialogue (characters per second). 0 = use default.")]
+    [Range(0f, 200f)]
+    public float typewriterSpeed = 0f;
 }
 
 /// <summary>

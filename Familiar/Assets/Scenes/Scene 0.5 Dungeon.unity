@@ -20440,6 +20440,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
   - selectionMode: 0
+    singleEvent: {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
+    eventGroup: []
+    excludePreviouslySelectedEvents: 0
+    conditionType: 0
+    statName: GraveRobberSetup
+    statComparison: 2
+    statValue: 0
+    compareToStatName: SpiritAngered
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 0
+    requiredZoneName: BehindGate
+    requiredFacingObjectName: DoNotPass1
+  - selectionMode: 0
     singleEvent: {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     eventGroup: []
     excludePreviouslySelectedEvents: 0
@@ -20543,20 +20556,6 @@ MonoBehaviour:
     compareToStatName: SpiritAngered
     waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 3
-    requiredZoneName: BehindGate
-    requiredFacingObjectName: DoNotPass1
-  - selectionMode: 1
-    singleEvent: {fileID: 0}
-    eventGroup:
-    - {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
-    excludePreviouslySelectedEvents: 0
-    conditionType: 2
-    statName: GraveRobberSetup
-    statComparison: 2
-    statValue: 0
-    compareToStatName: SpiritAngered
-    waitTimeBeforeNextEvent: 0
-    spawnConditionRequirement: 1
     requiredZoneName: BehindGate
     requiredFacingObjectName: DoNotPass1
   autoStartOnAwake: 1

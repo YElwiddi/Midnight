@@ -59,6 +59,7 @@ public class GameFlowManager : MonoBehaviour
     private List<BackgroundNPCData> pendingWaypointTriggeredNPCs = new List<BackgroundNPCData>();
     private Coroutine waitingForSpawnConditionsCoroutine;
     private bool isWaitingForSpawnConditions = false;
+    private List<EventNPC> blockingBackgroundNPCs = new List<EventNPC>();
     #endregion
 
     #region Unity Lifecycle
@@ -515,6 +516,14 @@ public class GameFlowManager : MonoBehaviour
             {
                 Debug.Log($"GameFlowManager: Waypoint '{waypointName}' reached - spawning background NPC '{bgNPC.npcName}'");
 
+                // IMPORTANT: Set the waiting flag IMMEDIATELY if this is a blocking NPC
+                // This must happen before FinalizeWaypointArrival runs in EventNPC
+                if (bgNPC.blockMainNPCUntilComplete && currentNPC != null)
+                {
+                    currentNPC.SetWaitingForBackgroundNPC(true);
+                    Debug.Log($"GameFlowManager: Main NPC set to wait for blocking background NPC '{bgNPC.npcName}'");
+                }
+
                 if (bgNPC.spawnDelay > 0)
                 {
                     StartCoroutine(SpawnBackgroundNPCDelayed(bgNPC));
@@ -590,18 +599,47 @@ public class GameFlowManager : MonoBehaviour
             eventNPC = npcObject.AddComponent<EventNPC>();
         }
 
-        // Initialize the background NPC (no dialogue, no exit dialogues)
+        // Initialize the background NPC with optional dialogue
         eventNPC.Initialize(
             bgNPC.waypoints,
-            null,  // No ink dialogue
-            "",    // No dialogue knot
+            bgNPC.inkDialogue,
+            bgNPC.dialogueKnot,
             bgNPC.exitBehavior,
             bgNPC.exitPointName,
             bgNPC.npcName,
-            null   // No exit dialogues
+            null,  // No exit dialogues for background NPCs
+            bgNPC.typewriterSpeed
         );
 
+        // Handle blocking behavior - track the NPC and subscribe to its completion
+        // For OnWaypointReached triggers, SetWaitingForBackgroundNPC was already called in HandleMainNPCWaypointReached
+        // For OnEventStart triggers, we need to set it here (though blocking at event start is less common)
+        if (bgNPC.blockMainNPCUntilComplete && currentNPC != null)
+        {
+            if (!currentNPC.IsWaitingForBackgroundNPC())
+            {
+                currentNPC.SetWaitingForBackgroundNPC(true);
+            }
+            blockingBackgroundNPCs.Add(eventNPC);
+            eventNPC.OnNPCEventCompleted += () => HandleBlockingBackgroundNPCCompleted(eventNPC);
+            Debug.Log($"GameFlowManager: Tracking blocking background NPC '{bgNPC.npcName}' for completion");
+        }
+
         Debug.Log($"GameFlowManager: Spawned background NPC '{bgNPC.npcName}'");
+    }
+
+    private void HandleBlockingBackgroundNPCCompleted(EventNPC completedNPC)
+    {
+        // Remove from tracking list
+        blockingBackgroundNPCs.Remove(completedNPC);
+
+        Debug.Log($"GameFlowManager: Blocking background NPC completed, {blockingBackgroundNPCs.Count} remaining");
+
+        // If no more blocking NPCs, resume the main NPC
+        if (blockingBackgroundNPCs.Count == 0 && currentNPC != null)
+        {
+            currentNPC.ResumeFromBackgroundNPCWait();
+        }
     }
 
     private void StartCurrentEvent()
@@ -702,6 +740,9 @@ public class GameFlowManager : MonoBehaviour
 
         // Clear any pending waypoint-triggered NPCs that didn't spawn
         pendingWaypointTriggeredNPCs.Clear();
+
+        // Clear any blocking background NPCs (they should have completed, but clean up just in case)
+        blockingBackgroundNPCs.Clear();
 
         string eventName = currentEvent?.eventName ?? "Unknown";
         Debug.Log($"GameFlowManager: Event '{eventName}' completed");
