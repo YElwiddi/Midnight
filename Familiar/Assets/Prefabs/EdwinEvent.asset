@@ -134,7 +134,7 @@ MonoBehaviour:
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: NPCCenterPoint
+    waypointName: NPCRightPoint
     moveSpeed: 5
     waitForInteraction: 0
     timeUntilInteractable: 0
