@@ -153,19 +153,19 @@ MonoBehaviour:
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
     - usePlayerRelativePosition: 0
-      distanceFromPlayer: 0
+      distanceFromPlayer: 0.5
       heightOffset: 0
       waypointName: TimothySite
       moveSpeed: 3.3
-      waitForInteraction: 0
-      timeUntilInteractable: 0
-      waitingDialogueText: He is conducting his investigation, I shouldn't interfere...
+      waitForInteraction: 1
+      timeUntilInteractable: 5
+      waitingDialogueText: I should give him a moment.
       waitingDialogueSpeaker: 
       waitTime: 7.3
       facePlayerWhileWaiting: 0
       backToPlayerWhileWaiting: 0
-      playerTrackingRotationSpeed: 0
-      inkDialogue: {fileID: 0}
+      playerTrackingRotationSpeed: 1
+      inkDialogue: {fileID: 4900000, guid: 7a665b39c469b2244a34150c02edba47, type: 3}
       dialogueKnot: 
       movementAnimationTrigger: IsWalking
       arrivalAnimationTrigger: 
@@ -175,7 +175,7 @@ MonoBehaviour:
       branchToWaypoint: 
       waypointId: 
       proximitySound: {fileID: 0}
-      proximitySoundRange: 0
+      proximitySoundRange: 1
       proximitySoundVolume: 0
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
