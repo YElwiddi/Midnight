@@ -25,14 +25,9 @@ But it might just be the wind.
 
 === explain_fear ===
 R-right.
-Okay.
 So when I was walking, I heard footsteps.
-But they weren't like my footsteps.
-Mine sound lighter.
 I think.
-Unless I'm heavier than I think I am.
-That's possible too.
-Anyway, when I stopped walking, the footsteps stopped.
+When I stopped walking, the footsteps stopped.
 Which is normal.
 Unless someone else stopped at the same time.
 That happens in movies.

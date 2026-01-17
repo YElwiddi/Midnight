@@ -20734,9 +20734,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 0
-    singleEvent: {fileID: 11400000, guid: 7488f4a3b16e73948a08a92d375e9b58, type: 2}
-    eventGroup: []
+  - selectionMode: 1
+    singleEvent: {fileID: 0}
+    eventGroup:
+    - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
+    - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
+    - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
+    - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
+    - {fileID: 11400000, guid: 7488f4a3b16e73948a08a92d375e9b58, type: 2}
     excludePreviouslySelectedEvents: 0
     conditionType: 0
     statName: GraveRobberSetup
@@ -20747,23 +20752,6 @@ MonoBehaviour:
     spawnConditionRequirement: 0
     requiredZoneName: BehindGate
     requiredFacingObjectName: DoNotPass1
-  - selectionMode: 1
-    singleEvent: {fileID: 0}
-    eventGroup:
-    - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
-    - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
-    - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
-    - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
-    excludePreviouslySelectedEvents: 0
-    conditionType: 0
-    statName: 
-    statComparison: 4
-    statValue: 0
-    compareToStatName: 
-    waitTimeBeforeNextEvent: 0
-    spawnConditionRequirement: 0
-    requiredZoneName: 
-    requiredFacingObjectName: 
   - selectionMode: 1
     singleEvent: {fileID: 0}
     eventGroup:
@@ -20786,7 +20774,6 @@ MonoBehaviour:
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
     - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
-    - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
     - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
     - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     excludePreviouslySelectedEvents: 1
@@ -20844,6 +20831,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
     - {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
     - {fileID: 11400000, guid: 93c3b2c8445cee849bcd0ca13ffe34a4, type: 2}
+    - {fileID: 11400000, guid: fbec69fd347d7b3468b3185b2f268657, type: 2}
     excludePreviouslySelectedEvents: 1
     conditionType: 0
     statName: 
@@ -20860,6 +20848,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
     - {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
     - {fileID: 11400000, guid: 93c3b2c8445cee849bcd0ca13ffe34a4, type: 2}
+    - {fileID: 11400000, guid: fbec69fd347d7b3468b3185b2f268657, type: 2}
     excludePreviouslySelectedEvents: 1
     conditionType: 0
     statName: 
@@ -20876,6 +20865,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
     - {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
     - {fileID: 11400000, guid: 93c3b2c8445cee849bcd0ca13ffe34a4, type: 2}
+    - {fileID: 11400000, guid: fbec69fd347d7b3468b3185b2f268657, type: 2}
     excludePreviouslySelectedEvents: 1
     conditionType: 0
     statName: 
