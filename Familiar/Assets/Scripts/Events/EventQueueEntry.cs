@@ -7,7 +7,8 @@ using UnityEngine;
 public enum EventSelectionMode
 {
     Single,         // Use a single specified event
-    RandomFromGroup // Randomly select one event from a group
+    RandomFromGroup, // Randomly select one event from a group
+    KillerEvent     // Use a conditional killer event (checks condition and spawns killer if met)
 }
 
 /// <summary>
@@ -63,6 +64,10 @@ public class EventQueueEntry
 
     [Tooltip("If enabled, events that were already selected in previous queue entries will be excluded from random selection")]
     public bool excludePreviouslySelectedEvents = false;
+
+    [Header("Killer Event (when Selection Mode is KillerEvent)")]
+    [Tooltip("The conditional killer event to use. Has its own built-in condition check.")]
+    public ConditionalKillerEvent killerEvent;
 
     [Header("Condition (Optional)")]
     [Tooltip("Type of condition to check before playing this event")]
@@ -158,17 +163,49 @@ public class EventQueueEntry
                     return "(Empty Group)";
                 return $"Random ({eventGroup.Count} events)";
 
+            case EventSelectionMode.KillerEvent:
+                return killerEvent != null ? $"[KILLER] {killerEvent.eventName}" : "(No Killer Event)";
+
             default:
                 return "(Unknown)";
         }
     }
 
     /// <summary>
+    /// Returns true if this entry is a killer event.
+    /// </summary>
+    public bool IsKillerEvent()
+    {
+        return selectionMode == EventSelectionMode.KillerEvent;
+    }
+
+    /// <summary>
+    /// Gets the killer event (only valid when selectionMode is KillerEvent).
+    /// </summary>
+    public ConditionalKillerEvent GetKillerEvent()
+    {
+        return selectionMode == EventSelectionMode.KillerEvent ? killerEvent : null;
+    }
+
+    /// <summary>
     /// Checks if the condition for this event entry is met.
     /// Returns true if there's no condition or if the condition passes.
+    /// For killer events, uses the killer event's built-in condition.
     /// </summary>
     public bool CheckCondition()
     {
+        // For killer events, use the killer event's built-in condition check
+        if (selectionMode == EventSelectionMode.KillerEvent)
+        {
+            if (killerEvent == null)
+            {
+                Debug.LogWarning("EventQueueEntry: Killer event is null!");
+                return false;
+            }
+            return killerEvent.CheckCondition();
+        }
+
+        // For regular events, use the EventQueueEntry's condition settings
         if (conditionType == EventConditionType.None)
         {
             return true;

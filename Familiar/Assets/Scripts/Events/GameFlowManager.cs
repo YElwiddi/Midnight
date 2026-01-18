@@ -18,6 +18,10 @@ public class GameFlowManager : MonoBehaviour
     [Tooltip("List of event entries to execute in order. Each entry can be a single event or a random selection from a group.")]
     [SerializeField] private List<EventQueueEntry> eventQueue = new List<EventQueueEntry>();
 
+    [Header("Killer Event Queue")]
+    [Tooltip("List of conditional killer events. These check their stat condition and spawn killer NPCs if met.")]
+    [SerializeField] private List<KillerEventQueueEntry> killerEventQueue = new List<KillerEventQueueEntry>();
+
     [Header("Settings")]
     [Tooltip("Automatically start the first event when the scene loads")]
     [SerializeField] private bool autoStartOnAwake = true;
@@ -60,6 +64,12 @@ public class GameFlowManager : MonoBehaviour
     private Coroutine waitingForSpawnConditionsCoroutine;
     private bool isWaitingForSpawnConditions = false;
     private List<EventNPC> blockingBackgroundNPCs = new List<EventNPC>();
+
+    // Killer event tracking
+    private int currentKillerEventIndex = 0;
+    private ConditionalKillerEvent currentKillerEvent;
+    private KillerNPC currentKillerNPC;
+    private Coroutine waitingForKillerSpawnConditionsCoroutine;
     #endregion
 
     #region Unity Lifecycle
@@ -236,6 +246,84 @@ public class GameFlowManager : MonoBehaviour
     /// Returns true if currently waiting for spawn conditions to be met.
     /// </summary>
     public bool IsWaitingForSpawnConditions() => isWaitingForSpawnConditions;
+
+    /// <summary>
+    /// Starts the first killer event in the queue (checks conditions and spawns if met).
+    /// </summary>
+    public void StartFirstKillerEvent()
+    {
+        currentKillerEventIndex = 0;
+        StartCurrentKillerEvent();
+    }
+
+    /// <summary>
+    /// Starts the next killer event in the queue.
+    /// </summary>
+    public void StartNextKillerEvent()
+    {
+        currentKillerEventIndex++;
+
+        if (currentKillerEventIndex >= killerEventQueue.Count)
+        {
+            Debug.Log("GameFlowManager: All killer events processed!");
+            return;
+        }
+
+        StartCurrentKillerEvent();
+    }
+
+    /// <summary>
+    /// Triggers all killer events whose conditions are met (can run in parallel with regular events).
+    /// </summary>
+    public void TriggerKillerEventsIfConditionsMet()
+    {
+        foreach (var entry in killerEventQueue)
+        {
+            if (entry == null || entry.killerEvent == null)
+            {
+                continue;
+            }
+
+            if (entry.CheckCondition())
+            {
+                Debug.Log($"GameFlowManager: Killer event '{entry.killerEvent.eventName}' condition met, spawning...");
+
+                if (entry.HasSpawnConditions())
+                {
+                    StartCoroutine(WaitForKillerSpawnConditions(entry));
+                }
+                else
+                {
+                    StartKillerEventDirectly(entry.killerEvent);
+                }
+            }
+            else
+            {
+                Debug.Log($"GameFlowManager: Killer event '{entry.killerEvent.eventName}' condition NOT met, skipping...");
+            }
+        }
+    }
+
+    /// <summary>
+    /// Manually trigger a specific killer event by name (ignores condition check).
+    /// </summary>
+    public void ForceStartKillerEvent(string eventName)
+    {
+        foreach (var entry in killerEventQueue)
+        {
+            if (entry?.killerEvent != null && entry.killerEvent.eventName == eventName)
+            {
+                StartKillerEventDirectly(entry.killerEvent);
+                return;
+            }
+        }
+        Debug.LogWarning($"GameFlowManager: Killer event '{eventName}' not found!");
+    }
+
+    /// <summary>
+    /// Gets the killer event queue count.
+    /// </summary>
+    public int GetKillerEventCount() => killerEventQueue.Count;
     #endregion
 
     #region Private Methods
@@ -667,7 +755,34 @@ public class GameFlowManager : MonoBehaviour
             return;
         }
 
-        // Pass previously selected events for exclusion filtering
+        // Handle killer events separately
+        if (entry.IsKillerEvent())
+        {
+            ConditionalKillerEvent killerEvent = entry.GetKillerEvent();
+            if (killerEvent == null)
+            {
+                Debug.LogError($"GameFlowManager: Killer event is null at index {currentEventIndex}!");
+                StartNextEvent();
+                return;
+            }
+
+            // Check spawn conditions for killer event
+            if (entry.HasSpawnConditions())
+            {
+                if (waitingForSpawnConditionsCoroutine != null)
+                {
+                    StopCoroutine(waitingForSpawnConditionsCoroutine);
+                }
+                waitingForSpawnConditionsCoroutine = StartCoroutine(WaitForKillerSpawnConditionsInQueue(entry, killerEvent));
+            }
+            else
+            {
+                StartKillerEventDirectly(killerEvent);
+            }
+            return;
+        }
+
+        // Handle regular events
         GameEvent selectedEvent = entry.GetEvent(previouslySelectedEvents);
 
         if (selectedEvent == null)
@@ -695,6 +810,39 @@ public class GameFlowManager : MonoBehaviour
             // No spawn conditions, start immediately
             StartEventDirectly(selectedEvent);
         }
+    }
+
+    private IEnumerator WaitForKillerSpawnConditionsInQueue(EventQueueEntry entry, ConditionalKillerEvent killerEvent)
+    {
+        isWaitingForSpawnConditions = true;
+        Debug.Log($"GameFlowManager: Waiting for spawn conditions for killer event '{killerEvent.eventName}'...");
+
+        // Try to auto-find player references if not set
+        if (playerTransform == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTransform = player.transform;
+            }
+        }
+
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+
+        // Wait until spawn conditions are met
+        while (!entry.CheckSpawnConditions(playerTransform, playerCamera))
+        {
+            yield return new WaitForSeconds(spawnConditionCheckInterval);
+        }
+
+        Debug.Log($"GameFlowManager: Spawn conditions met for killer event '{killerEvent.eventName}'!");
+        isWaitingForSpawnConditions = false;
+        waitingForSpawnConditionsCoroutine = null;
+
+        StartKillerEventDirectly(killerEvent);
     }
 
     private IEnumerator WaitForSpawnConditions(EventQueueEntry entry, GameEvent selectedEvent)
@@ -770,6 +918,219 @@ public class GameFlowManager : MonoBehaviour
         currentEvent = null;
 
         // Move to next event (with optional delay)
+        if (waitTime > 0f)
+        {
+            Debug.Log($"GameFlowManager: Waiting {waitTime}s before next event");
+            Invoke(nameof(StartNextEvent), waitTime);
+        }
+        else
+        {
+            StartNextEvent();
+        }
+    }
+
+    private void StartCurrentKillerEvent()
+    {
+        if (currentKillerEventIndex >= killerEventQueue.Count)
+        {
+            Debug.Log("GameFlowManager: No more killer events to process!");
+            return;
+        }
+
+        KillerEventQueueEntry entry = killerEventQueue[currentKillerEventIndex];
+
+        if (entry == null || entry.killerEvent == null)
+        {
+            Debug.LogError($"GameFlowManager: Killer event entry at index {currentKillerEventIndex} is null!");
+            StartNextKillerEvent();
+            return;
+        }
+
+        // Check if the condition is met
+        if (!entry.CheckCondition())
+        {
+            Debug.Log($"GameFlowManager: Condition not met for killer event '{entry.killerEvent.eventName}', skipping...");
+            StartNextKillerEvent();
+            return;
+        }
+
+        // Check spawn conditions if any
+        if (entry.HasSpawnConditions())
+        {
+            if (waitingForKillerSpawnConditionsCoroutine != null)
+            {
+                StopCoroutine(waitingForKillerSpawnConditionsCoroutine);
+            }
+            waitingForKillerSpawnConditionsCoroutine = StartCoroutine(WaitForKillerSpawnConditions(entry));
+        }
+        else
+        {
+            StartKillerEventDirectly(entry.killerEvent);
+        }
+    }
+
+    private IEnumerator WaitForKillerSpawnConditions(KillerEventQueueEntry entry)
+    {
+        Debug.Log($"GameFlowManager: Waiting for spawn conditions for killer event '{entry.killerEvent.eventName}'...");
+
+        // Auto-find player references if not set
+        if (playerTransform == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTransform = player.transform;
+            }
+        }
+
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+
+        // Wait until spawn conditions are met
+        while (!entry.CheckSpawnConditions(playerTransform, playerCamera))
+        {
+            yield return new WaitForSeconds(spawnConditionCheckInterval);
+        }
+
+        Debug.Log($"GameFlowManager: Spawn conditions met for killer event '{entry.killerEvent.eventName}'!");
+        waitingForKillerSpawnConditionsCoroutine = null;
+
+        StartKillerEventDirectly(entry.killerEvent);
+    }
+
+    private void StartKillerEventDirectly(ConditionalKillerEvent killerEvent)
+    {
+        if (killerEvent == null)
+        {
+            Debug.LogError("GameFlowManager: Cannot start null killer event!");
+            return;
+        }
+
+        if (killerEvent.killerPrefab == null)
+        {
+            Debug.LogError($"GameFlowManager: Killer event '{killerEvent.eventName}' has no killer prefab assigned!");
+            return;
+        }
+
+        currentKillerEvent = killerEvent;
+        Debug.Log($"GameFlowManager: Starting killer event '{killerEvent.eventName}'");
+
+        // Determine spawn position
+        Vector3 spawnPosition;
+        Transform spawnPointTransform = null;
+
+        if (killerEvent.spawnInFrontOfPlayer)
+        {
+            spawnPosition = CalculateSpawnPositionInFrontOfPlayer(
+                killerEvent.spawnDistanceFromPlayer,
+                killerEvent.spawnHeightOffset
+            );
+
+            if (spawnPosition == Vector3.zero)
+            {
+                Debug.LogError($"GameFlowManager: Failed to calculate spawn position for killer '{killerEvent.eventName}'!");
+                return;
+            }
+        }
+        else
+        {
+            GameObject spawnPoint = GameObject.Find(killerEvent.spawnPointName);
+            if (spawnPoint == null)
+            {
+                Debug.LogError($"GameFlowManager: Killer spawn point '{killerEvent.spawnPointName}' not found!");
+                return;
+            }
+            spawnPosition = spawnPoint.transform.position;
+            spawnPointTransform = spawnPoint.transform;
+        }
+
+        // Calculate spawn rotation
+        Quaternion spawnRotation = CalculateSpawnRotation(
+            spawnPointTransform,
+            killerEvent.facePlayerOnSpawn,
+            killerEvent.backToPlayerOnSpawn,
+            killerEvent.useCustomRotation,
+            killerEvent.spawnRotationOffset,
+            spawnPosition
+        );
+
+        // Spawn killer NPC
+        GameObject killerObject = Instantiate(killerEvent.killerPrefab, spawnPosition, spawnRotation);
+
+        // Add or get KillerNPC component
+        currentKillerNPC = killerObject.GetComponent<KillerNPC>();
+        if (currentKillerNPC == null)
+        {
+            currentKillerNPC = killerObject.AddComponent<KillerNPC>();
+        }
+
+        // Initialize the killer with event settings
+        currentKillerNPC.Initialize(killerEvent);
+
+        // Add EventNPC for waypoint movement if waypoints are configured
+        if (killerEvent.waypoints != null && killerEvent.waypoints.Length > 0)
+        {
+            EventNPC eventNPC = killerObject.GetComponent<EventNPC>();
+            if (eventNPC == null)
+            {
+                eventNPC = killerObject.AddComponent<EventNPC>();
+            }
+
+            // Subscribe to completion
+            eventNPC.OnNPCEventCompleted += HandleKillerNPCCompleted;
+
+            // Initialize waypoint movement
+            eventNPC.Initialize(
+                killerEvent.waypoints,
+                killerEvent.inkDialogue,
+                killerEvent.dialogueKnot,
+                killerEvent.exitBehavior,
+                killerEvent.exitPointName,
+                killerEvent.eventName,
+                null, // No exit dialogues for killers
+                0f    // Default typewriter speed
+            );
+        }
+
+        // Fire event started
+        OnEventStarted?.Invoke(killerEvent.eventName);
+
+        if (GameEventsManager.instance != null)
+        {
+            GameEventsManager.instance.gameFlowEvents?.EventStarted(killerEvent.eventName);
+        }
+    }
+
+    private void HandleKillerNPCCompleted()
+    {
+        string eventName = currentKillerEvent?.eventName ?? "Unknown Killer";
+        Debug.Log($"GameFlowManager: Killer event '{eventName}' completed (player survived)");
+
+        // Fire event completed
+        OnEventCompleted?.Invoke(eventName);
+
+        if (GameEventsManager.instance != null)
+        {
+            GameEventsManager.instance.gameFlowEvents?.EventCompleted(eventName);
+        }
+
+        // Get wait time from current entry before clearing state
+        float waitTime = 0f;
+        if (currentEventIndex >= 0 && currentEventIndex < eventQueue.Count)
+        {
+            EventQueueEntry currentEntry = eventQueue[currentEventIndex];
+            if (currentEntry != null)
+            {
+                waitTime = currentEntry.waitTimeBeforeNextEvent;
+            }
+        }
+
+        currentKillerNPC = null;
+        currentKillerEvent = null;
+
+        // Move to next event in queue (with optional delay)
         if (waitTime > 0f)
         {
             Debug.Log($"GameFlowManager: Waiting {waitTime}s before next event");
