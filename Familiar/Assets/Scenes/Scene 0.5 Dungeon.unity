@@ -11008,6 +11008,119 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8860501500055698359, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!1 &757337588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757337589}
+  - component: {fileID: 757337592}
+  - component: {fileID: 757337591}
+  - component: {fileID: 757337590}
+  m_Layer: 0
+  m_Name: SpiritSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757337589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757337588}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.69, y: 48.46644, z: -2.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556411089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &757337590
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757337588}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &757337591
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757337588}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &757337592
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757337588}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &768682290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3239e6e0f784c0a4eb73080be8f7234e, type: 3}
@@ -20420,6 +20533,7 @@ Transform:
   m_Children:
   - {fileID: 2105146822}
   - {fileID: 1593246534}
+  - {fileID: 757337589}
   - {fileID: 994416152}
   - {fileID: 332549707}
   - {fileID: 1351071159}
@@ -20957,9 +21071,9 @@ MonoBehaviour:
     singleEvent: {fileID: 0}
     eventGroup: []
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
+    killerEvent: {fileID: 11400000, guid: dc97502c503c7e941a2d53bd73c17c41, type: 2}
     conditionType: 1
-    statName: GraveRobberSetup
+    statName: SpiritAngered
     statComparison: 4
     statValue: 0
     compareToStatName: 
@@ -21029,7 +21143,7 @@ MonoBehaviour:
     killerEvent: {fileID: 0}
     conditionType: 2
     statName: SpiritAngered
-    statComparison: 4
+    statComparison: 2
     statValue: 0
     compareToStatName: GraveRobberSetup
     waitTimeBeforeNextEvent: 0
@@ -21037,27 +21151,13 @@ MonoBehaviour:
     requiredZoneName: BehindGate
     requiredFacingObjectName: DoNotPass1
   - selectionMode: 0
-    singleEvent: {fileID: 11400000, guid: 10440e00be23d4348afa8c67293397f8, type: 2}
-    eventGroup: []
-    excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 0}
-    conditionType: 2
-    statName: SpiritAngered
-    statComparison: 4
-    statValue: 0
-    compareToStatName: GraveRobberSetup
-    waitTimeBeforeNextEvent: 0
-    spawnConditionRequirement: 1
-    requiredZoneName: YureiJumpscareZone
-    requiredFacingObjectName: 
-  - selectionMode: 0
     singleEvent: {fileID: 11400000, guid: 515b793a582df3946a35420e56ef352c, type: 2}
     eventGroup: []
     excludePreviouslySelectedEvents: 0
     killerEvent: {fileID: 0}
-    conditionType: 2
+    conditionType: 1
     statName: GraveRobberSetup
-    statComparison: 2
+    statComparison: 4
     statValue: 0
     compareToStatName: SpiritAngered
     waitTimeBeforeNextEvent: 0
@@ -21071,6 +21171,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8dca7bd4c0adc654fbc2d32b285f2af9, type: 2}
     - {fileID: 11400000, guid: 93c3b2c8445cee849bcd0ca13ffe34a4, type: 2}
     - {fileID: 11400000, guid: fbec69fd347d7b3468b3185b2f268657, type: 2}
+    - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
     excludePreviouslySelectedEvents: 1
     killerEvent: {fileID: 0}
     conditionType: 0
@@ -21113,6 +21214,20 @@ MonoBehaviour:
     statName: 
     statComparison: 4
     statValue: 0
+    compareToStatName: 
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 0
+    requiredZoneName: 
+    requiredFacingObjectName: 
+  - selectionMode: 2
+    singleEvent: {fileID: 0}
+    eventGroup: []
+    excludePreviouslySelectedEvents: 0
+    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
+    conditionType: 1
+    statName: GraveRobberSetup
+    statComparison: 4
+    statValue: 2
     compareToStatName: 
     waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 0
@@ -21502,9 +21617,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VHSRetroFeature
   vhsShader: {fileID: 4800000, guid: 97a59226afe6da84888f794f0ebe90b2, type: 3}
-  rgbShiftAmount: 0.0007
+  rgbShiftAmount: 0.0062
   rgbShiftSpeed: 0.31
-  rgbShiftCurve: 0.48
+  rgbShiftCurve: 1.35
   pixelSize: 1
   pixelScanlines: 0
   grainAmount: 0.119
@@ -21517,7 +21632,7 @@ MonoBehaviour:
   vignetteIntensity: 1.857
   vignetteSoftness: 0.742
   vignetteRoundness: 1.57
-  glitchIntensity: 0.231
+  glitchIntensity: 0.095
   glitchSpeed: 2.14
   glitchBlockSize: 0.0127
   contrast: 1.006

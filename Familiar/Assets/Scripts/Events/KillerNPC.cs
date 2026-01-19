@@ -96,12 +96,30 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Camera shake duration")]
     [SerializeField] private float shakeDuration = 2f;
 
+    [Header("Flashlight Settings")]
+    [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
+    [SerializeField] private float flashlightTargetHeight = 1.2f;
+
+    [Tooltip("Flashlight intensity during jumpscare")]
+    [SerializeField] private float jumpscareFlashlightIntensity = 3f;
+
+    [Tooltip("Flashlight range during jumpscare")]
+    [SerializeField] private float jumpscareFlashlightRange = 15f;
+
     [Header("Screen Effect")]
     [Tooltip("Prefab to instantiate for screen effect during kill")]
     [SerializeField] private GameObject screenEffectPrefab;
 
     [Tooltip("Delay before showing screen effect")]
     [SerializeField] private float screenEffectDelay = 0f;
+
+    [Header("VHS Effect Intensify")]
+    [SerializeField] private bool intensifyVHSOnKill = true;
+    [SerializeField] private float killGlitchIntensity = 0.7f;
+    [SerializeField] private float killRGBShift = 0.04f;
+    [SerializeField] private float killNoiseIntensity = 0.25f;
+    [SerializeField] private float killScanlineIntensity = 0.8f;
+    [SerializeField] private float killTrackingNoise = 0.1f;
 
     [Header("Game Over Settings")]
     [Tooltip("Optional: UI canvas group to fade in on game over")]
@@ -131,6 +149,10 @@ public class KillerNPC : MonoBehaviour
     private float playerLookTimer = 0f;
     private bool isPlayerLooking = false;
     private bool hasBeenInitialized = false;
+
+    // Jumpscare spotlight tracking
+    private Light jumpscareSpotlight;
+
 
     private void Awake()
     {
@@ -215,6 +237,10 @@ public class KillerNPC : MonoBehaviour
             {
                 ApplyCameraShake();
             }
+
+            // Keep spotlight pointed at killer throughout jumpscare
+            UpdateSpotlightTarget();
+
             return;
         }
 
@@ -479,9 +505,22 @@ public class KillerNPC : MonoBehaviour
         shakeIntensity = killerEvent.shakeIntensity;
         shakeDuration = killerEvent.shakeDuration;
 
+        // Flashlight settings
+        flashlightTargetHeight = killerEvent.flashlightTargetHeight;
+        jumpscareFlashlightIntensity = killerEvent.jumpscareFlashlightIntensity;
+        jumpscareFlashlightRange = killerEvent.jumpscareFlashlightRange;
+
         // Screen effect settings
         screenEffectPrefab = killerEvent.screenEffectPrefab;
         screenEffectDelay = killerEvent.screenEffectDelay;
+
+        // VHS intensify settings
+        intensifyVHSOnKill = killerEvent.intensifyVHSOnKill;
+        killGlitchIntensity = killerEvent.killGlitchIntensity;
+        killRGBShift = killerEvent.killRGBShift;
+        killNoiseIntensity = killerEvent.killNoiseIntensity;
+        killScanlineIntensity = killerEvent.killScanlineIntensity;
+        killTrackingNoise = killerEvent.killTrackingNoise;
 
         // Ambush settings
         useAmbushMode = killerEvent.useAmbushMode;
@@ -627,8 +666,11 @@ public class KillerNPC : MonoBehaviour
         // Freeze player movement
         FreezePlayer(true);
 
-        // Disable flashlight
-        DisableFlashlight();
+        // Ground the player (in case they're jumping)
+        GroundPlayer();
+
+        // Lock flashlight on (silently, no click sound)
+        LockFlashlightOn();
 
         // Position killer in front of the player camera
         if (playerCamera != null)
@@ -639,12 +681,21 @@ public class KillerNPC : MonoBehaviour
             cameraForward.Normalize();
 
             Vector3 targetPosition = playerCamera.transform.position + cameraForward * killStopDistance;
-            targetPosition.y = transform.position.y; // Keep killer at current height
+
+            // Ground the killer at this position
+            if (Physics.Raycast(targetPosition + Vector3.up * 2f, Vector3.down, out RaycastHit hit, 10f))
+            {
+                targetPosition.y = hit.point.y;
+            }
+            else
+            {
+                targetPosition.y = playerTransform.position.y; // Fall back to player height
+            }
 
             // Move killer to position
             transform.position = targetPosition;
 
-            // Make killer face the player
+            // Make killer face the player directly
             Vector3 directionToPlayer = playerCamera.transform.position - transform.position;
             directionToPlayer.y = 0;
             if (directionToPlayer.sqrMagnitude > 0.001f)
@@ -652,15 +703,21 @@ public class KillerNPC : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(directionToPlayer);
             }
 
-            // Make camera look at killer's face
+            // Make camera look at killer's face position (use position, not transform orientation)
+            Vector3 lookTarget;
             if (killerFace != null)
             {
-                playerCamera.transform.LookAt(killerFace);
+                lookTarget = killerFace.position;
             }
             else
             {
-                playerCamera.transform.LookAt(transform.position + Vector3.up * 1.5f);
+                // Estimate face height if no face transform
+                lookTarget = transform.position + Vector3.up * 1.6f;
             }
+            playerCamera.transform.LookAt(lookTarget);
+
+            // Point flashlight at killer's face
+            PointFlashlightAtKiller();
         }
 
         // Play jumpscare sound
@@ -730,28 +787,30 @@ public class KillerNPC : MonoBehaviour
             return;
         }
 
-        // Random rotation shake
-        Vector3 randomRotation = new Vector3(
-            Random.Range(-currentShakeAmount, currentShakeAmount),
-            Random.Range(-currentShakeAmount, currentShakeAmount),
-            0
-        ) * 0.5f;
-
-        // Apply shake rotation
-        playerCamera.transform.rotation *= Quaternion.Euler(randomRotation);
-
-        // Keep looking roughly at the killer's face
+        // Get the base rotation looking at the killer's face
+        Quaternion baseRotation;
         if (killerFace != null)
         {
             Vector3 lookDir = (killerFace.position - playerCamera.transform.position).normalized;
-            Vector3 currentDir = playerCamera.transform.forward;
-
-            if (Vector3.Angle(lookDir, currentDir) > 15f)
-            {
-                Quaternion lookAtRotation = Quaternion.LookRotation(lookDir);
-                playerCamera.transform.rotation = Quaternion.Slerp(playerCamera.transform.rotation, lookAtRotation, 0.5f);
-            }
+            baseRotation = Quaternion.LookRotation(lookDir);
         }
+        else
+        {
+            baseRotation = playerCamera.transform.rotation;
+        }
+
+        // Apply small random shake offset from the base rotation
+        Vector3 shakeOffset = new Vector3(
+            Random.Range(-currentShakeAmount, currentShakeAmount),
+            Random.Range(-currentShakeAmount, currentShakeAmount),
+            0
+        );
+
+        // Apply shake as offset from base (keeps camera centered on face)
+        playerCamera.transform.rotation = baseRotation * Quaternion.Euler(shakeOffset);
+
+        // Keep spotlight pointed at killer during shake
+        UpdateSpotlightTarget();
 
         // Decrease shake over time
         currentShakeDuration -= Time.deltaTime * 0.8f;
@@ -834,23 +893,99 @@ public class KillerNPC : MonoBehaviour
         }
     }
 
-    private void DisableFlashlight()
+    private void GroundPlayer()
     {
-        // Find and disable the flashlight
+        if (playerTransform == null)
+        {
+            return;
+        }
+
+        // Raycast down from player to find ground
+        RaycastHit hit;
+        Vector3 rayStart = playerTransform.position + Vector3.up * 0.5f;
+
+        if (Physics.Raycast(rayStart, Vector3.down, out hit, 10f))
+        {
+            // Move player to ground level
+            CharacterController controller = playerTransform.GetComponent<CharacterController>();
+            if (controller != null)
+            {
+                // Disable controller temporarily to move player directly
+                controller.enabled = false;
+                playerTransform.position = hit.point;
+                controller.enabled = true;
+            }
+            else
+            {
+                playerTransform.position = hit.point;
+            }
+
+            Debug.Log($"KillerNPC: Player grounded at Y={hit.point.y}");
+        }
+    }
+
+    private void LockFlashlightOn()
+    {
+        // Find the flashlight and force it on without playing sound
         SimpleFlashlight flashlight = FindObjectOfType<SimpleFlashlight>();
         if (flashlight != null)
         {
-            // Disable the component first so player can't toggle it
+            // Disable the component so player can't toggle it
             flashlight.enabled = false;
 
-            // Directly disable the spotlight without playing the click sound
+            // Directly enable the spotlight without playing sound
             if (flashlight.spotLight != null)
             {
-                flashlight.spotLight.enabled = false;
+                flashlight.spotLight.enabled = true;
             }
 
-            Debug.Log("KillerNPC: Flashlight disabled silently");
+            Debug.Log("KillerNPC: Flashlight locked on (player control disabled)");
         }
+
+        // Hide the crosshair
+        CrosshairManager crosshair = FindObjectOfType<CrosshairManager>();
+        if (crosshair != null)
+        {
+            crosshair.Hide();
+            Debug.Log("KillerNPC: Crosshair hidden");
+        }
+    }
+
+    private void PointFlashlightAtKiller()
+    {
+        SimpleFlashlight flashlight = FindObjectOfType<SimpleFlashlight>();
+        if (flashlight != null && flashlight.spotLight != null)
+        {
+            jumpscareSpotlight = flashlight.spotLight;
+
+            // Ensure spotlight is enabled
+            jumpscareSpotlight.enabled = true;
+
+            // Apply jumpscare light settings
+            jumpscareSpotlight.intensity = jumpscareFlashlightIntensity;
+            jumpscareSpotlight.range = jumpscareFlashlightRange;
+            jumpscareSpotlight.spotAngle = 60f;
+
+            // Position and point spotlight at killer
+            UpdateSpotlightTarget();
+
+            Debug.Log($"KillerNPC: Flashlight pointed at height {flashlightTargetHeight} (intensity: {jumpscareSpotlight.intensity}, range: {jumpscareSpotlight.range})");
+        }
+    }
+
+    private void UpdateSpotlightTarget()
+    {
+        if (jumpscareSpotlight == null || playerCamera == null)
+        {
+            return;
+        }
+
+        // Position spotlight at camera position
+        jumpscareSpotlight.transform.position = playerCamera.transform.position;
+
+        // Point at killer's configured height
+        Vector3 targetPosition = transform.position + Vector3.up * flashlightTargetHeight;
+        jumpscareSpotlight.transform.LookAt(targetPosition);
     }
 
     private IEnumerator SpawnScreenEffect()
@@ -861,14 +996,28 @@ public class KillerNPC : MonoBehaviour
             yield return new WaitForSecondsRealtime(screenEffectDelay);
         }
 
-        // Try to enable VHS effect on camera first
+        // Try to intensify VHS effect on camera
         if (playerCamera != null)
         {
             VHSRetroFeature vhsEffect = playerCamera.GetComponent<VHSRetroFeature>();
             if (vhsEffect != null)
             {
                 vhsEffect.enabled = true;
-                Debug.Log("KillerNPC: VHS screen effect enabled");
+
+                // Apply intensified VHS settings for the kill sequence
+                if (intensifyVHSOnKill)
+                {
+                    vhsEffect.glitchIntensity = killGlitchIntensity;
+                    vhsEffect.rgbShiftAmount = killRGBShift;
+                    vhsEffect.noiseIntensity = killNoiseIntensity;
+                    vhsEffect.scanlineIntensity = killScanlineIntensity;
+                    vhsEffect.trackingNoise = killTrackingNoise;
+                    Debug.Log($"KillerNPC: VHS effect intensified (glitch: {killGlitchIntensity}, RGB: {killRGBShift}, noise: {killNoiseIntensity})");
+                }
+                else
+                {
+                    Debug.Log("KillerNPC: VHS screen effect enabled");
+                }
                 yield break;
             }
         }

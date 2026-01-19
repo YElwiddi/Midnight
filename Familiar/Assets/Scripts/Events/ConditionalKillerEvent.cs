@@ -144,6 +144,19 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 5f)]
     public float shakeDuration = 2f;
 
+    [Header("Flashlight Settings")]
+    [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
+    [Range(0f, 2.5f)]
+    public float flashlightTargetHeight = 1.2f;
+
+    [Tooltip("Flashlight intensity during jumpscare")]
+    [Range(0.5f, 10f)]
+    public float jumpscareFlashlightIntensity = 3f;
+
+    [Tooltip("Flashlight range during jumpscare")]
+    [Range(5f, 30f)]
+    public float jumpscareFlashlightRange = 15f;
+
     [Header("Screen Effect")]
     [Tooltip("Prefab to instantiate for screen effect during kill (e.g., static overlay, glitch effect). Should be a Canvas with a full-screen image.")]
     public GameObject screenEffectPrefab;

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b5f9ed75e3420e43b56b845a7381022, type: 3}
-  m_Name: GraveRobberKillerEvent
+  m_Name: SpiritKillerEvent
   m_EditorClassIdentifier: Assembly-CSharp::ConditionalKillerEvent
-  eventName: GraveRobberKillerEvent
-  statName: GraveRobberSetup
+  eventName: SpiritKillerEvent
+  statName: SpiritAngered
   statComparison: 4
   thresholdValue: 0
-  killerPrefab: {fileID: 3767055355421772689, guid: c2e27aa65c315034dba5a5dc47a09b8b, type: 3}
+  killerPrefab: {fileID: 3767055355421772689, guid: ce9aac46c6936044fb11e98bd6c747b3, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
-  spawnPointName: BehindTombstone
+  spawnPointName: SpiritSpawn
   facePlayerOnSpawn: 1
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
@@ -31,26 +31,26 @@ MonoBehaviour:
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 10
+  activationDistance: 20
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
-  chaseSpeed: 10
-  activationSound: {fileID: 8300000, guid: 906fcaccf1ec1c442a2b61dc3575e069, type: 3}
+  chaseSpeed: 12
+  activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
   activationSoundVolume: 1
-  killStopDistance: 1.5
+  killStopDistance: 1.26
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
   slowMotionDuration: 5
   killerFaceObjectName: mixamorig:Head
-  jumpscareSound: {fileID: 8300000, guid: 3a4e3e4227117a94390d729dd7b73989, type: 3}
+  jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
-  flashlightTargetHeight: 1.93
+  flashlightTargetHeight: 1.76
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
   screenEffectPrefab: {fileID: 0}
