@@ -21067,20 +21067,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 2
-    singleEvent: {fileID: 0}
-    eventGroup: []
-    excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: dc97502c503c7e941a2d53bd73c17c41, type: 2}
-    conditionType: 1
-    statName: SpiritAngered
-    statComparison: 4
-    statValue: 0
-    compareToStatName: 
-    waitTimeBeforeNextEvent: 0
-    spawnConditionRequirement: 0
-    requiredZoneName: 
-    requiredFacingObjectName: 
   - selectionMode: 1
     singleEvent: {fileID: 0}
     eventGroup:
@@ -21228,6 +21214,20 @@ MonoBehaviour:
     statName: GraveRobberSetup
     statComparison: 4
     statValue: 2
+    compareToStatName: 
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 0
+    requiredZoneName: 
+    requiredFacingObjectName: 
+  - selectionMode: 2
+    singleEvent: {fileID: 0}
+    eventGroup: []
+    excludePreviouslySelectedEvents: 0
+    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
+    conditionType: 1
+    statName: SpiritAngered
+    statComparison: 4
+    statValue: 0
     compareToStatName: 
     waitTimeBeforeNextEvent: 0
     spawnConditionRequirement: 0
@@ -21622,30 +21622,30 @@ MonoBehaviour:
   rgbShiftCurve: 1.35
   pixelSize: 1
   pixelScanlines: 0
-  grainAmount: 0.119
+  grainAmount: 0.1
   grainSize: 1.2
   noiseIntensity: 0.08
-  scanlineIntensity: 0.152
+  scanlineIntensity: 0.183
   scanlineSpeed: 0.8
   scanlineCount: 389
   scanlineSharpness: 0.986
-  vignetteIntensity: 1.857
+  vignetteIntensity: 1.72
   vignetteSoftness: 0.742
-  vignetteRoundness: 1.57
+  vignetteRoundness: 2.26
   glitchIntensity: 0.095
   glitchSpeed: 2.14
-  glitchBlockSize: 0.0127
+  glitchBlockSize: 0.0292
   contrast: 1.006
   saturation: 1.08
   brightness: 0.02
   gamma: 1.05
-  tapeNoise: 0.0771
+  tapeNoise: 0.057
   tapeSpeed: 0.5
   tapeWobble: 0
-  trackingNoise: 0.0243
+  trackingNoise: 0.0269
   trackingSpeed: 1.2
-  dropoutIntensity: 0.0224
-  dropoutSpeed: 4
+  dropoutIntensity: 0.0608
+  dropoutSpeed: 3.31
   timeSpeed: 1
   enablePixel: 0
   enableGlitch: 0

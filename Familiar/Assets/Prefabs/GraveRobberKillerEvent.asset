@@ -15,7 +15,7 @@ MonoBehaviour:
   eventName: GraveRobberKillerEvent
   statName: GraveRobberSetup
   statComparison: 4
-  thresholdValue: 0
+  thresholdValue: 2
   killerPrefab: {fileID: 3767055355421772689, guid: c2e27aa65c315034dba5a5dc47a09b8b, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5

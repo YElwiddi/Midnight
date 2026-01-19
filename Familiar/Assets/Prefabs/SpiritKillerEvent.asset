@@ -15,7 +15,7 @@ MonoBehaviour:
   eventName: SpiritKillerEvent
   statName: SpiritAngered
   statComparison: 4
-  thresholdValue: 0
+  thresholdValue: 2
   killerPrefab: {fileID: 3767055355421772689, guid: ce9aac46c6936044fb11e98bd6c747b3, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
