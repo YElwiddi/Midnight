@@ -31,7 +31,7 @@ MonoBehaviour:
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 20
+  activationDistance: 25
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30

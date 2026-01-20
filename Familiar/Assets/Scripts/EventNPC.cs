@@ -534,6 +534,16 @@ public class EventNPC : MonoBehaviour, IInteractable
         // Skip if no sound configured for this waypoint
         if (waypoint.proximitySound == null || waypoint.proximitySoundTrigger == ProximitySoundTrigger.None) return;
 
+        // Check condition variable if specified (e.g., "allowed_inside" must equal "true")
+        if (!string.IsNullOrEmpty(waypoint.proximitySoundConditionVariable))
+        {
+            bool conditionMet = EventVariables.CheckVariable(
+                waypoint.proximitySoundConditionVariable,
+                waypoint.proximitySoundConditionValue
+            );
+            if (!conditionMet) return;
+        }
+
         // Check if sound should play based on current state
         bool shouldCheckSound = false;
         switch (waypoint.proximitySoundTrigger)

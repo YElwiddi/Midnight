@@ -50,6 +50,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -77,6 +79,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -104,6 +108,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -131,10 +137,12 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: NPCRightPoint
+    waypointName: JessicaExitPoint
     moveSpeed: 5
     waitForInteraction: 0
     timeUntilInteractable: 0
@@ -153,15 +161,17 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 10
+    proximitySound: {fileID: 8300000, guid: d1036011ddb76d141987865916b57367, type: 3}
+    proximitySoundRange: 50
     proximitySoundVolume: 1
-    proximitySoundTrigger: 0
+    proximitySoundTrigger: 1
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: allowed_inside
+    proximitySoundConditionValue: false
   inkDialogue: {fileID: 4900000, guid: 228f5215a215eee40a0f7ba0e6bc766f, type: 3}
   dialogueKnot: 
   typewriterSpeed: 60
-  exitBehavior: 2
-  exitPointName: NPCRightPoint
+  exitBehavior: 0
+  exitPointName: JessicaExitPoint
   exitDialogues: []
   backgroundNPCs: []

@@ -130,6 +130,13 @@ public class WaypointData
 
     [Tooltip("If true, sound only plays when player is looking at the NPC. If false, plays when in range regardless of view direction.")]
     public bool requirePlayerLooking = true;
+
+    [Header("Proximity Sound Condition (Optional)")]
+    [Tooltip("Event variable name to check before playing the proximity sound (e.g., 'allowed_inside'). Leave empty to always play when in range. Set via Ink: ~ SetEventVar(\"allowed_inside\", true)")]
+    public string proximitySoundConditionVariable = "";
+
+    [Tooltip("Value the condition variable must equal for the sound to play (e.g., 'true', 'false', or any string)")]
+    public string proximitySoundConditionValue = "";
 }
 
 /// <summary>
