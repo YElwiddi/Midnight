@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
-  m_Name: JessicaEvent
+  m_Name: ShaneEvent
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
-  npcPrefab: {fileID: 3767055355421772689, guid: 2b95f252acbe7ee449e2a19130f4e029, type: 3}
+  npcPrefab: {fileID: 3767055355421772689, guid: 055eb69a39d489745b8111e9c3acb6f7, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 3
   spawnHeightOffset: 0
-  spawnPointName: NPCRightPoint
-  facePlayerOnSpawn: 0
+  spawnPointName: NPCLeftPoint
+  facePlayerOnSpawn: 1
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
   useCustomRotation: 0
@@ -63,14 +63,14 @@ MonoBehaviour:
     facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 4900000, guid: 228f5215a215eee40a0f7ba0e6bc766f, type: 3}
+    inkDialogue: {fileID: 4900000, guid: b25a5533444447a4e863b9a2264503a2, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
     branchVariable: allowed_inside
     branchValue: false
-    branchToWaypoint: NPCCenterPointExit
+    branchToWaypoint: NPCRightPoint
     waypointId: 
     proximitySound: {fileID: 0}
     proximitySoundRange: 10
@@ -80,21 +80,21 @@ MonoBehaviour:
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: YureiJumpscareZone
+    waypointName: ShaneSite
     moveSpeed: 3
     waitForInteraction: 1
-    timeUntilInteractable: 8.1
-    waitingDialogueText: Let's give her a moment to calm down.
+    timeUntilInteractable: 6.7
+    waitingDialogueText: Let's give him a moment...
     waitingDialogueSpeaker: 20
     waitTime: 7
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 4900000, guid: 423e5cd01574d93479b7e62478c8096c, type: 3}
+    inkDialogue: {fileID: 4900000, guid: 1643960071eea1c489fe6e77575342ac, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
-    idleAnimationBool: 
+    idleAnimationBool: IsKneeling
     branchVariable: 
     branchValue: 
     branchToWaypoint: 
@@ -107,7 +107,7 @@ MonoBehaviour:
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: NPCCenterPointExit
+    waypointName: NPCCenterPoint
     moveSpeed: 2.8
     waitForInteraction: 0
     timeUntilInteractable: 0
@@ -158,9 +158,9 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
-  inkDialogue: {fileID: 4900000, guid: 228f5215a215eee40a0f7ba0e6bc766f, type: 3}
+  inkDialogue: {fileID: 4900000, guid: b25a5533444447a4e863b9a2264503a2, type: 3}
   dialogueKnot: 
-  typewriterSpeed: 60
+  typewriterSpeed: 99
   exitBehavior: 2
   exitPointName: NPCRightPoint
   exitDialogues: []

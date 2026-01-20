@@ -31,14 +31,14 @@ MonoBehaviour:
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 10
+  activationDistance: 20
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
-  chaseSpeed: 10
-  activationSound: {fileID: 8300000, guid: 906fcaccf1ec1c442a2b61dc3575e069, type: 3}
+  chaseSpeed: 12
+  activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
   activationSoundVolume: 1
   killStopDistance: 1.5
   killAnimationTrigger: Kill

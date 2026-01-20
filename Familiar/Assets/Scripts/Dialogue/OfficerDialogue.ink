@@ -15,7 +15,7 @@ Would you mind answering some questions for us?
 
 + [Alright, how can I help you?]
     -> interrogation_accept
-+ [Sorry, I can't help to you.]
++ [Sorry, I can't help you.]
     -> interrogation_decline
 
 === interrogation_accept ===

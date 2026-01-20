@@ -3715,7 +3715,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -43.1, y: 185.2, z: 240.3}
-  m_LocalScale: {x: 80, y: 2, z: 160}
+  m_LocalScale: {x: 80, y: 2, z: 170}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 313808393}
@@ -9394,6 +9394,119 @@ Transform:
   - {fileID: 1627877026}
   m_Father: {fileID: 65013338}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!1 &626534384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626534385}
+  - component: {fileID: 626534388}
+  - component: {fileID: 626534387}
+  - component: {fileID: 626534386}
+  m_Layer: 0
+  m_Name: ShaneSite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626534385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626534384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.551, y: 48.46, z: -57.112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556411089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &626534386
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626534384}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &626534387
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626534384}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &626534388
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626534384}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &638688600
 GameObject:
   m_ObjectHideFlags: 0
@@ -11185,11 +11298,7 @@ MonoBehaviour:
   overrideFontSize: 0
   fontSize: 24
   pages:
-  - 'Here lies Eden Baronheim
-
-    Father of Two, Beloved Brother
-
-    1951-1988'
+  - 
 --- !u!64 &770644746
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15654,7 +15763,7 @@ Transform:
   m_GameObject: {fileID: 1067697395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 48.46, z: -35.18}
+  m_LocalPosition: {x: -0.4, y: 48.46, z: -35.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20558,6 +20667,7 @@ Transform:
   - {fileID: 1721069934}
   - {fileID: 51343590}
   - {fileID: 811897807}
+  - {fileID: 626534385}
   - {fileID: 1927534158}
   - {fileID: 1887654215}
   m_Father: {fileID: 0}
@@ -21074,7 +21184,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
     - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
     - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
-    - {fileID: 11400000, guid: 7488f4a3b16e73948a08a92d375e9b58, type: 2}
     excludePreviouslySelectedEvents: 0
     killerEvent: {fileID: 0}
     conditionType: 0
@@ -21141,7 +21250,7 @@ MonoBehaviour:
     eventGroup: []
     excludePreviouslySelectedEvents: 0
     killerEvent: {fileID: 0}
-    conditionType: 1
+    conditionType: 2
     statName: GraveRobberSetup
     statComparison: 4
     statValue: 0
@@ -21209,7 +21318,7 @@ MonoBehaviour:
     singleEvent: {fileID: 0}
     eventGroup: []
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
+    killerEvent: {fileID: 11400000, guid: dc97502c503c7e941a2d53bd73c17c41, type: 2}
     conditionType: 1
     statName: GraveRobberSetup
     statComparison: 4
@@ -21226,6 +21335,21 @@ MonoBehaviour:
     killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
     conditionType: 1
     statName: SpiritAngered
+    statComparison: 4
+    statValue: 0
+    compareToStatName: 
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 0
+    requiredZoneName: 
+    requiredFacingObjectName: 
+  - selectionMode: 1
+    singleEvent: {fileID: 0}
+    eventGroup:
+    - {fileID: 11400000, guid: de2ca97ae66a4f040901c27ef8dccd61, type: 2}
+    excludePreviouslySelectedEvents: 0
+    killerEvent: {fileID: 0}
+    conditionType: 0
+    statName: 
     statComparison: 4
     statValue: 0
     compareToStatName: 
