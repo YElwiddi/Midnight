@@ -110,11 +110,9 @@ Tim understood that.
 Proof?
 I don’t carry mementos.
 
-And family names don’t mean much
-once someone’s in the ground.
+And family names don’t mean much once someone’s in the ground.
 You should know that better than anyone.
 
-But if it helps...
 I wouldn’t be here if it didn’t matter.
 
 -> harold_request
@@ -138,8 +136,7 @@ I’ll stay out of your way.
 Good.
 I knew you’d see reason.
 
-Family doesn’t get many chances
-to say goodbye properly.
+Family doesn’t get many chances to say goodbye properly.
 I won’t forget this.
 
  ~ SetEventVar("allowed_inside", true)

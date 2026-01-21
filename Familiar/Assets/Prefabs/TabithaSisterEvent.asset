@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
-  m_Name: TabithaEvent
+  m_Name: TabithaSisterEvent
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
-  npcPrefab: {fileID: 3767055355421772689, guid: 167bf02fd3210e842a1a7edef705ec69, type: 3}
+  npcPrefab: {fileID: 3767055355421772689, guid: e7d2832d4b2ed0c4fbdd03582a64de82, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 3
   spawnHeightOffset: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
+    inkDialogue: {fileID: 4900000, guid: 72f6c31b586982642b37c9de2afc3a56, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
@@ -152,7 +152,7 @@ MonoBehaviour:
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 4900000, guid: 34d5934b448fbf548b0770489e57634a, type: 3}
+    inkDialogue: {fileID: 4900000, guid: a80ddcbc3ef602e4d8600ba0246e2134, type: 3}
     dialogueKnot: 
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
@@ -255,7 +255,7 @@ MonoBehaviour:
     requirePlayerLooking: 1
     proximitySoundConditionVariable: 
     proximitySoundConditionValue: 
-  inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
+  inkDialogue: {fileID: 4900000, guid: 72f6c31b586982642b37c9de2afc3a56, type: 3}
   dialogueKnot: 
   typewriterSpeed: 0
   exitBehavior: 2

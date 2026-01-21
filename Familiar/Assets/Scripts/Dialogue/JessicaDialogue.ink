@@ -127,6 +127,8 @@ I'll just stay near the light.
 Lights make things honest.
 At least I think they do.
 
+~GraveRobberSetup = GraveRobberSetup + 1
+
 ~ SetEventVar("allowed_inside", true)
 
 -> END
@@ -142,6 +144,8 @@ Fast walking makes you harder to catch.
 I heard that somewhere.
 If I start running, don't worry.
 That's normal for me.
+
+~SpiritAngered = SpiritAngered + 1
 
 ~ SetEventVar("allowed_inside", false)
 

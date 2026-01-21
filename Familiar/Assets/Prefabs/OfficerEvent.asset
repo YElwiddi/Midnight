@@ -50,6 +50,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -77,6 +79,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 6c7bdf100bb9d3649beebb940d2a5176, type: 3}
   dialogueKnot: 
   typewriterSpeed: 60
@@ -118,13 +122,15 @@ MonoBehaviour:
       idleAnimationBool: 
       branchVariable: allowed_inside
       branchValue: false
-      branchToWaypoint: NPCCenterPoint
+      branchToWaypoint: NPCCenterPointExit
       waypointId: 
       proximitySound: {fileID: 0}
       proximitySoundRange: 0
       proximitySoundVolume: 0
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
+      proximitySoundConditionVariable: 
+      proximitySoundConditionValue: 
     - usePlayerRelativePosition: 0
       distanceFromPlayer: 0.5
       heightOffset: 0
@@ -152,6 +158,8 @@ MonoBehaviour:
       proximitySoundVolume: 0
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
+      proximitySoundConditionVariable: 
+      proximitySoundConditionValue: 
     - usePlayerRelativePosition: 0
       distanceFromPlayer: 0.5
       heightOffset: 0
@@ -179,6 +187,8 @@ MonoBehaviour:
       proximitySoundVolume: 0
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
+      proximitySoundConditionVariable: 
+      proximitySoundConditionValue: 
     - usePlayerRelativePosition: 0
       distanceFromPlayer: 0
       heightOffset: 0
@@ -206,6 +216,8 @@ MonoBehaviour:
       proximitySoundVolume: 0
       proximitySoundTrigger: 0
       requirePlayerLooking: 0
+      proximitySoundConditionVariable: 
+      proximitySoundConditionValue: 
     exitBehavior: 0
     exitPointName: NPCCenterPointExit
     blockMainNPCUntilComplete: 1

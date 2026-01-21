@@ -81,9 +81,10 @@ Would you mind if I came inside and had a look around?
 -> END
 + [I'm afraid I can't let you in sir.]
     -> decline
-~ SetEventVar("allowed_inside", false)
+
 
 === decline===
+~ SetEventVar("allowed_inside", false)
 Well, we don't have a warrant, so I can't force you to let me in.
 We'll be nearby if there's any trouble. Keep an eye out.
 -> END

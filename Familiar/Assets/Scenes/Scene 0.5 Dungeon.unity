@@ -21460,7 +21460,24 @@ MonoBehaviour:
     singleEvent: {fileID: 0}
     eventGroup:
     - {fileID: 11400000, guid: de2ca97ae66a4f040901c27ef8dccd61, type: 2}
+    - {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
     excludePreviouslySelectedEvents: 0
+    killerEvent: {fileID: 0}
+    conditionType: 0
+    statName: 
+    statComparison: 4
+    statValue: 0
+    compareToStatName: 
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 0
+    requiredZoneName: 
+    requiredFacingObjectName: 
+  - selectionMode: 1
+    singleEvent: {fileID: 0}
+    eventGroup:
+    - {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
+    - {fileID: 11400000, guid: de2ca97ae66a4f040901c27ef8dccd61, type: 2}
+    excludePreviouslySelectedEvents: 1
     killerEvent: {fileID: 0}
     conditionType: 0
     statName: 
