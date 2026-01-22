@@ -15,6 +15,10 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip teleportSound;
     [SerializeField] private Color fadeColor = Color.black;
 
+    [Header("Ambient Sound")]
+    [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
+    [SerializeField] private bool destinationIsIndoor = false;
+
     private static Image fadeOverlay;
     private static Canvas fadeCanvas;
     private static bool isTransitioning = false;
@@ -65,6 +69,16 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
             player.transform.rotation = Quaternion.Euler(targetRotation);
         }
         if (cc != null) cc.enabled = true;
+
+        // Update ambient sound for indoor/outdoor transition
+        if (destinationIsIndoor)
+        {
+            AmbientSoundManager.Instance?.EnterIndoor();
+        }
+        else
+        {
+            AmbientSoundManager.Instance?.ExitIndoor();
+        }
 
         // Small delay at full black
         yield return new WaitForSeconds(0.1f);

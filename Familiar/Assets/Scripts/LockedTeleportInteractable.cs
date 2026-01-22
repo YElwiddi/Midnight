@@ -30,6 +30,10 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [SerializeField] private float transitionDuration = 2f;
     [SerializeField] private Color fadeColor = Color.black;
 
+    [Header("Ambient Sound")]
+    [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
+    [SerializeField] private bool destinationIsIndoor = false;
+
     [Header("References")]
     [SerializeField] private DialogueUI dialogueUI;
 
@@ -125,6 +129,16 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
             player.transform.rotation = Quaternion.Euler(targetRotation);
         }
         if (cc != null) cc.enabled = true;
+
+        // Update ambient sound for indoor/outdoor transition
+        if (destinationIsIndoor)
+        {
+            AmbientSoundManager.Instance?.EnterIndoor();
+        }
+        else
+        {
+            AmbientSoundManager.Instance?.ExitIndoor();
+        }
 
         yield return new WaitForSeconds(0.1f);
 
