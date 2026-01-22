@@ -50,6 +50,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -70,13 +72,15 @@ MonoBehaviour:
     idleAnimationBool: 
     branchVariable: allowed_inside
     branchValue: false
-    branchToWaypoint: NPCRightPoint
+    branchToWaypoint: NPCCenterPointExit
     waypointId: 
     proximitySound: {fileID: 0}
     proximitySoundRange: 10
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -104,10 +108,12 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: NPCCenterPoint
+    waypointName: NPCCenterPointExit
     moveSpeed: 2.8
     waitForInteraction: 0
     timeUntilInteractable: 0
@@ -131,6 +137,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -158,6 +166,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 6c7bdf100bb9d3649beebb940d2a5176, type: 3}
   dialogueKnot: 
   typewriterSpeed: 60

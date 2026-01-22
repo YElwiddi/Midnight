@@ -1,9 +1,6 @@
-=== at_grave ===
+=== start ===
 …Yeah.
 It’s still here.
-
-Not the way it should be, but—
-still here.
 
 You can go.
 I won’t need you watching anymore.
@@ -18,8 +15,7 @@ I won’t need you watching anymore.
 Yeah.
 Yeah, I know.
 
-Just needed to see it.
-Make sure it hadn’t… moved.
+Just needed to see it one more time.
 
 I’m done.
 You won’t see me again tonight.

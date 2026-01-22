@@ -143,7 +143,7 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: JessicaExitPoint
-    moveSpeed: 1
+    moveSpeed: 1.8
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
