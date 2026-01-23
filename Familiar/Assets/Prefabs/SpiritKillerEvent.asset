@@ -56,7 +56,7 @@ MonoBehaviour:
   screenEffectPrefab: {fileID: 0}
   screenEffectDelay: 0
   intensifyVHSOnKill: 1
-  killGlitchIntensity: 1
+  killGlitchIntensity: 0.86
   killRGBShift: 0
   killNoiseIntensity: 0.481
   killScanlineIntensity: 0.957
@@ -65,3 +65,5 @@ MonoBehaviour:
   exitPointName: KillerExitPoint
   inkDialogue: {fileID: 0}
   dialogueKnot: 
+  cameraHeight: -1
+  cameraZoom: -1

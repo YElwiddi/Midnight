@@ -38,6 +38,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -50,6 +57,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -65,18 +74,27 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: b25a5533444447a4e863b9a2264503a2, type: 3}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
     branchVariable: allowed_inside
     branchValue: false
-    branchToWaypoint: NPCRightPoint
+    branchToWaypoint: NPCCenterPointExit
     waypointId: 
     proximitySound: {fileID: 0}
     proximitySoundRange: 10
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -92,6 +110,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: 1643960071eea1c489fe6e77575342ac, type: 3}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: IsKneeling
@@ -104,10 +129,12 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: NPCCenterPoint
+    waypointName: NPCCenterPointExit
     moveSpeed: 2.8
     waitForInteraction: 0
     timeUntilInteractable: 0
@@ -119,6 +146,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -131,6 +165,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -146,6 +182,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -158,9 +201,18 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: b25a5533444447a4e863b9a2264503a2, type: 3}
   dialogueKnot: 
   typewriterSpeed: 99
+  cameraHeight: 2
+  cameraZoom: 40
+  dialogueSoundClip: {fileID: 8300000, guid: db0d117b2ef7b384887abdd673a529fb, type: 3}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: 0.71
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
   exitBehavior: 2
   exitPointName: NPCRightPoint
   exitDialogues: []

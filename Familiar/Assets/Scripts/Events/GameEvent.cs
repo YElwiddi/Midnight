@@ -90,6 +90,32 @@ public class WaypointData
     [Tooltip("Knot/stitch to start from in the dialogue. If empty, starts from beginning or 'start' knot.")]
     public string dialogueKnot = "";
 
+    [Header("Camera Settings (Optional - overrides event default)")]
+    [Tooltip("Camera look height for this waypoint (-1 to use event default or auto-detect from pose)")]
+    public float cameraHeight = -1f;
+
+    [Tooltip("Camera FOV/zoom for this waypoint (-1 to use event default)")]
+    public float cameraZoom = -1f;
+
+    [Header("Dialogue Sound (Optional - overrides event default)")]
+    [Tooltip("Sound clip for this waypoint's dialogue (null to use event default)")]
+    public AudioClip dialogueSoundClip;
+
+    [Tooltip("Volume for this waypoint (-1 to use event default)")]
+    [Range(-1f, 1f)]
+    public float dialogueSoundVolume = -1f;
+
+    [Tooltip("Base pitch (1 = normal, <1 = lower, >1 = higher, -1 to use event default)")]
+    [Range(-1f, 2f)]
+    public float dialogueSoundBasePitch = -1f;
+
+    [Tooltip("Pitch variation for this waypoint (-1 to use event default)")]
+    [Range(-1f, 0.5f)]
+    public float dialogueSoundPitchVariation = -1f;
+
+    [Tooltip("Play sound every N characters for this waypoint (-1 to use event default)")]
+    public int dialogueSoundEveryN = -1;
+
     [Header("Animation Settings")]
     [Tooltip("Animation trigger to set when moving TO this waypoint (e.g., 'Run', 'Sneak'). Leave empty for default walk.")]
     public string movementAnimationTrigger = "";
@@ -233,6 +259,32 @@ public class BackgroundNPCData
     [Tooltip("Override typewriter speed for this NPC's dialogue (characters per second). 0 = use default.")]
     [Range(0f, 200f)]
     public float typewriterSpeed = 0f;
+
+    [Header("Camera Settings")]
+    [Tooltip("Camera look height from NPC origin during dialogue (-1 to use default ~1.6). Increase to frame face when zoomed.")]
+    public float cameraHeight = -1f;
+
+    [Tooltip("Camera FOV during dialogue (-1 to use default). Lower values = more zoomed in.")]
+    public float cameraZoom = -1f;
+
+    [Header("Dialogue Sound")]
+    [Tooltip("Sound clip to play during typewriter effect")]
+    public AudioClip dialogueSoundClip;
+
+    [Tooltip("Volume of the dialogue sound (-1 to use default)")]
+    [Range(-1f, 1f)]
+    public float dialogueSoundVolume = -1f;
+
+    [Tooltip("Base pitch (1 = normal, <1 = lower, >1 = higher, -1 to use default)")]
+    [Range(-1f, 2f)]
+    public float dialogueSoundBasePitch = -1f;
+
+    [Tooltip("Pitch variation for dialogue sound (-1 to use default)")]
+    [Range(-1f, 0.5f)]
+    public float dialogueSoundPitchVariation = -1f;
+
+    [Tooltip("Play sound every N characters (-1 to use default)")]
+    public int dialogueSoundEveryN = -1;
 }
 
 /// <summary>
@@ -290,6 +342,32 @@ public class GameEvent : ScriptableObject
     [Tooltip("Override typewriter speed for this NPC's dialogue (characters per second). 0 = use default from DialogueUISettings.")]
     [Range(0f, 200f)]
     public float typewriterSpeed = 0f;
+
+    [Header("Camera Settings")]
+    [Tooltip("Camera look height from NPC origin during dialogue (-1 to use default ~1.6). Increase for taller NPCs or to frame face when zoomed.")]
+    public float cameraHeight = -1f;
+
+    [Tooltip("Camera FOV during dialogue (-1 to use default). Lower values = more zoomed in.")]
+    public float cameraZoom = -1f;
+
+    [Header("Dialogue Sound")]
+    [Tooltip("Sound clip to play during typewriter effect")]
+    public AudioClip dialogueSoundClip;
+
+    [Tooltip("Volume of the dialogue sound (0-1, -1 to use default)")]
+    [Range(-1f, 1f)]
+    public float dialogueSoundVolume = -1f;
+
+    [Tooltip("Base pitch (1 = normal, <1 = lower, >1 = higher, -1 to use default)")]
+    [Range(-1f, 2f)]
+    public float dialogueSoundBasePitch = -1f;
+
+    [Tooltip("Pitch variation for dialogue sound (-1 to use default)")]
+    [Range(-1f, 0.5f)]
+    public float dialogueSoundPitchVariation = -1f;
+
+    [Tooltip("Play sound every N characters (-1 to use default)")]
+    public int dialogueSoundEveryN = -1;
 
     [Header("Exit Behavior")]
     [Tooltip("What happens to the NPC after completing all waypoints")]

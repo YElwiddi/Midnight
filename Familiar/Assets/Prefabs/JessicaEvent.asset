@@ -38,6 +38,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -67,6 +74,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: 228f5215a215eee40a0f7ba0e6bc766f, type: 3}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -96,6 +110,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: 423e5cd01574d93479b7e62478c8096c, type: 3}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: 1.46
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -125,6 +146,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -154,6 +182,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -171,6 +206,13 @@ MonoBehaviour:
   inkDialogue: {fileID: 4900000, guid: 228f5215a215eee40a0f7ba0e6bc766f, type: 3}
   dialogueKnot: 
   typewriterSpeed: 60
+  cameraHeight: 1.8
+  cameraZoom: 40
+  dialogueSoundClip: {fileID: 0}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: -1
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
   exitBehavior: 0
   exitPointName: JessicaExitPoint
   exitDialogues: []

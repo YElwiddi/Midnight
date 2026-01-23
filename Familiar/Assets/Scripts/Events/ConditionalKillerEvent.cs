@@ -203,6 +203,12 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Starting knot/stitch for the dialogue")]
     public string dialogueKnot = "";
 
+    [Tooltip("Camera look height from NPC origin during dialogue (-1 to use default ~1.6). Increase to frame face when zoomed.")]
+    public float cameraHeight = -1f;
+
+    [Tooltip("Camera FOV during dialogue (-1 to use default). Lower values = more zoomed in.")]
+    public float cameraZoom = -1f;
+
     /// <summary>
     /// Checks if the condition for this event is met.
     /// Returns true if the stat value passes the threshold comparison.

@@ -38,6 +38,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: 
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -67,6 +74,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -84,6 +98,13 @@ MonoBehaviour:
   inkDialogue: {fileID: 4900000, guid: 6c7bdf100bb9d3649beebb940d2a5176, type: 3}
   dialogueKnot: 
   typewriterSpeed: 60
+  cameraHeight: -1
+  cameraZoom: -1
+  dialogueSoundClip: {fileID: 0}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: -1
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
   exitBehavior: 0
   exitPointName: NPCRightPoint
   exitDialogues: []
@@ -117,6 +138,13 @@ MonoBehaviour:
       playerTrackingRotationSpeed: 0
       inkDialogue: {fileID: 0}
       dialogueKnot: 
+      cameraHeight: -1
+      cameraZoom: -1
+      dialogueSoundClip: {fileID: 0}
+      dialogueSoundVolume: -1
+      dialogueSoundBasePitch: -1
+      dialogueSoundPitchVariation: -1
+      dialogueSoundEveryN: -1
       movementAnimationTrigger: IsWalking
       arrivalAnimationTrigger: 
       idleAnimationBool: 
@@ -146,6 +174,13 @@ MonoBehaviour:
       playerTrackingRotationSpeed: 1
       inkDialogue: {fileID: 0}
       dialogueKnot: 
+      cameraHeight: -1
+      cameraZoom: -1
+      dialogueSoundClip: {fileID: 0}
+      dialogueSoundVolume: -1
+      dialogueSoundBasePitch: -1
+      dialogueSoundPitchVariation: -1
+      dialogueSoundEveryN: -1
       movementAnimationTrigger: IsWalking
       arrivalAnimationTrigger: 
       idleAnimationBool: 
@@ -175,6 +210,13 @@ MonoBehaviour:
       playerTrackingRotationSpeed: 1
       inkDialogue: {fileID: 4900000, guid: 7a665b39c469b2244a34150c02edba47, type: 3}
       dialogueKnot: 
+      cameraHeight: -1
+      cameraZoom: -1
+      dialogueSoundClip: {fileID: 0}
+      dialogueSoundVolume: -1
+      dialogueSoundBasePitch: -1
+      dialogueSoundPitchVariation: -1
+      dialogueSoundEveryN: -1
       movementAnimationTrigger: IsWalking
       arrivalAnimationTrigger: 
       idleAnimationBool: 
@@ -204,6 +246,13 @@ MonoBehaviour:
       playerTrackingRotationSpeed: 0
       inkDialogue: {fileID: 0}
       dialogueKnot: 
+      cameraHeight: -1
+      cameraZoom: -1
+      dialogueSoundClip: {fileID: 0}
+      dialogueSoundVolume: -1
+      dialogueSoundBasePitch: -1
+      dialogueSoundPitchVariation: -1
+      dialogueSoundEveryN: -1
       movementAnimationTrigger: IsWalking
       arrivalAnimationTrigger: 
       idleAnimationBool: 
@@ -224,3 +273,10 @@ MonoBehaviour:
     inkDialogue: {fileID: 4900000, guid: 10e35f7726d54194792834f625e0d80c, type: 3}
     dialogueKnot: 
     typewriterSpeed: 48
+    cameraHeight: 2
+    cameraZoom: 40
+    dialogueSoundClip: {fileID: 8300000, guid: 3c05731d8852f3d44a90e035e44fda42, type: 3}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1

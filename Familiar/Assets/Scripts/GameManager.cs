@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Debug")]
+    public bool showDebugStats = true;
+
     [Header("Player Stats")]
     public int player_scared = 0;
     public int player_mean = 0;
@@ -76,6 +79,8 @@ public class GameManager : MonoBehaviour
     // Method to display current stats (for debugging)
     private void OnGUI()
     {
+        if (!showDebugStats) return;
+
         GUI.Box(new Rect(10, 10, 200, 130), "Player Stats");
         GUI.Label(new Rect(20, 30, 180, 20), $"Scared: {player_scared}");
         GUI.Label(new Rect(20, 50, 180, 20), $"Mean: {player_mean}");

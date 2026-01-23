@@ -38,6 +38,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -50,6 +57,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -65,6 +74,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -77,6 +93,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -92,6 +110,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -104,6 +129,8 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
@@ -119,6 +146,13 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -131,9 +165,18 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 12c56170e652b9b4e9504d39cffb921d, type: 3}
   dialogueKnot: 
-  typewriterSpeed: 0
+  typewriterSpeed: 73
+  cameraHeight: 2
+  cameraZoom: 40
+  dialogueSoundClip: {fileID: 8300000, guid: 2ecae44f27142c74a9c5b4a8a1319574, type: 3}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: 0.74
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
   exitBehavior: 2
   exitPointName: NPCLeftPoint
   exitDialogues: []

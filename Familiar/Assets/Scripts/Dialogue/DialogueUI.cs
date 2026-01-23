@@ -43,6 +43,29 @@ public class DialogueUI : MonoBehaviour
     [Header("Optional Settings")]
     [Tooltip("Optional DialogueUISettings asset for styling. If not assigned, uses prefab defaults.")]
     [SerializeField] private DialogueUISettings uiSettings;
+
+    [Header("Typewriter Sound")]
+    [Tooltip("Enable sound effect while typewriter is progressing")]
+    [SerializeField] private bool playTypewriterSound = false;
+
+    [Tooltip("Sound clip to play during typewriter effect")]
+    [SerializeField] private AudioClip typewriterSoundClip;
+
+    [Tooltip("How often the sound plays (1 = every character, 2 = every 2nd character, etc.)")]
+    [Range(1, 10)]
+    [SerializeField] private int soundEveryNCharacters = 1;
+
+    [Tooltip("Volume of the typewriter sound")]
+    [Range(0f, 1f)]
+    [SerializeField] private float typewriterSoundVolume = 0.5f;
+
+    [Tooltip("Base pitch of the typewriter sound (1 = normal, <1 = lower, >1 = higher)")]
+    [Range(0.5f, 2f)]
+    [SerializeField] private float basePitch = 1f;
+
+    [Tooltip("Pitch variation range (0 = no variation, 0.1 = ±10% pitch variation)")]
+    [Range(0f, 0.5f)]
+    [SerializeField] private float pitchVariation = 0.05f;
     #endregion
 
     #region Events
@@ -64,6 +87,15 @@ public class DialogueUI : MonoBehaviour
     private bool isTypewriting;
     private string fullDialogueText;
     private float overrideTypewriterSpeed = 0f;
+    private AudioSource typewriterAudioSource;
+
+    // Sound overrides (per-NPC)
+    private AudioClip overrideSoundClip;
+    private float overrideSoundVolume = -1f;
+    private float overrideBasePitch = -1f;
+    private float overridePitchVariation = -1f;
+    private int overrideSoundEveryN = -1;
+    private bool hasOverrideSound = false;
     #endregion
 
     #region Unity Lifecycle
@@ -180,7 +212,16 @@ public class DialogueUI : MonoBehaviour
             StopCoroutine(typewriterCoroutine);
             isTypewriting = false;
             dialogueText.text = fullDialogueText;
+            StopTypewriterSound();
             ShowContinueIndicator();
+        }
+    }
+
+    private void StopTypewriterSound()
+    {
+        if (typewriterAudioSource != null && typewriterAudioSource.isPlaying)
+        {
+            typewriterAudioSource.Stop();
         }
     }
 
@@ -295,6 +336,37 @@ public class DialogueUI : MonoBehaviour
     {
         overrideTypewriterSpeed = 0f;
     }
+
+    /// <summary>
+    /// Sets override sound settings for the current dialogue session (per-NPC sounds).
+    /// </summary>
+    /// <param name="clip">Sound clip to use (null to use default)</param>
+    /// <param name="volume">Volume (0-1, or -1 to use default)</param>
+    /// <param name="basePitch">Base pitch (0.5-2, or -1 to use default)</param>
+    /// <param name="pitchVariation">Pitch variation (0-0.5, or -1 to use default)</param>
+    /// <param name="soundEveryN">Play sound every N characters (or -1 to use default)</param>
+    public void SetTypewriterSoundOverride(AudioClip clip, float volume = -1f, float basePitch = -1f, float pitchVariation = -1f, int soundEveryN = -1)
+    {
+        overrideSoundClip = clip;
+        overrideSoundVolume = volume;
+        overrideBasePitch = basePitch;
+        overridePitchVariation = pitchVariation;
+        overrideSoundEveryN = soundEveryN;
+        hasOverrideSound = clip != null;
+    }
+
+    /// <summary>
+    /// Clears the typewriter sound override, reverting to default settings.
+    /// </summary>
+    public void ClearTypewriterSoundOverride()
+    {
+        overrideSoundClip = null;
+        overrideSoundVolume = -1f;
+        overrideBasePitch = -1f;
+        overridePitchVariation = -1f;
+        overrideSoundEveryN = -1;
+        hasOverrideSound = false;
+    }
     #endregion
 
     #region Private Methods
@@ -321,6 +393,15 @@ public class DialogueUI : MonoBehaviour
             {
                 panelCanvasGroup = dialoguePanel.AddComponent<CanvasGroup>();
             }
+        }
+
+        // Create AudioSource for typewriter sound
+        if (playTypewriterSound && typewriterSoundClip != null)
+        {
+            typewriterAudioSource = gameObject.AddComponent<AudioSource>();
+            typewriterAudioSource.playOnAwake = false;
+            typewriterAudioSource.clip = typewriterSoundClip;
+            typewriterAudioSource.volume = typewriterSoundVolume;
         }
     }
 
@@ -399,6 +480,7 @@ public class DialogueUI : MonoBehaviour
             StopCoroutine(typewriterCoroutine);
             isTypewriting = false;
         }
+        StopTypewriterSound();
     }
 
     private void ShowContinueIndicator()
@@ -420,14 +502,55 @@ public class DialogueUI : MonoBehaviour
             : (uiSettings != null ? uiSettings.typewriterSpeed : 50f);
         float delay = 1f / speed;
 
+        // Determine which sound settings to use (override > default)
+        AudioClip clipToUse = hasOverrideSound ? overrideSoundClip : typewriterSoundClip;
+        bool shouldPlaySound = (hasOverrideSound && overrideSoundClip != null) || (playTypewriterSound && typewriterSoundClip != null);
+
+        // Ensure AudioSource exists if sound is enabled
+        if (shouldPlaySound && typewriterAudioSource == null)
+        {
+            typewriterAudioSource = gameObject.AddComponent<AudioSource>();
+            typewriterAudioSource.playOnAwake = false;
+        }
+
+        // Get sound settings (override > default)
+        int everyN = overrideSoundEveryN > 0 ? overrideSoundEveryN : soundEveryNCharacters;
+
+        int charCount = 0;
         foreach (char c in text)
         {
             dialogueText.text += c;
+            charCount++;
+
+            // Play sound every N characters (skip whitespace for sound)
+            if (shouldPlaySound && typewriterAudioSource != null && !char.IsWhiteSpace(c))
+            {
+                if (charCount % everyN == 0)
+                {
+                    PlayTypewriterSound(clipToUse);
+                }
+            }
+
             yield return new WaitForSeconds(delay);
         }
 
         isTypewriting = false;
         ShowContinueIndicator();
+    }
+
+    private void PlayTypewriterSound(AudioClip clip)
+    {
+        if (typewriterAudioSource == null || clip == null) return;
+
+        // Get settings (override > default)
+        float volume = overrideSoundVolume >= 0f ? overrideSoundVolume : typewriterSoundVolume;
+        float pitch = overrideBasePitch >= 0f ? overrideBasePitch : basePitch;
+        float variation = overridePitchVariation >= 0f ? overridePitchVariation : pitchVariation;
+
+        // Apply base pitch with variation for variety
+        typewriterAudioSource.pitch = pitch + UnityEngine.Random.Range(-variation, variation);
+        typewriterAudioSource.volume = volume;
+        typewriterAudioSource.PlayOneShot(clip);
     }
 
     private IEnumerator FadePanel(float startAlpha, float endAlpha, float duration, Action onComplete = null)

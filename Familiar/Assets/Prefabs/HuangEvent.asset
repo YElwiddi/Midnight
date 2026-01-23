@@ -14,17 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
   npcPrefab: {fileID: 3767055355421772689, guid: fe7ca734ab7856e40ba1667865db3a2c, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 3
+  spawnHeightOffset: 0
   spawnPointName: NPCLeftPoint
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
   waypoints:
-  - waypointName: NPCCenterPoint
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
     moveSpeed: 4.5
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 5
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -37,15 +52,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: NPCGatePoint
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCGatePoint
     moveSpeed: 4.5
     waitForInteraction: 1
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: 2
+    cameraZoom: 40
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -58,15 +83,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: NPCCenterPoint
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -79,15 +114,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: GraveyardCrossRoads
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -100,15 +145,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: HuangGraveSite
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: HuangGraveSite
     moveSpeed: 3
     waitForInteraction: 1
     timeUntilInteractable: 5
     waitingDialogueText: Let's give him a moment...
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
     dialogueKnot: 
+    cameraHeight: 0.5
+    cameraZoom: 40
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: IsKneeling
@@ -121,15 +176,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: GraveyardCrossRoads
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -142,15 +207,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: NPCCenterPoint
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -163,15 +238,25 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
-  - waypointName: NPCRightPoint
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCRightPoint
     moveSpeed: 3
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -184,8 +269,13 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 0
     requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 56226e2e9ea3fa649895f44edf185ad6, type: 3}
   dialogueKnot: 
+  typewriterSpeed: 18
+  cameraHeight: -1
+  cameraZoom: 40
   exitBehavior: 2
   exitPointName: NPCRightPoint
   exitDialogues: []

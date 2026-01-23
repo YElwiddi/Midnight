@@ -31,6 +31,12 @@ public class EventNPC : MonoBehaviour, IInteractable
     [HideInInspector] public string exitPointName;
     [HideInInspector] public ExitDialogueData[] exitDialogues;
     [HideInInspector] public float typewriterSpeed;
+    [HideInInspector] public float eventCameraHeight = -1f;
+    [HideInInspector] public AudioClip eventDialogueSoundClip;
+    [HideInInspector] public float eventDialogueSoundVolume = -1f;
+    [HideInInspector] public float eventDialogueSoundBasePitch = -1f;
+    [HideInInspector] public float eventDialogueSoundPitchVariation = -1f;
+    [HideInInspector] public int eventDialogueSoundEveryN = -1;
     #endregion
 
     #region Inspector Settings
@@ -42,8 +48,10 @@ public class EventNPC : MonoBehaviour, IInteractable
     [SerializeField] private float arrivalThreshold = 0.5f;
 
     [Header("Camera Settings")]
-    [Tooltip("Camera look height when NPC is kneeling (lower than standing)")]
-    [SerializeField] private float kneelingCameraHeight = 0.8f;
+    [Tooltip("Camera look height when NPC is in a lowered pose (kneeling, praying, crouching, etc.)")]
+    [SerializeField] private float loweredCameraHeight = 0.5f;
+    [Tooltip("Camera FOV during dialogue (-1 to use default)")]
+    [SerializeField] private float cameraZoom = -1f;
 
     #endregion
 
@@ -174,7 +182,10 @@ public class EventNPC : MonoBehaviour, IInteractable
     /// </summary>
     public void Initialize(WaypointData[] waypointData, TextAsset dialogue, string knot,
                            NPCExitBehavior exit, string exitPoint, string name = null,
-                           ExitDialogueData[] exitDialogueData = null, float dialogueTypewriterSpeed = 0f)
+                           ExitDialogueData[] exitDialogueData = null, float dialogueTypewriterSpeed = 0f,
+                           float dialogueCameraZoom = -1f, float dialogueCameraHeight = -1f,
+                           AudioClip soundClip = null, float soundVolume = -1f, float soundBasePitch = -1f,
+                           float soundPitchVariation = -1f, int soundEveryN = -1)
     {
         waypoints = waypointData;
         inkDialogue = dialogue;
@@ -183,6 +194,13 @@ public class EventNPC : MonoBehaviour, IInteractable
         exitPointName = exitPoint;
         exitDialogues = exitDialogueData;
         typewriterSpeed = dialogueTypewriterSpeed;
+        cameraZoom = dialogueCameraZoom;
+        eventCameraHeight = dialogueCameraHeight;
+        eventDialogueSoundClip = soundClip;
+        eventDialogueSoundVolume = soundVolume;
+        eventDialogueSoundBasePitch = soundBasePitch;
+        eventDialogueSoundPitchVariation = soundPitchVariation;
+        eventDialogueSoundEveryN = soundEveryN;
 
         if (!string.IsNullOrEmpty(name))
         {
@@ -321,18 +339,49 @@ public class EventNPC : MonoBehaviour, IInteractable
         currentState = NPCState.InDialogue;
         Debug.Log($"EventNPC {npcName}: Starting dialogue (knot: {(string.IsNullOrEmpty(knotToUse) ? "default" : knotToUse)})");
 
-        // Check if NPC is kneeling to adjust camera height
-        bool isKneeling = currentIdleAnimationBool == "IsKneeling";
-        float cameraHeight = isKneeling ? kneelingCameraHeight : -1f;
+        // Determine camera height: waypoint > event > lowered pose > default
+        float camHeight;
+        if (currentWaypoint2.cameraHeight >= 0)
+        {
+            camHeight = currentWaypoint2.cameraHeight;
+            Debug.Log($"EventNPC {npcName}: Using waypoint camera height: {camHeight}");
+        }
+        else if (eventCameraHeight >= 0)
+        {
+            camHeight = eventCameraHeight;
+            Debug.Log($"EventNPC {npcName}: Using event camera height: {camHeight}");
+        }
+        else
+        {
+            bool isLoweredPose = IsLoweredPoseAnimation(currentIdleAnimationBool);
+            camHeight = isLoweredPose ? loweredCameraHeight : -1f;
+            Debug.Log($"EventNPC {npcName}: Idle animation '{currentIdleAnimationBool}', isLoweredPose={isLoweredPose}, cameraHeight={camHeight}");
+        }
+
+        // Determine camera zoom: waypoint > event > default
+        float camZoom = currentWaypoint2.cameraZoom >= 0 ? currentWaypoint2.cameraZoom : cameraZoom;
+
+        // Determine dialogue sound: waypoint > event > default
+        AudioClip soundClip = currentWaypoint2.dialogueSoundClip != null ? currentWaypoint2.dialogueSoundClip : eventDialogueSoundClip;
+        float soundVolume = currentWaypoint2.dialogueSoundVolume >= 0 ? currentWaypoint2.dialogueSoundVolume : eventDialogueSoundVolume;
+        float soundBasePitch = currentWaypoint2.dialogueSoundBasePitch >= 0 ? currentWaypoint2.dialogueSoundBasePitch : eventDialogueSoundBasePitch;
+        float soundPitchVariation = currentWaypoint2.dialogueSoundPitchVariation >= 0 ? currentWaypoint2.dialogueSoundPitchVariation : eventDialogueSoundPitchVariation;
+        int soundEveryN = currentWaypoint2.dialogueSoundEveryN > 0 ? currentWaypoint2.dialogueSoundEveryN : eventDialogueSoundEveryN;
+
+        // Set sound override if configured
+        if (soundClip != null)
+        {
+            dialogueManager.SetDialogueSoundOverride(soundClip, soundVolume, soundBasePitch, soundPitchVariation, soundEveryN);
+        }
 
         // Start dialogue
         if (!string.IsNullOrEmpty(knotToUse))
         {
-            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform, cameraHeight, typewriterSpeed);
+            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform, camHeight, typewriterSpeed, camZoom);
         }
         else
         {
-            dialogueManager.EnterDialogueMode(dialogueToUse, transform, cameraHeight, typewriterSpeed);
+            dialogueManager.EnterDialogueMode(dialogueToUse, transform, camHeight, typewriterSpeed, camZoom);
         }
     }
 
@@ -984,6 +1033,19 @@ public class EventNPC : MonoBehaviour, IInteractable
             Debug.Log($"EventNPC {npcName}: Cleared idle animation '{currentIdleAnimationBool}'");
             currentIdleAnimationBool = "";
         }
+    }
+
+    private bool IsLoweredPoseAnimation(string animationBool)
+    {
+        if (string.IsNullOrEmpty(animationBool)) return false;
+
+        string lowerName = animationBool.ToLower();
+        return lowerName.Contains("kneel") ||
+               lowerName.Contains("pray") ||
+               lowerName.Contains("crouch") ||
+               lowerName.Contains("sit") ||
+               lowerName.Contains("squat") ||
+               lowerName.Contains("bow");
     }
     #endregion
 

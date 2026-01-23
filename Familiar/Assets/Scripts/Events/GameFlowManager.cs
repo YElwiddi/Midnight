@@ -533,7 +533,14 @@ public class GameFlowManager : MonoBehaviour
             currentEvent.exitPointName,
             currentEvent.eventName,
             currentEvent.exitDialogues,
-            currentEvent.typewriterSpeed
+            currentEvent.typewriterSpeed,
+            currentEvent.cameraZoom,
+            currentEvent.cameraHeight,
+            currentEvent.dialogueSoundClip,
+            currentEvent.dialogueSoundVolume,
+            currentEvent.dialogueSoundBasePitch,
+            currentEvent.dialogueSoundPitchVariation,
+            currentEvent.dialogueSoundEveryN
         );
 
         // Fire event started
@@ -696,7 +703,14 @@ public class GameFlowManager : MonoBehaviour
             bgNPC.exitPointName,
             bgNPC.npcName,
             null,  // No exit dialogues for background NPCs
-            bgNPC.typewriterSpeed
+            bgNPC.typewriterSpeed,
+            bgNPC.cameraZoom,
+            bgNPC.cameraHeight,
+            bgNPC.dialogueSoundClip,
+            bgNPC.dialogueSoundVolume,
+            bgNPC.dialogueSoundBasePitch,
+            bgNPC.dialogueSoundPitchVariation,
+            bgNPC.dialogueSoundEveryN
         );
 
         // Handle blocking behavior - track the NPC and subscribe to its completion
@@ -1090,7 +1104,11 @@ public class GameFlowManager : MonoBehaviour
                 killerEvent.exitPointName,
                 killerEvent.eventName,
                 null, // No exit dialogues for killers
-                0f    // Default typewriter speed
+                0f,   // Default typewriter speed
+                killerEvent.cameraZoom,
+                killerEvent.cameraHeight,
+                null, // No dialogue sound for killers
+                -1f, -1f, -1f, -1
             );
         }
 

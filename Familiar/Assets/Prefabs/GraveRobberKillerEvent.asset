@@ -31,7 +31,7 @@ MonoBehaviour:
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 25
+  activationDistance: 15
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30
@@ -65,3 +65,5 @@ MonoBehaviour:
   exitPointName: KillerExitPoint
   inkDialogue: {fileID: 0}
   dialogueKnot: 
+  cameraHeight: -1
+  cameraZoom: -1

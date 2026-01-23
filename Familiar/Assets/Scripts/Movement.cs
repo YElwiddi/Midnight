@@ -27,6 +27,10 @@ public class Movement : MonoBehaviour
     public float dialogueLookHeight = 1.6f;
     [Tooltip("How quickly the camera rotates to face the NPC during dialogue")]
     public float dialogueCameraSpeed = 5f;
+    [Tooltip("How quickly the camera zooms in/out during dialogue")]
+    public float dialogueZoomSpeed = 5f;
+    [Tooltip("Reference distance for dialogue zoom. FOV is auto-adjusted to maintain consistent framing regardless of actual distance.")]
+    public float dialogueReferenceDistance = 2.5f;
     
     [Header("Footstep Sound Settings")]
     public AudioSource footstepAudioSource;
@@ -65,6 +69,10 @@ public class Movement : MonoBehaviour
     public bool isInDialogue = false;
     public Transform dialogueTarget;
     private float defaultDialogueLookHeight;
+    private float defaultCameraFOV;
+    private float targetCameraFOV;
+    private float configuredZoomFOV; // The FOV set by the event/NPC (before distance adjustment)
+    private bool useCustomZoom = false;
 
     void Start()
     {
@@ -100,6 +108,13 @@ public class Movement : MonoBehaviour
 
         // Store default dialogue look height
         defaultDialogueLookHeight = dialogueLookHeight;
+
+        // Store default camera FOV
+        if (playerCamera != null)
+        {
+            defaultCameraFOV = playerCamera.fieldOfView;
+            targetCameraFOV = defaultCameraFOV;
+        }
     }
 
     void Update()
@@ -213,6 +228,16 @@ public class Movement : MonoBehaviour
                 playerCamera.transform.localRotation,
                 targetRotation,
                 dialogueCameraSpeed * Time.deltaTime
+            );
+        }
+
+        // Handle camera FOV zoom
+        if (playerCamera != null && Mathf.Abs(playerCamera.fieldOfView - targetCameraFOV) > 0.01f)
+        {
+            playerCamera.fieldOfView = Mathf.Lerp(
+                playerCamera.fieldOfView,
+                targetCameraFOV,
+                dialogueZoomSpeed * Time.deltaTime
             );
         }
     }
@@ -339,11 +364,55 @@ public class Movement : MonoBehaviour
         isInDialogue = true;
     }
 
+    // Public method to set camera target with custom height and zoom
+    public void SetCameraTarget(Transform target, float customLookHeight, float customZoom)
+    {
+        dialogueTarget = target;
+        dialogueLookHeight = customLookHeight;
+        isInDialogue = true;
+
+        if (customZoom > 0)
+        {
+            configuredZoomFOV = customZoom;
+            useCustomZoom = true;
+
+            // Calculate distance-adjusted FOV to maintain consistent framing
+            if (playerCamera != null && target != null)
+            {
+                float actualDistance = Vector3.Distance(playerCamera.transform.position, target.position);
+                targetCameraFOV = CalculateAdjustedFOV(customZoom, actualDistance);
+            }
+            else
+            {
+                targetCameraFOV = customZoom;
+            }
+        }
+    }
+
+    // Calculates FOV adjusted for distance to maintain consistent framing
+    private float CalculateAdjustedFOV(float baseFOV, float actualDistance)
+    {
+        if (actualDistance <= 0.1f) actualDistance = 0.1f; // Prevent division issues
+
+        // Adjust FOV based on distance ratio to maintain same apparent size
+        // tan(adjustedFOV/2) = tan(baseFOV/2) * (referenceDistance / actualDistance)
+        float baseTan = Mathf.Tan(baseFOV * 0.5f * Mathf.Deg2Rad);
+        float adjustedTan = baseTan * (dialogueReferenceDistance / actualDistance);
+
+        // Clamp to reasonable FOV range (10-120 degrees)
+        float adjustedFOV = 2f * Mathf.Atan(adjustedTan) * Mathf.Rad2Deg;
+        return Mathf.Clamp(adjustedFOV, 10f, 120f);
+    }
+
     // Public method to clear camera target after dialogue
     public void ClearCameraTarget()
     {
         dialogueTarget = null;
         dialogueLookHeight = defaultDialogueLookHeight;
         isInDialogue = false;
+
+        // Reset FOV to default
+        targetCameraFOV = defaultCameraFOV;
+        useCustomZoom = false;
     }
 }

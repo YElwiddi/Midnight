@@ -9,6 +9,32 @@ public class NPCInteraction : MonoBehaviour, IInteractable
     [SerializeField] private string npcName = "Villager";
     [SerializeField] private string interactionPrompt = "Talk";
 
+    [Header("Camera Settings")]
+    [Tooltip("Camera look height from NPC origin (-1 to use default ~1.6). Increase to frame face when zoomed.")]
+    [SerializeField] private float cameraHeight = -1f;
+
+    [Tooltip("Camera FOV during dialogue (-1 to use default)")]
+    [SerializeField] private float cameraZoom = -1f;
+
+    [Header("Dialogue Sound")]
+    [Tooltip("Sound clip to play during typewriter effect (overrides default)")]
+    [SerializeField] private AudioClip dialogueSoundClip;
+
+    [Tooltip("Volume of the dialogue sound (0-1, -1 to use default)")]
+    [Range(-1f, 1f)]
+    [SerializeField] private float dialogueSoundVolume = -1f;
+
+    [Tooltip("Base pitch of the sound (1 = normal, <1 = lower, >1 = higher, -1 to use default)")]
+    [Range(-1f, 2f)]
+    [SerializeField] private float dialogueSoundBasePitch = -1f;
+
+    [Tooltip("Pitch variation for dialogue sound (-1 to use default)")]
+    [Range(-1f, 0.5f)]
+    [SerializeField] private float dialogueSoundPitchVariation = -1f;
+
+    [Tooltip("Play sound every N characters (-1 to use default)")]
+    [SerializeField] private int dialogueSoundEveryN = -1;
+
     // Reference to dialogue manager
     private DialogueManager dialogueManager;
 
@@ -84,7 +110,13 @@ public class NPCInteraction : MonoBehaviour, IInteractable
 
     private void StartDialogue()
     {
-        dialogueManager.EnterDialogueMode(inkJSONAsset, transform);
+        // Set sound override if configured
+        if (dialogueSoundClip != null)
+        {
+            dialogueManager.SetDialogueSoundOverride(dialogueSoundClip, dialogueSoundVolume, dialogueSoundBasePitch, dialogueSoundPitchVariation, dialogueSoundEveryN);
+        }
+
+        dialogueManager.EnterDialogueMode(inkJSONAsset, transform, cameraHeight, 0f, cameraZoom);
     }
 
     // Optional: Visual feedback when player is near

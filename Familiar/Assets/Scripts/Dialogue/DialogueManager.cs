@@ -39,7 +39,15 @@ public class DialogueManager : MonoBehaviour
     private CrosshairManager crosshairManager;
     private Transform currentNPC;
     private float customCameraHeight = -1f; // -1 means use default height
+    private float customCameraZoom = -1f; // -1 means use default zoom (FOV)
     private static DialogueManager instance;
+
+    // Sound override settings
+    private AudioClip customSoundClip;
+    private float customSoundVolume = -1f;
+    private float customSoundBasePitch = -1f;
+    private float customSoundPitchVariation = -1f;
+    private int customSoundEveryN = -1;
     #endregion
 
     #region Events
@@ -150,13 +158,25 @@ public class DialogueManager : MonoBehaviour
 
     #region Public Methods
     /// <summary>
+    /// Sets sound override for the next dialogue session. Call before EnterDialogueMode.
+    /// </summary>
+    public void SetDialogueSoundOverride(AudioClip clip, float volume = -1f, float basePitch = -1f, float pitchVariation = -1f, int soundEveryN = -1)
+    {
+        customSoundClip = clip;
+        customSoundVolume = volume;
+        customSoundBasePitch = basePitch;
+        customSoundPitchVariation = pitchVariation;
+        customSoundEveryN = soundEveryN;
+    }
+    /// <summary>
     /// Starts a dialogue session with the specified Ink story.
     /// </summary>
     /// <param name="inkJSON">The compiled Ink JSON asset</param>
     /// <param name="npcTransform">Optional transform of the NPC being talked to (for camera focus)</param>
     /// <param name="cameraHeight">Optional camera look height (-1 to use default)</param>
     /// <param name="typewriterSpeed">Optional typewriter speed override (0 = use default)</param>
-    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform = null, float cameraHeight = -1f, float typewriterSpeed = 0f)
+    /// <param name="cameraZoom">Optional camera zoom/FOV (-1 to use default)</param>
+    public void EnterDialogueMode(TextAsset inkJSON, Transform npcTransform = null, float cameraHeight = -1f, float typewriterSpeed = 0f, float cameraZoom = -1f)
     {
         if (inkJSON == null)
         {
@@ -172,11 +192,18 @@ public class DialogueManager : MonoBehaviour
 
         currentNPC = npcTransform;
         customCameraHeight = cameraHeight;
+        customCameraZoom = cameraZoom;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
 
         // Set typewriter speed override
         dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
+
+        // Set sound override if configured
+        if (customSoundClip != null)
+        {
+            dialogueUI.SetTypewriterSoundOverride(customSoundClip, customSoundVolume, customSoundBasePitch, customSoundPitchVariation, customSoundEveryN);
+        }
 
         // Show UI
         dialogueUI.Show();
@@ -210,7 +237,8 @@ public class DialogueManager : MonoBehaviour
     /// <param name="npcTransform">Optional NPC transform</param>
     /// <param name="cameraHeight">Optional camera look height (-1 to use default)</param>
     /// <param name="typewriterSpeed">Optional typewriter speed override (0 = use default)</param>
-    public void EnterDialogueMode(TextAsset inkJSON, string knotName, Transform npcTransform = null, float cameraHeight = -1f, float typewriterSpeed = 0f)
+    /// <param name="cameraZoom">Optional camera zoom/FOV (-1 to use default)</param>
+    public void EnterDialogueMode(TextAsset inkJSON, string knotName, Transform npcTransform = null, float cameraHeight = -1f, float typewriterSpeed = 0f, float cameraZoom = -1f)
     {
         if (inkJSON == null)
         {
@@ -226,11 +254,18 @@ public class DialogueManager : MonoBehaviour
 
         currentNPC = npcTransform;
         customCameraHeight = cameraHeight;
+        customCameraZoom = cameraZoom;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
 
         // Set typewriter speed override
         dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
+
+        // Set sound override if configured
+        if (customSoundClip != null)
+        {
+            dialogueUI.SetTypewriterSoundOverride(customSoundClip, customSoundVolume, customSoundBasePitch, customSoundPitchVariation, customSoundEveryN);
+        }
 
         // Show UI
         dialogueUI.Show();
@@ -275,10 +310,11 @@ public class DialogueManager : MonoBehaviour
         // Sync variables back to GameManager
         SyncVariablesFromInk();
 
-        // Clear typewriter speed override and hide UI
+        // Clear typewriter speed and sound overrides, then hide UI
         if (dialogueUI != null)
         {
             dialogueUI.ClearTypewriterSpeedOverride();
+            dialogueUI.ClearTypewriterSoundOverride();
             dialogueUI.Hide();
         }
 
@@ -288,6 +324,14 @@ public class DialogueManager : MonoBehaviour
         currentNPC = null;
         currentStory = null;
         customCameraHeight = -1f;
+        customCameraZoom = -1f;
+
+        // Clear sound overrides
+        customSoundClip = null;
+        customSoundVolume = -1f;
+        customSoundBasePitch = -1f;
+        customSoundPitchVariation = -1f;
+        customSoundEveryN = -1;
 
         OnDialogueEnded?.Invoke();
     }
@@ -465,9 +509,10 @@ public class DialogueManager : MonoBehaviour
 
                 if (currentNPC != null)
                 {
-                    if (customCameraHeight >= 0)
+                    if (customCameraHeight >= 0 || customCameraZoom >= 0)
                     {
-                        movementScript.SetCameraTarget(currentNPC, customCameraHeight);
+                        float height = customCameraHeight >= 0 ? customCameraHeight : 1.6f;
+                        movementScript.SetCameraTarget(currentNPC, height, customCameraZoom);
                     }
                     else
                     {

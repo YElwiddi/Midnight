@@ -6027,6 +6027,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
+      propertyPath: exitKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795698829956463048, guid: 521211061705ac149a91f16adae3039d, type: 3}
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 820582054}
@@ -12486,6 +12490,12 @@ MonoBehaviour:
   choiceContainer: {fileID: 1970289417}
   choiceButtonPrefab: {fileID: 2732333147451936685, guid: 183097299a24fb1449117c7f8b535085, type: 3}
   uiSettings: {fileID: 0}
+  playTypewriterSound: 1
+  typewriterSoundClip: {fileID: 8300000, guid: 3d7ccc3edcb201f45832a5d2a462e91a, type: 3}
+  soundEveryNCharacters: 1
+  typewriterSoundVolume: 0.8
+  basePitch: 1
+  pitchVariation: 0.1
 --- !u!1 &823283882
 GameObject:
   m_ObjectHideFlags: 0
@@ -20793,6 +20803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a80f53df63c8a54aa83e5b4447f5187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  showDebugStats: 0
   player_scared: 0
   player_mean: 0
   player_stupid: 0
@@ -22178,9 +22189,6 @@ MonoBehaviour:
     singleEvent: {fileID: 0}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
-    - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
-    - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
-    - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     excludePreviouslySelectedEvents: 0
     killerEvent: {fileID: 0}
     conditionType: 0
@@ -22357,7 +22365,7 @@ MonoBehaviour:
     singleEvent: {fileID: 0}
     eventGroup: []
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: dc97502c503c7e941a2d53bd73c17c41, type: 2}
+    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
     conditionType: 0
     statName: 
     statComparison: 4
