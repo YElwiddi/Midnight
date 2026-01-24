@@ -90,10 +90,6 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Delay before game over in real seconds")]
     [SerializeField] private float gameOverDelay = 2f;
 
-    [Tooltip("Vertical angle offset for jumpscare camera (negative = look down, positive = look up)")]
-    [Range(-45f, 45f)]
-    [SerializeField] private float jumpscareCameraAngle = 0f;
-
     [Tooltip("Camera shake intensity")]
     [SerializeField] private float shakeIntensity = 0.5f;
 
@@ -236,10 +232,18 @@ public class KillerNPC : MonoBehaviour
     {
         if (hasTriggeredGameOver)
         {
-            // Handle camera shake during jumpscare
-            if (isShaking && currentShakeDuration > 0 && playerCamera != null)
+            if (playerCamera != null)
             {
-                ApplyCameraShake();
+                // Handle camera shake during jumpscare (includes face lock)
+                if (isShaking && currentShakeDuration > 0)
+                {
+                    ApplyCameraShake();
+                }
+                else
+                {
+                    // Keep camera locked on killer's face when not shaking
+                    LockCameraOnKiller();
+                }
             }
 
             // Keep spotlight pointed at killer throughout jumpscare
@@ -506,7 +510,6 @@ public class KillerNPC : MonoBehaviour
         // Jumpscare settings
         jumpscareSound = killerEvent.jumpscareSound;
         gameOverDelay = killerEvent.gameOverDelay;
-        jumpscareCameraAngle = killerEvent.jumpscareCameraAngle;
         shakeIntensity = killerEvent.shakeIntensity;
         shakeDuration = killerEvent.shakeDuration;
 
@@ -721,12 +724,6 @@ public class KillerNPC : MonoBehaviour
             }
             playerCamera.transform.LookAt(lookTarget);
 
-            // Apply vertical angle offset
-            if (jumpscareCameraAngle != 0f)
-            {
-                playerCamera.transform.Rotate(jumpscareCameraAngle, 0f, 0f);
-            }
-
             // Point flashlight at killer's face
             PointFlashlightAtKiller();
         }
@@ -791,6 +788,22 @@ public class KillerNPC : MonoBehaviour
         isShaking = true;
     }
 
+    private Vector3 GetKillerFacePosition()
+    {
+        if (killerFace != null)
+        {
+            return killerFace.position;
+        }
+        // Estimate face height if no face transform assigned
+        return transform.position + Vector3.up * 1.6f;
+    }
+
+    private void LockCameraOnKiller()
+    {
+        Vector3 facePosition = GetKillerFacePosition();
+        playerCamera.transform.LookAt(facePosition);
+    }
+
     private void ApplyCameraShake()
     {
         if (playerCamera == null)
@@ -799,16 +812,9 @@ public class KillerNPC : MonoBehaviour
         }
 
         // Get the base rotation looking at the killer's face
-        Quaternion baseRotation;
-        if (killerFace != null)
-        {
-            Vector3 lookDir = (killerFace.position - playerCamera.transform.position).normalized;
-            baseRotation = Quaternion.LookRotation(lookDir);
-        }
-        else
-        {
-            baseRotation = playerCamera.transform.rotation;
-        }
+        Vector3 facePosition = GetKillerFacePosition();
+        Vector3 lookDir = (facePosition - playerCamera.transform.position).normalized;
+        Quaternion baseRotation = Quaternion.LookRotation(lookDir);
 
         // Apply small random shake offset from the base rotation
         Vector3 shakeOffset = new Vector3(
@@ -832,12 +838,6 @@ public class KillerNPC : MonoBehaviour
             isShaking = false;
             currentShakeDuration = 0f;
             currentShakeAmount = 0f;
-
-            // Final look at face
-            if (killerFace != null && playerCamera != null)
-            {
-                playerCamera.transform.LookAt(killerFace);
-            }
         }
     }
 

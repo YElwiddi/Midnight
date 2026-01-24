@@ -136,10 +136,6 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 5f)]
     public float gameOverDelay = 2f;
 
-    [Tooltip("Vertical angle offset for jumpscare camera (negative = look down, positive = look up)")]
-    [Range(-45f, 45f)]
-    public float jumpscareCameraAngle = 0f;
-
     [Tooltip("Camera shake intensity during jumpscare")]
     [Range(0f, 2f)]
     public float shakeIntensity = 0.5f;

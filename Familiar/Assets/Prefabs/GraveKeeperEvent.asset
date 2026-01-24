@@ -65,7 +65,7 @@ MonoBehaviour:
     waypointName: NPCGatePoint
     moveSpeed: 7.4
     waitForInteraction: 1
-    timeUntilInteractable: 5
+    timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 30
