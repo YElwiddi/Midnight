@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
-  m_Name: HuangEvent
+  m_Name: GraveKeeperEvent
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
-  npcPrefab: {fileID: 3767055355421772689, guid: fe7ca734ab7856e40ba1667865db3a2c, type: 3}
+  npcPrefab: {fileID: 3767055355421772689, guid: 3950609362664ae42a1e2745f5be5b3f, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 3
   spawnHeightOffset: 0
@@ -63,13 +63,85 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCGatePoint
-    moveSpeed: 4.5
+    moveSpeed: 7.4
+    waitForInteraction: 1
+    timeUntilInteractable: 5
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 30
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 4900000, guid: 2d18fbd3b06793945ad8e6ea7d558c03, type: 3}
+    dialogueKnot: 
+    cameraHeight: 2
+    cameraZoom: 40
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: CryptFront
+    moveSpeed: 6.1
+    waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 5
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: CryptFrontSide
+    moveSpeed: 3
     waitForInteraction: 1
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
-    facePlayerWhileWaiting: 0
+    facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
@@ -84,78 +156,6 @@ MonoBehaviour:
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
-    branchVariable: allowed_inside
-    branchValue: true
-    branchToWaypoint: GraveyardCrossRoads
-    waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 10
-    proximitySoundVolume: 1
-    proximitySoundTrigger: 0
-    requirePlayerLooking: 1
-    proximitySoundConditionVariable: 
-    proximitySoundConditionValue: 
-  - usePlayerRelativePosition: 0
-    distanceFromPlayer: 3
-    heightOffset: 0
-    waypointName: NPCCenterPoint
-    moveSpeed: 3
-    waitForInteraction: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
-    backToPlayerWhileWaiting: 0
-    playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
-    dialogueKnot: 
-    cameraHeight: -1
-    cameraZoom: -1
-    dialogueSoundClip: {fileID: 0}
-    dialogueSoundVolume: -1
-    dialogueSoundBasePitch: -1
-    dialogueSoundPitchVariation: -1
-    dialogueSoundEveryN: -1
-    movementAnimationTrigger: IsWalking
-    arrivalAnimationTrigger: 
-    idleAnimationBool: 
-    branchVariable: allowed_inside
-    branchValue: false
-    branchToWaypoint: NPCRightPoint
-    waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 10
-    proximitySoundVolume: 1
-    proximitySoundTrigger: 0
-    requirePlayerLooking: 1
-    proximitySoundConditionVariable: 
-    proximitySoundConditionValue: 
-  - usePlayerRelativePosition: 0
-    distanceFromPlayer: 3
-    heightOffset: 0
-    waypointName: GraveyardCrossRoads
-    moveSpeed: 3
-    waitForInteraction: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
-    backToPlayerWhileWaiting: 0
-    playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
-    dialogueKnot: 
-    cameraHeight: -1
-    cameraZoom: -1
-    dialogueSoundClip: {fileID: 0}
-    dialogueSoundVolume: -1
-    dialogueSoundBasePitch: -1
-    dialogueSoundPitchVariation: -1
-    dialogueSoundEveryN: -1
-    movementAnimationTrigger: IsWalking
-    arrivalAnimationTrigger: 
-    idleAnimationBool: 
     branchVariable: 
     branchValue: 
     branchToWaypoint: 
@@ -170,19 +170,19 @@ MonoBehaviour:
   - usePlayerRelativePosition: 0
     distanceFromPlayer: 3
     heightOffset: 0
-    waypointName: HuangGraveSite
-    moveSpeed: 3
+    waypointName: CryptFrontSide
+    moveSpeed: 4.5
     waitForInteraction: 1
-    timeUntilInteractable: 5
-    waitingDialogueText: Let's give him a moment...
+    timeUntilInteractable: 0
+    waitingDialogueText: 
     waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
+    waitTime: 30
+    facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    inkDialogue: {fileID: 0}
     dialogueKnot: 
-    cameraHeight: 0.9
+    cameraHeight: 2
     cameraZoom: 40
     dialogueSoundClip: {fileID: 0}
     dialogueSoundVolume: -1
@@ -191,42 +191,6 @@ MonoBehaviour:
     dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
-    idleAnimationBool: IsKneeling
-    branchVariable: 
-    branchValue: 
-    branchToWaypoint: 
-    waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 10
-    proximitySoundVolume: 1
-    proximitySoundTrigger: 0
-    requirePlayerLooking: 1
-    proximitySoundConditionVariable: 
-    proximitySoundConditionValue: 
-  - usePlayerRelativePosition: 0
-    distanceFromPlayer: 3
-    heightOffset: 0
-    waypointName: GraveyardCrossRoads
-    moveSpeed: 3
-    waitForInteraction: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
-    backToPlayerWhileWaiting: 0
-    playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
-    dialogueKnot: 
-    cameraHeight: -1
-    cameraZoom: -1
-    dialogueSoundClip: {fileID: 0}
-    dialogueSoundVolume: -1
-    dialogueSoundBasePitch: -1
-    dialogueSoundPitchVariation: -1
-    dialogueSoundEveryN: -1
-    movementAnimationTrigger: IsWalking
-    arrivalAnimationTrigger: 
     idleAnimationBool: 
     branchVariable: 
     branchValue: 
@@ -239,86 +203,14 @@ MonoBehaviour:
     requirePlayerLooking: 1
     proximitySoundConditionVariable: 
     proximitySoundConditionValue: 
-  - usePlayerRelativePosition: 0
-    distanceFromPlayer: 3
-    heightOffset: 0
-    waypointName: NPCCenterPoint
-    moveSpeed: 3
-    waitForInteraction: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
-    backToPlayerWhileWaiting: 0
-    playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
-    dialogueKnot: 
-    cameraHeight: -1
-    cameraZoom: -1
-    dialogueSoundClip: {fileID: 0}
-    dialogueSoundVolume: -1
-    dialogueSoundBasePitch: -1
-    dialogueSoundPitchVariation: -1
-    dialogueSoundEveryN: -1
-    movementAnimationTrigger: IsWalking
-    arrivalAnimationTrigger: 
-    idleAnimationBool: 
-    branchVariable: 
-    branchValue: 
-    branchToWaypoint: 
-    waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 10
-    proximitySoundVolume: 1
-    proximitySoundTrigger: 0
-    requirePlayerLooking: 1
-    proximitySoundConditionVariable: 
-    proximitySoundConditionValue: 
-  - usePlayerRelativePosition: 0
-    distanceFromPlayer: 3
-    heightOffset: 0
-    waypointName: NPCRightPoint
-    moveSpeed: 3
-    waitForInteraction: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
-    backToPlayerWhileWaiting: 0
-    playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
-    dialogueKnot: 
-    cameraHeight: -1
-    cameraZoom: -1
-    dialogueSoundClip: {fileID: 0}
-    dialogueSoundVolume: -1
-    dialogueSoundBasePitch: -1
-    dialogueSoundPitchVariation: -1
-    dialogueSoundEveryN: -1
-    movementAnimationTrigger: IsWalking
-    arrivalAnimationTrigger: 
-    idleAnimationBool: 
-    branchVariable: 
-    branchValue: 
-    branchToWaypoint: 
-    waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 10
-    proximitySoundVolume: 1
-    proximitySoundTrigger: 0
-    requirePlayerLooking: 1
-    proximitySoundConditionVariable: 
-    proximitySoundConditionValue: 
-  inkDialogue: {fileID: 4900000, guid: 56226e2e9ea3fa649895f44edf185ad6, type: 3}
+  inkDialogue: {fileID: 4900000, guid: 2d18fbd3b06793945ad8e6ea7d558c03, type: 3}
   dialogueKnot: 
-  typewriterSpeed: 18
-  cameraHeight: -1
-  cameraZoom: 40
-  dialogueSoundClip: {fileID: 0}
+  typewriterSpeed: 80
+  cameraHeight: 2
+  cameraZoom: 45
+  dialogueSoundClip: {fileID: 8300000, guid: 2ecae44f27142c74a9c5b4a8a1319574, type: 3}
   dialogueSoundVolume: -1
-  dialogueSoundBasePitch: -1
+  dialogueSoundBasePitch: 0.63
   dialogueSoundPitchVariation: -1
   dialogueSoundEveryN: -1
   exitBehavior: 2

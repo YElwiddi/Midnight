@@ -14,17 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameEvent
   eventName: Start Event
   npcPrefab: {fileID: 3767055355421772689, guid: e0696bd419fdc4645915f55e99a98f1d, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 3
+  spawnHeightOffset: 0
   spawnPointName: RightOfGate
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
   waypoints:
-  - waypointName: LeftOfGate
-    moveSpeed: 10
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: LeftOfGate
+    moveSpeed: 13
     waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
     waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -37,8 +57,18 @@ MonoBehaviour:
     proximitySoundVolume: 1
     proximitySoundTrigger: 1
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 0}
   dialogueKnot: 
+  typewriterSpeed: 0
+  cameraHeight: -1
+  cameraZoom: -1
+  dialogueSoundClip: {fileID: 0}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: -1
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
   exitBehavior: 0
   exitPointName: LeftOfGate
   exitDialogues: []
