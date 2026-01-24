@@ -50,7 +50,8 @@ MonoBehaviour:
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
-  flashlightTargetHeight: 1.76
+  jumpscarePlayerHeightOffset: -0.54
+  flashlightTargetHeight: 2.04
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
   screenEffectPrefab: {fileID: 0}

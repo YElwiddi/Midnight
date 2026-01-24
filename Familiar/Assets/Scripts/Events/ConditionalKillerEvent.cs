@@ -144,6 +144,11 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 5f)]
     public float shakeDuration = 2f;
 
+    [Header("Player Position During Jumpscare")]
+    [Tooltip("How much to lower the player during jumpscare so they look UP at the killer (negative = lower). Use -0.3 to -0.5 for a dramatic upward angle.")]
+    [Range(-1f, 0.5f)]
+    public float jumpscarePlayerHeightOffset = -0.3f;
+
     [Header("Flashlight Settings")]
     [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
     [Range(0f, 2.5f)]

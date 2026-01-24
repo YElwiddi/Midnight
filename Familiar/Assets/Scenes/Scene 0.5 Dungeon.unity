@@ -2930,7 +2930,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8730569509335705191, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.7
+      value: 11.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8730569509335705191, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalScale.x
@@ -2984,6 +2988,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8085571826921977527, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8085571826921977527, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7718594112659251846, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7718594112659251846, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.91
+      objectReference: {fileID: 0}
     - target: {fileID: -7263668736578322502, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
       value: -9.4
@@ -3020,6 +3040,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -87.79999
       objectReference: {fileID: 0}
+    - target: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -3074675239599497706, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3050,7 +3074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -480124977025108630, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.8
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -480124977025108630, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 73.2
       objectReference: {fileID: 0}
     - target: {fileID: -466278219447207981, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3088,6 +3116,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -87.79999
       objectReference: {fileID: 0}
+    - target: {fileID: 1369369773880345090, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570949071730742286, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570949071730742286, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570949071730742286, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 1637597153138615248, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -3112,9 +3156,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -84.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4182703153682438666, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.z
       value: -76.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4216448636440866483, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4216448636440866483, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4705678077161102503, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3161,8 +3217,12 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7985287004061811103, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985287004061811103, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.9
+      value: -18.7
       objectReference: {fileID: 0}
     - target: {fileID: 8209844127609915945, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3203,6 +3263,8 @@ PrefabInstance:
     - {fileID: -5522325278888222036, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
     - {fileID: -5096836887661472884, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
     - {fileID: 3308771684991844014, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+    - {fileID: 272405917268075992, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+    - {fileID: -4797748569653282761, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
@@ -3244,6 +3306,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4881048530271347963, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1698652116}
+    - targetCorrespondingSourceObject: {fileID: -6585581143151057659, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 284427536}
+    - targetCorrespondingSourceObject: {fileID: 6911955318542610167, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1923192613}
     - targetCorrespondingSourceObject: {fileID: -7021901092412160650, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 519811392}
@@ -3271,6 +3339,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2629183479884307771, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1020068870}
+    - targetCorrespondingSourceObject: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1236936888}
+    - targetCorrespondingSourceObject: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1236936889}
+    - targetCorrespondingSourceObject: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1205589924}
+    - targetCorrespondingSourceObject: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1205589925}
     - targetCorrespondingSourceObject: {fileID: 1261889749205560849, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1337103471}
@@ -4926,6 +5006,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281129275}
   m_Mesh: {fileID: -6902556016181568770, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &284427532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6585581143151057659, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_PrefabInstance: {fileID: 200697270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &284427536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284427532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 0}
+  fontOverride: {fileID: 0}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 18
+  pages:
+  - 'The Mausoleum
+
+    1453'
+  - 
 --- !u!1 &286097009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3867643207571199403, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
@@ -18013,6 +18126,92 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 3c5689b9240a2ea4fa407a675d518e90, type: 3}
+--- !u!1 &1205589920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_PrefabInstance: {fileID: 200697270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1205589924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205589920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 272
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nVanderbilt family\n\nThere is only
+    one grave under the Vanderbilt name. The plot was selected by the deceased himself,
+    James Vanderbilt. He arrived at the grounds in the late afternoon, alone. The
+    paperwork was complete, neat, and signed without hesitation.\n\nJames Vanderbilt
+    was an older man. Not much is recorded of him. His life was quiet, his presence
+    unremarkable to most. He had a brother, though I have not seen him in years.
+    The man is missing, and I am told little about where he has gone or why he has
+    not returned.\n\nThose closest to James had grown distant in the final years.
+    Whispers of resentment lingered around his household, small acts of cruelty or
+    avoidance left unremarked. Whether these were deserved or not, they left him
+    increasingly isolated, and the quiet around him grew heavier with each passing
+    month."
+  - 'The grave was tended without visitors. When asked if any other family might
+    attend, no answer was given. There is no indication that James had any friends
+    left who felt it necessary to be present.
+
+
+    No additional details were requested.
+    I was told that speculation was unnecessary.
+
+
+    By the time illness struck,
+    there was little to intervene. Letters, parcels, and small gestures of concern
+    went unheeded or ignored. Whether from choice or neglect, the effect was the
+    same.
+
+
+    No objects have appeared at his grave, not even the small, deliberate
+    tokens I have seen elsewhere. His stone bears only his name and dates, as though
+    nothing else of him need be remembered.
+
+
+    James Vanderbilt rests here alone.
+    There is a space nearby for another, should circumstances change, though no instructions
+    have been given.'
+--- !u!64 &1205589925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205589920}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1462406932557771013, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &1217414732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7498342553130148555, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
@@ -18032,35 +18231,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
   interactionPrompt: Read
   backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
-  fontOverride: {fileID: 11400000, guid: b0f6221376c15b44aab4947b5f4886ad, type: 2}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
   overrideAlignment: 0
-  textAlignment: 272
+  textAlignment: 257
   overrideMargins: 0
   textMargins: {x: 30, y: 30, z: 0, w: 0}
   overrideLineSpacing: 0
   lineSpacing: 0
   overrideFontSize: 1
-  fontSize: 16
+  fontSize: 18
   pages:
-  - Your task here is to ensure the security and integrtity of this graveyard to
-    allow the departed souls their chance at a peaceful rest. You will ensure to
-    follow the rules setforth in this rulebook and you will deter any visitors if
-    they do not match the following criteria.
-  - 'Rule #1: The watchman must never leave the graveyard during shift hours.
+  - 'The Watchman''s Notes
 
-'
-  - 'Rule #2: You will not allow any visitors who are not closely related to the
-    deceased. Their identifications must be checked. Do not lengthily converse with
-    visitors or accept any instructions from them.'
-  - 'Rule #3: The watchman must ensure that the crucifix is affixed to the door of
-    the cabin at all times.
-
-'
-  - 'Rule #4: The watchman must patrol the graveyard periodically to ensure the safety
-    of the graves from graverobbers.
-
-'
-  - 'Rule #5: Do not disturb the resting.'
+    1999'
+  - In this book you will find instructions on how to watch over this graveyard.
+    It is important that you do not deviate from these instructions. This book contains
+    a compilation of all recordings from previous grave watchers.
+  - As the gravekeeper, the most important rule is to respect the dead. This eternal
+    resting place is centuries old and must not be tampered with. You will not allow
+    any visitors that will disturb the gravesites.
+  - You must not allow anyone who is not directly related to the deceased to visit
+    any gravesites. Friends, accomplices, or anyone who is not directly related to
+    the dead should be turned away.
+  - You must periodically patrol the graveyard to ensure the integrity of the gravesites.
+    You must also stand guard at the gate to prevent unwanted visitors from tampering
+    with the gravesites.
+  - Ensure that the cabin and the lanterns near the cabin and crypt are lit at all
+    times. Do not shine your flashlight on tombstones.
+  - Ensure that the crucifix is affixed to the door of the cabin at all times.
+  - Do not blindly trust visitors. Always cross reference any information they provide
+    you.
 --- !u!64 &1217414737
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18195,6 +18395,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224921834}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &1236936884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_PrefabInstance: {fileID: 200697270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1236936888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236936884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 272
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nHuang family\n\nThere is only one
+    grave under the Huang name.\n\nThis is unusual, given the care taken in its placement.
+    The plot was chosen by Huang Wenqi himself. He arrived with the paperwork already
+    prepared, spoke clearly, and did not linger. Men who do this are not unfamiliar
+    with loss; they are rehearsed. He asked about soil depth and drainage, not about
+    prayers.\n\nThe deceased is Madam Huang. She was brought to the grounds at dawn.
+    No extended family accompanied the body. Only the husband signed the ledger.
+    When I asked whether the son would attend the burial, Wenqi said the family was
+    complete as it stood. He did not look at the coffin when he said this.\n\nNo
+    further details were requested."
+  - "Mei Huang had lived quietly, yet her presence was felt in small ways: neighbors
+    received meals she prepared, stray animals were sheltered under her care, and
+    children in the eastern quarter were tended when others could not. Her deeds
+    were rarely spoken of and, over time, fewer people noticed at all. By the final
+    months, even those who had once counted on her assistance had stopped seeking
+    her out. I do not know whether this absence of attention was intentional, or
+    simply the way the world turned, but the quiet left her more vulnerable than
+    it should have.\n\nAs for the boy\u2019s dishonor, I was given no explanation.
+    The word was used once and never repeated. It was said the matter was finished,
+    yet the family continues to arrange itself around it, as one arranges furniture
+    around a locked door."
+  - "No offerings are made in the son\u2019s name. None are permitted. Still, certain
+    items have appeared near the grave that were not placed there by the groundskeepers:
+    a folded paper charm without writing, a child\u2019s coin worn smooth, once a
+    length of red thread cut cleanly at both ends. I remove these when I find them.
+    They return regardless.\n\nHuang Wenqi comes alone now. He does not stay long.
+    Before leaving, he always checks the stone for damage, as if expecting it to
+    change while he is gone.\n\nThere is room beside Madam Huang\u2019s grave for
+    another coffin. I have been instructed to keep it unassigned.\n\nNo reason was
+    given."
+--- !u!64 &1236936889
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236936884}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7454563087570210087, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &1238596154
 GameObject:
   m_ObjectHideFlags: 0
@@ -18500,7 +18781,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -836, y: -532}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269569955
 MonoBehaviour:
@@ -18524,8 +18805,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18549,8 +18830,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18587,7 +18868,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -57.162292, y: -191.95444, z: -59.18036, w: -202.63147}
+  m_margin: {x: 455.976, y: 114.77031, z: 461.58115, w: 110.063965}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -22376,7 +22657,10 @@ MonoBehaviour:
   - selectionMode: 1
     singleEvent: {fileID: 0}
     eventGroup:
-    - {fileID: 11400000, guid: 1f26da2d54acace40a515cca17bcc495, type: 2}
+    - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
+    - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
+    - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
+    - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     excludePreviouslySelectedEvents: 0
     killerEvent: {fileID: 0}
     conditionType: 0
@@ -28314,6 +28598,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914052226}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &1923192609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6911955318542610167, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_PrefabInstance: {fileID: 200697270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1923192613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923192609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 0}
+  fontOverride: {fileID: 0}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 24
+  pages:
+  - 
 --- !u!1 &1923616852
 GameObject:
   m_ObjectHideFlags: 0
@@ -30380,10 +30694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

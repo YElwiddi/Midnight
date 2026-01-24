@@ -313,7 +313,7 @@ MonoBehaviour:
     proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 72f6c31b586982642b37c9de2afc3a56, type: 3}
   dialogueKnot: 
-  typewriterSpeed: 0
+  typewriterSpeed: 65
   cameraHeight: 1.8
   cameraZoom: 40
   dialogueSoundClip: {fileID: 8300000, guid: 3d7ccc3edcb201f45832a5d2a462e91a, type: 3}

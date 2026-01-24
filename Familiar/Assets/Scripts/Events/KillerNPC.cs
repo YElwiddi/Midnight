@@ -96,6 +96,10 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Camera shake duration")]
     [SerializeField] private float shakeDuration = 2f;
 
+    [Header("Player Position During Jumpscare")]
+    [Tooltip("How much to lower the player during jumpscare so they look UP at the killer (negative = lower)")]
+    [SerializeField] private float jumpscarePlayerHeightOffset = -0.3f;
+
     [Header("Flashlight Settings")]
     [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
     [SerializeField] private float flashlightTargetHeight = 1.2f;
@@ -513,6 +517,9 @@ public class KillerNPC : MonoBehaviour
         shakeIntensity = killerEvent.shakeIntensity;
         shakeDuration = killerEvent.shakeDuration;
 
+        // Player position during jumpscare
+        jumpscarePlayerHeightOffset = killerEvent.jumpscarePlayerHeightOffset;
+
         // Flashlight settings
         flashlightTargetHeight = killerEvent.flashlightTargetHeight;
         jumpscareFlashlightIntensity = killerEvent.jumpscareFlashlightIntensity;
@@ -676,6 +683,23 @@ public class KillerNPC : MonoBehaviour
 
         // Ground the player (in case they're jumping)
         GroundPlayer();
+
+        // Lower the player position so they look UP at the killer
+        if (playerTransform != null && jumpscarePlayerHeightOffset != 0f)
+        {
+            CharacterController controller = playerTransform.GetComponent<CharacterController>();
+            if (controller != null)
+            {
+                controller.enabled = false;
+            }
+
+            Vector3 loweredPosition = playerTransform.position;
+            loweredPosition.y += jumpscarePlayerHeightOffset;
+            playerTransform.position = loweredPosition;
+
+            // Keep controller disabled (already disabled by FreezePlayer)
+            Debug.Log($"KillerNPC: Lowered player by {jumpscarePlayerHeightOffset} for dramatic upward angle");
+        }
 
         // Lock flashlight on (silently, no click sound)
         LockFlashlightOn();
