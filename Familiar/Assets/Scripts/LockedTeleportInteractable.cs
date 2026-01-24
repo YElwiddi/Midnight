@@ -5,9 +5,8 @@ using System.Collections;
 public class LockedTeleportInteractable : MonoBehaviour, IInteractable
 {
     [Header("Lock Settings")]
-    [Tooltip("The item ID required to unlock (e.g., 'crypt_key', 'library_key')")]
-    [SerializeField] private string requiredItemId = "crypt_key";
-    [SerializeField] private bool consumeItemOnUse = true;
+    [Tooltip("The boolean flag name in GameManager to check (e.g., 'cryptunlocked')")]
+    [SerializeField] private string requiredBoolFlag = "cryptunlocked";
 
     [Header("Locked Dialogue")]
     [TextArea(3, 10)]
@@ -33,6 +32,11 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [Header("Ambient Sound")]
     [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
     [SerializeField] private bool destinationIsIndoor = false;
+    [Tooltip("Optional: Change the ambient sound clip when entering this area")]
+    [SerializeField] private AudioClip destinationAmbientClip;
+    [Tooltip("Optional: Override the ambient volume for this destination (-1 = use default)")]
+    [Range(-1f, 1f)]
+    [SerializeField] private float destinationAmbientVolume = -1f;
 
     [Header("References")]
     [SerializeField] private DialogueUI dialogueUI;
@@ -41,6 +45,8 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     private static Canvas fadeCanvas;
     private static bool isTransitioning = false;
     private bool isShowingDialogue = false;
+    private Coroutine lockedDialogueCoroutine;
+    private DialogueManager dialogueManager;
 
     private void Start()
     {
@@ -48,29 +54,54 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         {
             dialogueUI = FindFirstObjectByType<DialogueUI>();
         }
+
+        dialogueManager = FindFirstObjectByType<DialogueManager>();
+        if (dialogueManager != null)
+        {
+            dialogueManager.OnDialogueStarted += CancelLockedDialogue;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (dialogueManager != null)
+        {
+            dialogueManager.OnDialogueStarted -= CancelLockedDialogue;
+        }
+    }
+
+    private void CancelLockedDialogue()
+    {
+        if (isShowingDialogue)
+        {
+            if (lockedDialogueCoroutine != null)
+            {
+                StopCoroutine(lockedDialogueCoroutine);
+                lockedDialogueCoroutine = null;
+            }
+            isShowingDialogue = false;
+        }
     }
 
     public void Interact()
     {
         if (isTransitioning || isShowingDialogue) return;
 
+        // Don't show locked dialogue if main dialogue is already playing
+        if (dialogueManager != null && dialogueManager.IsDialoguePlaying()) return;
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null || teleportDestination == null) return;
 
-        HeldItem heldItem = player.GetComponent<HeldItem>();
-        bool hasRequiredItem = heldItem != null && heldItem.HasItemWithId(requiredItemId);
+        bool isUnlocked = GameManager.Instance != null && GameManager.Instance.GetBoolFlag(requiredBoolFlag);
 
-        if (hasRequiredItem)
+        if (isUnlocked)
         {
-            if (consumeItemOnUse)
-            {
-                heldItem.ClearItem();
-            }
             StartCoroutine(TeleportSequence(player));
         }
         else
         {
-            StartCoroutine(ShowLockedDialogue());
+            lockedDialogueCoroutine = StartCoroutine(ShowLockedDialogue());
         }
     }
 
@@ -103,6 +134,7 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         dialogueUI.Hide();
 
         isShowingDialogue = false;
+        lockedDialogueCoroutine = null;
     }
 
     private IEnumerator TeleportSequence(GameObject player)
@@ -138,6 +170,24 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         else
         {
             AmbientSoundManager.Instance?.ExitIndoor();
+        }
+
+        // Change ambient clip if specified
+        if (destinationAmbientClip != null)
+        {
+            Debug.Log($"LockedTeleportInteractable: Attempting to change ambient clip to {destinationAmbientClip.name}, volume: {destinationAmbientVolume}");
+            if (AmbientSoundManager.Instance != null)
+            {
+                AmbientSoundManager.Instance.SetAmbientClipWithMemory(destinationAmbientClip, destinationAmbientVolume);
+            }
+            else
+            {
+                Debug.LogWarning("LockedTeleportInteractable: AmbientSoundManager.Instance is null!");
+            }
+        }
+        else
+        {
+            Debug.Log("LockedTeleportInteractable: No destination ambient clip assigned");
         }
 
         yield return new WaitForSeconds(0.1f);

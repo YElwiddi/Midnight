@@ -90,6 +90,10 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Delay before game over in real seconds")]
     [SerializeField] private float gameOverDelay = 2f;
 
+    [Tooltip("Vertical angle offset for jumpscare camera (negative = look down, positive = look up)")]
+    [Range(-45f, 45f)]
+    [SerializeField] private float jumpscareCameraAngle = 0f;
+
     [Tooltip("Camera shake intensity")]
     [SerializeField] private float shakeIntensity = 0.5f;
 
@@ -502,6 +506,7 @@ public class KillerNPC : MonoBehaviour
         // Jumpscare settings
         jumpscareSound = killerEvent.jumpscareSound;
         gameOverDelay = killerEvent.gameOverDelay;
+        jumpscareCameraAngle = killerEvent.jumpscareCameraAngle;
         shakeIntensity = killerEvent.shakeIntensity;
         shakeDuration = killerEvent.shakeDuration;
 
@@ -715,6 +720,12 @@ public class KillerNPC : MonoBehaviour
                 lookTarget = transform.position + Vector3.up * 1.6f;
             }
             playerCamera.transform.LookAt(lookTarget);
+
+            // Apply vertical angle offset
+            if (jumpscareCameraAngle != 0f)
+            {
+                playerCamera.transform.Rotate(jumpscareCameraAngle, 0f, 0f);
+            }
 
             // Point flashlight at killer's face
             PointFlashlightAtKiller();

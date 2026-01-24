@@ -5,6 +5,7 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR GraveKeeperAngered = 0
 
 === start ===
 #speaker: ???
@@ -112,8 +113,8 @@ In the text, they mentioned that there must always be a gravekeeper assigned to 
 However.
 If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.
 According to the old grave keeper, this graveyard is more than just a normal burial place. It requires a watcher at all times, even through death. 
-When normal people die, their consciousness ends and they no longer have any experiences, thoughts, or feelings.
-The texts didn't elaborate on this, but if you die here that isn't exactly what will happen to you.
+When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.
+The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.
 The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned there was some sort of puzzle that needed to be solved.
 
 + [What puzzle?]
@@ -123,11 +124,12 @@ The only way to break this cycle is to enter the mausoleum. I don't know why or 
 ===what_puzzle===
 ...
 Everyone who is burried at this graveyard shares something in common.
-I have not been able to figure it out. It has plagued my mind.
-The only way to break this cycle is to figure out what the pattern is. After you've learned it, you must enter the mausoleum.
-When I learned about this, I burned the old keeper's note, locked the mausoleum and the gate, and then left this place.
-As you can tell, that didn't exactly work out very well.
-I still have the key. I can unlock that accursed crypt.
+Some of these graves are centuries old. However, even the newer ones that were placed here more recently are following a pattern.
+I have not been able to figure out what this pattern is, or if it even exists.
+The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the mausoleum.
+When I learned about this, I was in disbelief. I had thought this place was just cursed.
+I burned the old keeper's note, locked the mausoleum and the gate, and then left this place.
+I still have the key. I can unlock that crypt.
 Will you enter it and put this to an end?
 
 + [Okay. I'm ready.]
@@ -159,6 +161,7 @@ It is your well-being I am concerned about.
 === stupid ===
 You are quite the intelligent specimen, aren't you?
 ~ SetEventVar("allowed_inside", false)
+~ GraveKeeperAngered = GraveKeeperAngered + 1
 ->END
 
 === joke ===

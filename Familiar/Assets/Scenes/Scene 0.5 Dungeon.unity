@@ -14578,8 +14578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9116ecc8eef6e244a4502f3f5b72af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LockedTeleportInteractable
-  requiredItemId: crypt_key
-  consumeItemOnUse: 1
+  requiredBoolFlag: cryptunlocked
   lockedDialogueText: The door won't budge.
   lockedSpeakerName: 
   lockedDialogueDuration: 3
@@ -14592,6 +14591,8 @@ MonoBehaviour:
   transitionDuration: 2
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 0
+  destinationAmbientClip: {fileID: 8300000, guid: 479d70c3f975f8d40bae4c4c4fb09d9f, type: 3}
+  destinationAmbientVolume: 1
   dialogueUI: {fileID: 0}
 --- !u!65 &970596342
 BoxCollider:
@@ -20575,7 +20576,7 @@ Transform:
   m_GameObject: {fileID: 1466621662}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.89, y: 48.46, z: -52.35}
+  m_LocalPosition: {x: -24.89, y: 48.46, z: -53.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20992,6 +20993,8 @@ MonoBehaviour:
   player_stupid: 0
   SpiritAngered: 0
   GraveRobberSetup: 0
+  GraveKeeperAngered: 1
+  CryptUnlocked: 0
 --- !u!1 &1501059110
 GameObject:
   m_ObjectHideFlags: 0
@@ -22370,12 +22373,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 1
+  - selectionMode: 2
     singleEvent: {fileID: 0}
     eventGroup:
     - {fileID: 11400000, guid: 1f26da2d54acace40a515cca17bcc495, type: 2}
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 0}
+    killerEvent: {fileID: 11400000, guid: f2a676e5a3b0da14696be56620c87150, type: 2}
     conditionType: 0
     statName: GraveRobberSetup
     statComparison: 2
@@ -22644,6 +22647,20 @@ MonoBehaviour:
     eventGroup: []
     excludePreviouslySelectedEvents: 0
     killerEvent: {fileID: 0}
+    conditionType: 0
+    statName: 
+    statComparison: 4
+    statValue: 0
+    compareToStatName: 
+    waitTimeBeforeNextEvent: 0
+    spawnConditionRequirement: 0
+    requiredZoneName: 
+    requiredFacingObjectName: 
+  - selectionMode: 2
+    singleEvent: {fileID: 0}
+    eventGroup: []
+    excludePreviouslySelectedEvents: 0
+    killerEvent: {fileID: 11400000, guid: f2a676e5a3b0da14696be56620c87150, type: 2}
     conditionType: 0
     statName: 
     statComparison: 4

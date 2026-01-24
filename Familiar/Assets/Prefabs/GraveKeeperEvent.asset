@@ -84,9 +84,9 @@ MonoBehaviour:
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
-    branchVariable: 
-    branchValue: 
-    branchToWaypoint: 
+    branchVariable: allowed_inside
+    branchValue: false
+    branchToWaypoint: NPCCenterPointExit
     waypointId: 
     proximitySound: {fileID: 0}
     proximitySoundRange: 10
@@ -144,7 +144,7 @@ MonoBehaviour:
     facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
     playerTrackingRotationSpeed: 120
-    inkDialogue: {fileID: 0}
+    inkDialogue: {fileID: 4900000, guid: 85d1c4c9163b6bd409a250f21bc4efb3, type: 3}
     dialogueKnot: 
     cameraHeight: 2
     cameraZoom: 40
@@ -171,8 +171,8 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: CryptFrontSide
-    moveSpeed: 4.5
-    waitForInteraction: 1
+    moveSpeed: 1.4
+    waitForInteraction: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -203,9 +203,45 @@ MonoBehaviour:
     requirePlayerLooking: 1
     proximitySoundConditionVariable: 
     proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPointExit
+    moveSpeed: 4.5
+    waitForInteraction: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: 2
+    cameraZoom: 40
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 2d18fbd3b06793945ad8e6ea7d558c03, type: 3}
   dialogueKnot: 
-  typewriterSpeed: 80
+  typewriterSpeed: 60
   cameraHeight: 2
   cameraZoom: 45
   dialogueSoundClip: {fileID: 8300000, guid: 2ecae44f27142c74a9c5b4a8a1319574, type: 3}

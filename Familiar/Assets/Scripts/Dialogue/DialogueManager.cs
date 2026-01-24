@@ -536,6 +536,16 @@ public class DialogueManager : MonoBehaviour
             }
         });
 
+        // Bind SetGameBoolFlag function for GameManager boolean flags
+        // Usage in Ink: ~ SetGameBoolFlag("cryptunlocked", true)
+        currentStory.BindExternalFunction("SetGameBoolFlag", (string flagName, bool value) =>
+        {
+            if (gameManager != null)
+            {
+                gameManager.SetBoolFlag(flagName, value);
+            }
+        });
+
         // Bind SetEventVar function for event branching
         // Usage in Ink: ~ SetEventVar("allowed_inside", true)
         currentStory.BindExternalFunction("SetEventVar", (string varName, bool value) =>
@@ -574,6 +584,8 @@ public class DialogueManager : MonoBehaviour
                 currentStory.variablesState["SpiritAngered"] = gameManager.SpiritAngered;
             if (currentStory.variablesState.GlobalVariableExistsWithName("GraveRobberSetup"))
                 currentStory.variablesState["GraveRobberSetup"] = gameManager.GraveRobberSetup;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("GraveKeeperAngered"))
+                currentStory.variablesState["GraveKeeperAngered"] = gameManager.GraveKeeperAngered;
         }
         catch (Exception e)
         {
@@ -592,6 +604,7 @@ public class DialogueManager : MonoBehaviour
             SyncSingleVariableFromInk("player_stupid", v => gameManager.player_stupid = v);
             SyncSingleVariableFromInk("SpiritAngered", v => gameManager.SpiritAngered = v);
             SyncSingleVariableFromInk("GraveRobberSetup", v => gameManager.GraveRobberSetup = v);
+            SyncSingleVariableFromInk("GraveKeeperAngered", v => gameManager.GraveKeeperAngered = v);
         }
         catch (Exception e)
         {

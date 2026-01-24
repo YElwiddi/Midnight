@@ -55,6 +55,8 @@ public class AmbientSoundManager : MonoBehaviour
     private AudioSource audioSource;
     private float targetVolume;
     private bool isIndoor;
+    private AudioClip previousAmbientClip;
+    private float? volumeOverride = null;
 
     // Track what's currently muting/ducking the audio
     private HashSet<string> muteRequests = new HashSet<string>();
@@ -286,17 +288,23 @@ public class AmbientSoundManager : MonoBehaviour
             return;
         }
 
-        // Get base volume based on indoor/outdoor state
-        float baseVolume = isIndoor ? indoorVolume : outdoorVolume;
+        // Get base volume - use override if set, otherwise indoor/outdoor
+        float baseVolume = volumeOverride ?? (isIndoor ? indoorVolume : outdoorVolume);
 
         // Apply the lowest duck request if any exist
         if (duckRequests.Count > 0)
         {
             float lowestDuck = float.MaxValue;
-            foreach (var duck in duckRequests.Values)
+            string lowestDuckSource = "";
+            foreach (var duck in duckRequests)
             {
-                if (duck < lowestDuck) lowestDuck = duck;
+                if (duck.Value < lowestDuck)
+                {
+                    lowestDuck = duck.Value;
+                    lowestDuckSource = duck.Key;
+                }
             }
+            Debug.Log($"AmbientSoundManager: Audio ducked to {lowestDuck} by '{lowestDuckSource}' (active duck requests: {duckRequests.Count})");
             targetVolume = Mathf.Min(baseVolume, lowestDuck);
             return;
         }
@@ -319,6 +327,56 @@ public class AmbientSoundManager : MonoBehaviour
         else
         {
             audioSource.Stop();
+        }
+    }
+
+    /// <summary>
+    /// Change the ambient clip and remember the previous one for later restoration
+    /// </summary>
+    /// <param name="newClip">The new ambient clip to play</param>
+    /// <param name="volume">Optional volume override (-1 = use default indoor/outdoor volume)</param>
+    public void SetAmbientClipWithMemory(AudioClip newClip, float volume = -1f)
+    {
+        Debug.Log($"AmbientSoundManager: SetAmbientClipWithMemory called with clip: {(newClip != null ? newClip.name : "null")}, volume: {volume}");
+
+        if (audioSource.clip == newClip && volume < 0)
+        {
+            Debug.Log("AmbientSoundManager: Clip is already playing, skipping");
+            return;
+        }
+
+        previousAmbientClip = audioSource.clip;
+        Debug.Log($"AmbientSoundManager: Stored previous clip: {(previousAmbientClip != null ? previousAmbientClip.name : "null")}");
+
+        // Set volume override if specified
+        if (volume >= 0)
+        {
+            volumeOverride = volume;
+            UpdateTargetVolume();
+        }
+
+        SetAmbientClip(newClip);
+        Debug.Log($"AmbientSoundManager: Now playing: {(audioSource.clip != null ? audioSource.clip.name : "null")}, Volume: {audioSource.volume}, Target: {targetVolume}, IsIndoor: {isIndoor}");
+        if (duckRequests.Count > 0)
+        {
+            foreach (var duck in duckRequests)
+            {
+                Debug.Log($"AmbientSoundManager: Active duck request - '{duck.Key}' at volume {duck.Value}");
+            }
+        }
+    }
+
+    /// <summary>
+    /// Restore the previously remembered ambient clip and clear volume override
+    /// </summary>
+    public void RestorePreviousAmbientClip()
+    {
+        if (previousAmbientClip != null)
+        {
+            volumeOverride = null;
+            UpdateTargetVolume();
+            SetAmbientClip(previousAmbientClip);
+            previousAmbientClip = null;
         }
     }
 }
