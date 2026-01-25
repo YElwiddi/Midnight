@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 
 public class LockedTeleportInteractable : MonoBehaviour, IInteractable
@@ -40,6 +41,10 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
 
     [Header("References")]
     [SerializeField] private DialogueUI dialogueUI;
+
+    [Header("Events")]
+    [Tooltip("Called when the teleport completes successfully")]
+    public UnityEvent OnTeleportComplete;
 
     private static Image fadeOverlay;
     private static Canvas fadeCanvas;
@@ -200,6 +205,9 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         }
 
         isTransitioning = false;
+
+        // Fire teleport complete event
+        OnTeleportComplete?.Invoke();
     }
 
     private void EnsureFadeOverlay()
