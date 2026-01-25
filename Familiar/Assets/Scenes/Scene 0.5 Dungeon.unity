@@ -3098,6 +3098,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3074675239599497706, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3326,9 +3330,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3890025291983454247, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890025291983454247, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4182703153682438666, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3442,6 +3454,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6964310573956129644, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7498342553130148555, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Name
       value: Rulebook
@@ -3470,9 +3486,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8271616949327690117, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8845556016779881326, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7033,6 +7057,188 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389380226}
   m_Mesh: {fileID: -6445083084447702019, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &390787269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390787270}
+  - component: {fileID: 390787274}
+  - component: {fileID: 390787273}
+  - component: {fileID: 390787272}
+  - component: {fileID: 390787271}
+  m_Layer: 6
+  m_Name: ID1217
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &390787270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390787269}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 22.54, y: 0.536, z: 20.939}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390787271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390787269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nHolmes family\n\nThere are two graves
+    under the Holmes name.\n\nThey were prepared together. The paperwork was submitted
+    by a third party and completed without error. No revisions were requested. The
+    plots were placed side by side, close enough that the soil between them had to
+    be reinforced. This was described as practical.\n\nThe deceased are Edward Holmes
+    and Zackary Holmes. Edward was young. Zackary was his father. The age difference
+    was noted only once, when confirming the order of burial. No preference was expressed.\n\nThey
+    were brought to the grounds on the same morning. No service was held. I was told
+    that any gathering would complicate matters. When I asked whether other family
+    would attend, I was informed that Zackary had a brother, but that he would not
+    be coming. No explanation followed."
+  - 'What is known of the incident is limited and consistent. The two were found
+    together, some distance from town, in a place not intended for long stays. It
+    was said they had gone there deliberately, though for what purpose was never
+    clarified. Circumstances suggested preparation. Circumstances also suggested
+    delay.
+
+
+    In the weeks prior, the Holmes household had become difficult to
+    place. Neighbors reported seeing lights at odd hours, then not seeing them at
+    all. Deliveries were left longer than usual before being collected. Questions
+    were asked, then stopped. Whether this was discretion or disinterest, I cannot
+    say.
+
+
+    Zackary Holmes had once been considered reliable. Edward was described
+    as well liked. These descriptions were offered carefully, as though no longer
+    current. When the deaths were discussed, the language shifted to inevitability.
+    People spoke of distance, of misunderstandings, of how things had become complicated.
+    No one spoke of intervention.'
+  - 'No objects have appeared at either grave. The ground remains undisturbed. It
+    is as though the matter concluded itself.
+
+
+    The brother has not come. I was
+    told he had been advised against it, for his own sake.
+
+
+    Edward and Zackary
+    Holmes rest side by side. The space around them is neat, orderly, and avoided.
+
+
+    There
+    is nothing outwardly remarkable about this. That, too, has been remarked upon.'
+--- !u!64 &390787272
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390787269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5085785006493251204, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!23 &390787273
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390787269}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -1440798778208242871, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &390787274
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390787269}
+  m_Mesh: {fileID: 5085785006493251204, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &409803724
 GameObject:
   m_ObjectHideFlags: 0
@@ -9129,6 +9335,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1857497924}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 390787270}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 815585403}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 786509968}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 862539187}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1439586276}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 57192216}
@@ -13070,6 +13294,179 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783867623}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &786509967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786509968}
+  - component: {fileID: 786509972}
+  - component: {fileID: 786509971}
+  - component: {fileID: 786509970}
+  - component: {fileID: 786509969}
+  m_Layer: 6
+  m_Name: ID1387
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &786509968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786509967}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -27.999, y: 0.847, z: -11.631}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &786509969
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786509967}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1462406932557771013, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &786509970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786509967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 272
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nVanderbilt family\n\nThere is only
+    one grave under the Vanderbilt name. The plot was selected by the deceased himself,
+    James Vanderbilt. He arrived at the grounds in the late afternoon, alone. The
+    paperwork was complete, neat, and signed without hesitation.\n\nJames Vanderbilt
+    was an older man. Not much is recorded of him. His life was quiet, his presence
+    unremarkable to most. He had a brother, though I have not seen him in years.
+    The man is missing, and I am told little about where he has gone or why he has
+    not returned.\n\nThose closest to James had grown distant in the final years.
+    Whispers of resentment lingered around his household, small acts of cruelty or
+    avoidance left unremarked. Whether these were deserved or not, they left him
+    increasingly isolated, and the quiet around him grew heavier with each passing
+    month."
+  - 'The grave was tended without visitors. When asked if any other family might
+    attend, no answer was given. There is no indication that James had any friends
+    left who felt it necessary to be present.
+
+
+    No additional details were requested.
+    I was told that speculation was unnecessary.
+
+
+    By the time illness struck,
+    there was little to intervene. Letters, parcels, and small gestures of concern
+    went unheeded or ignored. Whether from choice or neglect, the effect was the
+    same.
+
+
+    No objects have appeared at his grave, not even the small, deliberate
+    tokens I have seen elsewhere. His stone bears only his name and dates, as though
+    nothing else of him need be remembered.
+
+
+    James Vanderbilt rests here alone.
+    There is a space nearby for another, should circumstances change, though no instructions
+    have been given.'
+--- !u!23 &786509971
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786509967}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -1440798778208242871, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &786509972
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786509967}
+  m_Mesh: {fileID: -1462406932557771013, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &811092144 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9135825724041301466, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
@@ -13210,6 +13607,174 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811897806}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &815585402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815585403}
+  - component: {fileID: 815585407}
+  - component: {fileID: 815585406}
+  - component: {fileID: 815585405}
+  - component: {fileID: 815585404}
+  m_Layer: 6
+  m_Name: ID1367
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &815585403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815585402}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -14.564, y: 0, z: 28.743}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
+--- !u!64 &815585404
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815585402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7454563087570210087, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &815585405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815585402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 272
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nHuang family\n\nThere is only one
+    grave under the Huang name.\n\nThis is unusual, given the care taken in its placement.
+    The plot was chosen by Huang Wenqi himself. He arrived with the paperwork already
+    prepared, spoke clearly, and did not linger. Men who do this are not unfamiliar
+    with loss; they are rehearsed. He asked about soil depth and drainage, not about
+    prayers.\n\nThe deceased is Madam Huang. She was brought to the grounds at dawn.
+    No extended family accompanied the body. Only the husband signed the ledger.
+    When I asked whether the son would attend the burial, Wenqi said the family was
+    complete as it stood. He did not look at the coffin when he said this.\n\nNo
+    further details were requested."
+  - "Mei Huang had lived quietly, yet her presence was felt in small ways: neighbors
+    received meals she prepared, stray animals were sheltered under her care, and
+    children in the eastern quarter were tended when others could not. Her deeds
+    were rarely spoken of and, over time, fewer people noticed at all. By the final
+    months, even those who had once counted on her assistance had stopped seeking
+    her out. I do not know whether this absence of attention was intentional, or
+    simply the way the world turned, but the quiet left her more vulnerable than
+    it should have.\n\nAs for the boy\u2019s dishonor, I was given no explanation.
+    The word was used once and never repeated. It was said the matter was finished,
+    yet the family continues to arrange itself around it, as one arranges furniture
+    around a locked door."
+  - "No offerings are made in the son\u2019s name. None are permitted. Still, certain
+    items have appeared near the grave that were not placed there by the groundskeepers:
+    a folded paper charm without writing, a child\u2019s coin worn smooth, once a
+    length of red thread cut cleanly at both ends. I remove these when I find them.
+    They return regardless.\n\nHuang Wenqi comes alone now. He does not stay long.
+    Before leaving, he always checks the stone for damage, as if expecting it to
+    change while he is gone.\n\nThere is room beside Madam Huang\u2019s grave for
+    another coffin. I have been instructed to keep it unassigned.\n\nNo reason was
+    given."
+--- !u!23 &815585406
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815585402}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -1440798778208242871, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &815585407
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815585402}
+  m_Mesh: {fileID: 7454563087570210087, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &820582049 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8710994259974983244, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
@@ -13555,6 +14120,187 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829170279}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &862539186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 862539187}
+  - component: {fileID: 862539191}
+  - component: {fileID: 862539190}
+  - component: {fileID: 862539189}
+  - component: {fileID: 862539188}
+  m_Layer: 6
+  m_Name: ID1437
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &862539187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862539186}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 16.81, y: 0, z: -2.06}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
+--- !u!64 &862539188
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862539186}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4231729903130971515, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &862539189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862539186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nAdams family\n\nThere is only one
+    grave under the Adams name.\n\nThe burial was arranged by extended family. The
+    paperwork arrived in stages, amended more than once before it was finalized.
+    No one claimed responsibility for the delays.\n\nThe deceased is Jane Adams.\n\nShe
+    was brought to the grounds in the early morning. No public notice was posted.
+    A small group stood at a distance during the service, close enough to be counted,
+    far enough to avoid conversation. When I asked whether her son would attend,
+    I was told he had been sent elsewhere for the time being. This was said as a
+    kindness."
+  - 'Jane Adams had been well known once. Her name appeared often in correspondence,
+    on guest lists, in shared records that implied trust and familiarity. In the
+    final years, it appeared less. Not because she withdrew entirely, but because
+    others learned to speak around her. Invitations stopped being extended. Conversations
+    ended when she entered a room. I noted this only because it happened gradually,
+    and then all at once.
+
+
+    No explanation was offered for the change. None was
+    required.'
+  - 'In the weeks before her death, arrangements were made quietly. Personal effects
+    were sorted earlier than necessary. Certain matters were settled in advance,
+    as though continuation was no longer assumed. When the end came, it was described
+    as sudden. The signs suggested otherwise.
+
+
+    There were no offerings placed
+    at her grave. Still, the soil has been disturbed more than once, shallow marks
+    that suggest hesitation rather than maintenance. I smooth them out when I notice.
+    They return irregularly.
+
+
+    Her son has not come. I am told he asks questions.
+    I am also told it is better that he not receive answers yet.
+
+
+    Jane Adams
+    rests here alone. Those who once called her a friend do not visit. Those who
+    remain speak of her softly, if at all, and only after ensuring no one else is
+    listening.
+
+
+    There is nothing unusual about this arrangement. I have seen
+    it before.'
+--- !u!23 &862539190
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862539186}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -1440798778208242871, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &862539191
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862539186}
+  m_Mesh: {fileID: 4231729903130971515, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &879028712
 GameObject:
   m_ObjectHideFlags: 0
@@ -21714,6 +22460,190 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6224654809496052345, guid: 10d766e63e78dac47b7f2642793b86c1, type: 3}
   m_PrefabInstance: {fileID: 1998108095}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1439586275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439586276}
+  - component: {fileID: 1439586280}
+  - component: {fileID: 1439586279}
+  - component: {fileID: 1439586278}
+  - component: {fileID: 1439586277}
+  m_Layer: 6
+  m_Name: ID4237
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439586276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0.327, y: -1.485, z: -21.436}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &1439586277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nUnregistered visitors\n\nThere are
+    two women who come to the gates when the light is low and the grounds are quiet
+    enough to hear intent.\n\nThey never arrive together, though each insists the
+    other has already been allowed through.\n\nBoth claim familiarity with the dead.
+    Each knows names not written on stone. When asked how, one answers immediately
+    and incorrectly; the other answers slowly and with details that do not improve
+    clarity. I have learned that correcting either of them is a mistake.\n\nOne always
+    asks about access. Locks, patrols, times when the soil is softest. She speaks
+    of inheritance, of what is owed, of what should not be left unattended. When
+    refused, she smiles as though refusal were expected. She returns anyway."
+  - 'The other asks about boundaries. About what is held and what is trapped. She
+    speaks of weight, pressure, the cost of keeping certain things in place. When
+    refused, she looks surprised, then relieved, then disappointed. She does not
+    argue. She simply adjusts her request the next time.
+
+
+    I do not record which
+    woman makes which request. It changes depending on who is listening.
+
+
+    One
+    of them is never permitted entry. This decision is simple and does not vary.
+    She knows this and tests it regardless, offering reasons that contradict one
+    another. Sometimes she claims permission already granted. Sometimes she claims
+    necessity. Once, she claimed I had asked her to come.'
+  - 'The other is allowed in under specific circumstances. Weather, time, and recent
+    burials all factor into this. I do not explain my reasoning to her. When turned
+    away, she accepts it as provisional. When admitted, she does not linger.
+
+
+    Each
+    accuses the other of dishonesty. Each provides evidence. Both sets are convincing.
+
+
+    On
+    one occasion, I asked what would happen if they succeeded. One said the grounds
+    would be lighter. The other said they would be poorer. Neither elaborated.
+
+
+    They
+    continue to return. They never acknowledge one another directly. They never fail
+    to mention the other by implication.
+
+
+    I have learned that asking which one
+    tells the truth produces only more visits.'
+--- !u!64 &1439586278
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586275}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!23 &1439586279
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586275}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3178160590009173852, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1439586280
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586275}
+  m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &1443105337
 GameObject:
   m_ObjectHideFlags: 0
@@ -28711,6 +29641,168 @@ MonoBehaviour:
   flickerFrequency: 18.6
   flickerSmoothness: 5
   toggleSound: {fileID: 0}
+--- !u!1 &1857497923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1857497924}
+  - component: {fileID: 1857497928}
+  - component: {fileID: 1857497927}
+  - component: {fileID: 1857497926}
+  - component: {fileID: 1857497925}
+  m_Layer: 6
+  m_Name: ID1187
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1857497924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857497923}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 30.49, y: -1.572, z: -22.903}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1857497925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857497923}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2001346840367906648, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &1857497926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857497923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 0
+  fontSize: 8
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nAnderson family\n\nThere is only
+    one grave under the Anderson name.\n\nAnthony Anderson\u2019s burial was arranged
+    quickly. The paperwork was submitted by different hands and corrected more than
+    once, as though responsibility had been passed around before settling where it
+    could. No one stayed long enough to be counted.\n\nHe was a father of three.
+    None of them attended. This was explained as practical. Children, I was told,
+    should not be exposed to unnecessary scenes."
+  - "Little was said of Anthony\u2019s life. When it was mentioned, it was done cautiously,
+    with emphasis on what he had insisted upon rather than what he had achieved.
+    He was described as difficult, then later as uncompromising, and finally not
+    described at all.\n\nIn the months before his death, he had been seen often and
+    then not at all. Certain doors stopped opening to him. This was never framed
+    as exclusion, only as circumstance."
+  - 'His death was recorded as sudden. The timing suggested otherwise.
+
+
+    No items
+    have appeared at his grave. Even so, the ground settles unevenly there, as if
+    pressed by weight that did not belong to the soil alone.
+
+
+    I have been asked
+    whether the children will be buried nearby in time. I have not been instructed
+    to answer.'
+--- !u!23 &1857497927
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857497923}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -1440798778208242871, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1857497928
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857497923}
+  m_Mesh: {fileID: -2001346840367906648, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &1863307929
 GameObject:
   m_ObjectHideFlags: 0
