@@ -79,6 +79,13 @@ public class CryptKiller : MonoBehaviour
     private SimpleFlashlight playerFlashlight;
     private bool hasDisabledFlashlight;
 
+    // Persistent Stalker flashlight tracking
+    private enum StalkerMode { Roaming, Chasing, Searching }
+    private StalkerMode stalkerMode = StalkerMode.Roaming;
+    private Vector3 stalkerLastKnownPlayerPos;
+    private float stalkerSearchTimer;
+    private bool stalkerHasSpottedPlayer = false; // For playing spot sound only on vision detection
+
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -402,26 +409,218 @@ public class CryptKiller : MonoBehaviour
 
     private void UpdatePersistentStalker()
     {
-        // Always move toward player, but slowly
-        float stalkerSpeed = config != null ? config.roamSpeed : 2f;
-        navAgent.speed = stalkerSpeed;
+        // Check if flashlight is on
+        bool flashlightOn = playerFlashlight != null && playerFlashlight.IsFlashlightOn();
 
+        if (flashlightOn)
+        {
+            // Flashlight ON: Chase the player directly with running animation
+            UpdatePersistentStalkerChase();
+        }
+        else if (stalkerMode == StalkerMode.Chasing)
+        {
+            // Flashlight just turned OFF while chasing: enter searching mode
+            EnterPersistentStalkerSearch();
+        }
+        else if (stalkerMode == StalkerMode.Searching)
+        {
+            // Continue searching until timer expires
+            UpdatePersistentStalkerSearch();
+        }
+        else
+        {
+            // Flashlight OFF and not searching: roam normally
+            UpdatePersistentStalkerRoam();
+        }
+    }
+
+    private void UpdatePersistentStalkerChase()
+    {
+        // If we just started chasing, set up chase mode
+        if (stalkerMode != StalkerMode.Chasing)
+        {
+            stalkerMode = StalkerMode.Chasing;
+
+            // Set chase speed
+            float chaseSpeed = config != null ? config.chaseSpeed : 5f;
+            navAgent.speed = chaseSpeed;
+            navAgent.acceleration = 1000f;
+            navAgent.angularSpeed = 1000f;
+            navAgent.autoBraking = false;
+            navAgent.updateRotation = false;
+            navAgent.isStopped = false;
+
+            // Set running animation
+            if (animator != null && config != null)
+            {
+                animator.SetBool(config.roamAnimationBool, false);
+                animator.SetBool(config.chaseAnimationBool, true);
+            }
+
+            Debug.Log("CryptKiller: Persistent Stalker - Flashlight ON, chasing player!");
+        }
+
+        // Constantly move toward player and remember their position
+        stalkerLastKnownPlayerPos = playerTransform.position;
         navAgent.SetDestination(playerTransform.position);
 
-        // Face the player
+        // Snap rotation toward player
         Vector3 directionToPlayer = playerTransform.position - transform.position;
         directionToPlayer.y = 0;
         if (directionToPlayer.sqrMagnitude > 0.01f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            transform.rotation = Quaternion.LookRotation(directionToPlayer);
+        }
+    }
+
+    private void EnterPersistentStalkerSearch()
+    {
+        stalkerMode = StalkerMode.Searching;
+        stalkerSearchTimer = 0f;
+
+        // Continue toward last known position at chase speed (still running)
+        navAgent.SetDestination(stalkerLastKnownPlayerPos);
+
+        Debug.Log("CryptKiller: Persistent Stalker - Flashlight OFF, searching last known position");
+    }
+
+    private void UpdatePersistentStalkerSearch()
+    {
+        // If flashlight turns back on during search, go back to chasing
+        bool flashlightOn = playerFlashlight != null && playerFlashlight.IsFlashlightOn();
+        if (flashlightOn)
+        {
+            UpdatePersistentStalkerChase();
+            return;
         }
 
-        // Set walking animation (not running - stalker is slow but persistent)
+        // If we can see the player while searching, resume chase
+        if (vision.CanSeePlayer())
+        {
+            // Re-spotted player through vision - play spot sound
+            if (!stalkerHasSpottedPlayer)
+            {
+                stalkerHasSpottedPlayer = true;
+                if (config != null && config.spotPlayerSound != null)
+                {
+                    audioSource.PlayOneShot(config.spotPlayerSound, config.spotSoundVolume);
+                }
+                Debug.Log("CryptKiller: Persistent Stalker re-spotted player through vision!");
+            }
+
+            stalkerLastKnownPlayerPos = playerTransform.position;
+            stalkerSearchTimer = 0f; // Reset timer since we have visual
+            UpdatePersistentStalkerChase();
+            return;
+        }
+
+        // Increment search timer
+        stalkerSearchTimer += Time.deltaTime;
+        float lostDuration = config != null ? config.lostSightDuration : 3f;
+
+        // Continue toward last known position
+        navAgent.SetDestination(stalkerLastKnownPlayerPos);
+
+        // Snap rotation toward movement direction
+        if (navAgent.velocity.sqrMagnitude > 0.1f)
+        {
+            transform.rotation = Quaternion.LookRotation(navAgent.velocity.normalized);
+        }
+
+        // Check if we've reached the last known position or timer expired
+        float distanceToTarget = Vector3.Distance(transform.position, stalkerLastKnownPlayerPos);
+        bool reachedTarget = distanceToTarget <= 2f || !navAgent.hasPath;
+        bool timerExpired = stalkerSearchTimer >= lostDuration;
+
+        if (reachedTarget || timerExpired)
+        {
+            // Give up and return to roaming
+            EnterPersistentStalkerRoam();
+        }
+    }
+
+    private void EnterPersistentStalkerRoam()
+    {
+        stalkerMode = StalkerMode.Roaming;
+
+        // Reset spot sound flag so it plays again when player is re-spotted
+        stalkerHasSpottedPlayer = false;
+
+        // Set roam speed
+        float roamSpeed = config != null ? config.roamSpeed : 2f;
+        navAgent.speed = roamSpeed;
+        navAgent.acceleration = 8f;
+        navAgent.angularSpeed = 120f;
+        navAgent.autoBraking = true;
+        navAgent.updateRotation = true;
+        navAgent.isStopped = false;
+
+        // Set walking animation
         if (animator != null && config != null)
         {
             animator.SetBool(config.roamAnimationBool, true);
             animator.SetBool(config.chaseAnimationBool, false);
+        }
+
+        // Pick a new roam target
+        isWaitingAtRoamPoint = false;
+        PickNewRoamTarget();
+
+        Debug.Log("CryptKiller: Persistent Stalker - Search complete, roaming normally");
+    }
+
+    private void UpdatePersistentStalkerRoam()
+    {
+        // Check if we can see the player (chase even with flashlight off)
+        if (vision.CanSeePlayer())
+        {
+            // Spotted player through vision - play spot sound
+            if (!stalkerHasSpottedPlayer)
+            {
+                stalkerHasSpottedPlayer = true;
+                if (config != null && config.spotPlayerSound != null)
+                {
+                    audioSource.PlayOneShot(config.spotPlayerSound, config.spotSoundVolume);
+                }
+                Debug.Log("CryptKiller: Persistent Stalker spotted player through vision!");
+            }
+
+            // Start chasing
+            stalkerLastKnownPlayerPos = playerTransform.position;
+            UpdatePersistentStalkerChase();
+            return;
+        }
+
+        // Handle waiting at roam point
+        if (isWaitingAtRoamPoint)
+        {
+            roamWaitTimer -= Time.deltaTime;
+            if (roamWaitTimer <= 0f)
+            {
+                isWaitingAtRoamPoint = false;
+                PickNewRoamTarget();
+            }
+            return;
+        }
+
+        // Check if we've reached the roam target
+        float distanceToTarget = Vector3.Distance(transform.position, currentRoamTarget);
+        float reachedDistance = config != null ? config.roamPointReachedDistance : 1f;
+
+        // Give the agent time to start moving before checking velocity
+        float timeSinceRoamStart = Time.time - roamStartTime;
+        bool hasHadTimeToMove = timeSinceRoamStart > 0.5f;
+
+        bool reachedByDistance = distanceToTarget <= reachedDistance;
+        bool stuckWithNoPath = hasHadTimeToMove && !navAgent.hasPath && !navAgent.pathPending;
+        bool stuckNotMoving = hasHadTimeToMove && navAgent.velocity.sqrMagnitude < 0.01f && !navAgent.pathPending;
+
+        if (reachedByDistance || stuckWithNoPath || stuckNotMoving)
+        {
+            // Start waiting at this roam point
+            isWaitingAtRoamPoint = true;
+            roamWaitTimer = config != null ? config.roamWaitTime : 2f;
+            navAgent.ResetPath();
         }
     }
 
@@ -591,22 +790,22 @@ public class CryptKiller : MonoBehaviour
 
     #region Chasing State
 
-    private void EnterChasingState()
+    private void EnterChasingState(bool skipSpotSound = false)
     {
         currentState = CryptKillerState.Chasing;
         lostSightTimer = 0f;
         lastKnownPlayerPosition = playerTransform.position;
 
-        // Calculate chase speed based on behavior type
+        // Calculate chase speed based on behavior type and speed multiplier
         float baseChaseSpeed = config != null ? config.chaseSpeed : 5f;
         if (behaviorType == KillerBehaviorType.FastChaser)
         {
             float multiplier = config != null ? config.fastChaserSpeedMultiplier : 1.5f;
-            navAgent.speed = baseChaseSpeed * multiplier;
+            navAgent.speed = baseChaseSpeed * multiplier * speedMultiplier;
         }
         else
         {
-            navAgent.speed = baseChaseSpeed;
+            navAgent.speed = baseChaseSpeed * speedMultiplier;
         }
 
         // Make chase movement sharp and responsive
@@ -615,8 +814,8 @@ public class CryptKiller : MonoBehaviour
         navAgent.autoBraking = false;       // Don't slow down when approaching
         navAgent.updateRotation = false;    // We handle rotation manually for snappier turning
 
-        // Play spot sound
-        if (!hasSpottedPlayerOnce && config != null && config.spotPlayerSound != null)
+        // Play spot sound (unless skipped, e.g., for direct pursuit penalty)
+        if (!skipSpotSound && !hasSpottedPlayerOnce && config != null && config.spotPlayerSound != null)
         {
             audioSource.PlayOneShot(config.spotPlayerSound, config.spotSoundVolume);
         }
@@ -639,7 +838,8 @@ public class CryptKiller : MonoBehaviour
 
     private void UpdateChasingState()
     {
-        bool canSeePlayer = vision.CanSeePlayer();
+        // If direct pursuit is enabled, always know where player is
+        bool canSeePlayer = forceDirectPursuit || vision.CanSeePlayer();
 
         if (canSeePlayer)
         {
@@ -782,6 +982,45 @@ public class CryptKiller : MonoBehaviour
         currentWaypointIndex = -1;
         Debug.Log($"CryptKiller: {waypoints.Length} roaming waypoints assigned");
     }
+
+    // Speed modifier from dirt pile penalties
+    private float speedMultiplier = 1f;
+    private bool forceDirectPursuit = false;
+
+    /// <summary>
+    /// Applies a speed multiplier to the killer (stacks multiplicatively).
+    /// </summary>
+    /// <param name="multiplier">Speed multiplier (e.g., 1.2 for 20% faster)</param>
+    public void ApplySpeedMultiplier(float multiplier)
+    {
+        speedMultiplier *= multiplier;
+        Debug.Log($"CryptKiller: Speed multiplier applied. Total multiplier: {speedMultiplier:F2}x");
+    }
+
+    /// <summary>
+    /// Forces the killer to always know where the player is (like Persistent Stalker).
+    /// </summary>
+    public void EnableDirectPursuit()
+    {
+        forceDirectPursuit = true;
+        Debug.Log("CryptKiller: Direct pursuit enabled - killer always knows player location!");
+
+        // Immediately start chasing (silently - no spot sound for penalty activation)
+        if (currentState != CryptKillerState.Killing)
+        {
+            EnterChasingState(skipSpotSound: true);
+        }
+    }
+
+    /// <summary>
+    /// Gets the current speed multiplier.
+    /// </summary>
+    public float GetSpeedMultiplier() => speedMultiplier;
+
+    /// <summary>
+    /// Returns true if direct pursuit is enabled.
+    /// </summary>
+    public bool IsDirectPursuitEnabled() => forceDirectPursuit;
 
     #endregion
 

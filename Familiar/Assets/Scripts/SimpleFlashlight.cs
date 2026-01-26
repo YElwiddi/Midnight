@@ -19,10 +19,30 @@ public class SimpleFlashlight : MonoBehaviour
     [Header("Audio")]
     public AudioClip toggleOnSound;
     public AudioClip toggleOffSound;
-    
+
+    [Header("Killer Proximity Flicker")]
+    [Tooltip("Enable flickering when a killer is nearby")]
+    public bool enableKillerFlicker = true;
+    [Tooltip("Distance at which flickering starts")]
+    public float flickerStartDistance = 15f;
+    [Tooltip("Distance at which flickering is most intense")]
+    public float flickerMaxDistance = 5f;
+    [Tooltip("How fast the light flickers (higher = faster)")]
+    public float flickerSpeed = 20f;
+    [Tooltip("Minimum intensity multiplier during flicker (0 = fully off)")]
+    [Range(0f, 1f)]
+    public float flickerMinIntensity = 0.1f;
+
     // Private variables
     private bool isOn = false;
     private Camera playerCamera;
+
+    // Flicker state
+    private float flickerTimer = 0f;
+    private CryptKiller[] cryptKillers;
+    private KillerNPC[] killerNPCs;
+    private float lastKillerCheckTime = 0f;
+    private const float KILLER_CHECK_INTERVAL = 0.5f; // Check for new killers every 0.5s
 
     // Killer disable state
     private bool isDisabledByKiller = false;
@@ -105,9 +125,15 @@ public class SimpleFlashlight : MonoBehaviour
         {
             ToggleFlashlight();
         }
-        
+
         // Update flashlight position and rotation to follow camera
         UpdateFlashlightTransform();
+
+        // Update killer proximity flicker
+        if (enableKillerFlicker && isOn && !isDisabledByKiller)
+        {
+            UpdateKillerFlicker();
+        }
     }
     
     // Update the flashlight to follow the camera view
@@ -119,13 +145,100 @@ public class SimpleFlashlight : MonoBehaviour
             // This makes the light follow exactly where the camera is looking
             spotLight.transform.position = playerCamera.transform.position;
             spotLight.transform.rotation = playerCamera.transform.rotation;
-            
+
             // Optional offset to make the light come from a slightly different position
             // Uncomment and adjust these values if you want the light slightly offset from camera
             // Vector3 offset = playerCamera.transform.right * 0.2f; // Slight offset to the right
             // offset += playerCamera.transform.up * -0.1f; // Slight offset downward
             // spotLight.transform.position += offset;
         }
+    }
+
+    // Update flicker effect based on killer proximity
+    private void UpdateKillerFlicker()
+    {
+        if (spotLight == null) return;
+
+        float closestDistance = GetClosestKillerDistance();
+
+        // Check if any killer is within flicker range
+        if (closestDistance <= flickerStartDistance)
+        {
+            // Calculate flicker intensity based on distance (closer = more intense)
+            // At flickerStartDistance: flickerAmount = 0 (no flicker)
+            // At flickerMaxDistance or closer: flickerAmount = 1 (max flicker)
+            float flickerAmount = Mathf.InverseLerp(flickerStartDistance, flickerMaxDistance, closestDistance);
+
+            // Update flicker timer
+            flickerTimer += Time.deltaTime * flickerSpeed;
+
+            // Generate flicker value using multiple sine waves for irregular pattern
+            float flicker1 = Mathf.Sin(flickerTimer * 1.0f);
+            float flicker2 = Mathf.Sin(flickerTimer * 2.3f) * 0.5f;
+            float flicker3 = Mathf.Sin(flickerTimer * 5.7f) * 0.3f;
+            float combinedFlicker = (flicker1 + flicker2 + flicker3) / 1.8f; // Normalize to roughly -1 to 1
+
+            // Convert to 0-1 range and apply intensity
+            float flickerValue = (combinedFlicker + 1f) * 0.5f; // Now 0 to 1
+
+            // Lerp between min intensity and full intensity based on flicker
+            float minIntensityThisFrame = Mathf.Lerp(1f, flickerMinIntensity, flickerAmount);
+            float currentIntensityMult = Mathf.Lerp(minIntensityThisFrame, 1f, flickerValue);
+
+            // Apply to light
+            spotLight.intensity = intensity * currentIntensityMult;
+        }
+        else
+        {
+            // No killer nearby - ensure normal intensity
+            spotLight.intensity = intensity;
+            flickerTimer = 0f;
+        }
+    }
+
+    // Find the distance to the closest killer
+    private float GetClosestKillerDistance()
+    {
+        // Periodically refresh killer references (in case new ones spawn)
+        if (Time.time - lastKillerCheckTime > KILLER_CHECK_INTERVAL)
+        {
+            cryptKillers = FindObjectsOfType<CryptKiller>();
+            killerNPCs = FindObjectsOfType<KillerNPC>();
+            lastKillerCheckTime = Time.time;
+        }
+
+        float closestDistance = float.MaxValue;
+        Vector3 playerPos = transform.position;
+
+        // Check CryptKillers
+        if (cryptKillers != null)
+        {
+            foreach (var killer in cryptKillers)
+            {
+                if (killer == null) continue;
+                float dist = Vector3.Distance(playerPos, killer.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                }
+            }
+        }
+
+        // Check KillerNPCs
+        if (killerNPCs != null)
+        {
+            foreach (var killer in killerNPCs)
+            {
+                if (killer == null) continue;
+                float dist = Vector3.Distance(playerPos, killer.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                }
+            }
+        }
+
+        return closestDistance;
     }
     
     // Configure the light component with our settings
@@ -158,11 +271,18 @@ public class SimpleFlashlight : MonoBehaviour
     public void SetFlashlightState(bool state)
     {
         isOn = state;
-        
+
         if (spotLight != null)
         {
             spotLight.enabled = isOn;
-            
+
+            // Reset intensity when turning on (flicker will adjust if needed)
+            if (isOn)
+            {
+                spotLight.intensity = intensity;
+                flickerTimer = 0f;
+            }
+
             // Play appropriate sound
             if (audioSource != null)
             {

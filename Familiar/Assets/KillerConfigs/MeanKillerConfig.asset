@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Bits: 1
   visionHeight: 1.5
   lostSightDuration: 3
-  killDistance: 4
+  killDistance: 3
   spotPlayerSound: {fileID: 8300000, guid: 906fcaccf1ec1c442a2b61dc3575e069, type: 3}
   spotSoundVolume: 0.652
   heartbeatSound: {fileID: 8300000, guid: 413173aaf41fb164ebc30888293a01ab, type: 3}
@@ -42,3 +42,8 @@ MonoBehaviour:
   roamAnimationBool: IsWalking
   chaseAnimationBool: IsRunning
   spotPlayerTrigger: SpotPlayer
+  flashlightDisabledDialogue: The flashlight won't turn on...
+  flashlightDisabledSpeaker: 
+  flashlightDialogueDuration: 2
+  flashlightDialogueTypewriterSpeed: 30
+  flashlightDialogueCooldown: 5

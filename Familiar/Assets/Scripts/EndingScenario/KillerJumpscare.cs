@@ -181,6 +181,9 @@ public class KillerJumpscare : MonoBehaviour
         // Close any open ReadableUI (notes, books, etc.)
         CloseReadableUI();
 
+        // Close any active dialogues
+        CloseAllDialogues();
+
         // Stop killer movement
         if (navAgent != null)
         {
@@ -434,6 +437,29 @@ public class KillerJumpscare : MonoBehaviour
         {
             ReadableUI.Instance.Close();
             Debug.Log("KillerJumpscare: Closed ReadableUI");
+        }
+    }
+
+    private void CloseAllDialogues()
+    {
+        // Cancel any active SimpleDialogueTrigger dialogues
+        SimpleDialogueTrigger.CancelActiveSimpleDialogue();
+
+        // Close DialogueUI (used for choice dialogues like dirt pile confirmation)
+        DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
+        if (dialogueUI != null && dialogueUI.IsVisible)
+        {
+            dialogueUI.ClearChoices();
+            dialogueUI.Hide();
+            Debug.Log("KillerJumpscare: Closed DialogueUI");
+        }
+
+        // Exit any active Ink dialogue
+        DialogueManager dialogueManager = DialogueManager.GetInstance();
+        if (dialogueManager != null && dialogueManager.IsDialoguePlaying())
+        {
+            dialogueManager.ExitDialogueMode();
+            Debug.Log("KillerJumpscare: Closed DialogueManager");
         }
     }
 
