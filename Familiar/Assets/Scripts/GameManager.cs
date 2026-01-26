@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
     [Header("Boolean Flags")]
     public bool CryptUnlocked = false;
     public bool ShovelPickedUp = false;
-    public bool CorrectGraveFound = false;
+    public bool GraveyardEndingTriggered = false;
 
     [Header("Dirt Pile Stats")]
     public int IncorrectDigCount = 0;
+    public int CorrectDigCount = 0;
 
     private static GameManager instance;
     public static GameManager Instance => instance;
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
         {
             case "cryptunlocked": return CryptUnlocked;
             case "shovelpickedup": return ShovelPickedUp;
-            case "correctgravefound": return CorrectGraveFound;
+            case "graveyardendtriggered": return GraveyardEndingTriggered;
             default:
                 Debug.LogWarning($"GameManager: Bool flag '{flagName}' not found");
                 return false;
@@ -121,9 +122,9 @@ public class GameManager : MonoBehaviour
                 ShovelPickedUp = value;
                 Debug.Log($"ShovelPickedUp set to {value}");
                 break;
-            case "correctgravefound":
-                CorrectGraveFound = value;
-                Debug.Log($"CorrectGraveFound set to {value}");
+            case "graveyardendtriggered":
+                GraveyardEndingTriggered = value;
+                Debug.Log($"GraveyardEndingTriggered set to {value}");
                 break;
             default:
                 Debug.LogWarning($"Bool flag {flagName} not found in GameManager");
@@ -145,7 +146,7 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(20, 130, 180, 20), $"GraveKeeperAngered: {GraveKeeperAngered}");
         GUI.Label(new Rect(20, 150, 180, 20), $"CryptUnlocked: {CryptUnlocked}");
         GUI.Label(new Rect(20, 170, 180, 20), $"ShovelPickedUp: {ShovelPickedUp}");
-        GUI.Label(new Rect(20, 190, 180, 20), $"CorrectGraveFound: {CorrectGraveFound}");
+        GUI.Label(new Rect(20, 190, 180, 20), $"CorrectDigCount: {CorrectDigCount}");
         GUI.Label(new Rect(20, 210, 180, 20), $"IncorrectDigCount: {IncorrectDigCount}");
     }
 }

@@ -243,6 +243,22 @@ public class GameFlowManager : MonoBehaviour
     public GameEvent GetCurrentEvent() => currentEvent;
 
     /// <summary>
+    /// Triggers a specific GameEvent immediately (outside of the normal queue).
+    /// Useful for events triggered by gameplay conditions.
+    /// </summary>
+    public void TriggerEvent(GameEvent gameEvent)
+    {
+        if (gameEvent == null)
+        {
+            Debug.LogWarning("GameFlowManager: Cannot trigger null event!");
+            return;
+        }
+
+        Debug.Log($"GameFlowManager: Triggering event '{gameEvent.eventName}' directly");
+        StartEventDirectly(gameEvent);
+    }
+
+    /// <summary>
     /// Returns true if currently waiting for spawn conditions to be met.
     /// </summary>
     public bool IsWaitingForSpawnConditions() => isWaitingForSpawnConditions;

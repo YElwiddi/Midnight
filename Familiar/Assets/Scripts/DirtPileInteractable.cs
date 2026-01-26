@@ -243,17 +243,22 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
 
     private void HandleCorrectDig()
     {
-        Debug.Log("DirtPileInteractable: Correct grave found!");
+        if (GameManager.Instance == null) return;
 
-        // Set flag in GameManager
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.CorrectGraveFound = true;
-        }
+        GameManager.Instance.CorrectDigCount++;
+        int correctCount = GameManager.Instance.CorrectDigCount;
+
+        Debug.Log($"DirtPileInteractable: Correct grave #{correctCount} found!");
 
         // Show success message
         SimpleDialogueTrigger.ShowDialogue(correctDigMessage, "", 3f, 30f);
+
+        // Notify any listeners (like GraveyardEndingManager)
+        OnCorrectGraveExhumed?.Invoke(correctCount);
     }
+
+    // Static event for when a correct grave is exhumed
+    public static event System.Action<int> OnCorrectGraveExhumed;
 
     private void HandleIncorrectDig()
     {
