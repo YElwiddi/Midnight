@@ -39,9 +39,6 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [Range(-1f, 1f)]
     [SerializeField] private float destinationAmbientVolume = -1f;
 
-    [Header("References")]
-    [SerializeField] private DialogueUI dialogueUI;
-
     [Header("Events")]
     [Tooltip("Called when the teleport completes successfully")]
     public UnityEvent OnTeleportComplete;
@@ -49,50 +46,19 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     private static Image fadeOverlay;
     private static Canvas fadeCanvas;
     private static bool isTransitioning = false;
-    private bool isShowingDialogue = false;
-    private Coroutine lockedDialogueCoroutine;
     private DialogueManager dialogueManager;
 
     private void Start()
     {
-        if (dialogueUI == null)
-        {
-            dialogueUI = FindFirstObjectByType<DialogueUI>();
-        }
-
         dialogueManager = FindFirstObjectByType<DialogueManager>();
-        if (dialogueManager != null)
-        {
-            dialogueManager.OnDialogueStarted += CancelLockedDialogue;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (dialogueManager != null)
-        {
-            dialogueManager.OnDialogueStarted -= CancelLockedDialogue;
-        }
-    }
-
-    private void CancelLockedDialogue()
-    {
-        if (isShowingDialogue)
-        {
-            if (lockedDialogueCoroutine != null)
-            {
-                StopCoroutine(lockedDialogueCoroutine);
-                lockedDialogueCoroutine = null;
-            }
-            isShowingDialogue = false;
-        }
     }
 
     public void Interact()
     {
-        if (isTransitioning || isShowingDialogue) return;
+        if (isTransitioning) return;
 
-        // Don't show locked dialogue if main dialogue is already playing
+        // Don't interact if any dialogue is playing
+        if (SimpleDialogueTrigger.IsAnySimpleDialogueActive) return;
         if (dialogueManager != null && dialogueManager.IsDialoguePlaying()) return;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -106,40 +72,9 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         }
         else
         {
-            lockedDialogueCoroutine = StartCoroutine(ShowLockedDialogue());
+            float speed = useTypewriterEffect ? typewriterSpeed : 0f;
+            SimpleDialogueTrigger.ShowDialogue(lockedDialogueText, lockedSpeakerName, lockedDialogueDuration, speed);
         }
-    }
-
-    private IEnumerator ShowLockedDialogue()
-    {
-        if (dialogueUI == null) yield break;
-
-        isShowingDialogue = true;
-
-        dialogueUI.Show();
-
-        string speaker = string.IsNullOrEmpty(lockedSpeakerName) ? null : lockedSpeakerName;
-
-        if (useTypewriterEffect && typewriterSpeed > 0)
-        {
-            float delay = 1f / typewriterSpeed;
-            for (int i = 1; i <= lockedDialogueText.Length; i++)
-            {
-                dialogueUI.SetDialogueText(lockedDialogueText.Substring(0, i), speaker);
-                yield return new WaitForSeconds(delay);
-            }
-        }
-        else
-        {
-            dialogueUI.SetDialogueText(lockedDialogueText, speaker);
-        }
-
-        yield return new WaitForSeconds(lockedDialogueDuration);
-
-        dialogueUI.Hide();
-
-        isShowingDialogue = false;
-        lockedDialogueCoroutine = null;
     }
 
     private IEnumerator TeleportSequence(GameObject player)

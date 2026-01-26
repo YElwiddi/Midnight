@@ -31,16 +31,16 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     [SerializeField] private DialogueUI dialogueUI;
 
     private bool hasTriggered = false;
-    private bool isDisplaying = false;
     private Coroutine displayCoroutine;
 
-    // Static reference to currently active simple dialogue (for interruption)
-    private static SimpleDialogueTrigger activeInstance;
+    // Single global lock - no new dialogue can start while this is true
+    private static bool isDialogueLocked = false;
+    private static MonoBehaviour coroutineRunner;
 
     /// <summary>
-    /// Returns true if any SimpleDialogueTrigger is currently displaying.
+    /// Returns true if any dialogue is currently displaying.
     /// </summary>
-    public static bool IsAnySimpleDialogueActive => activeInstance != null && activeInstance.isDisplaying;
+    public static bool IsAnySimpleDialogueActive => isDialogueLocked;
 
     /// <summary>
     /// Cancels any currently active simple dialogue immediately.
@@ -48,29 +48,67 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     /// </summary>
     public static void CancelActiveSimpleDialogue()
     {
-        if (activeInstance != null && activeInstance.isDisplaying)
-        {
-            activeInstance.CancelDialogue();
-        }
+        isDialogueLocked = false;
+        Debug.Log("SimpleDialogueTrigger: Dialogue lock released");
     }
 
     /// <summary>
-    /// Cancels this dialogue immediately.
+    /// Shows a temporary dialogue from any script without needing a SimpleDialogueTrigger component.
     /// </summary>
-    public void CancelDialogue()
+    /// <param name="text">The dialogue text to display</param>
+    /// <param name="speaker">Optional speaker name</param>
+    /// <param name="duration">How long to display after typing completes</param>
+    /// <param name="typewriterSpeed">Characters per second (0 = instant)</param>
+    /// <returns>True if dialogue was started, false if another dialogue is active</returns>
+    public static bool ShowDialogue(string text, string speaker = "", float duration = 2f, float typewriterSpeed = 30f)
     {
-        if (displayCoroutine != null)
+        if (isDialogueLocked) return false;
+        if (string.IsNullOrEmpty(text)) return false;
+
+        DialogueUI ui = FindFirstObjectByType<DialogueUI>();
+        if (ui == null)
         {
-            StopCoroutine(displayCoroutine);
-            displayCoroutine = null;
+            Debug.LogWarning("SimpleDialogueTrigger: No DialogueUI found for static dialogue");
+            return false;
         }
-        isDisplaying = false;
-        if (activeInstance == this)
+
+        // Find a MonoBehaviour to run the coroutine on
+        if (coroutineRunner == null)
         {
-            activeInstance = null;
+            coroutineRunner = ui;
         }
-        // Don't hide UI here - the NPC dialogue will take over
-        Debug.Log("SimpleDialogueTrigger: Dialogue cancelled for NPC dialogue");
+
+        // Lock immediately
+        isDialogueLocked = true;
+
+        coroutineRunner.StartCoroutine(ShowStaticDialogueCoroutine(ui, text, speaker, duration, typewriterSpeed));
+        return true;
+    }
+
+    private static IEnumerator ShowStaticDialogueCoroutine(DialogueUI ui, string text, string speaker, float duration, float typewriterSpeed)
+    {
+        ui.Show();
+
+        string speakerName = string.IsNullOrEmpty(speaker) ? null : speaker;
+
+        if (typewriterSpeed > 0)
+        {
+            float delay = 1f / typewriterSpeed;
+            for (int i = 1; i <= text.Length; i++)
+            {
+                ui.SetDialogueText(text.Substring(0, i), speakerName);
+                yield return new WaitForSeconds(delay);
+            }
+        }
+        else
+        {
+            ui.SetDialogueText(text, speakerName);
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        ui.Hide();
+        isDialogueLocked = false;
     }
 
     private void Start()
@@ -111,9 +149,7 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     private void TryShowDialogue()
     {
         if (triggerOnce && hasTriggered) return;
-        if (isDisplaying) return;
-        // Don't show if flashlight dialogue is active
-        if (SimpleFlashlight.IsFlashlightDialogueActive) return;
+        if (isDialogueLocked) return;
         if (dialogueUI == null)
         {
             Debug.LogWarning("SimpleDialogueTrigger: No DialogueUI found in scene");
@@ -121,14 +157,15 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         }
 
         hasTriggered = true;
+
+        // Lock immediately
+        isDialogueLocked = true;
+
         displayCoroutine = StartCoroutine(ShowDialogueForDuration());
     }
 
     private IEnumerator ShowDialogueForDuration()
     {
-        isDisplaying = true;
-        activeInstance = this;
-
         // Show the dialogue
         dialogueUI.Show();
 
@@ -153,18 +190,8 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         // Wait for duration after text is fully displayed
         yield return new WaitForSeconds(displayDuration);
 
-        // Only hide if we're still the active dialogue and no other dialogue has taken over
-        if (activeInstance == this && !SimpleFlashlight.IsFlashlightDialogueActive)
-        {
-            dialogueUI.Hide();
-        }
-
-        if (activeInstance == this)
-        {
-            activeInstance = null;
-        }
-
-        isDisplaying = false;
+        dialogueUI.Hide();
+        isDialogueLocked = false;
     }
 
     // Public method to reset trigger (useful for re-triggerable dialogues)
@@ -184,11 +211,11 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         if (displayCoroutine != null)
         {
             StopCoroutine(displayCoroutine);
-            if (dialogueUI != null && isDisplaying)
+            if (dialogueUI != null)
             {
                 dialogueUI.Hide();
             }
-            isDisplaying = false;
+            isDialogueLocked = false;
         }
     }
 }
