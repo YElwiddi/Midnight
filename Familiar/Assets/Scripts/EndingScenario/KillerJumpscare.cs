@@ -178,6 +178,9 @@ public class KillerJumpscare : MonoBehaviour
     {
         Debug.Log("KillerJumpscare: Starting jumpscare sequence");
 
+        // Close any open ReadableUI (notes, books, etc.)
+        CloseReadableUI();
+
         // Stop killer movement
         if (navAgent != null)
         {
@@ -422,6 +425,15 @@ public class KillerJumpscare : MonoBehaviour
             {
                 playerTransform.position = hit.point;
             }
+        }
+    }
+
+    private void CloseReadableUI()
+    {
+        if (ReadableUI.Instance != null && ReadableUI.Instance.IsOpen)
+        {
+            ReadableUI.Instance.Close();
+            Debug.Log("KillerJumpscare: Closed ReadableUI");
         }
     }
 

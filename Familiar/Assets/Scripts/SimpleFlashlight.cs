@@ -25,6 +25,26 @@ public class SimpleFlashlight : MonoBehaviour
     // Private variables
     private bool isOn = false;
     private Camera playerCamera;
+
+    // Killer disable state
+    private bool isDisabledByKiller = false;
+    private string disabledDialogueText;
+    private string disabledDialogueSpeaker;
+    private float disabledDialogueDuration;
+    private float disabledDialogueTypewriterSpeed;
+    private float disabledDialogueCooldown;
+    private float lastDialogueTime = -999f;
+    private bool isShowingDialogue = false;
+    private DialogueUI dialogueUI;
+    private Coroutine dialogueCoroutine;
+
+    // Static reference for other systems to check
+    private static SimpleFlashlight activeDialogueInstance;
+
+    /// <summary>
+    /// Returns true if the flashlight disabled dialogue is currently displaying.
+    /// </summary>
+    public static bool IsFlashlightDialogueActive => activeDialogueInstance != null && activeDialogueInstance.isShowingDialogue;
     
     void Start()
     {
@@ -136,6 +156,13 @@ public class SimpleFlashlight : MonoBehaviour
     // Toggle the flashlight on/off
     public void ToggleFlashlight()
     {
+        // If disabled by killer, show dialogue instead of toggling
+        if (isDisabledByKiller)
+        {
+            ShowDisabledDialogue();
+            return;
+        }
+
         isOn = !isOn;
         SetFlashlightState(isOn);
     }
@@ -170,5 +197,114 @@ public class SimpleFlashlight : MonoBehaviour
     public bool IsFlashlightOn()
     {
         return isOn;
+    }
+
+    /// <summary>
+    /// Permanently disables the flashlight (used by FlashlightDisabler killer).
+    /// When player tries to use it, shows the specified dialogue.
+    /// </summary>
+    public void DisableByKiller(string dialogueText, string speakerName = "", float dialogueDuration = 2f, float typewriterSpeed = 30f, float cooldown = 5f)
+    {
+        // Turn off the flashlight
+        SetFlashlightState(false);
+
+        // Set up the disabled state
+        isDisabledByKiller = true;
+        disabledDialogueText = dialogueText;
+        disabledDialogueSpeaker = speakerName;
+        disabledDialogueDuration = dialogueDuration;
+        disabledDialogueTypewriterSpeed = typewriterSpeed;
+        disabledDialogueCooldown = cooldown;
+
+        // Find DialogueUI for showing messages
+        if (dialogueUI == null)
+        {
+            dialogueUI = FindObjectOfType<DialogueUI>();
+        }
+
+        Debug.Log("SimpleFlashlight: Disabled by killer - will show dialogue on toggle attempt");
+    }
+
+    /// <summary>
+    /// Shows dialogue when player tries to use the disabled flashlight.
+    /// </summary>
+    private void ShowDisabledDialogue()
+    {
+        if (string.IsNullOrEmpty(disabledDialogueText)) return;
+
+        // Check cooldown
+        if (Time.time - lastDialogueTime < disabledDialogueCooldown) return;
+
+        // Don't show if another dialogue system is active
+        if (SimpleDialogueTrigger.IsAnySimpleDialogueActive) return;
+        if (isShowingDialogue) return;
+
+        if (dialogueUI == null)
+        {
+            dialogueUI = FindObjectOfType<DialogueUI>();
+        }
+
+        if (dialogueUI != null)
+        {
+            // Stop any existing dialogue coroutine
+            if (dialogueCoroutine != null)
+            {
+                StopCoroutine(dialogueCoroutine);
+            }
+
+            lastDialogueTime = Time.time;
+            dialogueCoroutine = StartCoroutine(ShowDisabledDialogueCoroutine());
+        }
+    }
+
+    private System.Collections.IEnumerator ShowDisabledDialogueCoroutine()
+    {
+        isShowingDialogue = true;
+        activeDialogueInstance = this;
+
+        dialogueUI.Show();
+
+        string speaker = string.IsNullOrEmpty(disabledDialogueSpeaker) ? null : disabledDialogueSpeaker;
+
+        if (disabledDialogueTypewriterSpeed > 0)
+        {
+            // Typewriter effect - show characters one by one
+            float delay = 1f / disabledDialogueTypewriterSpeed;
+            for (int i = 1; i <= disabledDialogueText.Length; i++)
+            {
+                dialogueUI.SetDialogueText(disabledDialogueText.Substring(0, i), speaker);
+                yield return new WaitForSeconds(delay);
+            }
+        }
+        else
+        {
+            // Instant display
+            dialogueUI.SetDialogueText(disabledDialogueText, speaker);
+        }
+
+        // Wait for duration after text is fully displayed
+        yield return new WaitForSeconds(disabledDialogueDuration);
+
+        // Only hide if we're still the active dialogue and no other dialogue has taken over
+        if (activeDialogueInstance == this && !SimpleDialogueTrigger.IsAnySimpleDialogueActive)
+        {
+            dialogueUI.Hide();
+        }
+
+        if (activeDialogueInstance == this)
+        {
+            activeDialogueInstance = null;
+        }
+
+        isShowingDialogue = false;
+        dialogueCoroutine = null;
+    }
+
+    /// <summary>
+    /// Check if the flashlight has been disabled by a killer.
+    /// </summary>
+    public bool IsDisabledByKiller()
+    {
+        return isDisabledByKiller;
     }
 }

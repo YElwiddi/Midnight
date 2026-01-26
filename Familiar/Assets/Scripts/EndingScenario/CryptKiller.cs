@@ -336,12 +336,17 @@ public class CryptKiller : MonoBehaviour
 
         if (playerFlashlight != null)
         {
-            // Disable the flashlight
-            playerFlashlight.SetFlashlightState(false);
-            // Prevent player from turning it back on
-            playerFlashlight.enabled = false;
+            // Get dialogue settings from config
+            string dialogueText = config != null ? config.flashlightDisabledDialogue : "The flashlight won't turn on...";
+            string speakerName = config != null ? config.flashlightDisabledSpeaker : "";
+            float dialogueDuration = config != null ? config.flashlightDialogueDuration : 2f;
+            float typewriterSpeed = config != null ? config.flashlightDialogueTypewriterSpeed : 30f;
+            float cooldown = config != null ? config.flashlightDialogueCooldown : 5f;
+
+            // Disable the flashlight with dialogue support
+            playerFlashlight.DisableByKiller(dialogueText, speakerName, dialogueDuration, typewriterSpeed, cooldown);
             hasDisabledFlashlight = true;
-            Debug.Log("CryptKiller: Flashlight permanently disabled");
+            Debug.Log("CryptKiller: Flashlight permanently disabled - dialogue will show on toggle attempt");
         }
     }
 
@@ -683,6 +688,9 @@ public class CryptKiller : MonoBehaviour
     private void EnterSearchingState()
     {
         currentState = CryptKillerState.Searching;
+
+        // Reset spot sound flag so it plays again when player is re-spotted
+        hasSpottedPlayerOnce = false;
 
         // Move to last known position at chase speed
         navAgent.SetDestination(lastKnownPlayerPosition);

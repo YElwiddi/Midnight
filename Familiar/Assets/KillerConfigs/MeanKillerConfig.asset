@@ -16,7 +16,7 @@ MonoBehaviour:
   behaviorType: 0
   roamSpeed: 3
   chaseSpeed: 5
-  fastChaserSpeedMultiplier: 1.5
+  fastChaserSpeedMultiplier: 2
   minRoamDistance: 5
   maxRoamDistance: 15
   roamWaitTime: 2
@@ -29,11 +29,11 @@ MonoBehaviour:
     m_Bits: 1
   visionHeight: 1.5
   lostSightDuration: 3
-  killDistance: 1.5
+  killDistance: 4
   spotPlayerSound: {fileID: 8300000, guid: 906fcaccf1ec1c442a2b61dc3575e069, type: 3}
   spotSoundVolume: 0.652
   heartbeatSound: {fileID: 8300000, guid: 413173aaf41fb164ebc30888293a01ab, type: 3}
-  terrorRadius: 35
+  terrorRadius: 30
   terrorMaxVolumeDistance: 10
   heartbeatMaxVolume: 1
   ambientGurglingSound: {fileID: 0}

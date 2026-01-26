@@ -24006,8 +24006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   showDebugStats: 0
   player_scared: 0
-  player_mean: 1
-  player_stupid: 0
+  player_mean: 0
+  player_stupid: 1
   SpiritAngered: 0
   GraveRobberSetup: 0
   GraveKeeperAngered: 0
@@ -31369,8 +31369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndingScenarioManager
   meanKillerPrefab: {fileID: 3767055355421772689, guid: 3c951ae4fdc403046a9f6a07de9e312d, type: 3}
-  scaredKillerPrefab: {fileID: 0}
-  stupidKillerPrefab: {fileID: 0}
+  scaredKillerPrefab: {fileID: 3767055355421772689, guid: 2a34c505445d3e141ae4d1691b54fe24, type: 3}
+  stupidKillerPrefab: {fileID: 3767055355421772689, guid: a61f5e8e9227f804bae2d30826d77213, type: 3}
   meanKillerConfig: {fileID: 11400000, guid: 1ced8f4cabfbf9a448ab5823beadb44b, type: 2}
   scaredKillerConfig: {fileID: 11400000, guid: ec82266ade6f3b547a54407efdb97e4e, type: 2}
   stupidKillerConfig: {fileID: 11400000, guid: f67551d9e726899409456dce7b868b2e, type: 2}

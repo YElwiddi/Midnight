@@ -112,6 +112,8 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     {
         if (triggerOnce && hasTriggered) return;
         if (isDisplaying) return;
+        // Don't show if flashlight dialogue is active
+        if (SimpleFlashlight.IsFlashlightDialogueActive) return;
         if (dialogueUI == null)
         {
             Debug.LogWarning("SimpleDialogueTrigger: No DialogueUI found in scene");
@@ -151,10 +153,14 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         // Wait for duration after text is fully displayed
         yield return new WaitForSeconds(displayDuration);
 
-        // Only hide if we're still the active dialogue (not interrupted by NPC dialogue)
-        if (activeInstance == this)
+        // Only hide if we're still the active dialogue and no other dialogue has taken over
+        if (activeInstance == this && !SimpleFlashlight.IsFlashlightDialogueActive)
         {
             dialogueUI.Hide();
+        }
+
+        if (activeInstance == this)
+        {
             activeInstance = null;
         }
 

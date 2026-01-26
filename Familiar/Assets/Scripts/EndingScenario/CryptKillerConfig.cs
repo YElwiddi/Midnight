@@ -114,4 +114,21 @@ public class CryptKillerConfig : ScriptableObject
 
     [Tooltip("Animation trigger when spotting player")]
     public string spotPlayerTrigger = "SpotPlayer";
+
+    [Header("Flashlight Disabler Settings")]
+    [Tooltip("Dialogue text shown when player tries to use disabled flashlight")]
+    [TextArea(2, 4)]
+    public string flashlightDisabledDialogue = "The flashlight won't turn on...";
+
+    [Tooltip("Speaker name for the flashlight disabled dialogue (leave empty for no speaker)")]
+    public string flashlightDisabledSpeaker = "";
+
+    [Tooltip("How long to display the flashlight disabled dialogue after typing completes")]
+    public float flashlightDialogueDuration = 2f;
+
+    [Tooltip("Characters per second for typewriter effect (0 = instant)")]
+    public float flashlightDialogueTypewriterSpeed = 30f;
+
+    [Tooltip("Cooldown before the dialogue can be shown again (0 = no cooldown)")]
+    public float flashlightDialogueCooldown = 5f;
 }
