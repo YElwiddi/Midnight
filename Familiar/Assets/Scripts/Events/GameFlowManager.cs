@@ -556,7 +556,8 @@ public class GameFlowManager : MonoBehaviour
             currentEvent.dialogueSoundVolume,
             currentEvent.dialogueSoundBasePitch,
             currentEvent.dialogueSoundPitchVariation,
-            currentEvent.dialogueSoundEveryN
+            currentEvent.dialogueSoundEveryN,
+            currentEvent.postDialogueCinematic
         );
 
         // Fire event started
@@ -567,8 +568,48 @@ public class GameFlowManager : MonoBehaviour
             GameEventsManager.instance.gameFlowEvents?.EventStarted(currentEvent.eventName);
         }
 
+        // Disable player control if configured
+        if (currentEvent.disablePlayerControlOnStart)
+        {
+            Debug.Log($"GameFlowManager: Event '{currentEvent.eventName}' has disablePlayerControlOnStart=true, disabling player control...");
+            DisablePlayerControl();
+        }
+        else
+        {
+            Debug.Log($"GameFlowManager: Event '{currentEvent.eventName}' has disablePlayerControlOnStart=false");
+        }
+
         // Spawn background NPCs (concurrent, non-blocking)
         SpawnBackgroundNPCs(currentEvent);
+    }
+
+    private void DisablePlayerControl()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogWarning("GameFlowManager: Cannot disable player control - no player found!");
+            return;
+        }
+
+        // Try Movement component
+        Movement movement = player.GetComponent<Movement>();
+        if (movement != null)
+        {
+            movement.canMove = false;
+            movement.canControlCamera = false;
+            movement.canRun = false;
+            movement.canJump = false;
+            Debug.Log("GameFlowManager: Player control disabled via Movement component");
+        }
+
+        // Try PlayerEvents component
+        PlayerEvents playerEvents = player.GetComponent<PlayerEvents>();
+        if (playerEvents != null)
+        {
+            playerEvents.DisableAllInput();
+            Debug.Log("GameFlowManager: Player control disabled via PlayerEvents component");
+        }
     }
 
     private void SpawnBackgroundNPCs(GameEvent gameEvent)
@@ -726,7 +767,8 @@ public class GameFlowManager : MonoBehaviour
             bgNPC.dialogueSoundVolume,
             bgNPC.dialogueSoundBasePitch,
             bgNPC.dialogueSoundPitchVariation,
-            bgNPC.dialogueSoundEveryN
+            bgNPC.dialogueSoundEveryN,
+            null   // No cinematic for background NPCs
         );
 
         // Handle blocking behavior - track the NPC and subscribe to its completion
@@ -1124,7 +1166,8 @@ public class GameFlowManager : MonoBehaviour
                 killerEvent.cameraZoom,
                 killerEvent.cameraHeight,
                 null, // No dialogue sound for killers
-                -1f, -1f, -1f, -1
+                -1f, -1f, -1f, -1,
+                null  // No cinematic for killers
             );
         }
 

@@ -37,6 +37,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     [HideInInspector] public float eventDialogueSoundBasePitch = -1f;
     [HideInInspector] public float eventDialogueSoundPitchVariation = -1f;
     [HideInInspector] public int eventDialogueSoundEveryN = -1;
+    [HideInInspector] public CinematicEndingData postDialogueCinematic;
     #endregion
 
     #region Inspector Settings
@@ -185,7 +186,8 @@ public class EventNPC : MonoBehaviour, IInteractable
                            ExitDialogueData[] exitDialogueData = null, float dialogueTypewriterSpeed = 0f,
                            float dialogueCameraZoom = -1f, float dialogueCameraHeight = -1f,
                            AudioClip soundClip = null, float soundVolume = -1f, float soundBasePitch = -1f,
-                           float soundPitchVariation = -1f, int soundEveryN = -1)
+                           float soundPitchVariation = -1f, int soundEveryN = -1,
+                           CinematicEndingData cinematicData = null)
     {
         waypoints = waypointData;
         inkDialogue = dialogue;
@@ -201,6 +203,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         eventDialogueSoundBasePitch = soundBasePitch;
         eventDialogueSoundPitchVariation = soundPitchVariation;
         eventDialogueSoundEveryN = soundEveryN;
+        postDialogueCinematic = cinematicData;
 
         if (!string.IsNullOrEmpty(name))
         {
@@ -732,7 +735,13 @@ public class EventNPC : MonoBehaviour, IInteractable
             ? (trackingBackToPlayer ? " [back to player]" : " [facing player]")
             : "";
 
-        if (waypoint.waitForInteraction)
+        if (waypoint.autoStartDialogue)
+        {
+            // Auto-start dialogue without requiring interaction
+            Debug.Log($"EventNPC {npcName}: Auto-starting dialogue{trackingStatus}");
+            StartCoroutine(AutoStartDialogueAfterDelay(waypoint));
+        }
+        else if (waypoint.waitForInteraction)
         {
             currentState = NPCState.WaitingForInteraction;
 
@@ -807,6 +816,117 @@ public class EventNPC : MonoBehaviour, IInteractable
         AdvanceToNextWaypoint();
     }
 
+    private IEnumerator AutoStartDialogueAfterDelay(WaypointData waypoint)
+    {
+        // Small delay to let everything settle (NPC stop moving, face player, etc.)
+        float delay = waypoint.timeUntilInteractable > 0 ? waypoint.timeUntilInteractable : 0.5f;
+        yield return new WaitForSeconds(delay);
+
+        // Face the player before starting dialogue
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Vector3 lookDir = player.transform.position - transform.position;
+            lookDir.y = 0;
+            if (lookDir != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(lookDir);
+            }
+        }
+
+        // Start dialogue automatically
+        StartDialogueForWaypoint(waypoint);
+    }
+
+    private void StartDialogueForWaypoint(WaypointData waypoint)
+    {
+        if (dialogueManager == null)
+        {
+            dialogueManager = DialogueManager.GetInstance();
+            if (dialogueManager == null)
+            {
+                Debug.LogError("EventNPC: DialogueManager not found!");
+                AdvanceToNextWaypoint();
+                return;
+            }
+        }
+
+        // Get dialogue from current waypoint, or fall back to event default
+        TextAsset dialogueToUse = waypoint.inkDialogue != null ? waypoint.inkDialogue : inkDialogue;
+        string knotToUse = !string.IsNullOrEmpty(waypoint.dialogueKnot) ? waypoint.dialogueKnot : dialogueKnot;
+
+        if (dialogueToUse == null)
+        {
+            Debug.LogWarning($"EventNPC {npcName}: No Ink dialogue assigned for auto-start waypoint, skipping dialogue");
+            AdvanceToNextWaypoint();
+            return;
+        }
+
+        if (dialogueManager.IsDialoguePlaying())
+        {
+            Debug.Log($"EventNPC {npcName}: Dialogue already playing, waiting...");
+            StartCoroutine(WaitForDialogueAndRetry(waypoint));
+            return;
+        }
+
+        // Cancel any active simple dialogue first
+        SimpleDialogueTrigger.CancelActiveSimpleDialogue();
+
+        currentState = NPCState.InDialogue;
+        Debug.Log($"EventNPC {npcName}: Auto-starting dialogue (knot: {(string.IsNullOrEmpty(knotToUse) ? "default" : knotToUse)})");
+
+        // Determine camera height: waypoint > event > lowered pose > default
+        float camHeight;
+        if (waypoint.cameraHeight >= 0)
+        {
+            camHeight = waypoint.cameraHeight;
+        }
+        else if (eventCameraHeight >= 0)
+        {
+            camHeight = eventCameraHeight;
+        }
+        else
+        {
+            bool isLoweredPose = IsLoweredPoseAnimation(currentIdleAnimationBool);
+            camHeight = isLoweredPose ? loweredCameraHeight : -1f;
+        }
+
+        // Determine camera zoom: waypoint > event > default
+        float camZoom = waypoint.cameraZoom >= 0 ? waypoint.cameraZoom : cameraZoom;
+
+        // Determine dialogue sound: waypoint > event > default
+        AudioClip soundClip = waypoint.dialogueSoundClip != null ? waypoint.dialogueSoundClip : eventDialogueSoundClip;
+        float soundVolume = waypoint.dialogueSoundVolume >= 0 ? waypoint.dialogueSoundVolume : eventDialogueSoundVolume;
+        float soundBasePitch = waypoint.dialogueSoundBasePitch >= 0 ? waypoint.dialogueSoundBasePitch : eventDialogueSoundBasePitch;
+        float soundPitchVariation = waypoint.dialogueSoundPitchVariation >= 0 ? waypoint.dialogueSoundPitchVariation : eventDialogueSoundPitchVariation;
+        int soundEveryN = waypoint.dialogueSoundEveryN > 0 ? waypoint.dialogueSoundEveryN : eventDialogueSoundEveryN;
+
+        // Set sound override if configured
+        if (soundClip != null)
+        {
+            dialogueManager.SetDialogueSoundOverride(soundClip, soundVolume, soundBasePitch, soundPitchVariation, soundEveryN);
+        }
+
+        // Start dialogue
+        if (!string.IsNullOrEmpty(knotToUse))
+        {
+            dialogueManager.EnterDialogueMode(dialogueToUse, knotToUse, transform, camHeight, typewriterSpeed, camZoom);
+        }
+        else
+        {
+            dialogueManager.EnterDialogueMode(dialogueToUse, transform, camHeight, typewriterSpeed, camZoom);
+        }
+    }
+
+    private IEnumerator WaitForDialogueAndRetry(WaypointData waypoint)
+    {
+        while (dialogueManager != null && dialogueManager.IsDialoguePlaying())
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        StartDialogueForWaypoint(waypoint);
+    }
+
     private void HandleDialogueEnded()
     {
         if (currentState != NPCState.InDialogue) return;
@@ -824,6 +944,13 @@ public class EventNPC : MonoBehaviour, IInteractable
                     StartCoroutine(ShowExitDialogue(exitDialogue));
                 }
             }
+        }
+
+        // Trigger cinematic ending in parallel - NPC keeps walking while player also walks
+        if (postDialogueCinematic != null)
+        {
+            Debug.Log($"EventNPC {npcName}: Starting cinematic '{postDialogueCinematic.cinematicName}' in parallel with NPC exit");
+            CinematicPlayerController.StartCinematicOnPlayer(postDialogueCinematic);
         }
 
         // If waiting for a blocking background NPC, don't advance yet

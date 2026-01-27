@@ -7942,7 +7942,7 @@ Transform:
   m_GameObject: {fileID: 390787269}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 22.54, y: 0.536, z: 20.939}
+  m_LocalPosition: {x: 22.54, y: 0.16, z: 20.939}
   m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14206,7 +14206,7 @@ Transform:
   m_GameObject: {fileID: 786509967}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -27.999, y: 0.847, z: -11.631}
+  m_LocalPosition: {x: -27.999, y: 0.41, z: -12.31}
   m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14255,44 +14255,10 @@ MonoBehaviour:
   textMargins: {x: 0, y: 0, z: 0, w: 0}
   overrideLineSpacing: 0
   lineSpacing: 0
-  overrideFontSize: 0
-  fontSize: 8
+  overrideFontSize: 1
+  fontSize: 24
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nVanderbilt family\n\nThere is only
-    one grave under the Vanderbilt name. The plot was selected by the deceased himself,
-    James Vanderbilt. He arrived at the grounds in the late afternoon, alone. The
-    paperwork was complete, neat, and signed without hesitation.\n\nJames Vanderbilt
-    was an older man. Not much is recorded of him. His life was quiet, his presence
-    unremarkable to most. He had a brother, though I have not seen him in years.
-    The man is missing, and I am told little about where he has gone or why he has
-    not returned.\n\nThose closest to James had grown distant in the final years.
-    Whispers of resentment lingered around his household, small acts of cruelty or
-    avoidance left unremarked. Whether these were deserved or not, they left him
-    increasingly isolated, and the quiet around him grew heavier with each passing
-    month."
-  - 'The grave was tended without visitors. When asked if any other family might
-    attend, no answer was given. There is no indication that James had any friends
-    left who felt it necessary to be present.
-
-
-    No additional details were requested.
-    I was told that speculation was unnecessary.
-
-
-    By the time illness struck,
-    there was little to intervene. Letters, parcels, and small gestures of concern
-    went unheeded or ignored. Whether from choice or neglect, the effect was the
-    same.
-
-
-    No objects have appeared at his grave, not even the small, deliberate
-    tokens I have seen elsewhere. His stone bears only his name and dates, as though
-    nothing else of him need be remembered.
-
-
-    James Vanderbilt rests here alone.
-    There is a space nearby for another, should circumstances change, though no instructions
-    have been given.'
+  - It patrols. Corners are death.
 --- !u!23 &786509971
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14519,7 +14485,7 @@ Transform:
   m_GameObject: {fileID: 815585402}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -14.564, y: 0, z: 28.743}
+  m_LocalPosition: {x: -14.564, y: 0.35, z: 28.743}
   m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14560,7 +14526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
   interactionPrompt: Read
-  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  backgroundImage: {fileID: 21300000, guid: ed6e357671b976549ba9b95b5094fa0b, type: 3}
   fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
   overrideAlignment: 0
   textAlignment: 272
@@ -14569,38 +14535,9 @@ MonoBehaviour:
   overrideLineSpacing: 0
   lineSpacing: 0
   overrideFontSize: 0
-  fontSize: 8
+  fontSize: 24
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nHuang family\n\nThere is only one
-    grave under the Huang name.\n\nThis is unusual, given the care taken in its placement.
-    The plot was chosen by Huang Wenqi himself. He arrived with the paperwork already
-    prepared, spoke clearly, and did not linger. Men who do this are not unfamiliar
-    with loss; they are rehearsed. He asked about soil depth and drainage, not about
-    prayers.\n\nThe deceased is Madam Huang. She was brought to the grounds at dawn.
-    No extended family accompanied the body. Only the husband signed the ledger.
-    When I asked whether the son would attend the burial, Wenqi said the family was
-    complete as it stood. He did not look at the coffin when he said this.\n\nNo
-    further details were requested."
-  - "Mei Huang had lived quietly, yet her presence was felt in small ways: neighbors
-    received meals she prepared, stray animals were sheltered under her care, and
-    children in the eastern quarter were tended when others could not. Her deeds
-    were rarely spoken of and, over time, fewer people noticed at all. By the final
-    months, even those who had once counted on her assistance had stopped seeking
-    her out. I do not know whether this absence of attention was intentional, or
-    simply the way the world turned, but the quiet left her more vulnerable than
-    it should have.\n\nAs for the boy\u2019s dishonor, I was given no explanation.
-    The word was used once and never repeated. It was said the matter was finished,
-    yet the family continues to arrange itself around it, as one arranges furniture
-    around a locked door."
-  - "No offerings are made in the son\u2019s name. None are permitted. Still, certain
-    items have appeared near the grave that were not placed there by the groundskeepers:
-    a folded paper charm without writing, a child\u2019s coin worn smooth, once a
-    length of red thread cut cleanly at both ends. I remove these when I find them.
-    They return regardless.\n\nHuang Wenqi comes alone now. He does not stay long.
-    Before leaving, he always checks the stone for damage, as if expecting it to
-    change while he is gone.\n\nThere is room beside Madam Huang\u2019s grave for
-    another coffin. I have been instructed to keep it unassigned.\n\nNo reason was
-    given."
+  - ' '
 --- !u!23 &815585406
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15032,7 +14969,7 @@ Transform:
   m_GameObject: {fileID: 862539186}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 16.81, y: 0, z: -2.06}
+  m_LocalPosition: {x: 18.591, y: -0.663, z: -2.06}
   m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15081,52 +15018,13 @@ MonoBehaviour:
   textMargins: {x: 0, y: 0, z: 0, w: 0}
   overrideLineSpacing: 0
   lineSpacing: 0
-  overrideFontSize: 0
-  fontSize: 8
+  overrideFontSize: 1
+  fontSize: 24
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nAdams family\n\nThere is only one
-    grave under the Adams name.\n\nThe burial was arranged by extended family. The
-    paperwork arrived in stages, amended more than once before it was finalized.
-    No one claimed responsibility for the delays.\n\nThe deceased is Jane Adams.\n\nShe
-    was brought to the grounds in the early morning. No public notice was posted.
-    A small group stood at a distance during the service, close enough to be counted,
-    far enough to avoid conversation. When I asked whether her son would attend,
-    I was told he had been sent elsewhere for the time being. This was said as a
-    kindness."
-  - 'Jane Adams had been well known once. Her name appeared often in correspondence,
-    on guest lists, in shared records that implied trust and familiarity. In the
-    final years, it appeared less. Not because she withdrew entirely, but because
-    others learned to speak around her. Invitations stopped being extended. Conversations
-    ended when she entered a room. I noted this only because it happened gradually,
-    and then all at once.
+  - 'The necessary course is clear.
 
-
-    No explanation was offered for the change. None was
-    required.'
-  - 'In the weeks before her death, arrangements were made quietly. Personal effects
-    were sorted earlier than necessary. Certain matters were settled in advance,
-    as though continuation was no longer assumed. When the end came, it was described
-    as sudden. The signs suggested otherwise.
-
-
-    There were no offerings placed
-    at her grave. Still, the soil has been disturbed more than once, shallow marks
-    that suggest hesitation rather than maintenance. I smooth them out when I notice.
-    They return irregularly.
-
-
-    Her son has not come. I am told he asks questions.
-    I am also told it is better that he not receive answers yet.
-
-
-    Jane Adams
-    rests here alone. Those who once called her a friend do not visit. Those who
-    remain speak of her softly, if at all, and only after ensuring no one else is
-    listening.
-
-
-    There is nothing unusual about this arrangement. I have seen
-    it before.'
+    Those interred under false cause must be
+    exhumed.'
 --- !u!23 &862539190
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24852,55 +24750,14 @@ MonoBehaviour:
   textMargins: {x: 0, y: 0, z: 0, w: 0}
   overrideLineSpacing: 0
   lineSpacing: 0
-  overrideFontSize: 0
-  fontSize: 8
+  overrideFontSize: 1
+  fontSize: 24
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nUnregistered visitors\n\nThere are
-    two women who come to the gates when the light is low and the grounds are quiet
-    enough to hear intent.\n\nThey never arrive together, though each insists the
-    other has already been allowed through.\n\nBoth claim familiarity with the dead.
-    Each knows names not written on stone. When asked how, one answers immediately
-    and incorrectly; the other answers slowly and with details that do not improve
-    clarity. I have learned that correcting either of them is a mistake.\n\nOne always
-    asks about access. Locks, patrols, times when the soil is softest. She speaks
-    of inheritance, of what is owed, of what should not be left unattended. When
-    refused, she smiles as though refusal were expected. She returns anyway."
-  - 'The other asks about boundaries. About what is held and what is trapped. She
-    speaks of weight, pressure, the cost of keeping certain things in place. When
-    refused, she looks surprised, then relieved, then disappointed. She does not
-    argue. She simply adjusts her request the next time.
+  - 'After enough circuits of these halls, certain omissions become impossible to
+    ignore.
 
-
-    I do not record which
-    woman makes which request. It changes depending on who is listening.
-
-
-    One
-    of them is never permitted entry. This decision is simple and does not vary.
-    She knows this and tests it regardless, offering reasons that contradict one
-    another. Sometimes she claims permission already granted. Sometimes she claims
-    necessity. Once, she claimed I had asked her to come.'
-  - 'The other is allowed in under specific circumstances. Weather, time, and recent
-    burials all factor into this. I do not explain my reasoning to her. When turned
-    away, she accepts it as provisional. When admitted, she does not linger.
-
-
-    Each
-    accuses the other of dishonesty. Each provides evidence. Both sets are convincing.
-
-
-    On
-    one occasion, I asked what would happen if they succeeded. One said the grounds
-    would be lighter. The other said they would be poorer. Neither elaborated.
-
-
-    They
-    continue to return. They never acknowledge one another directly. They never fail
-    to mention the other by implication.
-
-
-    I have learned that asking which one
-    tells the truth produces only more visits.'
+    The dead that should be laid to rest here are without the courtesies
+    usually afforded.'
 --- !u!64 &1439586278
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25781,16 +25638,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   showDebugStats: 0
   player_scared: 0
-  player_mean: 0
-  player_stupid: 1
+  player_mean: 1
+  player_stupid: 0
   SpiritAngered: 0
   GraveRobberSetup: 0
   GraveKeeperAngered: 0
   CryptUnlocked: 1
-  ShovelPickedUp: 0
+  ShovelPickedUp: 1
   GraveyardEndingTriggered: 0
   IncorrectDigCount: 0
-  CorrectDigCount: 0
+  CorrectDigCount: 2
 --- !u!1 &1501059110
 GameObject:
   m_ObjectHideFlags: 0
@@ -26883,6 +26740,7 @@ Transform:
   - {fileID: 1726382070}
   - {fileID: 1067697396}
   - {fileID: 1443105338}
+  - {fileID: 1760511947}
   - {fileID: 1643706773}
   - {fileID: 1721069934}
   - {fileID: 51343590}
@@ -31126,6 +30984,119 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757146873}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &1760511946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760511947}
+  - component: {fileID: 1760511950}
+  - component: {fileID: 1760511949}
+  - component: {fileID: 1760511948}
+  m_Layer: 0
+  m_Name: KeeperMeetZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760511947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760511946}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.05, y: 48.46, z: -48.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556411089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1760511948
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760511946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &1760511949
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760511946}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1760511950
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760511946}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1781839593
 GameObject:
   m_ObjectHideFlags: 0
@@ -32617,10 +32588,10 @@ MonoBehaviour:
   textMargins: {x: 0, y: 0, z: 0, w: 0}
   overrideLineSpacing: 0
   lineSpacing: 0
-  overrideFontSize: 0
+  overrideFontSize: 1
   fontSize: 24
   pages:
-  - Not every name corresponds to a life.
+  - Not every name corresponds to a lived life.
 --- !u!23 &1857497927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36828,11 +36799,12 @@ MonoBehaviour:
   reduceFog: 1
   targetFogDensity: 0.02
   fogTransitionDuration: 3
-  escortNPCEvent: {fileID: 11400000, guid: 1f26da2d54acace40a515cca17bcc495, type: 2}
+  escortNPCEvent: {fileID: 11400000, guid: 15b94aa206260f442ba1c082d6f5203c, type: 2}
   escortNPCDelay: 2
   endingTriggerSound: {fileID: 0}
   endingSoundVolume: 1
-  endingDialogue: A cold chill passes.
+  endingDialogue: "An incessant noise you\u2019ve just realized was in your head
+    has passed."
   endingDialogueDuration: 4
 --- !u!4 &2065453694
 Transform:

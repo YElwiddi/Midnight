@@ -58,6 +58,9 @@ public class WaypointData
     [Tooltip("If true, NPC will wait for player interaction (E key) before continuing")]
     public bool waitForInteraction = false;
 
+    [Tooltip("If true, dialogue starts automatically when NPC arrives (no interaction required)")]
+    public bool autoStartDialogue = false;
+
     [Tooltip("Time in seconds before the NPC becomes interactable after arriving (only used if waitForInteraction is true)")]
     [Range(0f, 30f)]
     public float timeUntilInteractable = 0f;
@@ -383,4 +386,12 @@ public class GameEvent : ScriptableObject
     [Header("Background NPCs (Concurrent)")]
     [Tooltip("Additional NPCs that spawn and run concurrently with this event. They don't block the main event flow.")]
     public BackgroundNPCData[] backgroundNPCs;
+
+    [Header("Cinematic Ending (Optional)")]
+    [Tooltip("If set, triggers a cinematic sequence after the NPC completes all waypoints and exits. The player will walk along waypoints cinematically.")]
+    public CinematicEndingData postDialogueCinematic;
+
+    [Header("Player Control")]
+    [Tooltip("If true, disables player movement and camera control when this event starts (useful for cinematic sequences)")]
+    public bool disablePlayerControlOnStart = false;
 }

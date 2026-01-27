@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 
 public class TeleportInteractable : MonoBehaviour, IInteractable
@@ -18,6 +19,10 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     [Header("Ambient Sound")]
     [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
     [SerializeField] private bool destinationIsIndoor = false;
+
+    [Header("Events")]
+    [Tooltip("Fired after the teleport sequence completes (after fade back in)")]
+    public UnityEvent onTeleportComplete;
 
     private static Image fadeOverlay;
     private static Canvas fadeCanvas;

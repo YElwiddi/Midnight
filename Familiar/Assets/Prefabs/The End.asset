@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa51ad19823c8cc4aa75d34f81d7606e, type: 3}
+  m_Name: The End
+  m_EditorClassIdentifier: Assembly-CSharp::CinematicEndingData
+  cinematicName: New Cinematic Ending
+  playerWaypoints:
+  - waypointName: BehindGate
+    moveSpeed: 4
+    waitTime: 0
+  fadeOutDuration: 2
+  delayBeforeFade: 1
+  endingTitle: The End
+  endingDescription: The player lived happily ever after.
+  endingScreenDuration: 8
+  menuSceneName: MainMenu
+  cinematicMusic: {fileID: 0}
+  musicVolume: 0.5
+  fadeOutCurrentAudio: 1
+  audioFadeOutDuration: 1
