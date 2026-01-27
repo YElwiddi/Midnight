@@ -46,6 +46,9 @@ public class SimpleFlashlight : MonoBehaviour
 
     // Killer disable state
     private bool isDisabledByKiller = false;
+
+    // Controls disabled state (for cinematics/events)
+    private bool controlsDisabled = false;
     private string disabledDialogueText;
     private string disabledDialogueSpeaker;
     private float disabledDialogueDuration;
@@ -120,8 +123,8 @@ public class SimpleFlashlight : MonoBehaviour
     
     void Update()
     {
-        // Toggle flashlight with key press
-        if (Input.GetKeyDown(toggleKey))
+        // Toggle flashlight with key press (if controls not disabled)
+        if (!controlsDisabled && Input.GetKeyDown(toggleKey))
         {
             ToggleFlashlight();
         }
@@ -349,5 +352,22 @@ public class SimpleFlashlight : MonoBehaviour
     public bool IsDisabledByKiller()
     {
         return isDisabledByKiller;
+    }
+
+    /// <summary>
+    /// Enable or disable flashlight controls (for cinematics/events).
+    /// When disabled, player cannot toggle the flashlight.
+    /// </summary>
+    public void SetControlsEnabled(bool enabled)
+    {
+        controlsDisabled = !enabled;
+    }
+
+    /// <summary>
+    /// Check if flashlight controls are currently enabled.
+    /// </summary>
+    public bool AreControlsEnabled()
+    {
+        return !controlsDisabled;
     }
 }

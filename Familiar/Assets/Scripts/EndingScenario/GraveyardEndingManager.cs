@@ -33,11 +33,15 @@ public class GraveyardEndingManager : MonoBehaviour
     [Tooltip("Time to transition fog")]
     public float fogTransitionDuration = 3f;
 
-    [Header("Escort NPC Event")]
-    [Tooltip("GameEvent asset for the escort NPC")]
-    public GameEvent escortNPCEvent;
-    [Tooltip("Delay before spawning escort NPC")]
-    public float escortNPCDelay = 2f;
+    [Header("Skybox")]
+    [Tooltip("New skybox material to use when ending triggers (leave empty to keep current)")]
+    public Material endingSkybox;
+    [Tooltip("Time to blend to new skybox (0 = instant)")]
+    public float skyboxTransitionDuration = 2f;
+
+    [Header("Escort NPC Event (Triggered via Ladder)")]
+    [Tooltip("The escort NPC is now triggered by the ladder's OnTeleportComplete event, not here. Configure the ladder's 'Event To Trigger After Teleport' field instead.")]
+    [SerializeField] private string escortNPCNote = "Configure on ladder interactable";
 
     [Header("Audio")]
     [Tooltip("Sound to play when ending triggers")]
@@ -54,6 +58,7 @@ public class GraveyardEndingManager : MonoBehaviour
     // Private state
     private bool endingTriggered = false;
     private float originalFogDensity;
+    private Material originalSkybox;
     private AudioSource audioSource;
 
     void Start()
@@ -61,8 +66,9 @@ public class GraveyardEndingManager : MonoBehaviour
         // Subscribe to correct grave event
         DirtPileInteractable.OnCorrectGraveExhumed += OnCorrectGraveExhumed;
 
-        // Cache original fog density
+        // Cache original fog density and skybox
         originalFogDensity = RenderSettings.fogDensity;
+        originalSkybox = RenderSettings.skybox;
 
         // Get or create audio source
         audioSource = GetComponent<AudioSource>();
@@ -138,12 +144,15 @@ public class GraveyardEndingManager : MonoBehaviour
             StartCoroutine(ReduceFogOverTime());
         }
 
-        // Wait for fog transition and dialogue
-        yield return new WaitForSeconds(Mathf.Max(fogTransitionDuration, endingDialogueDuration));
+        // Change skybox
+        if (endingSkybox != null)
+        {
+            StartCoroutine(TransitionSkybox());
+        }
 
-        // Spawn escort NPC after delay
-        yield return new WaitForSeconds(escortNPCDelay);
-        SpawnEscortNPC();
+        // The escort NPC event is now triggered by the ladder's OnTeleportComplete event
+        // when the player exits the crypt, not here
+        Debug.Log("GraveyardEndingManager: Ending sequence complete. Player can now use the ladder to exit.");
     }
 
     private IEnumerator DespawnKiller()
@@ -238,25 +247,85 @@ public class GraveyardEndingManager : MonoBehaviour
         Debug.Log("GraveyardEndingManager: Fog reduction complete");
     }
 
-    private void SpawnEscortNPC()
+    private IEnumerator TransitionSkybox()
     {
-        if (escortNPCEvent == null)
+        Debug.Log("GraveyardEndingManager: Transitioning skybox");
+
+        if (skyboxTransitionDuration <= 0)
         {
-            Debug.LogWarning("GraveyardEndingManager: No escort NPC event assigned!");
-            return;
+            // Instant swap
+            RenderSettings.skybox = endingSkybox;
+            DynamicGI.UpdateEnvironment();
+            Debug.Log("GraveyardEndingManager: Skybox changed instantly");
+            yield break;
         }
 
-        // Find the GameFlowManager to trigger the event
-        GameFlowManager flowManager = FindObjectOfType<GameFlowManager>();
-        if (flowManager != null)
+        // Gradual transition using exposure (if available)
+        // IMPORTANT: Create material instances to avoid modifying the original assets
+        float elapsed = 0f;
+        float halfDuration = skyboxTransitionDuration / 2f;
+
+        // Create instance of current skybox to avoid modifying the asset
+        Material currentSkybox = RenderSettings.skybox;
+        bool hasExposure = currentSkybox != null && currentSkybox.HasProperty("_Exposure");
+        float originalExposure = hasExposure ? currentSkybox.GetFloat("_Exposure") : 1f;
+
+        if (hasExposure)
         {
-            flowManager.TriggerEvent(escortNPCEvent);
-            Debug.Log("GraveyardEndingManager: Escort NPC event triggered");
+            // Create instance so we don't modify the original asset
+            Material currentInstance = new Material(currentSkybox);
+            RenderSettings.skybox = currentInstance;
+
+            // Fade out current skybox
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / halfDuration;
+                currentInstance.SetFloat("_Exposure", Mathf.Lerp(originalExposure, 0f, t));
+                yield return null;
+            }
+
+            // Destroy the temporary instance
+            Destroy(currentInstance);
         }
         else
         {
-            Debug.LogWarning("GraveyardEndingManager: No GameFlowManager found to trigger escort event!");
+            yield return new WaitForSeconds(halfDuration);
         }
+
+        // Swap to new skybox
+        bool newHasExposure = endingSkybox != null && endingSkybox.HasProperty("_Exposure");
+        float targetExposure = newHasExposure ? endingSkybox.GetFloat("_Exposure") : 1f;
+
+        if (newHasExposure)
+        {
+            // Create instance of new skybox for fade-in
+            Material newInstance = new Material(endingSkybox);
+            newInstance.SetFloat("_Exposure", 0f);
+            RenderSettings.skybox = newInstance;
+            DynamicGI.UpdateEnvironment();
+
+            elapsed = 0f;
+
+            // Fade in new skybox
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / halfDuration;
+                newInstance.SetFloat("_Exposure", Mathf.Lerp(0f, targetExposure, t));
+                yield return null;
+            }
+
+            newInstance.SetFloat("_Exposure", targetExposure);
+            // Keep the instance as the active skybox (it will be cleaned up on scene unload)
+        }
+        else
+        {
+            RenderSettings.skybox = endingSkybox;
+            DynamicGI.UpdateEnvironment();
+        }
+
+        Debug.Log("GraveyardEndingManager: Skybox transition complete");
     }
 
     /// <summary>
@@ -266,6 +335,12 @@ public class GraveyardEndingManager : MonoBehaviour
     {
         endingTriggered = false;
         RenderSettings.fogDensity = originalFogDensity;
+
+        if (originalSkybox != null)
+        {
+            RenderSettings.skybox = originalSkybox;
+            DynamicGI.UpdateEnvironment();
+        }
 
         if (GameManager.Instance != null)
         {

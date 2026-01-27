@@ -97,6 +97,9 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     // Background NPC blocking
     private bool isWaitingForBackgroundNPC = false;
+
+    // Cinematic tracking - prevent multiple triggers
+    private bool cinematicStarted = false;
     #endregion
 
     #region Unity Lifecycle
@@ -198,6 +201,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         typewriterSpeed = dialogueTypewriterSpeed;
         cameraZoom = dialogueCameraZoom;
         eventCameraHeight = dialogueCameraHeight;
+        Debug.Log($"EventNPC Initialize: Received camera settings - height={dialogueCameraHeight}, zoom={dialogueCameraZoom}");
         eventDialogueSoundClip = soundClip;
         eventDialogueSoundVolume = soundVolume;
         eventDialogueSoundBasePitch = soundBasePitch;
@@ -738,6 +742,8 @@ public class EventNPC : MonoBehaviour, IInteractable
         if (waypoint.autoStartDialogue)
         {
             // Auto-start dialogue without requiring interaction
+            // Set state to Idle to prevent CheckArrival() from triggering multiple times
+            currentState = NPCState.Idle;
             Debug.Log($"EventNPC {npcName}: Auto-starting dialogue{trackingStatus}");
             StartCoroutine(AutoStartDialogueAfterDelay(waypoint));
         }
@@ -880,19 +886,23 @@ public class EventNPC : MonoBehaviour, IInteractable
         if (waypoint.cameraHeight >= 0)
         {
             camHeight = waypoint.cameraHeight;
+            Debug.Log($"EventNPC {npcName}: Using WAYPOINT camera height: {camHeight}");
         }
         else if (eventCameraHeight >= 0)
         {
             camHeight = eventCameraHeight;
+            Debug.Log($"EventNPC {npcName}: Using EVENT camera height: {camHeight}");
         }
         else
         {
             bool isLoweredPose = IsLoweredPoseAnimation(currentIdleAnimationBool);
             camHeight = isLoweredPose ? loweredCameraHeight : -1f;
+            Debug.Log($"EventNPC {npcName}: Using DEFAULT camera height: {camHeight} (loweredPose={isLoweredPose})");
         }
 
         // Determine camera zoom: waypoint > event > default
         float camZoom = waypoint.cameraZoom >= 0 ? waypoint.cameraZoom : cameraZoom;
+        Debug.Log($"EventNPC {npcName}: Camera settings - height={camHeight}, zoom={camZoom} (event values: height={eventCameraHeight}, zoom={cameraZoom})");
 
         // Determine dialogue sound: waypoint > event > default
         AudioClip soundClip = waypoint.dialogueSoundClip != null ? waypoint.dialogueSoundClip : eventDialogueSoundClip;
@@ -934,22 +944,12 @@ public class EventNPC : MonoBehaviour, IInteractable
         Debug.Log($"EventNPC {npcName}: Dialogue ended, continuing to next waypoint");
         hasCompletedDialogue = true;
 
-        // Start exit dialogues right after main dialogue ends
-        if (exitDialogues != null && exitDialogues.Length > 0)
+        // Trigger cinematic immediately after dialogue so player and NPC walk together
+        // The cinematic will lock player controls and walk them alongside the NPC
+        if (postDialogueCinematic != null && !cinematicStarted)
         {
-            foreach (var exitDialogue in exitDialogues)
-            {
-                if (!string.IsNullOrEmpty(exitDialogue.dialogueText))
-                {
-                    StartCoroutine(ShowExitDialogue(exitDialogue));
-                }
-            }
-        }
-
-        // Trigger cinematic ending in parallel - NPC keeps walking while player also walks
-        if (postDialogueCinematic != null)
-        {
-            Debug.Log($"EventNPC {npcName}: Starting cinematic '{postDialogueCinematic.cinematicName}' in parallel with NPC exit");
+            cinematicStarted = true;
+            Debug.Log($"EventNPC {npcName}: Starting cinematic '{postDialogueCinematic.cinematicName}' - player and NPC will walk together");
             CinematicPlayerController.StartCinematicOnPlayer(postDialogueCinematic);
         }
 
@@ -1026,6 +1026,18 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         // Clear any idle animation before finishing
         ClearCurrentIdleAnimation();
+
+        // Start exit dialogues when NPC finishes all waypoints
+        if (exitDialogues != null && exitDialogues.Length > 0)
+        {
+            foreach (var exitDialogue in exitDialogues)
+            {
+                if (!string.IsNullOrEmpty(exitDialogue.dialogueText))
+                {
+                    StartCoroutine(ShowExitDialogue(exitDialogue));
+                }
+            }
+        }
 
         switch (exitBehavior)
         {

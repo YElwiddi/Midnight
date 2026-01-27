@@ -17,8 +17,8 @@ MonoBehaviour:
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 3
   spawnHeightOffset: 0
-  spawnPointName: BehindGate
-  facePlayerOnSpawn: 0
+  spawnPointName: NPCGatePoint
+  facePlayerOnSpawn: 1
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
   useCustomRotation: 0
@@ -39,8 +39,8 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
-    cameraHeight: 0
-    cameraZoom: 0
+    cameraHeight: -1
+    cameraZoom: -1
     dialogueSoundClip: {fileID: 0}
     dialogueSoundVolume: 0
     dialogueSoundBasePitch: 0
@@ -76,45 +76,8 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 0
     inkDialogue: {fileID: 0}
     dialogueKnot: 
-    cameraHeight: 0
-    cameraZoom: 0
-    dialogueSoundClip: {fileID: 0}
-    dialogueSoundVolume: 0
-    dialogueSoundBasePitch: 0
-    dialogueSoundPitchVariation: 0
-    dialogueSoundEveryN: 0
-    movementAnimationTrigger: 
-    arrivalAnimationTrigger: 
-    idleAnimationBool: 
-    branchVariable: 
-    branchValue: 
-    branchToWaypoint: 
-    waypointId: 
-    proximitySound: {fileID: 0}
-    proximitySoundRange: 0
-    proximitySoundVolume: 0
-    proximitySoundTrigger: 0
-    requirePlayerLooking: 0
-    proximitySoundConditionVariable: 
-    proximitySoundConditionValue: 
-  - usePlayerRelativePosition: 0
-    distanceFromPlayer: 0
-    heightOffset: 0
-    waypointName: NPCCenterPoint
-    moveSpeed: 6.4
-    waitForInteraction: 0
-    autoStartDialogue: 0
-    timeUntilInteractable: 0
-    waitingDialogueText: 
-    waitingDialogueSpeaker: 
-    waitTime: 0
-    facePlayerWhileWaiting: 0
-    backToPlayerWhileWaiting: 0
-    playerTrackingRotationSpeed: 0
-    inkDialogue: {fileID: 0}
-    dialogueKnot: 
-    cameraHeight: 0
-    cameraZoom: 0
+    cameraHeight: -1
+    cameraZoom: -1
     dialogueSoundClip: {fileID: 0}
     dialogueSoundVolume: 0
     dialogueSoundBasePitch: 0
@@ -137,8 +100,8 @@ MonoBehaviour:
   inkDialogue: {fileID: 4900000, guid: 85d1c4c9163b6bd409a250f21bc4efb3, type: 3}
   dialogueKnot: 
   typewriterSpeed: 61
-  cameraHeight: -1
-  cameraZoom: -1
+  cameraHeight: 2
+  cameraZoom: 40
   dialogueSoundClip: {fileID: 0}
   dialogueSoundVolume: -1
   dialogueSoundBasePitch: -1

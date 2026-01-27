@@ -541,6 +541,7 @@ public class GameFlowManager : MonoBehaviour
         currentNPC.OnWaypointReached += HandleMainNPCWaypointReached;
 
         // Initialize the NPC
+        Debug.Log($"GameFlowManager: Initializing NPC '{currentEvent.eventName}' with camera settings - height={currentEvent.cameraHeight}, zoom={currentEvent.cameraZoom}");
         currentNPC.Initialize(
             currentEvent.waypoints,
             currentEvent.inkDialogue,
@@ -609,6 +610,26 @@ public class GameFlowManager : MonoBehaviour
         {
             playerEvents.DisableAllInput();
             Debug.Log("GameFlowManager: Player control disabled via PlayerEvents component");
+        }
+
+        // Hide crosshair
+        CrosshairManager crosshair = FindFirstObjectByType<CrosshairManager>();
+        if (crosshair != null)
+        {
+            crosshair.Hide();
+            Debug.Log("GameFlowManager: Crosshair hidden");
+        }
+        else
+        {
+            Debug.LogWarning("GameFlowManager: CrosshairManager not found!");
+        }
+
+        // Disable flashlight controls
+        SimpleFlashlight flashlight = FindFirstObjectByType<SimpleFlashlight>();
+        if (flashlight != null)
+        {
+            flashlight.SetControlsEnabled(false);
+            Debug.Log("GameFlowManager: Flashlight controls disabled");
         }
     }
 

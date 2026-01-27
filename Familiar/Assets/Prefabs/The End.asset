@@ -15,10 +15,10 @@ MonoBehaviour:
   cinematicName: New Cinematic Ending
   playerWaypoints:
   - waypointName: BehindGate
-    moveSpeed: 4
+    moveSpeed: 4.53
     waitTime: 0
   fadeOutDuration: 2
-  delayBeforeFade: 1
+  delayBeforeFade: 0
   endingTitle: The End
   endingDescription: The player lived happily ever after.
   endingScreenDuration: 8

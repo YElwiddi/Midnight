@@ -278,6 +278,20 @@ public class CinematicPlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // Hide crosshair
+        CrosshairManager crosshair = FindFirstObjectByType<CrosshairManager>();
+        if (crosshair != null)
+        {
+            crosshair.Hide();
+        }
+
+        // Disable flashlight controls
+        SimpleFlashlight flashlight = FindFirstObjectByType<SimpleFlashlight>();
+        if (flashlight != null)
+        {
+            flashlight.SetControlsEnabled(false);
+        }
+
         Debug.Log("CinematicPlayerController: Player input disabled");
     }
 

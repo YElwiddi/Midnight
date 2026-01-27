@@ -43,6 +43,10 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [Tooltip("Called when the teleport completes successfully")]
     public UnityEvent OnTeleportComplete;
 
+    [Header("Post-Teleport Game Event")]
+    [Tooltip("Optional: A GameEvent to trigger after teleportation completes (e.g., escort NPC for ending sequence)")]
+    [SerializeField] private GameEvent eventToTriggerAfterTeleport;
+
     private static Image fadeOverlay;
     private static Canvas fadeCanvas;
     private static bool isTransitioning = false;
@@ -134,15 +138,40 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
 
         yield return StartCoroutine(Fade(1f, 0f, halfDuration));
 
-        if (movement != null)
+        // If we're triggering a GameEvent, don't re-enable player input
+        // The GameEvent's disablePlayerControlOnStart will handle controls
+        if (eventToTriggerAfterTeleport == null)
         {
-            movement.EnableAllInput();
+            if (movement != null)
+            {
+                movement.EnableAllInput();
+            }
         }
 
         isTransitioning = false;
 
         // Fire teleport complete event
         OnTeleportComplete?.Invoke();
+
+        // Trigger the post-teleport GameEvent if configured
+        if (eventToTriggerAfterTeleport != null)
+        {
+            GameFlowManager flowManager = FindFirstObjectByType<GameFlowManager>();
+            if (flowManager != null)
+            {
+                Debug.Log($"LockedTeleportInteractable: Triggering post-teleport event '{eventToTriggerAfterTeleport.eventName}'");
+                flowManager.TriggerEvent(eventToTriggerAfterTeleport);
+            }
+            else
+            {
+                Debug.LogWarning("LockedTeleportInteractable: No GameFlowManager found to trigger post-teleport event!");
+                // Re-enable input since we couldn't trigger the event
+                if (movement != null)
+                {
+                    movement.EnableAllInput();
+                }
+            }
+        }
     }
 
     private void EnsureFadeOverlay()
