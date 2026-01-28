@@ -132,6 +132,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets all game state to initial values. Called when returning to main menu.
+    /// </summary>
+    public void ResetAllFlags()
+    {
+        // Reset player stats
+        player_scared = 0;
+        player_mean = 0;
+        player_stupid = 0;
+        SpiritAngered = 0;
+        GraveRobberSetup = 0;
+        GraveKeeperAngered = 0;
+
+        // Reset boolean flags
+        CryptUnlocked = false;
+        ShovelPickedUp = false;
+        GraveyardEndingTriggered = false;
+
+        // Reset dirt pile stats
+        IncorrectDigCount = 0;
+        CorrectDigCount = 0;
+
+        Debug.Log("GameManager: All flags and stats reset");
+    }
+
     // Method to display current stats (for debugging)
     private void OnGUI()
     {

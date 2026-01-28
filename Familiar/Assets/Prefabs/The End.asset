@@ -22,7 +22,7 @@ MonoBehaviour:
   endingTitle: The End
   endingDescription: The player lived happily ever after.
   endingScreenDuration: 8
-  menuSceneName: MainMenu
+  menuSceneName: Start Menu Scene
   cinematicMusic: {fileID: 0}
   musicVolume: 0.5
   fadeOutCurrentAudio: 1

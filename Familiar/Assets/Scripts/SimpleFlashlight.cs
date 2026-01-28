@@ -370,4 +370,24 @@ public class SimpleFlashlight : MonoBehaviour
     {
         return !controlsDisabled;
     }
+
+    /// <summary>
+    /// Re-enables the flashlight after it was disabled by a killer.
+    /// Used by checkpoint respawn system.
+    /// </summary>
+    public void ReEnableAfterKillerDisable()
+    {
+        if (!isDisabledByKiller) return;
+
+        isDisabledByKiller = false;
+        disabledDialogueText = null;
+        disabledDialogueSpeaker = null;
+        lastDialogueTime = -999f;
+
+        // Re-enable controls
+        controlsDisabled = false;
+        enabled = true;
+
+        Debug.Log("SimpleFlashlight: Re-enabled after killer disable");
+    }
 }

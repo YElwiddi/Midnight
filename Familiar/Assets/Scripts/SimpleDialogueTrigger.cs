@@ -96,6 +96,14 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
             float delay = 1f / typewriterSpeed;
             for (int i = 1; i <= text.Length; i++)
             {
+                // Stop if DialogueManager has taken over
+                DialogueManager dm = DialogueManager.GetInstance();
+                if (dm != null && dm.IsDialoguePlaying())
+                {
+                    isDialogueLocked = false;
+                    yield break;
+                }
+
                 ui.SetDialogueText(text.Substring(0, i), speakerName);
                 yield return new WaitForSeconds(delay);
             }
@@ -107,7 +115,12 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(duration);
 
-        ui.Hide();
+        // Only hide if DialogueManager hasn't taken over
+        DialogueManager dialogueManager = DialogueManager.GetInstance();
+        if (dialogueManager == null || !dialogueManager.IsDialoguePlaying())
+        {
+            ui.Hide();
+        }
         isDialogueLocked = false;
     }
 
@@ -177,6 +190,14 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
             float delay = 1f / typewriterSpeed;
             for (int i = 1; i <= dialogueText.Length; i++)
             {
+                // Stop if DialogueManager has taken over
+                DialogueManager dm = DialogueManager.GetInstance();
+                if (dm != null && dm.IsDialoguePlaying())
+                {
+                    isDialogueLocked = false;
+                    yield break;
+                }
+
                 dialogueUI.SetDialogueText(dialogueText.Substring(0, i), speaker);
                 yield return new WaitForSeconds(delay);
             }
@@ -190,7 +211,12 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         // Wait for duration after text is fully displayed
         yield return new WaitForSeconds(displayDuration);
 
-        dialogueUI.Hide();
+        // Only hide if DialogueManager hasn't taken over
+        DialogueManager dialogueManager = DialogueManager.GetInstance();
+        if (dialogueManager == null || !dialogueManager.IsDialoguePlaying())
+        {
+            dialogueUI.Hide();
+        }
         isDialogueLocked = false;
     }
 

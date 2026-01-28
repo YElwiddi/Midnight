@@ -537,6 +537,9 @@ public class KillerNPC : MonoBehaviour
         killScanlineIntensity = killerEvent.killScanlineIntensity;
         killTrackingNoise = killerEvent.killTrackingNoise;
 
+        // Game over settings
+        gameOverSceneName = killerEvent.gameOverSceneName;
+
         // Ambush settings
         useAmbushMode = killerEvent.useAmbushMode;
         idleAnimationBool = killerEvent.idleAnimationBool;
@@ -1075,6 +1078,17 @@ public class KillerNPC : MonoBehaviour
             gameOverUI.alpha = 1f;
             gameOverUI.gameObject.SetActive(true);
         }
+
+        // Reset game state before loading new scene
+        // GameManager persists across scenes (DontDestroyOnLoad), so reset it here
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetAllFlags();
+            Debug.Log("KillerNPC: GameManager stats reset");
+        }
+
+        // Reset time scale in case slow motion was active
+        Time.timeScale = 1f;
 
         // Load game over scene if specified
         if (!string.IsNullOrEmpty(gameOverSceneName))

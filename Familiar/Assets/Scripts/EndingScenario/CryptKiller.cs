@@ -412,6 +412,13 @@ public class CryptKiller : MonoBehaviour
         // Check if flashlight is on
         bool flashlightOn = playerFlashlight != null && playerFlashlight.IsFlashlightOn();
 
+        // If direct pursuit is enabled (from 3 incorrect digs), always chase
+        if (forceDirectPursuit)
+        {
+            UpdatePersistentStalkerChase();
+            return;
+        }
+
         if (flashlightOn)
         {
             // Flashlight ON: Chase the player directly with running animation
@@ -441,9 +448,6 @@ public class CryptKiller : MonoBehaviour
         {
             stalkerMode = StalkerMode.Chasing;
 
-            // Set chase speed
-            float chaseSpeed = config != null ? config.chaseSpeed : 5f;
-            navAgent.speed = chaseSpeed;
             navAgent.acceleration = 1000f;
             navAgent.angularSpeed = 1000f;
             navAgent.autoBraking = false;
@@ -457,8 +461,12 @@ public class CryptKiller : MonoBehaviour
                 animator.SetBool(config.chaseAnimationBool, true);
             }
 
-            Debug.Log("CryptKiller: Persistent Stalker - Flashlight ON, chasing player!");
+            Debug.Log($"CryptKiller: Persistent Stalker - chasing player! (forceDirectPursuit={forceDirectPursuit})");
         }
+
+        // Always update chase speed (in case speed multiplier changed from incorrect digs)
+        float chaseSpeed = config != null ? config.chaseSpeed : 5f;
+        navAgent.speed = chaseSpeed * speedMultiplier;
 
         // Constantly move toward player and remember their position
         stalkerLastKnownPlayerPos = playerTransform.position;

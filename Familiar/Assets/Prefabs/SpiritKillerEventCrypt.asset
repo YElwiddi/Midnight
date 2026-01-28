@@ -62,6 +62,7 @@ MonoBehaviour:
   killNoiseIntensity: 0.481
   killScanlineIntensity: 0.957
   killTrackingNoise: 0.1962
+  gameOverSceneName: Start Menu Scene
   exitBehavior: 0
   exitPointName: KillerExitPoint
   inkDialogue: {fileID: 0}

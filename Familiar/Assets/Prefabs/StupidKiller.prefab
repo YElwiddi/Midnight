@@ -171,6 +171,7 @@ MonoBehaviour:
   screenEffectDelay: 0
   gameOverUI: {fileID: 0}
   gameOverSceneName: 
+  useCheckpointRespawn: 1
 --- !u!1001 &4066888906248753129
 PrefabInstance:
   m_ObjectHideFlags: 0

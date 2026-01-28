@@ -194,6 +194,10 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 0.2f)]
     public float killTrackingNoise = 0.1f;
 
+    [Header("Game Over")]
+    [Tooltip("Scene to load after jumpscare completes (e.g., 'MainMenu'). Leave empty to stay in current scene.")]
+    public string gameOverSceneName = "MainMenu";
+
     [Header("Exit Behavior")]
     [Tooltip("What happens to the killer NPC after completing all waypoints (if player survives)")]
     public NPCExitBehavior exitBehavior = NPCExitBehavior.Destroy;

@@ -229,6 +229,72 @@ public class EndingScenarioManager : MonoBehaviour
         OnCryptEntered();
     }
 
+    /// <summary>
+    /// Respawns the killer using the same dominant stat that was determined on crypt entry.
+    /// Used by checkpoint respawn system.
+    /// </summary>
+    public void RespawnKiller()
+    {
+        // Destroy existing killer if present
+        if (spawnedKiller != null)
+        {
+            Destroy(spawnedKiller);
+            spawnedKiller = null;
+        }
+
+        // Also clean up any killers that might exist
+        CryptKiller[] existingKillers = FindObjectsOfType<CryptKiller>();
+        foreach (var killer in existingKillers)
+        {
+            Destroy(killer.gameObject);
+        }
+
+        // If we haven't started yet (shouldn't happen), use current stats
+        if (string.IsNullOrEmpty(lastDominantStat))
+        {
+            if (GameManager.Instance != null)
+            {
+                int meanStat = GameManager.Instance.player_mean;
+                int scaredStat = GameManager.Instance.player_scared;
+                int stupidStat = GameManager.Instance.player_stupid;
+                lastDominantStat = GetDominantStat(meanStat, scaredStat, stupidStat);
+            }
+            else
+            {
+                lastDominantStat = "mean"; // Default fallback
+            }
+        }
+
+        Debug.Log($"EndingScenarioManager: Respawning killer for dominant stat '{lastDominantStat}'");
+        SpawnKiller(lastDominantStat);
+
+        // Configure the spawned killer for checkpoint respawn
+        if (spawnedKiller != null)
+        {
+            KillerJumpscare jumpscare = spawnedKiller.GetComponent<KillerJumpscare>();
+            if (jumpscare != null)
+            {
+                jumpscare.SetUseCheckpointRespawn(true);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Resets the ending scenario state so it can be triggered again.
+    /// Used by checkpoint respawn system.
+    /// </summary>
+    public void ResetForRespawn()
+    {
+        // Don't reset hasStarted - we want to keep the same dominant stat
+        // Just clean up the current killer reference
+        spawnedKiller = null;
+    }
+
+    /// <summary>
+    /// Gets the last dominant stat that was used to spawn the killer.
+    /// </summary>
+    public string GetLastDominantStat() => lastDominantStat;
+
     private void OnDrawGizmosSelected()
     {
         // Draw spawn point

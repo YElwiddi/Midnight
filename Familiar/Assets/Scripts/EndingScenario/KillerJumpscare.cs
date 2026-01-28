@@ -69,6 +69,10 @@ public class KillerJumpscare : MonoBehaviour
     [SerializeField] private CanvasGroup gameOverUI;
     [SerializeField] private string gameOverSceneName = "";
 
+    [Header("Checkpoint Respawn")]
+    [Tooltip("If true, respawns at checkpoint instead of loading a scene. Requires CryptCheckpointManager in scene.")]
+    [SerializeField] private bool useCheckpointRespawn = false;
+
     // Runtime references
     private Transform playerTransform;
     private Camera playerCamera;
@@ -558,16 +562,43 @@ public class KillerJumpscare : MonoBehaviour
     {
         Debug.Log("KillerJumpscare: Game Over!");
 
+        // Check for checkpoint respawn first
+        if (useCheckpointRespawn && CryptCheckpointManager.Instance != null)
+        {
+            Debug.Log("KillerJumpscare: Using checkpoint respawn");
+            CryptCheckpointManager.Instance.RespawnAtCheckpoint();
+            return;
+        }
+
         if (gameOverUI != null)
         {
             gameOverUI.alpha = 1f;
             gameOverUI.gameObject.SetActive(true);
         }
 
+        // Reset game state before loading new scene
+        // GameManager persists across scenes (DontDestroyOnLoad), so reset it here
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetAllFlags();
+            Debug.Log("KillerJumpscare: GameManager stats reset");
+        }
+
+        // Reset time scale in case slow motion was active
+        Time.timeScale = 1f;
+
         if (!string.IsNullOrEmpty(gameOverSceneName))
         {
             SceneManager.LoadScene(gameOverSceneName);
         }
+    }
+
+    /// <summary>
+    /// Set whether this jumpscare should use checkpoint respawn instead of scene loading.
+    /// </summary>
+    public void SetUseCheckpointRespawn(bool value)
+    {
+        useCheckpointRespawn = value;
     }
 
     private Transform FindChildRecursive(Transform parent, string childName)
