@@ -6,7 +6,8 @@
       "Bash(git add:*)",
       "Bash(cat:*)",
       "Bash(grep:*)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

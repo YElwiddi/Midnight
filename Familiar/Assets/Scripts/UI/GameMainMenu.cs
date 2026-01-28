@@ -23,6 +23,10 @@ public class GameMainMenu : MonoBehaviour
     public float fadeOutDuration = 1f;
     public Image fadeOverlay;
 
+    [Header("Intro Text")]
+    [Tooltip("Optional intro text UI to display after fade, before loading game")]
+    public IntroTextUI introTextUI;
+
     [Header("Audio")]
     public AudioSource menuMusic;
     public AudioClip buttonClickSound;
@@ -156,7 +160,20 @@ public class GameMainMenu : MonoBehaviour
             }
         }
 
-        // Load game scene
+        // Show intro text if configured, otherwise load scene directly
+        if (introTextUI != null)
+        {
+            Debug.Log("GameMainMenu: Showing intro text");
+            introTextUI.Show(LoadGameScene);
+        }
+        else
+        {
+            LoadGameScene();
+        }
+    }
+
+    private void LoadGameScene()
+    {
         Debug.Log($"GameMainMenu: Loading scene '{gameSceneName}'");
         SceneManager.LoadScene(gameSceneName);
     }

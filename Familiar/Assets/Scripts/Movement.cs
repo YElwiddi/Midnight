@@ -415,4 +415,25 @@ public class Movement : MonoBehaviour
         targetCameraFOV = defaultCameraFOV;
         useCustomZoom = false;
     }
+
+    /// <summary>
+    /// Syncs the internal rotation tracking with the camera's current rotation.
+    /// Call this after programmatically changing the camera rotation (e.g., after a cinematic).
+    /// </summary>
+    public void SyncRotationFromCamera()
+    {
+        if (playerCamera != null)
+        {
+            rotationX = playerCamera.transform.localEulerAngles.x;
+
+            // Adjust angles over 180 to be negative for proper clamping
+            if (rotationX > 180)
+            {
+                rotationX -= 360;
+            }
+
+            // Ensure rotation is within bounds
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        }
+    }
 }
