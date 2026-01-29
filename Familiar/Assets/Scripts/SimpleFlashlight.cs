@@ -116,9 +116,9 @@ public class SimpleFlashlight : MonoBehaviour
             Debug.LogError("SimpleFlashlight: No camera found in the scene!");
         }
         
-        // Set initial state
+        // Set initial state (without playing sound)
         isOn = startsEnabled;
-        SetFlashlightState(isOn);
+        SetFlashlightState(isOn, playSound: false);
     }
     
     void Update()
@@ -271,7 +271,7 @@ public class SimpleFlashlight : MonoBehaviour
     }
     
     // Set the flashlight to a specific state
-    public void SetFlashlightState(bool state)
+    public void SetFlashlightState(bool state, bool playSound = true)
     {
         isOn = state;
 
@@ -287,7 +287,7 @@ public class SimpleFlashlight : MonoBehaviour
             }
 
             // Play appropriate sound
-            if (audioSource != null)
+            if (playSound && audioSource != null)
             {
                 if (isOn && toggleOnSound != null)
                 {

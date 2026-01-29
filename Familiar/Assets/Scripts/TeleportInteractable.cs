@@ -98,6 +98,9 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
         }
 
         isTransitioning = false;
+
+        // Fire completion event
+        onTeleportComplete?.Invoke();
     }
 
     private void EnsureFadeOverlay()

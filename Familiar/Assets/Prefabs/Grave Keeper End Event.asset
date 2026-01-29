@@ -64,7 +64,7 @@ MonoBehaviour:
     distanceFromPlayer: 0
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 3.8
+    moveSpeed: 6.7
     waitForInteraction: 0
     autoStartDialogue: 0
     timeUntilInteractable: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
     requirePlayerLooking: 0
     proximitySoundConditionVariable: 
     proximitySoundConditionValue: 
-  inkDialogue: {fileID: 4900000, guid: 85d1c4c9163b6bd409a250f21bc4efb3, type: 3}
+  inkDialogue: {fileID: 4900000, guid: 1acff989910a4c3429e6c885e29df3ed, type: 3}
   dialogueKnot: 
   typewriterSpeed: 61
   cameraHeight: 2
