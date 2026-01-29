@@ -64,6 +64,7 @@ public class GameFlowManager : MonoBehaviour
     private Coroutine waitingForSpawnConditionsCoroutine;
     private bool isWaitingForSpawnConditions = false;
     private List<EventNPC> blockingBackgroundNPCs = new List<EventNPC>();
+    private bool hasStartedFirstEvent = false;
 
     // Killer event tracking
     private int currentKillerEventIndex = 0;
@@ -102,10 +103,17 @@ public class GameFlowManager : MonoBehaviour
 
     #region Public Methods
     /// <summary>
-    /// Starts the first event in the queue.
+    /// Starts the first event in the queue. Only runs once per game session.
     /// </summary>
     public void StartFirstEvent()
     {
+        if (hasStartedFirstEvent)
+        {
+            Debug.Log("GameFlowManager: StartFirstEvent called but already started, ignoring.");
+            return;
+        }
+
+        hasStartedFirstEvent = true;
         currentEventIndex = 0;
         previouslySelectedEvents.Clear();
         StartCurrentEvent();
