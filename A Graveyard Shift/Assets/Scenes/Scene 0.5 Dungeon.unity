@@ -6057,14 +6057,14 @@ MonoBehaviour:
   overrideFontSize: 1
   fontSize: 18
   pages:
-  - "Recovered Field Note, Informal Designation:\n\u201CThe Friend\u201D\n\nToday
-    I noticed unusual changes. Temperatures dropped suddenly without explanation.
-    Small objects were found displaced as though something had passed through. Movements
-    were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult
-    to describe, of being observed. Shadows appear heavier, and sometimes I feel
-    a presence just beyond the edge of vision. It moves cautiously, avoiding direct
-    light, and does not make sound unless provoked. The pattern is inconsistent,
-    yet deliberate enough to suggest awareness."
+  - "Recovered Field Note, Informal Designation:\n\u201CThe Friend\u201D\nStrange
+    encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without
+    explanation. Small objects were found displaced as though something had passed
+    through. Movements were slight, almost imperceptible, but persistent.\n\nThere
+    is a sensation, difficult to describe, of being observed. Shadows appear heavier,
+    and sometimes I feel a presence just beyond the edge of vision. It moves cautiously,
+    avoiding direct light, and does not make sound unless provoked. The pattern is
+    inconsistent, yet deliberate enough to suggest awareness."
   - 'I observed subtle traces that cannot be accounted for. Surfaces that were previously
     still show signs of disturbance. The air often feels dense afterward, as if retaining
     a memory of motion. The changes are not violent but are repeated with unnerving
@@ -8623,9 +8623,8 @@ MonoBehaviour:
     grounds for years, and yet the air changes when it passes. It is not seen, not
     in the way one expects a creature to appear. Only the silence gives it away.\n\nThose
     it chooses do not flee. There is no chase. There is no struggle. By the time
-    anyone notices, it has already claimed them. What I find afterward is always
-    the same: earth pressed flat, small items left untouched, and the unmistakable
-    sense that the space itself has been violated."
+    anyone notices, it has already claimed them. There is no mistaking it; this entity
+    appears to be the most dangerous among the documented."
   - "It is drawn to strength. The capable, the defiant, the prepared, they are its
     prey. The weak may go unnoticed, but the strong... those it deems worthy, are
     ended with precision. No survivor can recount the encounter. Only the evidence
@@ -34138,15 +34137,15 @@ MonoBehaviour:
   overrideFontSize: 1
   fontSize: 18
   pages:
-  - "Recovered Field Note, Provisional Designation:\n\u201CThe Grave Robber\u201D\n\nA
-    recurring human presence has been connected to the majority of grave disturbances.
-    The individual is believed to be a local resident who acts as the primary point
-    of contact for outsiders engaging in theft and desecration. His true identity
-    remains unknown.\n\nHe does not work alone. His accomplices are frequently observed
-    scouting the cemetery during off hours, testing sightlines and response times.
-    These individuals retreat when illuminated and have been successfully deterred
-    with sustained use of flashlights. Constant vigilance is required, as their activity
-    is ongoing and deliberate."
+  - "Recovered Field Note, Provisional Designation:\n\u201CThe Grave Robber\u201D\nSource
+    redacted\n\nA recurring human presence has been connected to the majority of
+    grave disturbances. The individual is believed to be a local resident who acts
+    as the primary point of contact for outsiders engaging in theft and desecration.
+    His true identity remains unknown.\n\nHe does not work alone. His accomplices
+    are frequently observed scouting the cemetery during off hours, testing sightlines
+    and response times. These individuals retreat when illuminated and have been
+    successfully deterred with sustained use of flashlights. Constant vigilance is
+    required, as their activity is ongoing and deliberate."
   - 'Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns,
     and access routes, despite having no prior connection to the area. This information
     is presumed to be supplied by him. Activity increases sharply following his arrival
