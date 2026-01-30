@@ -333,8 +333,17 @@ public class Movement : MonoBehaviour
         StopFootstepAudio();
         canMove = true;
         canControlCamera = true;
-        canRun = true;
         canJump = true;
+
+        // Only re-enable sprint if sanity system hasn't disabled it
+        if (SanityEffectsController.Instance != null && SanityEffectsController.Instance.IsSprintDisabledBySanity)
+        {
+            canRun = false;
+        }
+        else
+        {
+            canRun = true;
+        }
     }
     
     // Public method to disable only camera control

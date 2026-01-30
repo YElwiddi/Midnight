@@ -8,6 +8,7 @@ public class GameEventsManager : MonoBehaviour
     public DialogueEvents dialogueEvents;
     public GameFlowEvents gameFlowEvents;
     public SideGameEvents sideGameEvents;
+    public SanityEvents sanityEvents;
 
     private void Awake(){
         if (instance != null){
@@ -18,5 +19,6 @@ public class GameEventsManager : MonoBehaviour
         dialogueEvents = new DialogueEvents();
         gameFlowEvents = new GameFlowEvents();
         sideGameEvents = new SideGameEvents();
+        sanityEvents = new SanityEvents();
     }
 }

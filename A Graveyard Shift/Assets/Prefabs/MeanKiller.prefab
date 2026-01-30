@@ -163,7 +163,7 @@ MonoBehaviour:
   jumpscareFlashlightRange: 15
   intensifyVHSOnKill: 1
   killGlitchIntensity: 0.7
-  killRGBShift: 0.04
+  killRGBShift: 0
   killNoiseIntensity: 0.25
   killScanlineIntensity: 0.8
   killTrackingNoise: 0.1

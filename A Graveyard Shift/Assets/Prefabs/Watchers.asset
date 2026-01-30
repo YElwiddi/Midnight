@@ -47,7 +47,7 @@ MonoBehaviour:
   retreatMode: 1
   retreatDirection: {x: 0, y: 0, z: -1}
   retreatTargetName: 
-  retreatSpeed: 5
+  retreatSpeed: 8
   retreatDistance: 10
   fadeOnRetreat: 1
   fadeDuration: 0.82
@@ -61,4 +61,4 @@ MonoBehaviour:
   retreatSoundVolume: 0.7
   playerTrackingSpeed: 90
   staringAnimationBool: 
-  eventTimeout: 60
+  eventTimeout: 240

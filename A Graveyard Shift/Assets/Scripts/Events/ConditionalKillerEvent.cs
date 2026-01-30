@@ -22,6 +22,28 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Value to compare against")]
     public int thresholdValue = 1;
 
+    [Header("Sanity Condition (Optional)")]
+    [Tooltip("If true, also checks sanity level. Event fires if EITHER stat OR sanity condition is met.")]
+    public bool checkSanity = false;
+
+    [Tooltip("How to compare sanity value")]
+    public StatComparison sanityComparison = StatComparison.LessOrEqual;
+
+    [Tooltip("Sanity threshold value (0-100)")]
+    [Range(0, 100)]
+    public int sanityThreshold = 25;
+
+    [Header("Graveyard Protection Condition (Optional)")]
+    [Tooltip("If true, also checks graveyard protection. Event fires if ANY enabled condition is met.")]
+    public bool checkGraveyardProtection = false;
+
+    [Tooltip("How to compare graveyard protection value")]
+    public StatComparison protectionComparison = StatComparison.LessOrEqual;
+
+    [Tooltip("Graveyard protection threshold value (0-100)")]
+    [Range(0, 100)]
+    public int protectionThreshold = 25;
+
     [Header("NPC Configuration")]
     [Tooltip("The killer NPC prefab to spawn for this event")]
     public GameObject killerPrefab;
@@ -220,37 +242,130 @@ public class ConditionalKillerEvent : ScriptableObject
 
     /// <summary>
     /// Checks if the condition for this event is met.
-    /// Returns true if the stat value passes the threshold comparison.
+    /// Returns true if ANY enabled condition passes (OR logic).
+    /// Conditions: stat check, sanity check, graveyard protection check.
     /// </summary>
     public bool CheckCondition()
     {
-        if (string.IsNullOrEmpty(statName))
+        bool hasAnyCondition = false;
+        bool anyConditionPassed = false;
+
+        // Check stat condition
+        if (!string.IsNullOrEmpty(statName))
         {
-            Debug.LogWarning($"ConditionalKillerEvent '{eventName}': No stat name specified, condition passes by default");
+            hasAnyCondition = true;
+            bool statResult = CheckStatCondition();
+            if (statResult)
+            {
+                anyConditionPassed = true;
+                Debug.Log($"ConditionalKillerEvent '{eventName}': Stat condition PASSED");
+            }
+        }
+
+        // Check sanity condition
+        if (checkSanity)
+        {
+            hasAnyCondition = true;
+            bool sanityResult = CheckSanityCondition();
+            if (sanityResult)
+            {
+                anyConditionPassed = true;
+                Debug.Log($"ConditionalKillerEvent '{eventName}': Sanity condition PASSED");
+            }
+        }
+
+        // Check graveyard protection condition
+        if (checkGraveyardProtection)
+        {
+            hasAnyCondition = true;
+            bool protectionResult = CheckProtectionCondition();
+            if (protectionResult)
+            {
+                anyConditionPassed = true;
+                Debug.Log($"ConditionalKillerEvent '{eventName}': Protection condition PASSED");
+            }
+        }
+
+        // If no conditions are configured, pass by default
+        if (!hasAnyCondition)
+        {
+            Debug.LogWarning($"ConditionalKillerEvent '{eventName}': No conditions configured, passing by default");
             return true;
         }
 
+        Debug.Log($"ConditionalKillerEvent '{eventName}': Final result = {anyConditionPassed}");
+        return anyConditionPassed;
+    }
+
+    /// <summary>
+    /// Checks the stat-based condition.
+    /// </summary>
+    private bool CheckStatCondition()
+    {
         GameManager gameManager = GameManager.Instance;
         if (gameManager == null)
         {
-            Debug.LogWarning($"ConditionalKillerEvent '{eventName}': GameManager not found, condition passes by default");
-            return true;
+            Debug.LogWarning($"ConditionalKillerEvent '{eventName}': GameManager not found for stat check");
+            return false;
         }
 
         int currentValue = gameManager.GetStatValue(statName);
+        bool result = CompareValues(currentValue, statComparison, thresholdValue);
 
-        bool result = statComparison switch
+        Debug.Log($"ConditionalKillerEvent '{eventName}': Stat check - {statName} ({currentValue}) {statComparison} {thresholdValue} = {result}");
+        return result;
+    }
+
+    /// <summary>
+    /// Checks the sanity-based condition.
+    /// </summary>
+    private bool CheckSanityCondition()
+    {
+        if (SanityManager.Instance == null)
         {
-            StatComparison.Equals => currentValue == thresholdValue,
-            StatComparison.NotEquals => currentValue != thresholdValue,
-            StatComparison.GreaterThan => currentValue > thresholdValue,
-            StatComparison.LessThan => currentValue < thresholdValue,
-            StatComparison.GreaterOrEqual => currentValue >= thresholdValue,
-            StatComparison.LessOrEqual => currentValue <= thresholdValue,
+            Debug.LogWarning($"ConditionalKillerEvent '{eventName}': SanityManager not found for sanity check");
+            return false;
+        }
+
+        int currentSanity = SanityManager.Instance.CurrentSanity;
+        bool result = CompareValues(currentSanity, sanityComparison, sanityThreshold);
+
+        Debug.Log($"ConditionalKillerEvent '{eventName}': Sanity check - {currentSanity} {sanityComparison} {sanityThreshold} = {result}");
+        return result;
+    }
+
+    /// <summary>
+    /// Checks the graveyard protection condition.
+    /// </summary>
+    private bool CheckProtectionCondition()
+    {
+        if (GraveyardProtectionManager.Instance == null)
+        {
+            Debug.LogWarning($"ConditionalKillerEvent '{eventName}': GraveyardProtectionManager not found for protection check");
+            return false;
+        }
+
+        int currentProtection = GraveyardProtectionManager.Instance.CurrentProtection;
+        bool result = CompareValues(currentProtection, protectionComparison, protectionThreshold);
+
+        Debug.Log($"ConditionalKillerEvent '{eventName}': Protection check - {currentProtection} {protectionComparison} {protectionThreshold} = {result}");
+        return result;
+    }
+
+    /// <summary>
+    /// Compares two integer values using the specified comparison.
+    /// </summary>
+    private bool CompareValues(int currentValue, StatComparison comparison, int threshold)
+    {
+        return comparison switch
+        {
+            StatComparison.Equals => currentValue == threshold,
+            StatComparison.NotEquals => currentValue != threshold,
+            StatComparison.GreaterThan => currentValue > threshold,
+            StatComparison.LessThan => currentValue < threshold,
+            StatComparison.GreaterOrEqual => currentValue >= threshold,
+            StatComparison.LessOrEqual => currentValue <= threshold,
             _ => true
         };
-
-        Debug.Log($"ConditionalKillerEvent '{eventName}': Condition check - {statName} ({currentValue}) {statComparison} {thresholdValue} = {result}");
-        return result;
     }
 }

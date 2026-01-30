@@ -586,6 +586,12 @@ public class DialogueManager : MonoBehaviour
                 currentStory.variablesState["GraveRobberSetup"] = gameManager.GraveRobberSetup;
             if (currentStory.variablesState.GlobalVariableExistsWithName("GraveKeeperAngered"))
                 currentStory.variablesState["GraveKeeperAngered"] = gameManager.GraveKeeperAngered;
+
+            // Sanity system variables
+            if (currentStory.variablesState.GlobalVariableExistsWithName("Sanity"))
+                currentStory.variablesState["Sanity"] = SanityManager.Instance != null ? SanityManager.Instance.CurrentSanity : 100;
+            if (currentStory.variablesState.GlobalVariableExistsWithName("GraveyardProtection"))
+                currentStory.variablesState["GraveyardProtection"] = GraveyardProtectionManager.Instance != null ? GraveyardProtectionManager.Instance.CurrentProtection : 100;
         }
         catch (Exception e)
         {
@@ -605,11 +611,61 @@ public class DialogueManager : MonoBehaviour
             SyncSingleVariableFromInk("SpiritAngered", v => gameManager.SpiritAngered = v);
             SyncSingleVariableFromInk("GraveRobberSetup", v => gameManager.GraveRobberSetup = v);
             SyncSingleVariableFromInk("GraveKeeperAngered", v => gameManager.GraveKeeperAngered = v);
+
+            // Sanity system variables - sync by setting directly
+            SyncSanityVariableFromInk("Sanity");
+            SyncProtectionVariableFromInk("GraveyardProtection");
         }
         catch (Exception e)
         {
             Debug.LogWarning($"DialogueManager: Error syncing variables from Ink: {e.Message}");
         }
+    }
+
+    private void SyncSanityVariableFromInk(string varName)
+    {
+        try
+        {
+            if (SanityManager.Instance == null) return;
+            if (!currentStory.variablesState.GlobalVariableExistsWithName(varName)) return;
+
+            object value = currentStory.variablesState[varName];
+            if (value != null)
+            {
+                int inkValue = Convert.ToInt32(value);
+                int currentValue = SanityManager.Instance.CurrentSanity;
+                int difference = inkValue - currentValue;
+
+                if (difference > 0)
+                    SanityManager.Instance.RestoreSanity(difference);
+                else if (difference < 0)
+                    SanityManager.Instance.DrainSanity(-difference);
+            }
+        }
+        catch { }
+    }
+
+    private void SyncProtectionVariableFromInk(string varName)
+    {
+        try
+        {
+            if (GraveyardProtectionManager.Instance == null) return;
+            if (!currentStory.variablesState.GlobalVariableExistsWithName(varName)) return;
+
+            object value = currentStory.variablesState[varName];
+            if (value != null)
+            {
+                int inkValue = Convert.ToInt32(value);
+                int currentValue = GraveyardProtectionManager.Instance.CurrentProtection;
+                int difference = inkValue - currentValue;
+
+                if (difference > 0)
+                    GraveyardProtectionManager.Instance.RestoreProtection(difference);
+                else if (difference < 0)
+                    GraveyardProtectionManager.Instance.DrainProtection(-difference);
+            }
+        }
+        catch { }
     }
 
     private void SyncSingleVariableFromInk(string varName, Action<int> setter)

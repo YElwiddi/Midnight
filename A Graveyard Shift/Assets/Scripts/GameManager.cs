@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour
             case "spiritangered": return SpiritAngered;
             case "graverobbersetup": return GraveRobberSetup;
             case "gravekeeperangered": return GraveKeeperAngered;
+            // Sanity system stats (read from their managers)
+            case "sanity":
+                return SanityManager.Instance != null ? SanityManager.Instance.CurrentSanity : 100;
+            case "graveyardprotection":
+            case "protection":
+                return GraveyardProtectionManager.Instance != null ? GraveyardProtectionManager.Instance.CurrentProtection : 100;
             default:
                 Debug.LogWarning($"GameManager: Stat '{statName}' not found");
                 return 0;
@@ -84,6 +90,28 @@ public class GameManager : MonoBehaviour
             case "gravekeeperangered":
                 GraveKeeperAngered += value;
                 Debug.Log($"GraveKeeperAngered changed by {value}. New value: {GraveKeeperAngered}");
+                break;
+            // Sanity system stats (delegate to their managers)
+            case "sanity":
+                if (SanityManager.Instance != null)
+                {
+                    if (value > 0)
+                        SanityManager.Instance.RestoreSanity(value);
+                    else
+                        SanityManager.Instance.DrainSanity(-value);
+                    Debug.Log($"Sanity changed by {value}. New value: {SanityManager.Instance.CurrentSanity}");
+                }
+                break;
+            case "graveyardprotection":
+            case "protection":
+                if (GraveyardProtectionManager.Instance != null)
+                {
+                    if (value > 0)
+                        GraveyardProtectionManager.Instance.RestoreProtection(value);
+                    else
+                        GraveyardProtectionManager.Instance.DrainProtection(-value);
+                    Debug.Log($"GraveyardProtection changed by {value}. New value: {GraveyardProtectionManager.Instance.CurrentProtection}");
+                }
                 break;
             default:
                 Debug.LogWarning($"Variable {varName} not found in GameManager");

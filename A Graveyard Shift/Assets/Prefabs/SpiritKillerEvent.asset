@@ -16,6 +16,12 @@ MonoBehaviour:
   statName: SpiritAngered
   statComparison: 4
   thresholdValue: 2
+  checkSanity: 1
+  sanityComparison: 0
+  sanityThreshold: 0
+  checkGraveyardProtection: 0
+  protectionComparison: 5
+  protectionThreshold: 25
   killerPrefab: {fileID: 3767055355421772689, guid: ce9aac46c6936044fb11e98bd6c747b3, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5

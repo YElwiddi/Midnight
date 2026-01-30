@@ -39,6 +39,10 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [Range(-1f, 1f)]
     [SerializeField] private float destinationAmbientVolume = -1f;
 
+    [Header("Lighting")]
+    [Tooltip("Lighting preset to apply at destination (None = don't change)")]
+    [SerializeField] private LightingPreset destinationLightingPreset = LightingPreset.None;
+
     [Header("Events")]
     [Tooltip("Called when the teleport completes successfully")]
     public UnityEvent OnTeleportComplete;
@@ -132,6 +136,13 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         else
         {
             Debug.Log("LockedTeleportInteractable: No destination ambient clip assigned");
+        }
+
+        // Apply lighting preset if specified
+        if (destinationLightingPreset != LightingPreset.None && LightingController.Instance != null)
+        {
+            Debug.Log($"LockedTeleportInteractable: Applying lighting preset '{destinationLightingPreset}'");
+            LightingController.Instance.ApplyPreset(destinationLightingPreset);
         }
 
         yield return new WaitForSeconds(0.1f);

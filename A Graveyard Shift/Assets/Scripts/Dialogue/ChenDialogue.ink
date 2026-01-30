@@ -5,6 +5,8 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
 
 === start ===
 #speaker: ???
@@ -31,7 +33,6 @@ I don't plan to stay long.
     -> chen_family
 
 === chen_defensive ===
-#speaker: ???
 Thanks, I know the rules.
 You don't have to worry, I’ll be quick.
 Then you can go back to... whatever it is you were doing.
@@ -42,7 +43,6 @@ Then you can go back to... whatever it is you were doing.
     -> chen_family
 
 === chen_evade ===
-#speaker: ???
 Someone with the name Huang.
 That should be enough for you.
 
@@ -59,7 +59,7 @@ Did you want my social security number too?
 
 + [Are you related to the deceased?]
     -> chen_reaction
-+ [Alright. State your business and move along.]
++ [Alright. Why are you here?]
     -> chen_business
 
 === chen_family ===
@@ -67,7 +67,7 @@ Did you want my social security number too?
 Yeah. I am.
 But to be honest, I don't really think that is any of your concern.
 
-+ [I just need to know who you're visiting.]
++ [I just need to know who exactly you're visiting.]
     -> chen_hint
 + [I just need to know you’re not causing trouble.]
     -> chen_business
@@ -83,17 +83,21 @@ Not close.
 
 + [Well, I need to know who you're visiting.]
     -> chen_hint
-+ [That’s not my concern.]
-    -> chen_business
++ [What is their name?]
+    -> ask_name
+    
+=== ask_name ===
+Mei Huang.
+
+-> chen_close
 
 === chen_hint ===
 #speaker: Chen Huang
 Family.
-I just need to see them and pay my respects, that's all.
 
-+ [Sounds serious.]
++ [I need to know their name.]
     ~player_stupid = player_stupid - 1
-    -> chen_close
+    -> ask_name
 + [You’re avoiding the question.]
     ~player_mean = player_mean + 1
     -> chen_shut_down
@@ -135,16 +139,15 @@ I appreciate professionalism.
 
 ~ SetEventVar("allowed_inside", true)
 ~ SpiritAngered = SpiritAngered + 1
+~ Sanity = Sanity - 5
 -> END
 
 === chen_deny ===
 #speaker: Chen Huang
 Figures.
-
-Didn't even want to be here, but she never liked being ignored.
-Dead or not.
-
-Good luck with that.
+Didn't even want to be here.
+Have fun watching over these dead people.
+I don't envy you.
 
 ~ SetEventVar("allowed_inside", false)
 -> END

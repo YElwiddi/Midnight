@@ -20,6 +20,10 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
     [SerializeField] private bool destinationIsIndoor = false;
 
+    [Header("Lighting")]
+    [Tooltip("Lighting preset to apply at destination (None = don't change)")]
+    [SerializeField] private LightingPreset destinationLightingPreset = LightingPreset.None;
+
     [Header("Events")]
     [Tooltip("Fired after the teleport sequence completes (after fade back in)")]
     public UnityEvent onTeleportComplete;
@@ -83,6 +87,12 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
         else
         {
             AmbientSoundManager.Instance?.ExitIndoor();
+        }
+
+        // Apply lighting preset if specified
+        if (destinationLightingPreset != LightingPreset.None && LightingController.Instance != null)
+        {
+            LightingController.Instance.ApplyPreset(destinationLightingPreset);
         }
 
         // Small delay at full black

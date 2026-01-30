@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LanternInteractable : MonoBehaviour, IInteractable
 {
@@ -28,10 +30,27 @@ public class LanternInteractable : MonoBehaviour, IInteractable
     public AudioClip toggleSound;
     private AudioSource audioSource;
 
+    [Header("Sanity System")]
+    [Tooltip("If true, registers with SanityManager for lamp drain tracking")]
+    public bool registerWithSanityManager = false;
+
+    [Tooltip("If true, LanternEventController will never automatically turn off this lantern")]
+    public bool excludeFromRandomTurnOff = false;
+
+    /// <summary>Fired when lamp state changes. Parameter is new lit state.</summary>
+    public event Action<bool> OnLampStateChanged;
+
+    /// <summary>Is the lantern currently lit?</summary>
+    public bool IsLit => isOn;
+
+    /// <summary>Should this lantern be excluded from random turn-off events?</summary>
+    public bool ExcludeFromRandomTurnOff => excludeFromRandomTurnOff;
+
     private bool isOn;
     private float targetIntensity;
     private float currentIntensity;
     private float flickerTimer;
+    private bool isRegistered = false;
 
     void Start()
     {
@@ -57,6 +76,22 @@ public class LanternInteractable : MonoBehaviour, IInteractable
                 baseIntensity = lanternLight.intensity;
             currentIntensity = baseIntensity;
             targetIntensity = baseIntensity;
+        }
+
+        // Register with SanityManager for lamp drain tracking
+        if (registerWithSanityManager && SanityManager.Instance != null)
+        {
+            SanityManager.Instance.RegisterLamp(this);
+            isRegistered = true;
+        }
+    }
+
+    void OnDestroy()
+    {
+        // Unregister from SanityManager
+        if (isRegistered && SanityManager.Instance != null)
+        {
+            SanityManager.Instance.UnregisterLamp(this);
         }
     }
 
@@ -98,6 +133,42 @@ public class LanternInteractable : MonoBehaviour, IInteractable
         // Play toggle sound
         if (audioSource != null && toggleSound != null)
             audioSource.PlayOneShot(toggleSound);
+
+        // Fire state changed event
+        OnLampStateChanged?.Invoke(isOn);
+
+        // Fire global sanity event
+        if (GameEventsManager.instance != null && GameEventsManager.instance.sanityEvents != null)
+        {
+            GameEventsManager.instance.sanityEvents.LampStateChanged(gameObject.name, isOn);
+        }
+    }
+
+    /// <summary>
+    /// Turn the lantern on programmatically.
+    /// </summary>
+    public void TurnOn()
+    {
+        if (isOn) return;
+        Interact();
+    }
+
+    /// <summary>
+    /// Turn the lantern off programmatically.
+    /// </summary>
+    public void TurnOff()
+    {
+        if (!isOn) return;
+        Interact();
+    }
+
+    /// <summary>
+    /// Set lantern state directly.
+    /// </summary>
+    public void SetLit(bool lit)
+    {
+        if (isOn == lit) return;
+        Interact();
     }
 
     public string GetInteractionPrompt()
