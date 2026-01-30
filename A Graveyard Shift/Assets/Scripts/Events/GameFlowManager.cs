@@ -71,6 +71,36 @@ public class GameFlowManager : MonoBehaviour
     private ConditionalKillerEvent currentKillerEvent;
     private KillerNPC currentKillerNPC;
     private Coroutine waitingForKillerSpawnConditionsCoroutine;
+
+    // Game phase tracking (used by SideGameEventManager)
+    private int currentPhase = 0;
+    #endregion
+
+    #region Phase System
+    /// <summary>
+    /// The current game phase. Used by SideGameEventManager to determine which side events can spawn.
+    /// Phase is set by EventQueueEntry.setPhaseOnStart when events begin.
+    /// </summary>
+    public int CurrentPhase => currentPhase;
+
+    /// <summary>
+    /// Fired when the game phase changes. Parameter is the new phase number.
+    /// </summary>
+    public event Action<int> OnPhaseChanged;
+
+    /// <summary>
+    /// Manually set the game phase. Typically set automatically by EventQueueEntry.setPhaseOnStart.
+    /// </summary>
+    public void SetPhase(int phase)
+    {
+        if (currentPhase != phase)
+        {
+            int oldPhase = currentPhase;
+            currentPhase = phase;
+            Debug.Log($"GameFlowManager: Phase changed from {oldPhase} to {currentPhase}");
+            OnPhaseChanged?.Invoke(currentPhase);
+        }
+    }
     #endregion
 
     #region Unity Lifecycle
@@ -330,6 +360,7 @@ public class GameFlowManager : MonoBehaviour
 
     /// <summary>
     /// Manually trigger a specific killer event by name (ignores condition check).
+    /// Note: The event must be in the killerEventQueue to be found.
     /// </summary>
     public void ForceStartKillerEvent(string eventName)
     {
@@ -341,7 +372,23 @@ public class GameFlowManager : MonoBehaviour
                 return;
             }
         }
-        Debug.LogWarning($"GameFlowManager: Killer event '{eventName}' not found!");
+        Debug.LogWarning($"GameFlowManager: Killer event '{eventName}' not found in queue!");
+    }
+
+    /// <summary>
+    /// Spawns a killer event directly from a ConditionalKillerEvent reference.
+    /// Does not require the event to be in the killerEventQueue.
+    /// </summary>
+    public void SpawnKillerEvent(ConditionalKillerEvent killerEvent)
+    {
+        if (killerEvent == null)
+        {
+            Debug.LogWarning("GameFlowManager: Cannot spawn null killer event!");
+            return;
+        }
+
+        Debug.Log($"GameFlowManager: Spawning killer event '{killerEvent.eventName}' directly");
+        StartKillerEventDirectly(killerEvent);
     }
 
     /// <summary>
@@ -854,6 +901,12 @@ public class GameFlowManager : MonoBehaviour
             Debug.Log($"GameFlowManager: Condition not met for entry at index {currentEventIndex} ({entry.GetDisplayName()}), skipping...");
             StartNextEvent();
             return;
+        }
+
+        // Set game phase if specified
+        if (entry.setPhaseOnStart >= 0)
+        {
+            SetPhase(entry.setPhaseOnStart);
         }
 
         // Handle killer events separately

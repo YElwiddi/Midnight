@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041349cd1bbebe648a96243a341cd9ca, type: 3}
+  m_Name: Watchers
+  m_EditorClassIdentifier: Assembly-CSharp::SideGameEvent
+  eventName: New Side Event
+  eventType: 0
+  allowedPhases: 
+  npcPrefab: {fileID: 3767055355421772689, guid: 81c04f4468be63f4995a7fadb3fcd22e, type: 3}
+  spawnLocations:
+  - spawnPointName: StareSite1
+    selectionWeight: 0
+    facePlayerOnSpawn: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  - spawnPointName: StareSite2
+    selectionWeight: 0
+    facePlayerOnSpawn: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  useEntranceMovement: 1
+  entranceSpawnOffset: {x: 0, y: -3, z: 0}
+  entranceSpeed: 2
+  waitForEntranceBeforeStaring: 1
+  entranceAnimationTrigger: 
+  protectionDrainPerSecond: 1
+  maxStareDistance: 50
+  requireLineOfSight: 1
+  lineOfSightBlockingLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stareMode: 0
+  stareDirection: {x: 0, y: 0, z: 1}
+  stareTargetName: 
+  flashlightDetectionAngle: 25
+  flashlightMaxDistance: 20
+  flashlightExposureRequired: 0.5
+  requireFlashlightOn: 1
+  flashlightIgnoreObstacles: 1
+  retreatMode: 1
+  retreatDirection: {x: 0, y: 0, z: -1}
+  retreatTargetName: 
+  retreatSpeed: 5
+  retreatDistance: 10
+  fadeOnRetreat: 1
+  fadeDuration: 0.82
+  useRetreatAnimation: 0
+  retreatAnimationTrigger: 
+  spawnSound: {fileID: 0}
+  spawnSoundVolume: 0.5
+  ambientSound: {fileID: 0}
+  ambientSoundVolume: 0.3
+  retreatSound: {fileID: 0}
+  retreatSoundVolume: 0.7
+  playerTrackingSpeed: 90
+  staringAnimationBool: 
+  eventTimeout: 60

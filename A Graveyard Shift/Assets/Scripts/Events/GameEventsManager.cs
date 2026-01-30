@@ -7,6 +7,7 @@ public class GameEventsManager : MonoBehaviour
 
     public DialogueEvents dialogueEvents;
     public GameFlowEvents gameFlowEvents;
+    public SideGameEvents sideGameEvents;
 
     private void Awake(){
         if (instance != null){
@@ -16,5 +17,6 @@ public class GameEventsManager : MonoBehaviour
         // initalize all events
         dialogueEvents = new DialogueEvents();
         gameFlowEvents = new GameFlowEvents();
+        sideGameEvents = new SideGameEvents();
     }
 }

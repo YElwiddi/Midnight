@@ -85,6 +85,11 @@ public class EventQueueEntry
     [Tooltip("Name of the second stat to compare against - used when Condition Type is StatVsStat")]
     public string compareToStatName = "";
 
+    [Header("Game Phase")]
+    [Tooltip("Set the game phase when this event starts. -1 = don't change phase. Used by SideGameEventManager to filter which side events can spawn.")]
+    [Range(-1, 10)]
+    public int setPhaseOnStart = -1;
+
     [Header("Timing")]
     [Tooltip("Time to wait (in seconds) after this event completes before starting the next event")]
     [Range(0f, 120f)]
