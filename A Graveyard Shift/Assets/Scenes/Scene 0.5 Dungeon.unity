@@ -6998,6 +6998,145 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289491870}
   m_Mesh: {fileID: -5596202524400825144, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &290379552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290379553}
+  - component: {fileID: 290379557}
+  - component: {fileID: 290379556}
+  - component: {fileID: 290379555}
+  - component: {fileID: 290379554}
+  m_Layer: 6
+  m_Name: ID4237 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &290379553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290379552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -9.613, y: 5.08, z: -2.844}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 548600992}
+  m_LocalEulerAnglesHint: {x: 90, y: 270, z: 180}
+--- !u!114 &290379554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290379552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 1
+  fontSize: 24
+  pages:
+  - Those who unearth the grave meant to remain closed seal their fate.
+--- !u!64 &290379555
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290379552}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!23 &290379556
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290379552}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3178160590009173852, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &290379557
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290379552}
+  m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &290398041
 GameObject:
   m_ObjectHideFlags: 0
@@ -11497,66 +11636,69 @@ PrefabInstance:
       addedObject: {fileID: 1439586276}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 6
-      addedObject: {fileID: 1200366176}
+      addedObject: {fileID: 290379553}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 7
-      addedObject: {fileID: 1864135114}
+      addedObject: {fileID: 1200366176}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 8
-      addedObject: {fileID: 1260469693}
+      addedObject: {fileID: 1864135114}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 9
-      addedObject: {fileID: 1865924447}
+      addedObject: {fileID: 1260469693}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 10
-      addedObject: {fileID: 1255292240}
+      addedObject: {fileID: 1865924447}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 11
-      addedObject: {fileID: 1441381531}
+      addedObject: {fileID: 1255292240}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 12
-      addedObject: {fileID: 1130886783}
+      addedObject: {fileID: 1441381531}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 13
-      addedObject: {fileID: 1201429393}
+      addedObject: {fileID: 1130886783}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 14
-      addedObject: {fileID: 1864243016}
+      addedObject: {fileID: 1201429393}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 15
-      addedObject: {fileID: 1154107987}
+      addedObject: {fileID: 1864243016}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 16
-      addedObject: {fileID: 1877828168}
+      addedObject: {fileID: 1154107987}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 17
-      addedObject: {fileID: 2082102690}
+      addedObject: {fileID: 1877828168}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 18
-      addedObject: {fileID: 1975180310}
+      addedObject: {fileID: 2082102690}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 19
-      addedObject: {fileID: 1149051980}
+      addedObject: {fileID: 1975180310}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 20
-      addedObject: {fileID: 1011689922}
+      addedObject: {fileID: 1149051980}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 21
-      addedObject: {fileID: 1008992406}
+      addedObject: {fileID: 1011689922}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 22
-      addedObject: {fileID: 1516102997}
+      addedObject: {fileID: 1008992406}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 23
-      addedObject: {fileID: 1834782374}
+      addedObject: {fileID: 1516102997}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 24
-      addedObject: {fileID: 335851080}
+      addedObject: {fileID: 1834782374}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 25
-      addedObject: {fileID: 245287618}
+      addedObject: {fileID: 335851080}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 26
+      addedObject: {fileID: 245287618}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 27
       addedObject: {fileID: 1599193638}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
@@ -27544,7 +27686,7 @@ MonoBehaviour:
     ignore.
 
     The dead that should be laid to rest here are without the courtesies
-    usually afforded.'
+    usually afforded. This site stands as a host to punishment.'
 --- !u!64 &1439586278
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28804,7 +28946,7 @@ MonoBehaviour:
   SpiritAngered: 0
   GraveRobberSetup: 0
   GraveKeeperAngered: 0
-  CryptUnlocked: 1
+  CryptUnlocked: 0
   ShovelPickedUp: 0
   GraveyardEndingTriggered: 0
   IncorrectDigCount: 0
