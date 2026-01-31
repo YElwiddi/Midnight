@@ -15,13 +15,17 @@ MonoBehaviour:
   eventName: New Side Event
   eventType: 0
   allowedPhases: 
-  npcPrefab: {fileID: 3767055355421772689, guid: 81c04f4468be63f4995a7fadb3fcd22e, type: 3}
+  npcPrefab: {fileID: 3767055355421772689, guid: 52633f70ddfc675409ab40d88e0dfc64, type: 3}
   spawnLocations:
   - spawnPointName: StareSite1
     selectionWeight: 0
     facePlayerOnSpawn: 1
     rotationOffset: {x: 0, y: 0, z: 0}
   - spawnPointName: StareSite2
+    selectionWeight: 0
+    facePlayerOnSpawn: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  - spawnPointName: StareSite3
     selectionWeight: 0
     facePlayerOnSpawn: 1
     rotationOffset: {x: 0, y: 0, z: 0}

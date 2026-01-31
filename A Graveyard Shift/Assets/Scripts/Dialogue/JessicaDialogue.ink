@@ -5,6 +5,8 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR GraveyardProtection = 100
+VAR Sanity = 100
 
 === start ===
 Um...
@@ -123,11 +125,8 @@ R-really?
 Thank you.
 I promise I won't touch anything.
 Or look at anything too long.
-I'll just stay near the light.
-Lights make things honest.
-At least I think they do.
 
-~GraveRobberSetup = GraveRobberSetup + 1
+~GraveyardProtection = GraveyardProtection - 20
 
 ~ SetEventVar("allowed_inside", true)
 
@@ -145,8 +144,7 @@ I heard that somewhere.
 If I start running, don't worry.
 That's normal for me.
 
-~SpiritAngered = SpiritAngered + 1
 
 ~ SetEventVar("allowed_inside", false)
-
+~Sanity = Sanity - 25
 -> END

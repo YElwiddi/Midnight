@@ -42,6 +42,15 @@ MonoBehaviour:
   roamAnimationBool: IsWalking
   chaseAnimationBool: IsRunning
   spotPlayerTrigger: SpotPlayer
+  enableSanityDrain: 1
+  sanityDrainPerSecond: 10
+  drainWhenLookingAt: 1
+  drainWhenInTerrorRadius: 0
+  lookingAtAngle: 15
+  lookingAtMaxDistance: 15
+  lookingAtBlockingLayers:
+    serializedVersion: 2
+    m_Bits: 1
   flashlightDisabledDialogue: The flashlight won't turn on...
   flashlightDisabledSpeaker: 
   flashlightDialogueDuration: 2

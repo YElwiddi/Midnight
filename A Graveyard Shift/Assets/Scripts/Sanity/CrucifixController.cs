@@ -212,8 +212,9 @@ public class CrucifixController : MonoBehaviour, IInteractable
 
         currentState = CrucifixState.AffixedOnDoor;
 
-        // Reset flipped state when re-affixing
-        isFlipped = false;
+        // Check if sanity is at or below 50 - if so, crucifix should remain flipped
+        bool shouldBeFlipped = SanityManager.Instance != null && SanityManager.Instance.CurrentSanity <= 50;
+        isFlipped = shouldBeFlipped;
 
         // Disable physics if used
         if (rigidBody != null)
@@ -222,9 +223,9 @@ public class CrucifixController : MonoBehaviour, IInteractable
             rigidBody.useGravity = false;
         }
 
-        // Apply position and rotation with normalRotation offset
+        // Apply position and rotation
         ApplyStatePosition();
-        ApplyFlipRotation(false); // Apply normalRotation immediately (not animated)
+        ApplyFlipRotation(false); // Apply rotation immediately (not animated)
 
         // Play affix sound
         if (affixSound != null && audioSource != null)
@@ -324,8 +325,8 @@ public class CrucifixController : MonoBehaviour, IInteractable
         {
             transform.position = targetTransform.position;
 
-            // Only apply rotation from position if not flipped
-            if (!isFlipped)
+            // On floor: always use floor rotation. On door: only set base rotation if not flipped.
+            if (currentState == CrucifixState.FallenOnFloor || !isFlipped)
             {
                 transform.rotation = targetTransform.rotation;
                 targetRotation = transform.rotation;
@@ -344,9 +345,17 @@ public class CrucifixController : MonoBehaviour, IInteractable
             baseRotation = posTransform.rotation;
         }
 
-        // Apply flip offset
-        Vector3 flipOffset = isFlipped ? flippedRotation : normalRotation;
-        targetRotation = baseRotation * Quaternion.Euler(flipOffset);
+        // Only apply flip offset when affixed to door - floor always uses base rotation
+        if (currentState == CrucifixState.AffixedOnDoor)
+        {
+            Vector3 flipOffset = isFlipped ? flippedRotation : normalRotation;
+            targetRotation = baseRotation * Quaternion.Euler(flipOffset);
+        }
+        else
+        {
+            // On floor: always use the floor position's rotation directly
+            targetRotation = baseRotation;
+        }
 
         if (animate)
         {

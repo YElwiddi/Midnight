@@ -15,6 +15,12 @@ public class CryptCheckpointManager : MonoBehaviour
     [Tooltip("Transform marking where the player respawns (outside crypt entrance)")]
     public Transform checkpointSpawnPoint;
 
+    [Tooltip("Player rotation (Euler angles) when respawning. If zero, uses spawn point's rotation.")]
+    public Vector3 checkpointRotation = Vector3.zero;
+
+    [Tooltip("If true, uses checkpointRotation instead of spawn point's rotation")]
+    public bool useCustomRotation = false;
+
     [Tooltip("Time to fade out before respawn")]
     public float fadeOutDuration = 1f;
 
@@ -81,6 +87,12 @@ public class CryptCheckpointManager : MonoBehaviour
     private float capturedScanlineIntensity;
     private float capturedTrackingNoise;
 
+    // Captured lighting settings (captured before entering crypt for restoration after respawn)
+    private bool lightingSettingsCaptured = false;
+    private Color capturedSkyColor;
+    private Color capturedEquatorColor;
+    private Color capturedGroundColor;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -109,6 +121,9 @@ public class CryptCheckpointManager : MonoBehaviour
         // Capture current VHS settings before any jumpscare modifies them
         CaptureVHSSettings();
 
+        // Capture current lighting settings before player enters crypt
+        CaptureLightingSettings();
+
         // Track initially placed objects in the scene
         TrackExistingCryptObjects();
     }
@@ -132,6 +147,19 @@ public class CryptCheckpointManager : MonoBehaviour
             vhsSettingsCaptured = true;
             Debug.Log("CryptCheckpointManager: Captured VHS settings for respawn restoration");
         }
+    }
+
+    /// <summary>
+    /// Captures the current lighting settings to restore after respawn.
+    /// Call this before the player enters the crypt to save the pre-crypt lighting state.
+    /// </summary>
+    public void CaptureLightingSettings()
+    {
+        capturedSkyColor = RenderSettings.ambientSkyColor;
+        capturedEquatorColor = RenderSettings.ambientEquatorColor;
+        capturedGroundColor = RenderSettings.ambientGroundColor;
+        lightingSettingsCaptured = true;
+        Debug.Log("CryptCheckpointManager: Captured lighting settings for respawn restoration");
     }
 
     /// <summary>
@@ -321,7 +349,16 @@ public class CryptCheckpointManager : MonoBehaviour
 
         // Teleport player
         player.transform.position = checkpointSpawnPoint.position;
-        player.transform.rotation = checkpointSpawnPoint.rotation;
+
+        // Apply rotation - use custom rotation if enabled, otherwise use spawn point rotation
+        if (useCustomRotation)
+        {
+            player.transform.rotation = Quaternion.Euler(checkpointRotation);
+        }
+        else
+        {
+            player.transform.rotation = checkpointSpawnPoint.rotation;
+        }
 
         // Re-enable CharacterController
         if (controller != null)
@@ -376,6 +413,15 @@ public class CryptCheckpointManager : MonoBehaviour
 
         // Reset VHS effects
         ResetVHSEffects();
+
+        // Reset sanity to full (also resets sprint, VHS thresholds, etc.)
+        if (SanityManager.Instance != null)
+        {
+            SanityManager.Instance.ResetSanity();
+        }
+
+        // Restore lighting to pre-crypt state
+        RestoreLightingSettings();
 
         // Hide game over UI if visible
         HideGameOverUI();
@@ -458,6 +504,37 @@ public class CryptCheckpointManager : MonoBehaviour
             vhsEffect.trackingNoise = capturedTrackingNoise;
             Debug.Log("CryptCheckpointManager: Restored VHS effects to captured values");
         }
+    }
+
+    private void RestoreLightingSettings()
+    {
+        if (!lightingSettingsCaptured)
+        {
+            Debug.LogWarning("CryptCheckpointManager: Lighting settings were not captured, cannot restore");
+            return;
+        }
+
+        // Restore gradient ambient colors directly
+        RenderSettings.ambientSkyColor = capturedSkyColor;
+        RenderSettings.ambientEquatorColor = capturedEquatorColor;
+        RenderSettings.ambientGroundColor = capturedGroundColor;
+
+        // Also update LightingController if it exists so it knows the current state
+        if (LightingController.Instance != null)
+        {
+            LightingSettings restoredSettings = new LightingSettings
+            {
+                skyColor = capturedSkyColor,
+                equatorColor = capturedEquatorColor,
+                groundColor = capturedGroundColor
+            };
+            // Apply without transition for immediate restoration
+            LightingController.Instance.SetTransitionDuration(0f);
+            LightingController.Instance.ApplySettings(restoredSettings, LightingPreset.Custom);
+            LightingController.Instance.SetTransitionDuration(1f); // Reset to default
+        }
+
+        Debug.Log("CryptCheckpointManager: Restored lighting settings to captured values");
     }
 
     private void HideGameOverUI()

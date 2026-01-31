@@ -16,6 +16,7 @@ Guess I had more to say than I realized.
 + [Everything alright?]
     -> alright_response
 + [You should be heading out.]
+~player_mean = player_mean + 1
     -> hurry_response
 
 === alright_response ===

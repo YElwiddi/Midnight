@@ -242,17 +242,29 @@ public class SanityDrainSource : MonoBehaviour
     {
         if (SanityManager.Instance == null) return false;
 
-        // If no phases specified, use SanityManager's tombstone phases
-        int[] phasesToCheck = activePhases.Length > 0 ? activePhases : null;
-
-        if (phasesToCheck == null || phasesToCheck.Length == 0)
+        // For FlashlightOnObject triggers, always respect the master tombstone drain toggle
+        if (drainTrigger == SanityDrainTrigger.FlashlightOnObject)
         {
-            // Fall back to SanityManager's tombstone drain check
-            return SanityManager.Instance.IsTombstoneDrainActiveInCurrentPhase();
+            if (!SanityManager.Instance.IsTombstoneDrainActiveInCurrentPhase())
+            {
+                return false;
+            }
+            // If no custom phases, the master toggle check is sufficient
+            if (activePhases.Length == 0)
+            {
+                return true;
+            }
         }
 
+        // If no custom phases specified for non-flashlight triggers, always active
+        if (activePhases.Length == 0)
+        {
+            return true;
+        }
+
+        // Check custom phases
         int currentPhase = SanityManager.Instance.CurrentPhase;
-        foreach (int phase in phasesToCheck)
+        foreach (int phase in activePhases)
         {
             if (phase == currentPhase) return true;
         }

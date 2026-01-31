@@ -196,6 +196,7 @@ public class SanityEffectsController : MonoBehaviour
         {
             SanityManager.Instance.OnThresholdCrossedDown += HandleThresholdDown;
             SanityManager.Instance.OnThresholdCrossedUp += HandleThresholdUp;
+            SanityManager.Instance.OnSanityRestored += HandleSanityRestored;
             Debug.Log("SanityEffectsController: Subscribed to sanity threshold events");
         }
         else
@@ -210,6 +211,7 @@ public class SanityEffectsController : MonoBehaviour
         {
             SanityManager.Instance.OnThresholdCrossedDown -= HandleThresholdDown;
             SanityManager.Instance.OnThresholdCrossedUp -= HandleThresholdUp;
+            SanityManager.Instance.OnSanityRestored -= HandleSanityRestored;
         }
     }
     #endregion
@@ -352,6 +354,12 @@ public class SanityEffectsController : MonoBehaviour
             }
             EnableSprint();
         }
+    }
+
+    private void HandleSanityRestored()
+    {
+        Debug.Log("SanityEffectsController: Sanity restored - resetting all effects");
+        ResetEffects();
     }
 
     private VHSEffectLevel GetVHSLevelSettings(int level)

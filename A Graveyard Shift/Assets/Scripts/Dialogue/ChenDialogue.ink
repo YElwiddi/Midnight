@@ -55,11 +55,11 @@ That should be enough for you.
 #speaker: Chen Huang
 …Chen Huang.
 
-Did you want my social security number too?
+Are you going to keep asking me instrusive questions?
 
 + [Are you related to the deceased?]
     -> chen_reaction
-+ [Alright. Why are you here?]
++ [Why are you here?]
     -> chen_business
 
 === chen_family ===

@@ -5,6 +5,8 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR GraveyardProtection = 100
+VAR Sanity = 100
 
 === start ===
 Evening.
@@ -14,6 +16,7 @@ Apparently some folks saw some strange gang behavior. We took the call, and that
 Would you mind answering some questions for us?
 
 + [Alright, how can I help you?]
+~player_scared = player_scared + 1
     -> interrogation_accept
 + [Sorry, I can't help you.]
     -> interrogation_decline
@@ -33,6 +36,7 @@ Firstly, have you seen anyone asking to enter the premises dressed in all black?
 Could you describe the behavior of this individiual?
 
 + [He came in to visit a grave, but wandered around a bit.]
+~GraveyardProtection = GraveyardProtection + 5
     -> next_question
 + [He seemed normal.]
     -> next_question
@@ -51,10 +55,15 @@ Have you seen anyone stalking the perimeter of this facility? Either by the wall
 Do you remember anything about this individual?
 Perhaps the color of his clothes or complexion?
 
-+ [He was wearing a greenish brown shirt.]
-~GraveRobberSetup = GraveRobberSetup - 1
++ [They wearing a greenish brown shirt.]
+~GraveyardProtection = GraveyardProtection + 20
+
     -> ask_for_entry
-+ [He was wearing a dark red shirt.]
++ [They were wearing a grey robe.]
+~Sanity = Sanity - 10
+    -> ask_for_entry
+    
++ [I don't remember.]
     -> ask_for_entry
     
     === ask_for_entry ===

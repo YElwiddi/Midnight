@@ -66,6 +66,7 @@ Long time already.
     -> sympathy_response
 + [You shouldn’t be waiting outside the gate.]
     ~player_stupid = player_stupid + 1
+    ~player_mean = player_mean + 1
     -> suspicious_response
 
 === suspicious_response ===
@@ -82,7 +83,7 @@ I only want see her.
 
 === wife_response ===
 #speaker: Mr. Huang
-Section C.
+Western burial ground.
 Near tree.
 She like tree.
 

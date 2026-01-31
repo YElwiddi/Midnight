@@ -130,11 +130,16 @@ public class Movement : MonoBehaviour
 
             isRunning = canRun && Input.GetKey(KeyCode.LeftShift);
             float speed = isRunning ? runningSpeed : walkingSpeed;
-            float curSpeedX = speed * Input.GetAxis("Vertical");
-            float curSpeedY = speed * Input.GetAxis("Horizontal");
+
+            // Get input and normalize to prevent faster diagonal movement
+            Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (input.sqrMagnitude > 1f)
+            {
+                input.Normalize();
+            }
 
             float movementDirectionY = moveDirection.y;
-            Vector3 targetDirection = (forward * curSpeedX) + (right * curSpeedY);
+            Vector3 targetDirection = (forward * input.y + right * input.x) * speed;
 
             isMoving = targetDirection.sqrMagnitude > 0.01f;
 

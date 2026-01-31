@@ -115,6 +115,29 @@ public class CryptKillerConfig : ScriptableObject
     [Tooltip("Animation trigger when spotting player")]
     public string spotPlayerTrigger = "SpotPlayer";
 
+    [Header("Sanity Drain Settings")]
+    [Tooltip("If true, this killer can drain player sanity")]
+    public bool enableSanityDrain = false;
+
+    [Tooltip("Sanity drain per second")]
+    public float sanityDrainPerSecond = 5f;
+
+    [Tooltip("Drain sanity when player is looking at the killer")]
+    public bool drainWhenLookingAt = false;
+
+    [Tooltip("Drain sanity when player is within terror radius")]
+    public bool drainWhenInTerrorRadius = false;
+
+    [Tooltip("Field of view angle for 'looking at' detection (degrees from center of screen)")]
+    [Range(5f, 45f)]
+    public float lookingAtAngle = 15f;
+
+    [Tooltip("Maximum distance for 'looking at' sanity drain (0 = unlimited)")]
+    public float lookingAtMaxDistance = 0f;
+
+    [Tooltip("Layers that block line of sight for 'looking at' detection")]
+    public LayerMask lookingAtBlockingLayers;
+
     [Header("Flashlight Disabler Settings")]
     [Tooltip("Dialogue text shown when player tries to use disabled flashlight")]
     [TextArea(2, 4)]

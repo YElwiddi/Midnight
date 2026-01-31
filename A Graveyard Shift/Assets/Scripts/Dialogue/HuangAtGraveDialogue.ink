@@ -11,8 +11,8 @@ I miss her dearly.
 === huang_story ===
 #speaker: Mr. Huang
 Yes.
-When she sick, she say,
-“If I go first, don’t forget me.”
+She would say...
+"If I go first, don’t forget me."
 
 I tell her I won’t.
 So I come.

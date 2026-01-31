@@ -43,7 +43,5 @@ Thank you.
 For letting me in.
 And for not laughing.
 I'll be gone in just a second.
-If you hear footsteps after I leave—
-They're probably mine.
 
 -> END

@@ -56,6 +56,9 @@ public class SanityManager : MonoBehaviour
     [SerializeField] private float jumpscareDelay = 0.5f;
 
     [Header("Phase-Based Drain Settings")]
+    [Tooltip("If true, flashlight-on-tombstone drain is enabled")]
+    [SerializeField] private bool enableTombstoneDrain = true;
+
     [Tooltip("Phases during which flashlight-on-tombstone drain is active")]
     [SerializeField] private int[] tombstoneDrainPhases = new int[] { 1, 2, 3 };
 
@@ -291,6 +294,8 @@ public class SanityManager : MonoBehaviour
     /// </summary>
     public bool IsTombstoneDrainActiveInCurrentPhase()
     {
+        if (!enableTombstoneDrain) return false;
+
         int phase = CurrentPhase;
         foreach (int p in tombstoneDrainPhases)
         {
@@ -357,7 +362,7 @@ public class SanityManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets sanity to starting value.
+    /// Resets sanity to starting value and restores all effects.
     /// </summary>
     public void ResetSanity()
     {
@@ -373,6 +378,10 @@ public class SanityManager : MonoBehaviour
         }
 
         OnSanityChanged?.Invoke(currentSanity, maxSanity);
+
+        // Fire restored event so effects controllers can reset
+        OnSanityRestored?.Invoke();
+
         Debug.Log($"SanityManager: Sanity reset to {currentSanity}");
     }
 

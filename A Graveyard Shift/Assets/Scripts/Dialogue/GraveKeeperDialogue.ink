@@ -85,10 +85,10 @@ I will give you one last chance to listen to me.
 === listening ===
 Thank you.
 As you can tell, this place gets a lot of attention.
-There is a story going around, that there is something very valuable in the mausoleum sitting right behind you. A lot of dangerous folks are after it.
+There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.
 I personally never cared for it.
 However, as my days unfolded in this place, I began growing restless, tired, and anxious.
-I started feel an unsettling draw towards the mausoleum sitting behind you.
+I started feel an unsettling draw towards the crypt sitting behind you.
 Have you felt it too?
 
 + [Yes.]
@@ -106,31 +106,32 @@ It's relieving to actually meet someone that feels the same way.
 Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.
 I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.
 As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.
-The documents had been sitting there for what seemed like a very long time... It was dusty and barely legible.
+The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.
 I had decided to leave this position at the graveyard promptly after I read it.
-Apparently, one of the old grave watchers had entered that mausoleum, and was able to leave and record their findings.
-In the text, they mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.
+Apparently, one of the old gravekeepers had attempted to enter that crypt.
+In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.
 However.
 If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.
-According to the old grave keeper, this graveyard is more than just a normal burial place. It requires a watcher at all times, even through death. 
+According to the old grave keeper, this graveyard is more than just a normal burial place. The people burried here did not lead normal lives. This site requires a watcher at all times, even through death. 
 When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.
 The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.
-The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned there was some sort of puzzle that needed to be solved.
+The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.
 
 + [What puzzle?]
 -> what_puzzle
 
 
 ===what_puzzle===
-...
 Everyone who is burried at this graveyard shares something in common.
-Some of these graves are centuries old. However, even the newer ones that were placed here more recently are following a pattern.
-I have not been able to figure out what this pattern is, or if it even exists.
-The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the mausoleum.
-When I learned about this, I was in disbelief. I had thought this place was just cursed.
-I burned the old keeper's note, locked the mausoleum and the gate, and then left this place.
+Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.
+I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.
+The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.
+Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.
+There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.
+When I learned about this, I was in disbelief.
+I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.
 I still have the key. I can unlock that crypt.
-Will you enter it and put this to an end?
+Will you enter it and put an end to this?
 
 + [Okay. I'm ready.]
 -> ready

@@ -5,6 +5,8 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
 
 === start ===
 #speaker: Harold Vunderbilt
@@ -26,13 +28,13 @@ Straight question.
 I like that.
 
 I’m here to see my brother.
-Timothy.
+Aaron.
 Good man. Bad luck.
 
 Didn’t think he’d end up here.
 Funny how things go.
 
-+ [How did you know Timothy?]
++ [How did you know Aaron?]
     -> harold_details
 + [Why come so late?]
     ~player_stupid = player_stupid + 1
@@ -45,7 +47,7 @@ Not much of it left these days.
 
 I won’t take long.
 Just paying respects.
-Timothy wouldn’t forgive me if I didn’t.
+Aaron wouldn’t forgive me if I didn’t.
 
 + [You’re being vague.]
     -> harold_details
@@ -65,6 +67,7 @@ Family has a way of demanding that.
 + [Your brother?]
     -> harold_partner
 + [Do you have any proof?]
+~player_scared = player_scared + 1
     -> harold_id
 
 === harold_late ===
@@ -101,7 +104,7 @@ Usually does.
 
 We didn’t always agree.
 But blood’s blood.
-Tim understood that.
+Aaron understood that.
 
 -> harold_request
 
@@ -126,7 +129,9 @@ Just a few minutes.
 I’ll stay out of your way.
 
 + [Alright. Be quick.]
+~player_stupid = player_stupid + 1
     ~GraveRobberSetup = GraveRobberSetup + 1
+    ~GraveyardProtection = GraveyardProtection - 40
     -> harold_allow
 + [No. I can’t allow it.]
     -> harold_deny
@@ -152,7 +157,7 @@ Rules are useful things.
 Until they aren’t.
 
 Give my brother a quiet night, then.
-
+~player_stupid = player_stupid - 1
  ~ SetEventVar("allowed_inside", false)
 
 -> END

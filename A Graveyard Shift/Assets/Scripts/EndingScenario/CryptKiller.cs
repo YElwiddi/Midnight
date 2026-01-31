@@ -86,6 +86,9 @@ public class CryptKiller : MonoBehaviour
     private float stalkerSearchTimer;
     private bool stalkerHasSpottedPlayer = false; // For playing spot sound only on vision detection
 
+    // Sanity drain tracking
+    private bool isDrainingSanity = false;
+
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -109,6 +112,16 @@ public class CryptKiller : MonoBehaviour
         SetupAmbientAudio();
 
         jumpscare = GetComponent<KillerJumpscare>();
+    }
+
+    private void OnDestroy()
+    {
+        // Clean up sanity drain source
+        if (isDrainingSanity && SanityManager.Instance != null)
+        {
+            SanityManager.Instance.UnregisterDrainSource();
+            isDrainingSanity = false;
+        }
     }
 
     private void Start()
@@ -223,6 +236,83 @@ public class CryptKiller : MonoBehaviour
         }
     }
 
+    private void UpdateSanityDrain()
+    {
+        if (config == null || !config.enableSanityDrain) return;
+        if (playerTransform == null || playerCamera == null) return;
+        if (SanityManager.Instance == null) return;
+
+        bool shouldDrain = false;
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+        // Check terror radius condition
+        if (config.drainWhenInTerrorRadius && distanceToPlayer <= terrorRadius)
+        {
+            shouldDrain = true;
+        }
+
+        // Check looking at condition
+        if (config.drainWhenLookingAt && IsPlayerLookingAtKiller())
+        {
+            shouldDrain = true;
+        }
+
+        // Apply drain
+        if (shouldDrain)
+        {
+            if (!isDrainingSanity)
+            {
+                SanityManager.Instance.RegisterDrainSource();
+                isDrainingSanity = true;
+            }
+            SanityManager.Instance.DrainSanityPerSecond(config.sanityDrainPerSecond);
+        }
+        else if (isDrainingSanity)
+        {
+            SanityManager.Instance.UnregisterDrainSource();
+            isDrainingSanity = false;
+        }
+    }
+
+    private bool IsPlayerLookingAtKiller()
+    {
+        if (playerCamera == null || config == null) return false;
+
+        Vector3 cameraPos = playerCamera.transform.position;
+        Vector3 killerPos = transform.position + Vector3.up * 1f; // Aim at killer center mass
+
+        // Check distance limit
+        float distance = Vector3.Distance(cameraPos, killerPos);
+        if (config.lookingAtMaxDistance > 0f && distance > config.lookingAtMaxDistance)
+        {
+            return false;
+        }
+
+        // Get direction from camera to killer
+        Vector3 directionToKiller = (killerPos - cameraPos).normalized;
+
+        // Calculate angle between camera forward and direction to killer
+        float angle = Vector3.Angle(playerCamera.transform.forward, directionToKiller);
+
+        // Check if within the looking at angle threshold
+        if (angle > config.lookingAtAngle)
+        {
+            return false;
+        }
+
+        // Check line of sight (if blocking layers are set)
+        if (config.lookingAtBlockingLayers != 0)
+        {
+            if (Physics.Raycast(cameraPos, directionToKiller, out RaycastHit hit, distance, config.lookingAtBlockingLayers))
+            {
+                // Something is blocking the view
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private void StopTerrorSounds()
     {
         if (heartbeatAudioSource != null)
@@ -243,6 +333,9 @@ public class CryptKiller : MonoBehaviour
     {
         config = killerConfig;
         ApplyConfig(config);
+
+        // Find player references immediately (don't wait for Start)
+        FindPlayer();
 
         // Apply behavior-specific effects immediately
         ApplyBehaviorEffects();
@@ -364,7 +457,7 @@ public class CryptKiller : MonoBehaviour
             return;
         }
 
-        if (playerTransform == null)
+        if (playerTransform == null || playerCamera == null)
         {
             FindPlayer();
             if (playerTransform == null) return;
@@ -372,6 +465,9 @@ public class CryptKiller : MonoBehaviour
 
         // Update terror radius audio
         UpdateTerrorRadius();
+
+        // Update sanity drain
+        UpdateSanityDrain();
 
         // Check for kill distance
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
@@ -941,6 +1037,13 @@ public class CryptKiller : MonoBehaviour
 
         // Stop terror radius sounds
         StopTerrorSounds();
+
+        // Stop sanity drain
+        if (isDrainingSanity && SanityManager.Instance != null)
+        {
+            SanityManager.Instance.UnregisterDrainSource();
+            isDrainingSanity = false;
+        }
 
         Debug.Log("CryptKiller: Kill distance reached - triggering game over");
 

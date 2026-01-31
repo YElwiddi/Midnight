@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1006629048389405981}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: -0.05}
+  m_LocalPosition: {x: 0, y: 1.35, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,9 +107,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshairColor: {r: 1, g: 0, b: 0, a: 1}
-  crosshairSize: 10
-  crosshairThickness: 2
-  crosshairGap: 5
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  circleSize: 20
+  ringThickness: 2
+  fillGap: 3
+  hollowCircleSprite: {fileID: 0}
+  filledCircleSprite: {fileID: 0}
   uiCanvas: {fileID: 0}
 --- !u!114 &8127340128868563144
 MonoBehaviour:
@@ -129,7 +132,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   uiCanvas: {fileID: 0}
-  highlightCrosshairColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   showInteractionPrompt: 1
 --- !u!1 &7210292650286847324
 GameObject:
@@ -272,6 +274,10 @@ MonoBehaviour:
   lookSpeed: 2
   lookXLimit: 89
   invertMouseY: 0
+  dialogueLookHeight: 1.6
+  dialogueCameraSpeed: 5
+  dialogueZoomSpeed: 5
+  dialogueReferenceDistance: 2.5
   footstepAudioSource: {fileID: 0}
   walkingFootstepSounds: []
   runningFootstepSounds: []
@@ -424,3 +430,8 @@ MonoBehaviour:
   lightColor: {r: 1, g: 1, b: 1, a: 1}
   toggleOnSound: {fileID: 8300000, guid: 56b2290a94af0824fbee72b22be8c03b, type: 3}
   toggleOffSound: {fileID: 8300000, guid: 56b2290a94af0824fbee72b22be8c03b, type: 3}
+  enableKillerFlicker: 1
+  flickerStartDistance: 15
+  flickerMaxDistance: 5
+  flickerSpeed: 20
+  flickerMinIntensity: 0.1

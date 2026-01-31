@@ -4,6 +4,9 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
+
 
 === start ===
 #speaker: Tabitha
@@ -95,6 +98,7 @@ You won’t owe me anything.
      ~ SetEventVar("allowed_inside", true)
      ~SpiritAngered = SpiritAngered - 1
      ~GraveRobberSetup = GraveRobberSetup + 1
+     ~GraveyardProtection = GraveyardProtection - 15
     -> tabitha_allow
 + [No. I can’t let you in.]
     ~player_mean = player_mean + 1

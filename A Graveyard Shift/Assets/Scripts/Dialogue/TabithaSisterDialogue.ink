@@ -104,7 +104,6 @@ If I don’t retrieve what she disturbed, it will start calling out.
 First to the dead, then to you.
 
 I won’t need long.
-Just let me in.
 
 -> sister_request
 
@@ -136,7 +135,6 @@ You’re smarter than my sister.
 She always begged.
 
 I prefer honesty.
-     ~SpiritAngered = SpiritAngered + 2
 
 -> END
 

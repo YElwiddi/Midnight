@@ -37,7 +37,7 @@ MonoBehaviour:
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 20
+  activationDistance: 17
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30
@@ -56,8 +56,8 @@ MonoBehaviour:
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: -0.3
-  flashlightTargetHeight: 1.76
+  jumpscarePlayerHeightOffset: -0.68
+  flashlightTargetHeight: 1.96
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
   screenEffectPrefab: {fileID: 0}

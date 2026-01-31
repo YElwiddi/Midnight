@@ -5,6 +5,9 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
+
 
 === start ===
 Hey.
@@ -63,7 +66,7 @@ Sticks with a place too.
 
 === why_unmarked ===
 Because it was easier that way.
-No paperwork. No attention.
+No paperwork or attention.
 Just dirt over a problem.
 
 I know how this sounds.
@@ -92,15 +95,18 @@ That it stays that way.
 
 
 === whats_wrong ===
-Graves aren’t supposed to feel warm.
-They aren’t supposed to feel awake.
+The paperwork doesn’t line up.
+Dates, plot number... even the depth’s different depending on who you ask.
 
-I don’t want to find out what happens if it’s ignored.
-Not again.
+That usually means someone rushed it, or skipped steps they shouldn’t have.
+
+If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.
+I’ve learned that the hard way.
+Will you let me come in and have a look?
 
 + [Okay. One minute. Then you leave.]
     -> let_in
-+ [This is crossing a line. Go.]
++ [No.]
     -> final_refusal
 
 
@@ -109,10 +115,10 @@ Thank you.
 Really.
 
 I’ll be quick.
-And whatever happens after tonight…
-That’s on me.
 ~ SetEventVar("allowed_inside", true)
 ~ GraveRobberSetup = GraveRobberSetup + 1
+~GraveyardProtection = GraveyardProtection - 30
+
 -> END
 
 
@@ -124,17 +130,14 @@ Nobody ever wants to deal with things before they rot.
 They just lock the gate and walk away.
 
 You have a good night.
-If it lets you.
 ~ SetEventVar("allowed_inside", false)
-~ SpiritAngered = SpiritAngered + 1
 -> END
 
 
 === final_refusal ===
 …Alright.
-I tried doing this the right way.
+I tried to handle this properly.
 
-If something doesn’t stay buried tonight, don’t say you weren’t warned.
+If this turns into a mess later, just remember I came by.
 ~ SetEventVar("allowed_inside", false)
-~ SpiritAngered = SpiritAngered + 1
 -> END

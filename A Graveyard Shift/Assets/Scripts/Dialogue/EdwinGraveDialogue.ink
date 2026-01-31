@@ -5,17 +5,22 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
+
 
 === start ===
-It's been a long time since I've been to this grave site.
-To be honest with you...
-It's been a long time since I've been outside at all.
-I haven't left home in a long time. Just can't find a reason for it. For anything at all.
+I miss my mother dearly.
+She used to hum when she thought no one was listening.
+Funny what stays with you, even after everything else is gone.
+...
+Anyway. I shouldn’t keep you standing here.
 
 + [Are you going to be okay?]
     -> are_you_okay
 + [Get lost, kid.]
     ~player_mean = player_mean + 2
+    ~Sanity = Sanity - 10
     ~SpiritAngered = SpiritAngered + 1
     -> leave
     

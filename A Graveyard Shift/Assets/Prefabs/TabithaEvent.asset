@@ -29,6 +29,7 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 4.5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -65,6 +66,7 @@ MonoBehaviour:
     waypointName: NPCGatePoint
     moveSpeed: 4.5
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -101,6 +103,7 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -137,6 +140,7 @@ MonoBehaviour:
     waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -173,6 +177,7 @@ MonoBehaviour:
     waypointName: CenterOfMap
     moveSpeed: 3
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 10
     waitingDialogueText: I should give her a moment...
     waitingDialogueSpeaker: 20
@@ -182,7 +187,7 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: 34d5934b448fbf548b0770489e57634a, type: 3}
     dialogueKnot: 
-    cameraHeight: -1
+    cameraHeight: 0.75
     cameraZoom: -1
     dialogueSoundClip: {fileID: 0}
     dialogueSoundVolume: -1
@@ -209,6 +214,7 @@ MonoBehaviour:
     waypointName: GraveyardCrossRoads
     moveSpeed: 3
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -245,6 +251,7 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 3
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -281,6 +288,7 @@ MonoBehaviour:
     waypointName: NPCRightPoint
     moveSpeed: 3
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -325,3 +333,5 @@ MonoBehaviour:
   exitPointName: NPCRightPoint
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

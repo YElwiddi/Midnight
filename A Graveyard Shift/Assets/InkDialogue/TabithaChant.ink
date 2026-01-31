@@ -4,6 +4,7 @@ VAR player_scared = 0
 VAR player_smart = 0
 VAR player_brave = 0
 VAR player_stupid = 0
+VAR Sanity = 100
 
 === start ===
 #speaker: Tabitha
@@ -29,5 +30,6 @@ Thank you, gravekeeper.
 For your cooperation.
 
 We may speak again.
+~Sanity = Sanity + 35
 
 -> END

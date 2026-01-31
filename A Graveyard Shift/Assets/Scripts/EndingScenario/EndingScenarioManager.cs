@@ -33,6 +33,10 @@ public class EndingScenarioManager : MonoBehaviour
     [Tooltip("Where to spawn the killer in the crypt")]
     [SerializeField] private Transform killerSpawnPoint;
 
+    [Header("Sanity")]
+    [Tooltip("If true, restores player sanity to full when entering the crypt")]
+    [SerializeField] private bool restoreSanityOnEnter = true;
+
     [Header("Roaming Waypoints")]
     [Tooltip("Waypoints for the killer to roam between")]
     [SerializeField] private Transform[] roamWaypoints;
@@ -75,6 +79,13 @@ public class EndingScenarioManager : MonoBehaviour
 
         hasStarted = true;
         Debug.Log("EndingScenarioManager: Player entered crypt - starting ending scenario");
+
+        // Restore player sanity to full when entering crypt (if enabled)
+        if (restoreSanityOnEnter && SanityManager.Instance != null)
+        {
+            SanityManager.Instance.ResetSanity();
+            Debug.Log("EndingScenarioManager: Player sanity restored to full");
+        }
 
         OnEndingScenarioStarted?.Invoke();
 

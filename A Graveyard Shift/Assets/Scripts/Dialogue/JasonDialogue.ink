@@ -5,6 +5,7 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
 
 === start ===
 Evening.
@@ -40,21 +41,7 @@ Jason Michael Holmes.
 I'm here for my brother, Zackary Holmes.
 And his son. Edward Holmes.
 
-They were buried together.
-Same plot.
-Same day.
-
-House fire took them both.
-Middle of the night.
-People said it was fast.
-I hope it was.
-
-Zack used to joke that this place was safer than his own home.
-Guess he wasn't wrong.
-
-I don't carry ID when I come here.
-Feels wrong somehow.
-Like I'm bringing paperwork to a confession.
+They were buried together, at the same area, on the same day.
 I won't be long.
 Just need to say what I never got to.
 
@@ -71,9 +58,6 @@ Can I go in?
 Thanks.
 I appreciate it.
 
-I'll lock the gate on my way out.
-Wouldn't want anyone wandering where they shouldn't.
-
  ~ SetEventVar("allowed_inside", true)
 -> END
 
@@ -87,5 +71,6 @@ Funny how some habits stick.
 
  ~ SetEventVar("allowed_inside", false)
  ~ SpiritAngered = SpiritAngered + 1
+ ~ Sanity = Sanity - 20
 
 -> END

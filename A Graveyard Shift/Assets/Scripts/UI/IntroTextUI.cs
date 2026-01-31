@@ -162,6 +162,7 @@ public class IntroTextUI : MonoBehaviour
         else
         {
             mainText.text = page.text;
+            mainText.maxVisibleCharacters = int.MaxValue;
             OnTypewriterComplete();
         }
     }
@@ -169,12 +170,20 @@ public class IntroTextUI : MonoBehaviour
     private IEnumerator TypewriterEffect(string fullText)
     {
         isTypewriting = true;
-        mainText.text = "";
+
+        // Set full text immediately so layout is stable, then reveal characters
+        mainText.text = fullText;
+        mainText.maxVisibleCharacters = 0;
+
+        // Force mesh update to get accurate character count
+        mainText.ForceMeshUpdate();
+        int totalCharacters = mainText.textInfo.characterCount;
+
         float charDelay = 1f / typewriterSpeed;
 
-        for (int i = 0; i < fullText.Length; i++)
+        for (int i = 0; i <= totalCharacters; i++)
         {
-            mainText.text = fullText.Substring(0, i + 1);
+            mainText.maxVisibleCharacters = i;
             yield return new WaitForSeconds(charDelay);
         }
 
@@ -195,6 +204,7 @@ public class IntroTextUI : MonoBehaviour
         if (currentPageIndex < pages.Length && mainText != null)
         {
             mainText.text = pages[currentPageIndex].text;
+            mainText.maxVisibleCharacters = int.MaxValue;
         }
 
         isTypewriting = false;
@@ -318,7 +328,7 @@ public class IntroTextUI : MonoBehaviour
         mainText = textObj.AddComponent<TextMeshProUGUI>();
         mainText.text = "";
         mainText.fontSize = 36;
-        mainText.alignment = TextAlignmentOptions.Center;
+        mainText.alignment = TextAlignmentOptions.Top;
         mainText.color = Color.white;
 
         RectTransform textRect = mainText.rectTransform;
