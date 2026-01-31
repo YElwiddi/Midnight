@@ -56,7 +56,7 @@ MonoBehaviour:
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: -0.551
+  jumpscarePlayerHeightOffset: -0.24
   flashlightTargetHeight: 1.93
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15

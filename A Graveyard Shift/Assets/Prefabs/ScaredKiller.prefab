@@ -148,7 +148,7 @@ MonoBehaviour:
   killerFace: {fileID: 0}
   faceHeightOffset: 0
   killStopDistance: 2
-  playerHeightOffset: 1.2
+  playerHeightOffset: 1
   killAnimationTrigger: Kill
   jumpscareSound: {fileID: 8300000, guid: a088031fdf792f24ba23b3bd2f4f9f66, type: 3}
   jumpscareSoundVolume: 1

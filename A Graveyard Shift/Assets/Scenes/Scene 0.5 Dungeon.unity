@@ -28802,9 +28802,9 @@ MonoBehaviour:
   player_mean: 0
   player_stupid: 0
   SpiritAngered: 0
-  GraveRobberSetup: 0
+  GraveRobberSetup: 2
   GraveKeeperAngered: 0
-  CryptUnlocked: 0
+  CryptUnlocked: 1
   ShovelPickedUp: 0
   GraveyardEndingTriggered: 0
   IncorrectDigCount: 0
@@ -30691,7 +30691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 1
+  - selectionMode: 2
     singleEvent: {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
