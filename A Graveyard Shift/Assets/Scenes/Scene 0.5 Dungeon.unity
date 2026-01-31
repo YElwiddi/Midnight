@@ -28802,7 +28802,7 @@ MonoBehaviour:
   player_mean: 0
   player_stupid: 0
   SpiritAngered: 0
-  GraveRobberSetup: 2
+  GraveRobberSetup: 0
   GraveKeeperAngered: 0
   CryptUnlocked: 1
   ShovelPickedUp: 0
@@ -30691,7 +30691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 2
+  - selectionMode: 1
     singleEvent: {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
@@ -30699,7 +30699,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
     - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
+    killerEvent: {fileID: 0}
     conditionType: 0
     statName: GraveRobberSetup
     statComparison: 2

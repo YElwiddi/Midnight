@@ -151,6 +151,12 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Reference to the killer's face/head transform for camera focus")]
     public string killerFaceObjectName = "Head";
 
+    [Tooltip("If no face transform found, camera looks at killer position + this height")]
+    public float faceHeightOffset = 1.6f;
+
+    [Tooltip("Vertical offset applied to face position (use negative to look lower, e.g., -0.2 to look at eyes instead of top of head)")]
+    public float faceLookVerticalOffset = 0f;
+
     [Tooltip("Sound to play during kill sequence")]
     public AudioClip jumpscareSound;
 

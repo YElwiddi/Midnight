@@ -52,11 +52,12 @@ MonoBehaviour:
   slowMotionTimeScale: 0.914
   slowMotionDuration: 5
   killerFaceObjectName: mixamorig:Head
+  faceHeightOffset: 1.6
   jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: -0.68
+  jumpscarePlayerHeightOffset: -0.19
   flashlightTargetHeight: 1.96
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15

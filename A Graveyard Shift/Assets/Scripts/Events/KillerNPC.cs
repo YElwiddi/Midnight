@@ -84,6 +84,12 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Reference to the killer's face transform for camera focus")]
     [SerializeField] private Transform killerFace;
 
+    [Tooltip("If no face transform, camera looks at killer position + this height")]
+    [SerializeField] private float faceHeightOffset = 1.6f;
+
+    [Tooltip("Vertical offset applied to face position (use negative to look lower, e.g., -0.2 to look at eyes instead of top of head)")]
+    [SerializeField] private float faceLookVerticalOffset = 0f;
+
     [Tooltip("Sound to play during kill sequence")]
     [SerializeField] private AudioClip jumpscareSound;
 
@@ -516,6 +522,8 @@ public class KillerNPC : MonoBehaviour
         gameOverDelay = killerEvent.gameOverDelay;
         shakeIntensity = killerEvent.shakeIntensity;
         shakeDuration = killerEvent.shakeDuration;
+        faceHeightOffset = killerEvent.faceHeightOffset;
+        faceLookVerticalOffset = killerEvent.faceLookVerticalOffset;
 
         // Player position during jumpscare
         jumpscarePlayerHeightOffset = killerEvent.jumpscarePlayerHeightOffset;
@@ -738,17 +746,8 @@ public class KillerNPC : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(directionToPlayer);
             }
 
-            // Make camera look at killer's face position (use position, not transform orientation)
-            Vector3 lookTarget;
-            if (killerFace != null)
-            {
-                lookTarget = killerFace.position;
-            }
-            else
-            {
-                // Estimate face height if no face transform
-                lookTarget = transform.position + Vector3.up * 1.6f;
-            }
+            // Make camera look at killer's face position
+            Vector3 lookTarget = GetKillerFacePosition();
             playerCamera.transform.LookAt(lookTarget);
 
             // Point flashlight at killer's face
@@ -817,12 +816,20 @@ public class KillerNPC : MonoBehaviour
 
     private Vector3 GetKillerFacePosition()
     {
+        Vector3 facePos;
         if (killerFace != null)
         {
-            return killerFace.position;
+            facePos = killerFace.position;
         }
-        // Estimate face height if no face transform assigned
-        return transform.position + Vector3.up * 1.6f;
+        else
+        {
+            // Estimate face height if no face transform assigned
+            facePos = transform.position + Vector3.up * faceHeightOffset;
+        }
+
+        // Apply vertical offset (use negative to look lower on the face)
+        facePos.y += faceLookVerticalOffset;
+        return facePos;
     }
 
     private void LockCameraOnKiller()
@@ -856,8 +863,8 @@ public class KillerNPC : MonoBehaviour
         // Keep spotlight pointed at killer during shake
         UpdateSpotlightTarget();
 
-        // Decrease shake over time
-        currentShakeDuration -= Time.deltaTime * 0.8f;
+        // Decrease shake over time (use unscaled time for slow-mo)
+        currentShakeDuration -= Time.unscaledDeltaTime;
         currentShakeAmount = Mathf.Lerp(0, shakeIntensity, currentShakeDuration / shakeDuration);
 
         if (currentShakeDuration <= 0)
