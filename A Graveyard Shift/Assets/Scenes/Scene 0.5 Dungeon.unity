@@ -13159,6 +13159,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8462fd95dbd5b41bbcadcccbaf843e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &600123191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600123156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae74740368e5bb4cb36ecff601132f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerZoneTracker
 --- !u!1 &613321995
 GameObject:
   m_ObjectHideFlags: 0
@@ -30449,6 +30461,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 600123176}
+    - targetCorrespondingSourceObject: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 600123191}
     - targetCorrespondingSourceObject: {fileID: 1006629048389405981, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1618488527}
@@ -31382,14 +31397,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
   - selectionMode: 1
-    singleEvent: {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
+    singleEvent: {fileID: 0}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
     - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
     - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
     - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: dc97502c503c7e941a2d53bd73c17c41, type: 2}
+    killerEvent: {fileID: 0}
     conditionType: 0
     statName: GraveRobberSetup
     statComparison: 2
@@ -35173,7 +35188,7 @@ Transform:
   m_GameObject: {fileID: 1748659528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.94, y: 48.21, z: -23.16}
+  m_LocalPosition: {x: -24.94, y: 47.78, z: -23.16}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []

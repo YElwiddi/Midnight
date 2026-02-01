@@ -324,6 +324,7 @@ public class EventQueueEntry
 
     /// <summary>
     /// Checks if the player is currently inside the required zone.
+    /// Uses PlayerZoneTracker (trigger-based) for reliable detection.
     /// </summary>
     private bool CheckZoneCondition(Transform playerTransform)
     {
@@ -333,29 +334,18 @@ public class EventQueueEntry
             return true;
         }
 
-        if (playerTransform == null)
+        // Use trigger-based zone tracking (most reliable)
+        bool isInZone = PlayerZoneTracker.IsInZone(requiredZoneName);
+
+        if (!isInZone)
         {
-            Debug.LogWarning("EventQueueEntry: Player transform is null for zone check");
-            return false;
+            // Log current zones for debugging
+            var currentZones = PlayerZoneTracker.GetCurrentZones();
+            string zonesStr = string.Join(", ", currentZones);
+            Debug.Log($"EventQueueEntry: Player not in zone '{requiredZoneName}'. Current zones: [{zonesStr}]");
         }
 
-        // Find the zone by name
-        GameObject zoneObject = GameObject.Find(requiredZoneName);
-        if (zoneObject == null)
-        {
-            Debug.LogWarning($"EventQueueEntry: Zone '{requiredZoneName}' not found");
-            return false;
-        }
-
-        Collider zoneCollider = zoneObject.GetComponent<Collider>();
-        if (zoneCollider == null)
-        {
-            Debug.LogWarning($"EventQueueEntry: Zone '{requiredZoneName}' has no Collider component");
-            return false;
-        }
-
-        // Check if the player's position is within the collider bounds
-        return zoneCollider.bounds.Contains(playerTransform.position);
+        return isInZone;
     }
 
     /// <summary>

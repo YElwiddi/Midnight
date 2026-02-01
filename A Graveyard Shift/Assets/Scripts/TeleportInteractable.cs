@@ -128,6 +128,9 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
             LightingController.Instance.ApplyPreset(destinationLightingPreset);
         }
 
+        // Refresh zone tracking after teleport (OnTriggerEnter/Exit don't fire on teleport)
+        PlayerZoneTracker.RefreshZonesAfterTeleport();
+
         // Small delay at full black
         yield return new WaitForSeconds(0.1f);
 
