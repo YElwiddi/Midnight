@@ -128,8 +128,10 @@ public class SanityManager : MonoBehaviour
     public int MaxSanity => maxSanity;
     public float SanityPercent => maxSanity > 0 ? (float)currentSanity / maxSanity : 0f;
     public bool IsDepleted => currentSanity <= 0;
-    public bool IsBeingDrained => activeDrainSources > 0;
+    public bool IsBeingDrained => activeDrainSources > 0 || IsLampDrainActive;
+    public bool IsLampDrainActive => IsLampDrainActiveInCurrentPhase() && GetUnlitLampCount() > 0 && !isInSafeZone;
     public int CurrentPhase => GameFlowManager.Instance != null ? GameFlowManager.Instance.CurrentPhase : 0;
+    public bool IsInSafeZone => isInSafeZone;
     #endregion
 
     #region Private Fields
@@ -140,6 +142,7 @@ public class SanityManager : MonoBehaviour
     private float sanityAccumulator = 0f; // For sub-integer drain
     private List<LanternInteractable> registeredLamps = new List<LanternInteractable>();
     private int previousPhase = 0;
+    private bool isInSafeZone = false;
     #endregion
 
     #region Unity Lifecycle
@@ -200,9 +203,12 @@ public class SanityManager : MonoBehaviour
         if (GraveyardProtectionManager.Instance != null) yOffset += 60f;
         if (SideGameEventManager.Instance != null) yOffset += 100f;
 
-        GUI.Box(new Rect(10, yOffset, 200, 70), "Sanity");
-        GUI.Label(new Rect(20, yOffset + 20, 180, 20), $"Sanity: {currentSanity}/{maxSanity}");
-        GUI.Label(new Rect(20, yOffset + 40, 180, 20), $"Phase: {CurrentPhase} | Draining: {IsBeingDrained}");
+        GUI.Box(new Rect(10, yOffset, 280, 130), "Sanity");
+        GUI.Label(new Rect(20, yOffset + 20, 260, 20), $"Sanity: {currentSanity}/{maxSanity}");
+        GUI.Label(new Rect(20, yOffset + 40, 260, 20), $"Phase: {CurrentPhase} | Draining: {IsBeingDrained}");
+        GUI.Label(new Rect(20, yOffset + 60, 260, 20), $"Lamps: {GetUnlitLampCount()}/{registeredLamps.Count} unlit | Active: {IsLampDrainActiveInCurrentPhase()}");
+        GUI.Label(new Rect(20, yOffset + 80, 260, 20), $"Drain rate: {drainPerUnlitLamp}/s | Accum: {sanityAccumulator:F2}");
+        GUI.Label(new Rect(20, yOffset + 100, 260, 20), $"Safe Zone: {isInSafeZone}");
     }
     #endregion
 
@@ -212,7 +218,7 @@ public class SanityManager : MonoBehaviour
     /// </summary>
     public void DrainSanity(int amount)
     {
-        if (amount <= 0 || jumpscareTriggered) return;
+        if (amount <= 0 || jumpscareTriggered || isInSafeZone) return;
 
         int previousValue = currentSanity;
         currentSanity = Mathf.Max(0, currentSanity - amount);
@@ -236,7 +242,7 @@ public class SanityManager : MonoBehaviour
     /// </summary>
     public void DrainSanityPerSecond(float amountPerSecond)
     {
-        if (amountPerSecond <= 0 || jumpscareTriggered) return;
+        if (amountPerSecond <= 0 || jumpscareTriggered || isInSafeZone) return;
 
         sanityAccumulator += amountPerSecond * Time.deltaTime;
 
@@ -287,6 +293,30 @@ public class SanityManager : MonoBehaviour
     public void UnregisterDrainSource()
     {
         activeDrainSources = Mathf.Max(0, activeDrainSources - 1);
+    }
+
+    /// <summary>
+    /// Enters a safe zone where sanity cannot be drained.
+    /// </summary>
+    public void EnterSafeZone()
+    {
+        if (!isInSafeZone)
+        {
+            isInSafeZone = true;
+            Debug.Log("SanityManager: Entered safe zone - sanity drain paused");
+        }
+    }
+
+    /// <summary>
+    /// Exits the safe zone, allowing sanity drain again.
+    /// </summary>
+    public void ExitSafeZone()
+    {
+        if (isInSafeZone)
+        {
+            isInSafeZone = false;
+            Debug.Log("SanityManager: Exited safe zone - sanity drain resumed");
+        }
     }
 
     /// <summary>
@@ -487,6 +517,7 @@ public class SanityManager : MonoBehaviour
         if (unlitCount > 0)
         {
             float totalDrain = drainPerUnlitLamp * unlitCount;
+            // Debug.Log($"SanityManager: Lamp drain - {unlitCount} unlit, draining {totalDrain}/s, accumulator: {sanityAccumulator}");
             DrainSanityPerSecond(totalDrain);
         }
     }

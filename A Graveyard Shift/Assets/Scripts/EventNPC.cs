@@ -139,6 +139,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         if (dialogueManager != null)
         {
             dialogueManager.OnDialogueEnded += HandleDialogueEnded;
+            dialogueManager.OnDialogueSuspended += HandleDialogueSuspended;
         }
 
         // Setup for proximity sound
@@ -156,6 +157,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         if (dialogueManager != null)
         {
             dialogueManager.OnDialogueEnded -= HandleDialogueEnded;
+            dialogueManager.OnDialogueSuspended -= HandleDialogueSuspended;
         }
     }
 
@@ -317,6 +319,41 @@ public class EventNPC : MonoBehaviour, IInteractable
             return;
         }
 
+        // Get player reference for facing
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        // Check if there's suspended dialogue to resume
+        if (dialogueManager.HasSuspendedDialogue(transform))
+        {
+            Debug.Log($"EventNPC {npcName}: Resuming suspended dialogue");
+
+            // Cancel any waiting dialogue that might be showing
+            if (waitingDialogueCoroutine != null)
+            {
+                StopCoroutine(waitingDialogueCoroutine);
+                waitingDialogueCoroutine = null;
+                if (dialogueUI != null)
+                {
+                    dialogueUI.Hide();
+                }
+            }
+
+            // Face the player
+            if (player != null)
+            {
+                Vector3 lookDir = player.transform.position - transform.position;
+                lookDir.y = 0;
+                if (lookDir != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(lookDir);
+                }
+            }
+
+            currentState = NPCState.InDialogue;
+            dialogueManager.ResumeDialogue(transform);
+            return;
+        }
+
         // Cancel any active simple dialogue first
         SimpleDialogueTrigger.CancelActiveSimpleDialogue();
 
@@ -332,7 +369,6 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
 
         // Face the player
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             Vector3 lookDir = player.transform.position - transform.position;
@@ -935,6 +971,19 @@ public class EventNPC : MonoBehaviour, IInteractable
             yield return new WaitForSeconds(0.1f);
         }
         StartDialogueForWaypoint(waypoint);
+    }
+
+    private void HandleDialogueSuspended(Transform npcTransform)
+    {
+        // Only handle if this is OUR suspended dialogue
+        if (npcTransform != transform) return;
+        if (currentState != NPCState.InDialogue) return;
+
+        Debug.Log($"EventNPC {npcName}: Dialogue suspended - NPC remains interactable for resume");
+
+        // Return to WaitingForInteraction so player can talk again
+        currentState = NPCState.WaitingForInteraction;
+        isWaitingToBeInteractable = false; // Immediately interactable
     }
 
     private void HandleDialogueEnded()

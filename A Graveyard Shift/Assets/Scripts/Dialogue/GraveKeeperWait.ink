@@ -9,10 +9,11 @@ VAR CryptUnlocked = false
 
 === start ===
 I've went ahead and unlocked the crypt.
-I should mention...
-When I was reading the old gravekeepers notes, he mentioned a protector of the crypt.
-He wrote that this protector will prey on the mentally weak, feeble, or those with bad intentions.
-I have faith that you are none of these things.
+One more thing.
+In one of the notes left by a previous gatekeeper...
+It mentioned turning off your flashlight before entering.
+I don't know why.
+I have faith that you'll be able to figure this out.
 Good luck in there.
   ~ SetGameBoolFlag("cryptunlocked", true)
 -> END

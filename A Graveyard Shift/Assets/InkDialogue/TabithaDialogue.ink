@@ -1,4 +1,6 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
+
 VAR player_mean = 0
 VAR player_scared = 0
 VAR player_stupid = 0
@@ -87,12 +89,18 @@ That kind of tired doesn’t come from long shifts.
 
 === tabitha_request ===
 #speaker: Tabitha
-Let me inside.
-I’ll walk the paths.
-Say what needs to be said.
-Then I’ll be gone.
-
 You won’t owe me anything.
+It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.
+You will immediately feel at ease.
+
+-> ask
+
+
+=== ask ===
+
+Let me inside.
+
+
 
 + [Alright. Go ahead, but I’m watching you.]
      ~ SetEventVar("allowed_inside", true)
@@ -104,7 +112,16 @@ You won’t owe me anything.
     ~player_mean = player_mean + 1
      ~ SetEventVar("allowed_inside", false)
     -> tabitha_deny
-
+    + [What did you say your name was again?]
+    -> ask_name_again
+  + [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
+    
+    === ask_name_again ===
+    My name is Tabitha. I am here to ease these restless spirits.
+    -> ask
+    
 === tabitha_allow ===
 #speaker: Tabitha
 Good.

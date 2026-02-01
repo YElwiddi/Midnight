@@ -196,6 +196,7 @@ public class DialogueUI : MonoBehaviour
         else
         {
             dialogueText.text = text;
+            dialogueText.maxVisibleCharacters = int.MaxValue; // Ensure all characters visible
             ShowContinueIndicator();
         }
 
@@ -212,6 +213,7 @@ public class DialogueUI : MonoBehaviour
             StopCoroutine(typewriterCoroutine);
             isTypewriting = false;
             dialogueText.text = fullDialogueText;
+            dialogueText.maxVisibleCharacters = int.MaxValue; // Show all characters
             StopTypewriterSound();
             ShowContinueIndicator();
         }
@@ -474,6 +476,7 @@ public class DialogueUI : MonoBehaviour
         if (dialogueText != null)
         {
             dialogueText.text = "";
+            dialogueText.maxVisibleCharacters = int.MaxValue; // Reset for next use
         }
         if (typewriterCoroutine != null)
         {
@@ -494,7 +497,14 @@ public class DialogueUI : MonoBehaviour
     private IEnumerator TypewriterEffect(string text)
     {
         isTypewriting = true;
-        dialogueText.text = "";
+
+        // Set full text immediately so layout is stable, then reveal characters
+        dialogueText.text = text;
+        dialogueText.maxVisibleCharacters = 0;
+
+        // Force mesh update to get accurate character count
+        dialogueText.ForceMeshUpdate();
+        int totalCharacters = dialogueText.textInfo.characterCount;
 
         // Use override speed if set, otherwise use settings speed (default to 50 if no settings)
         float speed = overrideTypewriterSpeed > 0f
@@ -516,18 +526,22 @@ public class DialogueUI : MonoBehaviour
         // Get sound settings (override > default)
         int everyN = overrideSoundEveryN > 0 ? overrideSoundEveryN : soundEveryNCharacters;
 
-        int charCount = 0;
-        foreach (char c in text)
+        int soundCharCount = 0;
+        for (int i = 0; i <= totalCharacters; i++)
         {
-            dialogueText.text += c;
-            charCount++;
+            dialogueText.maxVisibleCharacters = i;
 
-            // Play sound every N characters (skip whitespace for sound)
-            if (shouldPlaySound && typewriterAudioSource != null && !char.IsWhiteSpace(c))
+            // Play sound for non-whitespace characters
+            if (shouldPlaySound && typewriterAudioSource != null && i > 0 && i <= text.Length)
             {
-                if (charCount % everyN == 0)
+                char c = text[i - 1];
+                if (!char.IsWhiteSpace(c))
                 {
-                    PlayTypewriterSound(clipToUse);
+                    soundCharCount++;
+                    if (soundCharCount % everyN == 0)
+                    {
+                        PlayTypewriterSound(clipToUse);
+                    }
                 }
             }
 

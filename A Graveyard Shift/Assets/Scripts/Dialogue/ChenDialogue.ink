@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -123,12 +124,17 @@ I'm not going to answer anymore questions.
 
 === chen_request ===
 #speaker: Chen Huang
-Is that going to be a problem?
+Is there going to be a problem?
 
 + [No. Go ahead inside, but be quick.]
     -> chen_allow
 + [Visiting hours are over.]
     -> chen_deny
++ [What did you say your name was again?]
+    -> chen_close
++ [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> chen_request
 
 === chen_allow ===
 #speaker: Chen Huang

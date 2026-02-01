@@ -19,8 +19,10 @@ MonoBehaviour:
     waitTime: 0
   fadeOutDuration: 2
   delayBeforeFade: 0
-  endingTitle: The End
-  endingDescription: The player lived happily ever after.
+  endingTitle: 
+  endingDescription: "The curse was lifted. Soon after, everyone\u2019s memory of
+    the events that took place here faded. The graveyard slowly took its place as
+    a normal, unnoticed burial ground."
   endingScreenDuration: 8
   menuSceneName: Start Menu Scene
   cinematicMusic: {fileID: 0}

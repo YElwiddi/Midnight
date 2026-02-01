@@ -43,8 +43,8 @@ MonoBehaviour:
   stareMode: 0
   stareDirection: {x: 0, y: 0, z: 1}
   stareTargetName: 
-  flashlightDetectionAngle: 25
-  flashlightMaxDistance: 20
+  flashlightDetectionAngle: 30
+  flashlightMaxDistance: 30
   flashlightExposureRequired: 0.5
   requireFlashlightOn: 1
   flashlightIgnoreObstacles: 1
@@ -63,6 +63,11 @@ MonoBehaviour:
   ambientSoundVolume: 0.3
   retreatSound: {fileID: 0}
   retreatSoundVolume: 0.7
+  idleSound: {fileID: 8300000, guid: f2728a42dc5754b428b588a85f206a40, type: 3}
+  idleSoundVolume: 0.6
+  idleSoundIntervalMin: 5
+  idleSoundIntervalMax: 40
+  playIdleSoundOnSpawn: 0
   playerTrackingSpeed: 90
   staringAnimationBool: 
   eventTimeout: 240

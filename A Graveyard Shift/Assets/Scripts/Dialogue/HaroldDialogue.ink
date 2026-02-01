@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -123,10 +124,14 @@ I wouldn’t be here if it didn’t matter.
 === harold_request ===
 #speaker: Harold Vunderbilt
 So.
-May I go in?
 
-Just a few minutes.
+I just need a few minutes.
 I’ll stay out of your way.
+-> ask
+
+===ask===
+
+May I go in?
 
 + [Alright. Be quick.]
 ~player_stupid = player_stupid + 1
@@ -135,6 +140,15 @@ I’ll stay out of your way.
     -> harold_allow
 + [No. I can’t allow it.]
     -> harold_deny
+    + [What did you say your name was again?]
+    -> ask_name_again
+  + [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
+    
+    ===ask_name_again===
+    My name's Harold.
+    -> ask
 
 === harold_allow ===
 #speaker: Harold Vunderbilt

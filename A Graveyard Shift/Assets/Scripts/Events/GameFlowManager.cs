@@ -72,6 +72,11 @@ public class GameFlowManager : MonoBehaviour
     private KillerNPC currentKillerNPC;
     private Coroutine waitingForKillerSpawnConditionsCoroutine;
 
+    /// <summary>
+    /// Returns true if a killer event is currently active (killer NPC is spawned).
+    /// </summary>
+    public bool IsKillerEventActive => currentKillerNPC != null;
+
     // Game phase tracking (used by SideGameEventManager)
     private int currentPhase = 0;
     #endregion

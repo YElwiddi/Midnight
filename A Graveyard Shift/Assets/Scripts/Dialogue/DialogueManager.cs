@@ -48,6 +48,24 @@ public class DialogueManager : MonoBehaviour
     private float customSoundBasePitch = -1f;
     private float customSoundPitchVariation = -1f;
     private int customSoundEveryN = -1;
+
+    // Suspended dialogue state - keep Story object alive to preserve full state
+    private bool suspendRequested = false;
+    private Story suspendedStory = null;
+    private Transform suspendedNPC = null;
+    private float suspendedCameraHeight = -1f;
+    private float suspendedCameraZoom = -1f;
+    private float suspendedTypewriterSpeed = 0f;
+    private string suspendedLastText = null;
+    private string suspendedLastSpeaker = null;
+    private AudioClip suspendedSoundClip = null;
+    private float suspendedSoundVolume = -1f;
+    private float suspendedSoundBasePitch = -1f;
+    private float suspendedSoundPitchVariation = -1f;
+    private int suspendedSoundEveryN = -1;
+
+    // Track current settings for suspend/resume
+    private float currentTypewriterSpeed = 0f;
     #endregion
 
     #region Events
@@ -62,6 +80,9 @@ public class DialogueManager : MonoBehaviour
 
     /// <summary>Invoked when choices are presented. Parameter is the list of choice texts.</summary>
     public event Action<List<string>> OnChoicesPresented;
+
+    /// <summary>Invoked when dialogue is suspended (player chose to pause and return later). Parameter is the NPC transform.</summary>
+    public event Action<Transform> OnDialogueSuspended;
     #endregion
 
     #region Unity Lifecycle
@@ -196,6 +217,10 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
 
+        // Store for suspend/resume
+        currentTypewriterSpeed = typewriterSpeed;
+        suspendRequested = false;
+
         // Set typewriter speed override
         dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
 
@@ -257,6 +282,10 @@ public class DialogueManager : MonoBehaviour
         customCameraZoom = cameraZoom;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
+
+        // Store for suspend/resume
+        currentTypewriterSpeed = typewriterSpeed;
+        suspendRequested = false;
 
         // Set typewriter speed override
         dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
@@ -380,22 +409,231 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning($"DialogueManager: Could not set variable '{variableName}': {e.Message}");
         }
     }
+
+    /// <summary>
+    /// Checks if there is suspended dialogue for the specified NPC.
+    /// </summary>
+    public bool HasSuspendedDialogue(Transform npcTransform)
+    {
+        return suspendedNPC != null && suspendedNPC == npcTransform && suspendedStory != null;
+    }
+
+    /// <summary>
+    /// Clears any suspended dialogue state for the specified NPC.
+    /// </summary>
+    public void ClearSuspendedDialogue(Transform npcTransform)
+    {
+        if (suspendedNPC == npcTransform)
+        {
+            suspendedStory = null;
+            suspendedNPC = null;
+            suspendedCameraHeight = -1f;
+            suspendedCameraZoom = -1f;
+            suspendedTypewriterSpeed = 0f;
+            suspendedLastText = null;
+            suspendedLastSpeaker = null;
+            suspendedSoundClip = null;
+            suspendedSoundVolume = -1f;
+            suspendedSoundBasePitch = -1f;
+            suspendedSoundPitchVariation = -1f;
+            suspendedSoundEveryN = -1;
+            Debug.Log("DialogueManager: Cleared suspended dialogue state");
+        }
+    }
+
+    /// <summary>
+    /// Resumes suspended dialogue for the specified NPC.
+    /// </summary>
+    /// <returns>True if dialogue was resumed, false if no suspended dialogue exists</returns>
+    public bool ResumeDialogue(Transform npcTransform)
+    {
+        if (!HasSuspendedDialogue(npcTransform))
+        {
+            Debug.Log("DialogueManager: No suspended dialogue to resume for this NPC");
+            return false;
+        }
+
+        if (dialogueUI == null)
+        {
+            Debug.LogError("DialogueManager: Cannot resume dialogue - DialogueUI is not assigned");
+            return false;
+        }
+
+        Debug.Log("DialogueManager: Resuming suspended dialogue");
+
+        currentNPC = suspendedNPC;
+        customCameraHeight = suspendedCameraHeight;
+        customCameraZoom = suspendedCameraZoom;
+        currentTypewriterSpeed = suspendedTypewriterSpeed;
+        customSoundClip = suspendedSoundClip;
+        customSoundVolume = suspendedSoundVolume;
+        customSoundBasePitch = suspendedSoundBasePitch;
+        customSoundPitchVariation = suspendedSoundPitchVariation;
+        customSoundEveryN = suspendedSoundEveryN;
+
+        // Restore the suspended story directly (state is preserved)
+        currentStory = suspendedStory;
+
+        dialogueIsPlaying = true;
+        suspendRequested = false;
+
+        // Capture the saved text before clearing state
+        string lastText = suspendedLastText;
+        string lastSpeaker = suspendedLastSpeaker;
+
+        // Clear suspended state
+        suspendedStory = null;
+        suspendedNPC = null;
+        suspendedCameraHeight = -1f;
+        suspendedCameraZoom = -1f;
+        suspendedTypewriterSpeed = 0f;
+        suspendedLastText = null;
+        suspendedLastSpeaker = null;
+        suspendedSoundClip = null;
+        suspendedSoundVolume = -1f;
+        suspendedSoundBasePitch = -1f;
+        suspendedSoundPitchVariation = -1f;
+        suspendedSoundEveryN = -1;
+
+        // Set typewriter speed override
+        dialogueUI.SetTypewriterSpeedOverride(currentTypewriterSpeed);
+
+        // Restore sound override if it was set
+        if (customSoundClip != null)
+        {
+            dialogueUI.SetTypewriterSoundOverride(customSoundClip, customSoundVolume, customSoundBasePitch, customSoundPitchVariation, customSoundEveryN);
+        }
+
+        // Show UI
+        dialogueUI.Show();
+
+        // Setup player input
+        SetupPlayerInput(false);
+
+        // Note: External functions are still bound on the preserved Story object - no need to rebind
+
+        OnDialogueStarted?.Invoke();
+
+        // Display the last text that was consumed before suspend (if any)
+        // This ensures the player sees the line before the choices
+        if (!string.IsNullOrWhiteSpace(lastText))
+        {
+            dialogueUI.SetDialogueText(lastText, lastSpeaker);
+            // Also display any choices that are available
+            DisplayChoices();
+        }
+        else
+        {
+            // No saved text, continue from where we left off
+            ContinueStory();
+        }
+
+        return true;
+    }
     #endregion
 
     #region Private Methods
-    private void ContinueStory()
+    private void SuspendDialogueMode()
     {
-        if (currentStory == null || !currentStory.canContinue)
+        if (!dialogueIsPlaying || currentStory == null)
         {
-            if (currentStory != null && currentStory.currentChoices.Count == 0)
-            {
-                Debug.Log("DialogueManager: Story cannot continue and has no choices - exiting dialogue");
-                ExitDialogueMode();
-            }
+            Debug.LogWarning("DialogueManager: Cannot suspend - no dialogue is playing");
             return;
         }
 
+        Debug.Log("DialogueManager: Suspending dialogue...");
+
+        // Save story object directly (preserves full state including visit counts, turn indices, etc.)
+        suspendedStory = currentStory;
+        suspendedNPC = currentNPC;
+        suspendedCameraHeight = customCameraHeight;
+        suspendedCameraZoom = customCameraZoom;
+        suspendedTypewriterSpeed = currentTypewriterSpeed;
+        suspendedSoundClip = customSoundClip;
+        suspendedSoundVolume = customSoundVolume;
+        suspendedSoundBasePitch = customSoundBasePitch;
+        suspendedSoundPitchVariation = customSoundPitchVariation;
+        suspendedSoundEveryN = customSoundEveryN;
+
+        Transform npcForEvent = currentNPC;
+
+        // Sync variables back to GameManager
+        SyncVariablesFromInk();
+
+        // Clear typewriter speed and sound overrides, then hide UI
+        if (dialogueUI != null)
+        {
+            dialogueUI.ClearTypewriterSpeedOverride();
+            dialogueUI.ClearTypewriterSoundOverride();
+            dialogueUI.Hide();
+        }
+
+        // Restore player input
+        SetupPlayerInput(true);
+
+        dialogueIsPlaying = false;
+        currentNPC = null;
+        currentStory = null; // Clear current but suspendedStory still holds reference
+        customCameraHeight = -1f;
+        customCameraZoom = -1f;
+        suspendRequested = false;
+
+        // Clear sound overrides
+        customSoundClip = null;
+        customSoundVolume = -1f;
+        customSoundBasePitch = -1f;
+        customSoundPitchVariation = -1f;
+        customSoundEveryN = -1;
+
+        // Fire suspended event instead of ended event
+        OnDialogueSuspended?.Invoke(npcForEvent);
+
+        Debug.Log("DialogueManager: Dialogue suspended - can be resumed later");
+    }
+
+    private void ContinueStory()
+    {
+        if (currentStory == null) return;
+
+        // Handle case where we're already at choices (e.g., after resuming suspended dialogue)
+        if (!currentStory.canContinue)
+        {
+            if (currentStory.currentChoices.Count > 0)
+            {
+                // We're at a choice point - display the choices
+                DisplayChoices();
+                return;
+            }
+            else
+            {
+                Debug.Log("DialogueManager: Story cannot continue and has no choices - exiting dialogue");
+                ExitDialogueMode();
+                return;
+            }
+        }
+
         string text = currentStory.Continue();
+
+        // Extract speaker name from tags if present (do this before potential suspend)
+        string speakerName = null;
+        foreach (string tag in currentStory.currentTags)
+        {
+            if (tag.StartsWith("speaker:"))
+            {
+                speakerName = tag.Substring(8).Trim();
+                break;
+            }
+        }
+
+        // Check if suspend was requested during Continue (external function call)
+        if (suspendRequested)
+        {
+            // Save the text that was just consumed so we can display it on resume
+            suspendedLastText = text?.Trim();
+            suspendedLastSpeaker = speakerName;
+            SuspendDialogueMode();
+            return;
+        }
 
         // Skip empty text nodes
         if (string.IsNullOrWhiteSpace(text) && currentStory.currentChoices.Count == 0)
@@ -409,17 +647,6 @@ public class DialogueManager : MonoBehaviour
             {
                 ExitDialogueMode();
                 return;
-            }
-        }
-
-        // Extract speaker name from tags if present
-        string speakerName = null;
-        foreach (string tag in currentStory.currentTags)
-        {
-            if (tag.StartsWith("speaker:"))
-            {
-                speakerName = tag.Substring(8).Trim();
-                break;
             }
         }
 
@@ -565,6 +792,14 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("SetEventVarInt", (string varName, int value) =>
         {
             EventVariables.SetVariable(varName, value);
+        });
+
+        // Bind SuspendDialogue function for pausing dialogue and resuming later
+        // Usage in Ink: ~ SuspendDialogue()
+        currentStory.BindExternalFunction("SuspendDialogue", () =>
+        {
+            suspendRequested = true;
+            Debug.Log("DialogueManager: SuspendDialogue() called - dialogue will suspend after current line");
         });
     }
 

@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -88,10 +89,7 @@ Like something’s calling out and not getting an answer.
 I just wanna make sure it’s quiet.
 That it stays that way.
 
-+ [Fine. You can go in, but be quick.]
-    -> let_in
-+ [Absolutely not. You’re done here.]
-    -> final_refusal
+-> ask
 
 
 === whats_wrong ===
@@ -102,13 +100,25 @@ That usually means someone rushed it, or skipped steps they shouldn’t have.
 
 If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.
 I’ve learned that the hard way.
+
+-> ask
+
+=== ask ===
 Will you let me come in and have a look?
 
-+ [Okay. One minute. Then you leave.]
++  [Fine. You can go in, but be quick.]
     -> let_in
 + [No.]
     -> final_refusal
+        + [What did you say your name was again?]
+    -> ask_name_again
+  + [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
 
+=== ask_name_again ===
+My name is Shane Deloitte.
+-> ask
 
 === let_in ===
 Thank you.
@@ -129,7 +139,8 @@ That figures.
 Nobody ever wants to deal with things before they rot.
 They just lock the gate and walk away.
 
-You have a good night.
+If this turns into a mess later, just remember I came by.
+
 ~ SetEventVar("allowed_inside", false)
 -> END
 

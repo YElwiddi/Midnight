@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -35,6 +36,10 @@ My name is Edwin Adams.
 I'm here to visit my mother's grave.
 I don't have any identification with me, I didn't think anyone would be here.
 I don't live far from here and I've been here before a few times. There was never anyone here at the gate.
+
+-> ask_for_entry
+
+=== ask_for_entry ===
 Can I please go in now?
 
 + [Alright. Go ahead.]
@@ -42,7 +47,16 @@ Can I please go in now?
 + [Sorry kid. Graveyard's closed.]
     ~player_mean = player_mean + 2
     -> deny_response
++ [What did you say your name was again?]
+    -> ask_name_again
+  + [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask_for_entry
+    
+=== ask_name_again ===
+I-it's Edwin Adams.
 
+-> ask_for_entry
 
 === let_in_response ===
 T-thanks...

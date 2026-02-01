@@ -194,6 +194,25 @@ public class SideGameEvent : ScriptableObject
     [Range(0f, 1f)]
     public float retreatSoundVolume = 0.7f;
 
+    [Header("Idle Sound")]
+    [Tooltip("Sound to play at random intervals while watcher is active")]
+    public AudioClip idleSound;
+
+    [Tooltip("Volume for idle sound")]
+    [Range(0f, 1f)]
+    public float idleSoundVolume = 0.5f;
+
+    [Tooltip("Minimum time between idle sounds (seconds)")]
+    [Range(1f, 60f)]
+    public float idleSoundIntervalMin = 5f;
+
+    [Tooltip("Maximum time between idle sounds (seconds). Set equal to min for fixed interval.")]
+    [Range(1f, 120f)]
+    public float idleSoundIntervalMax = 15f;
+
+    [Tooltip("If true, plays the first idle sound immediately on spawn")]
+    public bool playIdleSoundOnSpawn = false;
+
     [Header("Visual Settings")]
     [Tooltip("Rotation speed when tracking/facing target (degrees per second). Used when stareMode is not UseSpawnRotation.")]
     [Range(1f, 360f)]

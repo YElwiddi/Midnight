@@ -88,6 +88,13 @@ public class WatcherNPC : MonoBehaviour
     private Renderer[] renderers;
     private float fadeProgress = 0f;
     private Color[] originalColors;
+
+    // Idle sound tracking
+    private AudioClip idleSound;
+    private float idleSoundVolume;
+    private float idleSoundIntervalMin;
+    private float idleSoundIntervalMax;
+    private float nextIdleSoundTime;
     #endregion
 
     #region Unity Lifecycle
@@ -110,11 +117,24 @@ public class WatcherNPC : MonoBehaviour
         else if (isEntering)
         {
             UpdateEntrance();
+            UpdateIdleSound();
         }
         else
         {
             UpdateStaring();
             UpdateFlashlightDetection();
+            UpdateIdleSound();
+        }
+    }
+
+    private void UpdateIdleSound()
+    {
+        if (idleSound == null || audioSource == null) return;
+
+        if (Time.time >= nextIdleSoundTime)
+        {
+            audioSource.PlayOneShot(idleSound, idleSoundVolume);
+            nextIdleSoundTime = Time.time + UnityEngine.Random.Range(idleSoundIntervalMin, idleSoundIntervalMax);
         }
     }
     #endregion
@@ -169,6 +189,12 @@ public class WatcherNPC : MonoBehaviour
         entranceSpeed = config.entranceSpeed;
         waitForEntranceBeforeStaring = config.waitForEntranceBeforeStaring;
         entranceAnimTrigger = config.entranceAnimationTrigger;
+
+        // Idle sound settings
+        idleSound = config.idleSound;
+        idleSoundVolume = config.idleSoundVolume;
+        idleSoundIntervalMin = config.idleSoundIntervalMin;
+        idleSoundIntervalMax = config.idleSoundIntervalMax;
 
         // Find player references
         FindPlayerReferences();
@@ -238,6 +264,22 @@ public class WatcherNPC : MonoBehaviour
 
         eventStartTime = Time.time;
         isInitialized = true;
+
+        // Initialize idle sound timer
+        if (idleSound != null)
+        {
+            if (config.playIdleSoundOnSpawn)
+            {
+                // Play immediately and schedule next
+                audioSource.PlayOneShot(idleSound, idleSoundVolume);
+                nextIdleSoundTime = Time.time + UnityEngine.Random.Range(idleSoundIntervalMin, idleSoundIntervalMax);
+            }
+            else
+            {
+                // Schedule first play
+                nextIdleSoundTime = Time.time + UnityEngine.Random.Range(idleSoundIntervalMin, idleSoundIntervalMax);
+            }
+        }
 
         // Start entrance movement or staring
         if (useEntranceMovement)

@@ -112,7 +112,7 @@ Apparently, one of the old gravekeepers had attempted to enter that crypt.
 In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.
 However.
 If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.
-According to the old grave keeper, this graveyard is more than just a normal burial place. The people burried here did not lead normal lives. This site requires a watcher at all times, even through death. 
+According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death. 
 When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.
 The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.
 The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.
@@ -122,7 +122,7 @@ The only way to break this cycle is to enter the mausoleum. I don't know why or 
 
 
 ===what_puzzle===
-Everyone who is burried at this graveyard shares something in common.
+Everyone who is buried at this graveyard shares something in common.
 Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.
 I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.
 The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.

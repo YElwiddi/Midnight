@@ -723,7 +723,21 @@ public class KillerNPC : MonoBehaviour
             cameraForward.y = 0; // Keep on horizontal plane
             cameraForward.Normalize();
 
-            Vector3 targetPosition = playerCamera.transform.position + cameraForward * killStopDistance;
+            Vector3 bestDirection = cameraForward;
+
+            // Check if there's a wall blocking the killer placement
+            Vector3 rayOrigin = playerCamera.transform.position;
+            if (Physics.Raycast(rayOrigin, cameraForward, killStopDistance + 0.3f))
+            {
+                // Wall in front - find an open direction to turn the player
+                bestDirection = FindOpenDirection(rayOrigin, cameraForward);
+
+                // Rotate the player camera to face the new direction
+                Quaternion targetRotation = Quaternion.LookRotation(bestDirection);
+                playerCamera.transform.rotation = targetRotation;
+            }
+
+            Vector3 targetPosition = playerCamera.transform.position + bestDirection * killStopDistance;
 
             // Ground the killer at this position
             if (Physics.Raycast(targetPosition + Vector3.up * 2f, Vector3.down, out RaycastHit hit, 10f))
@@ -830,6 +844,36 @@ public class KillerNPC : MonoBehaviour
         // Apply vertical offset (use negative to look lower on the face)
         facePos.y += faceLookVerticalOffset;
         return facePos;
+    }
+
+    private Vector3 FindOpenDirection(Vector3 origin, Vector3 blockedForward)
+    {
+        float checkDistance = killStopDistance + 0.3f;
+
+        // Try directions in order of preference: behind, left, right, then diagonals
+        Vector3[] directionsToTry = new Vector3[]
+        {
+            -blockedForward,                                                    // Behind (180°)
+            Quaternion.Euler(0, 90, 0) * blockedForward,                       // Right (90°)
+            Quaternion.Euler(0, -90, 0) * blockedForward,                      // Left (-90°)
+            Quaternion.Euler(0, 135, 0) * blockedForward,                      // Back-right (135°)
+            Quaternion.Euler(0, -135, 0) * blockedForward,                     // Back-left (-135°)
+            Quaternion.Euler(0, 45, 0) * blockedForward,                       // Front-right (45°)
+            Quaternion.Euler(0, -45, 0) * blockedForward,                      // Front-left (-45°)
+        };
+
+        foreach (Vector3 dir in directionsToTry)
+        {
+            if (!Physics.Raycast(origin, dir, checkDistance))
+            {
+                Debug.Log($"KillerNPC: Found open direction, rotating player");
+                return dir;
+            }
+        }
+
+        // No open direction found - return behind as last resort
+        Debug.LogWarning("KillerNPC: No open direction found, defaulting to behind player");
+        return -blockedForward;
     }
 
     private void LockCameraOnKiller()

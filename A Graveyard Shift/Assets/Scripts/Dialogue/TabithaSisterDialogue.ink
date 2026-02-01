@@ -1,4 +1,6 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
+
 VAR player_mean = 0
 VAR player_scared = 0
 VAR player_stupid = 0
@@ -118,6 +120,10 @@ And this place will finally be quiet.
 If you refuse…
 Well.
 It will still get out eventually.
+-> ask
+
+=== ask ===
+May I come in?
 
 + [Fine. Go in. But be quick.]
      ~ SetEventVar("allowed_inside", true)
@@ -126,6 +132,16 @@ It will still get out eventually.
      ~player_mean = player_mean + 1
      ~ SetEventVar("allowed_inside", false)
     -> sister_deny
++ [What did you say your name was again?]
+    -> ask_name_again
++ [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
+    
+    === ask_name_again ===
+    You're quite the inquistive one, aren't you?
+    My name is Maribel. I'm here to stop my sister from tampering with what she doesn't understand.
+    -> ask
 
 === sister_allow ===
 #speaker: Maribel

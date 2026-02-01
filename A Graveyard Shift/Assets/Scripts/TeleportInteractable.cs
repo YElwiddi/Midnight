@@ -20,9 +20,25 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
     [SerializeField] private bool destinationIsIndoor = false;
 
+    [Header("Sanity")]
+    [Tooltip("If true, destination is a safe zone where sanity cannot drain")]
+    [SerializeField] private bool destinationIsSafeZone = false;
+
     [Header("Lighting")]
     [Tooltip("Lighting preset to apply at destination (None = don't change)")]
     [SerializeField] private LightingPreset destinationLightingPreset = LightingPreset.None;
+
+    [Header("Killer Event Lock")]
+    [Tooltip("If true, this door is locked during active killer events")]
+    [SerializeField] private bool lockDuringKillerEvent = false;
+
+    [TextArea(2, 5)]
+    [SerializeField] private string killerLockedDialogue = "The door won't budge...";
+
+    [SerializeField] private float killerLockedDialogueDuration = 3f;
+
+    [Tooltip("Characters per second (0 = instant)")]
+    [SerializeField] private float killerLockedTypewriterSpeed = 30f;
 
     [Header("Events")]
     [Tooltip("Fired after the teleport sequence completes (after fade back in)")]
@@ -35,6 +51,13 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (isTransitioning) return;
+
+        // Check if locked during killer event
+        if (lockDuringKillerEvent && GameFlowManager.Instance != null && GameFlowManager.Instance.IsKillerEventActive)
+        {
+            SimpleDialogueTrigger.ShowDialogue(killerLockedDialogue, "", killerLockedDialogueDuration, killerLockedTypewriterSpeed);
+            return;
+        }
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null && teleportDestination != null)
@@ -87,6 +110,16 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
         else
         {
             AmbientSoundManager.Instance?.ExitIndoor();
+        }
+
+        // Update sanity safe zone
+        if (destinationIsSafeZone)
+        {
+            SanityManager.Instance?.EnterSafeZone();
+        }
+        else
+        {
+            SanityManager.Instance?.ExitSafeZone();
         }
 
         // Apply lighting preset if specified

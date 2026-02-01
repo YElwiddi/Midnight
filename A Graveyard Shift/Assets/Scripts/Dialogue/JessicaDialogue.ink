@@ -95,12 +95,28 @@ I know that.
     === maybe_response===
 Oh...
 M-maybe you're right.
-I'd feel a lot better if I come come inside for a moment...
+-> ask
+
+=== ask ===
+I'd feel a lot better if I could come inside for a moment...
 + [You can come inside. Quickly.]
     -> let_inside
 + [You should leave right now.]
     -> send_away
++ [What is your name?]
+    -> ask_name_again
++ [Hold on, I'll be right back.]
+    -> deny_brb
 
+
+=== ask_name_again ===
+My name is Jessica.
+-> ask
+
+=== deny_brb ===
+Um...
+Not to be rude, but I don't think I would feel comfortable standing out here by myself.
+-> ask
 
 === describe_shape ===
 Um.
@@ -114,11 +130,9 @@ If it moved, I'd know it was real.
 I think it had something dark on.
 Like a coat.
 Or a shadow pretending to be a coat.
+-> ask
 
-+ [You can come inside. Quickly.]
-    -> let_inside
-+ [You should leave right now.]
-    -> send_away
+
 
 === let_inside ===
 R-really?

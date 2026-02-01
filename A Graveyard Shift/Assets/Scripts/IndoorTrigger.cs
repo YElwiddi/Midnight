@@ -9,6 +9,11 @@ public class IndoorTrigger : MonoBehaviour
     [Tooltip("Tag used to identify the player")]
     public string playerTag = "Player";
 
+    [Header("Sanity")]
+    [Tooltip("If true, sanity drain is paused while player is in this area")]
+    public bool pauseSanityDrain = false;
+
+    [Header("Gizmo")]
     [Tooltip("Show the trigger bounds in the editor")]
     public bool showGizmo = true;
 
@@ -20,6 +25,11 @@ public class IndoorTrigger : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             AmbientSoundManager.Instance?.EnterIndoor();
+
+            if (pauseSanityDrain)
+            {
+                SanityManager.Instance?.EnterSafeZone();
+            }
         }
     }
 
@@ -28,6 +38,11 @@ public class IndoorTrigger : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             AmbientSoundManager.Instance?.ExitIndoor();
+
+            if (pauseSanityDrain)
+            {
+                SanityManager.Instance?.ExitSafeZone();
+            }
         }
     }
 

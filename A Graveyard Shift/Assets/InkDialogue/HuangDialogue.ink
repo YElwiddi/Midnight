@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -105,16 +106,30 @@ I not stay long.
 === converge_request ===
 #speaker: Mr. Huang
 Please.
-May I go inside?
 Just few minutes.
 I visit my wife.
 Then I leave.
+
+-> ask
+
+===ask===
+May I come in?
 
 + [Alright. You can go in, but don’t stay long.]
     -> allow_entry
 + [I’m sorry. Visiting hours are over.]
     ~player_mean = player_mean + 1
     -> deny_entry
++ [What did you say your name was again?]
+    -> ask_name_again
++ [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
+    
+=== ask_name_again ===
+My name?
+Huang Wenqi.
+-> ask
 
 === allow_entry ===
 #speaker: Mr. Huang

@@ -39,6 +39,10 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [Range(-1f, 1f)]
     [SerializeField] private float destinationAmbientVolume = -1f;
 
+    [Header("Sanity")]
+    [Tooltip("If true, destination is a safe zone where sanity cannot drain")]
+    [SerializeField] private bool destinationIsSafeZone = false;
+
     [Header("Lighting")]
     [Tooltip("Lighting preset to apply at destination (None = don't change)")]
     [SerializeField] private LightingPreset destinationLightingPreset = LightingPreset.None;
@@ -118,6 +122,16 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         else
         {
             AmbientSoundManager.Instance?.ExitIndoor();
+        }
+
+        // Update sanity safe zone
+        if (destinationIsSafeZone)
+        {
+            SanityManager.Instance?.EnterSafeZone();
+        }
+        else
+        {
+            SanityManager.Instance?.ExitSafeZone();
         }
 
         // Change ambient clip if specified

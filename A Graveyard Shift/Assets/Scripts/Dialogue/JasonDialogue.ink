@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -21,14 +22,9 @@ Just here to visit some graves.
     -> let_in_response
 
 === who_are_you_response ===
-Who am I?
-Right.
-Name's Jason.
-Jason Holmes.
 
-Didn't expect anyone to be standing guard tonight.
-Usually it's quiet out here.
-Real quiet.
+My name is Jason.
+I've been here before many times.
 
 + [I'll need your full name.]
     -> full_name_response
@@ -37,13 +33,16 @@ Real quiet.
     -> let_in_response
 
 === full_name_response ===
-Jason Michael Holmes.
+Jason Holmes.
 I'm here for my brother, Zackary Holmes.
 And his son. Edward Holmes.
 
-They were buried together, at the same area, on the same day.
+They were buried close together.
 I won't be long.
-Just need to say what I never got to.
+
+-> ask
+
+=== ask ===
 
 Can I go in?
 
@@ -52,7 +51,15 @@ Can I go in?
 + [Sorry. Graveyard's closed.]
     ~player_mean = player_mean + 2
     -> deny_response
-
+    + [What did you say your name was again?]
+    -> ask_name_again
+  + [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
+    
+=== ask_name_again ===
+Jason Holmes.
+-> ask
 
 === let_in_response ===
 Thanks.
@@ -65,9 +72,7 @@ I appreciate it.
 …
 Yeah.
 I should've expected that.
-
-They never did like being left alone.
-Funny how some habits stick.
+You're going to end up like every other gravekeeper before you.
 
  ~ SetEventVar("allowed_inside", false)
  ~ SpiritAngered = SpiritAngered + 1

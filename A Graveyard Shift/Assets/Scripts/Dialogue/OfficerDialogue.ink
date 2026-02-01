@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
 VAR player_scared = 0
@@ -25,7 +26,7 @@ Would you mind answering some questions for us?
 Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.
 Apparently, some of them have been sighted near this cemetary as well.
 I'd like your help in conducting this investigation.
-Firstly, have you seen anyone asking to enter the premises dressed in all black?
+Firstly, have you seen anyone attempting to enter the premises dressed in black?
 
 + [No, officer.]
     -> next_question
@@ -35,10 +36,12 @@ Firstly, have you seen anyone asking to enter the premises dressed in all black?
 === interrogate_entry ===
 Could you describe the behavior of this individiual?
 
-+ [He came in to visit a grave, but wandered around a bit.]
++ [They asked to come in and see a grave.]
 ~GraveyardProtection = GraveyardProtection + 5
     -> next_question
-+ [He seemed normal.]
++ [They never approached me.]
+    -> next_question
++ [I don't remember.]
     -> next_question
 
 
@@ -56,7 +59,7 @@ Do you remember anything about this individual?
 Perhaps the color of his clothes or complexion?
 
 + [They wearing a greenish brown shirt.]
-~GraveyardProtection = GraveyardProtection + 20
+~GraveyardProtection = GraveyardProtection + 10
 
     -> ask_for_entry
 + [They were wearing a grey robe.]
@@ -69,7 +72,11 @@ Perhaps the color of his clothes or complexion?
     === ask_for_entry ===
 Alright, we appreciate your coopearation.
 We have one more question.
-I would like to come inside and take a look around. Would that be alright with you?
+If it's alright with you...
+-> ask
+
+=== ask ===
+I would like to come inside and take a look around. 
 + [Alright, go ahead.]
 ~GraveRobberSetup = GraveRobberSetup - 1
 ~SpiritAngered = SpiritAngered + 1
@@ -78,18 +85,21 @@ I would like to come inside and take a look around. Would that be alright with y
 + [I'm afraid I can't let you in sir.]
     -> decline
 ~ SetEventVar("allowed_inside", false)
++ [What did you say your name was again?]
+    -> ask_name_again
+ + [Hold on, I'll be right back.]
+      ~ SuspendDialogue()
+    -> ask
+    
+=== ask_name_again ===
+My name is officer James.
+-> ask
 
 
 === interrogation_decline ===
 I see...
-Would you mind if I came inside and had a look around?
-+ [Alright, go ahead.]
-~GraveRobberSetup = GraveRobberSetup - 1
-~SpiritAngered = SpiritAngered + 1
-~ SetEventVar("allowed_inside", true)
--> END
-+ [I'm afraid I can't let you in sir.]
-    -> decline
+
+-> ask
 
 
 === decline===
