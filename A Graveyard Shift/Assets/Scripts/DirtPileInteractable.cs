@@ -45,6 +45,10 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
     [Tooltip("Destroy this object after digging")]
     public bool destroyAfterDig = true;
 
+    [Header("Penalty Config")]
+    [Tooltip("Configuration for dig penalties. If not set, uses default hardcoded values.")]
+    [SerializeField] private DigPenaltyConfig penaltyConfig;
+
     // Private state
     private bool hasBeenDug = false;
     private bool isShowingChoice = false;
@@ -84,6 +88,14 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
         {
             // Show "need shovel" message
             SimpleDialogueTrigger.ShowDialogue(noShovelMessage, "", 2f, 30f);
+            return;
+        }
+
+        // Check if shovel is broken
+        if (GameManager.Instance.ShovelBroken)
+        {
+            string brokenMessage = penaltyConfig != null ? penaltyConfig.tryDigWithBrokenShovelDialogue : "The shovel is broken. I can't dig anymore.";
+            SimpleDialogueTrigger.ShowDialogue(brokenMessage, "", 2f, 30f);
             return;
         }
 
@@ -278,6 +290,22 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
 
     private void ApplyKillerPenalties(int incorrectCount)
     {
+        // Get config values or use defaults
+        float firstMult = penaltyConfig != null ? penaltyConfig.firstPenaltyMultiplier : 1.2f;
+        float secondMult = penaltyConfig != null ? penaltyConfig.secondPenaltyMultiplier : 1.3f;
+        float thirdMult = penaltyConfig != null ? penaltyConfig.thirdPenaltyMultiplier : 1.5f;
+        int pursuitThreshold = penaltyConfig != null ? penaltyConfig.directPursuitThreshold : 3;
+
+        // Debug: show if config is being used
+        if (penaltyConfig != null)
+        {
+            Debug.Log($"DirtPileInteractable: Using DigPenaltyConfig - multipliers: {firstMult}, {secondMult}, {thirdMult}");
+        }
+        else
+        {
+            Debug.LogWarning("DirtPileInteractable: No DigPenaltyConfig assigned! Using hardcoded defaults (1.2, 1.3, 1.5)");
+        }
+
         // Find all CryptKillers in the scene
         CryptKiller[] killers = FindObjectsOfType<CryptKiller>();
 
@@ -286,33 +314,24 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
             switch (incorrectCount)
             {
                 case 1:
-                    // 20% faster
-                    killer.ApplySpeedMultiplier(1.2f);
-                    Debug.Log("DirtPileInteractable: Killer is now 20% faster!");
+                    killer.ApplySpeedMultiplier(firstMult);
+                    Debug.Log($"DirtPileInteractable: Killer is now {(firstMult - 1f) * 100f:F0}% faster!");
                     break;
 
                 case 2:
-                    // 30% faster (additional, so 1.2 * 1.3 = 1.56x total from both digs)
-                    // But since we want exactly 30% faster than base for dig 2, we calculate the additional multiplier
-                    // Previous was 1.2x, now want 1.3x total increase from base
-                    // So we apply 1.3/1.2 = 1.083... but that's confusing
-                    // Let's just make each penalty stack: 1.2x, then 1.3x, then 1.5x
-                    // Actually, re-reading the request: "1 incorrect = 20% faster, 2 incorrect = 30% faster"
-                    // This means at 2 incorrect digs, they should be 30% faster total, not additional
-                    // But ApplySpeedMultiplier stacks multiplicatively...
-                    // Let's change approach: apply the difference
-                    // At 1 dig: 1.2x (already applied)
-                    // At 2 digs: want 1.3x total, so apply 1.3/1.2 = 1.0833x
-                    killer.ApplySpeedMultiplier(1.3f / 1.2f);
-                    Debug.Log("DirtPileInteractable: Killer is now 30% faster!");
+                    // Apply incremental multiplier to reach target from previous
+                    killer.ApplySpeedMultiplier(secondMult / firstMult);
+                    Debug.Log($"DirtPileInteractable: Killer is now {(secondMult - 1f) * 100f:F0}% faster!");
                     break;
 
                 case 3:
-                    // 50% faster and direct pursuit
-                    // At 2 digs we had 1.3x, now want 1.5x, so apply 1.5/1.3 = 1.1538x
-                    killer.ApplySpeedMultiplier(1.5f / 1.3f);
-                    killer.EnableDirectPursuit();
-                    Debug.Log("DirtPileInteractable: Killer is now 50% faster and coming directly for you!");
+                    // Apply incremental multiplier to reach target from previous
+                    killer.ApplySpeedMultiplier(thirdMult / secondMult);
+                    if (incorrectCount >= pursuitThreshold)
+                    {
+                        killer.EnableDirectPursuit();
+                    }
+                    Debug.Log($"DirtPileInteractable: Killer is now {(thirdMult - 1f) * 100f:F0}% faster and coming directly for you!");
                     break;
 
                 default:
@@ -320,7 +339,7 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
                     if (incorrectCount > 3)
                     {
                         // Already at max, but ensure direct pursuit is on
-                        if (!killer.IsDirectPursuitEnabled())
+                        if (incorrectCount >= pursuitThreshold && !killer.IsDirectPursuitEnabled())
                         {
                             killer.EnableDirectPursuit();
                         }
@@ -337,6 +356,33 @@ public class DirtPileInteractable : MonoBehaviour, IInteractable
         {
             Debug.LogWarning("DirtPileInteractable: KillerNPC speed modification not implemented");
         }
+
+        // Handle shovel breaking at max penalty threshold
+        if (penaltyConfig != null && penaltyConfig.breakShovelOnMaxPenalty && incorrectCount >= pursuitThreshold)
+        {
+            BreakShovel();
+        }
+    }
+
+    private void BreakShovel()
+    {
+        if (GameManager.Instance == null || GameManager.Instance.ShovelBroken) return;
+
+        GameManager.Instance.ShovelBroken = true;
+        string dialogue = penaltyConfig != null ? penaltyConfig.shovelBrokenDialogue : "My shovel broke...";
+
+        // Use a coroutine to show the broken shovel dialogue after a short delay
+        // so it doesn't overlap with the incorrect dig message
+        StartCoroutine(ShowBrokenShovelDialogue(dialogue));
+
+        Debug.Log("DirtPileInteractable: Shovel has been broken!");
+    }
+
+    private IEnumerator ShowBrokenShovelDialogue(string dialogue)
+    {
+        // Wait for the incorrect dig message to finish
+        yield return new WaitForSeconds(2.5f);
+        SimpleDialogueTrigger.ShowDialogue(dialogue, "", 3f, 30f);
     }
 
     // IInteractable hover methods (optional)

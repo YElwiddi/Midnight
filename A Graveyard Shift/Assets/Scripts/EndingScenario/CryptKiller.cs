@@ -356,8 +356,8 @@ public class CryptKiller : MonoBehaviour
     {
         behaviorType = cfg.behaviorType;
 
-        // Apply nav agent settings
-        navAgent.speed = cfg.roamSpeed;
+        // Apply nav agent settings (with penalty multiplier for consistency)
+        navAgent.speed = cfg.roamSpeed * speedMultiplier;
         navAgent.acceleration = 8f;
         navAgent.angularSpeed = 120f;
 
@@ -650,9 +650,9 @@ public class CryptKiller : MonoBehaviour
         // Reset spot sound flag so it plays again when player is re-spotted
         stalkerHasSpottedPlayer = false;
 
-        // Set roam speed
+        // Set roam speed (with penalty multiplier)
         float roamSpeed = config != null ? config.roamSpeed : 2f;
-        navAgent.speed = roamSpeed;
+        navAgent.speed = roamSpeed * speedMultiplier;
         navAgent.acceleration = 8f;
         navAgent.angularSpeed = 120f;
         navAgent.autoBraking = true;
@@ -738,9 +738,9 @@ public class CryptKiller : MonoBehaviour
         isWaitingAtRoamPoint = false;
         roamWaitTimer = 0f;
 
-        // Set roam speed and restore normal movement settings
+        // Set roam speed and restore normal movement settings (with penalty multiplier)
         float roamSpeed = config != null ? config.roamSpeed : 2f;
-        navAgent.speed = roamSpeed;
+        navAgent.speed = roamSpeed * speedMultiplier;
         navAgent.acceleration = 8f;
         navAgent.angularSpeed = 120f;
         navAgent.autoBraking = true;
@@ -757,7 +757,7 @@ public class CryptKiller : MonoBehaviour
         // Pick initial roam target
         PickNewRoamTarget();
 
-        Debug.Log($"CryptKiller: Entered roaming state (speed: {roamSpeed}, isOnNavMesh: {navAgent.isOnNavMesh}, isStopped: {navAgent.isStopped})");
+        Debug.Log($"CryptKiller: Entered roaming state (speed: {roamSpeed * speedMultiplier}, multiplier: {speedMultiplier}x, isOnNavMesh: {navAgent.isOnNavMesh}, isStopped: {navAgent.isStopped})");
     }
 
     private void UpdateRoamingState()

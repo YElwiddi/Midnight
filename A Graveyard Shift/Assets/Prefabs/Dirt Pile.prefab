@@ -113,6 +113,7 @@ MonoBehaviour:
   digSoundVolume: 0.705
   dugUpVisual: {fileID: 0}
   destroyAfterDig: 1
+  penaltyConfig: {fileID: 11400000, guid: d2106f47a12c24a4b98cbd0d404c54b6, type: 2}
 --- !u!64 &7127866230387414418
 MeshCollider:
   m_ObjectHideFlags: 0

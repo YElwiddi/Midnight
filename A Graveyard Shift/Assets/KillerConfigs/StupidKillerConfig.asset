@@ -43,7 +43,7 @@ MonoBehaviour:
   chaseAnimationBool: IsRunning
   spotPlayerTrigger: SpotPlayer
   enableSanityDrain: 1
-  sanityDrainPerSecond: 10
+  sanityDrainPerSecond: 12.5
   drainWhenLookingAt: 1
   drainWhenInTerrorRadius: 0
   lookingAtAngle: 15

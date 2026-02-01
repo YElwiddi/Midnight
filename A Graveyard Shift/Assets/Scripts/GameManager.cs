@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("Boolean Flags")]
     public bool CryptUnlocked = false;
     public bool ShovelPickedUp = false;
+    public bool ShovelBroken = false;
     public bool GraveyardEndingTriggered = false;
 
     [Header("Dirt Pile Stats")]
@@ -128,6 +129,7 @@ public class GameManager : MonoBehaviour
         {
             case "cryptunlocked": return CryptUnlocked;
             case "shovelpickedup": return ShovelPickedUp;
+            case "shovelbroken": return ShovelBroken;
             case "graveyardendtriggered": return GraveyardEndingTriggered;
             default:
                 Debug.LogWarning($"GameManager: Bool flag '{flagName}' not found");
@@ -149,6 +151,10 @@ public class GameManager : MonoBehaviour
             case "shovelpickedup":
                 ShovelPickedUp = value;
                 Debug.Log($"ShovelPickedUp set to {value}");
+                break;
+            case "shovelbroken":
+                ShovelBroken = value;
+                Debug.Log($"ShovelBroken set to {value}");
                 break;
             case "graveyardendtriggered":
                 GraveyardEndingTriggered = value;
@@ -176,6 +182,7 @@ public class GameManager : MonoBehaviour
         // Reset boolean flags
         CryptUnlocked = false;
         ShovelPickedUp = false;
+        ShovelBroken = false;
         GraveyardEndingTriggered = false;
 
         // Reset dirt pile stats
@@ -190,7 +197,7 @@ public class GameManager : MonoBehaviour
     {
         if (!showDebugStats) return;
 
-        GUI.Box(new Rect(10, 10, 200, 230), "Player Stats");
+        GUI.Box(new Rect(10, 10, 200, 250), "Player Stats");
         GUI.Label(new Rect(20, 30, 180, 20), $"Scared: {player_scared}");
         GUI.Label(new Rect(20, 50, 180, 20), $"Mean: {player_mean}");
         GUI.Label(new Rect(20, 70, 180, 20), $"Stupid: {player_stupid}");
@@ -199,7 +206,8 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(20, 130, 180, 20), $"GraveKeeperAngered: {GraveKeeperAngered}");
         GUI.Label(new Rect(20, 150, 180, 20), $"CryptUnlocked: {CryptUnlocked}");
         GUI.Label(new Rect(20, 170, 180, 20), $"ShovelPickedUp: {ShovelPickedUp}");
-        GUI.Label(new Rect(20, 190, 180, 20), $"CorrectDigCount: {CorrectDigCount}");
-        GUI.Label(new Rect(20, 210, 180, 20), $"IncorrectDigCount: {IncorrectDigCount}");
+        GUI.Label(new Rect(20, 190, 180, 20), $"ShovelBroken: {ShovelBroken}");
+        GUI.Label(new Rect(20, 210, 180, 20), $"CorrectDigCount: {CorrectDigCount}");
+        GUI.Label(new Rect(20, 230, 180, 20), $"IncorrectDigCount: {IncorrectDigCount}");
     }
 }

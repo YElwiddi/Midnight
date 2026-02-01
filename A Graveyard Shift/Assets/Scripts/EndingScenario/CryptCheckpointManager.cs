@@ -321,6 +321,7 @@ public class CryptCheckpointManager : MonoBehaviour
             GameManager.Instance.CorrectDigCount = 0;
             GameManager.Instance.IncorrectDigCount = 0;
             GameManager.Instance.ShovelPickedUp = false;
+            GameManager.Instance.ShovelBroken = false;
             Debug.Log("CryptCheckpointManager: Reset crypt stats in GameManager");
         }
     }
