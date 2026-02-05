@@ -120,16 +120,65 @@ May I come in?
 + [I’m sorry. Visiting hours are over.]
     ~player_mean = player_mean + 1
     -> deny_entry
-+ [What did you say your name was again?]
-    -> ask_name_again
++ [I have a few more questions.]
+    -> more_questions
 + [Hold on, I'll be right back.]
       ~ SuspendDialogue()
     -> ask
     
+=== more_questions ===
++ [What was your name again?]
+    -> ask_name_again
++ [Who are you visiting?]
+    -> who_visit
++ [How many people are in your family?]
+    -> how_many
++ [Nevermind.]
+-> ask
+
+=== who_visit ===
+My late wife.
+Mei Huang.
++ [When did she die?]
+-> when
++ [What was her cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [Nevermind.]
+-> ask
+
+===when===
+I do not remember...
+It has been long time.
++ [What was her cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+===cause_of_death===
+I do not like to speak about this matter.
+My wife not bad person.
+She did no wrong.
+Please, I would like to see her.
++ [When did she die?]
+-> when
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+=== how_many===
+No one.
+Only me and wife. After passing away, I am alone.
++ [I have more questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
 === ask_name_again ===
 My name?
 Huang Wenqi.
--> ask
+-> more_questions
 
 === allow_entry ===
 #speaker: Mr. Huang
@@ -145,6 +194,7 @@ Rules are rules.
 
 I come again tomorrow.
 Thank you for listening.
+    ~ player_stupid = player_stupid + 2
  ~ SetEventVar("allowed_inside", false)
  ~ SpiritAngered = SpiritAngered + 1
 

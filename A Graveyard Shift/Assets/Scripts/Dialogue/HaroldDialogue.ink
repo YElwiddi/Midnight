@@ -14,7 +14,7 @@ VAR GraveyardProtection = 100
 Evening.
 Didn’t expect anyone at the gate this late.
 
-Name’s Harold Vonderbolt.
+Name’s Harold Vanderbolt.
 I need to step inside for a moment.
 
 + [Visiting hours are over. What’s your business here?]
@@ -140,15 +140,61 @@ May I go in?
     -> harold_allow
 + [No. I can’t allow it.]
     -> harold_deny
-    + [What did you say your name was again?]
-    -> ask_name_again
++ [I have a few more questions.]
+    -> more_questions
   + [Hold on, I'll be right back.]
       ~ SuspendDialogue()
     -> ask
     
-    ===ask_name_again===
-    My name's Harold.
-    -> ask
+    
+=== more_questions ===
++ [What was your name again?]
+    -> ask_name_again
++ [Who are you visiting?]
+    -> who_visit
++ [How many people are in your family?]
+    -> how_many
++ [Nevermind.]
+-> ask
+
+=== who_visit ===
+I'm here to see Aaron.
++ [When did he die?]
+-> when
++ [What was his cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [Nevermind.]
+-> ask
+
+===when===
+June 27th, 1993.
++ [What was his cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+===cause_of_death===
+He was found in his hotel room, on a trip abroad.
+Had a gunshot wound out the back of his head.
+Terrible way to go. I try not to think about it.
++ [When did he die?]
+-> when
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+=== how_many===
+We didn't have much family left. It was just him and my nephew.
++ [I have more questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+=== ask_name_again ===
+My name is Harold.
+-> more_questions
 
 === harold_allow ===
 #speaker: Harold Vunderbilt

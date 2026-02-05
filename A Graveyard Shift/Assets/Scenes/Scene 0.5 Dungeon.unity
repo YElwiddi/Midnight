@@ -2628,6 +2628,8 @@ MonoBehaviour:
   lineSpacing: 50
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Aaron Vanderbilt
 
@@ -3006,6 +3008,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation: \n\u201CThe Beast\u201D\nSource
     redacted\n\nSurvivors agree on this much: the creature does not announce itself.
@@ -4081,6 +4085,10 @@ PrefabInstance:
       value: -87.79999
       objectReference: {fileID: 0}
     - target: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_Name
+      value: Vanderbilt Note
+      objectReference: {fileID: 0}
+    - target: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -4603,6 +4611,10 @@ PrefabInstance:
     - target: {fileID: 8271616949327690117, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_Name
+      value: Adams Note
       objectReference: {fileID: 0}
     - target: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
@@ -6547,6 +6559,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation:\n\u201CThe Friend\u201D\nStrange
     encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without
@@ -7387,6 +7401,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - Those who unearth the grave meant to remain closed seal their fate.
 --- !u!64 &290379555
@@ -9248,6 +9264,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation:\n\u201CThe Wraith\u201D\nLocation
     withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these
@@ -9399,6 +9417,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - This place was not filled at random.
 --- !u!64 &390787272
@@ -10493,6 +10513,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Excerpt from the Gravekeeper\u2019s Notes\nAnderson family\n\nThere is only
     one grave under the Anderson name.\n\nAnthony Anderson\u2019s burial was arranged
@@ -10677,6 +10699,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Zackary Holmes
 
@@ -11670,6 +11694,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation:\n\u201CThe Yurei\u201D\n\nA new
     presence has been identified within the cemetery. The timing suggests a recent
@@ -14489,6 +14515,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 1
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Excerpt from the Gravekeeper\u2019s Notes\nHolmes family\n\nThere are two graves
     under the Holmes name.\n\nThey were prepared together. The paperwork was submitted
@@ -16037,6 +16065,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 
 --- !u!64 &770644746
@@ -16450,6 +16480,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - It patrols. Corners are death.
 --- !u!23 &786509971
@@ -17039,6 +17071,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - ' '
 --- !u!23 &815585406
@@ -17580,6 +17614,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'The necessary course is clear.
 
@@ -18814,6 +18850,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Jason Adel
 
@@ -20768,6 +20806,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Hannah Wainwright
 
@@ -20910,6 +20950,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Henry Fairchild
 
@@ -21222,6 +21264,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Edward Holmes
 
@@ -23073,6 +23117,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Anne Radcliffe
 
@@ -23562,6 +23608,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Benjamin Carver
 
@@ -23794,6 +23842,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'James Thornton
 
@@ -24419,6 +24469,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Cordelia Monroe
 
@@ -24571,50 +24623,25 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nAdams family\n\nThere is only one
-    grave under the Adams name.\n\nThe burial was arranged by extended family. The
-    paperwork arrived in stages, amended more than once before it was finalized.
-    No one claimed responsibility for the delays.\n\nThe deceased is Jane Adams.\n\nShe
-    was brought to the grounds in the early morning. No public notice was posted.
-    A small group stood at a distance during the service, close enough to be counted,
-    far enough to avoid conversation. When I asked whether her son would attend,
-    I was told he had been sent elsewhere for the time being. This was said as a
-    kindness."
-  - 'Jane Adams had been well known once. Her name appeared often in correspondence,
-    on guest lists, in shared records that implied trust and familiarity. In the
-    final years, it appeared less. Not because she withdrew entirely, but because
-    others learned to speak around her. Invitations stopped being extended. Conversations
-    ended when she entered a room. I noted this only because it happened gradually,
-    and then all at once.
-
-
-    No explanation was offered for the change. None was
-    required.'
-  - 'In the weeks before her death, arrangements were made quietly. Personal effects
-    were sorted earlier than necessary. Certain matters were settled in advance,
-    as though continuation was no longer assumed. When the end came, it was described
-    as sudden. The signs suggested otherwise.
-
-
-    There were no offerings placed
-    at her grave. Still, the soil has been disturbed more than once, shallow marks
-    that suggest hesitation rather than maintenance. I smooth them out when I notice.
-    They return irregularly.
-
-
-    Her son has not come. I am told he asks questions.
-    I am also told it is better that he not receive answers yet.
-
-
-    Jane Adams
-    rests here alone. Those who once called her a friend do not visit. Those who
-    remain speak of her softly, if at all, and only after ensuring no one else is
-    listening.
-
-
-    There is nothing unusual about this arrangement. I have seen
-    it before.'
+  - "Excerpt from the Gravekeeper\u2019s Notes\nAdams family\n\nFamily members:\nEdwin
+    Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane
+    Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of
+    death: December 22, 1993, Friday 3:21 AM"
+  - "Jane Adams rests here after a life defined by order and restraint. She worked
+    for many years as a bookkeeper at the municipal works office, kept her home immaculate,
+    and raised her son, Edwin, with strict routines and clear expectations. When
+    Edwin was seven, she sent him to live with close family friends out of state,
+    telling neighbors it was for better schooling. After his departure, Jane\u2019s
+    attendance at work faltered, and she resigned quietly.\n\nJane took her own life
+    weeks later. The gravekeeper notes that Edwin was never informed of her death,
+    and those responsible agreed it was best he not be recalled or told the circumstances.
+    The consequences of her actions, and the disgrace they carried, were more than
+    she was willing to answer for in the open. She ended her life in solitude, ensuring
+    that her son\u2019s memory of her would remain unburdened by the truth she could
+    not endure."
 --- !u!1 &1199246082
 GameObject:
   m_ObjectHideFlags: 0
@@ -25057,40 +25084,24 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nVanderbilt family\n\nThere is only
-    one grave under the Vanderbilt name. The plot was selected by the deceased himself,
-    Aaron Vanderbilt. He arrived at the grounds in the late afternoon, alone. The
-    paperwork was complete, neat, and signed without hesitation.\n\nAaron Vanderbilt
-    was an older man. Not much is recorded of him. His life was quiet, his presence
-    unremarkable to most. He had a brother, though I have not seen him in years.
-    The man is missing, and I am told little about where he has gone or why he has
-    not returned.\n\nThose closest to Aaron had grown distant in the final years.
-    Whispers of resentment lingered around his household, small acts of cruelty or
-    avoidance left unremarked. Whether these were deserved or not, they left him
-    increasingly isolated, and the quiet around him grew heavier with each passing
-    month."
-  - 'The grave was tended without visitors. When asked if any other family might
-    attend, no answer was given. There is no indication that Aaron had any friends
-    left who felt it necessary to be present.
-
-
-    No additional details were requested.
-    I was told that speculation was unnecessary.
-
-
-    By the time tragedy struck,
-    there was little to intervene. Letters, parcels, and small gestures of concern
-    went unheeded or ignored. Whether from choice or neglect, the effect was the
-    same.
-
-
-    No objects have appeared at his grave, not even the small, deliberate
-    tokens I have seen elsewhere. His stone bears only his name and dates, as though
-    nothing else of him need be remembered.
-
-
-    Aaron Vanderbilt rests here alone. '
+  - "Excerpt from the Gravekeeper\u2019s Notes\nVanderbilt family\n\nFamily members:\nAaron
+    Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22,
+    Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death:
+    Gunshot Wound\n\nTime of death: June 27, 1993, Thursday 7:48 PM"
+  - "Aaron Vanderbilt is remembered here as a man whose life carried the weight of
+    absence and missteps. His brother disappeared many years ago under circumstances
+    no one could trace, leaving Aaron to navigate the world alone. Though capable
+    and clever, he found himself drawn into circles that promised opportunity but
+    delivered danger, aligning with people whose loyalties were fleeting and whose
+    intentions were rarely honest.\n\nThose who knew him speak of quiet struggles
+    hidden behind a confident exterior. Aaron\u2019s dealings with the wrong company
+    shaped much of his later years, leaving him isolated and wary. The fate of his
+    brother remains a lingering shadow over his life, a reminder of paths lost and
+    choices that carry consequences beyond one\u2019s control.\n\nAaron Vanderbilt
+    rests here alone. "
 --- !u!64 &1205589925
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25141,6 +25152,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'The Watchman''s Notes
 
@@ -25322,35 +25335,26 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nHuang family\n\nThere is only one
-    grave under the Huang name.\n\nThis is unusual, given the care taken in its placement.
-    The plot was chosen by Huang Wenqi himself. He arrived with the paperwork already
-    prepared, spoke clearly, and did not linger. Men who do this are not unfamiliar
-    with loss; they are rehearsed. He asked about soil depth and drainage, not about
-    prayers.\n\nThe deceased is Madam Huang. She was brought to the grounds at dawn.
-    No extended family accompanied the body. Only the husband signed the ledger.
-    When I asked whether the son would attend the burial, Wenqi said the family was
-    complete as it stood. He did not look at the coffin when he said this.\n\nNo
-    further details were requested."
-  - "Mei Huang had lived quietly, yet her presence was felt in small ways: neighbors
-    received meals she prepared, stray animals were sheltered under her care, and
-    children in the eastern quarter were tended when others could not. Her deeds
-    were rarely spoken of and, over time, fewer people noticed at all. By the final
-    months, even those who had once counted on her assistance had stopped seeking
-    her out. I do not know whether this absence of attention was intentional, or
-    simply the way the world turned, but the quiet left her more vulnerable than
-    it should have.\n\nAs for the boy\u2019s dishonor, I was given no explanation.
-    The word was used once and never repeated. It was said the matter was finished,
-    yet the family continues to arrange itself around it, as one arranges furniture
-    around a locked door."
-  - "No offerings are made in the son\u2019s name. None are permitted. Still, certain
-    items have appeared near the grave that were not placed there by the groundskeepers:
-    a folded paper charm without writing, a child\u2019s coin worn smooth, once a
-    length of red thread cut cleanly at both ends. I remove these when I find them.
-    They return regardless.\n\nHuang Wenqi comes alone now. He does not stay long.
-    Before leaving, he always checks the stone for damage, as if expecting it to
-    change while he is gone."
+  - "Excerpt from the Gravekeeper\u2019s Notes\nHuang family\n\nFamily members:\nWenqi
+    Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Haung
+    is interred within these grounds.\n\nCause of death: Lethal Injection\n\nTime
+    of death: March 27, 1993, Saturday 4:00 PM"
+  - "There is only one grave under the Huang name, though the arrangements suggest
+    a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi
+    himself; he arrived with the paperwork prepared and spoke clearly, though not
+    always consistently, occasionally repeating details already settled. Madam Huang
+    was brought at dawn. No extended family attended. When I asked whether the son
+    would come, Wenqi said the family was complete as it stood, then paused, as if
+    uncertain why the answer mattered. The cause of death was recorded, a crime resolved,
+    and the matter accepted without dispute.\n\nMei Huang lived quietly, known for
+    small kindnesses that left little record. In her final months, that attention
+    faded, and with it her protection. I was told only that a matter of dishonor
+    had been resolved; no details were given. No offerings are permitted in the son\u2019s
+    name. Wenqi visits alone now, sometimes repeating himself, always checking the
+    stone before leaving, as if expecting it to say something different."
 --- !u!64 &1236936889
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25722,17 +25726,19 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Excerpt from the Gravekeeper\u2019s Notes\nUnregistered visitors\n\nThere are
-    two women who come to the gates when the light is low and the grounds are quiet
-    enough to hear intent.\n\nThey never arrive together, though each insists the
-    other has already been allowed through.\n\nBoth claim familiarity with the dead.
-    Each knows names not written on stone. When asked how, one answers immediately
-    and incorrectly; the other answers slowly and with details that do not improve
-    clarity. I have learned that correcting either of them is a mistake.\n\nOne always
-    asks about access. Locks, patrols, times when the soil is softest. She speaks
-    of inheritance, of what is owed, of what should not be left unattended. When
-    refused, she smiles as though refusal were expected. She returns anyway."
+    two women who periodically arrive at the gates.\n\nThey never arrive together,
+    though each insists the other has already been allowed through.\n\nBoth claim
+    familiarity with the dead. Each knows names not written on stone. When asked
+    how, one answers immediately and incorrectly; the other answers slowly and with
+    details that do not improve clarity. I have learned that correcting either of
+    them is a mistake.\n\nOne always asks about access. Locks, patrols, times when
+    the soil is softest. She speaks of inheritance, of what is owed, of what should
+    not be left unattended. When refused, she smiles as though refusal were expected.
+    She returns anyway."
   - 'The other asks about boundaries. About what is held and what is trapped. She
     speaks of weight, pressure, the cost of keeping certain things in place. When
     refused, she looks surprised, then relieved, then disappointed. She does not
@@ -25748,27 +25754,13 @@ MonoBehaviour:
     She knows this and tests it regardless, offering reasons that contradict one
     another. Sometimes she claims permission already granted. Sometimes she claims
     necessity. Once, she claimed I had asked her to come.'
-  - 'The other is allowed in under specific circumstances. Weather, time, and recent
+  - "The other is allowed in under specific circumstances. Weather, time, and recent
     burials all factor into this. I do not explain my reasoning to her. When turned
-    away, she accepts it as provisional. When admitted, she does not linger.
-
-
-    Each
+    away, she accepts it as provisional. When admitted, she does not linger.\n\nEach
     accuses the other of dishonesty. Each provides evidence. Both sets are convincing.
-
-
-    On
-    one occasion, I asked what would happen if they succeeded. One said the grounds
-    would be lighter. The other said they would be poorer. Neither elaborated.
-
-
-    They
-    continue to return. They never acknowledge one another directly. They never fail
-    to mention the other by implication.
-
-
-    I have learned that asking which one
-    tells the truth produces only more visits.'
+    Neither elaborate much.\n\nOne never fails to mention the other by implication.
+    The other does not acknowledge their sister unless asked. \n\nThe one who is
+    lying should never be let in."
 --- !u!64 &1241479727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26032,6 +26024,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'William Pembroke
 
@@ -28535,6 +28529,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'After enough circuits of these halls, certain omissions become impossible to
     ignore.
@@ -29552,6 +29548,8 @@ MonoBehaviour:
   lineSpacing: 50
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Anthony Anderson
 
@@ -31559,8 +31557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 1
-    singleEvent: {fileID: 0}
+  - selectionMode: 0
+    singleEvent: {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
     - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
@@ -32413,12 +32411,14 @@ MonoBehaviour:
   lineSpacing: 50
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Mei Huang
 
     Wife, Mother of One
 
-    1933-1999'
+    1923-1993'
 --- !u!114 &1616474004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33101,12 +33101,14 @@ MonoBehaviour:
   lineSpacing: 50
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Jane Adams
 
     Mother, sister, beloved friend.
 
-    1948-1985'
+    1931-1985'
 --- !u!64 &1656568127
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36005,6 +36007,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - "Recovered Field Note, Provisional Designation:\n\u201CThe Grave Robber\u201D\nSource
     redacted\n\nA recurring human presence has been connected to the majority of
@@ -37610,6 +37614,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - Not every name corresponds to a lived life.
 --- !u!23 &1857497927
@@ -38064,6 +38070,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Elizabeth Crowther
 
@@ -40379,6 +40387,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Rebecca Langley
 
@@ -41944,6 +41954,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Here lies Samantha Bynes
 
@@ -42575,6 +42587,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 0
   fontSize: 24
+  overrideFontColor: 0
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
   pages:
   - 'Mary Langley
 

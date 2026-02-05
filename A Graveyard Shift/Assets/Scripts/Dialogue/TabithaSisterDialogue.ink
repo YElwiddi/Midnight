@@ -129,19 +129,77 @@ May I come in?
      ~ SetEventVar("allowed_inside", true)
     -> sister_allow
 + [No. You’re not setting foot inside.]
-     ~player_mean = player_mean + 1
      ~ SetEventVar("allowed_inside", false)
     -> sister_deny
-+ [What did you say your name was again?]
-    -> ask_name_again
-+ [Hold on, I'll be right back.]
+    + [I have a few more questions.]
+    -> more_questions
+  + [Hold on, I'll be right back.]
       ~ SuspendDialogue()
     -> ask
     
+    
+    === more_questions ===
+    Of course.
++ [What was your name again?]
+    -> ask_name_again
++ [Why are you here?]
+    -> why_here
++ [How can I trust you over your sister?]
+    -> how_many
++ [Nevermind.]
+-> ask
+
+===how_many===
+Ah, I see Tabitha has gotten quite the hold on you.
+It is a decision for you to make, gravekeeper.
+If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.
+Tabitha does not know how to control the spirits she claims to speak to.
+If you did indeed let her into these grounds, only I can undo her damage.
+My sister dabbles in dark arts, but does not understand them. 
+This is why I must come in.
++[I have other questions]
+-> more_questions
++[Nevermind.]
+-> ask
+    
     === ask_name_again ===
-    You're quite the inquistive one, aren't you?
-    My name is Maribel. I'm here to stop my sister from tampering with what she doesn't understand.
-    -> ask
+    You're quite inquistive. My name is Maribel.
++[I have other questions]
+-> more_questions
++[Nevermind.]
+-> ask
+    ===why_here===
+    Likely for the same reason you are.
+    Fate.
+    +[Why did you choose this graveyard?]
+    -> why_this
+    +[Are you attempting to deceive me?]
+    -> are_you_lying
+    +[I have other questions.]
+    -> more_questions
+    +[Nevermind.]
+    ->ask
+    
+    ===why_this===
+    This graveyard has quite the allure to it.
+    It is a noisy place. I was drawn to it.
+    +[Are you attempting to deceive me?]
+    -> are_you_lying
+    +[I have other questions.]
+    -> more_questions
+    +[Nevermind.]
+    ->ask
+    
+    ===are_you_lying===
+    No. 
+    I don't mean to cause any harm to you or the spirits you protect. 
+    I feel them calling to me and I am obligated to respond.
+        +[Why did you choose this graveyard?]
+    -> why_this
+        +[I have other questions.]
+    -> more_questions
+    +[Nevermind.]
+    ->ask
 
 === sister_allow ===
 #speaker: Maribel

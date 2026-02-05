@@ -36,6 +36,10 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
     [SerializeField] private bool overrideFontSize;
     [SerializeField] private float fontSize = 24f;
 
+    [Tooltip("Override font color. Check to apply.")]
+    [SerializeField] private bool overrideFontColor;
+    [SerializeField] private Color fontColor = Color.white;
+
     [Header("Content")]
     [Tooltip("Pages of text content. Each element is one page.")]
     [TextArea(5, 15)]
@@ -74,7 +78,8 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
             alignment = overrideAlignment ? textAlignment : null,
             margins = overrideMargins ? textMargins : null,
             lineSpacing = overrideLineSpacing ? lineSpacing : null,
-            fontSize = overrideFontSize ? fontSize : null
+            fontSize = overrideFontSize ? fontSize : null,
+            fontColor = overrideFontColor ? fontColor : null
         };
         readableUI.Open(pages, backgroundImage, overrides);
     }

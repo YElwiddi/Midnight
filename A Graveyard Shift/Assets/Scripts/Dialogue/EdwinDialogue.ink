@@ -47,16 +47,62 @@ Can I please go in now?
 + [Sorry kid. Graveyard's closed.]
     ~player_mean = player_mean + 2
     -> deny_response
-+ [What did you say your name was again?]
-    -> ask_name_again
++ [I have more questions.]
+-> more_questions
   + [Hold on, I'll be right back.]
       ~ SuspendDialogue()
     -> ask_for_entry
     
 === ask_name_again ===
 I-it's Edwin Adams.
-
 -> ask_for_entry
+
+=== more_questions ===
++ [What was your name again?]
+    -> ask_name_again
++ [Who are you visiting?]
+    -> who_visit
++ [How many people are in your family?]
+    -> how_many
++ [Nevermind.]
+-> ask_for_entry
+
+=== who_visit ===
+My mother, Jane Adams.
++ [When did she die?]
+-> when
++ [What was her cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [Nevermind.]
+-> ask_for_entry
+
+===when===
+A long time ago. About fifteen years ago.
++ [What was her cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask_for_entry
+===cause_of_death===
+I-I'm sorry but...
+I don't really want to talk about it...
++ [When did she die?]
+-> when
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask_for_entry
+=== how_many===
+My aunt and I live together, there isn't really anyone else.
++ [I have more questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask_for_entry
+
+
 
 === let_in_response ===
 T-thanks...

@@ -130,7 +130,7 @@ Is there going to be a problem?
     -> chen_allow
 + [Visiting hours are over.]
     -> chen_deny
-+ [What did you say your name was again?]
++ [I have a few more questions.]
     -> chen_close
 + [Hold on, I'll be right back.]
       ~ SuspendDialogue()

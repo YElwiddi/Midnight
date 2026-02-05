@@ -21,6 +21,7 @@ public class ReadableUI : MonoBehaviour
         public Vector4? margins;
         public float? lineSpacing;
         public float? fontSize;
+        public Color? fontColor;
     }
 
     private TMP_FontAsset defaultFont;
@@ -28,6 +29,7 @@ public class ReadableUI : MonoBehaviour
     private Vector4 defaultMargins;
     private float defaultLineSpacing;
     private float defaultFontSize;
+    private Color defaultFontColor;
     #endregion
 
     #region UI References
@@ -87,6 +89,7 @@ public class ReadableUI : MonoBehaviour
             defaultMargins = contentText.margin;
             defaultLineSpacing = contentText.lineSpacing;
             defaultFontSize = contentText.fontSize;
+            defaultFontColor = contentText.color;
         }
     }
 
@@ -179,6 +182,8 @@ public class ReadableUI : MonoBehaviour
                 contentText.lineSpacing = overrides.lineSpacing.Value;
             if (overrides.fontSize.HasValue)
                 contentText.fontSize = overrides.fontSize.Value;
+            if (overrides.fontColor.HasValue)
+                contentText.color = overrides.fontColor.Value;
         }
 
         // Show panel
@@ -215,6 +220,7 @@ public class ReadableUI : MonoBehaviour
             contentText.margin = defaultMargins;
             contentText.lineSpacing = defaultLineSpacing;
             contentText.fontSize = defaultFontSize;
+            contentText.color = defaultFontColor;
         }
 
         // Hide panel
