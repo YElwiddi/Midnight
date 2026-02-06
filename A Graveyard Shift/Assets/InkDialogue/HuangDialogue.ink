@@ -6,6 +6,8 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
 
 === start ===
 #speaker: Mr. Huang
@@ -196,6 +198,6 @@ I come again tomorrow.
 Thank you for listening.
     ~ player_stupid = player_stupid + 2
  ~ SetEventVar("allowed_inside", false)
- ~ SpiritAngered = SpiritAngered + 1
+ ~ Sanity = Sanity - 40
 
 -> END

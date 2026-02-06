@@ -78,8 +78,8 @@ If it's alright with you...
 === ask ===
 I would like to come inside and take a look around. 
 + [Alright, go ahead.]
-~GraveRobberSetup = GraveRobberSetup - 1
-~SpiritAngered = SpiritAngered + 1
+~GraveyardProtection = GraveyardProtection + 35
+~Sanity = Sanity - 30
 ~ SetEventVar("allowed_inside", true)
 -> END
 + [I'm afraid I can't let you in sir.]

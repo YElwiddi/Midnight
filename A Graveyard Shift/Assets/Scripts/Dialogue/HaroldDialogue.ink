@@ -66,6 +66,8 @@ I owe him a moment.
 Family has a way of demanding that.
 
 + [Your brother?]
+~player_stupid = player_stupid + 1
+
     -> harold_partner
 + [Do you have any proof?]
 ~player_scared = player_scared + 1
@@ -135,8 +137,7 @@ May I go in?
 
 + [Alright. Be quick.]
 ~player_stupid = player_stupid + 1
-    ~GraveRobberSetup = GraveRobberSetup + 1
-    ~GraveyardProtection = GraveyardProtection - 40
+    ~GraveyardProtection = GraveyardProtection - 45
     -> harold_allow
 + [No. I can’t allow it.]
     -> harold_deny

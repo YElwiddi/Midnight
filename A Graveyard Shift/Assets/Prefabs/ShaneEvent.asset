@@ -29,6 +29,7 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 5
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -65,6 +66,7 @@ MonoBehaviour:
     waypointName: NPCGatePoint
     moveSpeed: 5
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 5
@@ -74,7 +76,7 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: b25a5533444447a4e863b9a2264503a2, type: 3}
     dialogueKnot: 
-    cameraHeight: -1
+    cameraHeight: 2.4
     cameraZoom: -1
     dialogueSoundClip: {fileID: 0}
     dialogueSoundVolume: -1
@@ -101,6 +103,7 @@ MonoBehaviour:
     waypointName: ShaneSite
     moveSpeed: 3
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 6.7
     waitingDialogueText: Let's give him a moment...
     waitingDialogueSpeaker: 20
@@ -110,7 +113,7 @@ MonoBehaviour:
     playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 4900000, guid: 1643960071eea1c489fe6e77575342ac, type: 3}
     dialogueKnot: 
-    cameraHeight: -1
+    cameraHeight: 1.5
     cameraZoom: -1
     dialogueSoundClip: {fileID: 0}
     dialogueSoundVolume: -1
@@ -137,6 +140,7 @@ MonoBehaviour:
     waypointName: NPCCenterPointExit
     moveSpeed: 2.8
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -173,6 +177,7 @@ MonoBehaviour:
     waypointName: NPCRightPoint
     moveSpeed: 5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -217,3 +222,5 @@ MonoBehaviour:
   exitPointName: NPCRightPoint
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

@@ -51,16 +51,72 @@ Can I go in?
 + [Sorry. Graveyard's closed.]
     ~player_mean = player_mean + 2
     -> deny_response
-    + [What did you say your name was again?]
-    -> ask_name_again
++ [I have a few more questions.]
+    -> more_questions
   + [Hold on, I'll be right back.]
       ~ SuspendDialogue()
     -> ask
     
-=== ask_name_again ===
-Jason Holmes.
+    
+    
+=== more_questions ===
++ [What was your name again?]
+    -> ask_name_again
++ [Who are you visiting?]
+    -> who_visit
++ [How many people are in your family?]
+    -> how_many
++ [Nevermind.]
 -> ask
 
+=== who_visit ===
+My brother and nephew, Zackary and Edward.
++ [When did they die?]
+-> when
++ [How did they die?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [Nevermind.]
+-> ask
+
+===when===
+Last year. They died at the same time.
++ [How did they die?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+===cause_of_death===
+They died in a car accident.
++ [When did they die?]
+-> when
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+=== how_many===
+After their burial, it's just me and my brother's widowed wife.
+She disappeared after their deaths.
++[Why?]
+-> why_wife
++ [I have more questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+=== ask_name_again ===
+My name is Jason Holmes.
+-> more_questions
+
+===why_wife===
+No one knows for certain.
+She hasn't spoken to me since their passing.
+I can only imagine what she's going through.
++ [I have more questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
 === let_in_response ===
 Thanks.
 I appreciate it.
@@ -75,7 +131,7 @@ I should've expected that.
 You're going to end up like every other gravekeeper before you.
 
  ~ SetEventVar("allowed_inside", false)
- ~ SpiritAngered = SpiritAngered + 1
- ~ Sanity = Sanity - 20
+ ~ Sanity = Sanity - 40
+ ~ player_stupid = player_stupid + 1
 
 -> END

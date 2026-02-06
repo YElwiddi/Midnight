@@ -144,8 +144,7 @@ For what it’s worth,
 I appreciate professionalism.
 
 ~ SetEventVar("allowed_inside", true)
-~ SpiritAngered = SpiritAngered + 1
-~ Sanity = Sanity - 5
+~ Sanity = Sanity - 40
 -> END
 
 === chen_deny ===

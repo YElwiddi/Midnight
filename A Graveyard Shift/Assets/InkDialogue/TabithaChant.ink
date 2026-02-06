@@ -5,6 +5,7 @@ VAR player_smart = 0
 VAR player_brave = 0
 VAR player_stupid = 0
 VAR Sanity = 100
+VAR GraveyardProtection = 100
 
 === start ===
 #speaker: Tabitha
@@ -31,5 +32,6 @@ For your cooperation.
 
 We may speak again.
 ~Sanity = Sanity + 35
+~GraveyardProtection = GraveyardProtection - 35
 
 -> END

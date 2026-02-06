@@ -104,9 +104,7 @@ Let me inside.
 
 + [Alright. Go ahead, but I’m watching you.]
      ~ SetEventVar("allowed_inside", true)
-     ~SpiritAngered = SpiritAngered - 1
-     ~GraveRobberSetup = GraveRobberSetup + 1
-     ~GraveyardProtection = GraveyardProtection - 15
+     ~GraveyardProtection = GraveyardProtection - 25
     -> tabitha_allow
 + [No. I can’t let you in.]
     ~player_mean = player_mean + 1

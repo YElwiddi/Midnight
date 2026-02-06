@@ -83,11 +83,8 @@ Make sure nothing’s… wrong.
 === be_straight ===
 …Alright.
 Something’s been off lately.
-Bad dreams. Whispers.
-Like something’s calling out and not getting an answer.
-
-I just wanna make sure it’s quiet.
-That it stays that way.
+I haven't been able to sleep right. The guilt from the quick burial...
+I just wanna make sure the plot is alright.
 
 -> ask
 
@@ -110,15 +107,66 @@ Will you let me come in and have a look?
     -> let_in
 + [No.]
     -> final_refusal
-        + [What did you say your name was again?]
-    -> ask_name_again
++ [I have a few more questions.]
+    -> more_questions
   + [Hold on, I'll be right back.]
       ~ SuspendDialogue()
     -> ask
+    
+        
+    
+=== more_questions ===
++ [What was your name again?]
+    -> ask_name_again
++ [Who are you visiting?]
+    -> who_visit
++ [How many people are in your family?]
+    -> how_many
++ [Nevermind.]
+-> ask
+
+=== who_visit ===
+My brother, Reginald.
++ [When did he die?]
+-> when
++ [What was his cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [Nevermind.]
+-> ask
+
+===when===
+It was very recent.
+A little over a week ago.
+You weren't working here when it happened.
++ [What was his cause of death?]
+-> cause_of_death
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+===cause_of_death===
+He died close to here.
+He was in a terrible shape when they found him. I don't want to recall the details.
+I don't know for certain.
++ [When did he die?]
+-> when
++ [I have other questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
+=== how_many===
+After my brother's death, it's just me.
++ [I have more questions.]
+-> more_questions
++ [I have no other questions.]
+-> ask
 
 === ask_name_again ===
-My name is Shane Deloitte.
--> ask
+My name?
+Shane Deloitte.
+-> more_questions
 
 === let_in ===
 Thank you.
@@ -126,8 +174,7 @@ Really.
 
 I’ll be quick.
 ~ SetEventVar("allowed_inside", true)
-~ GraveRobberSetup = GraveRobberSetup + 1
-~GraveyardProtection = GraveyardProtection - 30
+~GraveyardProtection = GraveyardProtection - 50
 
 -> END
 

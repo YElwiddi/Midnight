@@ -6,6 +6,8 @@ VAR player_scared = 0
 VAR player_stupid = 0
 VAR SpiritAngered = 0
 VAR GraveRobberSetup = 0
+VAR Sanity = 100
+VAR GraveyardProtection = 100
 
 === start ===
 H-hey...
@@ -113,6 +115,6 @@ I won't be long...
 === deny_response ===
 ...
  ~ SetEventVar("allowed_inside", false)
- ~ SpiritAngered = SpiritAngered + 1
+ ~ Sanity = Sanity - 45
 
 -> END

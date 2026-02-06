@@ -103,10 +103,29 @@ I'd feel a lot better if I could come inside for a moment...
     -> let_inside
 + [You should leave right now.]
     -> send_away
-+ [What is your name?]
-    -> ask_name_again
++ [I have a few more questions...]
+    -> more_questions
 + [Hold on, I'll be right back.]
     -> deny_brb
+
+
+=== more_questions ===
++ [What was your name again?]
+    -> ask_name_again
++ [Where were you headed?]
+    -> who_visit
++ [Nevermind.]
+-> ask
+
+=== who_visit ===
+Oh, uh...
+I was just heading home.
+My car is, like, out of gas. So I had to walk.
+I was just coming back from work. I work at bowling alley a couple of miles down the road.
++ [I have other questions.]
+-> more_questions
++ [Nevermind.]
+-> ask
 
 
 === ask_name_again ===
@@ -140,10 +159,8 @@ Thank you.
 I promise I won't touch anything.
 Or look at anything too long.
 
-~GraveyardProtection = GraveyardProtection - 20
-
 ~ SetEventVar("allowed_inside", true)
-
+~Sanity = Sanity - 5
 -> END
 
 === send_away ===
@@ -161,4 +178,5 @@ That's normal for me.
 
 ~ SetEventVar("allowed_inside", false)
 ~Sanity = Sanity - 25
+~GraveyardProtection = GraveyardProtection - 25
 -> END

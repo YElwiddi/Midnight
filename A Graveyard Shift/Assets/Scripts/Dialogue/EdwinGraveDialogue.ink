@@ -20,8 +20,7 @@ Anyway. I shouldn’t keep you standing here.
     -> are_you_okay
 + [Get lost, kid.]
     ~player_mean = player_mean + 2
-    ~Sanity = Sanity - 10
-    ~SpiritAngered = SpiritAngered + 1
+    ~Sanity = Sanity - 20
     -> leave
     
 === are_you_okay ===
