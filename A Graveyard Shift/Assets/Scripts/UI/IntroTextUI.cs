@@ -18,6 +18,14 @@ public class IntroTextUI : MonoBehaviour
         public TMP_FontAsset font;
         public float fontSize = 36f;
         public Color textColor = Color.white;
+
+        [Header("Image Page (Optional)")]
+        [Tooltip("If set, displays this image instead of text")]
+        public Sprite image;
+
+        [Header("Timing")]
+        [Tooltip("Minimum seconds before the player can advance (0 = skip freely)")]
+        public float minimumDisplayTime = 0f;
     }
 
     [Header("Intro Pages")]
@@ -49,6 +57,8 @@ public class IntroTextUI : MonoBehaviour
     private bool canAdvance = false;
     private Coroutine typewriterCoroutine;
     private Action onComplete;
+    private Image pageImage;
+    private bool waitingForMinTime = false;
 
     private void Awake()
     {
@@ -78,6 +88,10 @@ public class IntroTextUI : MonoBehaviour
 
     private void HandleInput()
     {
+        // Block all input while waiting for minimum display time
+        if (waitingForMinTime)
+            return;
+
         if (isTypewriting)
         {
             // Skip typewriter - show full text immediately
@@ -138,15 +152,6 @@ public class IntroTextUI : MonoBehaviour
 
         IntroPage page = pages[currentPageIndex];
 
-        // Apply page styling
-        if (mainText != null)
-        {
-            if (page.font != null)
-                mainText.font = page.font;
-            mainText.fontSize = page.fontSize;
-            mainText.color = page.textColor;
-        }
-
         // Hide continue prompt while typing
         if (continuePrompt != null)
         {
@@ -155,16 +160,72 @@ public class IntroTextUI : MonoBehaviour
 
         canAdvance = false;
 
-        if (useTypewriter)
+        bool isImagePage = page.image != null;
+
+        // Toggle text vs image visibility
+        if (mainText != null)
+            mainText.gameObject.SetActive(!isImagePage);
+
+        if (pageImage != null)
+            pageImage.gameObject.SetActive(isImagePage);
+
+        if (isImagePage)
         {
-            typewriterCoroutine = StartCoroutine(TypewriterEffect(page.text));
+            // Image page
+            if (pageImage != null)
+            {
+                pageImage.sprite = page.image;
+                pageImage.preserveAspect = true;
+            }
+
+            // Use minimum display time or show continue prompt immediately
+            if (page.minimumDisplayTime > 0f)
+            {
+                StartCoroutine(WaitMinimumTime(page.minimumDisplayTime));
+            }
+            else
+            {
+                OnTypewriterComplete();
+            }
         }
         else
         {
-            mainText.text = page.text;
-            mainText.maxVisibleCharacters = int.MaxValue;
-            OnTypewriterComplete();
+            // Text page - apply styling
+            if (mainText != null)
+            {
+                if (page.font != null)
+                    mainText.font = page.font;
+                mainText.fontSize = page.fontSize;
+                mainText.color = page.textColor;
+            }
+
+            if (useTypewriter && !string.IsNullOrEmpty(page.text))
+            {
+                typewriterCoroutine = StartCoroutine(TypewriterEffect(page.text));
+            }
+            else
+            {
+                mainText.text = page.text;
+                mainText.maxVisibleCharacters = int.MaxValue;
+
+                if (page.minimumDisplayTime > 0f)
+                {
+                    StartCoroutine(WaitMinimumTime(page.minimumDisplayTime));
+                }
+                else
+                {
+                    OnTypewriterComplete();
+                }
+            }
         }
+    }
+
+    private IEnumerator WaitMinimumTime(float seconds)
+    {
+        waitingForMinTime = true;
+        yield return new WaitForSeconds(seconds);
+        waitingForMinTime = false;
+        OnTypewriterComplete();
     }
 
     private IEnumerator TypewriterEffect(string fullText)
@@ -336,6 +397,22 @@ public class IntroTextUI : MonoBehaviour
         textRect.anchorMax = new Vector2(0.9f, 0.8f);
         textRect.offsetMin = Vector2.zero;
         textRect.offsetMax = Vector2.zero;
+
+        // Create page image (for image-only pages)
+        GameObject imageObj = new GameObject("PageImage");
+        imageObj.transform.SetParent(canvasObj.transform, false);
+
+        pageImage = imageObj.AddComponent<Image>();
+        pageImage.preserveAspect = true;
+        pageImage.color = Color.white;
+
+        RectTransform imageRect = pageImage.rectTransform;
+        imageRect.anchorMin = new Vector2(0.05f, 0.15f);
+        imageRect.anchorMax = new Vector2(0.95f, 0.9f);
+        imageRect.offsetMin = Vector2.zero;
+        imageRect.offsetMax = Vector2.zero;
+
+        imageObj.SetActive(false);
 
         // Create continue prompt
         GameObject promptObj = new GameObject("ContinuePrompt");

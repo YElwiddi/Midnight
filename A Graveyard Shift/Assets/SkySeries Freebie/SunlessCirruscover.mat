@@ -34,7 +34,7 @@ Material:
     m_Ints: []
     m_Floats:
     - <noninit>: 0
-    - _Exposure: 0.95
+    - _Exposure: 1.35
     - _Rotation: 0
     m_Colors:
     - <noninit>: {r: 0, g: 9.254479e-35, b: 0, a: 9.254442e-35}

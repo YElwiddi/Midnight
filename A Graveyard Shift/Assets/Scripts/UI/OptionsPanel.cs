@@ -28,6 +28,12 @@ public class OptionsPanel : MonoBehaviour
     private const string FULLSCREEN_KEY = "Fullscreen";
     private const string QUALITY_KEY = "QualityLevel";
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void ApplyMasterVolumeOnLaunch()
+    {
+        AudioListener.volume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 0.75f);
+    }
+
     void Start()
     {
         LoadSettings();
@@ -110,12 +116,8 @@ public class OptionsPanel : MonoBehaviour
 
     public void SetMasterVolume(float value)
     {
-        if (audioMixer != null)
-        {
-            // Convert linear slider value (0-1) to decibels (-80 to 0)
-            float dB = value > 0.001f ? Mathf.Log10(value) * 20f : -80f;
-            audioMixer.SetFloat("MasterVolume", dB);
-        }
+        // AudioListener.volume controls ALL audio in the game globally
+        AudioListener.volume = value;
         PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, value);
     }
 

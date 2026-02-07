@@ -40,8 +40,21 @@ public class DialogueUI : MonoBehaviour
     [Tooltip("Prefab for choice buttons. Must have Button and TextMeshProUGUI components.")]
     [SerializeField] private GameObject choiceButtonPrefab;
 
+    [Header("Choice Button Text Style")]
+    [Tooltip("Font for choice button text (overridden by UI Settings asset if assigned)")]
+    [SerializeField] private TMP_FontAsset choiceButtonFont;
+
+    [Tooltip("Font size for choice button text")]
+    [SerializeField] private float choiceButtonFontSize = 18f;
+
+    [Tooltip("Color of choice button text")]
+    [SerializeField] private Color choiceButtonTextColor = Color.white;
+
+    [Tooltip("Font style for choice buttons")]
+    [SerializeField] private FontStyles choiceButtonFontStyle = FontStyles.Normal;
+
     [Header("Optional Settings")]
-    [Tooltip("Optional DialogueUISettings asset for styling. If not assigned, uses prefab defaults.")]
+    [Tooltip("Optional DialogueUISettings asset for styling. Overrides fields above if assigned.")]
     [SerializeField] private DialogueUISettings uiSettings;
 
     [Header("Typewriter Sound")]
@@ -444,14 +457,24 @@ public class DialogueUI : MonoBehaviour
 
     private void ApplyChoiceButtonTextStyle(TextMeshProUGUI buttonText)
     {
-        if (buttonText == null || uiSettings == null) return;
+        if (buttonText == null) return;
 
-        if (uiSettings.choiceButtonFont != null)
-            buttonText.font = uiSettings.choiceButtonFont;
-
-        buttonText.fontSize = uiSettings.choiceButtonFontSize;
-        buttonText.color = uiSettings.choiceButtonTextColor;
-        buttonText.fontStyle = uiSettings.choiceButtonFontStyle;
+        if (uiSettings != null)
+        {
+            if (uiSettings.choiceButtonFont != null)
+                buttonText.font = uiSettings.choiceButtonFont;
+            buttonText.fontSize = uiSettings.choiceButtonFontSize;
+            buttonText.color = uiSettings.choiceButtonTextColor;
+            buttonText.fontStyle = uiSettings.choiceButtonFontStyle;
+        }
+        else
+        {
+            if (choiceButtonFont != null)
+                buttonText.font = choiceButtonFont;
+            buttonText.fontSize = choiceButtonFontSize;
+            buttonText.color = choiceButtonTextColor;
+            buttonText.fontStyle = choiceButtonFontStyle;
+        }
     }
 
     private void ApplyChoiceButtonColors(Button button)
