@@ -46,6 +46,11 @@ public class WatcherNPC : MonoBehaviour
     private bool useEntranceMovement;
     private Vector3 entranceTargetPosition;
     private float entranceSpeed;
+    private bool useEntranceRotation;
+    private Quaternion entranceTargetRotation;
+    private Quaternion entranceRotationQuat; // offset applied on top of stare facing
+    private Quaternion originalSpawnRotation; // rotation before entrance, used for ReverseEntranceRotation retreat
+    private float entranceRotationSpeed;
     private bool waitForEntranceBeforeStaring;
     private string entranceAnimTrigger;
 
@@ -187,6 +192,9 @@ public class WatcherNPC : MonoBehaviour
         // Entrance settings
         useEntranceMovement = config.useEntranceMovement;
         entranceSpeed = config.entranceSpeed;
+        useEntranceRotation = config.useEntranceRotation;
+        entranceRotationSpeed = config.entranceRotationSpeed;
+        entranceRotationQuat = Quaternion.Euler(config.entranceRotationOffset);
         waitForEntranceBeforeStaring = config.waitForEntranceBeforeStaring;
         entranceAnimTrigger = config.entranceAnimationTrigger;
 
@@ -281,8 +289,16 @@ public class WatcherNPC : MonoBehaviour
             }
         }
 
-        // Start entrance movement or staring
-        if (useEntranceMovement)
+        Debug.Log($"WatcherNPC '{eventName}': Initialized (entranceMove={useEntranceMovement}, entranceRotate={useEntranceRotation})");
+    }
+
+    /// <summary>
+    /// Starts entrance movement/rotation or staring behavior.
+    /// Call after Initialize() and ApplyLocationOverrides() so the correct flags are used.
+    /// </summary>
+    public void BeginBehavior()
+    {
+        if (useEntranceMovement || useEntranceRotation)
         {
             StartEntrance();
         }
@@ -291,7 +307,47 @@ public class WatcherNPC : MonoBehaviour
             StartStaring();
         }
 
-        Debug.Log($"WatcherNPC '{eventName}': Initialized and active (entrance={useEntranceMovement})");
+        Debug.Log($"WatcherNPC '{eventName}': Behavior started (entranceMove={useEntranceMovement}, entranceRotate={useEntranceRotation})");
+    }
+
+    /// <summary>
+    /// Applies per-location overrides for entrance and retreat settings.
+    /// Call after Initialize() to overwrite event-level defaults with location-specific values.
+    /// </summary>
+    public void ApplyLocationOverrides(SpawnLocationData location)
+    {
+        if (location == null) return;
+
+        if (location.overrideEntrance)
+        {
+            useEntranceMovement = location.useEntranceMovement;
+            useEntranceRotation = location.useEntranceRotation;
+            entranceRotationQuat = Quaternion.Euler(location.entranceRotationOffset);
+            Debug.Log($"WatcherNPC '{eventName}': Applied entrance overrides from location (move={useEntranceMovement}, rotate={useEntranceRotation})");
+        }
+
+        if (location.overrideRetreat)
+        {
+            retreatMode = location.retreatMode;
+            retreatDirectionWorld = location.retreatDirection.normalized;
+            retreatTargetName = location.retreatTargetName;
+
+            // Re-resolve retreat target if needed
+            if (retreatMode == WatcherRetreatMode.TowardPoint && !string.IsNullOrEmpty(retreatTargetName))
+            {
+                GameObject retreatTargetObj = GameObject.Find(retreatTargetName);
+                if (retreatTargetObj != null)
+                {
+                    retreatTarget = retreatTargetObj.transform;
+                }
+                else
+                {
+                    Debug.LogWarning($"WatcherNPC '{eventName}': Location retreat target '{retreatTargetName}' not found!");
+                }
+            }
+
+            Debug.Log($"WatcherNPC '{eventName}': Applied retreat overrides from location (mode={retreatMode})");
+        }
     }
 
     /// <summary>
@@ -302,6 +358,16 @@ public class WatcherNPC : MonoBehaviour
     {
         entranceTargetPosition = targetPosition;
         Debug.Log($"WatcherNPC '{eventName}': Entrance target set to {targetPosition}");
+    }
+
+    /// <summary>
+    /// Sets the target rotation for entrance rotation. Call before Initialize if using entrance rotation.
+    /// The watcher spawns with a rotation offset and rotates toward this target rotation.
+    /// </summary>
+    public void SetEntranceTargetRotation(Quaternion targetRotation)
+    {
+        entranceTargetRotation = targetRotation;
+        Debug.Log($"WatcherNPC '{eventName}': Entrance target rotation set to {targetRotation.eulerAngles}");
     }
 
     private void FindPlayerReferences()
@@ -355,6 +421,9 @@ public class WatcherNPC : MonoBehaviour
 
         isEntering = true;
 
+        // Cache the spawn rotation before any entrance rotation happens
+        originalSpawnRotation = transform.rotation;
+
         // Play entrance animation if configured
         if (animator != null && !string.IsNullOrEmpty(entranceAnimTrigger))
         {
@@ -374,34 +443,61 @@ public class WatcherNPC : MonoBehaviour
     {
         if (!isEntering) return;
 
-        // Move toward entrance target
-        Vector3 direction = (entranceTargetPosition - transform.position);
-        float distanceRemaining = direction.magnitude;
+        bool movementDone = !useEntranceMovement;
+        bool rotationDone = !useEntranceRotation;
 
-        if (distanceRemaining <= 0.05f)
+        // Move toward entrance target (if using entrance movement)
+        if (useEntranceMovement)
         {
-            // Arrived at target
-            transform.position = entranceTargetPosition;
-            CompleteEntrance();
-            return;
+            Vector3 direction = (entranceTargetPosition - transform.position);
+            float distanceRemaining = direction.magnitude;
+
+            if (distanceRemaining <= 0.05f)
+            {
+                transform.position = entranceTargetPosition;
+                movementDone = true;
+            }
+            else
+            {
+                float moveDistance = entranceSpeed * Time.deltaTime;
+                if (moveDistance >= distanceRemaining)
+                {
+                    transform.position = entranceTargetPosition;
+                    movementDone = true;
+                }
+                else
+                {
+                    transform.position += direction.normalized * moveDistance;
+                }
+            }
         }
 
-        // Move toward target
-        float moveDistance = entranceSpeed * Time.deltaTime;
-        if (moveDistance >= distanceRemaining)
+        // Rotate toward target rotation (if using entrance rotation)
+        if (useEntranceRotation)
         {
-            transform.position = entranceTargetPosition;
-            CompleteEntrance();
-        }
-        else
-        {
-            transform.position += direction.normalized * moveDistance;
+            float angleDiff = Quaternion.Angle(transform.rotation, entranceTargetRotation);
+            if (angleDiff <= 0.5f)
+            {
+                transform.rotation = entranceTargetRotation;
+                rotationDone = true;
+            }
+            else
+            {
+                float step = entranceRotationSpeed * Time.deltaTime;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, entranceTargetRotation, step);
+            }
         }
 
-        // Update facing while entering (if not UseSpawnRotation)
-        if (stareMode != WatcherStareMode.UseSpawnRotation)
+        // Update facing while entering (only if not using entrance rotation and not UseSpawnRotation)
+        if (!useEntranceRotation && stareMode != WatcherStareMode.UseSpawnRotation)
         {
             UpdateFacing();
+        }
+
+        // Complete entrance when both movement and rotation are done
+        if (movementDone && rotationDone)
+        {
+            CompleteEntrance();
         }
     }
 
@@ -542,6 +638,13 @@ public class WatcherNPC : MonoBehaviour
         if (targetDirection.sqrMagnitude > 0.001f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection.normalized);
+
+            // Apply entrance rotation offset so the watcher maintains its peeked pose while facing
+            if (useEntranceRotation)
+            {
+                targetRotation *= entranceRotationQuat;
+            }
+
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation,
                 targetRotation,
@@ -737,6 +840,10 @@ public class WatcherNPC : MonoBehaviour
             case WatcherRetreatMode.BackwardFromFacing:
                 direction = -transform.forward;
                 break;
+
+            case WatcherRetreatMode.ReverseEntranceRotation:
+                // No translation direction needed, retreat is handled via rotation
+                break;
         }
 
         return direction.normalized;
@@ -744,6 +851,35 @@ public class WatcherNPC : MonoBehaviour
 
     private void UpdateRetreat()
     {
+        // ReverseEntranceRotation mode: rotate back instead of moving
+        if (retreatMode == WatcherRetreatMode.ReverseEntranceRotation)
+        {
+            float angleDiff = Quaternion.Angle(transform.rotation, originalSpawnRotation);
+            if (angleDiff <= 0.5f)
+            {
+                transform.rotation = originalSpawnRotation;
+                CompleteEvent();
+                return;
+            }
+
+            float step = entranceRotationSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, originalSpawnRotation, step);
+
+            // Update fade if enabled
+            if (fadeOnRetreat)
+            {
+                fadeProgress += Time.deltaTime / fadeDuration;
+                UpdateFade(1f - fadeProgress);
+
+                if (fadeProgress >= 1f)
+                {
+                    CompleteEvent();
+                }
+            }
+
+            return;
+        }
+
         // For TowardPoint mode, check if we've reached the target
         if (retreatMode == WatcherRetreatMode.TowardPoint && retreatTarget != null)
         {

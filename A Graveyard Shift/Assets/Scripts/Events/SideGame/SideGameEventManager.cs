@@ -372,19 +372,34 @@ public class SideGameEventManager : MonoBehaviour
             return;
         }
 
+        // Determine entrance settings (location override takes priority)
+        bool useMovement = spawnLocation.overrideEntrance ? spawnLocation.useEntranceMovement : sideEvent.useEntranceMovement;
+        Vector3 entranceOffset = spawnLocation.overrideEntrance ? spawnLocation.entranceSpawnOffset : sideEvent.entranceSpawnOffset;
+        bool useRotation = spawnLocation.overrideEntrance ? spawnLocation.useEntranceRotation : sideEvent.useEntranceRotation;
+        Vector3 rotOffset = spawnLocation.overrideEntrance ? spawnLocation.entranceRotationOffset : sideEvent.entranceRotationOffset;
+
         // Calculate spawn position (with entrance offset if enabled)
         Vector3 targetPosition = spawnPoint.transform.position;
         Vector3 actualSpawnPosition = targetPosition;
 
-        if (sideEvent.useEntranceMovement)
+        if (useMovement)
         {
             // Apply entrance offset - spawn at offset position, will move to target
-            actualSpawnPosition = targetPosition + sideEvent.entranceSpawnOffset;
+            actualSpawnPosition = targetPosition + entranceOffset;
             Debug.Log($"SideGameEventManager: Using entrance movement - spawning at {actualSpawnPosition}, target is {targetPosition}");
         }
 
         // Calculate spawn rotation
         Quaternion spawnRotation = CalculateSpawnRotation(spawnPoint.transform, spawnLocation);
+
+        // If using entrance rotation, the watcher spawns at normal rotation
+        // and rotates TO the offset position (e.g., peeking out from behind a tree)
+        Quaternion entranceTargetRot = spawnRotation;
+        if (useRotation)
+        {
+            entranceTargetRot = spawnRotation * Quaternion.Euler(rotOffset);
+            Debug.Log($"SideGameEventManager: Using entrance rotation - spawning at {spawnRotation.eulerAngles}, will rotate to {entranceTargetRot.eulerAngles}");
+        }
 
         // Spawn NPC at the actual spawn position (may be offset)
         GameObject npcObject = Instantiate(sideEvent.npcPrefab, actualSpawnPosition, spawnRotation);
@@ -393,7 +408,7 @@ public class SideGameEventManager : MonoBehaviour
         switch (sideEvent.eventType)
         {
             case SideGameEventType.Watcher:
-                SetupWatcherNPC(npcObject, sideEvent, targetPosition);
+                SetupWatcherNPC(npcObject, sideEvent, spawnLocation, targetPosition, entranceTargetRot, useMovement, useRotation);
                 break;
             // Future event types can be handled here
         }
@@ -452,7 +467,7 @@ public class SideGameEventManager : MonoBehaviour
         return baseRotation;
     }
 
-    private void SetupWatcherNPC(GameObject npcObject, SideGameEvent sideEvent, Vector3 entranceTargetPosition)
+    private void SetupWatcherNPC(GameObject npcObject, SideGameEvent sideEvent, SpawnLocationData locationData, Vector3 entranceTargetPosition, Quaternion entranceTargetRotation, bool useMovement, bool useRotation)
     {
         // Add or get WatcherNPC component
         currentWatcher = npcObject.GetComponent<WatcherNPC>();
@@ -464,15 +479,29 @@ public class SideGameEventManager : MonoBehaviour
         // Subscribe to completion
         currentWatcher.OnEventCompleted += HandleEventCompleted;
 
-        // Set entrance target BEFORE Initialize if using entrance movement
+        // Set entrance targets BEFORE Initialize
         // (Initialize will start the entrance immediately if enabled)
-        if (sideEvent.useEntranceMovement)
+        if (useMovement)
         {
             currentWatcher.SetEntranceTarget(entranceTargetPosition);
         }
 
-        // Initialize (will start entrance or staring based on config)
+        if (useRotation)
+        {
+            currentWatcher.SetEntranceTargetRotation(entranceTargetRotation);
+        }
+
+        // Initialize (caches config values but does not start entrance/staring)
         currentWatcher.Initialize(sideEvent);
+
+        // Apply per-location overrides after Initialize so they take effect
+        if (locationData.overrideEntrance || locationData.overrideRetreat)
+        {
+            currentWatcher.ApplyLocationOverrides(locationData);
+        }
+
+        // Now start entrance or staring with the final resolved flags
+        currentWatcher.BeginBehavior();
     }
 
     private void HandleEventCompleted()

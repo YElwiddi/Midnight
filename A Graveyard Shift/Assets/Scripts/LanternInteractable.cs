@@ -27,7 +27,16 @@ public class LanternInteractable : MonoBehaviour, IInteractable
     public float flickerSmoothness = 5f;
 
     [Header("Audio")]
-    public AudioClip toggleSound;
+    public AudioClip toggleOnSound;
+    [Range(0f, 1f)]
+    public float toggleOnVolume = 1f;
+    [Range(0.1f, 3f)]
+    public float toggleOnPitch = 1f;
+    public AudioClip toggleOffSound;
+    [Range(0f, 1f)]
+    public float toggleOffVolume = 1f;
+    [Range(0.1f, 3f)]
+    public float toggleOffPitch = 1f;
     private AudioSource audioSource;
 
     [Header("Sanity System")]
@@ -64,12 +73,13 @@ public class LanternInteractable : MonoBehaviour, IInteractable
             lanternLight = GetComponentInChildren<Light>();
 
         // Set up audio source
-        if (toggleSound != null)
+        if (toggleOnSound != null || toggleOffSound != null)
         {
             audioSource = GetComponent<AudioSource>();
             if (audioSource == null)
                 audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f;
         }
 
         // Set initial state
@@ -138,8 +148,16 @@ public class LanternInteractable : MonoBehaviour, IInteractable
         }
 
         // Play toggle sound
-        if (audioSource != null && toggleSound != null)
-            audioSource.PlayOneShot(toggleSound);
+        if (audioSource != null)
+        {
+            AudioClip clip = isOn ? toggleOnSound : toggleOffSound;
+            if (clip != null)
+            {
+                audioSource.pitch = isOn ? toggleOnPitch : toggleOffPitch;
+                float volume = isOn ? toggleOnVolume : toggleOffVolume;
+                audioSource.PlayOneShot(clip, volume);
+            }
+        }
 
         // Fire state changed event
         OnLampStateChanged?.Invoke(isOn);

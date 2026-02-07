@@ -25,12 +25,13 @@ public enum WatcherStareMode
 /// </summary>
 public enum WatcherRetreatMode
 {
-    AwayFromPlayer,     // Move directly away from the player (default)
-    Down,               // Move straight down (Y axis)
-    Up,                 // Move straight up (Y axis)
-    TowardPoint,        // Move toward a named GameObject
-    CustomDirection,    // Move in a fixed world direction (use retreatDirection vector)
-    BackwardFromFacing  // Move backward relative to current facing direction
+    AwayFromPlayer,         // Move directly away from the player (default)
+    Down,                   // Move straight down (Y axis)
+    Up,                     // Move straight up (Y axis)
+    TowardPoint,            // Move toward a named GameObject
+    CustomDirection,        // Move in a fixed world direction (use retreatDirection vector)
+    BackwardFromFacing,     // Move backward relative to current facing direction
+    ReverseEntranceRotation // Rotate back to pre-entrance rotation (undo the peek)
 }
 
 /// <summary>
@@ -51,6 +52,35 @@ public class SpawnLocationData
 
     [Tooltip("Custom rotation offset applied after facing calculation")]
     public Vector3 rotationOffset = Vector3.zero;
+
+    [Header("Entrance Override")]
+    [Tooltip("If true, this location overrides the event-level entrance settings")]
+    public bool overrideEntrance = false;
+
+    [Tooltip("If true, watcher spawns offset and moves to spawn point (location override)")]
+    public bool useEntranceMovement;
+
+    [Tooltip("Offset from spawn point where watcher actually spawns (location override)")]
+    public Vector3 entranceSpawnOffset;
+
+    [Tooltip("If true, watcher rotates from spawn rotation to offset rotation (location override)")]
+    public bool useEntranceRotation;
+
+    [Tooltip("Rotation offset applied during entrance (location override)")]
+    public Vector3 entranceRotationOffset;
+
+    [Header("Retreat Override")]
+    [Tooltip("If true, this location overrides the event-level retreat settings")]
+    public bool overrideRetreat = false;
+
+    [Tooltip("How the watcher retreats at this location (location override)")]
+    public WatcherRetreatMode retreatMode;
+
+    [Tooltip("Custom retreat direction (location override, used with CustomDirection mode)")]
+    public Vector3 retreatDirection;
+
+    [Tooltip("Name of retreat target GameObject (location override, used with TowardPoint mode)")]
+    public string retreatTargetName;
 }
 
 /// <summary>
@@ -90,7 +120,17 @@ public class SideGameEvent : ScriptableObject
     [Range(0.5f, 10f)]
     public float entranceSpeed = 2f;
 
-    [Tooltip("If true, watcher won't drain protection until entrance movement completes")]
+    [Tooltip("If true, watcher spawns at normal rotation and then rotates to an offset position (e.g., peeking out from behind a tree)")]
+    public bool useEntranceRotation = false;
+
+    [Tooltip("Rotation the watcher rotates TO after spawning (e.g., (90, 0, 0) to tilt forward on X axis to peek out). Applied relative to spawn rotation.")]
+    public Vector3 entranceRotationOffset = new Vector3(90f, 0f, 0f);
+
+    [Tooltip("Speed at which watcher rotates from offset to target rotation (degrees per second)")]
+    [Range(5f, 360f)]
+    public float entranceRotationSpeed = 45f;
+
+    [Tooltip("If true, watcher won't drain protection until entrance movement/rotation completes")]
     public bool waitForEntranceBeforeStaring = true;
 
     [Tooltip("Animation trigger to play during entrance movement (leave empty to use idle)")]
