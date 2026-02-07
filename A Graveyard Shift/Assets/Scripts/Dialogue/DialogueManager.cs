@@ -236,6 +236,9 @@ public class DialogueManager : MonoBehaviour
         // Setup player input
         SetupPlayerInput(false);
 
+        // Pause passive sanity/protection drain during dialogue
+        SetPassiveDrainPaused(true);
+
         // Bind Ink external functions
         BindInkFunctions();
 
@@ -302,6 +305,9 @@ public class DialogueManager : MonoBehaviour
         // Setup player input
         SetupPlayerInput(false);
 
+        // Pause passive sanity/protection drain during dialogue
+        SetPassiveDrainPaused(true);
+
         // Bind Ink external functions
         BindInkFunctions();
 
@@ -349,6 +355,9 @@ public class DialogueManager : MonoBehaviour
 
         // Restore player input
         SetupPlayerInput(true);
+
+        // Resume passive sanity/protection drain
+        SetPassiveDrainPaused(false);
 
         currentNPC = null;
         currentStory = null;
@@ -510,6 +519,9 @@ public class DialogueManager : MonoBehaviour
         // Setup player input
         SetupPlayerInput(false);
 
+        // Pause passive sanity/protection drain during dialogue
+        SetPassiveDrainPaused(true);
+
         // Note: External functions are still bound on the preserved Story object - no need to rebind
 
         OnDialogueStarted?.Invoke();
@@ -570,6 +582,9 @@ public class DialogueManager : MonoBehaviour
 
         // Restore player input
         SetupPlayerInput(true);
+
+        // Resume passive sanity/protection drain
+        SetPassiveDrainPaused(false);
 
         dialogueIsPlaying = false;
         currentNPC = null;
@@ -697,6 +712,22 @@ public class DialogueManager : MonoBehaviour
         {
             currentStory.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
+        }
+    }
+
+    /// <summary>
+    /// Pauses or unpauses passive sanity/protection drain (lamp drain, watcher drain).
+    /// Does NOT affect intentional drain/restore from ink dialogue variable sync.
+    /// </summary>
+    private void SetPassiveDrainPaused(bool paused)
+    {
+        if (SanityManager.Instance != null)
+        {
+            SanityManager.Instance.IsPassiveDrainPaused = paused;
+        }
+        if (GraveyardProtectionManager.Instance != null)
+        {
+            GraveyardProtectionManager.Instance.IsPassiveDrainPaused = paused;
         }
     }
 

@@ -61,6 +61,12 @@ public class KillerJumpscare : MonoBehaviour
     [SerializeField] private float killScanlineIntensity = 0.8f;
     [SerializeField] private float killTrackingNoise = 0.1f;
 
+    [Header("Lantern Override")]
+    [Tooltip("If true, all lanterns turn on, change color, and become locked during jumpscare")]
+    [SerializeField] private bool overrideLanternsOnJumpscare = false;
+    [Tooltip("Color to set all lanterns to during jumpscare")]
+    [SerializeField] private Color jumpscareLanternColor = Color.red;
+
     [Header("Screen Effect (Fallback)")]
     [SerializeField] private GameObject screenEffectPrefab;
     [SerializeField] private float screenEffectDelay = 0f;
@@ -197,6 +203,12 @@ public class KillerJumpscare : MonoBehaviour
 
         // Freeze player FIRST
         FreezePlayer(true);
+
+        // Override lanterns (turn red, lock them)
+        if (overrideLanternsOnJumpscare)
+        {
+            LanternInteractable.LockAllLanterns(jumpscareLanternColor);
+        }
 
         // Ground the player
         GroundPlayer();

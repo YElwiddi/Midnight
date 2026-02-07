@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
+  m_Name: CarEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEvent
+  eventName: Start Event
+  npcPrefab: {fileID: 919132149155446097, guid: 847debed32419ca4595daed512f18f96, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 3
+  spawnHeightOffset: 0
+  spawnPointName: NPCLeftPoint
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
+  waypoints:
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
+    moveSpeed: 7
+    waitForInteraction: 0
+    timeUntilInteractable: 5
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 12
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCRightPoint
+    moveSpeed: 7
+    waitForInteraction: 0
+    timeUntilInteractable: 5
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 1.4
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  inkDialogue: {fileID: 0}
+  dialogueKnot: 
+  typewriterSpeed: 60
+  exitBehavior: 0
+  exitPointName: NPCRightPoint
+  exitDialogues: []
+  backgroundNPCs: []

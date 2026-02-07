@@ -29,6 +29,7 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 5.99
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: NPCCenterPoint
     waitingDialogueSpeaker: 
@@ -65,6 +66,7 @@ MonoBehaviour:
     waypointName: NPCGatePoint
     moveSpeed: 3.96
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: NPCCenterPoint
     waitingDialogueSpeaker: 
@@ -101,6 +103,7 @@ MonoBehaviour:
     waypointName: BackRightGraveYard
     moveSpeed: 3.96
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: He seems to be fidgeting around.
     waitingDialogueSpeaker: 
@@ -137,6 +140,7 @@ MonoBehaviour:
     waypointName: CenterOfMap
     moveSpeed: 3.96
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 10
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -173,6 +177,7 @@ MonoBehaviour:
     waypointName: TimothySite
     moveSpeed: 3.96
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 10
     waitingDialogueText: He appears to be zoning out. I should give him a moment.
     waitingDialogueSpeaker: 
@@ -209,6 +214,7 @@ MonoBehaviour:
     waypointName: NPCCenterPointExit
     moveSpeed: 3.96
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 10
     waitingDialogueText: He appears to be staring out into the distance...
     waitingDialogueSpeaker: 
@@ -245,6 +251,7 @@ MonoBehaviour:
     waypointName: NPCRightPoint
     moveSpeed: 3.96
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 10
     waitingDialogueText: 
     waitingDialogueSpeaker: 
@@ -277,7 +284,7 @@ MonoBehaviour:
     proximitySoundConditionValue: 
   inkDialogue: {fileID: 4900000, guid: 3deaccd374ef11f44b6f6aa551e3eba9, type: 3}
   dialogueKnot: 
-  typewriterSpeed: 141
+  typewriterSpeed: 65
   cameraHeight: 2
   cameraZoom: 40
   dialogueSoundClip: {fileID: 0}
@@ -289,3 +296,5 @@ MonoBehaviour:
   exitPointName: NPCRightPoint
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

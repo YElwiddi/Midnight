@@ -1,0 +1,337 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
+  m_Name: TabithaEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEvent
+  eventName: Start Event
+  npcPrefab: {fileID: 3767055355421772689, guid: 167bf02fd3210e842a1a7edef705ec69, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 3
+  spawnHeightOffset: 0
+  spawnPointName: NPCLeftPoint
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
+  waypoints:
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
+    moveSpeed: 4.5
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCGatePoint
+    moveSpeed: 4.5
+    waitForInteraction: 1
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: true
+    branchToWaypoint: GraveyardCrossRoads
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: false
+    branchToWaypoint: NPCRightPoint
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: GraveyardCrossRoads
+    moveSpeed: 3
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: CenterOfMap
+    moveSpeed: 3
+    waitForInteraction: 1
+    autoStartDialogue: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: I should give her a moment...
+    waitingDialogueSpeaker: 20
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 4900000, guid: 34d5934b448fbf548b0770489e57634a, type: 3}
+    dialogueKnot: 
+    cameraHeight: 0.75
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: IsPraying
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: GraveyardCrossRoads
+    moveSpeed: 3
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCRightPoint
+    moveSpeed: 3
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 10
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 1
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  inkDialogue: {fileID: 4900000, guid: 4e4d658a4a7221b42990bb72409da559, type: 3}
+  dialogueKnot: 
+  typewriterSpeed: 70
+  cameraHeight: 1.8
+  cameraZoom: 40
+  dialogueSoundClip: {fileID: 8300000, guid: 3d7ccc3edcb201f45832a5d2a462e91a, type: 3}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: 1.4
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
+  exitBehavior: 2
+  exitPointName: NPCRightPoint
+  exitDialogues: []
+  backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

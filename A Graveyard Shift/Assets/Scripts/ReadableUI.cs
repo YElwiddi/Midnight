@@ -22,6 +22,8 @@ public class ReadableUI : MonoBehaviour
         public float? lineSpacing;
         public float? fontSize;
         public Color? fontColor;
+        public float? shakeIntensity;
+        public float? shakeSpeed;
     }
 
     private TMP_FontAsset defaultFont;
@@ -55,6 +57,11 @@ public class ReadableUI : MonoBehaviour
     private Movement playerMovement;
     private CrosshairManager crosshairManager;
     private GameObject crosshairObject;
+
+    // Text shake
+    private bool shakeActive;
+    private float currentShakeIntensity;
+    private float currentShakeSpeed;
     #endregion
 
     #region Unity Lifecycle
@@ -71,17 +78,8 @@ public class ReadableUI : MonoBehaviour
         playerMovement = FindFirstObjectByType<Movement>();
         crosshairManager = FindFirstObjectByType<CrosshairManager>();
 
-        if (readablePanel != null)
-        {
-            readablePanel.SetActive(false);
-        }
-    }
-
-    private void Start()
-    {
-        FindCrosshair();
-
-        // Store default text settings
+        // Store default text settings BEFORE disabling the panel,
+        // otherwise TMP may return null/zero for uninitialized properties
         if (contentText != null)
         {
             defaultFont = contentText.font;
@@ -91,6 +89,16 @@ public class ReadableUI : MonoBehaviour
             defaultFontSize = contentText.fontSize;
             defaultFontColor = contentText.color;
         }
+
+        if (readablePanel != null)
+        {
+            readablePanel.SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+        FindCrosshair();
     }
 
     private void FindCrosshair()
@@ -136,6 +144,12 @@ public class ReadableUI : MonoBehaviour
         {
             AdvanceOrClose();
         }
+
+        // Apply text shake effect
+        if (shakeActive && contentText != null)
+        {
+            ApplyTextShake();
+        }
     }
     #endregion
 
@@ -169,6 +183,17 @@ public class ReadableUI : MonoBehaviour
             backgroundImage.enabled = false;
         }
 
+        // Reset to defaults before applying overrides
+        if (contentText != null)
+        {
+            contentText.font = defaultFont;
+            contentText.alignment = defaultAlignment;
+            contentText.margin = defaultMargins;
+            contentText.lineSpacing = defaultLineSpacing;
+            contentText.fontSize = defaultFontSize;
+            contentText.color = defaultFontColor;
+        }
+
         // Apply text overrides
         if (contentText != null)
         {
@@ -184,6 +209,18 @@ public class ReadableUI : MonoBehaviour
                 contentText.fontSize = overrides.fontSize.Value;
             if (overrides.fontColor.HasValue)
                 contentText.color = overrides.fontColor.Value;
+        }
+
+        // Apply text shake
+        if (overrides.shakeIntensity.HasValue && overrides.shakeIntensity.Value > 0f)
+        {
+            shakeActive = true;
+            currentShakeIntensity = overrides.shakeIntensity.Value;
+            currentShakeSpeed = overrides.shakeSpeed.HasValue ? overrides.shakeSpeed.Value : 25f;
+        }
+        else
+        {
+            shakeActive = false;
         }
 
         // Show panel
@@ -211,6 +248,7 @@ public class ReadableUI : MonoBehaviour
         isOpen = false;
         currentPages = null;
         currentPageIndex = 0;
+        shakeActive = false;
 
         // Restore default text settings
         if (contentText != null)
@@ -283,6 +321,38 @@ public class ReadableUI : MonoBehaviour
                 // Hide indicator for single-page readables
                 pageIndicatorText.gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void ApplyTextShake()
+    {
+        contentText.ForceMeshUpdate();
+        TMP_TextInfo textInfo = contentText.textInfo;
+
+        for (int i = 0; i < textInfo.characterCount; i++)
+        {
+            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+            if (!charInfo.isVisible) continue;
+
+            Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+            int vertexIndex = charInfo.vertexIndex;
+
+            // Per-character offset using unique seed per character
+            float offsetX = Mathf.PerlinNoise((Time.time * currentShakeSpeed) + i * 0.3f, 0f) * 2f - 1f;
+            float offsetY = Mathf.PerlinNoise(0f, (Time.time * currentShakeSpeed) + i * 0.3f) * 2f - 1f;
+            Vector3 offset = new Vector3(offsetX, offsetY, 0f) * currentShakeIntensity;
+
+            vertices[vertexIndex + 0] += offset;
+            vertices[vertexIndex + 1] += offset;
+            vertices[vertexIndex + 2] += offset;
+            vertices[vertexIndex + 3] += offset;
+        }
+
+        // Push modified vertices back
+        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        {
+            textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
+            contentText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
         }
     }
 

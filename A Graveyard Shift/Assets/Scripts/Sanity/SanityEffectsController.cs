@@ -95,6 +95,9 @@ public class SanityEffectsController : MonoBehaviour
     [SerializeField] private VHSRetroFeature vhsEffect;
 
     [Header("Sprint Control")]
+    [Tooltip("If true, sprint is disabled when sanity drops below the level 3 threshold")]
+    [SerializeField] private bool disableSprintAtLowSanity = true;
+
     [Tooltip("Reference to player Movement component (auto-finds if not set)")]
     [SerializeField] private Movement playerMovement;
 
@@ -108,6 +111,9 @@ public class SanityEffectsController : MonoBehaviour
 
     [Tooltip("Duration to show dialogue")]
     [SerializeField] private float dialogueDuration = 3f;
+
+    [Tooltip("Wait time before displaying low sanity dialogue (gives other dialogue time to finish)")]
+    [SerializeField] private float dialogueWaitDelay = 5f;
 
     [Header("Threshold IDs (must match SanityManager)")]
     [SerializeField] private string threshold75Id = "vhs_level_1";
@@ -260,8 +266,17 @@ public class SanityEffectsController : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(lowSanityDialogue))
         {
-            SimpleDialogueTrigger.ShowDialogue(lowSanityDialogue, lowSanityDialogueSpeaker, dialogueDuration);
+            if (dialogueWaitDelay > 0f)
+                StartCoroutine(ShowLowSanityDialogueDelayed());
+            else
+                SimpleDialogueTrigger.ShowDialogue(lowSanityDialogue, lowSanityDialogueSpeaker, dialogueDuration);
         }
+    }
+
+    private System.Collections.IEnumerator ShowLowSanityDialogueDelayed()
+    {
+        yield return new WaitForSeconds(dialogueWaitDelay);
+        SimpleDialogueTrigger.ShowDialogue(lowSanityDialogue, lowSanityDialogueSpeaker, dialogueDuration);
     }
 
     /// <summary>
@@ -310,7 +325,7 @@ public class SanityEffectsController : MonoBehaviour
             {
                 SetVHSLevel(3);
             }
-            DisableSprint();
+            if (disableSprintAtLowSanity) DisableSprint();
             ShowLowSanityDialogue();
         }
     }
@@ -352,7 +367,7 @@ public class SanityEffectsController : MonoBehaviour
             {
                 SetVHSLevel(0);
             }
-            EnableSprint();
+            if (disableSprintAtLowSanity) EnableSprint();
         }
     }
 

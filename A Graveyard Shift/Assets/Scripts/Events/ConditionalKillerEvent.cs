@@ -222,6 +222,12 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 0.2f)]
     public float killTrackingNoise = 0.1f;
 
+    [Header("Lantern Override")]
+    [Tooltip("If true, all lanterns turn on, change color, and become locked during chase")]
+    public bool overrideLanternsOnJumpscare = false;
+    [Tooltip("Color to set all lanterns to")]
+    public Color jumpscareLanternColor = Color.red;
+
     [Header("Game Over")]
     [Tooltip("Scene to load after jumpscare completes (e.g., 'MainMenu'). Leave empty to stay in current scene.")]
     public string gameOverSceneName = "MainMenu";

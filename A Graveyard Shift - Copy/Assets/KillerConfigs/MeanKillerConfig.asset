@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbda64b44433ab4c84700c1bfb58359, type: 3}
+  m_Name: MeanKillerConfig
+  m_EditorClassIdentifier: Assembly-CSharp::CryptKillerConfig
+  killerPrefab: {fileID: 3767055355421772689, guid: 3c951ae4fdc403046a9f6a07de9e312d, type: 3}
+  behaviorType: 0
+  roamSpeed: 3
+  chaseSpeed: 5
+  fastChaserSpeedMultiplier: 2
+  minRoamDistance: 5
+  maxRoamDistance: 15
+  roamWaitTime: 2
+  roamPointReachedDistance: 1
+  visionDistance: 15
+  visionAngle: 60
+  visionRayCount: 7
+  visionBlockingLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  visionHeight: 1.5
+  lostSightDuration: 3
+  killDistance: 3
+  spotPlayerSound: {fileID: 8300000, guid: 906fcaccf1ec1c442a2b61dc3575e069, type: 3}
+  spotSoundVolume: 0.652
+  heartbeatSound: {fileID: 8300000, guid: 413173aaf41fb164ebc30888293a01ab, type: 3}
+  terrorRadius: 30
+  terrorMaxVolumeDistance: 10
+  heartbeatMaxVolume: 1
+  ambientGurglingSound: {fileID: 0}
+  ambientSoundRadius: 15
+  ambientSoundVolume: 0.5
+  roamAnimationBool: IsWalking
+  chaseAnimationBool: IsRunning
+  spotPlayerTrigger: SpotPlayer
+  flashlightDisabledDialogue: The flashlight won't turn on...
+  flashlightDisabledSpeaker: 
+  flashlightDialogueDuration: 2
+  flashlightDialogueTypewriterSpeed: 30
+  flashlightDialogueCooldown: 5

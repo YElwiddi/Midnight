@@ -61,6 +61,12 @@ public class GraveyardProtectionManager : MonoBehaviour
 
     /// <summary>Returns true if protection is currently being drained</summary>
     public bool IsBeingDrained => activedrainSources > 0;
+
+    /// <summary>
+    /// When true, passive watcher drain is paused (e.g., during NPC dialogue).
+    /// Direct DrainProtection() calls from ink dialogue sync are NOT affected.
+    /// </summary>
+    public bool IsPassiveDrainPaused { get; set; }
     #endregion
 
     #region Private Fields
@@ -140,7 +146,7 @@ public class GraveyardProtectionManager : MonoBehaviour
     /// <param name="amountPerSecond">Amount to drain per second</param>
     public void DrainProtectionPerSecond(float amountPerSecond)
     {
-        if (amountPerSecond <= 0 || hasTriggeredDepletion) return;
+        if (amountPerSecond <= 0 || hasTriggeredDepletion || IsPassiveDrainPaused) return;
 
         float drainThisFrame = amountPerSecond * Time.deltaTime;
 

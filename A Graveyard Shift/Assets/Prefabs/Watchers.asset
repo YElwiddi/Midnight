@@ -64,7 +64,7 @@ MonoBehaviour:
   retreatSound: {fileID: 0}
   retreatSoundVolume: 0.7
   idleSound: {fileID: 8300000, guid: f2728a42dc5754b428b588a85f206a40, type: 3}
-  idleSoundVolume: 0.6
+  idleSoundVolume: 0.9
   idleSoundIntervalMin: 5
   idleSoundIntervalMax: 40
   playIdleSoundOnSpawn: 0

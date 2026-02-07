@@ -46,7 +46,12 @@ public class LanternInteractable : MonoBehaviour, IInteractable
     /// <summary>Should this lantern be excluded from random turn-off events?</summary>
     public bool ExcludeFromRandomTurnOff => excludeFromRandomTurnOff;
 
+    /// <summary>Is the lantern currently locked (cannot be toggled)?</summary>
+    public bool IsLocked => isLocked;
+
     private bool isOn;
+    private bool isLocked = false;
+    private Color? originalColor = null;
     private float targetIntensity;
     private float currentIntensity;
     private float flickerTimer;
@@ -118,6 +123,8 @@ public class LanternInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (isLocked) return;
+
         isOn = !isOn;
 
         if (lanternLight != null)
@@ -173,6 +180,79 @@ public class LanternInteractable : MonoBehaviour, IInteractable
 
     public string GetInteractionPrompt()
     {
+        if (isLocked) return "";
         return isOn ? "Turn off lantern" : "Turn on lantern";
+    }
+
+    /// <summary>
+    /// Lock the lantern so it cannot be toggled by interaction or LanternEventController.
+    /// </summary>
+    public void Lock()
+    {
+        isLocked = true;
+    }
+
+    /// <summary>
+    /// Unlock the lantern so it can be toggled again.
+    /// </summary>
+    public void Unlock()
+    {
+        isLocked = false;
+    }
+
+    /// <summary>
+    /// Override the lantern light color. Saves original color for restoration.
+    /// </summary>
+    public void SetLightColor(Color color)
+    {
+        if (lanternLight == null) return;
+
+        if (originalColor == null)
+        {
+            originalColor = lanternLight.color;
+        }
+        lanternLight.color = color;
+    }
+
+    /// <summary>
+    /// Restore the lantern light to its original color.
+    /// </summary>
+    public void RestoreLightColor()
+    {
+        if (lanternLight == null || originalColor == null) return;
+
+        lanternLight.color = originalColor.Value;
+        originalColor = null;
+    }
+
+    /// <summary>
+    /// Turn on, lock, and set color on ALL lanterns in the scene.
+    /// </summary>
+    public static void LockAllLanterns(Color color)
+    {
+        LanternInteractable[] allLanterns = FindObjectsOfType<LanternInteractable>();
+        foreach (var lantern in allLanterns)
+        {
+            if (!lantern.isOn)
+            {
+                lantern.isOn = true;
+                if (lantern.lanternLight != null)
+                {
+                    lantern.lanternLight.enabled = true;
+                    lantern.currentIntensity = lantern.baseIntensity;
+                    lantern.lanternLight.intensity = lantern.baseIntensity;
+                }
+            }
+            lantern.SetLightColor(color);
+            lantern.Lock();
+        }
+
+        // Also pause the LanternEventController so it doesn't try to turn any off
+        if (LanternEventController.Instance != null)
+        {
+            LanternEventController.Instance.Deactivate();
+        }
+
+        Debug.Log($"LanternInteractable: All lanterns locked with color {color}");
     }
 }

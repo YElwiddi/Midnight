@@ -53,6 +53,7 @@ MonoBehaviour:
   slowMotionDuration: 5
   killerFaceObjectName: mixamorig:Head
   faceHeightOffset: 1.6
+  faceLookVerticalOffset: 0
   jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
   gameOverDelay: 2
   shakeIntensity: 2
@@ -64,11 +65,13 @@ MonoBehaviour:
   screenEffectPrefab: {fileID: 0}
   screenEffectDelay: 0
   intensifyVHSOnKill: 1
-  killGlitchIntensity: 0.86
+  killGlitchIntensity: 0.667
   killRGBShift: 0
   killNoiseIntensity: 0.481
   killScanlineIntensity: 0.957
   killTrackingNoise: 0.1962
+  overrideLanternsOnJumpscare: 1
+  jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
   gameOverSceneName: Start Menu Scene
   exitBehavior: 0
   exitPointName: KillerExitPoint

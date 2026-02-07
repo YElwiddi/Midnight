@@ -176,10 +176,16 @@ public class SanityManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When true, passive lamp drain is paused (e.g., during NPC dialogue).
+    /// Direct DrainSanity() calls from ink dialogue sync are NOT affected.
+    /// </summary>
+    public bool IsPassiveDrainPaused { get; set; }
+
     private void Update()
     {
         // Handle lamp drain in appropriate phases
-        if (IsLampDrainActiveInCurrentPhase())
+        if (IsLampDrainActiveInCurrentPhase() && !IsPassiveDrainPaused)
         {
             UpdateLampDrain();
         }

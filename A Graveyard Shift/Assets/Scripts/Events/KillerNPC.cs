@@ -163,6 +163,10 @@ public class KillerNPC : MonoBehaviour
     // Jumpscare spotlight tracking
     private Light jumpscareSpotlight;
 
+    // Lantern override
+    private bool overrideLanternsOnJumpscare = false;
+    private Color jumpscareLanternColor = Color.red;
+
 
     private void Awake()
     {
@@ -463,6 +467,12 @@ public class KillerNPC : MonoBehaviour
             }
         }
 
+        // Override lanterns (turn red, lock them) as soon as chase begins
+        if (overrideLanternsOnJumpscare)
+        {
+            LanternInteractable.LockAllLanterns(jumpscareLanternColor);
+        }
+
         Debug.Log($"KillerNPC '{gameObject.name}': Entered chase state!");
     }
 
@@ -544,6 +554,10 @@ public class KillerNPC : MonoBehaviour
         killNoiseIntensity = killerEvent.killNoiseIntensity;
         killScanlineIntensity = killerEvent.killScanlineIntensity;
         killTrackingNoise = killerEvent.killTrackingNoise;
+
+        // Lantern override settings
+        overrideLanternsOnJumpscare = killerEvent.overrideLanternsOnJumpscare;
+        jumpscareLanternColor = killerEvent.jumpscareLanternColor;
 
         // Game over settings
         gameOverSceneName = killerEvent.gameOverSceneName;
