@@ -12,7 +12,7 @@ VAR Sanity = 100
 === start ===
 Evening.
 My name is officer James. I'm here with my partner, officer Baidey on an investigation.
-We've heard reports of some disturbances coming from both from this cemetary and the surrounding neighborhood.
+We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.
 Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.
 Would you mind answering some questions for us?
 

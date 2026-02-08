@@ -1962,10 +1962,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IntroTextUI
   pages:
   - text: "I took the gravekeeper\u2019s job because no one else would. Not after
-      the last man abandoned it without a word, leaving his shack unlocked and his
-      boots by the door. The cemetery sat on the edge of town. People whispered that
-      he fled in the middle of the night, though no one could agree on what finally
-      scared him off. All they knew was that they needed someone new for the job."
+      the last man abandoned it without a word, abandoning his post. The cemetery
+      sat on the edge of town. People whispered that he fled in the middle of the
+      night, though no one could agree on what finally scared him off. All they knew
+      was that they needed someone new for the job."
     font: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
     fontSize: 48
     textColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
