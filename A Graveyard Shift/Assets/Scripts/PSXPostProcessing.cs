@@ -26,7 +26,13 @@ public class PSXPostProcessing : MonoBehaviour
     [Tooltip("Number of color steps per channel (lower = more posterized)")]
     public float colorPrecision = 32f;
 
-    // Shader references — populated automatically from the existing PSX shaders
+    [Header("=== Shader References (assign these for builds) ===")]
+    [Tooltip("Drag the Dithering.shader file here")]
+    public Shader ditherShaderRef;
+    [Tooltip("Drag the Pixelation.shader file here")]
+    public Shader pixelShaderRef;
+
+    // Shader references — populated from inspector or found automatically
     private Material _ditherMat;
     private Material _pixelMat;
 
@@ -40,17 +46,19 @@ public class PSXPostProcessing : MonoBehaviour
 
     void OnEnable()
     {
-        var ditherShader = Shader.Find("PostEffect/Dithering");
-        if (ditherShader != null)
-            _ditherMat = new Material(ditherShader);
-        else
-            Debug.LogWarning("PSXPostProcessing: Could not find shader 'PostEffect/Dithering'");
+        // Use serialized references first; fall back to Shader.Find for editor convenience
+        var dShader = ditherShaderRef != null ? ditherShaderRef : Shader.Find("PostEffect/Dithering");
+        var pShader = pixelShaderRef != null ? pixelShaderRef : Shader.Find("PostEffect/Pixelation");
 
-        var pixelShader = Shader.Find("PostEffect/Pixelation");
-        if (pixelShader != null)
-            _pixelMat = new Material(pixelShader);
+        if (dShader != null)
+            _ditherMat = new Material(dShader);
         else
-            Debug.LogWarning("PSXPostProcessing: Could not find shader 'PostEffect/Pixelation'");
+            Debug.LogWarning("PSXPostProcessing: Could not find shader 'PostEffect/Dithering'. Assign it in the inspector.");
+
+        if (pShader != null)
+            _pixelMat = new Material(pShader);
+        else
+            Debug.LogWarning("PSXPostProcessing: Could not find shader 'PostEffect/Pixelation'. Assign it in the inspector.");
     }
 
     void OnDisable()

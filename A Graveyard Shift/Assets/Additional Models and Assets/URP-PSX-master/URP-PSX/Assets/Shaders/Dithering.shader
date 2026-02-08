@@ -142,7 +142,7 @@
     SubShader
     {
         Cull Off ZWrite Off ZTest Always
-        Tags { "RenderPipeline" = "UniversalPipeline"}
+        Tags { }
         Pass
         {
             CGPROGRAM

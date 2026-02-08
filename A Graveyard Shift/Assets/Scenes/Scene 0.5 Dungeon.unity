@@ -44770,6 +44770,8 @@ MonoBehaviour:
   widthPixelation: 320
   heightPixelation: 240
   colorPrecision: 32
+  ditherShaderRef: {fileID: 4800000, guid: 0b3fbf35a693e2e42a255895e5be9dbd, type: 3}
+  pixelShaderRef: {fileID: 4800000, guid: 6cc37f589a3171847bd1dc6f9224ccf3, type: 3}
 --- !u!1 &1627877025
 GameObject:
   m_ObjectHideFlags: 0
