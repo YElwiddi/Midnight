@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82c8bd37157a04da7197401bd07614, type: 3}
+  m_Name: DialogueUISettings
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueUISettings
+  dialogueFont: {fileID: 0}
+  dialogueFontSize: 24
+  dialogueTextColor: {r: 1, g: 1, b: 1, a: 1}
+  dialogueFontStyle: 0
+  choiceButtonFont: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+  choiceButtonFontSize: 18
+  choiceButtonTextColor: {r: 1, g: 1, b: 1, a: 1}
+  choiceButtonFontStyle: 0
+  buttonNormalColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.8}
+  buttonHighlightedColor: {r: 0.3, g: 0.3, b: 0.3, a: 0.9}
+  buttonPressedColor: {r: 0.15, g: 0.15, b: 0.15, a: 1}
+  buttonDisabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  useTypewriterEffect: 0
+  typewriterSpeed: 50
+  panelFadeInDuration: 0.2
+  panelFadeOutDuration: 0.15
+  showSpeakerName: 0
+  speakerNameFont: {fileID: 0}
+  speakerNameFontSize: 20
+  speakerNameColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

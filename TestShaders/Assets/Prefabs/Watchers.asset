@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041349cd1bbebe648a96243a341cd9ca, type: 3}
+  m_Name: Watchers
+  m_EditorClassIdentifier: Assembly-CSharp::SideGameEvent
+  eventName: New Side Event
+  eventType: 0
+  allowedPhases: 
+  npcPrefab: {fileID: 3767055355421772689, guid: 52633f70ddfc675409ab40d88e0dfc64, type: 3}
+  spawnLocations:
+  - spawnPointName: StareSite1
+    selectionWeight: 0.4
+    facePlayerOnSpawn: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+    overrideEntrance: 1
+    useEntranceMovement: 0
+    entranceSpawnOffset: {x: 0, y: 0, z: 0}
+    useEntranceRotation: 1
+    entranceRotationOffset: {x: 0, y: 0, z: 20}
+    overrideRetreat: 1
+    retreatMode: 6
+    retreatDirection: {x: 0, y: 0, z: 0}
+    retreatTargetName: 
+  - spawnPointName: StareSite3
+    selectionWeight: 0.3
+    facePlayerOnSpawn: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+    overrideEntrance: 1
+    useEntranceMovement: 1
+    entranceSpawnOffset: {x: 0, y: -10, z: 0}
+    useEntranceRotation: 0
+    entranceRotationOffset: {x: 0, y: 0, z: 0}
+    overrideRetreat: 1
+    retreatMode: 1
+    retreatDirection: {x: 0, y: 0, z: 0}
+    retreatTargetName: 
+  - spawnPointName: StareSite2
+    selectionWeight: 0.3
+    facePlayerOnSpawn: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+    overrideEntrance: 1
+    useEntranceMovement: 1
+    entranceSpawnOffset: {x: 0, y: -10, z: 0}
+    useEntranceRotation: 0
+    entranceRotationOffset: {x: 0, y: 0, z: 0}
+    overrideRetreat: 1
+    retreatMode: 1
+    retreatDirection: {x: 0, y: 0, z: 0}
+    retreatTargetName: 
+  useEntranceMovement: 0
+  entranceSpawnOffset: {x: 0, y: -3, z: 0}
+  entranceSpeed: 2
+  useEntranceRotation: 1
+  entranceRotationOffset: {x: 0, y: 0, z: 40}
+  entranceRotationSpeed: 180
+  waitForEntranceBeforeStaring: 1
+  entranceAnimationTrigger: 
+  protectionDrainPerSecond: 0.75
+  maxStareDistance: 35
+  requireLineOfSight: 1
+  lineOfSightBlockingLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  stareMode: 0
+  stareDirection: {x: 0, y: 0, z: 1}
+  stareTargetName: 
+  flashlightDetectionAngle: 20
+  flashlightMaxDistance: 20
+  flashlightExposureRequired: 0.5
+  requireFlashlightOn: 1
+  flashlightIgnoreObstacles: 1
+  retreatMode: 6
+  retreatDirection: {x: 0, y: 0, z: -1}
+  retreatTargetName: 
+  retreatSpeed: 10
+  retreatDistance: 10
+  fadeOnRetreat: 0
+  fadeDuration: 0.5
+  useRetreatAnimation: 0
+  retreatAnimationTrigger: 
+  spawnSound: {fileID: 0}
+  spawnSoundVolume: 0.5
+  ambientSound: {fileID: 0}
+  ambientSoundVolume: 0.3
+  retreatSound: {fileID: 0}
+  retreatSoundVolume: 0.7
+  idleSound: {fileID: 8300000, guid: f2728a42dc5754b428b588a85f206a40, type: 3}
+  idleSoundVolume: 0.9
+  idleSoundIntervalMin: 5
+  idleSoundIntervalMax: 30
+  playIdleSoundOnSpawn: 0
+  playerTrackingSpeed: 90
+  staringAnimationBool: 
+  eventTimeout: 120

@@ -1,0 +1,9 @@
+﻿<Solution>
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="Ink-Libraries.csproj" />
+  <Project Path="InkEditor.csproj" />
+  <Project Path="StylizedWaterForURP.csproj" />
+  <Project Path="StylizedWaterForURPEditor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>

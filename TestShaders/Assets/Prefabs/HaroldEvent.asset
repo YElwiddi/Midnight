@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
+  m_Name: HaroldEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEvent
+  eventName: Start Event
+  npcPrefab: {fileID: 3767055355421772689, guid: 81c04f4468be63f4995a7fadb3fcd22e, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 3
+  spawnHeightOffset: 0
+  spawnPointName: NPCLeftPoint
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
+  waypoints:
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPoint
+    moveSpeed: 5.99
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: NPCCenterPoint
+    waitingDialogueSpeaker: 
+    waitTime: 1.3
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCGatePoint
+    moveSpeed: 3.96
+    waitForInteraction: 1
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: NPCCenterPoint
+    waitingDialogueSpeaker: 
+    waitTime: 10
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: allowed_inside
+    branchValue: false
+    branchToWaypoint: NPCCenterPointExit
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: BackRightGraveYard
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: He seems to be fidgeting around.
+    waitingDialogueSpeaker: 
+    waitTime: 10
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: CenterOfMap
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: TimothySite
+    moveSpeed: 3.96
+    waitForInteraction: 1
+    autoStartDialogue: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: He appears to be zoning out. I should give him a moment.
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 4900000, guid: f83db97df404c2343857f071b399d0ac, type: 3}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 1
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCCenterPointExit
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: He appears to be staring out into the distance...
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 0
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 3
+    heightOffset: 0
+    waypointName: NPCRightPoint
+    moveSpeed: 3.96
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 10
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    waitTime: 0
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 4900000, guid: dbe93073926be6049912fc20b93a9ced, type: 3}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: 
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 0
+    proximitySoundVolume: 0
+    proximitySoundTrigger: 0
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  inkDialogue: {fileID: 4900000, guid: 3deaccd374ef11f44b6f6aa551e3eba9, type: 3}
+  dialogueKnot: 
+  typewriterSpeed: 65
+  cameraHeight: 2
+  cameraZoom: 40
+  dialogueSoundClip: {fileID: 0}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: 0.5
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
+  exitBehavior: 2
+  exitPointName: NPCRightPoint
+  exitDialogues: []
+  backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0
