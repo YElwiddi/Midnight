@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git add:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
