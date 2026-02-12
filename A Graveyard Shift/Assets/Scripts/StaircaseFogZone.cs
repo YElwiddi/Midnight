@@ -27,10 +27,13 @@ public class StaircaseFogZone : MonoBehaviour
     private FogMode previousFogMode;
 
     private Coroutine fogTransition;
+    private bool playerInside;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+
+        playerInside = true;
 
         // Save current fog state before overriding
         previousFogEnabled = RenderSettings.fog;
@@ -52,6 +55,23 @@ public class StaircaseFogZone : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+
+        RestorePreviousFog();
+    }
+
+    /// <summary>
+    /// Called by PlayerZoneTracker when the player teleports out of this zone
+    /// (OnTriggerExit doesn't fire on teleport).
+    /// </summary>
+    private void OnZoneExitByTeleport()
+    {
+        RestorePreviousFog();
+    }
+
+    private void RestorePreviousFog()
+    {
+        if (!playerInside) return;
+        playerInside = false;
 
         // Restore lighting preset
         if (restorePreset != LightingPreset.None && LightingController.Instance != null)

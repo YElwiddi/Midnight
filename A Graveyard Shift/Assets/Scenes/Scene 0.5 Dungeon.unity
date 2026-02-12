@@ -13387,7 +13387,7 @@ MonoBehaviour:
   lockedDialogueDuration: 3
   useTypewriterEffect: 1
   typewriterSpeed: 30
-  teleportDestination: {fileID: 0}
+  teleportDestination: {fileID: 198329571}
   interactionPrompt: Enter
   setPlayerRotation: 0
   targetRotation: {x: 0, y: 0, z: 0}
@@ -14412,7 +14412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8127340128868563144, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: highlightCrosshairColor.b
@@ -20079,6 +20079,117 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+--- !u!1 &531469964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531469965}
+  - component: {fileID: 531469969}
+  - component: {fileID: 531469968}
+  - component: {fileID: 531469967}
+  m_Layer: 0
+  m_Name: StopInsaneDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531469965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531469964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5035706, y: 0.599, z: -9.474}
+  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2003329372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &531469967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531469964}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &531469968
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531469964}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &531469969
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531469964}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &533873003
 GameObject:
   m_ObjectHideFlags: 0
@@ -50267,6 +50378,7 @@ MonoBehaviour:
   ShovelPickedUp: 0
   ShovelBroken: 0
   GraveyardEndingTriggered: 0
+  ChurchInsanity: 0
   IncorrectDigCount: 0
   CorrectDigCount: 0
 --- !u!1 &1501059110
@@ -51638,7 +51750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8127340128868563144, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: highlightCrosshairColor.b
@@ -58363,7 +58475,7 @@ Transform:
   m_GameObject: {fileID: 1713728424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5035706, y: 1.16, z: -10.681}
+  m_LocalPosition: {x: 4.5035706, y: 0.599, z: -0.34}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58397,6 +58509,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 514
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: I shouldn't be here...
     randomizePosition: 1
     anchorMinX: 0.3
@@ -58411,6 +58525,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.15
@@ -58425,6 +58541,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.39
@@ -58439,6 +58557,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.15
@@ -58453,6 +58573,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.35
@@ -58467,6 +58589,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.35
@@ -58481,7 +58605,9 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
-  - text: I should end my life.
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: I need to leave.
     randomizePosition: 1
     anchorMinX: 0.35
     anchorMinY: 0.29
@@ -58495,6 +58621,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.35
@@ -58509,6 +58637,8 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
   - text: Why am I here?
     randomizePosition: 1
     anchorMinX: 0.35
@@ -58523,18 +58653,183 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 0}
     font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
     alignment: 0
-  finalText: 
-  finalTextFontSize: 72
-  finalTextColor: {r: 1, g: 1, b: 1, a: 1}
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: I'm not safe here
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 20.3
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: It's not safe
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 21
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: It's not safe
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 22
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: It's not safe
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 21.6
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: It's not safe
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 22.3
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: It's not safe
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 22.9
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: I CAN'T KEEP GOING
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 23.4
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 1, b: 1, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 0
+    shakeSpeed: 25
+  - text: STOP
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 24
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 0.033018887, b: 0.033018887, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 3
+    shakeSpeed: 25
+  - text: STOP
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 25
+    triggerLoopCount: 3
+    fontSize: 40
+    textColor: {r: 1, g: 0.033018887, b: 0.033018887, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 3
+    shakeSpeed: 35
+  - text: I'M GOING TO DIE
+    randomizePosition: 1
+    anchorMinX: 0.35
+    anchorMinY: 0.29
+    anchorMaxX: 0.91
+    anchorMaxY: 0.4
+    displayDuration: 4
+    triggerType: 0
+    triggerTime: 25
+    triggerLoopCount: 3
+    fontSize: 48
+    textColor: {r: 1, g: 0.033018887, b: 0.033018887, a: 0}
+    font: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+    alignment: 0
+    shakeIntensity: 3
+    shakeSpeed: 35
+  finalText: I shouldn't be here
+  finalTextFontSize: 96
+  finalTextColor: {r: 1, g: 0.25, b: 0.25, a: 1}
   finalTextDisplayDuration: 5
   typewriterSpeed: -1
-  textFadeInDuration: 0.5
+  textFadeInDuration: 2
   textFadeOutDuration: 0.5
   defaultFontSize: 36
   defaultTextColor: {r: 1, g: 1, b: 1, a: 1}
   font: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
   canvasSortingOrder: 100
   triggerOnce: 1
+  stopTriggerZone: {fileID: 531469967}
+  avoidScreenCenter: 1
+  preventTextOverlap: 1
 --- !u!65 &1713728427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58554,7 +58849,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1713728428
 MeshRenderer:
@@ -58888,7 +59183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1722954308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68421,6 +68716,7 @@ Transform:
   - {fileID: 495312558}
   - {fileID: 14436484}
   - {fileID: 1713728425}
+  - {fileID: 531469965}
   m_Father: {fileID: 1719996908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007230697 stripped

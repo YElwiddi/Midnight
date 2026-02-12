@@ -63,6 +63,13 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         dialogueManager = FindFirstObjectByType<DialogueManager>();
+
+        // Validate the required flag exists in GameManager at startup
+        if (GameManager.Instance != null && !string.IsNullOrEmpty(requiredBoolFlag)
+            && !GameManager.Instance.HasBoolFlag(requiredBoolFlag))
+        {
+            Debug.LogError($"LockedTeleportInteractable ({gameObject.name}): requiredBoolFlag '{requiredBoolFlag}' does not exist in GameManager! Door will remain locked and show dialogue as fallback.");
+        }
     }
 
     public void Interact()
@@ -76,7 +83,20 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null || teleportDestination == null) return;
 
-        bool isUnlocked = GameManager.Instance != null && GameManager.Instance.GetBoolFlag(requiredBoolFlag);
+        bool isUnlocked = false;
+
+        if (GameManager.Instance == null)
+        {
+            Debug.LogWarning($"LockedTeleportInteractable ({gameObject.name}): GameManager.Instance is null — treating door as locked.");
+        }
+        else if (!GameManager.Instance.HasBoolFlag(requiredBoolFlag))
+        {
+            Debug.LogWarning($"LockedTeleportInteractable ({gameObject.name}): Flag '{requiredBoolFlag}' not found in GameManager — treating door as locked.");
+        }
+        else
+        {
+            isUnlocked = GameManager.Instance.GetBoolFlag(requiredBoolFlag);
+        }
 
         if (isUnlocked)
         {
@@ -158,6 +178,9 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
             Debug.Log($"LockedTeleportInteractable: Applying lighting preset '{destinationLightingPreset}'");
             LightingController.Instance.ApplyPreset(destinationLightingPreset);
         }
+
+        // Refresh zone tracking after teleport (OnTriggerEnter/Exit don't fire on teleport)
+        PlayerZoneTracker.RefreshZonesAfterTeleport();
 
         yield return new WaitForSeconds(0.1f);
 

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool ShovelPickedUp = false;
     public bool ShovelBroken = false;
     public bool GraveyardEndingTriggered = false;
+    public bool ChurchInsanity = false;
 
     [Header("Dirt Pile Stats")]
     public int IncorrectDigCount = 0;
@@ -131,8 +132,27 @@ public class GameManager : MonoBehaviour
             case "shovelpickedup": return ShovelPickedUp;
             case "shovelbroken": return ShovelBroken;
             case "graveyardendtriggered": return GraveyardEndingTriggered;
+            case "churchinsanity": return ChurchInsanity;
             default:
                 Debug.LogWarning($"GameManager: Bool flag '{flagName}' not found");
+                return false;
+        }
+    }
+
+    /// <summary>
+    /// Checks whether a boolean flag name is registered in the GameManager.
+    /// </summary>
+    public bool HasBoolFlag(string flagName)
+    {
+        switch (flagName.ToLower())
+        {
+            case "cryptunlocked":
+            case "shovelpickedup":
+            case "shovelbroken":
+            case "graveyardendtriggered":
+            case "churchinsanity":
+                return true;
+            default:
                 return false;
         }
     }
@@ -160,6 +180,10 @@ public class GameManager : MonoBehaviour
                 GraveyardEndingTriggered = value;
                 Debug.Log($"GraveyardEndingTriggered set to {value}");
                 break;
+            case "churchinsanity":
+                ChurchInsanity = value;
+                Debug.Log($"ChurchInsanity set to {value}");
+                break;
             default:
                 Debug.LogWarning($"Bool flag {flagName} not found in GameManager");
                 break;
@@ -184,6 +208,7 @@ public class GameManager : MonoBehaviour
         ShovelPickedUp = false;
         ShovelBroken = false;
         GraveyardEndingTriggered = false;
+        ChurchInsanity = false;
 
         // Reset dirt pile stats
         IncorrectDigCount = 0;
@@ -197,7 +222,7 @@ public class GameManager : MonoBehaviour
     {
         if (!showDebugStats) return;
 
-        GUI.Box(new Rect(10, 10, 200, 250), "Player Stats");
+        GUI.Box(new Rect(10, 10, 200, 270), "Player Stats");
         GUI.Label(new Rect(20, 30, 180, 20), $"Scared: {player_scared}");
         GUI.Label(new Rect(20, 50, 180, 20), $"Mean: {player_mean}");
         GUI.Label(new Rect(20, 70, 180, 20), $"Stupid: {player_stupid}");
@@ -209,5 +234,6 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(20, 190, 180, 20), $"ShovelBroken: {ShovelBroken}");
         GUI.Label(new Rect(20, 210, 180, 20), $"CorrectDigCount: {CorrectDigCount}");
         GUI.Label(new Rect(20, 230, 180, 20), $"IncorrectDigCount: {IncorrectDigCount}");
+        GUI.Label(new Rect(20, 250, 180, 20), $"ChurchInsanity: {ChurchInsanity}");
     }
 }

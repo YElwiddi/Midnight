@@ -4,12 +4,14 @@ using System.Collections.Generic;
 /// <summary>
 /// Tracks which zones the player is currently in using trigger colliders.
 /// Attach this to the Player object. Zone objects should have trigger colliders and be tagged "Zone" or have "Zone" in their name.
+/// When the player teleports, RefreshZonesAfterTeleport() notifies exited zones via SendMessage("OnZoneExitByTeleport")
+/// and entered zones via SendMessage("OnZoneEnterByTeleport").
 /// </summary>
 public class PlayerZoneTracker : MonoBehaviour
 {
     public static PlayerZoneTracker Instance { get; private set; }
 
-    private HashSet<string> currentZones = new HashSet<string>();
+    private Dictionary<string, Collider> currentZones = new Dictionary<string, Collider>();
 
     private void Awake()
     {
@@ -25,9 +27,9 @@ public class PlayerZoneTracker : MonoBehaviour
     {
         // Track any trigger collider the player enters
         string zoneName = other.gameObject.name;
-        if (!currentZones.Contains(zoneName))
+        if (!currentZones.ContainsKey(zoneName))
         {
-            currentZones.Add(zoneName);
+            currentZones[zoneName] = other;
             Debug.Log($"PlayerZoneTracker: Entered zone '{zoneName}'");
         }
     }
@@ -35,7 +37,7 @@ public class PlayerZoneTracker : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         string zoneName = other.gameObject.name;
-        if (currentZones.Contains(zoneName))
+        if (currentZones.ContainsKey(zoneName))
         {
             currentZones.Remove(zoneName);
             Debug.Log($"PlayerZoneTracker: Exited zone '{zoneName}'");
@@ -53,8 +55,7 @@ public class PlayerZoneTracker : MonoBehaviour
             return false;
         }
 
-        bool result = Instance.currentZones.Contains(zoneName);
-        return result;
+        return Instance.currentZones.ContainsKey(zoneName);
     }
 
     /// <summary>
@@ -63,7 +64,7 @@ public class PlayerZoneTracker : MonoBehaviour
     public static IEnumerable<string> GetCurrentZones()
     {
         if (Instance == null) return new string[0];
-        return Instance.currentZones;
+        return Instance.currentZones.Keys;
     }
 
     /// <summary>
@@ -79,7 +80,7 @@ public class PlayerZoneTracker : MonoBehaviour
     private void RefreshZones()
     {
         // Store old zones to detect exits
-        HashSet<string> oldZones = new HashSet<string>(currentZones);
+        Dictionary<string, Collider> oldZones = new Dictionary<string, Collider>(currentZones);
         currentZones.Clear();
 
         // Find all trigger colliders overlapping the player's position
@@ -89,20 +90,25 @@ public class PlayerZoneTracker : MonoBehaviour
             if (col.isTrigger && col.gameObject != gameObject)
             {
                 string zoneName = col.gameObject.name;
-                currentZones.Add(zoneName);
+                currentZones[zoneName] = col;
 
-                if (!oldZones.Contains(zoneName))
+                if (!oldZones.ContainsKey(zoneName))
                 {
                     Debug.Log($"PlayerZoneTracker: Entered zone '{zoneName}' (after teleport)");
+                    col.gameObject.SendMessage("OnZoneEnterByTeleport", SendMessageOptions.DontRequireReceiver);
                 }
                 oldZones.Remove(zoneName);
             }
         }
 
-        // Log zones we exited
-        foreach (string exitedZone in oldZones)
+        // Notify zones we exited
+        foreach (var kvp in oldZones)
         {
-            Debug.Log($"PlayerZoneTracker: Exited zone '{exitedZone}' (after teleport)");
+            Debug.Log($"PlayerZoneTracker: Exited zone '{kvp.Key}' (after teleport)");
+            if (kvp.Value != null)
+            {
+                kvp.Value.gameObject.SendMessage("OnZoneExitByTeleport", SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 }

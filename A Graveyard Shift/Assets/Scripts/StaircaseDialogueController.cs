@@ -48,6 +48,12 @@ public class StaircaseDialogueEntry
     public TMP_FontAsset font;
 
     public TextAlignmentOptions alignment = TextAlignmentOptions.Center;
+
+    [Header("Text Shake")]
+    [Tooltip("Per-character Perlin noise shake (0 = off)")]
+    public float shakeIntensity = 0f;
+    [Tooltip("Speed of the shake oscillation")]
+    public float shakeSpeed = 25f;
 }
 
 public class StaircaseDialogueController : MonoBehaviour
@@ -82,6 +88,17 @@ public class StaircaseDialogueController : MonoBehaviour
     [Header("Trigger")]
     [SerializeField] private bool triggerOnce = true;
 
+    [Header("Stop Trigger")]
+    [Tooltip("Optional: A trigger collider that stops the dialogue when the player enters it")]
+    [SerializeField] private Collider stopTriggerZone;
+
+    [Header("Position Constraints (Randomized Entries Only)")]
+    [Tooltip("Keep randomly placed text away from the screen center so it doesn't overlap the crosshair")]
+    [SerializeField] private bool avoidScreenCenter = false;
+
+    [Tooltip("Prevent randomly placed text from overlapping other active text")]
+    [SerializeField] private bool preventTextOverlap = false;
+
     // Runtime state
     private bool hasTriggered;
     private bool sequenceActive;
@@ -94,6 +111,9 @@ public class StaircaseDialogueController : MonoBehaviour
     private List<int> pendingTimeEntries;
     private Dictionary<int, List<int>> pendingLoopEntries;
     private List<GameObject> spawnedObjects = new List<GameObject>();
+    private Dictionary<GameObject, Rect> activeTextRects = new Dictionary<GameObject, Rect>();
+
+    private StopTriggerListener stopListener;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -136,6 +156,25 @@ public class StaircaseDialogueController : MonoBehaviour
         {
             Debug.LogWarning("StaircaseDialogue: infiniteStaircase reference is null!");
         }
+
+        // Attach stop trigger listener
+        if (stopTriggerZone != null && stopListener == null)
+        {
+            stopListener = stopTriggerZone.gameObject.AddComponent<StopTriggerListener>();
+            stopListener.Init(this);
+            Debug.Log($"StaircaseDialogue: Stop trigger attached to '{stopTriggerZone.gameObject.name}'");
+        }
+    }
+
+    /// <summary>
+    /// Immediately stops all dialogue — no fade, no delay.
+    /// </summary>
+    public void StopDialogue()
+    {
+        if (!sequenceActive) return;
+
+        Debug.Log("StaircaseDialogue: StopDialogue called — killing all dialogue immediately");
+        EndSequence();
     }
 
     private void Update()
@@ -224,6 +263,36 @@ public class StaircaseDialogueController : MonoBehaviour
         cg.interactable = false;
     }
 
+    private bool IsValidRandomPosition(float minX, float minY, float maxX, float maxY)
+    {
+        Rect candidate = new Rect(minX, minY, maxX - minX, maxY - minY);
+
+        // Check crosshair exclusion: ~12% x 8% zone around screen center
+        if (avoidScreenCenter)
+        {
+            Rect centerExclusion = new Rect(0.44f, 0.46f, 0.12f, 0.08f);
+            if (candidate.Overlaps(centerExclusion)) return false;
+        }
+
+        // Check overlap with all currently active text entries (with padding)
+        if (preventTextOverlap)
+        {
+            float padX = 0.03f; // 3% screen width padding on each side
+            float padY = 0.03f; // 3% screen height padding on each side
+            foreach (Rect active in activeTextRects.Values)
+            {
+                Rect padded = new Rect(
+                    active.x - padX,
+                    active.y - padY,
+                    active.width + padX * 2f,
+                    active.height + padY * 2f);
+                if (candidate.Overlaps(padded)) return false;
+            }
+        }
+
+        return true;
+    }
+
     private IEnumerator PlayEntry(StaircaseDialogueEntry entry)
     {
         // Resolve font size and color
@@ -258,15 +327,23 @@ public class StaircaseDialogueController : MonoBehaviour
 
         if (entry.randomizePosition)
         {
-            // Random readable box: 40-70% width, 12-20% height
-            float boxW = UnityEngine.Random.Range(0.4f, 0.7f);
-            float boxH = UnityEngine.Random.Range(0.12f, 0.20f);
-            // Keep within safe margins (5% from edges)
-            minX = UnityEngine.Random.Range(0.05f, 0.95f - boxW);
-            minY = UnityEngine.Random.Range(0.05f, 0.95f - boxH);
-            maxX = minX + boxW;
-            maxY = minY + boxH;
+            int maxAttempts = 30;
+            for (int attempt = 0; attempt < maxAttempts; attempt++)
+            {
+                float boxW = UnityEngine.Random.Range(0.4f, 0.7f);
+                float boxH = UnityEngine.Random.Range(0.12f, 0.20f);
+                minX = UnityEngine.Random.Range(0.05f, 0.95f - boxW);
+                minY = UnityEngine.Random.Range(0.05f, 0.95f - boxH);
+                maxX = minX + boxW;
+                maxY = minY + boxH;
+
+                if (IsValidRandomPosition(minX, minY, maxX, maxY)) break;
+            }
         }
+
+        // Track this entry's screen rect so future entries can avoid it
+        Rect entryRect = new Rect(minX, minY, maxX - minX, maxY - minY);
+        activeTextRects[textObj] = entryRect;
 
         float w = (maxX - minX) * 1920f;
         float h = (maxY - minY) * 1080f;
@@ -288,6 +365,13 @@ public class StaircaseDialogueController : MonoBehaviour
         cg.alpha = 0f;
         cg.blocksRaycasts = false;
         cg.interactable = false;
+
+        // Attach per-character text shake if enabled
+        if (entry.shakeIntensity > 0f)
+        {
+            TextShake shake = textObj.AddComponent<TextShake>();
+            shake.Init(tmp, entry.shakeIntensity, entry.shakeSpeed);
+        }
 
         Debug.Log($"StaircaseDialogue: PlayEntry starting - '{entry.text}' (size={size}, anchor=[{entry.anchorMinX},{entry.anchorMinY}]-[{entry.anchorMaxX},{entry.anchorMaxY}])");
 
@@ -318,6 +402,7 @@ public class StaircaseDialogueController : MonoBehaviour
 
         // Cleanup
         spawnedObjects.Remove(textObj);
+        activeTextRects.Remove(textObj);
         Destroy(textObj);
 
         completedEntryCount++;
@@ -428,6 +513,13 @@ public class StaircaseDialogueController : MonoBehaviour
             infiniteStaircase.onPlayerLooped.RemoveListener(OnPlayerLooped);
         }
 
+        // Remove the stop trigger listener
+        if (stopListener != null)
+        {
+            Destroy(stopListener);
+            stopListener = null;
+        }
+
         StopAllCoroutines();
 
         foreach (GameObject obj in spawnedObjects)
@@ -435,6 +527,7 @@ public class StaircaseDialogueController : MonoBehaviour
             if (obj != null) Destroy(obj);
         }
         spawnedObjects.Clear();
+        activeTextRects.Clear();
 
         if (canvasObject != null)
         {
@@ -457,6 +550,79 @@ public class StaircaseDialogueController : MonoBehaviour
         if (sequenceActive)
         {
             EndSequence();
+        }
+    }
+}
+
+/// <summary>
+/// Per-character Perlin noise text shake, matching ReadableUI's shake style.
+/// Added at runtime to individual dialogue text objects.
+/// </summary>
+public class TextShake : MonoBehaviour
+{
+    private TextMeshProUGUI tmp;
+    private float intensity;
+    private float speed;
+
+    public void Init(TextMeshProUGUI target, float shakeIntensity, float shakeSpeed)
+    {
+        tmp = target;
+        intensity = shakeIntensity;
+        speed = shakeSpeed;
+    }
+
+    private void Update()
+    {
+        if (tmp == null) return;
+
+        tmp.ForceMeshUpdate();
+        TMP_TextInfo textInfo = tmp.textInfo;
+
+        for (int i = 0; i < textInfo.characterCount; i++)
+        {
+            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+            if (!charInfo.isVisible) continue;
+
+            Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+            int vertexIndex = charInfo.vertexIndex;
+
+            float offsetX = Mathf.PerlinNoise((Time.time * speed) + i * 0.3f, 0f) * 2f - 1f;
+            float offsetY = Mathf.PerlinNoise(0f, (Time.time * speed) + i * 0.3f) * 2f - 1f;
+            Vector3 offset = new Vector3(offsetX, offsetY, 0f) * intensity;
+
+            vertices[vertexIndex + 0] += offset;
+            vertices[vertexIndex + 1] += offset;
+            vertices[vertexIndex + 2] += offset;
+            vertices[vertexIndex + 3] += offset;
+        }
+
+        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        {
+            textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
+            tmp.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+        }
+    }
+}
+
+/// <summary>
+/// Lightweight helper that lives on the stop trigger GameObject.
+/// Added/removed at runtime by StaircaseDialogueController.
+/// </summary>
+public class StopTriggerListener : MonoBehaviour
+{
+    private StaircaseDialogueController controller;
+
+    public void Init(StaircaseDialogueController owner)
+    {
+        controller = owner;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        if (controller != null)
+        {
+            controller.StopDialogue();
         }
     }
 }
