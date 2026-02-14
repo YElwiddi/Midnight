@@ -118,8 +118,18 @@ public class ConditionalKillerEvent : ScriptableObject
     public string chaseAnimationBool = "";
 
     [Tooltip("Movement speed when chasing the player")]
-    [Range(1f, 20f)]
+    [Range(1f, 100f)]
     public float chaseSpeed = 6f;
+
+    [Tooltip("If true, killer instantly reaches max speed with no acceleration ramp-up")]
+    public bool instantAcceleration = false;
+
+    [Tooltip("Looping sound to play at the killer's position while idle (stops when chase begins)")]
+    public AudioClip idleLoopSound;
+
+    [Tooltip("Volume of the idle loop sound")]
+    [Range(0f, 5f)]
+    public float idleLoopVolume = 0.5f;
 
     [Tooltip("Sound to play when the killer activates and starts chasing")]
     public AudioClip activationSound;
@@ -127,6 +137,9 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Volume of the activation sound")]
     [Range(0f, 1f)]
     public float activationSoundVolume = 1f;
+
+    [Tooltip("If true, activation sound plays at constant volume (2D) instead of from the killer's position")]
+    public bool activationSoundConstant = false;
 
     [Header("Kill Sequence Settings")]
     [Tooltip("Distance from player where killer stops to perform kill animation")]

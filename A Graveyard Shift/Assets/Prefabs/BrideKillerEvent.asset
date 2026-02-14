@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b5f9ed75e3420e43b56b845a7381022, type: 3}
-  m_Name: SpiritKillerEvent
+  m_Name: BrideKillerEvent
   m_EditorClassIdentifier: Assembly-CSharp::ConditionalKillerEvent
-  eventName: SpiritKillerEvent
-  statName: SpiritAngered
-  statComparison: 4
-  thresholdValue: 2
-  checkSanity: 1
+  eventName: BrideKillerEvent
+  statName: 
+  statComparison: 0
+  thresholdValue: 0
+  checkSanity: 0
   sanityComparison: 0
   sanityThreshold: 0
   checkGraveyardProtection: 0
   protectionComparison: 5
   protectionThreshold: 25
-  killerPrefab: {fileID: 3767055355421772689, guid: ce9aac46c6936044fb11e98bd6c747b3, type: 3}
+  killerPrefab: {fileID: 3767055355421772689, guid: dd9d25ae734ccdd4099822f136c4cea6, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
-  spawnPointName: SpiritSpawn
-  facePlayerOnSpawn: 1
+  spawnPointName: BrideSpawn
+  facePlayerOnSpawn: 0
   backToPlayerOnSpawn: 0
-  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  spawnRotationOffset: {x: 0, y: 90, z: 0}
   useCustomRotation: 0
   waypoints: []
   endGameOnPlayerTouch: 1
@@ -37,32 +37,32 @@ MonoBehaviour:
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 17
+  activationDistance: 20
   requirePlayerLooking: 1
-  lookDurationRequired: 0
+  lookDurationRequired: 2
   playerLookAngle: 30
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
-  chaseSpeed: 12
-  instantAcceleration: 0
-  idleLoopSound: {fileID: 0}
-  idleLoopVolume: 0.5
-  activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
+  chaseSpeed: 35
+  instantAcceleration: 1
+  idleLoopSound: {fileID: 8300000, guid: 6293cfc99d198a54a9945b90e714a5c1, type: 3}
+  idleLoopVolume: 5
+  activationSound: {fileID: 8300000, guid: fad23a8a17790634ca5993475213b3dc, type: 3}
   activationSoundVolume: 1
-  activationSoundConstant: 0
+  activationSoundConstant: 1
   killStopDistance: 1.26
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
   slowMotionDuration: 5
   killerFaceObjectName: mixamorig:Head
-  faceHeightOffset: 1.6
+  faceHeightOffset: 4
   faceLookVerticalOffset: 0
-  jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
+  jumpscareSound: {fileID: 0}
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: -0.19
+  jumpscarePlayerHeightOffset: -0.34
   flashlightTargetHeight: 1.96
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
@@ -74,7 +74,7 @@ MonoBehaviour:
   killNoiseIntensity: 0.481
   killScanlineIntensity: 0.957
   killTrackingNoise: 0.1962
-  overrideLanternsOnJumpscare: 1
+  overrideLanternsOnJumpscare: 0
   jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
   gameOverSceneName: Start Menu Scene
   exitBehavior: 0

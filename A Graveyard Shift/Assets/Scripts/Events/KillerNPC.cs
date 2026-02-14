@@ -58,11 +58,23 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Movement speed when chasing the player")]
     [SerializeField] private float chaseSpeed = 6f;
 
+    [Tooltip("If true, killer instantly reaches max speed with no acceleration")]
+    [SerializeField] private bool instantAcceleration = false;
+
+    [Tooltip("Looping sound to play at the killer's position while idle (stops when chase begins)")]
+    [SerializeField] private AudioClip idleLoopSound;
+
+    [Tooltip("Volume of the idle loop sound")]
+    [SerializeField] private float idleLoopVolume = 0.5f;
+
     [Tooltip("Sound to play when the killer activates and starts chasing")]
     [SerializeField] private AudioClip activationSound;
 
     [Tooltip("Volume of the activation sound")]
     [SerializeField] private float activationSoundVolume = 1f;
+
+    [Tooltip("If true, activation sound plays at constant volume (2D) instead of from killer's position")]
+    [SerializeField] private bool activationSoundConstant = false;
 
     [Header("Kill Sequence Settings")]
     [Tooltip("Distance from player where killer stops to perform kill")]
@@ -162,6 +174,11 @@ public class KillerNPC : MonoBehaviour
 
     // Jumpscare spotlight tracking
     private Light jumpscareSpotlight;
+
+    // Stuck detection for NavMeshAgent
+    private float stuckTimer = 0f;
+    private const float STUCK_THRESHOLD = 0.01f;
+    private bool navAgentAbandoned = false;
 
     // Lantern override
     private bool overrideLanternsOnJumpscare = false;
@@ -352,7 +369,7 @@ public class KillerNPC : MonoBehaviour
         if (endGameOnPlayerTouch && horizontalDistance <= killStopDistance)
         {
             // Stop movement immediately
-            if (navAgent != null)
+            if (navAgent != null && navAgent.isOnNavMesh)
             {
                 navAgent.isStopped = true;
                 navAgent.velocity = Vector3.zero;
@@ -363,11 +380,37 @@ public class KillerNPC : MonoBehaviour
             return;
         }
 
-        // Only chase if outside kill range
-        if (navAgent != null && navAgent.enabled)
+        // Chase the player
+        if (!navAgentAbandoned && navAgent != null && navAgent.enabled && navAgent.isOnNavMesh)
         {
             navAgent.isStopped = false;
             navAgent.SetDestination(playerTransform.position);
+
+            // Detect if the agent is stuck (on NavMesh but not actually moving)
+            if (navAgent.velocity.sqrMagnitude < 0.01f)
+            {
+                stuckTimer += Time.deltaTime;
+                if (stuckTimer >= STUCK_THRESHOLD)
+                {
+                    Debug.LogWarning($"KillerNPC: NavMeshAgent stuck for {stuckTimer:F1}s (velocity={navAgent.velocity.magnitude:F3}, pathStatus={navAgent.pathStatus}, hasPath={navAgent.hasPath}, pending={navAgent.pathPending}). Switching to direct movement.");
+                    navAgent.enabled = false;
+                    navAgentAbandoned = true;
+                }
+            }
+            else
+            {
+                stuckTimer = 0f;
+            }
+        }
+        else
+        {
+            // Direct movement toward the player (no pathfinding)
+            if (navAgent != null && navAgent.enabled)
+            {
+                navAgent.enabled = false;
+            }
+            Vector3 moveDir = toPlayer.normalized;
+            transform.position += moveDir * chaseSpeed * Time.deltaTime;
         }
     }
 
@@ -398,7 +441,7 @@ public class KillerNPC : MonoBehaviour
         isPlayerLooking = false;
 
         // Stop movement
-        if (navAgent != null)
+        if (navAgent != null && navAgent.isOnNavMesh)
         {
             navAgent.isStopped = true;
             navAgent.velocity = Vector3.zero;
@@ -410,12 +453,32 @@ public class KillerNPC : MonoBehaviour
             animator.SetBool(idleAnimationBool, true);
         }
 
+        // Start idle loop sound
+        if (idleLoopSound != null && audioSource != null)
+        {
+            audioSource.clip = idleLoopSound;
+            audioSource.volume = idleLoopVolume;
+            audioSource.loop = true;
+            audioSource.spatialBlend = 1f; // 3D sound at killer's position
+            audioSource.Play();
+            Debug.Log("KillerNPC: Idle loop sound started");
+        }
+
         Debug.Log($"KillerNPC '{gameObject.name}': Entered idle state, waiting for player...");
     }
 
     private void EnterChaseState()
     {
         currentState = KillerState.Chasing;
+
+        // Note: idle loop sound is stopped in ActivateChase() before PlayOneShot.
+        // Stopping here would kill the activation sound since audioSource.Stop() kills PlayOneShot too.
+        // Safety: just clear loop flag and clip reference without calling Stop().
+        if (audioSource != null)
+        {
+            audioSource.loop = false;
+            audioSource.clip = null;
+        }
 
         Debug.Log($"KillerNPC '{gameObject.name}': EnterChaseState called. Animator: {animator}, chaseAnimationBool: '{chaseAnimationBool}'");
 
@@ -452,19 +515,49 @@ public class KillerNPC : MonoBehaviour
         // Start movement with sharp, responsive settings
         if (navAgent != null)
         {
-            navAgent.isStopped = false;
-            navAgent.speed = chaseSpeed;
-            navAgent.acceleration = 1000f;      // Near-instant acceleration
-            navAgent.angularSpeed = 1000f;      // Very fast turning
-            navAgent.autoBraking = false;       // Don't slow down when approaching destination
-            navAgent.updateRotation = false;    // We handle rotation manually to always face player
-            navAgent.stoppingDistance = 0f;     // We handle stopping via distance check
-            navAgent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance; // Don't get stuck on player
-
-            if (playerTransform != null)
+            // If the agent isn't on a NavMesh, warp it to the nearest valid point
+            if (!navAgent.isOnNavMesh)
             {
-                navAgent.SetDestination(playerTransform.position);
+                if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 10f, NavMesh.AllAreas))
+                {
+                    navAgent.Warp(hit.position);
+                    Debug.Log($"KillerNPC: Warped to nearest NavMesh point (offset: {Vector3.Distance(transform.position, hit.position):F2}m)");
+                }
+                else
+                {
+                    Debug.LogWarning("KillerNPC: No NavMesh found within 10m! Agent cannot pathfind.");
+                }
             }
+
+            if (navAgent.isOnNavMesh)
+            {
+                navAgent.isStopped = false;
+                navAgent.speed = chaseSpeed;
+                navAgent.acceleration = instantAcceleration ? 999999f : 1000f;
+                navAgent.angularSpeed = 1000f;      // Very fast turning
+                navAgent.autoBraking = false;       // Don't slow down when approaching destination
+                navAgent.updateRotation = false;    // We handle rotation manually to always face player
+                navAgent.stoppingDistance = 0f;     // We handle stopping via distance check
+                navAgent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance; // Don't get stuck on player
+
+                if (playerTransform != null)
+                {
+                    navAgent.SetDestination(playerTransform.position);
+
+                    // Force immediate full-speed velocity toward player
+                    if (instantAcceleration)
+                    {
+                        Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
+                        navAgent.velocity = dirToPlayer * chaseSpeed;
+                    }
+                }
+            }
+        }
+
+        // Log NavMesh status for debugging
+        if (navAgent != null)
+        {
+            Debug.Log($"KillerNPC: NavAgent status - isOnNavMesh={navAgent.isOnNavMesh}, enabled={navAgent.enabled}, position={transform.position}");
         }
 
         // Override lanterns (turn red, lock them) as soon as chase begins
@@ -480,10 +573,29 @@ public class KillerNPC : MonoBehaviour
     {
         Debug.Log($"KillerNPC '{gameObject.name}': Player detected! Activating chase!");
 
-        // Play activation sound
+        // Stop idle loop sound BEFORE playing activation sound
+        // (audioSource.Stop() kills all sounds including PlayOneShot, so we must stop first)
+        if (audioSource != null && audioSource.isPlaying && audioSource.clip == idleLoopSound)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+            audioSource.clip = null;
+            Debug.Log("KillerNPC: Idle loop sound stopped (chase activation)");
+        }
+
+        // Play activation sound (after idle loop is stopped)
         if (activationSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(activationSound, activationSoundVolume);
+            if (activationSoundConstant)
+            {
+                // Play as 2D (constant volume regardless of distance/direction)
+                audioSource.spatialBlend = 0f;
+                audioSource.PlayOneShot(activationSound, activationSoundVolume);
+            }
+            else
+            {
+                audioSource.PlayOneShot(activationSound, activationSoundVolume);
+            }
         }
 
         EnterChaseState();
@@ -572,8 +684,12 @@ public class KillerNPC : MonoBehaviour
         chaseAnimationTrigger = killerEvent.chaseAnimationTrigger;
         chaseAnimationBool = killerEvent.chaseAnimationBool;
         chaseSpeed = killerEvent.chaseSpeed;
+        instantAcceleration = killerEvent.instantAcceleration;
+        idleLoopSound = killerEvent.idleLoopSound;
+        idleLoopVolume = killerEvent.idleLoopVolume;
         activationSound = killerEvent.activationSound;
         activationSoundVolume = killerEvent.activationSoundVolume;
+        activationSoundConstant = killerEvent.activationSoundConstant;
 
         // Try to find the face object by name (search recursively)
         if (!string.IsNullOrEmpty(killerEvent.killerFaceObjectName))
@@ -691,7 +807,7 @@ public class KillerNPC : MonoBehaviour
         currentState = KillerState.Killing;
 
         // Stop the killer's movement
-        if (navAgent != null)
+        if (navAgent != null && navAgent.isOnNavMesh)
         {
             navAgent.isStopped = true;
             navAgent.velocity = Vector3.zero;
