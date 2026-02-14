@@ -55,14 +55,14 @@ MonoBehaviour:
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
   slowMotionDuration: 5
-  killerFaceObjectName: mixamorig:Head
-  faceHeightOffset: 4
-  faceLookVerticalOffset: 0
+  killerFaceObjectName: 
+  faceHeightOffset: 0
+  faceLookVerticalOffset: 2
   jumpscareSound: {fileID: 0}
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: -0.34
+  jumpscarePlayerHeightOffset: 0.5
   flashlightTargetHeight: 1.96
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
