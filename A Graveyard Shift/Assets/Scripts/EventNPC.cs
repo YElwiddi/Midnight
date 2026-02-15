@@ -100,12 +100,16 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     // Cinematic tracking - prevent multiple triggers
     private bool cinematicStarted = false;
+
+    // OffMeshLink traversal
+    private bool isTraversingLink = false;
     #endregion
 
     #region Unity Lifecycle
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.autoTraverseOffMeshLink = false;
 
         // Look for Animator on this object or any children (model is often a child)
         animator = GetComponentInChildren<Animator>();
@@ -167,7 +171,15 @@ public class EventNPC : MonoBehaviour, IInteractable
         {
             case NPCState.Walking:
             case NPCState.Exiting:
-                CheckArrival();
+                // Handle OffMeshLink traversal (stairs, jumps, etc.)
+                if (!isTraversingLink && agent.isOnOffMeshLink)
+                {
+                    StartCoroutine(TraverseOffMeshLink());
+                }
+                if (!isTraversingLink)
+                {
+                    CheckArrival();
+                }
                 break;
         }
 
@@ -541,6 +553,9 @@ public class EventNPC : MonoBehaviour, IInteractable
         agent.speed = waypoint.moveSpeed;
         agent.acceleration = 999f; // Instant acceleration
         agent.SetDestination(targetPosition);
+
+        // DEBUG: Log path validity for stair/elevation issues
+        StartCoroutine(DebugLogPathStatus(waypointDescription, targetPosition));
 
         SetWalkingState(true);
         currentState = NPCState.Walking;
@@ -1220,6 +1235,90 @@ public class EventNPC : MonoBehaviour, IInteractable
             animator.SetBool(currentIdleAnimationBool, false);
             Debug.Log($"EventNPC {npcName}: Cleared idle animation '{currentIdleAnimationBool}'");
             currentIdleAnimationBool = "";
+        }
+    }
+
+    private IEnumerator TraverseOffMeshLink()
+    {
+        isTraversingLink = true;
+
+        OffMeshLinkData linkData = agent.currentOffMeshLinkData;
+        Vector3 startPos = transform.position;
+        Vector3 endPos = linkData.endPos + Vector3.up * agent.baseOffset;
+        float speed = agent.speed;
+
+        // Fully stop the agent from controlling the transform
+        agent.isStopped = true;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+
+        // Face movement direction
+        Vector3 moveDir = (endPos - startPos);
+        moveDir.y = 0;
+        if (moveDir.sqrMagnitude > 0.001f)
+        {
+            transform.rotation = Quaternion.LookRotation(moveDir);
+        }
+
+        // Build a layer mask that excludes this NPC's own layer
+        int npcLayer = gameObject.layer;
+        int raycastMask = ~(1 << npcLayer);
+
+        // Cache the facing rotation so we can enforce it every frame
+        Quaternion facingRotation = transform.rotation;
+
+        // Move toward the end position at the agent's speed
+        while (Vector3.Distance(transform.position, endPos) > 0.1f)
+        {
+            Vector3 newPos = Vector3.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
+
+            // Raycast down to snap to the stair/ground surface, ignoring NPC's own layer
+            Vector3 rayOrigin = newPos + Vector3.up * 3f;
+            if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, 6f, raycastMask, QueryTriggerInteraction.Ignore))
+            {
+                newPos.y = hit.point.y;
+            }
+
+            transform.position = newPos;
+            // Enforce rotation every frame to prevent animation root motion from rotating the model
+            transform.rotation = facingRotation;
+            yield return null;
+        }
+
+        // Snap to final position
+        transform.position = endPos;
+
+        // Complete the link and give control back to the agent
+        agent.CompleteOffMeshLink();
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        agent.isStopped = false;
+        agent.nextPosition = transform.position;
+
+        isTraversingLink = false;
+    }
+
+    private IEnumerator DebugLogPathStatus(string waypointName, Vector3 targetPos)
+    {
+        // Wait for path calculation
+        while (agent.pathPending)
+            yield return null;
+
+        Debug.Log($"EventNPC DEBUG [{npcName}]: Path to '{waypointName}' status={agent.pathStatus}, " +
+                  $"hasPath={agent.hasPath}, remainingDist={agent.remainingDistance:F2}, " +
+                  $"NPC Y={transform.position.y:F2}, Target Y={targetPos.y:F2}");
+
+        if (agent.path != null && agent.path.corners.Length > 0)
+        {
+            for (int i = 0; i < agent.path.corners.Length; i++)
+            {
+                Vector3 c = agent.path.corners[i];
+                Debug.Log($"EventNPC DEBUG [{npcName}]: Path corner {i}: ({c.x:F2}, {c.y:F2}, {c.z:F2})");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"EventNPC DEBUG [{npcName}]: NO PATH CORNERS - agent cannot reach '{waypointName}'!");
         }
     }
 
