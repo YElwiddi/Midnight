@@ -57,13 +57,14 @@ MonoBehaviour:
   slowMotionDuration: 5
   killerFaceObjectName: mixamorig:Head
   faceHeightOffset: 1.6
-  faceLookVerticalOffset: 0
+  faceLookVerticalOffset: 0.4
   jumpscareSound: {fileID: 8300000, guid: 3a4e3e4227117a94390d729dd7b73989, type: 3}
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: 0
-  flashlightTargetHeight: 1.93
+  jumpscarePlayerHeightOffset: 0.65
+  lockFlashlightOnDuringJumpscare: 1
+  flashlightTargetHeight: 3
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
   screenEffectPrefab: {fileID: 0}
@@ -76,6 +77,25 @@ MonoBehaviour:
   killTrackingNoise: 0.1962
   overrideLanternsOnJumpscare: 0
   jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
+  jumpscareHeadShake: 0
+  headShakeBoneName: CC_Base_Head
+  headShakeTiltAmount: 35
+  headShakeTurnAmount: 15
+  headShakeSpeed: 30
+  headShakeRandomness: 10
+  headShakeActiveDuration: 1.5
+  headShakePauseDuration: 0.6
+  headShakeTimingVariance: 0.3
+  headShakeStuckChance: 0.5
+  headShakeStuckMaxAngle: 25
+  showJumpscareDialogue: 0
+  jumpscareDialogueText: 
+  jumpscareDialogueFont: {fileID: 0}
+  jumpscareDialogueColor: {r: 1, g: 1, b: 1, a: 1}
+  jumpscareDialogueFontSize: 36
+  jumpscareDialogueDelay: 0.5
+  jumpscareDialogueShakeIntensity: 0
+  jumpscareDialogueShakeSpeed: 25
   gameOverSceneName: Start Menu Scene
   exitBehavior: 0
   exitPointName: KillerExitPoint

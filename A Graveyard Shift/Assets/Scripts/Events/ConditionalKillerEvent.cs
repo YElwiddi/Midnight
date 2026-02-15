@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// A special game event that checks a stat condition before playing.
@@ -187,12 +188,15 @@ public class ConditionalKillerEvent : ScriptableObject
 
     [Header("Player Position During Jumpscare")]
     [Tooltip("How much to lower the player during jumpscare so they look UP at the killer (negative = lower). Use -0.3 to -0.5 for a dramatic upward angle.")]
-    [Range(-1f, 0.5f)]
+    [Range(-1f, 3f)]
     public float jumpscarePlayerHeightOffset = -0.3f;
 
     [Header("Flashlight Settings")]
+    [Tooltip("If true, forces the flashlight on during the jumpscare")]
+    public bool lockFlashlightOnDuringJumpscare = true;
+
     [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
-    [Range(0f, 2.5f)]
+    [Range(0f, 10f)]
     public float flashlightTargetHeight = 1.2f;
 
     [Tooltip("Flashlight intensity during jumpscare")]
@@ -240,6 +244,79 @@ public class ConditionalKillerEvent : ScriptableObject
     public bool overrideLanternsOnJumpscare = false;
     [Tooltip("Color to set all lanterns to")]
     public Color jumpscareLanternColor = Color.red;
+
+    [Header("Jumpscare Head Shake")]
+    [Tooltip("If true, violently shakes the killer's head side-to-side during the jumpscare")]
+    public bool jumpscareHeadShake = false;
+
+    [Tooltip("Name of the head bone to shake (e.g., 'CC_Base_Head', 'mixamorig:Head')")]
+    public string headShakeBoneName = "CC_Base_Head";
+
+    [Tooltip("Side-to-side tilt intensity (Z-axis rotation, degrees)")]
+    [Range(5f, 90f)]
+    public float headShakeTiltAmount = 35f;
+
+    [Tooltip("Left-right shake intensity (Y-axis rotation, degrees)")]
+    [Range(0f, 60f)]
+    public float headShakeTurnAmount = 15f;
+
+    [Tooltip("Speed of the shake oscillation")]
+    [Range(5f, 80f)]
+    public float headShakeSpeed = 30f;
+
+    [Tooltip("Random jitter added to the shake for a more erratic feel")]
+    [Range(0f, 30f)]
+    public float headShakeRandomness = 10f;
+
+    [Tooltip("How long the head shakes before pausing (seconds)")]
+    [Range(0.3f, 5f)]
+    public float headShakeActiveDuration = 1.5f;
+
+    [Tooltip("How long the head holds still so the player can see the face (seconds)")]
+    [Range(0.2f, 3f)]
+    public float headShakePauseDuration = 0.6f;
+
+    [Tooltip("Random variation added to active/pause timings so it feels organic")]
+    [Range(0f, 1f)]
+    public float headShakeTimingVariance = 0.3f;
+
+    [Tooltip("Chance (0-1) that a pause holds at a random stuck angle instead of center")]
+    [Range(0f, 1f)]
+    public float headShakeStuckChance = 0.5f;
+
+    [Tooltip("Max tilt angle for stuck positions (degrees). Kept moderate so face stays visible.")]
+    [Range(5f, 45f)]
+    public float headShakeStuckMaxAngle = 25f;
+
+    [Header("Jumpscare Dialogue")]
+    [Tooltip("If true, displays dialogue text on screen during the jumpscare")]
+    public bool showJumpscareDialogue = false;
+
+    [Tooltip("The text to display during the jumpscare")]
+    [TextArea(2, 5)]
+    public string jumpscareDialogueText = "";
+
+    [Tooltip("TMP font asset for the dialogue text (leave empty for default)")]
+    public TMP_FontAsset jumpscareDialogueFont;
+
+    [Tooltip("Color of the dialogue text")]
+    public Color jumpscareDialogueColor = Color.white;
+
+    [Tooltip("Font size of the dialogue text")]
+    [Range(12f, 120f)]
+    public float jumpscareDialogueFontSize = 36f;
+
+    [Tooltip("Delay before showing dialogue (in real seconds)")]
+    [Range(0f, 5f)]
+    public float jumpscareDialogueDelay = 0.5f;
+
+    [Tooltip("Per-character shake intensity (0 = no shake)")]
+    [Range(0f, 20f)]
+    public float jumpscareDialogueShakeIntensity = 0f;
+
+    [Tooltip("Speed of the text shake")]
+    [Range(5f, 60f)]
+    public float jumpscareDialogueShakeSpeed = 25f;
 
     [Header("Game Over")]
     [Tooltip("Scene to load after jumpscare completes (e.g., 'MainMenu'). Leave empty to stay in current scene.")]

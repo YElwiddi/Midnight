@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /// <summary>
 /// Defines the current state of the killer NPC.
@@ -119,6 +120,8 @@ public class KillerNPC : MonoBehaviour
     [SerializeField] private float jumpscarePlayerHeightOffset = -0.3f;
 
     [Header("Flashlight Settings")]
+    [SerializeField] private bool lockFlashlightOnDuringJumpscare = true;
+
     [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
     [SerializeField] private float flashlightTargetHeight = 1.2f;
 
@@ -149,6 +152,37 @@ public class KillerNPC : MonoBehaviour
 
     [Tooltip("Optional: Scene to load on game over (leave empty to just show UI)")]
     [SerializeField] private string gameOverSceneName = "";
+
+    // Jumpscare head shake
+    private bool jumpscareHeadShake = false;
+    private string headShakeBoneName = "CC_Base_Head";
+    private float headShakeTiltAmount = 35f;
+    private float headShakeTurnAmount = 15f;
+    private float headShakeSpeed = 30f;
+    private float headShakeRandomness = 10f;
+    private float headShakeActiveDuration = 1.5f;
+    private float headShakePauseDuration = 0.6f;
+    private float headShakeTimingVariance = 0.3f;
+    private float headShakeStuckChance = 0.5f;
+    private float headShakeStuckMaxAngle = 25f;
+    private Transform headShakeBone;
+    private float headShakeTimer = 0f;
+    private float headShakeCurrentInterval = 0f;
+    private bool headShakeActive = true;
+    private bool headShakeStuck = false;
+    private Quaternion headShakeStuckRotation;
+
+    // Jumpscare dialogue
+    private bool showJumpscareDialogue = false;
+    private string jumpscareDialogueText = "";
+    private TMP_FontAsset jumpscareDialogueFont;
+    private Color jumpscareDialogueColor = Color.white;
+    private float jumpscareDialogueFontSize = 36f;
+    private float jumpscareDialogueDelay = 0.5f;
+    private float jumpscareDialogueShakeIntensity = 0f;
+    private float jumpscareDialogueShakeSpeed = 25f;
+    private GameObject jumpscareDialogueInstance;
+    private TextMeshProUGUI jumpscareDialogueTMP;
 
     [Header("References")]
     [Tooltip("Player transform (auto-found if not set)")]
@@ -259,6 +293,67 @@ public class KillerNPC : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (!hasTriggeredGameOver || !jumpscareHeadShake || headShakeBone == null)
+            return;
+
+        // Advance timer
+        headShakeTimer += Time.unscaledDeltaTime;
+
+        if (headShakeTimer >= headShakeCurrentInterval)
+        {
+            // Switch state
+            headShakeActive = !headShakeActive;
+            headShakeTimer = 0f;
+
+            float baseDuration = headShakeActive ? headShakeActiveDuration : headShakePauseDuration;
+            headShakeCurrentInterval = baseDuration + Random.Range(-headShakeTimingVariance, headShakeTimingVariance);
+
+            // When entering a pause, decide if it's stuck at a random angle
+            if (!headShakeActive)
+            {
+                headShakeStuck = Random.value < headShakeStuckChance;
+                if (headShakeStuck)
+                {
+                    // Pick a random stuck angle — biased toward looking slightly up with a lateral tilt
+                    float stuckX = Random.Range(-headShakeStuckMaxAngle * 0.6f, -headShakeStuckMaxAngle * 0.15f); // negative X = look upward
+                    float stuckY = Random.Range(-headShakeStuckMaxAngle * 0.5f, headShakeStuckMaxAngle * 0.5f);
+                    float stuckZ = Random.Range(-headShakeStuckMaxAngle, headShakeStuckMaxAngle);
+                    headShakeStuckRotation = Quaternion.Euler(stuckX, stuckY, stuckZ);
+                }
+            }
+        }
+
+        if (headShakeActive)
+        {
+            float t = Time.unscaledTime * headShakeSpeed;
+            float tilt = Mathf.Sin(t) * headShakeTiltAmount;
+            float turn = Mathf.Sin(t * 1.3f) * headShakeTurnAmount;
+            float jitterX = Random.Range(-headShakeRandomness, headShakeRandomness);
+            float jitterY = Random.Range(-headShakeRandomness * 0.5f, headShakeRandomness * 0.5f);
+
+            headShakeBone.localRotation *= Quaternion.Euler(jitterX, turn + jitterY, tilt);
+        }
+        else
+        {
+            // Micro-vibrate during pauses (stuck or center)
+            float microX = Random.Range(-1f, 1f);
+            float microY = Random.Range(-0.5f, 0.5f);
+            float microZ = Random.Range(-1f, 1f);
+            Quaternion microShake = Quaternion.Euler(microX, microY, microZ);
+
+            if (headShakeStuck)
+            {
+                headShakeBone.localRotation *= headShakeStuckRotation * microShake;
+            }
+            else
+            {
+                headShakeBone.localRotation *= microShake;
+            }
+        }
+    }
+
     private void Update()
     {
         if (hasTriggeredGameOver)
@@ -279,6 +374,12 @@ public class KillerNPC : MonoBehaviour
 
             // Keep spotlight pointed at killer throughout jumpscare
             UpdateSpotlightTarget();
+
+            // Apply text shake to jumpscare dialogue
+            if (jumpscareDialogueTMP != null && jumpscareDialogueShakeIntensity > 0f)
+            {
+                ApplyJumpscareTextShake();
+            }
 
             return;
         }
@@ -651,6 +752,7 @@ public class KillerNPC : MonoBehaviour
         jumpscarePlayerHeightOffset = killerEvent.jumpscarePlayerHeightOffset;
 
         // Flashlight settings
+        lockFlashlightOnDuringJumpscare = killerEvent.lockFlashlightOnDuringJumpscare;
         flashlightTargetHeight = killerEvent.flashlightTargetHeight;
         jumpscareFlashlightIntensity = killerEvent.jumpscareFlashlightIntensity;
         jumpscareFlashlightRange = killerEvent.jumpscareFlashlightRange;
@@ -670,6 +772,44 @@ public class KillerNPC : MonoBehaviour
         // Lantern override settings
         overrideLanternsOnJumpscare = killerEvent.overrideLanternsOnJumpscare;
         jumpscareLanternColor = killerEvent.jumpscareLanternColor;
+
+        // Jumpscare head shake settings
+        jumpscareHeadShake = killerEvent.jumpscareHeadShake;
+        headShakeBoneName = killerEvent.headShakeBoneName;
+        headShakeTiltAmount = killerEvent.headShakeTiltAmount;
+        headShakeTurnAmount = killerEvent.headShakeTurnAmount;
+        headShakeSpeed = killerEvent.headShakeSpeed;
+        headShakeRandomness = killerEvent.headShakeRandomness;
+        headShakeActiveDuration = killerEvent.headShakeActiveDuration;
+        headShakePauseDuration = killerEvent.headShakePauseDuration;
+        headShakeTimingVariance = killerEvent.headShakeTimingVariance;
+        headShakeStuckChance = killerEvent.headShakeStuckChance;
+        headShakeStuckMaxAngle = killerEvent.headShakeStuckMaxAngle;
+
+        // Find the head shake bone
+        if (jumpscareHeadShake && !string.IsNullOrEmpty(headShakeBoneName))
+        {
+            headShakeBone = FindChildRecursive(transform, headShakeBoneName);
+            if (headShakeBone != null)
+            {
+                headShakeCurrentInterval = headShakeActiveDuration;
+                Debug.Log($"KillerNPC: Found head shake bone '{headShakeBoneName}'");
+            }
+            else
+            {
+                Debug.LogWarning($"KillerNPC: Could not find head shake bone '{headShakeBoneName}'");
+            }
+        }
+
+        // Jumpscare dialogue settings
+        showJumpscareDialogue = killerEvent.showJumpscareDialogue;
+        jumpscareDialogueText = killerEvent.jumpscareDialogueText;
+        jumpscareDialogueFont = killerEvent.jumpscareDialogueFont;
+        jumpscareDialogueColor = killerEvent.jumpscareDialogueColor;
+        jumpscareDialogueFontSize = killerEvent.jumpscareDialogueFontSize;
+        jumpscareDialogueDelay = killerEvent.jumpscareDialogueDelay;
+        jumpscareDialogueShakeIntensity = killerEvent.jumpscareDialogueShakeIntensity;
+        jumpscareDialogueShakeSpeed = killerEvent.jumpscareDialogueShakeSpeed;
 
         // Game over settings
         gameOverSceneName = killerEvent.gameOverSceneName;
@@ -843,7 +983,17 @@ public class KillerNPC : MonoBehaviour
         }
 
         // Lock flashlight on (silently, no click sound)
-        LockFlashlightOn();
+        if (lockFlashlightOnDuringJumpscare)
+        {
+            LockFlashlightOn();
+        }
+        else
+        {
+            LockFlashlightOff();
+        }
+
+        // Hide the crosshair
+        HideCrosshair();
 
         // Position killer in front of the player camera
         if (playerCamera != null)
@@ -895,7 +1045,10 @@ public class KillerNPC : MonoBehaviour
             playerCamera.transform.LookAt(lookTarget);
 
             // Point flashlight at killer's face
-            PointFlashlightAtKiller();
+            if (lockFlashlightOnDuringJumpscare)
+            {
+                PointFlashlightAtKiller();
+            }
         }
 
         // Play jumpscare sound
@@ -913,6 +1066,12 @@ public class KillerNPC : MonoBehaviour
 
         // Spawn screen effect (checks for VHS camera effect first, then prefab)
         StartCoroutine(SpawnScreenEffect());
+
+        // Show jumpscare dialogue
+        if (showJumpscareDialogue && !string.IsNullOrEmpty(jumpscareDialogueText))
+        {
+            StartCoroutine(ShowJumpscareDialogue());
+        }
 
         // Start slow motion
         float originalTimeScale = Time.timeScale;
@@ -964,11 +1123,13 @@ public class KillerNPC : MonoBehaviour
         if (killerFace != null)
         {
             facePos = killerFace.position;
+            Debug.Log($"KillerNPC FACE DEBUG: Using killerFace '{killerFace.name}' at world pos {facePos}, killer root at {transform.position}, camera at {(playerCamera != null ? playerCamera.transform.position.ToString() : "null")}");
         }
         else
         {
             // Estimate face height if no face transform assigned
             facePos = transform.position + Vector3.up * faceHeightOffset;
+            Debug.Log($"KillerNPC FACE DEBUG: No killerFace, using root + faceHeightOffset({faceHeightOffset}) = {facePos}");
         }
 
         // Apply vertical offset (use negative to look lower on the face)
@@ -1072,6 +1233,51 @@ public class KillerNPC : MonoBehaviour
         gameOverUI.alpha = endAlpha;
     }
 
+    private IEnumerator ShowJumpscareDialogue()
+    {
+        if (jumpscareDialogueDelay > 0f)
+        {
+            yield return new WaitForSecondsRealtime(jumpscareDialogueDelay);
+        }
+
+        // Create canvas
+        GameObject canvasObj = new GameObject("JumpscareDialogue");
+        Canvas canvas = canvasObj.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 100;
+        canvasObj.AddComponent<UnityEngine.UI.CanvasScaler>();
+
+        // Create text
+        GameObject textObj = new GameObject("DialogueText");
+        textObj.transform.SetParent(canvasObj.transform, false);
+
+        TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
+        tmp.text = jumpscareDialogueText;
+        tmp.color = jumpscareDialogueColor;
+        tmp.fontSize = jumpscareDialogueFontSize;
+        tmp.alignment = TextAlignmentOptions.Center;
+        tmp.enableWordWrapping = true;
+
+        if (jumpscareDialogueFont != null)
+        {
+            tmp.font = jumpscareDialogueFont;
+        }
+
+        // White outline via TMP material
+        tmp.outlineWidth = 0.2f;
+        tmp.outlineColor = Color.white;
+
+        // Position at lower-center of screen
+        RectTransform rect = tmp.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(0.1f, 0.1f);
+        rect.anchorMax = new Vector2(0.9f, 0.35f);
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        jumpscareDialogueTMP = tmp;
+        jumpscareDialogueInstance = canvasObj;
+    }
+
     private void FreezePlayer(bool freeze)
     {
         if (playerTransform == null)
@@ -1160,8 +1366,56 @@ public class KillerNPC : MonoBehaviour
 
             Debug.Log("KillerNPC: Flashlight locked on (player control disabled)");
         }
+    }
 
-        // Hide the crosshair
+    private void LockFlashlightOff()
+    {
+        SimpleFlashlight flashlight = FindObjectOfType<SimpleFlashlight>();
+        if (flashlight != null)
+        {
+            flashlight.enabled = false;
+
+            if (flashlight.spotLight != null)
+            {
+                flashlight.spotLight.enabled = false;
+            }
+
+            Debug.Log("KillerNPC: Flashlight locked off (player control disabled)");
+        }
+    }
+
+    private void ApplyJumpscareTextShake()
+    {
+        jumpscareDialogueTMP.ForceMeshUpdate();
+        TMP_TextInfo textInfo = jumpscareDialogueTMP.textInfo;
+
+        for (int i = 0; i < textInfo.characterCount; i++)
+        {
+            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+            if (!charInfo.isVisible) continue;
+
+            Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+            int vertexIndex = charInfo.vertexIndex;
+
+            float offsetX = Mathf.PerlinNoise((Time.unscaledTime * jumpscareDialogueShakeSpeed) + i * 0.3f, 0f) * 2f - 1f;
+            float offsetY = Mathf.PerlinNoise(0f, (Time.unscaledTime * jumpscareDialogueShakeSpeed) + i * 0.3f) * 2f - 1f;
+            Vector3 offset = new Vector3(offsetX, offsetY, 0f) * jumpscareDialogueShakeIntensity;
+
+            vertices[vertexIndex + 0] += offset;
+            vertices[vertexIndex + 1] += offset;
+            vertices[vertexIndex + 2] += offset;
+            vertices[vertexIndex + 3] += offset;
+        }
+
+        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        {
+            textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
+            jumpscareDialogueTMP.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+        }
+    }
+
+    private void HideCrosshair()
+    {
         CrosshairManager crosshair = FindObjectOfType<CrosshairManager>();
         if (crosshair != null)
         {
@@ -1252,6 +1506,12 @@ public class KillerNPC : MonoBehaviour
     private void ExecuteGameOver()
     {
         Debug.Log("KillerNPC: Executing game over!");
+
+        // Clean up jumpscare dialogue
+        if (jumpscareDialogueInstance != null)
+        {
+            Destroy(jumpscareDialogueInstance);
+        }
 
         // Show game over UI if available
         if (gameOverUI != null)

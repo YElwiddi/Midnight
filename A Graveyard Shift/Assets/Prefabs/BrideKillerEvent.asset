@@ -29,7 +29,7 @@ MonoBehaviour:
   spawnPointName: BrideSpawn
   facePlayerOnSpawn: 0
   backToPlayerOnSpawn: 0
-  spawnRotationOffset: {x: 0, y: 90, z: 0}
+  spawnRotationOffset: {x: 0, y: 270, z: 0}
   useCustomRotation: 0
   waypoints: []
   endGameOnPlayerTouch: 1
@@ -55,15 +55,16 @@ MonoBehaviour:
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
   slowMotionDuration: 5
-  killerFaceObjectName: 
-  faceHeightOffset: 0
-  faceLookVerticalOffset: 2
+  killerFaceObjectName: Head
+  faceHeightOffset: 1.6
+  faceLookVerticalOffset: -0.1
   jumpscareSound: {fileID: 0}
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: 0.5
-  flashlightTargetHeight: 1.96
+  jumpscarePlayerHeightOffset: 2
+  lockFlashlightOnDuringJumpscare: 0
+  flashlightTargetHeight: 2.5
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
   screenEffectPrefab: {fileID: 0}
@@ -76,6 +77,25 @@ MonoBehaviour:
   killTrackingNoise: 0.1962
   overrideLanternsOnJumpscare: 0
   jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
+  jumpscareHeadShake: 1
+  headShakeBoneName: CC_Base_Head
+  headShakeTiltAmount: 60
+  headShakeTurnAmount: 0
+  headShakeSpeed: 65
+  headShakeRandomness: 30
+  headShakeActiveDuration: 0.3
+  headShakePauseDuration: 0.5
+  headShakeTimingVariance: 1
+  headShakeStuckChance: 0.7
+  headShakeStuckMaxAngle: 40
+  showJumpscareDialogue: 1
+  jumpscareDialogueText: TOGETHER FOREVER
+  jumpscareDialogueFont: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+  jumpscareDialogueColor: {r: 0, g: 0, b: 0, a: 1}
+  jumpscareDialogueFontSize: 80
+  jumpscareDialogueDelay: 0
+  jumpscareDialogueShakeIntensity: 13
+  jumpscareDialogueShakeSpeed: 60
   gameOverSceneName: Start Menu Scene
   exitBehavior: 0
   exitPointName: KillerExitPoint

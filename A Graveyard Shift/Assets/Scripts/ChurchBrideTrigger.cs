@@ -31,6 +31,14 @@ public class ChurchBrideTrigger : MonoBehaviour
     [Tooltip("Optional: PSX FogController to disable")]
     [SerializeField] private PSX.FogController psxFogController;
 
+    [Header("Sound")]
+    [Tooltip("Sound effect to play when the trigger fires")]
+    [SerializeField] private AudioClip triggerSound;
+
+    [Tooltip("Volume of the trigger sound")]
+    [Range(0f, 1f)]
+    [SerializeField] private float triggerSoundVolume = 1f;
+
     [Header("Settings")]
     [Tooltip("Only trigger once per game session")]
     [SerializeField] private bool triggerOnce = true;
@@ -57,6 +65,12 @@ public class ChurchBrideTrigger : MonoBehaviour
 
         hasTriggered = true;
         Debug.Log("ChurchBrideTrigger: All conditions met, activating!");
+
+        // Play trigger sound
+        if (triggerSound != null)
+        {
+            AudioSource.PlayClipAtPoint(triggerSound, transform.position, triggerSoundVolume);
+        }
 
         // Turn lighting red
         ApplyRedLighting();

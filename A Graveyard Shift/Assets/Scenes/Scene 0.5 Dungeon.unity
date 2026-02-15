@@ -12848,7 +12848,7 @@ Transform:
   m_GameObject: {fileID: 317532417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.57, y: -574.49, z: -209.33}
+  m_LocalPosition: {x: 1.57, y: -575.04, z: -209.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26007,6 +26007,8 @@ MonoBehaviour:
   redGroundColor: {r: 0.9150943, g: 0, b: 0, a: 1}
   fogFadeDuration: 0.25
   psxFogController: {fileID: 0}
+  triggerSound: {fileID: 8300000, guid: 7c33b16a57757884db58aebb4c444a5c, type: 3}
+  triggerSoundVolume: 1
   triggerOnce: 1
 --- !u!23 &718761784
 MeshRenderer:
@@ -47008,8 +47010,8 @@ MonoBehaviour:
   destinationIsIndoor: 0
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
-  lockDuringKillerEvent: 0
-  killerLockedDialogue: The door won't budge...
+  lockDuringKillerEvent: 1
+  killerLockedDialogue: The door is locked...
   killerLockedDialogueDuration: 3
   killerLockedTypewriterSpeed: 30
   onTeleportComplete:
