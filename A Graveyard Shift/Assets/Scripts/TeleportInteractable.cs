@@ -19,6 +19,8 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     [Header("Ambient Sound")]
     [Tooltip("Set to true if the destination is indoors (cabin, house, etc.)")]
     [SerializeField] private bool destinationIsIndoor = false;
+    [Tooltip("If true, restores the ambient clip that was playing before a SetAmbientClipWithMemory call (e.g., going back outside from a church)")]
+    [SerializeField] private bool restorePreviousAmbientClip = false;
 
     [Header("Sanity")]
     [Tooltip("If true, destination is a safe zone where sanity cannot drain")]
@@ -110,6 +112,12 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
         else
         {
             AmbientSoundManager.Instance?.ExitIndoor();
+        }
+
+        // Restore original ambient clip if requested (e.g., leaving church back to outdoor)
+        if (restorePreviousAmbientClip)
+        {
+            AmbientSoundManager.Instance?.RestorePreviousAmbientClip();
         }
 
         // Update sanity safe zone

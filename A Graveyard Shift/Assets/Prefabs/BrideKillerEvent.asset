@@ -79,7 +79,7 @@ MonoBehaviour:
   jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
   jumpscareHeadShake: 1
   headShakeBoneName: CC_Base_Head
-  headShakeTiltAmount: 60
+  headShakeTiltAmount: 25
   headShakeTurnAmount: 0
   headShakeSpeed: 65
   headShakeRandomness: 30

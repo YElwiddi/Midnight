@@ -5861,6 +5861,7 @@ MonoBehaviour:
   teleportSound: {fileID: 0}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 0
+  restorePreviousAmbientClip: 0
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
   lockDuringKillerEvent: 1
@@ -7277,21 +7278,21 @@ MonoBehaviour:
     the other side.
   lockedSpeakerName: 
   lockedDialogueDuration: 3
-  confirmationMessage: There is a cold chill coming from the other side. I have a
-    bad feeling about this. I don't think I should be here. Should I enter anyway?
+  confirmationMessage: There is a cold chill coming from the other side. Should I
+    enter?
   yesOptionText: Yes
   noOptionText: No
   useTypewriterEffect: 1
-  typewriterSpeed: 50
+  typewriterSpeed: 75
   muteTypewriterSound: 1
   teleportDestination: {fileID: 1671149526}
   interactionPrompt: Enter
   setPlayerRotation: 0
-  targetRotation: {x: 0, y: 0, z: 0}
+  targetRotation: {x: 0, y: 90, z: 0}
   transitionDuration: 2
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  destinationIsIndoor: 0
-  destinationAmbientClip: {fileID: 0}
+  destinationIsIndoor: 1
+  destinationAmbientClip: {fileID: 8300000, guid: 3d9883b1bfc9e4740ac4bb2ac27f0a6d, type: 3}
   destinationAmbientVolume: -1
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
@@ -14950,6 +14951,7 @@ MonoBehaviour:
   teleportSound: {fileID: 0}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 0
+  restorePreviousAmbientClip: 0
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
   lockDuringKillerEvent: 0
@@ -26733,7 +26735,7 @@ Transform:
   m_GameObject: {fileID: 745245270}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.57, y: 49.9, z: -34.63}
+  m_LocalPosition: {x: -45.98, y: 49.9, z: -34.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40572,7 +40574,7 @@ MonoBehaviour:
   m_SerializedVersion: 1
   m_AgentTypeID: 0
   m_StartPoint: {x: -1.9596634, y: -4.2778625, z: 0.14797592}
-  m_EndPoint: {x: -2.224205, y: 0.7811279, z: 1.9902973}
+  m_EndPoint: {x: -2.224205, y: 1.302063, z: 1.9012661}
   m_StartTransform: {fileID: 0}
   m_EndTransform: {fileID: 0}
   m_Activated: 1
@@ -47363,6 +47365,7 @@ MonoBehaviour:
   teleportSound: {fileID: 0}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 0
+  restorePreviousAmbientClip: 1
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
   lockDuringKillerEvent: 1
@@ -57643,6 +57646,7 @@ MonoBehaviour:
   teleportSound: {fileID: 8300000, guid: 201769bf41757d64a90a36dac9032da0, type: 3}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 0
+  restorePreviousAmbientClip: 0
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
   lockDuringKillerEvent: 1
@@ -58667,6 +58671,7 @@ MonoBehaviour:
   teleportSound: {fileID: 8300000, guid: 201769bf41757d64a90a36dac9032da0, type: 3}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 0
+  restorePreviousAmbientClip: 0
   destinationIsSafeZone: 0
   destinationLightingPreset: 0
   lockDuringKillerEvent: 0
