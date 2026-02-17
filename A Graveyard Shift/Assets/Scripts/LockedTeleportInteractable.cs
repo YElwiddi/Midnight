@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
+using Unity.AI.Navigation;
 
 public class LockedTeleportInteractable : MonoBehaviour, IInteractable
 {
@@ -50,6 +51,10 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
     [Header("Events")]
     [Tooltip("Called when the teleport completes successfully")]
     public UnityEvent OnTeleportComplete;
+
+    [Header("NavMesh")]
+    [Tooltip("HACK: Two NavMesh surfaces (GraveyardMap and FBX) are colliding. Disabling the FBX NavMesh agent fixes crypt killer movement but breaks jumpscare angles. Keeping both on breaks killer pathing. This disables the GraveyardMap surface on teleport as a workaround.")]
+    [SerializeField] private bool disableGraveyardNavMesh = false;
 
     [Header("Post-Teleport Game Event")]
     [Tooltip("Optional: A GameEvent to trigger after teleportation completes (e.g., escort NPC for ending sequence)")]
@@ -177,6 +182,21 @@ public class LockedTeleportInteractable : MonoBehaviour, IInteractable
         {
             Debug.Log($"LockedTeleportInteractable: Applying lighting preset '{destinationLightingPreset}'");
             LightingController.Instance.ApplyPreset(destinationLightingPreset);
+        }
+
+        // Disable graveyard NavMeshSurface if configured (prevents graveyard NPCs from pathing into crypt)
+        if (disableGraveyardNavMesh)
+        {
+            GameObject graveyardMap = GameObject.Find("GraveyardMap");
+            if (graveyardMap != null)
+            {
+                NavMeshSurface surface = graveyardMap.GetComponent<NavMeshSurface>();
+                if (surface != null)
+                {
+                    surface.enabled = false;
+                    Debug.Log("LockedTeleportInteractable: Disabled GraveyardMap NavMeshSurface");
+                }
+            }
         }
 
         // Refresh zone tracking after teleport (OnTriggerEnter/Exit don't fire on teleport)

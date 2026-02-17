@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public bool GraveyardEndingTriggered = false;
     public bool ChurchInsanity = false;
     public bool BrideKillerReady = false;
+    public bool ChurchDoorUnlocked = false;
 
     [Header("Dirt Pile Stats")]
     public int IncorrectDigCount = 0;
@@ -135,6 +136,7 @@ public class GameManager : MonoBehaviour
             case "graveyardendtriggered": return GraveyardEndingTriggered;
             case "churchinsanity": return ChurchInsanity;
             case "bridekillerready": return BrideKillerReady;
+            case "churchdoorunlocked": return ChurchDoorUnlocked;
             default:
                 Debug.LogWarning($"GameManager: Bool flag '{flagName}' not found");
                 return false;
@@ -154,6 +156,7 @@ public class GameManager : MonoBehaviour
             case "graveyardendtriggered":
             case "churchinsanity":
             case "bridekillerready":
+            case "churchdoorunlocked":
                 return true;
             default:
                 return false;
@@ -191,6 +194,10 @@ public class GameManager : MonoBehaviour
                 BrideKillerReady = value;
                 Debug.Log($"BrideKillerReady set to {value}");
                 break;
+            case "churchdoorunlocked":
+                ChurchDoorUnlocked = value;
+                Debug.Log($"ChurchDoorUnlocked set to {value}");
+                break;
             default:
                 Debug.LogWarning($"Bool flag {flagName} not found in GameManager");
                 break;
@@ -217,6 +224,7 @@ public class GameManager : MonoBehaviour
         GraveyardEndingTriggered = false;
         ChurchInsanity = false;
         BrideKillerReady = false;
+        ChurchDoorUnlocked = false;
 
         // Reset dirt pile stats
         IncorrectDigCount = 0;
@@ -230,7 +238,7 @@ public class GameManager : MonoBehaviour
     {
         if (!showDebugStats) return;
 
-        GUI.Box(new Rect(10, 10, 200, 290), "Player Stats");
+        GUI.Box(new Rect(10, 10, 200, 310), "Player Stats");
         GUI.Label(new Rect(20, 30, 180, 20), $"Scared: {player_scared}");
         GUI.Label(new Rect(20, 50, 180, 20), $"Mean: {player_mean}");
         GUI.Label(new Rect(20, 70, 180, 20), $"Stupid: {player_stupid}");
@@ -244,5 +252,6 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(20, 230, 180, 20), $"IncorrectDigCount: {IncorrectDigCount}");
         GUI.Label(new Rect(20, 250, 180, 20), $"ChurchInsanity: {ChurchInsanity}");
         GUI.Label(new Rect(20, 270, 180, 20), $"BrideKillerReady: {BrideKillerReady}");
+        GUI.Label(new Rect(20, 290, 180, 20), $"ChurchDoorUnlocked: {ChurchDoorUnlocked}");
     }
 }

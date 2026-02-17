@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SetGameBoolFlag(flagName, value)
 EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0

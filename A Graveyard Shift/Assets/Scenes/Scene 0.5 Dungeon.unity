@@ -5131,8 +5131,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
-  overrideFontColor: 0
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation: \n\u201CThe Beast\u201D\nSource
     redacted\n\nSurvivors agree on this much: the creature does not announce itself.
@@ -5284,7 +5284,7 @@ Transform:
   m_GameObject: {fileID: 133527417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -54.11, y: 48.01644, z: -18.45}
+  m_LocalPosition: {x: -54.41, y: 48.01644, z: -18.45}
   m_LocalScale: {x: 51, y: 25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5855,7 +5855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportInteractable
   teleportDestination: {fileID: 1848369118}
   interactionPrompt: Enter
-  setPlayerRotation: 0
+  setPlayerRotation: 1
   targetRotation: {x: 0, y: 0, z: 0}
   transitionDuration: 2
   teleportSound: {fileID: 0}
@@ -7272,10 +7272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ea085f2785aa14284f637036af5312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTeleportInteractable
-  requiresUnlock: 0
+  requiresUnlock: 1
   requiredBoolFlag: churchdoorunlocked
-  lockedDialogueText: The door is tightly locked. There is a cold breeze coming from
-    the other side.
+  lockedDialogueText: The door is locked. There is a cold chill coming from the other
+    side.
   lockedSpeakerName: 
   lockedDialogueDuration: 3
   confirmationMessage: There is a cold chill coming from the other side. Should I
@@ -7287,8 +7287,8 @@ MonoBehaviour:
   muteTypewriterSound: 1
   teleportDestination: {fileID: 1671149526}
   interactionPrompt: Enter
-  setPlayerRotation: 0
-  targetRotation: {x: 0, y: 90, z: 0}
+  setPlayerRotation: 1
+  targetRotation: {x: 0, y: 270, z: 0}
   transitionDuration: 2
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   destinationIsIndoor: 1
@@ -9795,7 +9795,7 @@ Transform:
   m_GameObject: {fileID: 235240456}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.96, y: 48.01644, z: -14.15}
+  m_LocalPosition: {x: -29.37, y: 48.01644, z: -14.15}
   m_LocalScale: {x: 1, y: 25, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10590,8 +10590,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
-  overrideFontColor: 0
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation:\n\u201CThe Friend\u201D\nStrange
     encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without
@@ -13566,6 +13566,7 @@ MonoBehaviour:
   OnTeleportComplete:
     m_PersistentCalls:
       m_Calls: []
+  disableGraveyardNavMesh: 0
   eventToTriggerAfterTeleport: {fileID: 0}
 --- !u!1 &329804790
 GameObject:
@@ -14945,8 +14946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportInteractable
   teleportDestination: {fileID: 1165302926}
   interactionPrompt: Enter
-  setPlayerRotation: 0
-  targetRotation: {x: 0, y: 0, z: 0}
+  setPlayerRotation: 1
+  targetRotation: {x: 0, y: 180, z: 0}
   transitionDuration: 2
   teleportSound: {fileID: 0}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
@@ -15752,8 +15753,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
-  overrideFontColor: 0
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation:\n\u201CThe Wraith\u201D\nLocation
     withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these
@@ -18469,38 +18470,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9118806471919503643, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
---- !u!114 &473376716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473376710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f313fd946b412c244a2a787e37e42530, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &474013280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18793,38 +18762,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
---- !u!114 &485672878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485672872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6eff84b51b9d82743ad74713ec014e07, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &488165668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5517231762817445388, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
@@ -19609,8 +19546,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
-  overrideFontColor: 0
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Recovered Field Note, Informal Designation:\n\u201CThe Yurei\u201D\n\nA new
     presence has been identified within the cemetery. The timing suggests a recent
@@ -20124,9 +20061,15 @@ PrefabInstance:
       addedObject: {fileID: 245287618}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 26
-      addedObject: {fileID: 1599193638}
+      addedObject: {fileID: 2082102690}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: 27
+      addedObject: {fileID: 1190066876}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 28
+      addedObject: {fileID: 1599193638}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: 29
       addedObject: {fileID: 1957330049}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
@@ -24254,7 +24197,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.24300002, y: 0.75100005, z: 2}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.003, y: -0.75000006, z: 1.8510001}
   m_TimeToStationary: 0.5
@@ -24270,6 +24213,7 @@ GameObject:
   - component: {fileID: 667537707}
   - component: {fileID: 667537706}
   - component: {fileID: 667537708}
+  - component: {fileID: 667537709}
   m_Layer: 2
   m_Name: IronGate2
   m_TagString: Untagged
@@ -24370,6 +24314,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3725152457051043143, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!208 &667537709
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667537704}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.536, y: 1.0020001, z: 0.060000002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.441, y: 0.347, z: 0.001}
+  m_TimeToStationary: 0.5
 --- !u!1001 &670626848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27154,7 +27114,7 @@ Transform:
   m_GameObject: {fileID: 757337588}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.69, y: 48.46644, z: -10.46}
+  m_LocalPosition: {x: -24.69, y: 47.14, z: -10.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27664,7 +27624,7 @@ Transform:
   m_GameObject: {fileID: 775019917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.24, y: 48.46644, z: -16.89}
+  m_LocalPosition: {x: -16.24, y: 46, z: -16.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27687,7 +27647,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -27700,7 +27660,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775019917}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28919,7 +28879,7 @@ Transform:
   m_GameObject: {fileID: 811897806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.18, y: 48.46, z: -58.8}
+  m_LocalPosition: {x: -37.332, y: 47, z: -58.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29748,9 +29708,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2272267585010135923, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 473376712}
-    - targetCorrespondingSourceObject: {fileID: 2272267585010135923, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 473376716}
     - targetCorrespondingSourceObject: {fileID: -913274237064280721, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1290382498}
@@ -29769,15 +29726,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6910497871996616, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 835242333}
-    - targetCorrespondingSourceObject: {fileID: -6910497871996616, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 835242337}
     - targetCorrespondingSourceObject: {fileID: 5148817236446094103, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 485672874}
-    - targetCorrespondingSourceObject: {fileID: 5148817236446094103, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 485672878}
     - targetCorrespondingSourceObject: {fileID: 4767400413853537203, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1924533515}
@@ -29827,7 +29778,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572711379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -30426,7 +30377,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.24300002, y: 0.75100005, z: 2}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.003, y: -0.75000006, z: 1.8510001}
   m_TimeToStationary: 0.5
@@ -30457,38 +30408,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -9215268638016474808, guid: 6a7e4101fb1c60e4aa4825f6f0e4d7da, type: 3}
---- !u!114 &835242337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835242331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: d82d0cd835c5348499b763c88716e977, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &842445456
 GameObject:
   m_ObjectHideFlags: 0
@@ -33506,7 +33425,7 @@ Transform:
   m_GameObject: {fileID: 947632406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.97, y: 48.46644, z: -17.49}
+  m_LocalPosition: {x: -23.97, y: 48.353, z: -17.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34233,6 +34152,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  disableGraveyardNavMesh: 1
   eventToTriggerAfterTeleport: {fileID: 0}
 --- !u!65 &970596342
 BoxCollider:
@@ -37724,7 +37644,7 @@ Transform:
   m_GameObject: {fileID: 1067697395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 48.46, z: -35.91}
+  m_LocalPosition: {x: -0.4, y: 47.4, z: -35.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40566,20 +40486,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170424891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshLink
   m_SerializedVersion: 1
   m_AgentTypeID: 0
-  m_StartPoint: {x: -1.9596634, y: -4.2778625, z: 0.14797592}
-  m_EndPoint: {x: -2.224205, y: 1.302063, z: 1.9012661}
+  m_StartPoint: {x: -1.9596634, y: -4.428131, z: 0.2672882}
+  m_EndPoint: {x: -2.224205, y: 1.4796295, z: 2.0573006}
   m_StartTransform: {fileID: 0}
   m_EndTransform: {fileID: 0}
   m_Activated: 1
   m_Width: 0
-  m_CostModifier: 1
+  m_CostModifier: 10000
   m_IsOverridingCost: 0
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
@@ -41279,6 +41199,7 @@ MonoBehaviour:
   OnTeleportComplete:
     m_PersistentCalls:
       m_Calls: []
+  disableGraveyardNavMesh: 0
   eventToTriggerAfterTeleport: {fileID: 11400000, guid: 15b94aa206260f442ba1c082d6f5203c, type: 2}
 --- !u!65 &1189430869
 BoxCollider:
@@ -41329,12 +41250,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190066875}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.027299253, z: 0.0021295277}
-  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1}
+  m_LocalRotation: {x: -0.49991274, y: -0.50008726, z: -0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: -32.147003, y: 0.14200006, z: 13.582001}
+  m_LocalScale: {x: 60, y: 60, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1957330049}
+  m_Father: {fileID: 548600992}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!64 &1190066877
 MeshCollider:
@@ -41482,7 +41403,7 @@ GameObject:
   - component: {fileID: 1194444995}
   - component: {fileID: 1194444996}
   m_Layer: 6
-  m_Name: DirtSite9
+  m_Name: DirtSite10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41496,12 +41417,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194444994}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: 2.7624207, y: 30.10644, z: -92.53403}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1599193638}
+  m_Father: {fileID: 1556411089}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!33 &1194444996
 MeshFilter:
@@ -42470,8 +42391,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 24
-  overrideFontColor: 0
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - 'The Watchman''s Notes
 
@@ -51129,6 +51050,7 @@ MonoBehaviour:
   GraveyardEndingTriggered: 0
   ChurchInsanity: 0
   BrideKillerReady: 0
+  ChurchDoorUnlocked: 0
   IncorrectDigCount: 0
   CorrectDigCount: 0
 --- !u!1 &1501059110
@@ -53559,9 +53481,11 @@ Transform:
   - {fileID: 1657325088}
   - {fileID: 1601242673}
   - {fileID: 1579363499}
+  - {fileID: 1194444995}
   - {fileID: 634323783}
   - {fileID: 53205691}
   - {fileID: 1492958991}
+  - {fileID: 1728735162}
   - {fileID: 297931309}
   - {fileID: 173681354}
   - {fileID: 2105146822}
@@ -54458,7 +54382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   eventQueue:
-  - selectionMode: 0
+  - selectionMode: 1
     singleEvent: {fileID: 11400000, guid: fe54572e94f9efe4f97239574fc23d3a, type: 2}
     eventGroup:
     - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
@@ -54466,7 +54390,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
     - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
     excludePreviouslySelectedEvents: 0
-    killerEvent: {fileID: 11400000, guid: 7a7366b0d9be2cc46974b31fef2aa0f3, type: 2}
+    killerEvent: {fileID: 11400000, guid: dc97502c503c7e941a2d53bd73c17c41, type: 2}
     conditionType: 0
     statName: GraveRobberSetup
     statComparison: 2
@@ -54668,8 +54592,8 @@ MonoBehaviour:
     spawnConditionRequirement: 0
     requiredZoneName: 
     requiredFacingObjectName: 
-  - selectionMode: 1
-    singleEvent: {fileID: 0}
+  - selectionMode: 0
+    singleEvent: {fileID: 11400000, guid: fe54572e94f9efe4f97239574fc23d3a, type: 2}
     eventGroup:
     - {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
     - {fileID: 11400000, guid: de2ca97ae66a4f040901c27ef8dccd61, type: 2}
@@ -54687,7 +54611,7 @@ MonoBehaviour:
     requiredZoneName: 
     requiredFacingObjectName: 
   - selectionMode: 1
-    singleEvent: {fileID: 0}
+    singleEvent: {fileID: 11400000, guid: fe54572e94f9efe4f97239574fc23d3a, type: 2}
     eventGroup:
     - {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
     - {fileID: 11400000, guid: de2ca97ae66a4f040901c27ef8dccd61, type: 2}
@@ -55031,9 +54955,7 @@ Transform:
   m_LocalPosition: {x: 5.326, y: 0.17, z: -20.893}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1194444995}
-  - {fileID: 2082102690}
+  m_Children: []
   m_Father: {fileID: 548600992}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!64 &1599193639
@@ -55216,6 +55138,7 @@ GameObject:
   - component: {fileID: 1608994173}
   - component: {fileID: 1608994172}
   - component: {fileID: 1608994174}
+  - component: {fileID: 1608994175}
   m_Layer: 2
   m_Name: IronGate1
   m_TagString: Untagged
@@ -55316,6 +55239,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!208 &1608994175
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608994170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.596, y: 1.0020001, z: 0.072000004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.50200003, y: 0.347, z: 0.014}
+  m_TimeToStationary: 0.5
 --- !u!1 &1616473998
 GameObject:
   m_ObjectHideFlags: 0
@@ -59956,7 +59895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1722954308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60257,12 +60196,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728735161}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0004, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.49991274, y: -0.50008726, z: -0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: -33.34558, y: 29.972439, z: -58.039032}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1957330049}
+  m_Father: {fileID: 1556411089}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!33 &1728735163
 MeshFilter:
@@ -60700,7 +60639,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748220679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -60764,7 +60703,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.14, y: 1, z: 0.91700006}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.013, y: -0.98300004, z: 0.90300006}
   m_TimeToStationary: 0.5
@@ -61647,8 +61586,8 @@ MonoBehaviour:
   lineSpacing: 0
   overrideFontSize: 1
   fontSize: 18
-  overrideFontColor: 0
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Recovered Field Note, Provisional Designation:\n\u201CThe Grave Robber\u201D\nSource
     redacted\n\nA recurring human presence has been connected to the majority of
@@ -63536,7 +63475,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826239517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -63600,7 +63539,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.14, y: 1, z: 0.91700006}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.013, y: -0.98300004, z: 0.90300006}
   m_TimeToStationary: 0.5
@@ -63928,7 +63867,7 @@ Transform:
   m_GameObject: {fileID: 1836086642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.25, y: 48.46644, z: -19.36}
+  m_LocalPosition: {x: -37.76, y: 46, z: -17.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63951,7 +63890,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -63964,7 +63903,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836086642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -66436,10 +66375,10 @@ MonoBehaviour:
     pileType: 0
   - spawnPoint: {fileID: 173681354}
     pileType: 1
-  - spawnPoint: {fileID: 1194444995}
-    pileType: 0
   - spawnPoint: {fileID: 1728735162}
     pileType: 1
+  - spawnPoint: {fileID: 1194444995}
+    pileType: 0
   useEndingScenarioManager: 1
   killerConfig: {fileID: 0}
   killerSpawnPoint: {fileID: 1241026896}
@@ -67577,9 +67516,7 @@ Transform:
   m_LocalPosition: {x: -30.782, y: 0.036, z: 13.582}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1728735162}
-  - {fileID: 1190066876}
+  m_Children: []
   m_Father: {fileID: 548600992}
   m_LocalEulerAnglesHint: {x: -89.98, y: -90, z: 0}
 --- !u!64 &1957330050
@@ -71381,12 +71318,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082102689}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.027299253, z: 0.0021295277}
-  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: 6.691002, y: 0.27600008, z: -20.892998}
+  m_LocalScale: {x: 60, y: 60, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1599193638}
+  m_Father: {fileID: 548600992}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!64 &2082102691
 MeshCollider:

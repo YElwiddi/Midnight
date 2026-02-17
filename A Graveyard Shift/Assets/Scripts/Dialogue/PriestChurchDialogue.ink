@@ -1,4 +1,5 @@
 EXTERNAL SetEventVar(varName, value)
+EXTERNAL SetGameBoolFlag(flagName, value)
 EXTERNAL SuspendDialogue()
 
 VAR player_mean = 0
@@ -22,6 +23,7 @@ Do you understand?
 
 
 + [Okay. Thank you, father.]
+     ~ SetGameBoolFlag("churchdoorunlocked", true)
      ~ SetEventVar("allowed_inside", true)
     -> END
 + [I've changed my mind. You should leave.]

@@ -959,7 +959,27 @@ public class KillerNPC : MonoBehaviour
             animator.SetBool(chaseAnimationBool, false);
         }
 
-        // Freeze player movement
+        // Close any open ReadableUI (notes, books, etc.)
+        if (ReadableUI.Instance != null && ReadableUI.Instance.IsOpen)
+        {
+            ReadableUI.Instance.Close();
+        }
+
+        // Close any active dialogues
+        SimpleDialogueTrigger.CancelActiveSimpleDialogue();
+        DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
+        if (dialogueUI != null && dialogueUI.IsVisible)
+        {
+            dialogueUI.ClearChoices();
+            dialogueUI.Hide();
+        }
+        DialogueManager dialogueManager = DialogueManager.GetInstance();
+        if (dialogueManager != null && dialogueManager.IsDialoguePlaying())
+        {
+            dialogueManager.ExitDialogueMode();
+        }
+
+        // Freeze player movement (including mouse look on children)
         FreezePlayer(true);
 
         // Ground the player (in case they're jumping)
@@ -1297,7 +1317,8 @@ public class KillerNPC : MonoBehaviour
         foreach (MonoBehaviour script in scripts)
         {
             string typeName = script.GetType().Name;
-            if (typeName.Contains("Controller") || typeName.Contains("Movement") || typeName.Contains("Player"))
+            if (typeName.Contains("Controller") || typeName.Contains("Movement") ||
+                typeName.Contains("Player") || typeName.Contains("Input"))
             {
                 script.enabled = !freeze;
             }
@@ -1310,12 +1331,27 @@ public class KillerNPC : MonoBehaviour
             foreach (MonoBehaviour script in scripts)
             {
                 string typeName = script.GetType().Name;
-                if (typeName.Contains("Controller") || typeName.Contains("Movement") || typeName.Contains("Player"))
+                if (typeName.Contains("Controller") || typeName.Contains("Movement") ||
+                    typeName.Contains("Player") || typeName.Contains("Input"))
                 {
                     script.enabled = !freeze;
                 }
             }
         }
+
+        // Also check children (camera rigs, mouse look, etc.)
+        scripts = playerTransform.GetComponentsInChildren<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            string typeName = script.GetType().Name;
+            if (typeName.Contains("MouseLook") || typeName.Contains("CameraController") ||
+                typeName.Contains("Look") || typeName.Contains("Input"))
+            {
+                script.enabled = !freeze;
+            }
+        }
+
+        Debug.Log($"KillerNPC: Player {(freeze ? "frozen" : "unfrozen")}");
     }
 
     private void GroundPlayer()

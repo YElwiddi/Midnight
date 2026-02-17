@@ -103,6 +103,10 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     // OffMeshLink traversal
     private bool isTraversingLink = false;
+
+    // Partial path handling
+    private Coroutine partialPathCoroutine;
+    private Vector3 partialPathTarget;
     #endregion
 
     #region Unity Lifecycle
@@ -550,9 +554,18 @@ public class EventNPC : MonoBehaviour, IInteractable
             waypointDescription = waypoint.waypointName;
         }
 
+        Debug.Log($"EventNPC {npcName}: === WAYPOINT {currentWaypointIndex} START === " +
+                  $"Target='{waypointDescription}' TargetPos={targetPosition} " +
+                  $"NPC Pos={transform.position} AgentPos={agent.nextPosition} " +
+                  $"AgentOnNavMesh={agent.isOnNavMesh} Speed={waypoint.moveSpeed}");
+
         agent.speed = waypoint.moveSpeed;
         agent.acceleration = 999f; // Instant acceleration
         agent.SetDestination(targetPosition);
+
+        // Monitor for partial paths and handle with warp when NPC reaches end of reachable path
+        if (partialPathCoroutine != null) StopCoroutine(partialPathCoroutine);
+        partialPathCoroutine = StartCoroutine(MonitorPartialPath(targetPosition, waypointDescription));
 
         // DEBUG: Log path validity for stair/elevation issues
         StartCoroutine(DebugLogPathStatus(waypointDescription, targetPosition));
@@ -617,6 +630,12 @@ public class EventNPC : MonoBehaviour, IInteractable
 
         if (remainingDistance <= arrivalThreshold)
         {
+            string wpName = (waypoints != null && currentWaypointIndex < waypoints.Length)
+                ? waypoints[currentWaypointIndex].waypointName : "?";
+            Debug.Log($"EventNPC {npcName}: === ARRIVAL at waypoint {currentWaypointIndex} '{wpName}' === " +
+                      $"remainingDist={remainingDistance:F2} NPC Pos={transform.position} " +
+                      $"pathStatus={agent.pathStatus} isOnNavMesh={agent.isOnNavMesh}");
+
             agent.ResetPath();
             SetWalkingState(false);
 
@@ -859,7 +878,11 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     private IEnumerator WaitAtWaypoint(float waitTime)
     {
+        string wpName = (waypoints != null && currentWaypointIndex < waypoints.Length)
+            ? waypoints[currentWaypointIndex].waypointName : "?";
+        Debug.Log($"EventNPC {npcName}: Starting {waitTime}s wait at waypoint {currentWaypointIndex} '{wpName}', NPC Pos={transform.position}");
         yield return new WaitForSeconds(waitTime);
+        Debug.Log($"EventNPC {npcName}: Wait finished at waypoint {currentWaypointIndex} '{wpName}', NPC Pos={transform.position}, isOnNavMesh={agent.isOnNavMesh}");
         shouldTrackPlayer = false; // Stop tracking player when done waiting
 
         // If waiting for a blocking background NPC, don't advance yet
@@ -1005,7 +1028,10 @@ public class EventNPC : MonoBehaviour, IInteractable
     {
         if (currentState != NPCState.InDialogue) return;
 
-        Debug.Log($"EventNPC {npcName}: Dialogue ended, continuing to next waypoint");
+        string wpName = (waypoints != null && currentWaypointIndex < waypoints.Length)
+            ? waypoints[currentWaypointIndex].waypointName : "?";
+        Debug.Log($"EventNPC {npcName}: Dialogue ended at waypoint {currentWaypointIndex} '{wpName}', " +
+                  $"NPC Pos={transform.position}, isOnNavMesh={agent.isOnNavMesh}, continuing...");
         hasCompletedDialogue = true;
 
         // Trigger cinematic immediately after dialogue so player and NPC walk together
@@ -1063,7 +1089,10 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
 
         // Default: advance to next waypoint in sequence
-        currentWaypointIndex++;
+        int nextIndex = currentWaypointIndex + 1;
+        string nextName = (nextIndex < waypoints.Length) ? waypoints[nextIndex].waypointName : "END";
+        Debug.Log($"EventNPC {npcName}: Advancing from waypoint {currentWaypointIndex} to {nextIndex} ('{nextName}')");
+        currentWaypointIndex = nextIndex;
         MoveToNextWaypoint();
     }
 
@@ -1304,22 +1333,101 @@ public class EventNPC : MonoBehaviour, IInteractable
         while (agent.pathPending)
             yield return null;
 
-        Debug.Log($"EventNPC DEBUG [{npcName}]: Path to '{waypointName}' status={agent.pathStatus}, " +
-                  $"hasPath={agent.hasPath}, remainingDist={agent.remainingDistance:F2}, " +
-                  $"NPC Y={transform.position.y:F2}, Target Y={targetPos.y:F2}");
+        Debug.Log($"EventNPC DEBUG [{npcName}]: Path to '{waypointName}' " +
+                  $"status={agent.pathStatus}, hasPath={agent.hasPath}, " +
+                  $"remainingDist={agent.remainingDistance:F2}, " +
+                  $"NPC pos=({transform.position.x:F2}, {transform.position.y:F2}, {transform.position.z:F2}), " +
+                  $"Target pos=({targetPos.x:F2}, {targetPos.y:F2}, {targetPos.z:F2}), " +
+                  $"isOnNavMesh={agent.isOnNavMesh}, agentTypeID={agent.agentTypeID}, " +
+                  $"steeringTarget={agent.steeringTarget}");
 
         if (agent.path != null && agent.path.corners.Length > 0)
         {
             for (int i = 0; i < agent.path.corners.Length; i++)
             {
                 Vector3 c = agent.path.corners[i];
-                Debug.Log($"EventNPC DEBUG [{npcName}]: Path corner {i}: ({c.x:F2}, {c.y:F2}, {c.z:F2})");
+                Debug.Log($"EventNPC DEBUG [{npcName}]: Path corner {i}/{agent.path.corners.Length - 1}: ({c.x:F2}, {c.y:F2}, {c.z:F2})");
             }
         }
         else
         {
             Debug.LogWarning($"EventNPC DEBUG [{npcName}]: NO PATH CORNERS - agent cannot reach '{waypointName}'!");
         }
+
+        // Check if target is on the NavMesh
+        if (NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+        {
+            float snapDist = Vector3.Distance(targetPos, hit.position);
+            Debug.Log($"EventNPC DEBUG [{npcName}]: Nearest NavMesh to '{waypointName}' target: ({hit.position.x:F2}, {hit.position.y:F2}, {hit.position.z:F2}), snapDist={snapDist:F2}, mask={hit.mask}");
+        }
+        else
+        {
+            Debug.LogWarning($"EventNPC DEBUG [{npcName}]: '{waypointName}' target has NO NavMesh within 2m!");
+        }
+    }
+
+    private IEnumerator MonitorPartialPath(Vector3 targetPosition, string waypointDescription)
+    {
+        // Wait for path calculation
+        while (agent.pathPending)
+            yield return null;
+
+        if (agent.pathStatus != NavMeshPathStatus.PathPartial)
+        {
+            partialPathCoroutine = null;
+            yield break;
+        }
+
+        // Path is partial — save the last reachable corner
+        Vector3 lastCorner = transform.position;
+        if (agent.path != null && agent.path.corners.Length > 0)
+        {
+            lastCorner = agent.path.corners[agent.path.corners.Length - 1];
+        }
+
+        Debug.Log($"EventNPC {npcName}: Partial path detected to '{waypointDescription}', monitoring for end-of-path arrival (last corner: {lastCorner})");
+
+        // Wait until the NPC reaches the last reachable corner
+        while (currentState == NPCState.Walking || currentState == NPCState.Exiting)
+        {
+            float distToLastCorner = Vector3.Distance(transform.position, lastCorner);
+            if (distToLastCorner <= arrivalThreshold * 3f)
+            {
+                Debug.Log($"EventNPC {npcName}: Reached end of partial path ({distToLastCorner:F2}m from last corner), warping to '{waypointDescription}'");
+
+                // Stop the agent and warp to the target
+                agent.ResetPath();
+                agent.isStopped = true;
+
+                // Snap target to nearest NavMesh point
+                Vector3 warpTarget = targetPosition;
+                if (NavMesh.SamplePosition(targetPosition, out NavMeshHit navHit, 10f, NavMesh.AllAreas))
+                {
+                    warpTarget = navHit.position;
+                }
+                agent.Warp(warpTarget);
+                agent.isStopped = false;
+
+                Debug.Log($"EventNPC {npcName}: Warped to {warpTarget} (Y={warpTarget.y:F2})");
+
+                // Handle arrival
+                SetWalkingState(false);
+                if (currentState == NPCState.Exiting)
+                {
+                    CompleteEvent();
+                }
+                else
+                {
+                    HandleWaypointArrival();
+                }
+
+                partialPathCoroutine = null;
+                yield break;
+            }
+            yield return null;
+        }
+
+        partialPathCoroutine = null;
     }
 
     private bool IsLoweredPoseAnimation(string animationBool)

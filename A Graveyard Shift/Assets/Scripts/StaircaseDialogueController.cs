@@ -138,6 +138,13 @@ public class StaircaseDialogueController : MonoBehaviour
         elapsedTime = 0f;
         completedEntryCount = 0;
 
+        // Set bride killer ready at the start of the sequence
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.BrideKillerReady = true;
+            Debug.Log("StaircaseDialogue: BrideKillerReady set to true");
+        }
+
         int entryCount = dialogueEntries != null ? dialogueEntries.Length : 0;
         Debug.Log($"StaircaseDialogue: StartSequence - {entryCount} entries, finalText='{finalText}'");
 
@@ -469,14 +476,6 @@ public class StaircaseDialogueController : MonoBehaviour
         }
 
         Debug.Log($"StaircaseDialogue: Final text typewriter done, holding for {finalTextDisplayDuration}s");
-
-        // Set the flag as soon as the final text has fully typed out
-        // (before hold/fade, so it survives if the coroutine is killed by teleport/StopDialogue)
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.BrideKillerReady = true;
-            Debug.Log("StaircaseDialogue: BrideKillerReady set to true");
-        }
 
         // Hold
         yield return new WaitForSeconds(finalTextDisplayDuration);

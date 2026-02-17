@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /// <summary>
-/// Prevents NPCs from being pushed by the player's NavMeshObstacle
-/// while still allowing normal NavMeshAgent pathfinding.
+/// Prevents NPCs from being pushed by the player.
+/// Uses agent.updatePosition = false so the NavMeshAgent's internal simulation
+/// is decoupled from the transform — physics pushes on the transform don't
+/// affect the agent's pathfinding position. We manually sync the two.
 /// </summary>
 [RequireComponent(typeof(NavMeshAgent))]
 public class NPCAntiPush : MonoBehaviour
@@ -18,29 +20,47 @@ public class NPCAntiPush : MonoBehaviour
 
     void Start()
     {
-        // Store initial position as anchor
         anchorPosition = transform.position;
+        // Decouple agent simulation from transform so physics pushes are ignored
+        agent.updatePosition = false;
     }
 
     void LateUpdate()
     {
         if (agent == null || !agent.enabled) return;
 
+        // During OffMeshLink traversal, EventNPC controls position manually
+        if (agent.isOnOffMeshLink)
+        {
+            anchorPosition = transform.position;
+            return;
+        }
+
+        // Detect external teleport/warp (e.g. after OffMeshLink finishes)
+        float drift = Vector3.Distance(agent.nextPosition, anchorPosition);
+        if (drift > 3f)
+        {
+            anchorPosition = agent.nextPosition;
+        }
+
         // Check if NPC is actively moving to a destination
         bool isMoving = agent.hasPath && agent.remainingDistance > agent.stoppingDistance;
 
         if (isMoving)
         {
-            // While moving, anchor follows the agent's calculated position
+            // nextPosition is pure pathfinding — unaffected by physics
+            // because updatePosition is false
             anchorPosition = agent.nextPosition;
         }
 
-        // Always reset transform to anchor position (prevents push)
+        // Set transform to the clean anchor position (overrides any physics push)
         transform.position = anchorPosition;
-
-        // Sync agent's internal position to match transform
-        // This prevents the agent from thinking it's somewhere else
+        // Keep agent's internal position in sync
         agent.nextPosition = anchorPosition;
+
+        // Re-enforce updatePosition = false in case another script toggled it
+        // (e.g. EventNPC sets it to true after OffMeshLink traversal)
+        agent.updatePosition = false;
     }
 
     /// <summary>

@@ -33,7 +33,7 @@ MonoBehaviour:
   useCustomRotation: 0
   waypoints: []
   endGameOnPlayerTouch: 1
-  killDistance: 4
+  killDistance: 1
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
