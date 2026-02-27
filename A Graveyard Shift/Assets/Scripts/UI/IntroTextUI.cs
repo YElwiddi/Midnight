@@ -297,18 +297,18 @@ public class IntroTextUI : MonoBehaviour
     {
         canAdvance = false;
 
-        // Hide continue prompt
+        // Hide continue prompt and text, keep black background visible
         if (continuePrompt != null)
-        {
             continuePrompt.text = "";
-        }
+        if (mainText != null)
+            mainText.text = "";
+        if (pageImage != null)
+            pageImage.gameObject.SetActive(false);
 
-        // Fade out
-        yield return StartCoroutine(FadeOut());
+        yield return null;
 
-        gameObject.SetActive(false);
-
-        // Invoke callback
+        // Load next scene immediately while screen is still black
+        // Don't fade out - avoids briefly showing the main menu underneath
         onComplete?.Invoke();
     }
 

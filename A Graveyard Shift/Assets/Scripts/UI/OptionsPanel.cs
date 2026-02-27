@@ -20,6 +20,9 @@ public class OptionsPanel : MonoBehaviour
     [Header("Sensitivity")]
     public Slider mouseSensitivitySlider;
 
+    [Header("Brightness")]
+    public Slider brightnessSlider;
+
     // PlayerPrefs keys
     private const string MASTER_VOLUME_KEY = "MasterVolume";
     private const string MUSIC_VOLUME_KEY = "MusicVolume";
@@ -27,6 +30,7 @@ public class OptionsPanel : MonoBehaviour
     private const string MOUSE_SENSITIVITY_KEY = "MouseSensitivity";
     private const string FULLSCREEN_KEY = "Fullscreen";
     private const string QUALITY_KEY = "QualityLevel";
+    private const string BRIGHTNESS_KEY = "Brightness";
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void ApplyMasterVolumeOnLaunch()
@@ -64,6 +68,9 @@ public class OptionsPanel : MonoBehaviour
 
         if (mouseSensitivitySlider != null)
             mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
+
+        if (brightnessSlider != null)
+            brightnessSlider.onValueChanged.AddListener(SetBrightness);
     }
 
     private void LoadSettings()
@@ -111,6 +118,14 @@ public class OptionsPanel : MonoBehaviour
         {
             float sensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_KEY, 2f);
             mouseSensitivitySlider.value = sensitivity;
+        }
+
+        // Load brightness
+        if (brightnessSlider != null)
+        {
+            float bright = PlayerPrefs.GetFloat(BRIGHTNESS_KEY, 0.5f);
+            brightnessSlider.value = bright;
+            SetBrightness(bright);
         }
     }
 
@@ -165,6 +180,19 @@ public class OptionsPanel : MonoBehaviour
         }
     }
 
+    public void SetBrightness(float value)
+    {
+        // Slider goes 0-1, map to VHS brightness range (-0.2 to 0.2)
+        float vhsBrightness = Mathf.Lerp(-0.2f, 0.2f, value);
+        PlayerPrefs.SetFloat(BRIGHTNESS_KEY, value);
+
+        VHSRetroFeature vhs = FindFirstObjectByType<VHSRetroFeature>();
+        if (vhs != null)
+        {
+            vhs.brightness = vhsBrightness;
+        }
+    }
+
     public void SaveAndClose()
     {
         PlayerPrefs.Save();
@@ -179,6 +207,7 @@ public class OptionsPanel : MonoBehaviour
         if (fullscreenToggle != null) fullscreenToggle.isOn = true;
         if (qualityDropdown != null) qualityDropdown.value = QualitySettings.names.Length - 1;
         if (mouseSensitivitySlider != null) mouseSensitivitySlider.value = 2f;
+        if (brightnessSlider != null) brightnessSlider.value = 0.5f;
 
         PlayerPrefs.Save();
     }

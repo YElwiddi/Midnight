@@ -36887,7 +36887,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041983015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 381fd071ac7156641ab566c7ed7486cb, type: 3}
   m_Name: 
@@ -55618,7 +55618,7 @@ MonoBehaviour:
   glitchBlockSize: 0.0292
   contrast: 1.006
   saturation: 1.08
-  brightness: 0.02
+  brightness: 0.01889286
   gamma: 1.05
   tapeNoise: 0.057
   tapeSpeed: 0.5
