@@ -72,6 +72,9 @@ public class WaypointData
     [Tooltip("Speaker name for the waiting dialogue (leave empty for no speaker)")]
     public string waitingDialogueSpeaker = "";
 
+    [Tooltip("If true, the idle reminder nudge (e.g. \"I should check on my visitor.\") will NOT fire at this waypoint, even if the player lingers. Leave false for normal post-gate interaction waypoints.")]
+    public bool suppressIdleNudge = false;
+
     [Tooltip("Time to wait at this waypoint before continuing (ignored if waitForInteraction is true)")]
     [Range(0f, 30f)]
     public float waitTime = 0f;

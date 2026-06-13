@@ -54,6 +54,29 @@ public class EventNPC : MonoBehaviour, IInteractable
     [Tooltip("Camera FOV during dialogue (-1 to use default)")]
     [SerializeField] private float cameraZoom = -1f;
 
+    [Header("Idle Nudge (reminds player to talk to a waiting visitor)")]
+    [Tooltip("If true, shows a reminder line when the player lingers at a post-gate interaction waypoint without starting the conversation")]
+    [SerializeField] private bool enableIdleNudge = true;
+
+    [Tooltip("Waypoint name treated as the gate. The nudge never fires here - that's where the visitor is let in, not after.")]
+    [SerializeField] private string gateWaypointName = "NPCGatePoint";
+
+    [Tooltip("Seconds the player can linger before the first reminder fires")]
+    [SerializeField] private float idleNudgeDelay = 30f;
+
+    [Tooltip("Seconds between repeated reminders while the player still hasn't talked (0 = remind only once)")]
+    [SerializeField] private float idleNudgeRepeatInterval = 30f;
+
+    [Tooltip("Reminder line shown to the player")]
+    [TextArea(1, 3)]
+    [SerializeField] private string idleNudgeText = "I should check on my visitor.";
+
+    [Tooltip("How long the reminder stays on screen after typing finishes")]
+    [SerializeField] private float idleNudgeDisplayDuration = 4f;
+
+    [Tooltip("Reminder typewriter speed (characters per second)")]
+    [SerializeField] private float idleNudgeTypewriterSpeed = 30f;
+
     #endregion
 
     #region Events
@@ -82,6 +105,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     private float interactableAtTime = 0f;
     private bool isWaitingToBeInteractable = false;
     private Coroutine waitingDialogueCoroutine;
+    private Coroutine idleNudgeCoroutine;
 
     // Proximity sound tracking
     private Transform playerTransform;
@@ -309,6 +333,9 @@ public class EventNPC : MonoBehaviour, IInteractable
         // Clear the waiting flag now that we're interactable
         isWaitingToBeInteractable = false;
 
+        // Player engaged - stop the idle reminder nudge.
+        StopIdleNudge();
+
         if (dialogueManager == null)
         {
             dialogueManager = DialogueManager.GetInstance();
@@ -509,6 +536,7 @@ public class EventNPC : MonoBehaviour, IInteractable
         // Clear any previous idle animation and player tracking state
         ClearCurrentIdleAnimation();
         shouldTrackPlayer = false;
+        StopIdleNudge();
 
         // Re-enable NavMeshAgent in case it was disabled for an arrival animation
         agent.updatePosition = true;
@@ -833,6 +861,10 @@ public class EventNPC : MonoBehaviour, IInteractable
                 isWaitingToBeInteractable = false;
                 Debug.Log($"EventNPC {npcName}: Waiting for player interaction{trackingStatus}");
             }
+
+            // Arm the idle reminder ("I should check on my visitor.") for post-gate
+            // interaction waypoints, so the player doesn't forget to talk to continue.
+            TryStartIdleNudge(waypoint);
         }
         else if (waypoint.waitTime > 0)
         {
@@ -894,6 +926,59 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
 
         AdvanceToNextWaypoint();
+    }
+
+    /// <summary>
+    /// Arms the idle reminder nudge for a waypoint the player must interact with to
+    /// continue, unless this is the gate (where the visitor is let in) or the waypoint
+    /// opts out via suppressIdleNudge. Only post-gate "site" waypoints get the nudge.
+    /// </summary>
+    private void TryStartIdleNudge(WaypointData waypoint)
+    {
+        StopIdleNudge();
+
+        if (!enableIdleNudge) return;
+        if (waypoint == null || !waypoint.waitForInteraction) return;
+        if (waypoint.suppressIdleNudge) return;
+        if (string.IsNullOrEmpty(idleNudgeText)) return;
+
+        // Never nudge at the gate - that's the let-in decision, not "after letting them in".
+        if (!string.IsNullOrEmpty(gateWaypointName) && waypoint.waypointName == gateWaypointName) return;
+
+        idleNudgeCoroutine = StartCoroutine(IdleNudgeRoutine());
+    }
+
+    private void StopIdleNudge()
+    {
+        if (idleNudgeCoroutine != null)
+        {
+            StopCoroutine(idleNudgeCoroutine);
+            idleNudgeCoroutine = null;
+        }
+    }
+
+    private IEnumerator IdleNudgeRoutine()
+    {
+        yield return new WaitForSeconds(idleNudgeDelay);
+
+        // Keep reminding while the player still hasn't started the conversation.
+        while (currentState == NPCState.WaitingForInteraction)
+        {
+            // Don't talk over an active conversation (e.g. with another NPC).
+            if (dialogueManager == null || !dialogueManager.IsDialoguePlaying())
+            {
+                SimpleDialogueTrigger.ShowDialogue(idleNudgeText, "", idleNudgeDisplayDuration, idleNudgeTypewriterSpeed);
+            }
+
+            if (idleNudgeRepeatInterval <= 0f)
+            {
+                break;
+            }
+
+            yield return new WaitForSeconds(idleNudgeRepeatInterval);
+        }
+
+        idleNudgeCoroutine = null;
     }
 
     private IEnumerator AutoStartDialogueAfterDelay(WaypointData waypoint)
@@ -1022,6 +1107,12 @@ public class EventNPC : MonoBehaviour, IInteractable
         // Return to WaitingForInteraction so player can talk again
         currentState = NPCState.WaitingForInteraction;
         isWaitingToBeInteractable = false; // Immediately interactable
+
+        // Re-arm the reminder in case the player wandered off mid-conversation.
+        if (waypoints != null && currentWaypointIndex >= 0 && currentWaypointIndex < waypoints.Length)
+        {
+            TryStartIdleNudge(waypoints[currentWaypointIndex]);
+        }
     }
 
     private void HandleDialogueEnded()

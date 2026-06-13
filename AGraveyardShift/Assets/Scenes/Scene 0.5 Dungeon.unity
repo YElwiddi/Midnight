@@ -7833,12 +7833,20 @@ PrefabInstance:
       value: 10.199978
       objectReference: {fileID: 0}
     - target: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_Name
+      value: Huang Note
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890025291983454247, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      propertyPath: m_Name
+      value: Witch note
       objectReference: {fileID: 0}
     - target: {fileID: 3890025291983454247, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_Layer
@@ -8275,30 +8283,45 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8271616949327690117, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 442153284}
+    - targetCorrespondingSourceObject: {fileID: 8271616949327690117, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 442153288}
     - targetCorrespondingSourceObject: {fileID: 6964310573956129644, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 681295817}
     - targetCorrespondingSourceObject: {fileID: 6964310573956129644, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 681295816}
+    - targetCorrespondingSourceObject: {fileID: 6964310573956129644, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 681295821}
     - targetCorrespondingSourceObject: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1236936888}
     - targetCorrespondingSourceObject: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1236936889}
+    - targetCorrespondingSourceObject: {fileID: 3501661466438121629, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1236936893}
     - targetCorrespondingSourceObject: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1205589924}
     - targetCorrespondingSourceObject: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1205589925}
+    - targetCorrespondingSourceObject: {fileID: -4053118918463986200, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1205589929}
     - targetCorrespondingSourceObject: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1199041288}
     - targetCorrespondingSourceObject: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1199041287}
+    - targetCorrespondingSourceObject: {fileID: 8706021883636419665, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1199041292}
     - targetCorrespondingSourceObject: {fileID: 1261889749205560849, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1337103471}
@@ -8443,6 +8466,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3890025291983454247, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1241479726}
+    - targetCorrespondingSourceObject: {fileID: 3890025291983454247, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1241479731}
     - targetCorrespondingSourceObject: {fileID: 7498342553130148555, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1217414736}
@@ -17834,6 +17860,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2001346840367906648, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &442153288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442153279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: a703b39f9fe82c448a4e7fd3968cc8e7, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1 &443418781
 GameObject:
   m_ObjectHideFlags: 0
@@ -24776,7 +24820,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681295812}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 1331371573}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -24791,6 +24835,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5085785006493251204, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &681295821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681295812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: c7ff3c2c4e8be7846b7fd9d224f1dba0, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1 &684340526
 GameObject:
   m_ObjectHideFlags: 0
@@ -39977,6 +40039,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149051979}
   m_Mesh: {fileID: -4182407790977974390, guid: e35043ef4a2342148a156dff0e1bd650, type: 3}
+--- !u!1 &1149569680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149569682}
+  - component: {fileID: 1149569681}
+  m_Layer: 0
+  m_Name: GraveyardLightsDialogueCue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1149569681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149569680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61b722fb80b8644686a33f29b585773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaintainedLampsLitDialogueCue
+  dialogueText: That should be it. I need to keep these on.
+  speakerName: 
+  delayBeforeShow: 0
+  displayDuration: 4
+  typewriterSpeed: 30
+  minimumLamps: 2
+  playOnce: 1
+--- !u!4 &1149569682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149569680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153920616
 GameObject:
   m_ObjectHideFlags: 0
@@ -41522,6 +41635,24 @@ MonoBehaviour:
     enableShake: 0
     shakeIntensity: 2
     shakeSpeed: 25
+--- !u!114 &1199041292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199041283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: ae07bb2192107e74ba8547f6266d5f66, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1 &1199246082
 GameObject:
   m_ObjectHideFlags: 0
@@ -42025,6 +42156,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1462406932557771013, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &1205589929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205589920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: 6611a1d17ae3f334dbb67c3cc07c797c, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1 &1211163802
 GameObject:
   m_ObjectHideFlags: 0
@@ -42382,7 +42531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
   interactionPrompt: Read
   backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
-  fontOverride: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+  fontOverride: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
   overrideAlignment: 0
   textAlignment: 528
   overrideMargins: 0
@@ -42409,9 +42558,12 @@ MonoBehaviour:
     with the gravesites. You must also patrol the grounds.
   - If someone is trespassing, use your flashlight to deter them.
   - 'Ensure that the lights are on at all times throughout the graveyard. '
-  - Do not shine your flashlight directly onto the tombstones.
+  - The dead wish to rest quietly, they are not fond of bright lights directly on
+    their resting place.
   - Ensure that the crucifix is properly affixed onto the door of the cabin at all
     times. The crucifix will determine your sanity.
+  - 'Most importantly: respect the dead. Do not disturb their rest; deter those who
+    are unwelcomed.'
   enableLowSanityOverride: 0
   lowSanityThreshold: 0.25
   lowSanityOverrides:
@@ -42954,6 +43106,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7454563087570210087, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &1236936893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236936884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: c525985de5079cf4a9abf3d807526621, type: 2}
+  - {fileID: 11400000, guid: 96cb0fddf2d6f59418541ae8cf71564c, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1 &1238596154
 GameObject:
   m_ObjectHideFlags: 0
@@ -43382,6 +43553,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &1241479731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241479722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: 211dfbecd1b8246488d56cd5bb2eff6d, type: 2}
+  - {fileID: 11400000, guid: e6fb37b0a12413144bbf0cbb4d818fe9, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1 &1245398983
 GameObject:
   m_ObjectHideFlags: 0
@@ -45598,6 +45788,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327911920}
   m_Mesh: {fileID: 4104380202958562290, guid: 979ce106dd8c5b642b3ecab20c8d8069, type: 3}
+--- !u!134 &1331371573
+PhysicsMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 2
+  m_DynamicFriction: 0.6
+  m_StaticFriction: 0.6
+  m_Bounciness: 0
+  m_FrictionCombine: 0
+  m_BounceCombine: 0
 --- !u!1 &1331962823
 GameObject:
   m_ObjectHideFlags: 0
@@ -52711,6 +52914,7 @@ GameObject:
   - component: {fileID: 1541727599}
   - component: {fileID: 1541727598}
   - component: {fileID: 1541727597}
+  - component: {fileID: 1541727601}
   m_Layer: 6
   m_Name: Deloitte Note
   m_TagString: Untagged
@@ -52865,6 +53069,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541727595}
   m_Mesh: {fileID: 5085785006493251204, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!114 &1541727601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541727595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: de2ca97ae66a4f040901c27ef8dccd61, type: 2}
+  - {fileID: 11400000, guid: fbec69fd347d7b3468b3185b2f268657, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
 --- !u!1001 &1542193065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58568,6 +58791,7 @@ GameObject:
   - component: {fileID: 1703331692}
   - component: {fileID: 1703331691}
   - component: {fileID: 1703331690}
+  - component: {fileID: 1703331694}
   m_Layer: 6
   m_Name: CabinDoorInside
   m_TagString: Untagged
@@ -58709,6 +58933,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703331688}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1703331694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703331688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190a971b0f1941a4485bd9fd9e4ebfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CabinExitDialogueCue
+  dialogueText: I should get these lights on right away...
+  speakerName: 
+  delayAfterExit: 2
+  displayDuration: 5
+  typewriterSpeed: 30
+  playOnce: 1
 --- !u!1 &1705590493
 GameObject:
   m_ObjectHideFlags: 0
@@ -73773,3 +74015,4 @@ SceneRoots:
   - {fileID: 1106070609}
   - {fileID: 824947637}
   - {fileID: 1719996908}
+  - {fileID: 1149569682}
