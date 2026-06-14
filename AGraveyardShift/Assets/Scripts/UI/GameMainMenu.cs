@@ -18,9 +18,19 @@ public class GameMainMenu : MonoBehaviour
     public Button exitButton;
     public GameObject optionsPanel;
 
+    [Header("Endings")]
+    [Tooltip("Button that opens the Endings gallery")]
+    public Button endingsButton;
+    [Tooltip("Panel listing unlocked endings")]
+    public GameObject endingsPanel;
+
     [Header("Transition Settings")]
     [Tooltip("Fade duration when transitioning to game")]
     public float fadeOutDuration = 1f;
+    [Tooltip("Fade-in duration when the menu opens")]
+    public float fadeInDuration = 1f;
+    [Tooltip("If true, the screen fades up from black when the menu loads")]
+    public bool fadeInOnStart = true;
     public Image fadeOverlay;
 
     [Header("Intro Text")]
@@ -47,22 +57,35 @@ public class GameMainMenu : MonoBehaviour
         if (optionsButton != null)
             optionsButton.onClick.AddListener(OnOptionsClicked);
 
+        if (endingsButton != null)
+            endingsButton.onClick.AddListener(OnEndingsClicked);
+
         if (exitButton != null)
             exitButton.onClick.AddListener(OnExitClicked);
 
-        // Hide options panel initially
+        // Hide panels initially
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
+        if (endingsPanel != null)
+            endingsPanel.SetActive(false);
 
         // Set up SFX audio source
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.playOnAwake = false;
 
-        // Ensure fade overlay starts transparent
+        // Fade up from black when the menu opens (or just start transparent)
         if (fadeOverlay != null)
         {
             fadeOverlay.gameObject.SetActive(true);
-            fadeOverlay.color = new Color(0, 0, 0, 0);
+            if (fadeInOnStart)
+            {
+                fadeOverlay.color = new Color(0, 0, 0, 1f);
+                StartCoroutine(FadeInFromBlack());
+            }
+            else
+            {
+                fadeOverlay.color = new Color(0, 0, 0, 0f);
+            }
         }
 
         // Reset any game state from previous session
@@ -97,10 +120,34 @@ public class GameMainMenu : MonoBehaviour
     {
         PlayButtonSound();
 
+        if (endingsPanel != null)
+            endingsPanel.SetActive(false);
+
         if (optionsPanel != null)
         {
             optionsPanel.SetActive(!optionsPanel.activeSelf);
         }
+    }
+
+    public void OnEndingsClicked()
+    {
+        PlayButtonSound();
+
+        if (optionsPanel != null)
+            optionsPanel.SetActive(false);
+
+        if (endingsPanel != null)
+        {
+            endingsPanel.SetActive(!endingsPanel.activeSelf);
+        }
+    }
+
+    public void CloseEndings()
+    {
+        PlayButtonSound();
+
+        if (endingsPanel != null)
+            endingsPanel.SetActive(false);
     }
 
     public void OnExitClicked()
@@ -176,6 +223,22 @@ public class GameMainMenu : MonoBehaviour
     {
         Debug.Log($"GameMainMenu: Loading scene '{gameSceneName}'");
         SceneManager.LoadScene(gameSceneName);
+    }
+
+    private IEnumerator FadeInFromBlack()
+    {
+        if (fadeOverlay == null) yield break;
+
+        fadeOverlay.color = new Color(0, 0, 0, 1f);
+        float elapsed = 0f;
+        while (elapsed < fadeInDuration)
+        {
+            elapsed += Time.deltaTime;
+            float a = 1f - Mathf.Clamp01(elapsed / fadeInDuration);
+            fadeOverlay.color = new Color(0, 0, 0, a);
+            yield return null;
+        }
+        fadeOverlay.color = new Color(0, 0, 0, 0f);
     }
 
     private void PlayButtonSound()
