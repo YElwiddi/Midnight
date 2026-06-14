@@ -26,7 +26,8 @@ MonoBehaviour:
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
-  spawnPointName: BehindTombstone
+  spawnPointName: GraveRobberSpawn
+  spawnOnLockedDoorInteract: 1
   facePlayerOnSpawn: 1
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
@@ -38,6 +39,7 @@ MonoBehaviour:
   useAmbushMode: 1
   idleAnimationBool: 
   activationDistance: 17
+  ignoreActivationDistance: 1
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30
@@ -63,6 +65,7 @@ MonoBehaviour:
   shakeIntensity: 2
   shakeDuration: 2.16
   jumpscarePlayerHeightOffset: 0.65
+  causesFlashlightFlicker: 0
   lockFlashlightOnDuringJumpscare: 1
   flashlightTargetHeight: 3
   jumpscareFlashlightIntensity: 3

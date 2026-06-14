@@ -42,6 +42,9 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
     [Tooltip("Characters per second (0 = instant)")]
     [SerializeField] private float killerLockedTypewriterSpeed = 30f;
 
+    [Tooltip("If true, interacting with this locked door during a deferred ('armed') killer event spawns that killer (used for the Grave Robber cabin-door ambush).")]
+    [SerializeField] private bool spawnArmedKillerOnInteract = false;
+
     [Header("Events")]
     [Tooltip("Fired after the teleport sequence completes (after fade back in)")]
     public UnityEvent onTeleportComplete;
@@ -58,6 +61,12 @@ public class TeleportInteractable : MonoBehaviour, IInteractable
         if (lockDuringKillerEvent && GameFlowManager.Instance != null && GameFlowManager.Instance.IsKillerEventActive)
         {
             SimpleDialogueTrigger.ShowDialogue(killerLockedDialogue, "", killerLockedDialogueDuration, killerLockedTypewriterSpeed);
+
+            // Deferred Grave Robber ambush: trying the locked cabin door is what summons the killer behind the player.
+            if (spawnArmedKillerOnInteract)
+            {
+                GameFlowManager.Instance.NotifyLockedDoorInteracted();
+            }
             return;
         }
 

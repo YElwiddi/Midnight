@@ -47,6 +47,9 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("Distance at which the killer can be triggered")]
     [SerializeField] private float activationDistance = 10f;
 
+    [Tooltip("If true, the killer activates as soon as the player looks at it, regardless of distance (activationDistance is ignored)")]
+    [SerializeField] private bool ignoreActivationDistance = false;
+
     [Tooltip("If true, player must be looking at the killer to trigger chase")]
     [SerializeField] private bool requirePlayerLooking = true;
 
@@ -126,6 +129,8 @@ public class KillerNPC : MonoBehaviour
     [SerializeField] private float jumpscarePlayerHeightOffset = -0.3f;
 
     [Header("Flashlight Settings")]
+    [Tooltip("If false, this killer does not make the player's flashlight flicker when nearby")]
+    [SerializeField] private bool causesFlashlightFlicker = true;
     [SerializeField] private bool lockFlashlightOnDuringJumpscare = true;
 
     [Tooltip("Height offset for flashlight target (0 = killer's feet, 1.6 = typical face height)")]
@@ -415,8 +420,8 @@ public class KillerNPC : MonoBehaviour
 
     private void UpdateIdleState(float distanceToPlayer)
     {
-        // Check if player is within activation distance
-        if (distanceToPlayer > activationDistance)
+        // Check if player is within activation distance (skipped when ignoreActivationDistance is set — the player only needs to SEE the killer)
+        if (!ignoreActivationDistance && distanceToPlayer > activationDistance)
         {
             // Player too far, reset look timer
             playerLookTimer = 0f;
@@ -719,6 +724,11 @@ public class KillerNPC : MonoBehaviour
     public bool IsInAmbushMode() => useAmbushMode && currentState == KillerState.Idle;
 
     /// <summary>
+    /// Whether this killer should cause the player's flashlight to flicker when nearby.
+    /// </summary>
+    public bool CausesFlashlightFlicker => causesFlashlightFlicker;
+
+    /// <summary>
     /// Manually trigger the chase (bypasses ambush conditions).
     /// </summary>
     public void ForceActivateChase()
@@ -758,6 +768,7 @@ public class KillerNPC : MonoBehaviour
         jumpscarePlayerHeightOffset = killerEvent.jumpscarePlayerHeightOffset;
 
         // Flashlight settings
+        causesFlashlightFlicker = killerEvent.causesFlashlightFlicker;
         lockFlashlightOnDuringJumpscare = killerEvent.lockFlashlightOnDuringJumpscare;
         flashlightTargetHeight = killerEvent.flashlightTargetHeight;
         jumpscareFlashlightIntensity = killerEvent.jumpscareFlashlightIntensity;
@@ -824,6 +835,7 @@ public class KillerNPC : MonoBehaviour
         useAmbushMode = killerEvent.useAmbushMode;
         idleAnimationBool = killerEvent.idleAnimationBool;
         activationDistance = killerEvent.activationDistance;
+        ignoreActivationDistance = killerEvent.ignoreActivationDistance;
         requirePlayerLooking = killerEvent.requirePlayerLooking;
         lookDurationRequired = killerEvent.lookDurationRequired;
         playerLookAngle = killerEvent.playerLookAngle;

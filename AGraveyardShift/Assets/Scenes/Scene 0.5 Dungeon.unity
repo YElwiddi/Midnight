@@ -5522,6 +5522,119 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138141846}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &138168374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138168375}
+  - component: {fileID: 138168378}
+  - component: {fileID: 138168377}
+  - component: {fileID: 138168376}
+  m_Layer: 0
+  m_Name: GraveRobberSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &138168375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138168374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -13.35, y: 47.276497, z: -37.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556411089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &138168376
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138168374}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &138168377
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138168374}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &138168378
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138168374}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!223 &143300272 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3304333237081640242, guid: 4a8695403ea91454096458b188077a60, type: 3}
@@ -5868,6 +5981,7 @@ MonoBehaviour:
   killerLockedDialogue: The door is locked.
   killerLockedDialogueDuration: 3
   killerLockedTypewriterSpeed: 30
+  spawnArmedKillerOnInteract: 0
   onTeleportComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -15152,6 +15266,7 @@ MonoBehaviour:
   killerLockedDialogue: The door won't budge...
   killerLockedDialogueDuration: 3
   killerLockedTypewriterSpeed: 30
+  spawnArmedKillerOnInteract: 0
   onTeleportComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -47664,6 +47779,7 @@ MonoBehaviour:
   killerLockedDialogue: The door is locked...
   killerLockedDialogueDuration: 3
   killerLockedTypewriterSpeed: 30
+  spawnArmedKillerOnInteract: 0
   onTeleportComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -53141,7 +53257,7 @@ MonoBehaviour:
   lowSanityOverrides:
     overridePages: 1
     pages:
-    - WHICH ONE IS REALLY DEAD?
+    - NO REST
     overrideBackground: 0
     backgroundImage: {fileID: 0}
     fontOverride: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
@@ -53152,7 +53268,7 @@ MonoBehaviour:
     overrideLineSpacing: 0
     lineSpacing: 0
     overrideFontSize: 1
-    fontSize: 48
+    fontSize: 64
     overrideFontColor: 1
     fontColor: {r: 0.7264151, g: 0, b: 0, a: 1}
     enableShake: 1
@@ -53930,6 +54046,7 @@ Transform:
   - {fileID: 1443105338}
   - {fileID: 1760511947}
   - {fileID: 1643706773}
+  - {fileID: 138168375}
   - {fileID: 1721069934}
   - {fileID: 51343590}
   - {fileID: 1466621663}
@@ -57983,6 +58100,7 @@ MonoBehaviour:
   killerLockedDialogue: The door is locked.
   killerLockedDialogueDuration: 1
   killerLockedTypewriterSpeed: 0
+  spawnArmedKillerOnInteract: 1
   onTeleportComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -59009,6 +59127,7 @@ MonoBehaviour:
   killerLockedDialogue: The door won't budge...
   killerLockedDialogueDuration: 3
   killerLockedTypewriterSpeed: 30
+  spawnArmedKillerOnInteract: 0
   onTeleportComplete:
     m_PersistentCalls:
       m_Calls:

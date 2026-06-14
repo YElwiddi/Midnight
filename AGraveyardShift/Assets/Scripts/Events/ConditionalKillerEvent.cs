@@ -62,6 +62,10 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Name of the GameObject where the NPC will spawn (ignored if spawnInFrontOfPlayer is true)")]
     public string spawnPointName = "KillerSpawnPoint";
 
+    [Header("Deferred Spawn (Locked Door Trigger)")]
+    [Tooltip("If true, the killer does NOT spawn when the event begins. Instead the event 'arms': the ambience is silenced and doors that lock during killer events become locked. The killer spawns at spawnPointName only after the player interacts with a locked door flagged 'spawnArmedKillerOnInteract' (the cabin door). Used for the Grave Robber ambush.")]
+    public bool spawnOnLockedDoorInteract = false;
+
     [Header("Spawn Rotation")]
     [Tooltip("If true, the spawned NPC will face the player upon spawn")]
     public bool facePlayerOnSpawn = true;
@@ -100,6 +104,9 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Distance at which the killer can be triggered (player must be within this range)")]
     [Range(1f, 50f)]
     public float activationDistance = 10f;
+
+    [Tooltip("If true, the killer activates as soon as the player looks at it, regardless of distance (activationDistance is ignored). The player only needs to SEE the killer.")]
+    public bool ignoreActivationDistance = false;
 
     [Tooltip("If true, player must be looking at the killer to trigger the chase")]
     public bool requirePlayerLooking = true;
@@ -192,6 +199,9 @@ public class ConditionalKillerEvent : ScriptableObject
     public float jumpscarePlayerHeightOffset = -0.3f;
 
     [Header("Flashlight Settings")]
+    [Tooltip("If false, this killer does NOT make the player's flashlight flicker when nearby (the SimpleFlashlight proximity flicker ignores this killer).")]
+    public bool causesFlashlightFlicker = true;
+
     [Tooltip("If true, forces the flashlight on during the jumpscare")]
     public bool lockFlashlightOnDuringJumpscare = true;
 

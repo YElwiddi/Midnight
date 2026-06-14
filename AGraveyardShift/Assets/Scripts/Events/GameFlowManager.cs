@@ -72,10 +72,16 @@ public class GameFlowManager : MonoBehaviour
     private KillerNPC currentKillerNPC;
     private Coroutine waitingForKillerSpawnConditionsCoroutine;
 
+    // A deferred ("armed") killer event: the ambience is silenced and doors are locked,
+    // but the killer NPC is not spawned until the player interacts with the locked cabin door.
+    private ConditionalKillerEvent armedKillerEvent;
+
     /// <summary>
-    /// Returns true if a killer event is currently active (killer NPC is spawned).
+    /// Returns true if a killer event is currently active. This includes a deferred
+    /// ("armed") killer event that has silenced the ambience and locked the doors but
+    /// has not yet spawned its NPC.
     /// </summary>
-    public bool IsKillerEventActive => currentKillerNPC != null;
+    public bool IsKillerEventActive => currentKillerNPC != null || armedKillerEvent != null;
 
     // Game phase tracking (used by SideGameEventManager)
     private int currentPhase = 0;
@@ -1173,9 +1179,59 @@ public class GameFlowManager : MonoBehaviour
             return;
         }
 
+        // Deferred killers don't spawn yet — they arm (silence ambience + lock doors) and
+        // wait for the player to interact with the locked cabin door.
+        if (killerEvent.spawnOnLockedDoorInteract)
+        {
+            ArmDeferredKillerEvent(killerEvent);
+            return;
+        }
+
         currentKillerEvent = killerEvent;
         Debug.Log($"GameFlowManager: Starting killer event '{killerEvent.eventName}'");
 
+        SpawnKillerNPC(killerEvent);
+        FireKillerEventStarted(killerEvent);
+    }
+
+    /// <summary>
+    /// Arms a deferred killer event: silences the ambience and locks doors (via IsKillerEventActive)
+    /// without spawning the killer. The killer NPC is spawned later by NotifyLockedDoorInteracted().
+    /// </summary>
+    private void ArmDeferredKillerEvent(ConditionalKillerEvent killerEvent)
+    {
+        currentKillerEvent = killerEvent;
+        armedKillerEvent = killerEvent;
+        Debug.Log($"GameFlowManager: Killer event '{killerEvent.eventName}' armed — ambience silenced, doors locked. Waiting for the player to try the cabin door...");
+
+        // Fire started now so the ambience mutes and doors lock, even though the killer hasn't spawned yet.
+        FireKillerEventStarted(killerEvent);
+    }
+
+    /// <summary>
+    /// Called by a locked door (flagged spawnArmedKillerOnInteract) when the player interacts with it.
+    /// If a deferred killer event is armed, spawns its killer NPC now (e.g. behind the player).
+    /// </summary>
+    public void NotifyLockedDoorInteracted()
+    {
+        if (armedKillerEvent == null)
+        {
+            return;
+        }
+
+        ConditionalKillerEvent toSpawn = armedKillerEvent;
+        armedKillerEvent = null;
+        Debug.Log($"GameFlowManager: Locked cabin door interacted — spawning armed killer '{toSpawn.eventName}'.");
+
+        // Ambience was already muted / doors already locked when the event armed, so don't re-fire started.
+        SpawnKillerNPC(toSpawn);
+    }
+
+    /// <summary>
+    /// Instantiates and initializes the killer NPC for the given event. Does not fire event-started.
+    /// </summary>
+    private void SpawnKillerNPC(ConditionalKillerEvent killerEvent)
+    {
         // Determine spawn position
         Vector3 spawnPosition;
         Transform spawnPointTransform = null;
@@ -1257,8 +1313,13 @@ public class GameFlowManager : MonoBehaviour
                 null  // No cinematic for killers
             );
         }
+    }
 
-        // Fire event started
+    /// <summary>
+    /// Fires the "event started" notifications (used to mute ambience, etc.) for a killer event.
+    /// </summary>
+    private void FireKillerEventStarted(ConditionalKillerEvent killerEvent)
+    {
         OnEventStarted?.Invoke(killerEvent.eventName);
 
         if (GameEventsManager.instance != null)

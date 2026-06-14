@@ -233,6 +233,7 @@ public class SimpleFlashlight : MonoBehaviour
             foreach (var killer in killerNPCs)
             {
                 if (killer == null) continue;
+                if (!killer.CausesFlashlightFlicker) continue; // this killer is excluded from flashlight flicker
                 float dist = Vector3.Distance(playerPos, killer.transform.position);
                 if (dist < closestDistance)
                 {
