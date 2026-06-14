@@ -31,6 +31,12 @@ public class KillerNPC : MonoBehaviour
     [Tooltip("If true, uses jumpscare effect before game over")]
     [SerializeField] private bool useJumpscare = true;
 
+    [Header("Endings Integration")]
+    [Tooltip("If true, killing the player unlocks an ending + shows the reveal, then returns to the main menu.")]
+    public bool unlocksEnding = false;
+    [Tooltip("Which ending to unlock when this killer kills the player. Copied from the ConditionalKillerEvent on spawn.")]
+    public Ending endingToUnlock = Ending.Ambush;
+
     [Header("Ambush Settings")]
     [Tooltip("If true, killer stays idle until player is close and looking at them")]
     [SerializeField] private bool useAmbushMode = false;
@@ -872,6 +878,10 @@ public class KillerNPC : MonoBehaviour
             playerCamera = Camera.main;
         }
 
+        // Endings integration — carry the unlock tag from the event config.
+        unlocksEnding = killerEvent.unlocksEnding;
+        endingToUnlock = killerEvent.endingToUnlock;
+
         // Mark as initialized so Start() doesn't re-initialize
         hasBeenInitialized = true;
 
@@ -1566,6 +1576,13 @@ public class KillerNPC : MonoBehaviour
 
         // Reset time scale in case slow motion was active
         Time.timeScale = 1f;
+
+        // Endings: unlock it, show the reveal screen, then return to the main menu.
+        if (unlocksEnding)
+        {
+            EndingFlow.Trigger(endingToUnlock);
+            return;
+        }
 
         // Load game over scene if specified
         if (!string.IsNullOrEmpty(gameOverSceneName))

@@ -322,6 +322,12 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Scene to load after jumpscare completes (e.g., 'MainMenu'). Leave empty to stay in current scene.")]
     public string gameOverSceneName = "MainMenu";
 
+    [Header("Endings")]
+    [Tooltip("If true, this killer's kill unlocks an ending, shows the reveal screen, and returns to the main menu (instead of using gameOverSceneName).")]
+    public bool unlocksEnding = false;
+    [Tooltip("Which ending this killer unlocks when it kills the player.")]
+    public Ending endingToUnlock = Ending.Ambush;
+
     [Header("Exit Behavior")]
     [Tooltip("What happens to the killer NPC after completing all waypoints (if player survives)")]
     public NPCExitBehavior exitBehavior = NPCExitBehavior.Destroy;

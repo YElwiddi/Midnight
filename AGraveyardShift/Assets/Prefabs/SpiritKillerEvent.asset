@@ -97,6 +97,8 @@ MonoBehaviour:
   jumpscareDialogueShakeIntensity: 0
   jumpscareDialogueShakeSpeed: 25
   gameOverSceneName: Start Menu Scene
+  unlocksEnding: 1
+  endingToUnlock: 0
   exitBehavior: 0
   exitPointName: KillerExitPoint
   inkDialogue: {fileID: 0}

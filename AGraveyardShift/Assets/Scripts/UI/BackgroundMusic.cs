@@ -54,4 +54,19 @@ public class BackgroundMusic : MonoBehaviour
             musicSource.Stop();
         }
     }
+
+    /// <summary>
+    /// Immediately stops the menu music (e.g. when the player hits Play) and cancels
+    /// any pending "wait for disclaimer" coroutine so it can't restart.
+    /// </summary>
+    public void StopMusic()
+    {
+        StopAllCoroutines();
+
+        if (musicSource == null && musicObject != null)
+            musicSource = musicObject.GetComponent<AudioSource>();
+
+        if (musicSource != null)
+            musicSource.Stop();
+    }
 }

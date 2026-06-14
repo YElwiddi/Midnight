@@ -32,6 +32,9 @@ public class SideGameEventManager : MonoBehaviour
     [Tooltip("If true, the timer resets after each event completes. If false, timer runs continuously.")]
     [SerializeField] private bool resetTimerAfterEvent = true;
 
+    [Tooltip("When a spawn is blocked because the player is too close to the tombstone, re-check again after this many seconds.")]
+    [SerializeField] private float proximitySpawnRetryDelay = 2f;
+
     [Header("Phase Settings")]
     [Tooltip("If true, side events only spawn when the game phase is > 0")]
     [SerializeField] private bool requirePhaseGreaterThanZero = true;
@@ -382,6 +385,15 @@ public class SideGameEventManager : MonoBehaviour
         Vector3 targetPosition = spawnPoint.transform.position;
         Vector3 actualSpawnPosition = targetPosition;
 
+        // Block the spawn if the player is standing too close to this tombstone —
+        // re-check shortly so the watcher only appears once they've moved away.
+        if (sideEvent.minPlayerSpawnDistance > 0f && IsPlayerTooClose(targetPosition, sideEvent.minPlayerSpawnDistance))
+        {
+            Debug.Log($"SideGameEventManager: Spawn of '{sideEvent.eventName}' at '{spawnLocation.spawnPointName}' blocked - player within {sideEvent.minPlayerSpawnDistance}m. Retrying in {proximitySpawnRetryDelay}s.");
+            ScheduleNextEvent(proximitySpawnRetryDelay);
+            return;
+        }
+
         if (useMovement)
         {
             // Apply entrance offset - spawn at offset position, will move to target
@@ -424,6 +436,22 @@ public class SideGameEventManager : MonoBehaviour
         }
 
         Debug.Log($"SideGameEventManager: Spawned event '{sideEvent.eventName}' at '{spawnLocation.spawnPointName}'");
+    }
+
+    /// <summary>
+    /// True if the player is within minDistance (horizontal) of the given world position.
+    /// Used to block watcher spawns from appearing right next to the player.
+    /// </summary>
+    private bool IsPlayerTooClose(Vector3 worldPos, float minDistance)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return false;
+
+        Vector3 a = player.transform.position;
+        Vector3 b = worldPos;
+        a.y = 0f;
+        b.y = 0f;
+        return (a - b).sqrMagnitude < minDistance * minDistance;
     }
 
     private Quaternion CalculateSpawnRotation(Transform spawnPoint, SpawnLocationData locationData)

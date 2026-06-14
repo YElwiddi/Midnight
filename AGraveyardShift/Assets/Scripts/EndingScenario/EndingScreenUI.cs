@@ -21,13 +21,18 @@ public class EndingScreenUI : MonoBehaviour
     [SerializeField] private float fadeOutDuration = 1f;
 
     [Header("Typewriter Effect")]
-    [SerializeField] private bool useTypewriter = true;
+    [SerializeField] private bool useTypewriter = false;
     [SerializeField] private float typewriterSpeed = 30f;
+
+    [Header("Transition")]
+    [Tooltip("If false, the next scene loads while the screen is still black (smoother — the destination fades itself in). If true, fades out to reveal the scene first.")]
+    [SerializeField] private bool fadeOutBeforeLoad = false;
 
     // Runtime state
     private string menuSceneName;
     private float displayDuration;
     private bool isShowing = false;
+    private TMP_FontAsset titleFontOverride;
 
     private void Awake()
     {
@@ -49,12 +54,13 @@ public class EndingScreenUI : MonoBehaviour
     /// <summary>
     /// Shows the ending screen with the specified content.
     /// </summary>
-    public void Show(string title, string description, float duration, string menuScene)
+    public void Show(string title, string description, float duration, string menuScene, TMP_FontAsset titleFont = null)
     {
         if (isShowing) return;
 
         menuSceneName = menuScene;
         displayDuration = duration;
+        titleFontOverride = titleFont;
 
         gameObject.SetActive(true);
         StartCoroutine(ShowSequence(title, description));
@@ -70,62 +76,54 @@ public class EndingScreenUI : MonoBehaviour
             CreateUI();
         }
 
-        // Set initial text (hidden)
-        if (titleText != null)
-        {
-            titleText.text = "";
-        }
+        // Per-ending font for the reveal title.
+        if (titleFontOverride != null && titleText != null)
+            titleText.font = titleFontOverride;
+
+        // Collapse the description element when there's none so the title stays centered.
         if (descriptionText != null)
+            descriptionText.gameObject.SetActive(!string.IsNullOrEmpty(description));
+
+        if (useTypewriter)
         {
-            descriptionText.text = "";
-        }
+            // Reveal text via typewriter after the fade-in.
+            if (titleText != null) titleText.text = "";
+            if (descriptionText != null) descriptionText.text = "";
 
-        // Fade in the canvas
-        yield return StartCoroutine(FadeIn());
+            yield return StartCoroutine(FadeIn());
+            yield return new WaitForSeconds(0.5f);
 
-        // Small delay before text appears
-        yield return new WaitForSeconds(0.5f);
-
-        // Typewriter effect for title
-        if (titleText != null && !string.IsNullOrEmpty(title))
-        {
-            if (useTypewriter)
-            {
+            if (titleText != null && !string.IsNullOrEmpty(title))
                 yield return StartCoroutine(TypewriterEffect(titleText, title, typewriterSpeed * 0.5f));
-            }
-            else
-            {
-                titleText.text = title;
-            }
-        }
 
-        // Small delay between title and description
-        yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
 
-        // Typewriter effect for description
-        if (descriptionText != null && !string.IsNullOrEmpty(description))
-        {
-            if (useTypewriter)
-            {
+            if (descriptionText != null && !string.IsNullOrEmpty(description))
                 yield return StartCoroutine(TypewriterEffect(descriptionText, description, typewriterSpeed));
-            }
-            else
-            {
-                descriptionText.text = description;
-            }
+        }
+        else
+        {
+            // Show all text instantly; it fades in together with the black screen.
+            if (titleText != null) titleText.text = title;
+            if (descriptionText != null) descriptionText.text = description;
+
+            yield return StartCoroutine(FadeIn());
         }
 
-        // Wait for display duration (minus the time we've already spent)
-        float remainingTime = displayDuration - fadeInDuration - 1.5f;
-        if (remainingTime > 0)
+        // Hold on the ending.
+        float remainingTime = displayDuration - fadeInDuration;
+        if (remainingTime > 0f)
         {
             yield return new WaitForSeconds(remainingTime);
         }
 
-        // Fade out
-        yield return StartCoroutine(FadeOut());
+        // Go to the menu. Loading WHILE BLACK avoids a brief flash of the game scene
+        // (e.g. the jumpscare freeze-frame) — the menu fades itself in from black.
+        if (fadeOutBeforeLoad)
+        {
+            yield return StartCoroutine(FadeOut());
+        }
 
-        // Load menu scene or quit
         LoadMenuOrQuit();
     }
 
@@ -187,6 +185,8 @@ public class EndingScreenUI : MonoBehaviour
         {
             // Ensure time scale is normal before loading
             Time.timeScale = 1f;
+            // Coming from an ending: don't replay the headphones disclaimer on the menu.
+            DisclaimerScreen.MarkAsShown();
             SceneManager.LoadScene(menuSceneName);
         }
         else
@@ -260,7 +260,7 @@ public class EndingScreenUI : MonoBehaviour
         titleText.color = Color.white;
 
         LayoutElement titleLayout = titleObj.AddComponent<LayoutElement>();
-        titleLayout.preferredHeight = 100f;
+        titleLayout.preferredHeight = 220f;
 
         // Create description text
         GameObject descObj = new GameObject("DescriptionText");

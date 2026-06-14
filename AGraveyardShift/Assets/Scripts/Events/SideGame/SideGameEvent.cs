@@ -109,6 +109,9 @@ public class SideGameEvent : ScriptableObject
     [Tooltip("List of possible spawn locations (one will be randomly selected)")]
     public SpawnLocationData[] spawnLocations;
 
+    [Tooltip("Don't spawn the watcher at a tombstone if the player is within this distance (meters, horizontal). The spawn is blocked and retried until the player moves away. Set to 0 to disable the check.")]
+    public float minPlayerSpawnDistance = 8f;
+
     [Header("Entrance Behavior")]
     [Tooltip("If true, watcher spawns offset from the spawn point and moves to it")]
     public bool useEntranceMovement = false;

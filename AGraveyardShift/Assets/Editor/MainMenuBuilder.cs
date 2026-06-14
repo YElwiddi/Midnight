@@ -150,6 +150,20 @@ public static class MainMenuBuilder
         return "OK: built main menu (logo, 4 buttons, endings modal, options reskin) and saved scene.";
     }
 
+    [MenuItem("Tools/Graveyard/Endings/Unlock All")]
+    public static void UnlockAllEndings()
+    {
+        foreach (var e in EndingInfo.InOrder) EndingsSave.Unlock(e);
+        Debug.Log("MainMenuBuilder: all endings unlocked.");
+    }
+
+    [MenuItem("Tools/Graveyard/Endings/Reset All")]
+    public static void ResetAllEndings()
+    {
+        EndingsSave.ResetAll();
+        Debug.Log("MainMenuBuilder: all endings reset.");
+    }
+
     // ---------- Endings modal ----------
     private static RectTransform BuildEndingsModal(Transform parent, Sprite modal, Sprite header, Sprite cancel, TMP_FontAsset font, GameMainMenu menu)
     {
@@ -193,12 +207,22 @@ public static class MainMenuBuilder
         subRt.sizeDelta = new Vector2(700f, 40f);
         subRt.anchoredPosition = new Vector2(0f, -196f);
 
-        // 2x2 grid of locked slots.
+        // 2x2 grid of ending slots (filled at runtime by EndingsMenuDisplay).
         var slotSize = new Vector2(486f, 150f);
-        MakeSlot(modalRt, "I", new Vector2(-262f, 64f), slotSize, font);
-        MakeSlot(modalRt, "II", new Vector2(262f, 64f), slotSize, font);
-        MakeSlot(modalRt, "III", new Vector2(-262f, -116f), slotSize, font);
-        MakeSlot(modalRt, "IV", new Vector2(262f, -116f), slotSize, font);
+        var slotPos = new Vector2[]
+        {
+            new Vector2(-262f, 64f), new Vector2(262f, 64f),
+            new Vector2(-262f, -116f), new Vector2(262f, -116f)
+        };
+        var slotValues = new TextMeshProUGUI[4];
+        var slotTypes = new TextMeshProUGUI[4];
+        for (int i = 0; i < 4; i++)
+        {
+            var info = EndingInfo.Get(EndingInfo.InOrder[i]);
+            Transform slot = MakeSlot(modalRt, info.roman, slotPos[i], slotSize, font);
+            slotValues[i] = slot.Find("Value").GetComponent<TextMeshProUGUI>();
+            slotTypes[i] = slot.Find("Type").GetComponent<TextMeshProUGUI>();
+        }
 
         // Cancel button -> close.
         var cancelBtn = MakeButton("CancelButton", modalRt, cancel, 300f, Vector2.zero);
@@ -209,11 +233,17 @@ public static class MainMenuBuilder
         cRt.anchoredPosition = new Vector2(0f, 34f);
         UnityEventTools.AddPersistentListener(cancelBtn.onClick, menu.CloseEndings);
 
+        // Runtime display: fills the slots from the saved unlocks when the panel opens.
+        var disp = panel.gameObject.AddComponent<EndingsMenuDisplay>();
+        disp.slotValues = slotValues;
+        disp.slotTypes = slotTypes;
+        disp.subtitle = sub;
+
         panel.gameObject.SetActive(false);
         return panel;
     }
 
-    private static void MakeSlot(Transform parent, string numeral, Vector2 pos, Vector2 size, TMP_FontAsset font)
+    private static Transform MakeSlot(Transform parent, string numeral, Vector2 pos, Vector2 size, TMP_FontAsset font)
     {
         var slot = NewRect("Slot_" + numeral, parent);
         slot.anchorMin = slot.anchorMax = new Vector2(0.5f, 0.5f);
@@ -235,9 +265,27 @@ public static class MainMenuBuilder
         nRt.sizeDelta = new Vector2(120f, 44f);
         nRt.anchoredPosition = new Vector2(18f, -10f);
 
-        var val = NewText("Value", slot, "??????", font, 60f, new Color(0.82f, 0.82f, 0.82f, 0.92f), TextAlignmentOptions.Center);
-        val.characterSpacing = 6f;
-        Stretch(val.rectTransform);
+        // Main value: "??????" when locked, or the ending title. Auto-size so long titles fit.
+        var val = NewText("Value", slot, "??????", font, 54f, new Color(0.82f, 0.82f, 0.82f, 0.92f), TextAlignmentOptions.Center);
+        val.characterSpacing = 4f;
+        val.enableAutoSizing = true;
+        val.fontSizeMin = 22f;
+        val.fontSizeMax = 56f;
+        var vRt = val.rectTransform;
+        vRt.anchorMin = vRt.anchorMax = new Vector2(0.5f, 0.5f);
+        vRt.pivot = new Vector2(0.5f, 0.5f);
+        vRt.sizeDelta = new Vector2(size.x - 48f, 78f);
+        vRt.anchoredPosition = new Vector2(0f, 12f);
+
+        // Type label (Bad/Good) — only shown for unlocked endings.
+        var type = NewText("Type", slot, "", font, 24f, new Color(1f, 1f, 1f, 0.45f), TextAlignmentOptions.Center);
+        var tRt = type.rectTransform;
+        tRt.anchorMin = tRt.anchorMax = new Vector2(0.5f, 0f);
+        tRt.pivot = new Vector2(0.5f, 0f);
+        tRt.sizeDelta = new Vector2(size.x - 48f, 34f);
+        tRt.anchoredPosition = new Vector2(0f, 16f);
+
+        return slot;
     }
 
     // ---------- Options reskin + resolution/fullscreen controls ----------

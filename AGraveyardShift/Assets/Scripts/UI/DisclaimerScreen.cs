@@ -12,6 +12,15 @@ public class DisclaimerScreen : MonoBehaviour
 
     public static bool HasShown { get; private set; }
 
+    /// <summary>
+    /// Marks the disclaimer as already shown so it won't replay (e.g. when returning
+    /// to the menu from an ending — the player has been playing, no need to warn again).
+    /// </summary>
+    public static void MarkAsShown()
+    {
+        HasShown = true;
+    }
+
     private Image backgroundImage;
     private CanvasGroup textCanvasGroup;
 

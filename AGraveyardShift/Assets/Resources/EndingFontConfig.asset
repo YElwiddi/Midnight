@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11981b6199f9af4abd59a204a407e07, type: 3}
+  m_Name: EndingFontConfig
+  m_EditorClassIdentifier: Assembly-CSharp::EndingFontConfig
+  badEndingFont: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+  goodEndingFont: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+  goodQuestionFont: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}

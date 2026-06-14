@@ -407,6 +407,10 @@ public class CinematicPlayerController : MonoBehaviour
 
     private IEnumerator ShowEndingScreen()
     {
+        // Record the ending unlock for the main-menu gallery (good cinematic ending).
+        if (currentCinematic != null && currentCinematic.unlocksEnding)
+            EndingsSave.Unlock(currentCinematic.endingToUnlock);
+
         // Find or create EndingScreenUI
         EndingScreenUI endingUI = FindObjectOfType<EndingScreenUI>();
 
@@ -416,12 +420,22 @@ public class CinematicPlayerController : MonoBehaviour
             endingUI = CreateBasicEndingScreen();
         }
 
-        // Show the ending screen
+        // Show the ending screen — use the consistent reveal format + font for tagged endings.
+        string endTitle = currentCinematic.endingTitle;
+        string endDesc = currentCinematic.endingDescription;
+        TMPro.TMP_FontAsset endFont = null;
+        if (currentCinematic.unlocksEnding)
+        {
+            endTitle = EndingInfo.RevealText(currentCinematic.endingToUnlock);
+            endDesc = "";
+            endFont = EndingFonts.Get(currentCinematic.endingToUnlock);
+        }
         endingUI.Show(
-            currentCinematic.endingTitle,
-            currentCinematic.endingDescription,
+            endTitle,
+            endDesc,
             currentCinematic.endingScreenDuration,
-            currentCinematic.menuSceneName
+            currentCinematic.menuSceneName,
+            endFont
         );
 
         // Wait for the ending screen duration

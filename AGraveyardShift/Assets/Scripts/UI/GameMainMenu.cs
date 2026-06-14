@@ -113,7 +113,22 @@ public class GameMainMenu : MonoBehaviour
         if (isTransitioning) return;
 
         PlayButtonSound();
+        StopMenuAudio();
         StartCoroutine(TransitionToGame());
+    }
+
+    /// <summary>
+    /// Immediately silences the menu background sound when the player hits Play,
+    /// so it doesn't bleed into the intro dialogue.
+    /// </summary>
+    private void StopMenuAudio()
+    {
+        if (menuMusic != null)
+            menuMusic.Stop();
+
+        BackgroundMusic bg = FindFirstObjectByType<BackgroundMusic>();
+        if (bg != null)
+            bg.StopMusic();
     }
 
     public void OnOptionsClicked()

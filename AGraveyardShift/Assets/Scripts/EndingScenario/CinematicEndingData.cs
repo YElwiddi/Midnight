@@ -58,6 +58,12 @@ public class CinematicEndingData : ScriptableObject
     [Tooltip("Scene name to load after ending (leave empty to quit application)")]
     public string menuSceneName = "MainMenu";
 
+    [Header("Endings")]
+    [Tooltip("If true, reaching this cinematic ending unlocks an ending for the menu gallery.")]
+    public bool unlocksEnding = false;
+    [Tooltip("Which ending this cinematic unlocks.")]
+    public Ending endingToUnlock = Ending.WrongfulConviction;
+
     [Header("Audio")]
     [Tooltip("Music/ambience to play during the cinematic walk")]
     public AudioClip cinematicMusic;

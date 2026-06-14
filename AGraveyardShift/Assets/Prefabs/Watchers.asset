@@ -56,9 +56,10 @@ MonoBehaviour:
     retreatMode: 1
     retreatDirection: {x: 0, y: 0, z: 0}
     retreatTargetName: 
+  minPlayerSpawnDistance: 6
   useEntranceMovement: 0
   entranceSpawnOffset: {x: 0, y: -3, z: 0}
-  entranceSpeed: 2
+  entranceSpeed: 3
   useEntranceRotation: 1
   entranceRotationOffset: {x: 0, y: 0, z: 40}
   entranceRotationSpeed: 180
@@ -74,7 +75,7 @@ MonoBehaviour:
   stareDirection: {x: 0, y: 0, z: 1}
   stareTargetName: 
   flashlightDetectionAngle: 20
-  flashlightMaxDistance: 20
+  flashlightMaxDistance: 22
   flashlightExposureRequired: 0.5
   requireFlashlightOn: 1
   flashlightIgnoreObstacles: 1
@@ -95,8 +96,8 @@ MonoBehaviour:
   retreatSoundVolume: 0.7
   idleSound: {fileID: 8300000, guid: f2728a42dc5754b428b588a85f206a40, type: 3}
   idleSoundVolume: 0.9
-  idleSoundIntervalMin: 5
-  idleSoundIntervalMax: 30
+  idleSoundIntervalMin: 15
+  idleSoundIntervalMax: 50
   playIdleSoundOnSpawn: 0
   playerTrackingSpeed: 90
   staringAnimationBool: 

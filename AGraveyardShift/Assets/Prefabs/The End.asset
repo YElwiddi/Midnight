@@ -19,12 +19,14 @@ MonoBehaviour:
     waitTime: 0
   fadeOutDuration: 2
   delayBeforeFade: 0
-  endingTitle: 
+  endingTitle: A Wrongful Conviction
   endingDescription: "The curse was lifted. Soon after, everyone\u2019s memory of
     the events that took place here faded. The graveyard slowly took its place as
     a normal, unnoticed burial ground."
   endingScreenDuration: 8
   menuSceneName: Start Menu Scene
+  unlocksEnding: 1
+  endingToUnlock: 2
   cinematicMusic: {fileID: 0}
   musicVolume: 0.5
   fadeOutCurrentAudio: 1

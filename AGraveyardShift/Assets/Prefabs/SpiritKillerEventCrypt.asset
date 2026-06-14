@@ -16,6 +16,12 @@ MonoBehaviour:
   statName: GraveKeeperAngered
   statComparison: 2
   thresholdValue: 0
+  checkSanity: 0
+  sanityComparison: 5
+  sanityThreshold: 25
+  checkGraveyardProtection: 0
+  protectionComparison: 5
+  protectionThreshold: 25
   killerPrefab: {fileID: 3767055355421772689, guid: ce9aac46c6936044fb11e98bd6c747b3, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
@@ -38,19 +44,26 @@ MonoBehaviour:
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
   chaseSpeed: 18
+  instantAcceleration: 0
+  idleLoopSound: {fileID: 0}
+  idleLoopVolume: 0.5
   activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
   activationSoundVolume: 1
+  activationSoundConstant: 0
   killStopDistance: 1.26
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
   slowMotionDuration: 5
   killerFaceObjectName: mixamorig:Head
+  faceHeightOffset: 1.6
+  faceLookVerticalOffset: 0
   jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
   jumpscarePlayerHeightOffset: -0.54
+  lockFlashlightOnDuringJumpscare: 1
   flashlightTargetHeight: 2.04
   jumpscareFlashlightIntensity: 3
   jumpscareFlashlightRange: 15
@@ -62,7 +75,30 @@ MonoBehaviour:
   killNoiseIntensity: 0.481
   killScanlineIntensity: 0.957
   killTrackingNoise: 0.1962
+  overrideLanternsOnJumpscare: 0
+  jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
+  jumpscareHeadShake: 0
+  headShakeBoneName: CC_Base_Head
+  headShakeTiltAmount: 35
+  headShakeTurnAmount: 15
+  headShakeSpeed: 30
+  headShakeRandomness: 10
+  headShakeActiveDuration: 1.5
+  headShakePauseDuration: 0.6
+  headShakeTimingVariance: 0.3
+  headShakeStuckChance: 0.5
+  headShakeStuckMaxAngle: 25
+  showJumpscareDialogue: 0
+  jumpscareDialogueText: 
+  jumpscareDialogueFont: {fileID: 0}
+  jumpscareDialogueColor: {r: 1, g: 1, b: 1, a: 1}
+  jumpscareDialogueFontSize: 36
+  jumpscareDialogueDelay: 0.5
+  jumpscareDialogueShakeIntensity: 0
+  jumpscareDialogueShakeSpeed: 25
   gameOverSceneName: Start Menu Scene
+  unlocksEnding: 1
+  endingToUnlock: 0
   exitBehavior: 0
   exitPointName: KillerExitPoint
   inkDialogue: {fileID: 0}
