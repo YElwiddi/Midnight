@@ -21,7 +21,7 @@ MonoBehaviour:
   sanityThreshold: 25
   checkGraveyardProtection: 1
   protectionComparison: 0
-  protectionThreshold: 0
+  protectionThreshold: 100
   killerPrefab: {fileID: 3767055355421772689, guid: c2e27aa65c315034dba5a5dc47a09b8b, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
@@ -86,11 +86,11 @@ MonoBehaviour:
   headShakeTurnAmount: 15
   headShakeSpeed: 30
   headShakeRandomness: 10
-  headShakeActiveDuration: 1.5
-  headShakePauseDuration: 0.6
-  headShakeTimingVariance: 0.3
-  headShakeStuckChance: 0.5
-  headShakeStuckMaxAngle: 25
+  headSpinEnabled: 0
+  headSpinInterval: 4
+  headSpinDuration: 0.5
+  headDoubleSpinChance: 0
+  headTripleSpinChance: 0
   showJumpscareDialogue: 0
   jumpscareDialogueText: 
   jumpscareDialogueFont: {fileID: 0}
@@ -99,6 +99,9 @@ MonoBehaviour:
   jumpscareDialogueDelay: 0.5
   jumpscareDialogueShakeIntensity: 0
   jumpscareDialogueShakeSpeed: 25
+  jumpscareDialogueFlash: 0
+  jumpscareDialogueFlashSpeed: 4
+  jumpscareDialogueFlashMinAlpha: 0
   gameOverSceneName: Start Menu Scene
   unlocksEnding: 1
   endingToUnlock: 1

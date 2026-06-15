@@ -34666,27 +34666,27 @@ MonoBehaviour:
   overrideFontColor: 1
   fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
-  - "Excerpt from the Gravekeeper\u2019s Notes\nFather Joseph\n\nLong since abandoned,
-    the church dates back to a time older than the dead that are buried here. Over
-    centuries old, the church has recently been abandoned. A note has been made about
-    the coincedental timing of the abandonment of the church and the anamolous circumstances
-    that have began since its abandonment."
+  - "Excerpt from the Gravekeeper\u2019s Notes\nFather Joseph\n\nAbandoned some time
+    ago, the church dates back to a time older than those that are buried here. Over
+    centuries old, the church has recently been abandoned. A remark has been made
+    about the coincedental timing of the abandonment of the church and the anamolous
+    circumstances that have began since its abandonment."
   - 'For information regarding the last caretaker of the church and his mysterious
     disappearance:
 
 
     Father Joseph would frequent these grounds many years ago
-    and was welcomed in. The grounds were often peaceful with his presence.
+    and was welcomed in. The atmosphere was often peaceful with his presence.
 
 
     He
     comes from a denomination that does not allow for marriage amongst the clergy.
-    He appears to have gone against the rule and started a feud amongst the ministry
-    about interpretations being too strict. He later denounced the clergy.
+    He appears to have gone against this rule and started a feud amongst the ministry
+    over certain interpretations being too strict. He later denounced the clergy.
 
 
     He
-    was set to marry his betrothed but did not appear at the altar at the wedding
+    was set to marry his betrothed but did not appear at the altar on the wedding
     day. Previous recordings mention that his betrothed passed away from grief when
     she allegedly learned about the fate of Father Joseph.
 
@@ -43215,12 +43215,13 @@ MonoBehaviour:
     you.
   - You will stand guard at the gate to prevent unwanted visitors from tampering
     with the gravesites. You must also patrol the grounds.
-  - If someone is trespassing, use your flashlight to deter them.
+  - If someone is trespassing, use your flashlight to deter them. Check near the
+    gravesites for trespassers at all times.
   - 'Ensure that the lights are on at all times throughout the graveyard. '
-  - The dead wish to rest quietly, they are not fond of bright lights directly on
-    their resting place.
   - Ensure that the crucifix is properly affixed onto the door of the cabin at all
     times. The crucifix will determine your sanity.
+  - If you need a break, return to the cabin. It is always safe so long as the crucifix
+    is on the door.
   - 'Most importantly: respect the dead. Do not disturb their rest; deter those who
     are unwelcomed.'
   enableLowSanityOverride: 0

@@ -17,7 +17,6 @@ public class EndingScreenUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
 
     [Header("Fade Settings")]
-    [SerializeField] private float fadeInDuration = 1.5f;
     [SerializeField] private float fadeOutDuration = 1f;
 
     [Header("Typewriter Effect")]
@@ -84,13 +83,16 @@ public class EndingScreenUI : MonoBehaviour
         if (descriptionText != null)
             descriptionText.gameObject.SetActive(!string.IsNullOrEmpty(description));
 
+        // The ending appears instantly — no fade-in. Only the exit fades (FadeOut).
+        if (canvasGroup != null)
+            canvasGroup.alpha = 1f;
+
         if (useTypewriter)
         {
-            // Reveal text via typewriter after the fade-in.
+            // Reveal text via typewriter on the already-visible black screen.
             if (titleText != null) titleText.text = "";
             if (descriptionText != null) descriptionText.text = "";
 
-            yield return StartCoroutine(FadeIn());
             yield return new WaitForSeconds(0.5f);
 
             if (titleText != null && !string.IsNullOrEmpty(title))
@@ -103,18 +105,15 @@ public class EndingScreenUI : MonoBehaviour
         }
         else
         {
-            // Show all text instantly; it fades in together with the black screen.
+            // Show all text instantly.
             if (titleText != null) titleText.text = title;
             if (descriptionText != null) descriptionText.text = description;
-
-            yield return StartCoroutine(FadeIn());
         }
 
-        // Hold on the ending.
-        float remainingTime = displayDuration - fadeInDuration;
-        if (remainingTime > 0f)
+        // Hold on the ending for its full duration (instant show, so no fade-in to subtract).
+        if (displayDuration > 0f)
         {
-            yield return new WaitForSeconds(remainingTime);
+            yield return new WaitForSeconds(displayDuration);
         }
 
         // Go to the menu. Loading WHILE BLACK avoids a brief flash of the game scene
@@ -125,25 +124,6 @@ public class EndingScreenUI : MonoBehaviour
         }
 
         LoadMenuOrQuit();
-    }
-
-    private IEnumerator FadeIn()
-    {
-        float elapsed = 0f;
-        while (elapsed < fadeInDuration)
-        {
-            elapsed += Time.deltaTime;
-            if (canvasGroup != null)
-            {
-                canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / fadeInDuration);
-            }
-            yield return null;
-        }
-
-        if (canvasGroup != null)
-        {
-            canvasGroup.alpha = 1f;
-        }
     }
 
     private IEnumerator FadeOut()
