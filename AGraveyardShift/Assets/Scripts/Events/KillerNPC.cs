@@ -171,17 +171,20 @@ public class KillerNPC : MonoBehaviour
     private float headShakeTurnAmount = 15f;
     private float headShakeSpeed = 30f;
     private float headShakeRandomness = 10f;
-    private float headShakeActiveDuration = 1.5f;
-    private float headShakePauseDuration = 0.6f;
-    private float headShakeTimingVariance = 0.3f;
-    private float headShakeStuckChance = 0.5f;
-    private float headShakeStuckMaxAngle = 25f;
     private Transform headShakeBone;
-    private float headShakeTimer = 0f;
-    private float headShakeCurrentInterval = 0f;
-    private bool headShakeActive = true;
-    private bool headShakeStuck = false;
-    private Quaternion headShakeStuckRotation;
+    private Quaternion headShakeBaseRotation = Quaternion.identity;
+    private bool headShakeBaseCaptured = false;
+
+    // Periodic full 360° head spin (optionally double/triple)
+    private bool headSpinEnabled = false;
+    private float headSpinInterval = 4f;
+    private float headSpinDuration = 0.5f;
+    private float headDoubleSpinChance = 0f;
+    private float headTripleSpinChance = 0f;
+    private float headSpinTimer = 0f;
+    private float headSpinProgress = 0f;
+    private int headSpinRevolutions = 1;
+    private bool headSpinning = false;
 
     // Jumpscare dialogue
     private bool showJumpscareDialogue = false;
@@ -192,8 +195,12 @@ public class KillerNPC : MonoBehaviour
     private float jumpscareDialogueDelay = 0.5f;
     private float jumpscareDialogueShakeIntensity = 0f;
     private float jumpscareDialogueShakeSpeed = 25f;
+    private bool jumpscareDialogueFlash = false;
+    private float jumpscareDialogueFlashSpeed = 4f;
+    private float jumpscareDialogueFlashMinAlpha = 0f;
     private GameObject jumpscareDialogueInstance;
     private TextMeshProUGUI jumpscareDialogueTMP;
+    private CanvasGroup jumpscareDialogueCanvasGroup;
 
     [Header("References")]
     [Tooltip("Player transform (auto-found if not set)")]
@@ -309,60 +316,70 @@ public class KillerNPC : MonoBehaviour
         if (!hasTriggeredGameOver || !jumpscareHeadShake || headShakeBone == null)
             return;
 
-        // Advance timer
-        headShakeTimer += Time.unscaledDeltaTime;
-
-        if (headShakeTimer >= headShakeCurrentInterval)
+        // Capture the face-forward base pose once; we assign around it each frame (never accumulate),
+        // so the head can't drift/spin over the neck on its own.
+        if (!headShakeBaseCaptured)
         {
-            // Switch state
-            headShakeActive = !headShakeActive;
-            headShakeTimer = 0f;
+            headShakeBaseRotation = headShakeBone.localRotation;
+            headShakeBaseCaptured = true;
+        }
 
-            float baseDuration = headShakeActive ? headShakeActiveDuration : headShakePauseDuration;
-            headShakeCurrentInterval = baseDuration + Random.Range(-headShakeTimingVariance, headShakeTimingVariance);
+        float t = Time.unscaledTime * headShakeSpeed;
 
-            // When entering a pause, decide if it's stuck at a random angle
-            if (!headShakeActive)
+        // Continuous tremor + tilt. Roll (Z, ear-toward-shoulder) carries it so the face stays
+        // toward the camera; pitch (X, up/down) is tiny; yaw (Y) uses the modest configured turn.
+        float roll = (Mathf.Sin(t) + Mathf.Sin(t * 2.7f) * 0.5f) / 1.5f * headShakeTiltAmount;
+        float yaw = Mathf.Sin(t * 1.9f) * headShakeTurnAmount;
+        float pitch = Mathf.Sin(t * 3.1f) * (headShakeTiltAmount * 0.1f);
+
+        // Optional per-frame jitter. Set headShakeRandomness to 0 for a clean, deterministic tremor.
+        if (headShakeRandomness > 0f)
+        {
+            roll += Random.Range(-headShakeRandomness, headShakeRandomness);
+            yaw += Random.Range(-headShakeRandomness, headShakeRandomness) * 0.2f;
+            pitch += Random.Range(-headShakeRandomness, headShakeRandomness) * 0.2f;
+        }
+
+        // Every so often, spin the head a full 360° on its (vertical) axis, then resume the tremor.
+        float spinYaw = 0f;
+        if (headSpinEnabled && headSpinDuration > 0f)
+        {
+            if (!headSpinning)
             {
-                headShakeStuck = Random.value < headShakeStuckChance;
-                if (headShakeStuck)
+                headSpinTimer += Time.unscaledDeltaTime;
+                if (headSpinTimer >= headSpinInterval)
                 {
-                    // Pick a random stuck angle — biased toward looking slightly up with a lateral tilt
-                    float stuckX = Random.Range(-headShakeStuckMaxAngle * 0.6f, -headShakeStuckMaxAngle * 0.15f); // negative X = look upward
-                    float stuckY = Random.Range(-headShakeStuckMaxAngle * 0.5f, headShakeStuckMaxAngle * 0.5f);
-                    float stuckZ = Random.Range(-headShakeStuckMaxAngle, headShakeStuckMaxAngle);
-                    headShakeStuckRotation = Quaternion.Euler(stuckX, stuckY, stuckZ);
+                    headSpinning = true;
+                    headSpinTimer = 0f;
+                    headSpinProgress = 0f;
+
+                    // Decide how many revolutions this spin does (triple takes priority over double).
+                    float roll01 = Random.value;
+                    if (roll01 < headTripleSpinChance) headSpinRevolutions = 3;
+                    else if (roll01 < headTripleSpinChance + headDoubleSpinChance) headSpinRevolutions = 2;
+                    else headSpinRevolutions = 1;
+                }
+            }
+
+            if (headSpinning)
+            {
+                // headSpinDuration is the time per single revolution, so a double/triple keeps the
+                // same spin speed and just lasts proportionally longer.
+                headSpinProgress += Time.unscaledDeltaTime / headSpinDuration;
+                if (headSpinProgress >= headSpinRevolutions)
+                {
+                    headSpinProgress = 0f;
+                    headSpinning = false; // completed all revolutions → back to facing forward
+                }
+                else
+                {
+                    spinYaw = headSpinProgress * 360f;
                 }
             }
         }
 
-        if (headShakeActive)
-        {
-            float t = Time.unscaledTime * headShakeSpeed;
-            float tilt = Mathf.Sin(t) * headShakeTiltAmount;
-            float turn = Mathf.Sin(t * 1.3f) * headShakeTurnAmount;
-            float jitterX = Random.Range(-headShakeRandomness, headShakeRandomness);
-            float jitterY = Random.Range(-headShakeRandomness * 0.5f, headShakeRandomness * 0.5f);
-
-            headShakeBone.localRotation *= Quaternion.Euler(jitterX, turn + jitterY, tilt);
-        }
-        else
-        {
-            // Micro-vibrate during pauses (stuck or center)
-            float microX = Random.Range(-1f, 1f);
-            float microY = Random.Range(-0.5f, 0.5f);
-            float microZ = Random.Range(-1f, 1f);
-            Quaternion microShake = Quaternion.Euler(microX, microY, microZ);
-
-            if (headShakeStuck)
-            {
-                headShakeBone.localRotation *= headShakeStuckRotation * microShake;
-            }
-            else
-            {
-                headShakeBone.localRotation *= microShake;
-            }
-        }
+        Vector3 offset = new Vector3(pitch, yaw + spinYaw, roll);
+        headShakeBone.localRotation = headShakeBaseRotation * Quaternion.Euler(offset);
     }
 
     private void Update()
@@ -390,6 +407,14 @@ public class KillerNPC : MonoBehaviour
             if (jumpscareDialogueTMP != null && jumpscareDialogueShakeIntensity > 0f)
             {
                 ApplyJumpscareTextShake();
+            }
+
+            // Flash (blink) the jumpscare dialogue on/off
+            if (jumpscareDialogueCanvasGroup != null && jumpscareDialogueFlash)
+            {
+                float cycle = Mathf.Repeat(Time.unscaledTime * jumpscareDialogueFlashSpeed, 1f);
+                float on = cycle < 0.5f ? 1f : 0f;
+                jumpscareDialogueCanvasGroup.alpha = Mathf.Lerp(jumpscareDialogueFlashMinAlpha, 1f, on);
             }
 
             return;
@@ -797,11 +822,11 @@ public class KillerNPC : MonoBehaviour
         headShakeTurnAmount = killerEvent.headShakeTurnAmount;
         headShakeSpeed = killerEvent.headShakeSpeed;
         headShakeRandomness = killerEvent.headShakeRandomness;
-        headShakeActiveDuration = killerEvent.headShakeActiveDuration;
-        headShakePauseDuration = killerEvent.headShakePauseDuration;
-        headShakeTimingVariance = killerEvent.headShakeTimingVariance;
-        headShakeStuckChance = killerEvent.headShakeStuckChance;
-        headShakeStuckMaxAngle = killerEvent.headShakeStuckMaxAngle;
+        headSpinEnabled = killerEvent.headSpinEnabled;
+        headSpinInterval = killerEvent.headSpinInterval;
+        headSpinDuration = killerEvent.headSpinDuration;
+        headDoubleSpinChance = killerEvent.headDoubleSpinChance;
+        headTripleSpinChance = killerEvent.headTripleSpinChance;
 
         // Find the head shake bone
         if (jumpscareHeadShake && !string.IsNullOrEmpty(headShakeBoneName))
@@ -809,7 +834,6 @@ public class KillerNPC : MonoBehaviour
             headShakeBone = FindChildRecursive(transform, headShakeBoneName);
             if (headShakeBone != null)
             {
-                headShakeCurrentInterval = headShakeActiveDuration;
                 Debug.Log($"KillerNPC: Found head shake bone '{headShakeBoneName}'");
             }
             else
@@ -827,6 +851,9 @@ public class KillerNPC : MonoBehaviour
         jumpscareDialogueDelay = killerEvent.jumpscareDialogueDelay;
         jumpscareDialogueShakeIntensity = killerEvent.jumpscareDialogueShakeIntensity;
         jumpscareDialogueShakeSpeed = killerEvent.jumpscareDialogueShakeSpeed;
+        jumpscareDialogueFlash = killerEvent.jumpscareDialogueFlash;
+        jumpscareDialogueFlashSpeed = killerEvent.jumpscareDialogueFlashSpeed;
+        jumpscareDialogueFlashMinAlpha = killerEvent.jumpscareDialogueFlashMinAlpha;
 
         // Game over settings
         gameOverSceneName = killerEvent.gameOverSceneName;
@@ -1288,6 +1315,7 @@ public class KillerNPC : MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 100;
         canvasObj.AddComponent<UnityEngine.UI.CanvasScaler>();
+        jumpscareDialogueCanvasGroup = canvasObj.AddComponent<CanvasGroup>();
 
         // Create text
         GameObject textObj = new GameObject("DialogueText");

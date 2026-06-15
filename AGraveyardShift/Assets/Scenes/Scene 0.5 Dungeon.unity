@@ -4230,6 +4230,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79181943}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &80147649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 548600992}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.292694
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.206102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.300013
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8660255
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a01dea5d779d3774ca1ae92cbb26699f, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_Name
+      value: grass_patch (27)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+--- !u!4 &80147650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+  m_PrefabInstance: {fileID: 80147649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &80636794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7768,11 +7846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -471508802048009608, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.200043
+      value: -12.8
       objectReference: {fileID: 0}
     - target: {fileID: -471508802048009608, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.500034
+      value: -15.3
       objectReference: {fileID: 0}
     - target: {fileID: -466278219447207981, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       propertyPath: m_LocalScale.y
@@ -8336,6 +8414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7791687276794238666, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: 64
       addedObject: {fileID: 1541727596}
+    - targetCorrespondingSourceObject: {fileID: 7791687276794238666, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+      insertIndex: 330
+      addedObject: {fileID: 970485420}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
       insertIndex: -1
@@ -14549,7 +14630,7 @@ MonoBehaviour:
   glitchBlockSize: 0.0292
   contrast: 1.006
   saturation: 1.08
-  brightness: 0.02
+  brightness: 0.021294117
   gamma: 1.05
   tapeNoise: 0.057
   tapeSpeed: 0.5
@@ -14881,7 +14962,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2d58e47ca89eb4643b3414095cde6e6c, type: 3}
     - target: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player (Test Church Scene)
       objectReference: {fileID: 0}
     - target: {fileID: 7210292650286847324, guid: 0c5da2b9816213644b304bec4cdad895, type: 3}
       propertyPath: m_IsActive
@@ -18081,7 +18162,7 @@ MonoBehaviour:
     Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek
     Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within
     these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death:
-    October 11, 1988, Saturday 12:03 AM"
+    October 11, 1988, Tuesday 12:03 AM"
   - 'Anthony Anderson, his wife Diane, and their two sons were recovered from their
     home following a fire reported shortly after midnight. The blaze was attributed
     to an electrical malfunction near the rear stairwell, where damage was most concentrated.
@@ -20456,6 +20537,9 @@ PrefabInstance:
       addedObject: {fileID: 2053007953}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1958005017}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2118960264}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
@@ -20469,6 +20553,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 872280347}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80147650}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 952685042}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eba3fdf68aa1ed499a32655f9b87cc0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1788565423}
@@ -25054,7 +25144,7 @@ MonoBehaviour:
   - "Excerpt from the Gravekeeper\u2019s Notes\nHolmes family\n\n\nFamily members:\nJason
     Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth
     Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause
-    of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Monday
+    of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday
     3:45 AM"
   - 'Zackary and Edward Holmes were laid to rest here following an accident reported
     along the county road. Official accounts describe a single-vehicle collision,
@@ -33967,6 +34057,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950367107}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1001 &952685041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 548600992}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -51.487656
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.206102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.260012
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.16504739
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9862857
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a01dea5d779d3774ca1ae92cbb26699f, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_Name
+      value: grass_patch (28)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+--- !u!4 &952685042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+  m_PrefabInstance: {fileID: 952685041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &960125463
 GameObject:
   m_ObjectHideFlags: 0
@@ -34418,6 +34586,214 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970148290}
   m_Mesh: {fileID: -4583467165816326547, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+--- !u!1 &970485419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970485420}
+  - component: {fileID: 970485425}
+  - component: {fileID: 970485424}
+  - component: {fileID: 970485423}
+  - component: {fileID: 970485422}
+  - component: {fileID: 970485421}
+  m_Layer: 6
+  m_Name: Father Joseph Note
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970485420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970485419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -22.3, z: -40.4}
+  m_LocalScale: {x: 1, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 417013068}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970485421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970485419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd422fe2fbde36741b919d92a0daad77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotePulseHighlight
+  triggeringEvents:
+  - {fileID: 11400000, guid: fe54572e94f9efe4f97239574fc23d3a, type: 2}
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  peakIntensity: 0.4
+  pulsePeriod: 2.5
+  gapBetweenPulses: 1.75
+--- !u!114 &970485422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970485419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c11f0d531f4249801ea5c2de41bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableTrigger
+  interactionPrompt: Read
+  backgroundImage: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  fontOverride: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+  overrideAlignment: 0
+  textAlignment: 257
+  overrideMargins: 0
+  textMargins: {x: 0, y: 0, z: 0, w: 0}
+  overrideLineSpacing: 0
+  lineSpacing: 0
+  overrideFontSize: 1
+  fontSize: 18
+  overrideFontColor: 1
+  fontColor: {r: 0, g: 0, b: 0, a: 1}
+  pages:
+  - "Excerpt from the Gravekeeper\u2019s Notes\nFather Joseph\n\nLong since abandoned,
+    the church dates back to a time older than the dead that are buried here. Over
+    centuries old, the church has recently been abandoned. A note has been made about
+    the coincedental timing of the abandonment of the church and the anamolous circumstances
+    that have began since its abandonment."
+  - 'For information regarding the last caretaker of the church and his mysterious
+    disappearance:
+
+
+    Father Joseph would frequent these grounds many years ago
+    and was welcomed in. The grounds were often peaceful with his presence.
+
+
+    He
+    comes from a denomination that does not allow for marriage amongst the clergy.
+    He appears to have gone against the rule and started a feud amongst the ministry
+    about interpretations being too strict. He later denounced the clergy.
+
+
+    He
+    was set to marry his betrothed but did not appear at the altar at the wedding
+    day. Previous recordings mention that his betrothed passed away from grief when
+    she allegedly learned about the fate of Father Joseph.
+
+
+    There has not yet
+    since been a clarification on his fate. '
+  enableLowSanityOverride: 0
+  lowSanityThreshold: 0.4
+  lowSanityOverrides:
+    overridePages: 1
+    pages:
+    - I should let her in
+    overrideBackground: 0
+    backgroundImage: {fileID: 0}
+    fontOverride: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+    overrideAlignment: 0
+    textAlignment: 257
+    overrideMargins: 0
+    textMargins: {x: 0, y: 0, z: 0, w: 0}
+    overrideLineSpacing: 0
+    lineSpacing: 0
+    overrideFontSize: 1
+    fontSize: 60
+    overrideFontColor: 1
+    fontColor: {r: 0.7924528, g: 0, b: 0, a: 1}
+    enableShake: 1
+    shakeIntensity: 3
+    shakeSpeed: 25
+--- !u!64 &970485423
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970485419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+--- !u!23 &970485424
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970485419}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3178160590009173852, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  - {fileID: 3092439742945511283, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &970485425
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970485419}
+  m_Mesh: {fileID: 3487253098938835933, guid: a25541c1baaabdb4cbd7d3551f3fcd93, type: 3}
 --- !u!1 &970596339
 GameObject:
   m_ObjectHideFlags: 0
@@ -39729,7 +40105,7 @@ MonoBehaviour:
   pages:
   - 'Anne Radcliffe
 
-    1706
+    1792
 
     Death by guillotine'
   enableLowSanityOverride: 1
@@ -41884,7 +42260,7 @@ MonoBehaviour:
   - "Excerpt from the Gravekeeper\u2019s Notes\nAdams family\n\nFamily members:\nEdwin
     Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane
     Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of
-    death: December 22, 1993, Friday 3:21 AM"
+    death: December 22, 1985, Sunday 3:21 AM"
   - "Jane Adams rests here after a life defined by order and restraint. She worked
     for many years as a bookkeeper at the municipal works office, kept her home immaculate,
     and raised her son, Edwin, with strict routines and clear expectations. When
@@ -42384,7 +42760,7 @@ MonoBehaviour:
   - "Excerpt from the Gravekeeper\u2019s Notes\nVanderbilt family\n\nFamily members:\nAaron
     Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22,
     Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death:
-    Gunshot wound\n\nTime of death: June 27, 1993, Thursday 7:48 PM"
+    Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM"
   - "Aaron Vanderbilt is remembered here as a man whose life carried the weight of
     absence and missteps. His brother disappeared many years ago under circumstances
     no one could trace, leaving Aaron to navigate the world alone. Though capable
@@ -43330,7 +43706,7 @@ MonoBehaviour:
   fontColor: {r: 0, g: 0, b: 0, a: 1}
   pages:
   - "Excerpt from the Gravekeeper\u2019s Notes\nHuang family\n\nFamily members:\nWenqi
-    Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Haung
+    Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang
     is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime
     of death: March 27, 1993, Saturday 4:00 PM"
   - "There is only one grave under the Huang name, though the arrangements suggest
@@ -68149,6 +68525,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957330048}
   m_Mesh: {fileID: -8026420913687479660, guid: e35043ef4a2342148a156dff0e1bd650, type: 3}
+--- !u!1001 &1958005016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 548600992}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.292694
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.206102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.463097
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.95881975
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.2840153
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dd6ce8ef1da2c94449381bf3e6f53ca1, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+      propertyPath: m_Name
+      value: grass_patch (29)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+--- !u!4 &1958005017 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8643693921723cf45a95bab07aef935e, type: 3}
+  m_PrefabInstance: {fileID: 1958005016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1958660405
 GameObject:
   m_ObjectHideFlags: 0

@@ -306,6 +306,16 @@ public class EndingScenarioManager : MonoBehaviour
     /// </summary>
     public string GetLastDominantStat() => lastDominantStat;
 
+    /// <summary>
+    /// Resolves which crypt fiend stalked the player this run (from the dominant stat
+    /// that spawned the killer). Returns false if no killer was spawned yet.
+    /// Used by the good-ending unlock to reveal the fiend in the main-menu gallery.
+    /// </summary>
+    public bool TryGetEncounteredFiend(out CryptFiend fiend)
+    {
+        return CryptFiendInfo.TryFromDominantStat(lastDominantStat, out fiend);
+    }
+
     private void OnDrawGizmosSelected()
     {
         // Draw spawn point

@@ -409,7 +409,17 @@ public class CinematicPlayerController : MonoBehaviour
     {
         // Record the ending unlock for the main-menu gallery (good cinematic ending).
         if (currentCinematic != null && currentCinematic.unlocksEnding)
+        {
             EndingsSave.Unlock(currentCinematic.endingToUnlock);
+
+            // Completing the game also reveals the crypt fiend that stalked the player
+            // this run, in the main-menu Crypt Fiends gallery.
+            if (EndingScenarioManager.Instance != null &&
+                EndingScenarioManager.Instance.TryGetEncounteredFiend(out CryptFiend fiend))
+            {
+                CryptFiendsSave.Unlock(fiend);
+            }
+        }
 
         // Find or create EndingScreenUI
         EndingScreenUI endingUI = FindObjectOfType<EndingScreenUI>();

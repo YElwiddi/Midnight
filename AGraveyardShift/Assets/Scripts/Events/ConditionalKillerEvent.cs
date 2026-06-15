@@ -278,25 +278,25 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 30f)]
     public float headShakeRandomness = 10f;
 
-    [Tooltip("How long the head shakes before pausing (seconds)")]
-    [Range(0.3f, 5f)]
-    public float headShakeActiveDuration = 1.5f;
+    [Header("Jumpscare Head Spin")]
+    [Tooltip("If true, every headSpinInterval seconds the head does a full 360° spin on its axis during the jumpscare.")]
+    public bool headSpinEnabled = false;
 
-    [Tooltip("How long the head holds still so the player can see the face (seconds)")]
-    [Range(0.2f, 3f)]
-    public float headShakePauseDuration = 0.6f;
+    [Tooltip("Seconds of tremor between each full 360° head spin.")]
+    [Range(0.5f, 15f)]
+    public float headSpinInterval = 4f;
 
-    [Tooltip("Random variation added to active/pause timings so it feels organic")]
+    [Tooltip("How long a single 360° head spin takes (seconds). Lower = faster, more violent spin.")]
+    [Range(0.1f, 3f)]
+    public float headSpinDuration = 0.5f;
+
+    [Tooltip("Chance (0-1) that a given spin is a DOUBLE spin (720°). Checked after the triple chance.")]
     [Range(0f, 1f)]
-    public float headShakeTimingVariance = 0.3f;
+    public float headDoubleSpinChance = 0f;
 
-    [Tooltip("Chance (0-1) that a pause holds at a random stuck angle instead of center")]
+    [Tooltip("Chance (0-1) that a given spin is a TRIPLE spin (1080°). Takes priority over the double chance.")]
     [Range(0f, 1f)]
-    public float headShakeStuckChance = 0.5f;
-
-    [Tooltip("Max tilt angle for stuck positions (degrees). Kept moderate so face stays visible.")]
-    [Range(5f, 45f)]
-    public float headShakeStuckMaxAngle = 25f;
+    public float headTripleSpinChance = 0f;
 
     [Header("Jumpscare Dialogue")]
     [Tooltip("If true, displays dialogue text on screen during the jumpscare")]
@@ -327,6 +327,17 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Speed of the text shake")]
     [Range(5f, 60f)]
     public float jumpscareDialogueShakeSpeed = 25f;
+
+    [Tooltip("If true, the jumpscare dialogue text flashes (blinks) on and off.")]
+    public bool jumpscareDialogueFlash = false;
+
+    [Tooltip("Flashes per second for the dialogue text.")]
+    [Range(0.5f, 20f)]
+    public float jumpscareDialogueFlashSpeed = 4f;
+
+    [Tooltip("Alpha at the 'off' beat of each flash (0 = fully invisible blink, higher = a dimmer flicker).")]
+    [Range(0f, 1f)]
+    public float jumpscareDialogueFlashMinAlpha = 0f;
 
     [Header("Game Over")]
     [Tooltip("Scene to load after jumpscare completes (e.g., 'MainMenu'). Leave empty to stay in current scene.")]

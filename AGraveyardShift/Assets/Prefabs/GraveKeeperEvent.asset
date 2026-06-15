@@ -29,9 +29,11 @@ MonoBehaviour:
     waypointName: NPCCenterPoint
     moveSpeed: 4.5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 5
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -65,9 +67,11 @@ MonoBehaviour:
     waypointName: NPCGatePoint
     moveSpeed: 7.4
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 30
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -101,9 +105,11 @@ MonoBehaviour:
     waypointName: CryptFront
     moveSpeed: 6.1
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 5
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -137,9 +143,11 @@ MonoBehaviour:
     waypointName: CryptFrontSide
     moveSpeed: 3
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 1
     waitTime: 0
     facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
@@ -173,9 +181,11 @@ MonoBehaviour:
     waypointName: CryptFrontSide
     moveSpeed: 1.4
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 1
     waitTime: 30
     facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
@@ -209,9 +219,11 @@ MonoBehaviour:
     waypointName: NPCCenterPointExit
     moveSpeed: 4.5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 1
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -253,3 +265,5 @@ MonoBehaviour:
   exitPointName: NPCRightPoint
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

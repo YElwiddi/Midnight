@@ -24,6 +24,10 @@ public class GameMainMenu : MonoBehaviour
     [Tooltip("Panel listing unlocked endings")]
     public GameObject endingsPanel;
 
+    [Header("Crypt Fiends")]
+    [Tooltip("Panel listing encountered crypt fiends (opened from a teaser button inside the Endings modal)")]
+    public GameObject cryptFiendsPanel;
+
     [Header("Transition Settings")]
     [Tooltip("Fade duration when transitioning to game")]
     public float fadeOutDuration = 1f;
@@ -68,6 +72,8 @@ public class GameMainMenu : MonoBehaviour
             optionsPanel.SetActive(false);
         if (endingsPanel != null)
             endingsPanel.SetActive(false);
+        if (cryptFiendsPanel != null)
+            cryptFiendsPanel.SetActive(false);
 
         // Set up SFX audio source
         sfxSource = gameObject.AddComponent<AudioSource>();
@@ -137,6 +143,8 @@ public class GameMainMenu : MonoBehaviour
 
         if (endingsPanel != null)
             endingsPanel.SetActive(false);
+        if (cryptFiendsPanel != null)
+            cryptFiendsPanel.SetActive(false);
 
         if (optionsPanel != null)
         {
@@ -150,6 +158,8 @@ public class GameMainMenu : MonoBehaviour
 
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
+        if (cryptFiendsPanel != null)
+            cryptFiendsPanel.SetActive(false);
 
         if (endingsPanel != null)
         {
@@ -163,6 +173,24 @@ public class GameMainMenu : MonoBehaviour
 
         if (endingsPanel != null)
             endingsPanel.SetActive(false);
+    }
+
+    public void OpenCryptFiends()
+    {
+        PlayButtonSound();
+
+        // Opened from the teaser inside the Endings modal — leave Endings active behind it
+        // so closing the gallery returns the player to the Endings list.
+        if (cryptFiendsPanel != null)
+            cryptFiendsPanel.SetActive(true);
+    }
+
+    public void CloseCryptFiends()
+    {
+        PlayButtonSound();
+
+        if (cryptFiendsPanel != null)
+            cryptFiendsPanel.SetActive(false);
     }
 
     public void OnExitClicked()

@@ -27,6 +27,7 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
   spawnPointName: BrideSpawn
+  spawnOnLockedDoorInteract: 0
   facePlayerOnSpawn: 0
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 270, z: 0}
@@ -38,6 +39,7 @@ MonoBehaviour:
   useAmbushMode: 1
   idleAnimationBool: 
   activationDistance: 20
+  ignoreActivationDistance: 0
   requirePlayerLooking: 1
   lookDurationRequired: 2
   playerLookAngle: 30
@@ -50,7 +52,7 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: fad23a8a17790634ca5993475213b3dc, type: 3}
   activationSoundVolume: 1
   activationSoundConstant: 1
-  killStopDistance: 1.26
+  killStopDistance: 0.85
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
@@ -63,6 +65,7 @@ MonoBehaviour:
   shakeIntensity: 2
   shakeDuration: 2.16
   jumpscarePlayerHeightOffset: 2
+  causesFlashlightFlicker: 1
   lockFlashlightOnDuringJumpscare: 0
   flashlightTargetHeight: 2.5
   jumpscareFlashlightIntensity: 3
@@ -79,23 +82,26 @@ MonoBehaviour:
   jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
   jumpscareHeadShake: 1
   headShakeBoneName: CC_Base_Head
-  headShakeTiltAmount: 25
+  headShakeTiltAmount: 10
   headShakeTurnAmount: 0
-  headShakeSpeed: 65
-  headShakeRandomness: 30
-  headShakeActiveDuration: 0.3
-  headShakePauseDuration: 0.5
-  headShakeTimingVariance: 1
-  headShakeStuckChance: 0.7
-  headShakeStuckMaxAngle: 40
+  headShakeSpeed: 70
+  headShakeRandomness: 0
+  headSpinEnabled: 1
+  headSpinInterval: 1
+  headSpinDuration: 0.14
+  headDoubleSpinChance: 0.9
+  headTripleSpinChance: 0.8
   showJumpscareDialogue: 1
   jumpscareDialogueText: TOGETHER FOREVER
   jumpscareDialogueFont: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
   jumpscareDialogueColor: {r: 0, g: 0, b: 0, a: 1}
-  jumpscareDialogueFontSize: 80
+  jumpscareDialogueFontSize: 96
   jumpscareDialogueDelay: 0
   jumpscareDialogueShakeIntensity: 13
   jumpscareDialogueShakeSpeed: 60
+  jumpscareDialogueFlash: 1
+  jumpscareDialogueFlashSpeed: 10
+  jumpscareDialogueFlashMinAlpha: 0
   gameOverSceneName: Start Menu Scene
   unlocksEnding: 1
   endingToUnlock: 3

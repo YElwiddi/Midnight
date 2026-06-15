@@ -55,10 +55,11 @@ public class IntroTextUI : MonoBehaviour
     private int currentPageIndex = 0;
     private bool isTypewriting = false;
     private bool canAdvance = false;
+    private bool textReady = false;
+    private bool minTimeReady = false;
     private Coroutine typewriterCoroutine;
     private Action onComplete;
     private Image pageImage;
-    private bool waitingForMinTime = false;
 
     private void Awake()
     {
@@ -88,13 +89,9 @@ public class IntroTextUI : MonoBehaviour
 
     private void HandleInput()
     {
-        // Block all input while waiting for minimum display time
-        if (waitingForMinTime)
-            return;
-
         if (isTypewriting)
         {
-            // Skip typewriter - show full text immediately
+            // Skip typewriter - show full text immediately (advancing is still gated by minimum display time)
             SkipTypewriter();
         }
         else if (canAdvance)
@@ -152,80 +149,64 @@ public class IntroTextUI : MonoBehaviour
 
         IntroPage page = pages[currentPageIndex];
 
-        // Hide continue prompt while typing
+        // Hide continue prompt until the page is ready to advance
         if (continuePrompt != null)
         {
             continuePrompt.text = "";
         }
 
         canAdvance = false;
+        textReady = false;
+        minTimeReady = page.minimumDisplayTime <= 0f;
 
-        bool isImagePage = page.image != null;
-
-        // Toggle text vs image visibility
-        if (mainText != null)
-            mainText.gameObject.SetActive(!isImagePage);
-
+        // Optional background image (drawn behind the text)
         if (pageImage != null)
-            pageImage.gameObject.SetActive(isImagePage);
-
-        if (isImagePage)
         {
-            // Image page
-            if (pageImage != null)
+            bool hasImage = page.image != null;
+            pageImage.gameObject.SetActive(hasImage);
+            if (hasImage)
             {
                 pageImage.sprite = page.image;
                 pageImage.preserveAspect = true;
             }
+        }
 
-            // Use minimum display time or show continue prompt immediately
-            if (page.minimumDisplayTime > 0f)
-            {
-                StartCoroutine(WaitMinimumTime(page.minimumDisplayTime));
-            }
-            else
-            {
-                OnTypewriterComplete();
-            }
+        // Text is always shown (on top of the image, if any), styled per page
+        if (mainText != null)
+        {
+            mainText.gameObject.SetActive(true);
+            if (page.font != null)
+                mainText.font = page.font;
+            mainText.fontSize = page.fontSize;
+            mainText.color = page.textColor;
+        }
+
+        // Minimum display time gates advancement for every page type (image or text)
+        if (page.minimumDisplayTime > 0f)
+        {
+            StartCoroutine(WaitMinimumTime(page.minimumDisplayTime));
+        }
+
+        // Reveal the text (typewriter if enabled and there is text, otherwise instant)
+        if (mainText != null && useTypewriter && !string.IsNullOrEmpty(page.text))
+        {
+            typewriterCoroutine = StartCoroutine(TypewriterEffect(page.text));
         }
         else
         {
-            // Text page - apply styling
             if (mainText != null)
-            {
-                if (page.font != null)
-                    mainText.font = page.font;
-                mainText.fontSize = page.fontSize;
-                mainText.color = page.textColor;
-            }
-
-            if (useTypewriter && !string.IsNullOrEmpty(page.text))
-            {
-                typewriterCoroutine = StartCoroutine(TypewriterEffect(page.text));
-            }
-            else
             {
                 mainText.text = page.text;
                 mainText.maxVisibleCharacters = int.MaxValue;
-
-                if (page.minimumDisplayTime > 0f)
-                {
-                    StartCoroutine(WaitMinimumTime(page.minimumDisplayTime));
-                }
-                else
-                {
-                    OnTypewriterComplete();
-                }
             }
+            MarkTextReady();
         }
     }
 
     private IEnumerator WaitMinimumTime(float seconds)
     {
-        waitingForMinTime = true;
         yield return new WaitForSeconds(seconds);
-        waitingForMinTime = false;
-        OnTypewriterComplete();
+        MarkMinTimeReady();
     }
 
     private IEnumerator TypewriterEffect(string fullText)
@@ -250,7 +231,7 @@ public class IntroTextUI : MonoBehaviour
 
         isTypewriting = false;
         typewriterCoroutine = null;
-        OnTypewriterComplete();
+        MarkTextReady();
     }
 
     private void SkipTypewriter()
@@ -269,11 +250,28 @@ public class IntroTextUI : MonoBehaviour
         }
 
         isTypewriting = false;
-        OnTypewriterComplete();
+        MarkTextReady();
     }
 
-    private void OnTypewriterComplete()
+    private void MarkTextReady()
     {
+        isTypewriting = false;
+        textReady = true;
+        TryEnableAdvance();
+    }
+
+    private void MarkMinTimeReady()
+    {
+        minTimeReady = true;
+        TryEnableAdvance();
+    }
+
+    private void TryEnableAdvance()
+    {
+        // Only allow advancing once the text has finished AND the minimum display time has elapsed
+        if (!textReady || !minTimeReady)
+            return;
+
         // Show continue prompt
         if (continuePrompt != null)
         {
@@ -413,6 +411,7 @@ public class IntroTextUI : MonoBehaviour
         imageRect.offsetMax = Vector2.zero;
 
         imageObj.SetActive(false);
+        imageObj.transform.SetSiblingIndex(1); // keep the image behind the text (just above the black background)
 
         // Create continue prompt
         GameObject promptObj = new GameObject("ContinuePrompt");

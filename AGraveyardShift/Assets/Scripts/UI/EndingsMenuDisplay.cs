@@ -17,6 +17,9 @@ public class EndingsMenuDisplay : MonoBehaviour
     [Tooltip("Optional 'X / 4 discovered' subtitle.")]
     public TextMeshProUGUI subtitle;
 
+    [Tooltip("Optional Crypt Fiends teaser button label inside the modal. Shows '0 / 3 ?????' until the first fiend is found, then the count.")]
+    public TextMeshProUGUI cryptFiendsTeaser;
+
     [Tooltip("Text shown for endings the player has not unlocked yet.")]
     public string lockedText = "??????";
 
@@ -59,5 +62,15 @@ public class EndingsMenuDisplay : MonoBehaviour
 
         if (subtitle != null)
             subtitle.text = count + " / 4  DISCOVERED";
+
+        // Crypt Fiends teaser button label (the gallery opens from inside this modal).
+        if (cryptFiendsTeaser != null)
+        {
+            CryptFiendsSave.Reload();
+            int fiends = CryptFiendsSave.UnlockedCount();
+            cryptFiendsTeaser.text = fiends == 0
+                ? "0 / 3  ?????"
+                : fiends + " / 3  CRYPT FIENDS FOUND";
+        }
     }
 }

@@ -114,8 +114,10 @@ public static class MainMenuBuilder
         var settingsBtn = MakeButton("SettingsButton", buttons, settings, BTN_WIDTH, new Vector2(0f, BTN_STEP * 1f));
         var quitBtn = MakeButton("QuitButton", buttons, quit, BTN_WIDTH, new Vector2(0f, 0f));
 
-        // Endings modal (hidden by default).
+        // Endings + Crypt Fiends modals (hidden by default). The Crypt Fiends gallery
+        // opens from a teaser button inside the Endings modal.
         var endingsPanel = BuildEndingsModal(root, modal, endings, cancel, font, menu);
+        var cryptFiendsPanel = BuildCryptFiendsModal(root, modal, cancel, font, menu);
 
         // 5. Order siblings: menu (bottom) -> options -> fade -> disclaimer (top).
         root.SetAsFirstSibling();
@@ -136,6 +138,7 @@ public static class MainMenuBuilder
         menu.exitButton = quitBtn;
         if (optionsPanel != null) menu.optionsPanel = optionsPanel.gameObject;
         menu.endingsPanel = endingsPanel.gameObject;
+        menu.cryptFiendsPanel = cryptFiendsPanel.gameObject;
         if (fadeOverlay != null) menu.fadeOverlay = fadeOverlay.GetComponent<Image>();
         EditorUtility.SetDirty(menu);
 
@@ -162,6 +165,20 @@ public static class MainMenuBuilder
     {
         EndingsSave.ResetAll();
         Debug.Log("MainMenuBuilder: all endings reset.");
+    }
+
+    [MenuItem("Tools/Graveyard/Crypt Fiends/Unlock All")]
+    public static void UnlockAllCryptFiends()
+    {
+        foreach (var f in CryptFiendInfo.InOrder) CryptFiendsSave.Unlock(f);
+        Debug.Log("MainMenuBuilder: all crypt fiends unlocked.");
+    }
+
+    [MenuItem("Tools/Graveyard/Crypt Fiends/Reset All")]
+    public static void ResetAllCryptFiends()
+    {
+        CryptFiendsSave.ResetAll();
+        Debug.Log("MainMenuBuilder: all crypt fiends reset.");
     }
 
     // ---------- Endings modal ----------
@@ -205,14 +222,14 @@ public static class MainMenuBuilder
         subRt.anchorMin = subRt.anchorMax = new Vector2(0.5f, 1f);
         subRt.pivot = new Vector2(0.5f, 1f);
         subRt.sizeDelta = new Vector2(700f, 40f);
-        subRt.anchoredPosition = new Vector2(0f, -196f);
+        subRt.anchoredPosition = new Vector2(0f, -184f);
 
         // 2x2 grid of ending slots (filled at runtime by EndingsMenuDisplay).
         var slotSize = new Vector2(486f, 150f);
         var slotPos = new Vector2[]
         {
-            new Vector2(-262f, 64f), new Vector2(262f, 64f),
-            new Vector2(-262f, -116f), new Vector2(262f, -116f)
+            new Vector2(-262f, 96f), new Vector2(262f, 96f),
+            new Vector2(-262f, -84f), new Vector2(262f, -84f)
         };
         var slotValues = new TextMeshProUGUI[4];
         var slotTypes = new TextMeshProUGUI[4];
@@ -223,6 +240,30 @@ public static class MainMenuBuilder
             slotValues[i] = slot.Find("Value").GetComponent<TextMeshProUGUI>();
             slotTypes[i] = slot.Find("Type").GetComponent<TextMeshProUGUI>();
         }
+
+        // Crypt Fiends teaser button — a wide bar that opens the Crypt Fiends gallery on
+        // top of this modal. Its label (set by EndingsMenuDisplay) summarises progress:
+        // "0 / 3  ?????" until the first fiend is found, then "N / 3  CRYPT FIENDS FOUND".
+        var fiendsBar = NewImage("CryptFiendsTeaser", modalRt, null, false);
+        var barRt = fiendsBar.rectTransform;
+        barRt.anchorMin = barRt.anchorMax = new Vector2(0.5f, 0.5f);
+        barRt.pivot = new Vector2(0.5f, 0.5f);
+        barRt.sizeDelta = new Vector2(980f, 84f);
+        barRt.anchoredPosition = new Vector2(0f, -248f);
+        fiendsBar.color = new Color(0f, 0f, 0f, 0.40f);
+        var barOl = fiendsBar.gameObject.AddComponent<Outline>();
+        barOl.effectColor = new Color(1f, 1f, 1f, 0.14f);
+        barOl.effectDistance = new Vector2(2f, -2f);
+
+        var teaserBtn = MakeTextButton("CryptFiendsTeaserLabel", barRt, "0 / 3  ?????", font, 34f, TextAlignmentOptions.Center);
+        var teaserLabel = teaserBtn.GetComponent<TextMeshProUGUI>();
+        teaserLabel.characterSpacing = 4f;
+        var teaserRt = teaserBtn.GetComponent<RectTransform>();
+        teaserRt.anchorMin = Vector2.zero;
+        teaserRt.anchorMax = Vector2.one;
+        teaserRt.offsetMin = Vector2.zero;
+        teaserRt.offsetMax = Vector2.zero;
+        UnityEventTools.AddPersistentListener(teaserBtn.onClick, menu.OpenCryptFiends);
 
         // Cancel button -> close.
         var cancelBtn = MakeButton("CancelButton", modalRt, cancel, 300f, Vector2.zero);
@@ -238,6 +279,7 @@ public static class MainMenuBuilder
         disp.slotValues = slotValues;
         disp.slotTypes = slotTypes;
         disp.subtitle = sub;
+        disp.cryptFiendsTeaser = teaserLabel;
 
         panel.gameObject.SetActive(false);
         return panel;
@@ -286,6 +328,172 @@ public static class MainMenuBuilder
         tRt.anchoredPosition = new Vector2(0f, 16f);
 
         return slot;
+    }
+
+    // ---------- Crypt Fiends modal ----------
+    private static RectTransform BuildCryptFiendsModal(Transform parent, Sprite modal, Sprite cancel, TMP_FontAsset font, GameMainMenu menu)
+    {
+        var panel = NewRect("CryptFiendsPanel", parent);
+        Stretch(panel);
+
+        // Dim backdrop blocks clicks behind the modal.
+        var dim = NewImage("Dim", panel, null, true);
+        Stretch(dim.rectTransform);
+        dim.color = new Color(0f, 0f, 0f, 0.72f);
+
+        // Modal frame.
+        var modalImg = NewImage("Modal", panel, modal, true);
+        var modalRt = modalImg.rectTransform;
+        modalRt.anchorMin = modalRt.anchorMax = new Vector2(0.5f, 0.5f);
+        modalRt.pivot = new Vector2(0.5f, 0.5f);
+        modalRt.sizeDelta = new Vector2(1416f, 864f);
+        modalRt.anchoredPosition = Vector2.zero;
+        modalImg.gameObject.AddComponent<CanvasGroup>();
+        var modalIntro = modalImg.gameObject.AddComponent<MenuIntroFX>();
+        modalIntro.fadeDuration = 0.22f;
+        modalIntro.startDelay = 0f;
+        modalIntro.riseDistance = 26f;
+        modalIntro.riseTargets = new RectTransform[] { modalRt };
+
+        // Title (text header — no dedicated sprite for this menu).
+        var title = NewText("CryptFiendsHeader", modalRt, "CRYPT FIENDS", font, 64f, new Color(0.96f, 0.96f, 0.96f, 1f), TextAlignmentOptions.Center);
+        var titleRt = title.rectTransform;
+        titleRt.anchorMin = titleRt.anchorMax = new Vector2(0.5f, 1f);
+        titleRt.pivot = new Vector2(0.5f, 1f);
+        titleRt.sizeDelta = new Vector2(900f, 96f);
+        titleRt.anchoredPosition = new Vector2(0f, -40f);
+
+        // "0 / 3 FOUND" subtitle.
+        var sub = NewText("Subtitle", modalRt, "0 / 3  FOUND", font, 26f, new Color(1f, 1f, 1f, 0.55f), TextAlignmentOptions.Center);
+        sub.characterSpacing = 6f;
+        var subRt = sub.rectTransform;
+        subRt.anchorMin = subRt.anchorMax = new Vector2(0.5f, 1f);
+        subRt.pivot = new Vector2(0.5f, 1f);
+        subRt.sizeDelta = new Vector2(700f, 40f);
+        subRt.anchoredPosition = new Vector2(0f, -150f);
+
+        // Three stacked fiend slots (filled at runtime by CryptFiendsMenuDisplay).
+        var slotSize = new Vector2(980f, 150f);
+        var slotPos = new Vector2[]
+        {
+            new Vector2(0f, 150f), new Vector2(0f, -20f), new Vector2(0f, -190f)
+        };
+        var slotNames = new TextMeshProUGUI[3];
+        var slotButtons = new Button[3];
+        for (int i = 0; i < 3; i++)
+            MakeFiendSlot(modalRt, slotPos[i], slotSize, font, out slotNames[i], out slotButtons[i]);
+
+        // Cancel button -> close the whole gallery.
+        var cancelBtn = MakeButton("CancelButton", modalRt, cancel, 300f, Vector2.zero);
+        var cRt = cancelBtn.GetComponent<RectTransform>();
+        cRt.anchorMin = cRt.anchorMax = new Vector2(0.5f, 0f);
+        cRt.pivot = new Vector2(0.5f, 0f);
+        SizeKeepAspect(cRt, cancel, 300f);
+        cRt.anchoredPosition = new Vector2(0f, 34f);
+        UnityEventTools.AddPersistentListener(cancelBtn.onClick, menu.CloseCryptFiends);
+
+        // Detail view: shown when an unlocked fiend is clicked. Hidden by default.
+        var detail = NewRect("FiendDetail", modalRt);
+        detail.anchorMin = detail.anchorMax = new Vector2(0.5f, 0.5f);
+        detail.pivot = new Vector2(0.5f, 0.5f);
+        detail.sizeDelta = new Vector2(1200f, 560f);
+        detail.anchoredPosition = new Vector2(0f, -26f);
+        var dbg = detail.gameObject.AddComponent<Image>();
+        dbg.color = new Color(0.03f, 0.03f, 0.03f, 0.92f);
+        dbg.raycastTarget = true;
+        var dol = detail.gameObject.AddComponent<Outline>();
+        dol.effectColor = new Color(1f, 1f, 1f, 0.12f);
+        dol.effectDistance = new Vector2(2f, -2f);
+
+        var dName = NewText("DetailName", detail, "", font, 66f, new Color(0.93f, 0.91f, 0.86f, 1f), TextAlignmentOptions.Top);
+        var dnRt = dName.rectTransform;
+        dnRt.anchorMin = dnRt.anchorMax = new Vector2(0.5f, 1f);
+        dnRt.pivot = new Vector2(0.5f, 1f);
+        dnRt.sizeDelta = new Vector2(1040f, 100f);
+        dnRt.anchoredPosition = new Vector2(0f, -40f);
+
+        var dBody = NewText("DetailBody", detail, "", font, 36f, new Color(0.86f, 0.86f, 0.86f, 1f), TextAlignmentOptions.Top);
+        dBody.enableWordWrapping = true;
+        dBody.lineSpacing = 8f;
+        var dbRt = dBody.rectTransform;
+        dbRt.anchorMin = dbRt.anchorMax = new Vector2(0.5f, 1f);
+        dbRt.pivot = new Vector2(0.5f, 1f);
+        dbRt.sizeDelta = new Vector2(1000f, 300f);
+        dbRt.anchoredPosition = new Vector2(0f, -176f);
+
+        // Back button returns to the list (wired at runtime by CryptFiendsMenuDisplay).
+        var backBtn = MakeTextButton("BackButton", detail, "BACK", font, 46f, TextAlignmentOptions.Center);
+        var bkRt = backBtn.GetComponent<RectTransform>();
+        bkRt.anchorMin = bkRt.anchorMax = new Vector2(0.5f, 0f);
+        bkRt.pivot = new Vector2(0.5f, 0f);
+        bkRt.sizeDelta = new Vector2(260f, 70f);
+        bkRt.anchoredPosition = new Vector2(0f, 28f);
+
+        detail.gameObject.SetActive(false);
+
+        // Runtime display: fills slots from saved unlocks and drives the detail view.
+        var disp = panel.gameObject.AddComponent<CryptFiendsMenuDisplay>();
+        disp.slotNames = slotNames;
+        disp.slotButtons = slotButtons;
+        disp.subtitle = sub;
+        disp.header = title;
+        disp.detailPanel = detail.gameObject;
+        disp.detailName = dName;
+        disp.detailBody = dBody;
+        disp.detailBackButton = backBtn;
+
+        panel.gameObject.SetActive(false);
+        return panel;
+    }
+
+    private static void MakeFiendSlot(Transform parent, Vector2 pos, Vector2 size, TMP_FontAsset font, out TextMeshProUGUI nameText, out Button button)
+    {
+        var slot = NewRect("FiendSlot", parent);
+        slot.anchorMin = slot.anchorMax = new Vector2(0.5f, 0.5f);
+        slot.pivot = new Vector2(0.5f, 0.5f);
+        slot.sizeDelta = size;
+        slot.anchoredPosition = pos;
+
+        var bg = slot.gameObject.AddComponent<Image>();
+        bg.color = new Color(0f, 0f, 0f, 0.40f);
+        bg.raycastTarget = false;
+        var ol = slot.gameObject.AddComponent<Outline>();
+        ol.effectColor = new Color(1f, 1f, 1f, 0.14f);
+        ol.effectDistance = new Vector2(2f, -2f);
+
+        // Clickable name. The Button + MenuButtonFX live on the text (like the arrow
+        // buttons) so the label lights up on hover; locked slots disable the button.
+        var nm = NewText("Name", slot, "???", font, 54f, new Color(0.6f, 0.6f, 0.6f, 0.8f), TextAlignmentOptions.Center);
+        nm.characterSpacing = 4f;
+        nm.enableAutoSizing = true;
+        nm.fontSizeMin = 24f;
+        nm.fontSizeMax = 58f;
+        var nRt = nm.rectTransform;
+        nRt.anchorMin = nRt.anchorMax = new Vector2(0.5f, 0.5f);
+        nRt.pivot = new Vector2(0.5f, 0.5f);
+        nRt.sizeDelta = new Vector2(size.x - 60f, size.y - 30f);
+        nRt.anchoredPosition = Vector2.zero;
+        nm.raycastTarget = true;
+
+        var btn = nm.gameObject.AddComponent<Button>();
+        btn.transition = Selectable.Transition.None;
+        btn.targetGraphic = nm;
+        nm.gameObject.AddComponent<MenuButtonFX>();
+
+        nameText = nm;
+        button = btn;
+    }
+
+    // A text-based menu button (Image-less): Button + MenuButtonFX live on the TMP label.
+    private static Button MakeTextButton(string name, Transform parent, string label, TMP_FontAsset font, float fontSize, TextAlignmentOptions align)
+    {
+        var t = NewText(name, parent, label, font, fontSize, new Color(0.75f, 0.75f, 0.75f, 1f), align);
+        t.raycastTarget = true;
+        var btn = t.gameObject.AddComponent<Button>();
+        btn.transition = Selectable.Transition.None;
+        btn.targetGraphic = t;
+        t.gameObject.AddComponent<MenuButtonFX>();
+        return btn;
     }
 
     // ---------- Options reskin + resolution/fullscreen controls ----------
