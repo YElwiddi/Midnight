@@ -36,7 +36,6 @@ public class OptionsPanel : MonoBehaviour
     private const string MOUSE_SENSITIVITY_KEY = "MouseSensitivity";
     private const string FULLSCREEN_KEY = "Fullscreen";
     private const string QUALITY_KEY = "QualityLevel";
-    private const string BRIGHTNESS_KEY = "Brightness";
     private const string RES_WIDTH_KEY = "ResWidth";
     private const string RES_HEIGHT_KEY = "ResHeight";
 
@@ -68,6 +67,7 @@ public class OptionsPanel : MonoBehaviour
         LoadSettings();
         SetupListeners();
         SetupResolutions();
+        CreateBrightnessDisclaimer();
     }
 
     private void SetupListeners()
@@ -146,13 +146,9 @@ public class OptionsPanel : MonoBehaviour
             mouseSensitivitySlider.value = sensitivity;
         }
 
-        // Load brightness
+        // Load brightness (drives the gameplay ambient sky; see BrightnessSettings).
         if (brightnessSlider != null)
-        {
-            float bright = PlayerPrefs.GetFloat(BRIGHTNESS_KEY, 0.5f);
-            brightnessSlider.value = bright;
-            SetBrightness(bright);
-        }
+            brightnessSlider.value = BrightnessSettings.Value;
     }
 
     public void SetMasterVolume(float value)
@@ -299,15 +295,10 @@ public class OptionsPanel : MonoBehaviour
 
     public void SetBrightness(float value)
     {
-        // Slider goes 0-1, map to VHS brightness range (-0.2 to 0.2)
-        float vhsBrightness = Mathf.Lerp(-0.2f, 0.2f, value);
-        PlayerPrefs.SetFloat(BRIGHTNESS_KEY, value);
-
-        VHSRetroFeature vhs = FindFirstObjectByType<VHSRetroFeature>();
-        if (vhs != null)
-        {
-            vhs.brightness = vhsBrightness;
-        }
+        // Drives the gameplay environment ambient sky colour. Applied when the gameplay
+        // scene's LightingController initialises (this panel lives in the main menu, which
+        // keeps its own lighting) — see BrightnessSettings.
+        BrightnessSettings.Save(value);
     }
 
     public void SaveAndClose()
@@ -324,8 +315,45 @@ public class OptionsPanel : MonoBehaviour
         if (fullscreenToggle != null) fullscreenToggle.isOn = true;
         if (qualityDropdown != null) qualityDropdown.value = QualitySettings.names.Length - 1;
         if (mouseSensitivitySlider != null) mouseSensitivitySlider.value = 2f;
-        if (brightnessSlider != null) brightnessSlider.value = 0.5f;
+        if (brightnessSlider != null) brightnessSlider.value = BrightnessSettings.Default;
 
         PlayerPrefs.Save();
+    }
+
+    private const string DISCLAIMER_NAME = "BrightnessDisclaimer";
+
+    /// <summary>
+    /// Adds a small cautionary note under the brightness slider. Created at runtime so it
+    /// survives a menu rebuild and ships in the build without editing the scene by hand.
+    /// </summary>
+    private void CreateBrightnessDisclaimer()
+    {
+        if (brightnessSlider == null) return;
+
+        Transform panel = brightnessSlider.transform.parent;
+        if (panel == null || panel.Find(DISCLAIMER_NAME) != null) return;
+
+        // Grab the menu's font from an existing label before adding the new one.
+        TMP_FontAsset font = null;
+        var anyLabel = panel.GetComponentInChildren<TextMeshProUGUI>();
+        if (anyLabel != null) font = anyLabel.font;
+
+        var go = new GameObject(DISCLAIMER_NAME, typeof(RectTransform));
+        go.transform.SetParent(panel, false);
+
+        var rt = (RectTransform)go.transform;
+        rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.sizeDelta = new Vector2(760f, 32f);
+        rt.anchoredPosition = new Vector2(0f, -95f); // just under the brightness row
+
+        var tmp = go.AddComponent<TextMeshProUGUI>();
+        if (font != null) tmp.font = font;
+        tmp.text = "Default brightness is strongly recommended.";
+        tmp.fontSize = 22f;
+        tmp.fontStyle = FontStyles.Italic;
+        tmp.alignment = TextAlignmentOptions.Center;
+        tmp.color = new Color(0.86f, 0.78f, 0.5f, 1f); // soft amber caution
+        tmp.raycastTarget = false;
     }
 }

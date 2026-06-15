@@ -105,6 +105,10 @@ public class LightingController : MonoBehaviour
     {
         // Initialize with outdoor settings
         currentSettings = CloneSettings(outdoorSettings);
+
+        // The player's brightness setting controls the environment's ambient SKY colour
+        // (only the sky channel; equator/ground keep their scene values).
+        RenderSettings.ambientSkyColor = BrightnessSettings.SkyColor;
     }
 
     private void OnGUI()
@@ -128,10 +132,17 @@ public class LightingController : MonoBehaviour
         if (preset == LightingPreset.None) return;
 
         LightingSettings settings = GetSettingsForPreset(preset);
-        if (settings != null)
-        {
-            ApplySettings(settings, preset);
-        }
+        if (settings == null) return;
+
+        // Brightness shifts each area's sky by the same ±32 (0-255 units) around its own
+        // default: outdoor is centred on 32 (0..64); cabin/crypt keep their authored centre
+        // (e.g. crypt 48 -> 16..80). Equator/ground are untouched.
+        settings = CloneSettings(settings);
+        settings.skyColor = (preset == LightingPreset.Outdoor)
+            ? BrightnessSettings.SkyColor
+            : BrightnessSettings.Shift(settings.skyColor);
+
+        ApplySettings(settings, preset);
     }
 
     /// <summary>

@@ -1620,6 +1620,14 @@ public class KillerNPC : MonoBehaviour
         // Endings: unlock it, show the reveal screen, then return to the main menu.
         if (unlocksEnding)
         {
+            // Silence whatever the killer is still playing (for the bride that's the loud
+            // activation static, since her jumpscareSound is unset) so it doesn't bleed into
+            // the reveal screen — the ending should land in silence.
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+            }
+
             EndingFlow.Trigger(endingToUnlock);
             return;
         }

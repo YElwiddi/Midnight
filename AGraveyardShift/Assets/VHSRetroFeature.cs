@@ -105,7 +105,6 @@ public class VHSRetroFeature : MonoBehaviour
     void Start()
     {
         CheckSupport();
-        LoadBrightnessFromPrefs();
     }
 
     void OnEnable() => CheckSupport();
@@ -120,15 +119,6 @@ public class VHSRetroFeature : MonoBehaviour
             if (Application.isPlaying) Destroy(_material);
             else DestroyImmediate(_material);
             _material = null;
-        }
-    }
-
-    void LoadBrightnessFromPrefs()
-    {
-        if (PlayerPrefs.HasKey("Brightness"))
-        {
-            float sliderValue = PlayerPrefs.GetFloat("Brightness", 0.5f);
-            brightness = Mathf.Lerp(-0.2f, 0.2f, sliderValue);
         }
     }
 
