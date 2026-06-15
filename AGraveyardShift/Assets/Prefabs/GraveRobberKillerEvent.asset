@@ -21,7 +21,7 @@ MonoBehaviour:
   sanityThreshold: 25
   checkGraveyardProtection: 1
   protectionComparison: 0
-  protectionThreshold: 100
+  protectionThreshold: 0
   killerPrefab: {fileID: 3767055355421772689, guid: c2e27aa65c315034dba5a5dc47a09b8b, type: 3}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
