@@ -10,7 +10,8 @@ public enum LightingPreset
     Outdoor,    // Default outdoor/graveyard lighting
     Cabin,      // Indoor cabin lighting
     Crypt,      // Brighter crypt lighting
-    Custom      // Use custom settings
+    Custom,     // Use custom settings
+    Forest      // Spooky forest ambient (cold, dead)
 }
 
 /// <summary>
@@ -65,6 +66,14 @@ public class LightingController : MonoBehaviour
         skyColor = new Color(0.3f, 0.3f, 0.35f),
         equatorColor = new Color(0.25f, 0.25f, 0.3f),
         groundColor = new Color(0.2f, 0.2f, 0.22f)
+    };
+
+    [Tooltip("Spooky forest lighting settings (cold, dead, low moonlight)")]
+    [SerializeField] private LightingSettings forestSettings = new LightingSettings
+    {
+        skyColor = new Color(0.10f, 0.13f, 0.18f),
+        equatorColor = new Color(0.07f, 0.09f, 0.11f),
+        groundColor = new Color(0.04f, 0.05f, 0.05f)
     };
 
     [Header("Transition")]
@@ -189,6 +198,7 @@ public class LightingController : MonoBehaviour
             LightingPreset.Outdoor => outdoorSettings,
             LightingPreset.Cabin => cabinSettings,
             LightingPreset.Crypt => cryptSettings,
+            LightingPreset.Forest => forestSettings,
             _ => null
         };
     }
