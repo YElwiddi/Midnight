@@ -9,8 +9,10 @@ using UnityEngine;
 /// as if nothing happened.
 ///
 /// Built for Maribel (TabithaSister): when the player reaches her "May I come in?"
-/// decision screen (let her in / refuse / a few more questions / be right back),
-/// three seconds later her neck cracks sideways.
+/// decision screen (let her in / refuse / a few more questions / be right back), the snap
+/// is armed. A fixed delay later (default 12s) her neck cracks sideways — regardless of
+/// which choice the player picks or which dialogue node they move to next, and even if the
+/// conversation has ended by then. The countdown is not cancelled by progressing the dialogue.
 ///
 /// Place this on the NPC root (the transform DialogueManager treats as the current
 /// speaker - for event NPCs that is the spawned prefab root). The neck bone is rotated
@@ -28,10 +30,11 @@ public class CreepyNeckSnap : MonoBehaviour
     [Tooltip("Also require the choice list to have exactly this many options. Set 0 to ignore the count.")]
     [SerializeField] private int requiredChoiceCount = 4;
 
-    [Tooltip("Seconds to wait after the trigger screen appears before the neck snaps.")]
-    [SerializeField] private float delayBeforeSnap = 3f;
+    [Tooltip("Seconds to wait after the trigger screen is reached before the neck snaps. " +
+             "The countdown keeps running no matter which node the player moves to next — and even if the dialogue ends.")]
+    [SerializeField] private float delayBeforeSnap = 12f;
 
-    [Tooltip("Only fire once per conversation (re-arms when the dialogue ends).")]
+    [Tooltip("Only arm once per conversation (re-arms when the dialogue ends). A snap already counting down is never cancelled.")]
     [SerializeField] private bool oncePerConversation = true;
 
     [Header("Neck Bend")]
@@ -66,7 +69,6 @@ public class CreepyNeckSnap : MonoBehaviour
     private Coroutine pendingSnap;
     private bool isBending;
     private bool firedThisConversation;
-    private bool onTriggerScreen;
     private float bendWeight; // 0..1 strength currently applied in LateUpdate
 
     private void Awake()
@@ -113,45 +115,34 @@ public class CreepyNeckSnap : MonoBehaviour
 
     private void HandleDialogueTextChanged(string _)
     {
-        // Any new line means we have left the choice screen.
-        onTriggerScreen = false;
-        CancelPending();
+        // Intentionally empty: once the snap is armed at the trigger screen, progressing to
+        // another dialogue node must NOT cancel it — it still fires delayBeforeSnap later.
     }
 
     private void HandleDialogueEnded()
     {
+        // Re-arm for a future conversation, but DON'T cancel a snap already counting down:
+        // it should still fire delayBeforeSnap after the trigger node even if the player
+        // ends the conversation first.
         firedThisConversation = false;
-        onTriggerScreen = false;
-        CancelPending();
     }
 
     private void HandleChoicesPresented(List<string> choices)
     {
-        // Only react when THIS NPC is the one being talked to.
-        if (dialogueManager == null || dialogueManager.CurrentNPC != transform)
-        {
-            onTriggerScreen = false;
-            CancelPending();
-            return;
-        }
+        // Only arm when THIS NPC is the one being talked to and the trigger screen is shown.
+        if (dialogueManager == null || dialogueManager.CurrentNPC != transform) return;
 
         bool matches = choices != null
             && (requiredChoiceCount <= 0 || choices.Count == requiredChoiceCount)
             && (string.IsNullOrEmpty(triggerChoiceText) || choices.Contains(triggerChoiceText));
+        if (!matches) return;
 
-        if (!matches)
-        {
-            onTriggerScreen = false;
-            CancelPending();
-            return;
-        }
-
-        onTriggerScreen = true;
-
+        // Arm once. After this the countdown owns the snap and fires regardless of where the
+        // player navigates next (or whether the conversation ends).
         if (oncePerConversation && firedThisConversation) return;
+        if (pendingSnap != null) return;
 
-        // (Re)arm the delayed snap for this screen.
-        CancelPending();
+        firedThisConversation = true;
         pendingSnap = StartCoroutine(DelayedSnap());
     }
 
@@ -162,18 +153,10 @@ public class CreepyNeckSnap : MonoBehaviour
         // Moment within the countdown to fire the crack, so it leads the snap by soundLeadTime.
         float crackAt = Mathf.Clamp(delayBeforeSnap - soundLeadTime, 0f, delayBeforeSnap);
 
+        // Count down independently of the dialogue: the snap fires delayBeforeSnap after the
+        // trigger node was reached, no matter which node the player moves to (or if it ends).
         while (t < delayBeforeSnap)
         {
-            // Bail if we left the screen, the speaker changed, or dialogue ended.
-            if (!onTriggerScreen
-                || dialogueManager == null
-                || !dialogueManager.IsDialoguePlaying()
-                || dialogueManager.CurrentNPC != transform)
-            {
-                pendingSnap = null;
-                yield break;
-            }
-
             // Anticipatory crack: play it ahead of the snap when a lead time is set.
             if (!crackPlayed && soundLeadTime > 0f && t >= crackAt)
             {
@@ -186,7 +169,6 @@ public class CreepyNeckSnap : MonoBehaviour
         }
 
         pendingSnap = null;
-        firedThisConversation = true;
         // Don't replay the crack in the snap if the lead time already played it.
         yield return SnapRoutine(!crackPlayed);
     }
@@ -252,15 +234,6 @@ public class CreepyNeckSnap : MonoBehaviour
         // the base of the neck - the head goes down-and-out, never up.
         if (bendWeight <= 0f || neckBone == null) return;
         neckBone.rotation = Quaternion.AngleAxis(bendAngleDegrees * bendWeight, transform.forward) * neckBone.rotation;
-    }
-
-    private void CancelPending()
-    {
-        if (pendingSnap != null)
-        {
-            StopCoroutine(pendingSnap);
-            pendingSnap = null;
-        }
     }
 
     private static Transform FindBone(Transform root, string boneName)

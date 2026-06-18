@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CreepyNeckSnap
   triggerChoiceText: Fine. Go in. But be quick.
   requiredChoiceCount: 4
-  delayBeforeSnap: 3
+  delayBeforeSnap: 12
   oncePerConversation: 1
   neckBone: {fileID: 881823090788193251}
   neckBoneName: mixamorig:Head
