@@ -110,9 +110,9 @@ MonoBehaviour:
   neckBone: {fileID: 881823090788193251}
   neckBoneName: mixamorig:Head
   bendAngleDegrees: 90
-  snapInDuration: 0.06
-  holdDuration: 0.01
-  snapOutDuration: 0.12
+  snapInDuration: 0.01
+  holdDuration: 0.02
+  snapOutDuration: 0.05
   boneCrackSound: {fileID: 8300000, guid: 4b1d6bd4ba356714fb9a2d563686ed92, type: 3}
   volume: 0.645
   spatialBlend: 0

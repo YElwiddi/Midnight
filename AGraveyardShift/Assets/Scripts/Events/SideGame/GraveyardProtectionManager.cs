@@ -21,6 +21,9 @@ public class GraveyardProtectionManager : MonoBehaviour
     [Tooltip("Starting protection value (usually same as max)")]
     [SerializeField] private int startingProtection = 100;
 
+    [Tooltip("Live current protection. Set from Starting Protection at play start; drag this during play to change it on the fly (updates the bar and fires events). Read in code via CurrentProtection / SetProtection().")]
+    [SerializeField] private int currentProtection = 100;
+
     [Tooltip("If true, protection regenerates over time when not being drained")]
     [SerializeField] private bool enableRegeneration = false;
 
@@ -70,7 +73,6 @@ public class GraveyardProtectionManager : MonoBehaviour
     #endregion
 
     #region Private Fields
-    private int currentProtection;
     private float lastDrainTime;
     private int activedrainSources = 0;
     private bool hasTriggeredDepletion = false;
@@ -87,6 +89,24 @@ public class GraveyardProtectionManager : MonoBehaviour
         Instance = this;
 
         currentProtection = startingProtection;
+    }
+
+    private void OnValidate()
+    {
+        // Keep the inspector "current" lever in range, and apply it live during play
+        // (mirrors SetProtection so dragging the field updates the bar / depletion).
+        currentProtection = Mathf.Clamp(currentProtection, 0, Mathf.Max(0, maxProtection));
+
+        if (Application.isPlaying)
+        {
+            OnProtectionChanged?.Invoke(currentProtection, maxProtection);
+
+            if (currentProtection <= 0 && !hasTriggeredDepletion)
+            {
+                hasTriggeredDepletion = true;
+                OnProtectionDepleted?.Invoke();
+            }
+        }
     }
 
     private void Update()

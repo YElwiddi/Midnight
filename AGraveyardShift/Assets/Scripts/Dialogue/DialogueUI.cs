@@ -109,6 +109,7 @@ public class DialogueUI : MonoBehaviour
     private float overridePitchVariation = -1f;
     private int overrideSoundEveryN = -1;
     private bool hasOverrideSound = false;
+    private bool forceMuteTypewriterSound = false;
     #endregion
 
     #region Unity Lifecycle
@@ -382,6 +383,16 @@ public class DialogueUI : MonoBehaviour
         overrideSoundEveryN = -1;
         hasOverrideSound = false;
     }
+
+    /// <summary>
+    /// Forces the typewriter sound off (or back on) regardless of the default
+    /// <c>playTypewriterSound</c> setting. Use for silent lines (e.g. internal-thought confirms).
+    /// </summary>
+    public void SetTypewriterSoundMuted(bool muted)
+    {
+        forceMuteTypewriterSound = muted;
+        if (muted) StopTypewriterSound();
+    }
     #endregion
 
     #region Private Methods
@@ -537,7 +548,7 @@ public class DialogueUI : MonoBehaviour
 
         // Determine which sound settings to use (override > default)
         AudioClip clipToUse = hasOverrideSound ? overrideSoundClip : typewriterSoundClip;
-        bool shouldPlaySound = (hasOverrideSound && overrideSoundClip != null) || (playTypewriterSound && typewriterSoundClip != null);
+        bool shouldPlaySound = !forceMuteTypewriterSound && ((hasOverrideSound && overrideSoundClip != null) || (playTypewriterSound && typewriterSoundClip != null));
 
         // Ensure AudioSource exists if sound is enabled
         if (shouldPlaySound && typewriterAudioSource == null)
