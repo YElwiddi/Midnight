@@ -63,6 +63,35 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     [TextArea] public string firstTimeHint = "Use the left and right arrow keys to switch between cameras.";
     public float hintDuration = 4f;
 
+    [Header("Low-sanity / low-protection scare")]
+    [Tooltip("Flashed (heavily distorted) over the feed, only while watching the FRONT gate, when SANITY is at/under the threshold -- a spirit on the cameras.")]
+    public Texture spiritImage;
+    [Tooltip("Flashed (heavily distorted) over the feed, only while watching the BACK gate, when PROTECTION is at/under the threshold -- a grave robber on the cameras.")]
+    public Texture graverobberImage;
+    [Tooltip("Zoom applied to the SPIRIT image only, centred on her face (1 = no zoom, 1.5 = 1.5x). The grave robber is never zoomed.")]
+    [Range(1f, 3f)] public float spiritZoom = 1.5f;
+    [Tooltip("UV point on the spirit image to centre the zoom on (her eyes). (0,0) = bottom-left, (1,1) = top-right.")]
+    public Vector2 spiritFaceFocus = new Vector2(0.5f, 0.6f);
+    [Tooltip("Static intensity for the SPIRIT only (1 = same as the robber, lower = less static).")]
+    [Range(0f, 1f)] public float spiritStaticStrength = 0.6f;
+    [Tooltip("Overall glitch intensity for the GRAVE ROBBER only (1 = full; lower = less glitchy -- scales jitter, RGB split, tearing and static together).")]
+    [Range(0f, 1f)] public float graverobberGlitchAmount = 0.8f;
+    [Tooltip("feedCameras index of the FRONT gate cam. The spirit can only appear on this feed.")]
+    public int frontGateFeedIndex = 0;
+    [Tooltip("feedCameras index of the BACK gate cam. The grave robber can only appear on this feed.")]
+    public int backGateFeedIndex = 1;
+    [Tooltip("Scare becomes possible once sanity is at or below this fraction (0.40 = 40%).")]
+    [Range(0f, 1f)] public float scareSanityThreshold = 0.40f;
+    [Tooltip("Scare becomes possible once protection is at or below this fraction (0.40 = 40%).")]
+    [Range(0f, 1f)] public float scareProtectionThreshold = 0.40f;
+    [Tooltip("Per-second chance the scare flashes while watching the matching gate with that stat low (0.10 = 10%). One roll per second, not cumulative.")]
+    [Range(0f, 1f)] public float scareChancePerSecond = 0.10f;
+    [Tooltip("Seconds the distorted scare image stays on screen.")]
+    public float scareDuration = 0.5f;
+    [Tooltip("Static noise played for the scare's duration (looped, cut at scareDuration).")]
+    public AudioClip scareStaticClip;
+    [Range(0f, 1f)] public float scareStaticVolume = 0.9f;
+
     // ---- runtime ----
     private RenderTexture[] feedTextures;
     private Material screenMat;
@@ -74,6 +103,13 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     private AudioSource audioSource;
     private bool hintShown;
     private CrosshairManager crosshair;
+
+    // scare overlay
+    private AudioSource scareAudio;
+    private bool scarePlayed;
+    private bool scareActive;
+    private float scareRollTimer;
+    private float scareEndTime;
 
     private Movement player;
     private Camera playerCam;
@@ -118,6 +154,12 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;
 
+        // Separate 2D source for the scare static so it never fights the channel blip.
+        scareAudio = gameObject.AddComponent<AudioSource>();
+        scareAudio.playOnAwake = false;
+        scareAudio.spatialBlend = 0f;
+        scareAudio.loop = true;
+
         if (screenLabel != null) screenLabel.gameObject.SetActive(false);
     }
 
@@ -160,6 +202,8 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
 
         if (crosshair == null) crosshair = FindObjectOfType<CrosshairManager>();
         if (crosshair != null) crosshair.Hide();
+
+        scareRollTimer = 0f; // a beat before the first scare can roll
 
         EnableFeeds(true);
         activeIndex = Mathf.Clamp(activeIndex, 0, feedCameras.Length - 1);
@@ -218,6 +262,8 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         else
         {
             isViewing = false;
+            scareActive = false;
+            if (scareAudio != null) scareAudio.Stop();
             EnableFeeds(false);
             SetScreenOff();
             if (screenLabel != null) screenLabel.gameObject.SetActive(false);
@@ -228,6 +274,9 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
 
     void Update()
     {
+        if (scareActive && Time.unscaledTime >= scareEndTime)
+            EndScare();
+
         if (!isViewing || transitioning) return;
         if (Time.unscaledTime < inputLockUntil) return;
 
@@ -236,6 +285,9 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
             ExitViewing();
             return;
         }
+
+        MaybeRollScare();
+        if (scareActive) return; // freeze channel switching while the scare is on screen
 
         if (feedCameras == null || feedCameras.Length <= 1) return;
 
@@ -276,6 +328,10 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         if (screenMat.HasProperty("_BaseMap")) screenMat.SetTexture("_BaseMap", tex);
         if (screenMat.HasProperty("_BaseColor")) screenMat.SetColor("_BaseColor", Color.white);
         if (screenMat.HasProperty("_Color")) screenMat.SetColor("_Color", Color.white);
+        if (screenMat.HasProperty("_GlitchAmount")) screenMat.SetFloat("_GlitchAmount", 0f);
+        screenMat.mainTextureScale = Vector2.one;   // clear any spirit zoom
+        screenMat.mainTextureOffset = Vector2.zero;
+        if (screenMat.HasProperty("_StaticStrength")) screenMat.SetFloat("_StaticStrength", 1f);
         UpdateLabel(index);
     }
 
@@ -285,6 +341,98 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         screenLabel.text = (feedNames != null && index >= 0 && index < feedNames.Length && !string.IsNullOrEmpty(feedNames[index]))
             ? feedNames[index]
             : ("CAMERA " + (index + 1));
+    }
+
+    // ---- low-sanity / low-protection scare ----
+
+    // Once per watched second, roll for the one-time scare flash. The scare is tied to the
+    // camera you're watching: the FRONT gate can show the spirit (when sanity is low), the
+    // BACK gate can show the grave robber (when protection is low). Never both -- you only
+    // ever see one camera at a time.
+    private void MaybeRollScare()
+    {
+        if (scarePlayed || scareActive) return;
+
+        scareRollTimer += Time.unscaledDeltaTime;
+        if (scareRollTimer < 1f) return;
+        scareRollTimer = 0f; // exactly one roll per second, not cumulative
+
+        Texture img = null;
+        if (activeIndex == frontGateFeedIndex)
+        {
+            var sanity = SanityManager.Instance;
+            if (sanity != null && sanity.SanityPercent <= scareSanityThreshold) img = spiritImage;
+        }
+        else if (activeIndex == backGateFeedIndex)
+        {
+            var prot = GraveyardProtectionManager.Instance;
+            if (prot != null && prot.ProtectionPercent <= scareProtectionThreshold) img = graverobberImage;
+        }
+
+        if (img == null) return; // not on the matching gate for a low stat (or image unassigned)
+
+        if (Random.value > scareChancePerSecond) return; // a single 10% roll this second
+        StartScare(img);
+    }
+
+    private void StartScare(Texture img)
+    {
+        scarePlayed = true; // can only ever play once
+        scareActive = true;
+        scareEndTime = Time.unscaledTime + Mathf.Max(0.05f, scareDuration);
+
+        if (screenMat != null)
+        {
+            screenMat.mainTexture = img;
+            if (screenMat.HasProperty("_BaseMap")) screenMat.SetTexture("_BaseMap", img);
+            if (screenMat.HasProperty("_BaseColor")) screenMat.SetColor("_BaseColor", Color.white);
+            if (screenMat.HasProperty("_Color")) screenMat.SetColor("_Color", Color.white);
+
+            // Spirit gets a zoom onto her face + reduced static; the grave robber stays
+            // full-frame but at a slightly lower overall glitch intensity.
+            if (img == spiritImage)
+            {
+                float s = 1f / Mathf.Max(0.01f, spiritZoom);
+                screenMat.mainTextureScale = new Vector2(s, s);
+                screenMat.mainTextureOffset = new Vector2(spiritFaceFocus.x - s * 0.5f, spiritFaceFocus.y - s * 0.5f);
+                if (screenMat.HasProperty("_GlitchAmount")) screenMat.SetFloat("_GlitchAmount", 1f);
+                if (screenMat.HasProperty("_StaticStrength")) screenMat.SetFloat("_StaticStrength", spiritStaticStrength);
+            }
+            else
+            {
+                screenMat.mainTextureScale = Vector2.one;
+                screenMat.mainTextureOffset = Vector2.zero;
+                if (screenMat.HasProperty("_GlitchAmount")) screenMat.SetFloat("_GlitchAmount", Mathf.Clamp01(graverobberGlitchAmount));
+                if (screenMat.HasProperty("_StaticStrength")) screenMat.SetFloat("_StaticStrength", 1f);
+            }
+        }
+
+        if (screenLabel != null) screenLabel.gameObject.SetActive(false);
+
+        if (scareStaticClip != null && scareAudio != null)
+        {
+            scareAudio.clip = scareStaticClip;
+            scareAudio.volume = scareStaticVolume;
+            scareAudio.time = 0f;
+            scareAudio.Play();
+        }
+    }
+
+    private void EndScare()
+    {
+        scareActive = false;
+        if (scareAudio != null) scareAudio.Stop();
+        if (screenMat != null && screenMat.HasProperty("_GlitchAmount")) screenMat.SetFloat("_GlitchAmount", 0f);
+
+        if (isViewing && !transitioning)
+        {
+            if (screenLabel != null) screenLabel.gameObject.SetActive(true);
+            ShowFeed(activeIndex); // back to the live feed
+        }
+        else
+        {
+            SetScreenOff();
+        }
     }
 
     private void PlayChangeChannel()
@@ -312,5 +460,9 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         if (screenMat.HasProperty("_BaseMap")) screenMat.SetTexture("_BaseMap", offTex);
         if (screenMat.HasProperty("_BaseColor")) screenMat.SetColor("_BaseColor", Color.white);
         if (screenMat.HasProperty("_Color")) screenMat.SetColor("_Color", Color.white);
+        if (screenMat.HasProperty("_GlitchAmount")) screenMat.SetFloat("_GlitchAmount", 0f);
+        screenMat.mainTextureScale = Vector2.one;
+        screenMat.mainTextureOffset = Vector2.zero;
+        if (screenMat.HasProperty("_StaticStrength")) screenMat.SetFloat("_StaticStrength", 1f);
     }
 }

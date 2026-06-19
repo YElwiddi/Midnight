@@ -39,6 +39,9 @@ public class SanityManager : MonoBehaviour
     [Tooltip("Starting sanity value")]
     [SerializeField] private int startingSanity = 100;
 
+    [Tooltip("Live current sanity. Set from Starting Sanity at play start; drag this during play to change it on the fly (updates the bar, threshold effects and events). Read in code via CurrentSanity / SetSanity().")]
+    [SerializeField] private int currentSanity = 100;
+
     [Header("Thresholds")]
     [Tooltip("Sanity thresholds that trigger effects")]
     [SerializeField] private List<SanityThreshold> thresholds = new List<SanityThreshold>()
@@ -135,7 +138,8 @@ public class SanityManager : MonoBehaviour
     #endregion
 
     #region Private Fields
-    private int currentSanity;
+    // currentSanity is declared up in Inspector Settings so it shows as a live lever.
+    private int lastAppliedSanity = -1; // last applied value, so the inspector lever can compute threshold crossings
     private float lastDrainTime;
     private int activeDrainSources = 0;
     private bool jumpscareTriggered = false;
@@ -156,6 +160,28 @@ public class SanityManager : MonoBehaviour
         Instance = this;
 
         currentSanity = startingSanity;
+        lastAppliedSanity = currentSanity;
+    }
+
+    private void OnValidate()
+    {
+        // Keep the inspector "current" lever in range, and apply it live during play so
+        // dragging Current Sanity updates the bar, threshold effects and events
+        // (mirrors the Graveyard Protection lever, plus sanity's threshold crossings).
+        currentSanity = Mathf.Clamp(currentSanity, 0, Mathf.Max(0, maxSanity));
+
+        if (Application.isPlaying)
+        {
+            int previousValue = lastAppliedSanity >= 0 ? lastAppliedSanity : currentSanity;
+            if (currentSanity < previousValue) CheckThresholds(previousValue, currentSanity);
+            else if (currentSanity > previousValue) CheckThresholdsRecovery(previousValue, currentSanity);
+
+            lastAppliedSanity = currentSanity;
+            OnSanityChanged?.Invoke(currentSanity, maxSanity);
+
+            if (currentSanity <= 0 && !jumpscareTriggered)
+                TriggerSanityDepleted();
+        }
     }
 
     private void Start()
@@ -228,6 +254,7 @@ public class SanityManager : MonoBehaviour
 
         int previousValue = currentSanity;
         currentSanity = Mathf.Max(0, currentSanity - amount);
+        lastAppliedSanity = currentSanity;
         lastDrainTime = Time.time;
 
         if (currentSanity != previousValue)
@@ -271,6 +298,7 @@ public class SanityManager : MonoBehaviour
 
         int previousValue = currentSanity;
         currentSanity = Mathf.Min(maxSanity, currentSanity + amount);
+        lastAppliedSanity = currentSanity;
 
         if (currentSanity != previousValue)
         {
@@ -403,6 +431,7 @@ public class SanityManager : MonoBehaviour
     public void ResetSanity()
     {
         currentSanity = startingSanity;
+        lastAppliedSanity = currentSanity;
         jumpscareTriggered = false;
         sanityAccumulator = 0f;
         activeDrainSources = 0;
@@ -428,6 +457,7 @@ public class SanityManager : MonoBehaviour
     {
         int previousValue = currentSanity;
         currentSanity = Mathf.Clamp(value, 0, maxSanity);
+        lastAppliedSanity = currentSanity;
 
         if (currentSanity < previousValue)
         {

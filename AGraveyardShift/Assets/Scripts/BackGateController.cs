@@ -42,6 +42,12 @@ public class BackGateController : MonoBehaviour
     [TextArea(2, 5)]
     [SerializeField] private string gateLockedText = "It's locked.";
     [TextArea(2, 5)]
+    [Tooltip("Locked prompt shown once the key has gone missing (protection at/under the vanish threshold).")]
+    [SerializeField] private string gateKeyLostText = "Its locked. I can't find my key...";
+    [TextArea(2, 5)]
+    [Tooltip("Shown when the player interacts with the gate after it has creaked part-way open and jammed.")]
+    [SerializeField] private string gateStuckText = "The gate is stuck.";
+    [TextArea(2, 5)]
     [SerializeField] private string gateOpenPrompt = "I should definitely keep this locked. Should I open it anyway?";
     [SerializeField] private string yesText = "Yes";
     [SerializeField] private string noText = "No";
@@ -59,8 +65,10 @@ public class BackGateController : MonoBehaviour
     [SerializeField] private int openProtectionPenalty = 40;
     [Tooltip("At or under this protection, an un-taken key vanishes from the table.")]
     [SerializeField] private int keyVanishThreshold = 50;
-    [Tooltip("At or under this protection, one leaf creaks half-open on its own.")]
+    [Tooltip("At or under this protection, one leaf creaks part-way open on its own and jams.")]
     [SerializeField] private int gateCreakThreshold = 25;
+    [Tooltip("How far (degrees) the leaf creaks open at low protection. Kept small so the gap is too narrow to fit through (full open is the leaf's own openAngle, ~70).")]
+    [SerializeField] private float creakOpenAngle = 12f;
 
     // Runtime
     private DialogueUI dialogueUI;
@@ -68,8 +76,9 @@ public class BackGateController : MonoBehaviour
     private CrosshairManager crosshairManager;
     private GraveyardProtectionManager protection;
     private bool isShowingChoice;
-    private bool gateCreaked;       // sticky: a creak has happened -> gate is player-toggleable
+    private bool gateCreaked;       // sticky: a creak has happened -> the gate is jammed part-open
     private bool creakArmed = true; // re-arms when protection climbs back above the creak threshold
+    private bool keyLost;           // sticky: the key vanished at low protection -> locked prompt changes
     private Action<int> activeChoiceHandler;
 
     private void Start()
@@ -124,18 +133,19 @@ public class BackGateController : MonoBehaviour
             return;
         }
 
-        // The gate creaked open on its own from low protection: let the player close/open that one leaf freely.
+        // The gate creaked part-way open from low protection and jammed: it won't budge.
         if (gateCreaked)
         {
-            if (creakingGate != null) creakingGate.SetOpen(!creakingGate.IsOpen);
+            float speed = useTypewriter ? typewriterSpeed : 0f;
+            SimpleDialogueTrigger.ShowDialogue(gateStuckText, speakerName, lockedDuration, speed);
             return;
         }
 
-        // Locked unless the player took the key.
+        // Locked unless the player took the key. Once the key has gone missing the line changes.
         if (!IsFlag("keypickedup"))
         {
             float speed = useTypewriter ? typewriterSpeed : 0f;
-            SimpleDialogueTrigger.ShowDialogue(gateLockedText, speakerName, lockedDuration, speed);
+            SimpleDialogueTrigger.ShowDialogue(keyLost ? gateKeyLostText : gateLockedText, speakerName, lockedDuration, speed);
             return;
         }
 
@@ -155,28 +165,35 @@ public class BackGateController : MonoBehaviour
     #region Protection thresholds
     private void HandleProtectionChanged(int current, int max)
     {
-        // The un-taken key is lost once protection gets low enough.
-        if (current <= keyVanishThreshold && key != null && key.IsVisible && !IsFlag("keypickedup"))
+        // The key is lost for good once protection drops low enough -- even if the player is
+        // already holding it. The gate's locked prompt changes after this (see keyLost).
+        if (current <= keyVanishThreshold && !keyLost)
         {
-            key.Hide();
+            keyLost = true;
+            if (key != null && key.IsVisible) key.Hide();        // the table key vanishes
+            if (IsFlag("keypickedup")) SetFlag("keypickedup", false); // ...and a held key is lost too
         }
 
-        // Re-arm the creak once protection climbs back above the threshold, so a later dip
-        // creaks the gate open again (also lets the Current Protection lever re-test it).
+        // Re-arm the creak (and un-stick the leaf) once protection climbs back above the
+        // threshold, so a later dip creaks it again.
         if (current > gateCreakThreshold)
         {
             creakArmed = true;
+            if (gateCreaked)
+            {
+                gateCreaked = false;
+                if (creakingGate != null) creakingGate.SetOpen(false); // close the previously-jammed leaf
+            }
             return;
         }
 
-        // Protection is low: creak one leaf open (wide enough to pass), once per dip. This now
-        // happens even if the player opened the gate before and closed it again — a closed gate
-        // won't stay shut down here. Firing once per dip still lets the player re-close it after.
+        // Protection is low: creak one leaf only PART-way open (too narrow to fit through) and
+        // jam it -- interacting now just reports "The gate is stuck."
         if (creakArmed)
         {
             creakArmed = false;
-            gateCreaked = true; // sticky: gate stays player-toggleable afterward
-            if (creakingGate != null) creakingGate.SetOpen(true);
+            gateCreaked = true; // sticky: the gate is jammed part-open
+            if (creakingGate != null) creakingGate.SwingToAngle(creakOpenAngle);
         }
     }
     #endregion

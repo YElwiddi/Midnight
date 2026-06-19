@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public bool ChurchDoorUnlocked = false;
     public bool keypickedup = false;
     public bool backgateopened = false;
+    public bool secretkey = false;
+    public bool chestunlocked = false;
+    public bool rosepickedup = false;
 
     [Header("Dirt Pile Stats")]
     public int IncorrectDigCount = 0;
@@ -141,6 +144,9 @@ public class GameManager : MonoBehaviour
             case "churchdoorunlocked": return ChurchDoorUnlocked;
             case "keypickedup": return keypickedup;
             case "backgateopened": return backgateopened;
+            case "secretkey": return secretkey;
+            case "chestunlocked": return chestunlocked;
+            case "rosepickedup": return rosepickedup;
             default:
                 Debug.LogWarning($"GameManager: Bool flag '{flagName}' not found");
                 return false;
@@ -163,6 +169,9 @@ public class GameManager : MonoBehaviour
             case "churchdoorunlocked":
             case "keypickedup":
             case "backgateopened":
+            case "secretkey":
+            case "chestunlocked":
+            case "rosepickedup":
                 return true;
             default:
                 return false;
@@ -212,6 +221,18 @@ public class GameManager : MonoBehaviour
                 backgateopened = value;
                 Debug.Log($"backgateopened set to {value}");
                 break;
+            case "secretkey":
+                secretkey = value;
+                Debug.Log($"secretkey set to {value}");
+                break;
+            case "chestunlocked":
+                chestunlocked = value;
+                Debug.Log($"chestunlocked set to {value}");
+                break;
+            case "rosepickedup":
+                rosepickedup = value;
+                Debug.Log($"rosepickedup set to {value}");
+                break;
             default:
                 Debug.LogWarning($"Bool flag {flagName} not found in GameManager");
                 break;
@@ -241,6 +262,9 @@ public class GameManager : MonoBehaviour
         ChurchDoorUnlocked = false;
         keypickedup = false;
         backgateopened = false;
+        secretkey = false;
+        chestunlocked = false;
+        rosepickedup = false;
 
         // Reset dirt pile stats
         IncorrectDigCount = 0;
@@ -254,7 +278,7 @@ public class GameManager : MonoBehaviour
     {
         if (!showDebugStats) return;
 
-        GUI.Box(new Rect(10, 10, 200, 350), "Player Stats");
+        GUI.Box(new Rect(10, 10, 200, 410), "Player Stats");
         GUI.Label(new Rect(20, 30, 180, 20), $"Scared: {player_scared}");
         GUI.Label(new Rect(20, 50, 180, 20), $"Mean: {player_mean}");
         GUI.Label(new Rect(20, 70, 180, 20), $"Stupid: {player_stupid}");
@@ -271,5 +295,8 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(20, 290, 180, 20), $"ChurchDoorUnlocked: {ChurchDoorUnlocked}");
         GUI.Label(new Rect(20, 310, 180, 20), $"keypickedup: {keypickedup}");
         GUI.Label(new Rect(20, 330, 180, 20), $"backgateopened: {backgateopened}");
+        GUI.Label(new Rect(20, 350, 180, 20), $"secretkey: {secretkey}");
+        GUI.Label(new Rect(20, 370, 180, 20), $"chestunlocked: {chestunlocked}");
+        GUI.Label(new Rect(20, 390, 180, 20), $"rosepickedup: {rosepickedup}");
     }
 }

@@ -84,6 +84,26 @@ public class SwingingGate : MonoBehaviour, IInteractable
         transform.localRotation = TargetRotationFor(state);
     }
 
+    /// <summary>
+    /// Swings the leaf to a specific angle (degrees from closed), in the same direction as
+    /// <see cref="openAngle"/>. Used for the low-protection "creak": a partial, non-passable
+    /// opening. Marks the leaf Open when the angle is non-zero.
+    /// </summary>
+    public void SwingToAngle(float degrees)
+    {
+        float dir = openAngle < 0f ? -1f : 1f;
+        float signed = dir * Mathf.Abs(degrees);
+        currentState = Mathf.Abs(signed) > 0.01f ? GateState.Open : GateState.Closed;
+        Quaternion target = closedLocalRotation * Quaternion.AngleAxis(signed, hingeAxis.normalized);
+        if (!gameObject.activeInHierarchy)
+        {
+            transform.localRotation = target;
+            return;
+        }
+        if (swingRoutine != null) StopCoroutine(swingRoutine);
+        swingRoutine = StartCoroutine(SwingRoutine(target));
+    }
+
     private Quaternion TargetRotationFor(GateState state)
     {
         float angle = state == GateState.Open ? openAngle : 0f;
