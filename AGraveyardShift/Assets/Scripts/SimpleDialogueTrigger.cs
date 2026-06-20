@@ -88,25 +88,31 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     private static IEnumerator ShowStaticDialogueCoroutine(DialogueUI ui, string text, string speaker, float duration, float typewriterSpeed)
     {
         ui.Show();
+        ui.SetTypewriterSoundMuted(true);   // solo/internal thoughts are silent (no typewriter beep)
 
         string speakerName = string.IsNullOrEmpty(speaker) ? null : speaker;
 
         if (typewriterSpeed > 0)
         {
-            float delay = 1f / typewriterSpeed;
-            for (int i = 1; i <= text.Length; i++)
+            // Use DialogueUI's built-in reveal typewriter (lays the full, centered text out once and
+            // reveals it via maxVisibleCharacters), so the text stays centered and doesn't shift/expand.
+            ui.SetTypewriterSpeedOverride(typewriterSpeed);
+            ui.SetDialogueText(text, speakerName);
+
+            while (ui.IsTypewriting)
             {
                 // Stop if DialogueManager has taken over
                 DialogueManager dm = DialogueManager.GetInstance();
                 if (dm != null && dm.IsDialoguePlaying())
                 {
+                    ui.ClearTypewriterSpeedOverride();
+                    ui.SetTypewriterSoundMuted(false);
                     isDialogueLocked = false;
                     yield break;
                 }
-
-                ui.SetDialogueText(text.Substring(0, i), speakerName);
-                yield return new WaitForSeconds(delay);
+                yield return null;
             }
+            ui.ClearTypewriterSpeedOverride();
         }
         else
         {
@@ -114,6 +120,8 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
         }
 
         yield return new WaitForSeconds(duration);
+
+        ui.SetTypewriterSoundMuted(false);   // restore for other dialogue
 
         // Only hide if DialogueManager hasn't taken over
         DialogueManager dialogueManager = DialogueManager.GetInstance();
@@ -181,26 +189,31 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
     {
         // Show the dialogue
         dialogueUI.Show();
+        dialogueUI.SetTypewriterSoundMuted(true);   // solo/internal thoughts are silent (no typewriter beep)
 
         string speaker = string.IsNullOrEmpty(speakerName) ? null : speakerName;
 
         if (useTypewriterEffect && typewriterSpeed > 0)
         {
-            // Typewriter effect - show characters one by one
-            float delay = 1f / typewriterSpeed;
-            for (int i = 1; i <= dialogueText.Length; i++)
+            // Use DialogueUI's built-in reveal typewriter (lays the full, centered text out once and
+            // reveals it via maxVisibleCharacters), so the text stays centered and doesn't shift/expand.
+            dialogueUI.SetTypewriterSpeedOverride(typewriterSpeed);
+            dialogueUI.SetDialogueText(dialogueText, speaker);
+
+            while (dialogueUI.IsTypewriting)
             {
                 // Stop if DialogueManager has taken over
                 DialogueManager dm = DialogueManager.GetInstance();
                 if (dm != null && dm.IsDialoguePlaying())
                 {
+                    dialogueUI.ClearTypewriterSpeedOverride();
+                    dialogueUI.SetTypewriterSoundMuted(false);
                     isDialogueLocked = false;
                     yield break;
                 }
-
-                dialogueUI.SetDialogueText(dialogueText.Substring(0, i), speaker);
-                yield return new WaitForSeconds(delay);
+                yield return null;
             }
+            dialogueUI.ClearTypewriterSpeedOverride();
         }
         else
         {
@@ -210,6 +223,8 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
 
         // Wait for duration after text is fully displayed
         yield return new WaitForSeconds(displayDuration);
+
+        dialogueUI.SetTypewriterSoundMuted(false);   // restore for other dialogue
 
         // Only hide if DialogueManager hasn't taken over
         DialogueManager dialogueManager = DialogueManager.GetInstance();
@@ -239,6 +254,7 @@ public class SimpleDialogueTrigger : MonoBehaviour, IInteractable
             StopCoroutine(displayCoroutine);
             if (dialogueUI != null)
             {
+                dialogueUI.SetTypewriterSoundMuted(false);   // restore if interrupted mid-dialogue
                 dialogueUI.Hide();
             }
             isDialogueLocked = false;

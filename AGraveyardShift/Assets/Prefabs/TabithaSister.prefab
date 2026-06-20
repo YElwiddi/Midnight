@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1845477580277643547}
   - component: {fileID: 6435114597555198389}
   - component: {fileID: 7763651187610702037}
+  - component: {fileID: 4852974557489296878}
   m_Layer: 6
   m_Name: TabithaSister
   m_TagString: Untagged
@@ -90,6 +91,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3006eda2c8094d549a5b76696013a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCAntiPush
+--- !u!114 &4852974557489296878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767055355421772689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d245529c4d0ddf42929c3ab82afc1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreepyNeckSnap
+  triggerChoiceText: Fine. Go in. But be quick.
+  requiredChoiceCount: 4
+  delayBeforeSnap: 12
+  oncePerConversation: 1
+  neckBone: {fileID: 881823090788193251}
+  neckBoneName: mixamorig:Head
+  bendAngleDegrees: 90
+  snapInDuration: 0.01
+  holdDuration: 0.02
+  snapOutDuration: 0.05
+  boneCrackSound: {fileID: 8300000, guid: 4b1d6bd4ba356714fb9a2d563686ed92, type: 3}
+  volume: 0.645
+  spatialBlend: 0
+  soundLeadTime: 0.33
 --- !u!1001 &6762989265611826827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,6 +177,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3432401550182100168, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0015306527
+      objectReference: {fileID: 0}
+    - target: {fileID: -3432401550182100168, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.043591604
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
       propertyPath: m_Name
       value: Character_Female_07
@@ -162,6 +197,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 756535416295392446}
   m_SourcePrefab: {fileID: 100100000, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
+--- !u!4 &881823090788193251 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
+  m_PrefabInstance: {fileID: 6762989265611826827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5844439997207256026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
@@ -176,7 +216,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5844439997207256026}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 95b69488295592442a5677c723490475, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 50c4e0a21b062994b902320200dec9ab, type: 3}
   m_Controller: {fileID: 9100000, guid: 1053a0af79436f741adef1086a4a2eda, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

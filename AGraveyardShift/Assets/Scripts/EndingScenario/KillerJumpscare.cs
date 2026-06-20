@@ -47,6 +47,28 @@ public class KillerJumpscare : MonoBehaviour
     [SerializeField] private float shakeIntensity = 0.5f;
     [SerializeField] private float shakeDuration = 2f;
 
+    [Header("Camera Zoom")]
+    [Tooltip("Field of view to zoom the camera to during the jumpscare (0 = keep the current FOV). Lower = tighter on the face. Useful for tall killers whose face is far from the camera.")]
+    [SerializeField] private float jumpscareCameraFOV = 0f;
+
+    [Tooltip("FOV pulse amplitude during the jumpscare for a zoom-in/zoom-out shake (0 = off). The pulse is irregular/jerky, not a smooth sine.")]
+    [SerializeField] private float jumpscareZoomShakeAmount = 0f;
+    [Tooltip("Speed of the zoom-in/zoom-out shake pulse.")]
+    [SerializeField] private float jumpscareZoomShakeSpeed = 20f;
+
+    [Tooltip("Camera roll (steering-wheel) shake amplitude in degrees during the jumpscare (0 = off). Keep small — only slightly noticeable.")]
+    [SerializeField] private float jumpscareRollShakeAmount = 0f;
+    [Tooltip("Speed of the camera-roll shake.")]
+    [SerializeField] private float jumpscareRollShakeSpeed = 14f;
+
+    [Header("Limb Shake")]
+    [Tooltip("If > 0, violently jitters the killer's limb bones during the jumpscare — max random rotation per bone in degrees (0 = off).")]
+    [SerializeField] private float jumpscareLimbShakeAngle = 0f;
+    [Tooltip("How many times per second the limb jitter re-randomizes (movements/sec).")]
+    [SerializeField] private float jumpscareLimbShakeFrequency = 20f;
+    [Tooltip("Bone-name fragments to jitter (case-insensitive substring). Empty = Mixamo arms + legs.")]
+    [SerializeField] private string[] jumpscareLimbShakeBones;
+
     [Header("Flashlight")]
     [Tooltip("Height on killer to point flashlight at")]
     [SerializeField] private float flashlightTargetHeight = 1.2f;
@@ -75,6 +97,12 @@ public class KillerJumpscare : MonoBehaviour
     [SerializeField] private CanvasGroup gameOverUI;
     [SerializeField] private string gameOverSceneName = "";
 
+    [Header("Endings Integration")]
+    [Tooltip("If true, the kill unlocks an ending, shows the reveal screen, and returns to the main menu (instead of using gameOverSceneName).")]
+    [SerializeField] private bool unlocksEnding = false;
+    [Tooltip("Which ending to unlock when this jumpscare kills the player.")]
+    [SerializeField] private Ending endingToUnlock = Ending.Father;
+
     [Header("Checkpoint Respawn")]
     [Tooltip("If true, respawns at checkpoint instead of loading a scene. Requires CryptCheckpointManager in scene.")]
     [SerializeField] private bool useCheckpointRespawn = false;
@@ -92,6 +120,14 @@ public class KillerJumpscare : MonoBehaviour
     private float currentShakeDuration = 0f;
     private bool isShaking = false;
     private bool jumpscareActive = false;
+    private float baseJumpscareFOV;
+    private float jumpscareZoomElapsed;
+
+    // Limb-shake state
+    private Transform[] limbBones;
+    private Quaternion[] limbJitterOffsets;
+    private float limbShakeTimer;
+    private bool limbShakeReady;
 
     private void Awake()
     {
@@ -157,6 +193,8 @@ public class KillerJumpscare : MonoBehaviour
     {
         if (!jumpscareActive) return;
 
+        jumpscareZoomElapsed += Time.unscaledDeltaTime;
+
         if (playerCamera != null)
         {
             if (isShaking && currentShakeDuration > 0)
@@ -167,9 +205,86 @@ public class KillerJumpscare : MonoBehaviour
             {
                 LockCameraOnKiller();
             }
+
+            // Subtle, shaky roll around the view axis (steering-wheel wobble) — applied on top of the look.
+            if (jumpscareRollShakeAmount > 0f)
+            {
+                float roll = ShakeNoise(jumpscareZoomElapsed * jumpscareRollShakeSpeed, 50f) * jumpscareRollShakeAmount;
+                playerCamera.transform.Rotate(0f, 0f, roll, Space.Self);
+            }
+
+            // Violent, irregular zoom-in/zoom-out shake — pulse the FOV around its base.
+            if (jumpscareZoomShakeAmount > 0f)
+            {
+                float pulse = ShakeNoise(jumpscareZoomElapsed * jumpscareZoomShakeSpeed, 0f) * jumpscareZoomShakeAmount;
+                playerCamera.fieldOfView = baseJumpscareFOV + pulse;
+            }
         }
 
         UpdateSpotlightTarget();
+    }
+
+    /// <summary>
+    /// Irregular, jerky shake value in roughly [-1.5, 1.5]. Sums incommensurate sines (so it never
+    /// repeats — "inconsistent" patterns) with Perlin drift; the high-frequency term makes it violent.
+    /// </summary>
+    private float ShakeNoise(float t, float seed)
+    {
+        float s = Mathf.Sin(t + seed)
+                + Mathf.Sin(t * 3.1f + seed * 1.7f) * 0.8f
+                + Mathf.Sin(t * 5.3f + seed * 2.3f) * 0.6f;
+        float perlin = Mathf.PerlinNoise(t * 0.8f + seed, seed * 0.5f) * 2f - 1f;
+        return (s * 0.45f) + (perlin * 0.45f);
+    }
+
+    /// <summary>Collects the limb bones to jitter during the jumpscare (defaults to Mixamo arms + legs).</summary>
+    private void SetupLimbShake()
+    {
+        string[] frags = (jumpscareLimbShakeBones != null && jumpscareLimbShakeBones.Length > 0)
+            ? jumpscareLimbShakeBones
+            : new[] { "arm", "leg" };
+
+        var found = new System.Collections.Generic.List<Transform>();
+        foreach (Transform t in GetComponentsInChildren<Transform>())
+        {
+            string n = t.name.ToLowerInvariant();
+            foreach (string f in frags)
+            {
+                if (!string.IsNullOrEmpty(f) && n.Contains(f.ToLowerInvariant())) { found.Add(t); break; }
+            }
+        }
+        limbBones = found.ToArray();
+        limbJitterOffsets = new Quaternion[limbBones.Length];
+        for (int i = 0; i < limbJitterOffsets.Length; i++) limbJitterOffsets[i] = Quaternion.identity;
+        limbShakeTimer = 0f;
+        limbShakeReady = false;
+    }
+
+    // Runs after the Animator so the jitter is layered on top of the (animated) jumpscare pose.
+    private void LateUpdate()
+    {
+        if (!jumpscareActive || jumpscareLimbShakeAngle <= 0f || limbBones == null) return;
+
+        // Re-randomize the per-bone offsets at the configured rate (movements/sec), using real time
+        // so slow-motion doesn't slow the shake.
+        limbShakeTimer += Time.unscaledDeltaTime;
+        float interval = jumpscareLimbShakeFrequency > 0f ? 1f / jumpscareLimbShakeFrequency : 0f;
+        if (!limbShakeReady || limbShakeTimer >= interval)
+        {
+            limbShakeTimer = 0f;
+            limbShakeReady = true;
+            float a = jumpscareLimbShakeAngle;
+            for (int i = 0; i < limbBones.Length; i++)
+                limbJitterOffsets[i] = Quaternion.Euler(Random.Range(-a, a), Random.Range(-a, a), Random.Range(-a, a));
+        }
+
+        // Layer the held offset on top of this frame's animated pose (no accumulation — the Animator
+        // overwrites localRotation again next frame).
+        for (int i = 0; i < limbBones.Length; i++)
+        {
+            if (limbBones[i] != null)
+                limbBones[i].localRotation = limbBones[i].localRotation * limbJitterOffsets[i];
+        }
     }
 
     /// <summary>
@@ -182,6 +297,16 @@ public class KillerJumpscare : MonoBehaviour
         FindPlayer();
         jumpscareActive = true;
         StartCoroutine(JumpscareSequence());
+    }
+
+    /// <summary>
+    /// Trigger the jumpscare using a specific kill animation trigger (overrides the configured one).
+    /// Pass null/empty to leave whatever animation is currently playing (e.g. a run-in catch).
+    /// </summary>
+    public void TriggerJumpscare(string animTriggerOverride)
+    {
+        killAnimationTrigger = animTriggerOverride;
+        TriggerJumpscare();
     }
 
     private IEnumerator JumpscareSequence()
@@ -241,6 +366,11 @@ public class KillerJumpscare : MonoBehaviour
 
             // Point flashlight at killer
             PointFlashlightAtKiller();
+
+            // Optional zoom-in on the killer's face (good for tall killers whose face is far away).
+            if (jumpscareCameraFOV > 0f) playerCamera.fieldOfView = jumpscareCameraFOV;
+            baseJumpscareFOV = playerCamera.fieldOfView;   // base for the zoom-in/zoom-out shake
+            jumpscareZoomElapsed = 0f;
         }
 
         // Play jumpscare sound
@@ -254,6 +384,9 @@ public class KillerJumpscare : MonoBehaviour
         {
             animator.SetTrigger(killAnimationTrigger);
         }
+
+        // Set up violent limb-shake (jittered in LateUpdate on top of the kill animation).
+        if (jumpscareLimbShakeAngle > 0f) SetupLimbShake();
 
         // Spawn screen effect / VHS intensify
         StartCoroutine(ApplyScreenEffect());
@@ -642,6 +775,19 @@ public class KillerJumpscare : MonoBehaviour
 
         // Reset time scale in case slow motion was active
         Time.timeScale = 1f;
+
+        // Endings: unlock it, show the reveal screen, then return to the main menu.
+        if (unlocksEnding)
+        {
+            // Silence anything still playing so it doesn't bleed into the silent reveal.
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+            }
+
+            EndingFlow.Trigger(endingToUnlock);
+            return;
+        }
 
         if (!string.IsNullOrEmpty(gameOverSceneName))
         {

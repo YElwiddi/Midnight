@@ -383,6 +383,12 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
+    /// The transform of the NPC currently being talked to (null if none).
+    /// Used by per-NPC effects (e.g. CreepyNeckSnap) to know when they are the active speaker.
+    /// </summary>
+    public Transform CurrentNPC => currentNPC;
+
+    /// <summary>
     /// Gets a variable value from the current Ink story.
     /// </summary>
     public T GetInkVariable<T>(string variableName)

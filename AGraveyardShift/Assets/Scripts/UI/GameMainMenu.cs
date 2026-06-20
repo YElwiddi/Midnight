@@ -179,8 +179,9 @@ public class GameMainMenu : MonoBehaviour
     {
         PlayButtonSound();
 
-        // Opened from the teaser inside the Endings modal — leave Endings active behind it
-        // so closing the gallery returns the player to the Endings list.
+        // Hide the Endings modal while the gallery is open; CloseCryptFiends restores it.
+        if (endingsPanel != null)
+            endingsPanel.SetActive(false);
         if (cryptFiendsPanel != null)
             cryptFiendsPanel.SetActive(true);
     }
@@ -191,6 +192,9 @@ public class GameMainMenu : MonoBehaviour
 
         if (cryptFiendsPanel != null)
             cryptFiendsPanel.SetActive(false);
+        // Return to the Endings modal it was opened from.
+        if (endingsPanel != null)
+            endingsPanel.SetActive(true);
     }
 
     public void OnExitClicked()

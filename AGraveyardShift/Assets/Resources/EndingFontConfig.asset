@@ -15,3 +15,4 @@ MonoBehaviour:
   badEndingFont: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
   goodEndingFont: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
   goodQuestionFont: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+  secretEndingFont: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}

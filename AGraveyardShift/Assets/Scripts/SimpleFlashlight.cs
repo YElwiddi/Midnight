@@ -41,6 +41,7 @@ public class SimpleFlashlight : MonoBehaviour
     private float flickerTimer = 0f;
     private CryptKiller[] cryptKillers;
     private KillerNPC[] killerNPCs;
+    private FatherKillerSequence[] fatherKillers;
     private float lastKillerCheckTime = 0f;
     private const float KILLER_CHECK_INTERVAL = 0.5f; // Check for new killers every 0.5s
 
@@ -207,6 +208,7 @@ public class SimpleFlashlight : MonoBehaviour
         {
             cryptKillers = FindObjectsOfType<CryptKiller>();
             killerNPCs = FindObjectsOfType<KillerNPC>();
+            fatherKillers = FindObjectsOfType<FatherKillerSequence>();
             lastKillerCheckTime = Time.time;
         }
 
@@ -234,6 +236,21 @@ public class SimpleFlashlight : MonoBehaviour
             {
                 if (killer == null) continue;
                 if (!killer.CausesFlashlightFlicker) continue; // this killer is excluded from flashlight flicker
+                float dist = Vector3.Distance(playerPos, killer.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                }
+            }
+        }
+
+        // Check FatherKiller (final secret sequence) — flickers like the Wraith once threatening
+        if (fatherKillers != null)
+        {
+            foreach (var killer in fatherKillers)
+            {
+                if (killer == null) continue;
+                if (!killer.CausesFlashlightFlicker) continue;
                 float dist = Vector3.Distance(playerPos, killer.transform.position);
                 if (dist < closestDistance)
                 {

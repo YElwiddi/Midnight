@@ -1,12 +1,13 @@
 /// <summary>
-/// The four distinct endings of the game. The enum order matches the menu slots (I..IV).
+/// The distinct endings of the game. The enum order matches the menu slots (I..V).
 /// </summary>
 public enum Ending
 {
-    WrathfulSpirit = 0,    // Bad  - killed by the spirit when sanity reaches 0
-    Ambush = 1,            // Bad  - killed by the grave robber
-    WrongfulConviction = 2,// Good - beat the game and exit the crypt
-    HappilyEverAfter = 3   // Good? - killed by the bride in the church
+    WrathfulSpirit = 0,    // Bad    - killed by the spirit when sanity reaches 0
+    Ambush = 1,            // Bad    - killed by the grave robber
+    WrongfulConviction = 2,// Good   - beat the game and exit the crypt
+    HappilyEverAfter = 3,  // Good?  - killed by the bride in the church
+    Father = 4             // Secret - caught by the FatherKiller in the forest finale
 }
 
 /// <summary>
@@ -23,13 +24,14 @@ public static class EndingInfo
         public bool isGood;
     }
 
-    /// <summary>Endings in menu/slot order (I, II, III, IV).</summary>
+    /// <summary>Endings in menu/slot order (I, II, III, IV, V).</summary>
     public static readonly Ending[] InOrder =
     {
         Ending.WrathfulSpirit,
         Ending.Ambush,
         Ending.WrongfulConviction,
-        Ending.HappilyEverAfter
+        Ending.HappilyEverAfter,
+        Ending.Father
     };
 
     public static Data Get(Ending e)
@@ -59,6 +61,12 @@ public static class EndingInfo
                 {
                     roman = "IV", title = "Good Ending? - Happily Ever After", typeLabel = "Ending", isGood = true,
                     description = "The bride finally has her groom. Till death do you part."
+                };
+            case Ending.Father:
+                return new Data
+                {
+                    roman = "V", title = "Hidden Ending - The Father's Fate", typeLabel = "Ending", isGood = false,
+                    description = "You laid a rose on his grave, and he rose to thank you."
                 };
             default:
                 return new Data { roman = "?", title = "??????", typeLabel = "", description = "" };

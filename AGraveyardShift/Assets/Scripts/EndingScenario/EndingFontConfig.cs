@@ -18,6 +18,9 @@ public class EndingFontConfig : ScriptableObject
     [Tooltip("Font for the 'Good?' ending (IV Happily Ever After).")]
     public TMP_FontAsset goodQuestionFont;
 
+    [Tooltip("Font for the secret ending (V The Father). Leave unset to use the reveal's default font.")]
+    public TMP_FontAsset secretEndingFont;
+
     public TMP_FontAsset GetFont(Ending e)
     {
         switch (e)
@@ -29,6 +32,9 @@ public class EndingFontConfig : ScriptableObject
                 return goodEndingFont;
             case Ending.HappilyEverAfter:
                 return goodQuestionFont;
+            case Ending.Father:
+                // Secret ending is a death ending — match the bad-ending font unless overridden.
+                return secretEndingFont != null ? secretEndingFont : badEndingFont;
             default:
                 return null;
         }
