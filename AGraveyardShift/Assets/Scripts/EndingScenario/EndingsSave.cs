@@ -15,6 +15,7 @@ public static class EndingsSave
         public bool ambush;
         public bool wrongfulConviction;
         public bool happilyEverAfter;
+        public bool father;
     }
 
     private const string FileName = "endings.json";
@@ -63,6 +64,7 @@ public static class EndingsSave
             case Ending.Ambush: return data.ambush;
             case Ending.WrongfulConviction: return data.wrongfulConviction;
             case Ending.HappilyEverAfter: return data.happilyEverAfter;
+            case Ending.Father: return data.father;
             default: return false;
         }
     }
@@ -77,6 +79,7 @@ public static class EndingsSave
             case Ending.Ambush: changed = !data.ambush; data.ambush = true; break;
             case Ending.WrongfulConviction: changed = !data.wrongfulConviction; data.wrongfulConviction = true; break;
             case Ending.HappilyEverAfter: changed = !data.happilyEverAfter; data.happilyEverAfter = true; break;
+            case Ending.Father: changed = !data.father; data.father = true; break;
         }
         if (changed)
         {
@@ -93,6 +96,7 @@ public static class EndingsSave
         if (data.ambush) c++;
         if (data.wrongfulConviction) c++;
         if (data.happilyEverAfter) c++;
+        if (data.father) c++;
         return c;
     }
 

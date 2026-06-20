@@ -261,6 +261,11 @@ public class GraveRoseInteractable : MonoBehaviour, IInteractable
             yield return new WaitForSecondsRealtime(arrivalLineDelay);
             SimpleDialogueTrigger.ShowDialogue(arrivalLine, speakerName, arrivalLineDuration, useTypewriter ? typewriterSpeed : 0f);
         }
+
+        // Kick off the final secret sequence — spawn the FatherKiller now (it isn't in the scene
+        // until this point). The player only ever reaches ForestSpawn via this path.
+        var spawner = FindObjectOfType<FatherKillerSpawner>(true);
+        if (spawner != null) spawner.Begin();
     }
 
     private void PlayFallSound()

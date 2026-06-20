@@ -17,13 +17,18 @@ using UnityEngine;
 ///    swing ajar, GraveyardProtection drops once by <see cref="openProtectionPenalty"/>,
 ///    and "backgateopened" = true. No -> nothing.
 ///  - Gate after it has been opened once: interacting just toggles open/closed,
-///    free of charge and with no confirm ("loops as is").
+///    free of charge and with no confirm ("loops as is") -- unless it has since
+///    jammed (see the creak threshold below), in which case it reports "stuck".
 ///
 /// Protection thresholds (watched live):
 ///  - &lt;= <see cref="keyVanishThreshold"/> (50): if the key was never taken it
 ///    vanishes from the table. If the player already has it, nothing changes.
-///  - &lt;= <see cref="gateCreakThreshold"/> (25): one leaf creaks half-open on its
-///    own; the other stays shut. Skipped if the player already opened the gate.
+///  - &lt;= <see cref="gateCreakThreshold"/> (25): the gate jams part-open (one leaf
+///    creaks ajar, the other shuts) and from then on every interaction reports
+///    "The gate is stuck." -- this wins even over a gate the player opened earlier.
+///    The jam is DEFERRED until the player is at least <see cref="creakMinPlayerDistance"/>
+///    away AND on the inside (graveyard) side, so it never jams point-blank or traps
+///    the player outside the gate.
 /// </summary>
 public class BackGateController : MonoBehaviour
 {
@@ -70,6 +75,12 @@ public class BackGateController : MonoBehaviour
     [Tooltip("How far (degrees) the leaf creaks open at low protection. Kept small so the gap is too narrow to fit through (full open is the leaf's own openAngle, ~70).")]
     [SerializeField] private float creakOpenAngle = 12f;
 
+    [Header("Creak Gating")]
+    [Tooltip("The gate only jams once the player is at least this far (horizontal units) from the gate, so it never jams in the player's face -- e.g. right as they open it.")]
+    [SerializeField] private float creakMinPlayerDistance = 15f;
+    [Tooltip("World-space direction from the gate toward the INSIDE (graveyard) side. The jam only triggers while the player is on this side, NEVER while they are outside the gate. In this scene the graveyard is +Z.")]
+    [SerializeField] private Vector3 insideDirectionWorld = new Vector3(0f, 0f, 1f);
+
     // Runtime
     private DialogueUI dialogueUI;
     private Movement playerMovement;
@@ -78,13 +89,16 @@ public class BackGateController : MonoBehaviour
     private bool isShowingChoice;
     private bool gateCreaked;       // sticky: a creak has happened -> the gate is jammed part-open
     private bool creakArmed = true; // re-arms when protection climbs back above the creak threshold
+    private bool creakPending;      // protection low & armed -> waiting for a safe spot to jam (player far + inside)
     private bool keyLost;           // sticky: the key vanished at low protection -> locked prompt changes
+    private Transform playerTransform;
     private Action<int> activeChoiceHandler;
 
     private void Start()
     {
         dialogueUI = FindObjectOfType<DialogueUI>();
         playerMovement = FindObjectOfType<Movement>();
+        if (playerMovement != null) playerTransform = playerMovement.transform;
         crosshairManager = FindObjectOfType<CrosshairManager>();
         if (creakingGate == null) creakingGate = gate1;
 
@@ -95,6 +109,11 @@ public class BackGateController : MonoBehaviour
             // Evaluate the current value immediately in case we start below a threshold.
             HandleProtectionChanged(protection.CurrentProtection, protection.MaxProtection);
         }
+    }
+
+    private void Update()
+    {
+        TryPendingCreak();
     }
 
     private void OnDestroy()
@@ -125,19 +144,21 @@ public class BackGateController : MonoBehaviour
     {
         if (isShowingChoice || IsBusy()) return;
 
+        // The gate jammed part-open at low protection: it won't budge. Checked FIRST so it wins
+        // even over a gate the player opened earlier -- every interaction reports "stuck" until
+        // protection recovers above the creak threshold.
+        if (gateCreaked)
+        {
+            float speed = useTypewriter ? typewriterSpeed : 0f;
+            SimpleDialogueTrigger.ShowDialogue(gateStuckText, speakerName, lockedDuration, speed);
+            return;
+        }
+
         // Already opened deliberately: toggle BOTH leaves freely, no cost/confirm. "Loops as is."
         if (IsFlag("backgateopened"))
         {
             if (AreGatesOpen()) CloseBoth();
             else OpenBoth();
-            return;
-        }
-
-        // The gate creaked part-way open from low protection and jammed: it won't budge.
-        if (gateCreaked)
-        {
-            float speed = useTypewriter ? typewriterSpeed : 0f;
-            SimpleDialogueTrigger.ShowDialogue(gateStuckText, speakerName, lockedDuration, speed);
             return;
         }
 
@@ -153,7 +174,9 @@ public class BackGateController : MonoBehaviour
         StartCoroutine(ShowConfirm(gateOpenPrompt, yes =>
         {
             if (!yes) return;
-            // Mark opened BEFORE draining so the low-protection creak logic won't fight us.
+            // Record the open before the side-effects below. If the drain pushes protection past
+            // the creak threshold the gate jams itself later (once the player has stepped far
+            // enough back inside) -- intended; the stuck check above takes priority over "opened".
             SetFlag("backgateopened", true);
             OpenBoth();
             if (protection != null && openProtectionPenalty > 0)
@@ -174,11 +197,12 @@ public class BackGateController : MonoBehaviour
             if (IsFlag("keypickedup")) SetFlag("keypickedup", false); // ...and a held key is lost too
         }
 
-        // Re-arm the creak (and un-stick the leaf) once protection climbs back above the
-        // threshold, so a later dip creaks it again.
+        // Re-arm the creak (and un-stick the gate) once protection climbs back above the
+        // threshold, so a later dip can jam it again.
         if (current > gateCreakThreshold)
         {
             creakArmed = true;
+            creakPending = false;
             if (gateCreaked)
             {
                 gateCreaked = false;
@@ -187,14 +211,76 @@ public class BackGateController : MonoBehaviour
             return;
         }
 
-        // Protection is low: creak one leaf only PART-way open (too narrow to fit through) and
-        // jam it -- interacting now just reports "The gate is stuck."
+        // Protection is low: ARM the jam, but don't snap it shut here. We wait until the player is
+        // safely far from the gate and on the inside (see TryPendingCreak) so it never jams in
+        // their face or locks them outside.
         if (creakArmed)
         {
             creakArmed = false;
-            gateCreaked = true; // sticky: the gate is jammed part-open
-            if (creakingGate != null) creakingGate.SwingToAngle(creakOpenAngle);
+            creakPending = true;
         }
+    }
+
+    /// <summary>
+    /// While a jam is pending (protection low, armed), fire it the moment the player is BOTH far
+    /// enough from the gate AND on the inside (graveyard) side -- so the gate never jams
+    /// point-blank or while the player is outside it.
+    /// </summary>
+    private void TryPendingCreak()
+    {
+        if (!creakPending || gateCreaked) return;
+        if (!PlayerSafeForCreak()) return;
+        DoCreak();
+    }
+
+    /// <summary>
+    /// True when the player is at least <see cref="creakMinPlayerDistance"/> from the gate
+    /// (horizontally) AND clearly on the inside side. Fails safe (false) when the player can't be
+    /// found, guaranteeing the gate never jams while the player is outside it.
+    /// </summary>
+    private bool PlayerSafeForCreak()
+    {
+        if (playerTransform == null) return false;
+
+        Vector3 gateCenter = GateCenter();
+        Vector3 toPlayer = playerTransform.position - gateCenter;
+        toPlayer.y = 0f;
+
+        // Far enough away?
+        if (toPlayer.magnitude < creakMinPlayerDistance) return false;
+
+        // On the inside side? Dot > 0 means the player is past the gate plane toward the graveyard.
+        // NEVER jam while they're on the outside (dot <= 0).
+        Vector3 inside = insideDirectionWorld;
+        inside.y = 0f;
+        if (inside.sqrMagnitude < 0.0001f) return false; // misconfigured -> fail safe
+        return Vector3.Dot(toPlayer, inside.normalized) > 0f;
+    }
+
+    /// <summary>
+    /// Snaps the gate into its jammed part-open pose: the creaking leaf swings ajar and the other
+    /// leaf shuts, so the whole thing reads as stuck regardless of whether it was open before.
+    /// </summary>
+    private void DoCreak()
+    {
+        creakPending = false;
+        gateCreaked = true; // sticky: the gate is jammed part-open
+        SwingingGate other = creakingGate == gate1 ? gate2 : gate1;
+        if (other != null) other.SetOpen(false);
+        if (creakingGate != null) creakingGate.SwingToAngle(creakOpenAngle);
+    }
+
+    /// <summary>
+    /// World-space midpoint between the two leaves (the gate opening). Falls back to a single leaf,
+    /// then this transform, if a reference is missing.
+    /// </summary>
+    private Vector3 GateCenter()
+    {
+        if (gate1 != null && gate2 != null)
+            return (gate1.transform.position + gate2.transform.position) * 0.5f;
+        if (gate1 != null) return gate1.transform.position;
+        if (gate2 != null) return gate2.transform.position;
+        return transform.position;
     }
     #endregion
 

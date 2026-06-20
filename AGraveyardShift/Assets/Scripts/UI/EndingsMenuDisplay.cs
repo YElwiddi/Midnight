@@ -3,18 +3,18 @@ using UnityEngine;
 
 /// <summary>
 /// Fills the main-menu Endings panel from saved unlocks. Locked endings show "??????".
-/// Slot order is I..IV, matching EndingInfo.InOrder.
+/// Slot order is I..V, matching EndingInfo.InOrder.
 /// Refreshes every time the panel is enabled.
 /// </summary>
 public class EndingsMenuDisplay : MonoBehaviour
 {
-    [Tooltip("The four slot value labels, in order I, II, III, IV.")]
-    public TextMeshProUGUI[] slotValues = new TextMeshProUGUI[4];
+    [Tooltip("The slot value labels, in order I, II, III, IV, V.")]
+    public TextMeshProUGUI[] slotValues = new TextMeshProUGUI[5];
 
-    [Tooltip("Optional per-slot type labels (Bad/Good). Same order as slotValues.")]
-    public TextMeshProUGUI[] slotTypes = new TextMeshProUGUI[4];
+    [Tooltip("Optional per-slot type labels (Bad/Good/Secret). Same order as slotValues.")]
+    public TextMeshProUGUI[] slotTypes = new TextMeshProUGUI[5];
 
-    [Tooltip("Optional 'X / 4 discovered' subtitle.")]
+    [Tooltip("Optional 'X / 5 discovered' subtitle.")]
     public TextMeshProUGUI subtitle;
 
     [Tooltip("Optional Crypt Fiends teaser button label inside the modal. Shows '0 / 3 ?????' until the first fiend is found, then the count.")]
@@ -40,7 +40,7 @@ public class EndingsMenuDisplay : MonoBehaviour
         EndingsSave.Reload();
 
         int count = 0;
-        for (int i = 0; i < EndingInfo.InOrder.Length && i < 4; i++)
+        for (int i = 0; i < EndingInfo.InOrder.Length; i++)
         {
             Ending e = EndingInfo.InOrder[i];
             bool unlocked = EndingsSave.IsUnlocked(e);
@@ -61,7 +61,7 @@ public class EndingsMenuDisplay : MonoBehaviour
         }
 
         if (subtitle != null)
-            subtitle.text = count + " / 4  DISCOVERED";
+            subtitle.text = count + " / " + EndingInfo.InOrder.Length + "  DISCOVERED";
 
         // Crypt Fiends teaser button label (the gallery opens from inside this modal).
         if (cryptFiendsTeaser != null)

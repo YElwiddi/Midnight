@@ -197,7 +197,7 @@ public static class MainMenuBuilder
         var modalRt = modalImg.rectTransform;
         modalRt.anchorMin = modalRt.anchorMax = new Vector2(0.5f, 0.5f);
         modalRt.pivot = new Vector2(0.5f, 0.5f);
-        modalRt.sizeDelta = new Vector2(1416f, 864f);
+        modalRt.sizeDelta = new Vector2(1500f, 1010f);
         modalRt.anchoredPosition = Vector2.zero;
         var modalGroup = modalImg.gameObject.AddComponent<CanvasGroup>();
         var modalIntro = modalImg.gameObject.AddComponent<MenuIntroFX>();
@@ -215,28 +215,33 @@ public static class MainMenuBuilder
         headRt.anchoredPosition = new Vector2(0f, -42f);
         head.preserveAspect = true;
 
-        // "0 / 4 discovered" subtitle.
-        var sub = NewText("Subtitle", modalRt, "0 / 4  DISCOVERED", font, 26f, new Color(1f, 1f, 1f, 0.55f), TextAlignmentOptions.Center);
+        // "0 / 5 discovered" subtitle.
+        var sub = NewText("Subtitle", modalRt, "0 / 5  DISCOVERED", font, 26f, new Color(1f, 1f, 1f, 0.55f), TextAlignmentOptions.Center);
         sub.characterSpacing = 6f;
         var subRt = sub.rectTransform;
         subRt.anchorMin = subRt.anchorMax = new Vector2(0.5f, 1f);
         subRt.pivot = new Vector2(0.5f, 1f);
         subRt.sizeDelta = new Vector2(700f, 40f);
-        subRt.anchoredPosition = new Vector2(0f, -184f);
+        subRt.anchoredPosition = new Vector2(0f, -212f);
 
-        // 2x2 grid of ending slots (filled at runtime by EndingsMenuDisplay).
-        var slotSize = new Vector2(486f, 150f);
+        // Ending slots, 2-2-1 layout (the 5th, secret, slot is centered below and wider so its
+        // long title fits) — filled at runtime by EndingsMenuDisplay. Count follows InOrder.
+        var slotSize = new Vector2(560f, 142f);
+        var slot5Size = new Vector2(790f, 142f);
         var slotPos = new Vector2[]
         {
-            new Vector2(-262f, 96f), new Vector2(262f, 96f),
-            new Vector2(-262f, -84f), new Vector2(262f, -84f)
+            new Vector2(-294f, 145f), new Vector2(294f, 145f),
+            new Vector2(-294f, -13f), new Vector2(294f, -13f),
+            new Vector2(0f, -171f)
         };
-        var slotValues = new TextMeshProUGUI[4];
-        var slotTypes = new TextMeshProUGUI[4];
-        for (int i = 0; i < 4; i++)
+        int slotCount = Mathf.Min(EndingInfo.InOrder.Length, slotPos.Length);
+        var slotValues = new TextMeshProUGUI[slotCount];
+        var slotTypes = new TextMeshProUGUI[slotCount];
+        for (int i = 0; i < slotCount; i++)
         {
             var info = EndingInfo.Get(EndingInfo.InOrder[i]);
-            Transform slot = MakeSlot(modalRt, info.roman, slotPos[i], slotSize, font);
+            Vector2 sz = (i == slotCount - 1 && slotCount >= 5) ? slot5Size : slotSize;
+            Transform slot = MakeSlot(modalRt, info.roman, slotPos[i], sz, font);
             slotValues[i] = slot.Find("Value").GetComponent<TextMeshProUGUI>();
             slotTypes[i] = slot.Find("Type").GetComponent<TextMeshProUGUI>();
         }
@@ -248,8 +253,8 @@ public static class MainMenuBuilder
         var barRt = fiendsBar.rectTransform;
         barRt.anchorMin = barRt.anchorMax = new Vector2(0.5f, 0.5f);
         barRt.pivot = new Vector2(0.5f, 0.5f);
-        barRt.sizeDelta = new Vector2(980f, 84f);
-        barRt.anchoredPosition = new Vector2(0f, -248f);
+        barRt.sizeDelta = new Vector2(1040f, 80f);
+        barRt.anchoredPosition = new Vector2(0f, -300f);
         fiendsBar.color = new Color(0f, 0f, 0f, 0.40f);
         var barOl = fiendsBar.gameObject.AddComponent<Outline>();
         barOl.effectColor = new Color(1f, 1f, 1f, 0.14f);
@@ -307,25 +312,27 @@ public static class MainMenuBuilder
         nRt.sizeDelta = new Vector2(120f, 44f);
         nRt.anchoredPosition = new Vector2(18f, -10f);
 
-        // Main value: "??????" when locked, or the ending title. Auto-size so long titles fit.
-        var val = NewText("Value", slot, "??????", font, 54f, new Color(0.82f, 0.82f, 0.82f, 0.92f), TextAlignmentOptions.Center);
+        // Main value: "??????" when locked, or the ending title. Auto-size + wrap. Occupies the
+        // upper ~63% of the slot (anchored), so a 2-line title can't overlap the type label below.
+        var val = NewText("Value", slot, "??????", font, 48f, new Color(0.82f, 0.82f, 0.82f, 0.92f), TextAlignmentOptions.Center);
         val.characterSpacing = 4f;
         val.enableAutoSizing = true;
-        val.fontSizeMin = 22f;
-        val.fontSizeMax = 56f;
+        val.fontSizeMin = 20f;
+        val.fontSizeMax = 50f;
+        val.enableWordWrapping = true;
         var vRt = val.rectTransform;
-        vRt.anchorMin = vRt.anchorMax = new Vector2(0.5f, 0.5f);
-        vRt.pivot = new Vector2(0.5f, 0.5f);
-        vRt.sizeDelta = new Vector2(size.x - 48f, 78f);
-        vRt.anchoredPosition = new Vector2(0f, 12f);
+        vRt.anchorMin = new Vector2(0.04f, 0.30f);
+        vRt.anchorMax = new Vector2(0.96f, 0.93f);
+        vRt.offsetMin = Vector2.zero;
+        vRt.offsetMax = Vector2.zero;
 
-        // Type label (Bad/Good) — only shown for unlocked endings.
-        var type = NewText("Type", slot, "", font, 24f, new Color(1f, 1f, 1f, 0.45f), TextAlignmentOptions.Center);
+        // Type label (Bad/Good/Secret) — only shown for unlocked endings; bottom band, no overlap.
+        var type = NewText("Type", slot, "", font, 22f, new Color(1f, 1f, 1f, 0.45f), TextAlignmentOptions.Center);
         var tRt = type.rectTransform;
-        tRt.anchorMin = tRt.anchorMax = new Vector2(0.5f, 0f);
-        tRt.pivot = new Vector2(0.5f, 0f);
-        tRt.sizeDelta = new Vector2(size.x - 48f, 34f);
-        tRt.anchoredPosition = new Vector2(0f, 16f);
+        tRt.anchorMin = new Vector2(0.04f, 0.05f);
+        tRt.anchorMax = new Vector2(0.96f, 0.26f);
+        tRt.offsetMin = Vector2.zero;
+        tRt.offsetMax = Vector2.zero;
 
         return slot;
     }
@@ -336,7 +343,8 @@ public static class MainMenuBuilder
         var panel = NewRect("CryptFiendsPanel", parent);
         Stretch(panel);
 
-        // Dim backdrop blocks clicks behind the modal.
+        // Dim backdrop blocks clicks behind the modal. The Endings modal is hidden while this is
+        // open (see GameMainMenu.OpenCryptFiends), so this is the single 0.72 dim — no stacking.
         var dim = NewImage("Dim", panel, null, true);
         Stretch(dim.rectTransform);
         dim.color = new Color(0f, 0f, 0f, 0.72f);
