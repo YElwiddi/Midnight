@@ -56,15 +56,15 @@ MonoBehaviour:
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
-  slowMotionDuration: 5
+  slowMotionDuration: 1.5
   killerFaceObjectName: mixamorig:Head
   faceHeightOffset: 1.6
-  faceLookVerticalOffset: 0
+  faceLookVerticalOffset: -0.2
   jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
-  jumpscarePlayerHeightOffset: -0.19
+  jumpscarePlayerHeightOffset: -0.45
   causesFlashlightFlicker: 1
   lockFlashlightOnDuringJumpscare: 1
   flashlightTargetHeight: 1.96

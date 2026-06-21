@@ -27,12 +27,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 4.5
+    moveSpeed: 6
     waitForInteraction: 0
     autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -70,6 +71,7 @@ MonoBehaviour:
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -107,6 +109,7 @@ MonoBehaviour:
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -138,12 +141,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: GraveyardCrossRoads
-    moveSpeed: 3
+    moveSpeed: 4
     waitForInteraction: 0
     autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -175,12 +179,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: CenterOfMap
-    moveSpeed: 3
+    moveSpeed: 4
     waitForInteraction: 1
     autoStartDialogue: 0
     timeUntilInteractable: 10
     waitingDialogueText: I should give her a moment...
     waitingDialogueSpeaker: 20
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -212,12 +217,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: GraveyardCrossRoads
-    moveSpeed: 3
+    moveSpeed: 5
     waitForInteraction: 0
     autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -249,12 +255,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 3
+    moveSpeed: 5
     waitForInteraction: 0
     autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -286,12 +293,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCRightPoint
-    moveSpeed: 3
+    moveSpeed: 6
     waitForInteraction: 0
     autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0

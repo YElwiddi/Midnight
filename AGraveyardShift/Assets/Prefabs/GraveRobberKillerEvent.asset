@@ -56,7 +56,7 @@ MonoBehaviour:
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914
-  slowMotionDuration: 5
+  slowMotionDuration: 4
   killerFaceObjectName: mixamorig:Head
   faceHeightOffset: 1.6
   faceLookVerticalOffset: 0.4
