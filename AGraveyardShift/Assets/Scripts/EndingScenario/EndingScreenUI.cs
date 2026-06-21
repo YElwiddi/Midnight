@@ -23,6 +23,18 @@ public class EndingScreenUI : MonoBehaviour
     [SerializeField] private bool useTypewriter = false;
     [SerializeField] private float typewriterSpeed = 30f;
 
+    [Header("Description reveal")]
+    [Tooltip("Seconds after the title appears before the description/tip line starts to fade in.")]
+    [SerializeField] private float descriptionDelay = 2.5f;
+    [Tooltip("Seconds the description/tip line takes to fade in.")]
+    [SerializeField] private float descriptionFadeDuration = 1.0f;
+
+    [Header("Text size (normalized across endings)")]
+    [Tooltip("Target rendered cap-height (px) for the TITLE. Each ending's font size is derived from this so every font renders the same size (matched to the bride / Ending IV look).")]
+    [SerializeField] private float titleCapHeightPx = 67f;
+    [Tooltip("Target rendered cap-height (px) for the DESCRIPTION / tip line.")]
+    [SerializeField] private float descriptionCapHeightPx = 26f;
+
     [Header("Transition")]
     [Tooltip("If false, the next scene loads while the screen is still black (smoother — the destination fades itself in). If true, fades out to reveal the scene first.")]
     [SerializeField] private bool fadeOutBeforeLoad = false;
@@ -75,9 +87,18 @@ public class EndingScreenUI : MonoBehaviour
             CreateUI();
         }
 
-        // Per-ending font for the reveal title.
-        if (titleFontOverride != null && titleText != null)
-            titleText.font = titleFontOverride;
+        // Per-ending font for the reveal — the title AND the description/tip line share it.
+        if (titleFontOverride != null)
+        {
+            if (titleText != null) titleText.font = titleFontOverride;
+            if (descriptionText != null) descriptionText.font = titleFontOverride;
+        }
+
+        // Normalize the rendered text size across endings. Different fonts render very
+        // differently at the same point size, so derive each size from a target cap-height
+        // instead — every ending then looks the bride's (Ending IV) size.
+        if (titleText != null) titleText.fontSize = NormalizedSize(titleText.font, titleCapHeightPx);
+        if (descriptionText != null) descriptionText.fontSize = NormalizedSize(descriptionText.font, descriptionCapHeightPx);
 
         // Collapse the description element when there's none so the title stays centered.
         if (descriptionText != null)
@@ -102,18 +123,42 @@ public class EndingScreenUI : MonoBehaviour
 
             if (descriptionText != null && !string.IsNullOrEmpty(description))
                 yield return StartCoroutine(TypewriterEffect(descriptionText, description, typewriterSpeed));
+
+            // Hold on the ending for its full duration.
+            if (displayDuration > 0f)
+                yield return new WaitForSeconds(displayDuration);
         }
         else
         {
-            // Show all text instantly.
+            // The title appears instantly; the description/tip line fades in a few seconds later.
             if (titleText != null) titleText.text = title;
-            if (descriptionText != null) descriptionText.text = description;
-        }
 
-        // Hold on the ending for its full duration (instant show, so no fade-in to subtract).
-        if (displayDuration > 0f)
-        {
-            yield return new WaitForSeconds(displayDuration);
+            bool hasDesc = descriptionText != null && !string.IsNullOrEmpty(description);
+            float held = 0f;
+            if (hasDesc)
+            {
+                descriptionText.text = description;
+                descriptionText.alpha = 0f; // hidden until its delayed fade-in (space is still reserved, so the title doesn't shift)
+
+                float delay = Mathf.Max(0f, descriptionDelay);
+                if (delay > 0f) { yield return new WaitForSeconds(delay); held += delay; }
+
+                float fade = Mathf.Max(0.01f, descriptionFadeDuration);
+                float t = 0f;
+                while (t < fade)
+                {
+                    t += Time.deltaTime;
+                    descriptionText.alpha = Mathf.Clamp01(t / fade);
+                    yield return null;
+                }
+                descriptionText.alpha = 1f;
+                held += fade;
+            }
+
+            // Hold for the rest of the display duration (keep a short beat so the
+            // description stays readable even when the duration is tight).
+            float remaining = displayDuration - held;
+            yield return new WaitForSeconds(hasDesc ? Mathf.Max(0.75f, remaining) : Mathf.Max(0f, remaining));
         }
 
         // Go to the menu. Loading WHILE BLACK avoids a brief flash of the game scene
@@ -181,6 +226,22 @@ public class EndingScreenUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Font size that makes <paramref name="font"/> render at the given cap-height (px),
+    /// so different ending fonts all look the same visual size.
+    /// </summary>
+    private float NormalizedSize(TMP_FontAsset font, float targetCapPx)
+    {
+        float capPerSize = 0.7f; // sane fallback if metrics are unavailable
+        if (font != null)
+        {
+            var fi = font.faceInfo;
+            float cap = fi.capLine - fi.baseline;
+            if (cap > 0.001f && fi.pointSize > 0.001f) capPerSize = cap / fi.pointSize;
+        }
+        return targetCapPx / Mathf.Max(0.05f, capPerSize);
+    }
+
     private void CreateUI()
     {
         // Create Canvas
@@ -215,16 +276,16 @@ public class EndingScreenUI : MonoBehaviour
         containerObj.transform.SetParent(canvasObj.transform, false);
 
         RectTransform containerRect = containerObj.AddComponent<RectTransform>();
-        containerRect.anchorMin = new Vector2(0.1f, 0.2f);
-        containerRect.anchorMax = new Vector2(0.9f, 0.8f);
+        containerRect.anchorMin = new Vector2(0.05f, 0.1f);   // wider + taller so big titles have room
+        containerRect.anchorMax = new Vector2(0.95f, 0.9f);
         containerRect.offsetMin = Vector2.zero;
         containerRect.offsetMax = Vector2.zero;
 
         VerticalLayoutGroup layout = containerObj.AddComponent<VerticalLayoutGroup>();
         layout.childAlignment = TextAnchor.MiddleCenter;
-        layout.spacing = 40f;
+        layout.spacing = 60f;               // a clear gap so the description sits a fair bit below the title
         layout.childControlWidth = true;
-        layout.childControlHeight = false;
+        layout.childControlHeight = true;   // size each row to its content so a big title can never overlap the description
         layout.childForceExpandWidth = true;
         layout.childForceExpandHeight = false;
 
@@ -238,9 +299,8 @@ public class EndingScreenUI : MonoBehaviour
         titleText.fontStyle = FontStyles.Bold;
         titleText.alignment = TextAlignmentOptions.Center;
         titleText.color = Color.white;
-
-        LayoutElement titleLayout = titleObj.AddComponent<LayoutElement>();
-        titleLayout.preferredHeight = 220f;
+        // No fixed LayoutElement height — the layout group sizes this row to the title's
+        // own content height (childControlHeight), so it never spills onto the description.
 
         // Create description text
         GameObject descObj = new GameObject("DescriptionText");
@@ -251,9 +311,7 @@ public class EndingScreenUI : MonoBehaviour
         descriptionText.fontSize = 28;
         descriptionText.alignment = TextAlignmentOptions.Center;
         descriptionText.color = new Color(0.8f, 0.8f, 0.8f, 1f);
-
-        LayoutElement descLayout = descObj.AddComponent<LayoutElement>();
-        descLayout.preferredHeight = 300f;
+        // Content-sized row (see title note above).
 
         Debug.Log("EndingScreenUI: Created UI elements");
     }

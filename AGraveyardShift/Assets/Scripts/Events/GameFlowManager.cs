@@ -1030,17 +1030,37 @@ public class GameFlowManager : MonoBehaviour
             playerCamera = Camera.main;
         }
 
-        // Wait until spawn conditions are met
-        while (!entry.CheckSpawnConditions(playerTransform, playerCamera))
+        // The entry may define an alternate spawn event with its own spawn condition
+        // (e.g. a back-gate variant of the same scare). The primary and alternate spawn
+        // conditions are checked in parallel; whichever is met FIRST spawns its event and
+        // the other is discarded — so the scare happens exactly once, at one location or the
+        // other, then the queue advances normally.
+        bool hasAlternate = entry.HasAlternateSpawn();
+        GameEvent eventToSpawn;
+
+        while (true)
         {
+            if (entry.CheckSpawnConditions(playerTransform, playerCamera))
+            {
+                eventToSpawn = selectedEvent;
+                break;
+            }
+
+            if (hasAlternate && entry.CheckAlternateSpawnConditions(playerTransform, playerCamera))
+            {
+                eventToSpawn = entry.alternateSpawnEvent;
+                Debug.Log($"GameFlowManager: Alternate spawn condition met for '{selectedEvent.eventName}' — spawning alternate event '{entry.alternateSpawnEvent.eventName}' instead.");
+                break;
+            }
+
             yield return new WaitForSeconds(spawnConditionCheckInterval);
         }
 
-        Debug.Log($"GameFlowManager: Spawn conditions met for event '{selectedEvent.eventName}'!");
+        Debug.Log($"GameFlowManager: Spawn conditions met — starting event '{eventToSpawn.eventName}'!");
         isWaitingForSpawnConditions = false;
         waitingForSpawnConditionsCoroutine = null;
 
-        StartEventDirectly(selectedEvent);
+        StartEventDirectly(eventToSpawn);
     }
 
     private void HandleNPCEventCompleted()

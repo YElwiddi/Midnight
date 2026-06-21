@@ -105,6 +105,23 @@ public class EventQueueEntry
     [Tooltip("Name of the object the player must be facing/looking at (used when SpawnConditionRequirement includes facing check)")]
     public string requiredFacingObjectName = "";
 
+    [Header("Alternate Spawn (Optional)")]
+    [Tooltip("Optional SECOND event that can satisfy THIS queue entry through a different spawn condition " +
+             "(e.g. a back-gate variant of the same scare). The primary and alternate spawn conditions are checked " +
+             "in parallel; whichever is met FIRST spawns its event and the other is discarded — so the scare happens " +
+             "exactly once, at one location or the other, then the queue proceeds. The entry-level Condition above " +
+             "(e.g. Sanity) still gates both. Leave null to disable.")]
+    public GameEvent alternateSpawnEvent;
+
+    [Tooltip("Spawn condition requirement for the alternate event (checked in parallel with the primary spawn condition).")]
+    public SpawnConditionRequirement alternateSpawnConditionRequirement = SpawnConditionRequirement.None;
+
+    [Tooltip("Name of the trigger zone the player must enter to fire the alternate event (used when the alternate requirement includes a zone check).")]
+    public string alternateRequiredZoneName = "";
+
+    [Tooltip("Name of the object the player must be facing to fire the alternate event (used when the alternate requirement includes a facing check).")]
+    public string alternateRequiredFacingObjectName = "";
+
     /// <summary>
     /// Gets the event to execute based on the selection mode.
     /// Returns null if no valid event is available.
@@ -301,15 +318,40 @@ public class EventQueueEntry
     /// <param name="playerCamera">The player's camera for facing raycast checks</param>
     public bool CheckSpawnConditions(Transform playerTransform, Camera playerCamera)
     {
-        if (spawnConditionRequirement == SpawnConditionRequirement.None)
+        return EvaluateSpawnConditions(spawnConditionRequirement, requiredZoneName, requiredFacingObjectName, playerTransform, playerCamera);
+    }
+
+    /// <summary>
+    /// Returns true if this entry defines an alternate spawn event with its own spawn condition.
+    /// </summary>
+    public bool HasAlternateSpawn()
+    {
+        return alternateSpawnEvent != null && alternateSpawnConditionRequirement != SpawnConditionRequirement.None;
+    }
+
+    /// <summary>
+    /// Checks if the ALTERNATE spawn conditions (zone/facing for <see cref="alternateSpawnEvent"/>) are met.
+    /// </summary>
+    public bool CheckAlternateSpawnConditions(Transform playerTransform, Camera playerCamera)
+    {
+        return EvaluateSpawnConditions(alternateSpawnConditionRequirement, alternateRequiredZoneName, alternateRequiredFacingObjectName, playerTransform, playerCamera);
+    }
+
+    /// <summary>
+    /// Shared spawn-condition evaluation for a given requirement plus zone/facing target names.
+    /// Used by both the primary and the alternate spawn conditions.
+    /// </summary>
+    private bool EvaluateSpawnConditions(SpawnConditionRequirement requirement, string zoneName, string facingObjectName, Transform playerTransform, Camera playerCamera)
+    {
+        if (requirement == SpawnConditionRequirement.None)
         {
             return true;
         }
 
-        bool inZone = CheckZoneCondition(playerTransform);
-        bool facingObject = CheckFacingCondition(playerCamera);
+        bool inZone = CheckZoneCondition(zoneName);
+        bool facingObject = CheckFacingCondition(facingObjectName, playerCamera);
 
-        bool result = spawnConditionRequirement switch
+        bool result = requirement switch
         {
             SpawnConditionRequirement.ZoneOnly => inZone,
             SpawnConditionRequirement.FacingOnly => facingObject,
@@ -318,7 +360,7 @@ public class EventQueueEntry
             _ => true
         };
 
-        Debug.Log($"EventQueueEntry: Spawn condition check - Zone({requiredZoneName})={inZone}, Facing({requiredFacingObjectName})={facingObject}, Requirement={spawnConditionRequirement}, Result={result}");
+        Debug.Log($"EventQueueEntry: Spawn condition check - Zone({zoneName})={inZone}, Facing({facingObjectName})={facingObject}, Requirement={requirement}, Result={result}");
         return result;
     }
 
@@ -326,23 +368,23 @@ public class EventQueueEntry
     /// Checks if the player is currently inside the required zone.
     /// Uses PlayerZoneTracker (trigger-based) for reliable detection.
     /// </summary>
-    private bool CheckZoneCondition(Transform playerTransform)
+    private bool CheckZoneCondition(string zoneName)
     {
-        if (string.IsNullOrEmpty(requiredZoneName))
+        if (string.IsNullOrEmpty(zoneName))
         {
             // No zone specified, condition passes
             return true;
         }
 
         // Use trigger-based zone tracking (most reliable)
-        bool isInZone = PlayerZoneTracker.IsInZone(requiredZoneName);
+        bool isInZone = PlayerZoneTracker.IsInZone(zoneName);
 
         if (!isInZone)
         {
             // Log current zones for debugging
             var currentZones = PlayerZoneTracker.GetCurrentZones();
             string zonesStr = string.Join(", ", currentZones);
-            Debug.Log($"EventQueueEntry: Player not in zone '{requiredZoneName}'. Current zones: [{zonesStr}]");
+            Debug.Log($"EventQueueEntry: Player not in zone '{zoneName}'. Current zones: [{zonesStr}]");
         }
 
         return isInZone;
@@ -352,9 +394,9 @@ public class EventQueueEntry
     /// Checks if the player is currently facing/looking at the required object.
     /// First checks for FacingTarget components (no collider needed), then falls back to raycast.
     /// </summary>
-    private bool CheckFacingCondition(Camera playerCamera)
+    private bool CheckFacingCondition(string facingObjectName, Camera playerCamera)
     {
-        if (string.IsNullOrEmpty(requiredFacingObjectName))
+        if (string.IsNullOrEmpty(facingObjectName))
         {
             // No facing object specified, condition passes
             return true;
@@ -370,7 +412,7 @@ public class EventQueueEntry
         FacingTarget[] facingTargets = Object.FindObjectsByType<FacingTarget>(FindObjectsSortMode.None);
         foreach (var target in facingTargets)
         {
-            if (target.targetId == requiredFacingObjectName && target.IsCameraFacing(playerCamera))
+            if (target.targetId == facingObjectName && target.IsCameraFacing(playerCamera))
             {
                 return true;
             }
@@ -384,7 +426,7 @@ public class EventQueueEntry
             Transform current = hit.transform;
             while (current != null)
             {
-                if (current.name == requiredFacingObjectName)
+                if (current.name == facingObjectName)
                 {
                     return true;
                 }

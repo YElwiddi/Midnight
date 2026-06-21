@@ -29,6 +29,7 @@ public static class EndingFlow
         }
 
         // e.g. "Bad Ending #1\nA Wrathful Spirit", shown instantly, with the per-ending font.
-        ui.Show(EndingInfo.RevealText(ending), "", revealDuration, MenuScene, EndingFonts.Get(ending));
+        // The description line below is the per-ending recap/tip (EndingInfo.description).
+        ui.Show(EndingInfo.RevealText(ending), EndingInfo.Get(ending).description, revealDuration, MenuScene, EndingFonts.Get(ending));
     }
 }

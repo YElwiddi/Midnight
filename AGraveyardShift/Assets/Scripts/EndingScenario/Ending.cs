@@ -42,31 +42,31 @@ public static class EndingInfo
                 return new Data
                 {
                     roman = "I", title = "Bad Ending - A Wrathful Spirit", typeLabel = "Ending", isGood = false,
-                    description = "Your sanity gave out, and she found you in the dark."
+                    description = "You lost all your sanity. Stay in the light and check your visitors."
                 };
             case Ending.Ambush:
                 return new Data
                 {
                     roman = "II", title = "Bad Ending - An Ambush", typeLabel = "Ending", isGood = false,
-                    description = "The grave robber was waiting. You never saw it coming."
+                    description = "You didn't secure the Graveyard. Patrol the graveyard and check the cameras more often. Don't be too trusting."
                 };
             case Ending.WrongfulConviction:
                 return new Data
                 {
                     roman = "III", title = "Good Ending - A Wrongful Conviction", typeLabel = "Ending", isGood = true,
-                    description = "You climbed out of the crypt — into a fate you did not choose."
+                    description = "The Graveyard is at peace."
                 };
             case Ending.HappilyEverAfter:
                 return new Data
                 {
                     roman = "IV", title = "Good Ending? - Happily Ever After", typeLabel = "Ending", isGood = true,
-                    description = "The bride finally has her groom. Till death do you part."
+                    description = "Congratulations!"
                 };
             case Ending.Father:
                 return new Data
                 {
                     roman = "V", title = "Hidden Ending - The Father's Fate", typeLabel = "Ending", isGood = false,
-                    description = "You laid a rose on his grave, and he rose to thank you."
+                    description = "Did you find what you were looking for?"
                 };
             default:
                 return new Data { roman = "?", title = "??????", typeLabel = "", description = "" };

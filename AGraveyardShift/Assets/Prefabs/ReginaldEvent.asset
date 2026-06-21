@@ -27,11 +27,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 4.5
+    moveSpeed: 6
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 5
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -63,11 +65,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 3
+    moveSpeed: 5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -99,11 +103,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCGatePoint
-    moveSpeed: 3
+    moveSpeed: 5
     waitForInteraction: 1
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 1
     backToPlayerWhileWaiting: 0
@@ -135,11 +141,13 @@ MonoBehaviour:
     distanceFromPlayer: 3
     heightOffset: 0
     waypointName: NPCCenterPoint
-    moveSpeed: 3
+    moveSpeed: 5
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -181,3 +189,5 @@ MonoBehaviour:
   exitPointName: NPCLeftPoint
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

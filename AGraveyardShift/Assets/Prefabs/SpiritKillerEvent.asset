@@ -27,6 +27,7 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
   spawnPointName: SpiritSpawn
+  spawnOnLockedDoorInteract: 0
   facePlayerOnSpawn: 1
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
@@ -38,6 +39,7 @@ MonoBehaviour:
   useAmbushMode: 1
   idleAnimationBool: 
   activationDistance: 17
+  ignoreActivationDistance: 0
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 30
@@ -63,6 +65,7 @@ MonoBehaviour:
   shakeIntensity: 2
   shakeDuration: 2.16
   jumpscarePlayerHeightOffset: -0.19
+  causesFlashlightFlicker: 1
   lockFlashlightOnDuringJumpscare: 1
   flashlightTargetHeight: 1.96
   jumpscareFlashlightIntensity: 3
@@ -83,11 +86,11 @@ MonoBehaviour:
   headShakeTurnAmount: 15
   headShakeSpeed: 30
   headShakeRandomness: 10
-  headShakeActiveDuration: 1.5
-  headShakePauseDuration: 0.6
-  headShakeTimingVariance: 0.3
-  headShakeStuckChance: 0.5
-  headShakeStuckMaxAngle: 25
+  headSpinEnabled: 0
+  headSpinInterval: 4
+  headSpinDuration: 0.5
+  headDoubleSpinChance: 0
+  headTripleSpinChance: 0
   showJumpscareDialogue: 0
   jumpscareDialogueText: 
   jumpscareDialogueFont: {fileID: 0}
@@ -96,6 +99,9 @@ MonoBehaviour:
   jumpscareDialogueDelay: 0.5
   jumpscareDialogueShakeIntensity: 0
   jumpscareDialogueShakeSpeed: 25
+  jumpscareDialogueFlash: 0
+  jumpscareDialogueFlashSpeed: 4
+  jumpscareDialogueFlashMinAlpha: 0
   gameOverSceneName: Start Menu Scene
   unlocksEnding: 1
   endingToUnlock: 0

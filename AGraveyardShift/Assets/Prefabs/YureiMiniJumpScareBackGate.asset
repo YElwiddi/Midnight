@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d279434c8992b41b2a0ee086798ee1, type: 3}
+  m_Name: YureiMiniJumpScareBackGate
+  m_EditorClassIdentifier: Assembly-CSharp::GameEvent
+  eventName: Start Event
+  npcPrefab: {fileID: 676162034635823457, guid: 688385fc0147b2a40a62cb241a2004b3, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 6
+  spawnHeightOffset: 0
+  spawnPointName: YureiBackGate
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
+  waypoints:
+  - usePlayerRelativePosition: 0
+    distanceFromPlayer: 6
+    heightOffset: 0
+    waypointName: YureiBackGate
+    moveSpeed: 25
+    waitForInteraction: 0
+    autoStartDialogue: 0
+    timeUntilInteractable: 0
+    waitingDialogueText: 
+    waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
+    waitTime: 0.6
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
+    inkDialogue: {fileID: 0}
+    dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
+    movementAnimationTrigger: IsWalking
+    arrivalAnimationTrigger: 
+    idleAnimationBool: 
+    branchVariable: 
+    branchValue: 
+    branchToWaypoint: 
+    waypointId: 
+    proximitySound: {fileID: 0}
+    proximitySoundRange: 40
+    proximitySoundVolume: 1
+    proximitySoundTrigger: 2
+    requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
+  inkDialogue: {fileID: 0}
+  dialogueKnot: 
+  typewriterSpeed: 0
+  cameraHeight: -1
+  cameraZoom: -1
+  dialogueSoundClip: {fileID: 0}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: -1
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
+  exitBehavior: 0
+  exitPointName: FrontOfCrypt
+  exitDialogues: []
+  backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0

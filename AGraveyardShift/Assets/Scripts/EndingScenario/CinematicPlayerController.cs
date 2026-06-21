@@ -437,7 +437,7 @@ public class CinematicPlayerController : MonoBehaviour
         if (currentCinematic.unlocksEnding)
         {
             endTitle = EndingInfo.RevealText(currentCinematic.endingToUnlock);
-            endDesc = "";
+            endDesc = EndingInfo.Get(currentCinematic.endingToUnlock).description;
             endFont = EndingFonts.Get(currentCinematic.endingToUnlock);
         }
         endingUI.Show(

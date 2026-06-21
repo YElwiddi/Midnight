@@ -60,7 +60,7 @@ MonoBehaviour:
   killerFaceObjectName: mixamorig:Head
   faceHeightOffset: 1.6
   faceLookVerticalOffset: 0.4
-  jumpscareSound: {fileID: 8300000, guid: 3a4e3e4227117a94390d729dd7b73989, type: 3}
+  jumpscareSound: {fileID: 8300000, guid: 546b100181552704fb959787f463535c, type: 3}
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16

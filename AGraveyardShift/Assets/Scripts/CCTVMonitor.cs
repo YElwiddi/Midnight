@@ -80,17 +80,44 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     public int frontGateFeedIndex = 0;
     [Tooltip("feedCameras index of the BACK gate cam. The grave robber can only appear on this feed.")]
     public int backGateFeedIndex = 1;
-    [Tooltip("Scare becomes possible once sanity is at or below this fraction (0.40 = 40%).")]
-    [Range(0f, 1f)] public float scareSanityThreshold = 0.40f;
-    [Tooltip("Scare becomes possible once protection is at or below this fraction (0.40 = 40%).")]
-    [Range(0f, 1f)] public float scareProtectionThreshold = 0.40f;
-    [Tooltip("Per-second chance the scare flashes while watching the matching gate with that stat low (0.10 = 10%). One roll per second, not cumulative.")]
-    [Range(0f, 1f)] public float scareChancePerSecond = 0.10f;
+    [Tooltip("Scare becomes possible once sanity is at or below this fraction (0.60 = 60%).")]
+    [Range(0f, 1f)] public float scareSanityThreshold = 0.60f;
+    [Tooltip("Scare becomes possible once protection is at or below this fraction (0.60 = 60%).")]
+    [Range(0f, 1f)] public float scareProtectionThreshold = 0.60f;
+    [Tooltip("Per-second chance the scare flashes while watching the matching gate with that stat low (0.15 = 15%). One roll per second, not cumulative.")]
+    [Range(0f, 1f)] public float scareChancePerSecond = 0.15f;
     [Tooltip("Seconds the distorted scare image stays on screen.")]
     public float scareDuration = 0.5f;
     [Tooltip("Static noise played for the scare's duration (looped, cut at scareDuration).")]
     public AudioClip scareStaticClip;
     [Range(0f, 1f)] public float scareStaticVolume = 0.9f;
+
+    [Header("Watcher dart (back gate, phase 2+)")]
+    [Tooltip("The figure that sprints across the BACK gate camera's view. A world object near the back gate, toggled active only for the dart. Leave null to disable the dart entirely.")]
+    public GameObject watcherDartRunner;
+    [Tooltip("World transform the runner starts from (just off one edge of the back-cam view).")]
+    public Transform watcherDartStart;
+    [Tooltip("World transform the runner ends at (just off the other edge of the back-cam view).")]
+    public Transform watcherDartEnd;
+    [Tooltip("Seconds the runner takes to cross from start to end.")]
+    public float watcherDartDuration = 1.1f;
+    [Tooltip("Per-second chance the watcher darts across while watching the BACK gate in an eligible phase (0.10 = 10%). One roll per second, not cumulative. Happens at most once per playthrough.")]
+    [Range(0f, 1f)] public float watcherDartChancePerSecond = 0.10f;
+    [Tooltip("Earliest game phase the dart can happen. Phase 1 is the first phase, so 2 = 'after the first phase has elapsed'.")]
+    public int watcherMinPhase = 2;
+    [Tooltip("Animator playback speed for the runner while darting (1 = the clip's authored speed).")]
+    public float watcherDartAnimSpeed = 1f;
+    [Tooltip("Optional 2D sound played when the watcher darts. Leave null for a silent dart.")]
+    public AudioClip watcherDartSound;
+    [Range(0f, 1f)] public float watcherDartVolume = 0.7f;
+
+    [Header("Protection restore (while watching)")]
+    [Tooltip("Watching the cameras tops up graveyard protection: +protectionRestoreAmount for every this many seconds spent watching.")]
+    public float protectionRestoreInterval = 10f;
+    [Tooltip("Protection points restored per interval.")]
+    public int protectionRestoreAmount = 1;
+    [Tooltip("Most protection this mechanic can EVER restore in one playthrough (counts protection actually gained, so watching at full protection doesn't waste it).")]
+    public int protectionRestoreLifetimeMax = 10;
 
     // ---- runtime ----
     private RenderTexture[] feedTextures;
@@ -110,6 +137,18 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     private bool scareActive;
     private float scareRollTimer;
     private float scareEndTime;
+
+    // watcher dart overlay
+    private Animator watcherDartAnimator;
+    private bool watcherDartActive;
+    private bool watcherDartPlayed; // one-time, like the image scare
+    private float watcherDartStartTime;
+    private Vector3 watcherDartFrom;
+    private Vector3 watcherDartTo;
+
+    // protection restore
+    private float protectionRestoreTimer;
+    private int protectionRestoredTotal; // lifetime points restored via the cameras (capped)
 
     private Movement player;
     private Camera playerCam;
@@ -161,6 +200,13 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         scareAudio.loop = true;
 
         if (screenLabel != null) screenLabel.gameObject.SetActive(false);
+
+        // The watcher-dart runner stays hidden until it sprints across the back-gate feed.
+        if (watcherDartRunner != null)
+        {
+            watcherDartAnimator = watcherDartRunner.GetComponentInChildren<Animator>(true);
+            watcherDartRunner.SetActive(false);
+        }
     }
 
     void OnDestroy()
@@ -264,6 +310,7 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
             isViewing = false;
             scareActive = false;
             if (scareAudio != null) scareAudio.Stop();
+            EndWatcherDart();
             EnableFeeds(false);
             SetScreenOff();
             if (screenLabel != null) screenLabel.gameObject.SetActive(false);
@@ -277,7 +324,14 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         if (scareActive && Time.unscaledTime >= scareEndTime)
             EndScare();
 
+        if (watcherDartActive)
+            UpdateWatcherDart();
+
         if (!isViewing || transitioning) return;
+
+        // Monitoring the cameras slowly restores graveyard protection (capped lifetime total).
+        TickProtectionRestore();
+
         if (Time.unscaledTime < inputLockUntil) return;
 
         if (Input.GetKeyDown(exitKey) || (altExitKey != KeyCode.None && Input.GetKeyDown(altExitKey)))
@@ -351,28 +405,113 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     // ever see one camera at a time.
     private void MaybeRollScare()
     {
-        if (scarePlayed || scareActive) return;
+        // While either effect is already on screen, hold the roll timer. This is what guarantees
+        // the grave-robber scare and the watcher dart can never play at the same time.
+        if (scareActive || watcherDartActive) { scareRollTimer = 0f; return; }
 
         scareRollTimer += Time.unscaledDeltaTime;
         if (scareRollTimer < 1f) return;
         scareRollTimer = 0f; // exactly one roll per second, not cumulative
 
-        Texture img = null;
-        if (activeIndex == frontGateFeedIndex)
+        // 1) One-time low-stat image scare: FRONT gate -> spirit (low sanity), BACK gate -> grave robber (low protection).
+        if (!scarePlayed)
         {
-            var sanity = SanityManager.Instance;
-            if (sanity != null && sanity.SanityPercent <= scareSanityThreshold) img = spiritImage;
-        }
-        else if (activeIndex == backGateFeedIndex)
-        {
-            var prot = GraveyardProtectionManager.Instance;
-            if (prot != null && prot.ProtectionPercent <= scareProtectionThreshold) img = graverobberImage;
+            Texture img = null;
+            if (activeIndex == frontGateFeedIndex)
+            {
+                var sanity = SanityManager.Instance;
+                if (sanity != null && sanity.SanityPercent <= scareSanityThreshold) img = spiritImage;
+            }
+            else if (activeIndex == backGateFeedIndex)
+            {
+                var prot = GraveyardProtectionManager.Instance;
+                if (prot != null && prot.ProtectionPercent <= scareProtectionThreshold) img = graverobberImage;
+            }
+
+            if (img != null && Random.value <= scareChancePerSecond)
+            {
+                StartScare(img);
+                return; // never also start a dart on the same tick as a scare
+            }
         }
 
-        if (img == null) return; // not on the matching gate for a low stat (or image unassigned)
+        // 2) One-time watcher dart across the BACK gate (phase 2+). Mutually exclusive with the scare above.
+        if (CanWatcherDart() && Random.value <= watcherDartChancePerSecond)
+            StartWatcherDart();
+    }
 
-        if (Random.value > scareChancePerSecond) return; // a single 10% roll this second
-        StartScare(img);
+    // ---- watcher dart (a figure sprints across the back-gate camera) ----
+
+    private bool CanWatcherDart()
+    {
+        if (watcherDartPlayed) return false;                 // can only ever happen once
+        if (watcherDartRunner == null || watcherDartStart == null || watcherDartEnd == null) return false;
+        if (activeIndex != backGateFeedIndex) return false; // only the back gate cam can see it
+        var gfm = GameFlowManager.Instance;
+        return gfm != null && gfm.CurrentPhase >= watcherMinPhase;
+    }
+
+    private void StartWatcherDart()
+    {
+        watcherDartActive = true;
+        watcherDartPlayed = true; // one-time only
+        watcherDartStartTime = Time.unscaledTime;
+        watcherDartFrom = watcherDartStart.position;
+        watcherDartTo = watcherDartEnd.position;
+
+        watcherDartRunner.transform.position = watcherDartFrom;
+        Vector3 dir = watcherDartTo - watcherDartFrom;
+        dir.y = 0f;
+        if (dir.sqrMagnitude > 0.0001f)
+            watcherDartRunner.transform.rotation = Quaternion.LookRotation(dir.normalized);
+        watcherDartRunner.SetActive(true);
+
+        if (watcherDartAnimator != null)
+        {
+            watcherDartAnimator.speed = Mathf.Max(0.01f, watcherDartAnimSpeed);
+            watcherDartAnimator.Rebind();   // restart the run cycle cleanly each dart
+            watcherDartAnimator.Update(0f);
+        }
+
+        if (watcherDartSound != null && audioSource != null)
+            audioSource.PlayOneShot(watcherDartSound, watcherDartVolume);
+    }
+
+    private void UpdateWatcherDart()
+    {
+        if (watcherDartRunner == null) { watcherDartActive = false; return; }
+
+        float t = (Time.unscaledTime - watcherDartStartTime) / Mathf.Max(0.05f, watcherDartDuration);
+        if (t >= 1f) { EndWatcherDart(); return; }
+
+        watcherDartRunner.transform.position = Vector3.Lerp(watcherDartFrom, watcherDartTo, t);
+    }
+
+    private void EndWatcherDart()
+    {
+        watcherDartActive = false;
+        if (watcherDartRunner != null) watcherDartRunner.SetActive(false);
+    }
+
+    // ---- protection restore (watching the cameras slowly tops up graveyard protection) ----
+
+    private void TickProtectionRestore()
+    {
+        if (protectionRestoredTotal >= protectionRestoreLifetimeMax) return; // spent the whole lifetime budget
+        var prot = GraveyardProtectionManager.Instance;
+        if (prot == null) return;
+
+        protectionRestoreTimer += Time.unscaledDeltaTime;
+        if (protectionRestoreTimer < protectionRestoreInterval) return;
+        protectionRestoreTimer -= protectionRestoreInterval; // keep the remainder so watch time accumulates cleanly
+
+        int budget = protectionRestoreLifetimeMax - protectionRestoredTotal;
+        int amount = Mathf.Min(Mathf.Max(1, protectionRestoreAmount), budget);
+
+        int before = prot.CurrentProtection;
+        prot.RestoreProtection(amount);
+        int gained = prot.CurrentProtection - before; // 0 if already at max — don't spend the budget on nothing
+        protectionRestoredTotal += Mathf.Max(0, gained);
     }
 
     private void StartScare(Texture img)
