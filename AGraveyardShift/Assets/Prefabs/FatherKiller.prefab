@@ -320,7 +320,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   heartbeatSound: {fileID: 8300000, guid: 413173aaf41fb164ebc30888293a01ab, type: 3}
-  terrorRadius: 20
+  terrorRadius: 26
   terrorMaxVolumeDistance: 3
   heartbeatMaxVolume: 1
   downBool: IsDown
