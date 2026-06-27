@@ -63,6 +63,11 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
     [Tooltip("Background image displayed when reading (book texture, scroll, etc.)")]
     [SerializeField] private Sprite backgroundImage;
 
+    [Tooltip("Override the background panel size. Enable for differently-shaped backgrounds (e.g. an open two-page book) so the image isn't squashed into the default note shape.")]
+    [SerializeField] private bool overrideBackgroundSize;
+    [Tooltip("Background panel size in canvas units (width, height). Only used when 'Override Background Size' is enabled.")]
+    [SerializeField] private Vector2 backgroundSize = new Vector2(375f, 500f);
+
     [Header("Text Overrides (Optional)")]
     [Tooltip("Override the default font. Leave empty to use default.")]
     [SerializeField] private TMP_FontAsset fontOverride;
@@ -91,6 +96,14 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
     [Tooltip("Pages of text content. Each element is one page.")]
     [TextArea(5, 15)]
     [SerializeField] private string[] pages;
+
+    [Header("Two-Page Spread (Optional)")]
+    [Tooltip("Right-page text for a two-page spread (e.g. an open book), one entry per page in 'Pages'. When set, each 'Pages' entry fills the left page and the matching entry here fills the right page; a click flips both. Leave empty for a normal single-area readable.")]
+    [TextArea(5, 15)]
+    [SerializeField] private string[] rightColumnPages;
+    [Tooltip("Override the right-page text margin (l,t,r,b). Use to fit the right page of an open book. The left page uses the normal Text Margins above.")]
+    [SerializeField] private bool overrideRightColumnMargin;
+    [SerializeField] private Vector4 rightColumnMargin;
 
     [Header("Low Sanity Override")]
     [Tooltip("Enable alternate content/appearance when player sanity is low")]
@@ -150,7 +163,10 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
         // Resolve text overrides with three-tier fallback
         var overrides = BuildTextOverrides(useLowSanity);
 
-        readableUI.Open(resolvedPages, resolvedBackground, overrides);
+        Vector2? resolvedBackgroundSize = overrideBackgroundSize ? backgroundSize : (Vector2?)null;
+        Vector4? resolvedRightMargin = overrideRightColumnMargin ? rightColumnMargin : (Vector4?)null;
+
+        readableUI.Open(resolvedPages, resolvedBackground, overrides, resolvedBackgroundSize, rightColumnPages, resolvedRightMargin);
     }
 
     public string GetInteractionPrompt()

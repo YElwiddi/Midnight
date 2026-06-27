@@ -91,6 +91,12 @@ MonoBehaviour:
   headSpinDuration: 0.5
   headDoubleSpinChance: 0
   headTripleSpinChance: 0
+  chaseContortion: 1
+  contortionSpeed: 24
+  contortionAngle: 25
+  contortionJitter: 15
+  chaseFloatHeight: 0.35
+  contortionStretch: 0.4
   showJumpscareDialogue: 0
   jumpscareDialogueText: 
   jumpscareDialogueFont: {fileID: 0}

@@ -186,6 +186,56 @@ public class KillerNPC : MonoBehaviour
     private int headSpinRevolutions = 1;
     private bool headSpinning = false;
 
+    // Chase contortion — violent procedural spasm of the arms/legs/head while running at the player.
+    // Layered on top of the walk animation in LateUpdate; only ever enabled by the graveyard spirit's event.
+    private bool chaseContortion = false;
+    private float contortionSpeed = 24f;
+    private float contortionAngle = 115f;
+    private float contortionJitter = 45f;
+    private Transform[] contortionBones;
+    private float[] contortionWeights;   // per-bone amplitude scale (parallel to the resolved bones)
+    private bool contortionResolved = false;
+    private static readonly string[] ContortionBoneNames = new string[]
+    {
+        "mixamorig:Head", "mixamorig:Neck",
+        "mixamorig:LeftArm", "mixamorig:LeftForeArm", "mixamorig:LeftHand",
+        "mixamorig:RightArm", "mixamorig:RightForeArm", "mixamorig:RightHand",
+        "mixamorig:LeftUpLeg", "mixamorig:LeftLeg", "mixamorig:LeftFoot",
+        "mixamorig:RightUpLeg", "mixamorig:RightLeg", "mixamorig:RightFoot",
+    };
+    // Per-bone amplitude (parallel to ContortionBoneNames). Limb ROOTS (shoulders/hips) get only a
+    // little so the whole arm/leg can't swing inward into the torso and vanish; elbows/knees bend
+    // more; extremities (hands/feet/head) shake fully. Net effect reads as a violent shake, not a fold.
+    private static readonly float[] ContortionBoneWeights = new float[]
+    {
+        1.0f, 0.6f,          // Head, Neck
+        0.35f, 0.85f, 1.0f,  // LeftArm (shoulder), LeftForeArm (elbow), LeftHand
+        0.35f, 0.85f, 1.0f,  // RightArm, RightForeArm, RightHand
+        0.3f,  0.85f, 1.0f,  // LeftUpLeg (hip), LeftLeg (knee), LeftFoot
+        0.3f,  0.85f, 1.0f,  // RightUpLeg, RightLeg, RightFoot
+    };
+    // Float (hover) while chasing + random limb-length warp. Hips is translated up; each limb segment
+    // is scaled along its length axis. Scale isn't animated, so it must be reset when the spasm ends.
+    private float chaseFloatHeight = 0.35f;
+    private float contortionStretch = 0.4f;
+    private Transform contortionHips;
+    private Transform[] stretchBones;
+    private int[] stretchAxis;
+    private Vector3[] stretchBaseScale;
+    private bool contortionWasActive = false;
+    // Each pair = (bone to stretch, its next bone in the chain — used to find the length axis).
+    private static readonly string[,] StretchBonePairs = new string[,]
+    {
+        { "mixamorig:LeftArm",     "mixamorig:LeftForeArm" },
+        { "mixamorig:LeftForeArm", "mixamorig:LeftHand" },
+        { "mixamorig:RightArm",    "mixamorig:RightForeArm" },
+        { "mixamorig:RightForeArm","mixamorig:RightHand" },
+        { "mixamorig:LeftUpLeg",   "mixamorig:LeftLeg" },
+        { "mixamorig:LeftLeg",     "mixamorig:LeftFoot" },
+        { "mixamorig:RightUpLeg",  "mixamorig:RightLeg" },
+        { "mixamorig:RightLeg",    "mixamorig:RightFoot" },
+    };
+
     // Jumpscare dialogue
     private bool showJumpscareDialogue = false;
     private string jumpscareDialogueText = "";
@@ -313,6 +363,13 @@ public class KillerNPC : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Violent procedural limb/head contortion while running at the player (spirit-only). Runs after
+        // the Animator has written this frame's walk pose, and is captured fresh each frame so it can't drift.
+        bool contortNow = chaseContortion && !hasTriggeredGameOver && currentState == KillerState.Chasing;
+        if (contortNow) ApplyChaseContortion();
+        else if (contortionWasActive) ResetContortion(); // restore limb scales (rotation + float self-correct via the Animator)
+        contortionWasActive = contortNow;
+
         if (!hasTriggeredGameOver || !jumpscareHeadShake || headShakeBone == null)
             return;
 
@@ -380,6 +437,134 @@ public class KillerNPC : MonoBehaviour
 
         Vector3 offset = new Vector3(pitch, yaw + spinYaw, roll);
         headShakeBone.localRotation = headShakeBaseRotation * Quaternion.Euler(offset);
+    }
+
+    /// <summary>
+    /// Violently spasms the killer's arms, legs and head while she runs at the player. Each frame this
+    /// reads the Animator's just-written walk pose for every target bone and slams a large, fast,
+    /// chaotic rotation on top — so joints bend backward/sideways in impossible ways. Because the base
+    /// pose is re-read every frame (never accumulated), it self-corrects and snaps cleanly back to the
+    /// normal animation the instant the contortion stops (e.g. when the kill fires).
+    /// </summary>
+    private void ApplyChaseContortion()
+    {
+        if (!contortionResolved) ResolveContortionBones();
+
+        // Float her off the ground a little while she advances. Added on top of the animated hips
+        // position each frame (world up), so it self-corrects the instant the spasm stops.
+        if (contortionHips != null && chaseFloatHeight != 0f)
+            contortionHips.position += Vector3.up * chaseFloatHeight;
+
+        // Violent rotation thrash on the arms / legs / head.
+        float t = Time.time * contortionSpeed;
+        if (contortionBones != null)
+        {
+            for (int i = 0; i < contortionBones.Length; i++)
+            {
+                Transform b = contortionBones[i];
+                if (b == null) continue;
+
+                // The Animator already wrote this bone's animated (walking) rotation this frame — contort around it.
+                Quaternion baseRot = b.localRotation;
+
+                // Per-bone phase so every joint thrashes out of sync (chaotic spasm, not a uniform wobble).
+                float p = i * 1.37f;
+                float ex = Mathf.Sin(t + p) + Mathf.Sin(t * 2.3f + p * 1.7f) * 0.6f;
+                float ey = Mathf.Sin(t * 1.4f + p * 2.1f) + Mathf.Sin(t * 3.1f + p) * 0.6f;
+                float ez = Mathf.Sin(t * 1.7f + p * 0.7f) + Mathf.Sin(t * 2.9f + p * 1.3f) * 0.6f;
+
+                // 1.6 = peak magnitude of the summed sines above, so contortionAngle is the real per-axis cap.
+                Vector3 e = new Vector3(ex, ey, ez) * (contortionAngle / 1.6f);
+
+                if (contortionJitter > 0f)
+                {
+                    e.x += Random.Range(-contortionJitter, contortionJitter);
+                    e.y += Random.Range(-contortionJitter, contortionJitter);
+                    e.z += Random.Range(-contortionJitter, contortionJitter);
+                }
+
+                // Scale by the per-bone weight: limb roots barely move (the limb can't fold into the
+                // body and disappear) while elbows/knees and extremities shake & bend freely, staying visible.
+                e *= (contortionWeights != null && i < contortionWeights.Length) ? contortionWeights[i] : 1f;
+
+                b.localRotation = baseRot * Quaternion.Euler(e);
+            }
+        }
+
+        // Randomly warp each limb's length by scaling the bone along its length axis. Slower than the
+        // rotation thrash so the stretching reads as morphing limbs rather than a buzz.
+        if (stretchBones != null && contortionStretch > 0f)
+        {
+            float st = Time.time * 5f;
+            for (int i = 0; i < stretchBones.Length; i++)
+            {
+                Transform b = stretchBones[i];
+                if (b == null) continue;
+
+                float p = i * 1.91f;
+                float osc = Mathf.Sin(st + p) * 0.6f + Mathf.Sin(st * 1.7f + p * 1.3f) * 0.4f; // ~ -1..1
+                float lenFactor = 1f + osc * contortionStretch + Random.Range(-0.08f, 0.08f);
+                lenFactor = Mathf.Max(0.25f, lenFactor); // never collapse/invert the segment
+
+                Vector3 sc = stretchBaseScale[i];
+                sc[stretchAxis[i]] = stretchBaseScale[i][stretchAxis[i]] * lenFactor;
+                b.localScale = sc;
+            }
+        }
+    }
+
+    /// <summary>Resolves the contortion bones by their Mixamo names once (skips any that aren't found).</summary>
+    private void ResolveContortionBones()
+    {
+        contortionResolved = true;
+        var found = new System.Collections.Generic.List<Transform>();
+        var foundW = new System.Collections.Generic.List<float>();
+        for (int i = 0; i < ContortionBoneNames.Length; i++)
+        {
+            Transform bone = FindChildRecursive(transform, ContortionBoneNames[i]);
+            if (bone != null) { found.Add(bone); foundW.Add(ContortionBoneWeights[i]); }
+        }
+        contortionBones = found.ToArray();
+        contortionWeights = foundW.ToArray();
+
+        // Hips drives the float (translated in world space).
+        contortionHips = FindChildRecursive(transform, "mixamorig:Hips");
+
+        // Resolve the stretch bones and the local axis each runs along (taken from its child's local
+        // position, so we scale length rather than girth — no hard-coded per-rig axis assumption).
+        int pairCount = StretchBonePairs.GetLength(0);
+        var sBones = new System.Collections.Generic.List<Transform>();
+        var sAxis = new System.Collections.Generic.List<int>();
+        var sBase = new System.Collections.Generic.List<Vector3>();
+        for (int i = 0; i < pairCount; i++)
+        {
+            Transform bone = FindChildRecursive(transform, StretchBonePairs[i, 0]);
+            Transform child = FindChildRecursive(transform, StretchBonePairs[i, 1]);
+            if (bone == null || child == null) continue;
+
+            Vector3 lp = child.localPosition;
+            int axis = 0; // pick the dominant component of the child offset = the bone's length axis
+            if (Mathf.Abs(lp.y) >= Mathf.Abs(lp.x) && Mathf.Abs(lp.y) >= Mathf.Abs(lp.z)) axis = 1;
+            else if (Mathf.Abs(lp.z) >= Mathf.Abs(lp.x) && Mathf.Abs(lp.z) >= Mathf.Abs(lp.y)) axis = 2;
+
+            sBones.Add(bone);
+            sAxis.Add(axis);
+            sBase.Add(bone.localScale);
+        }
+        stretchBones = sBones.ToArray();
+        stretchAxis = sAxis.ToArray();
+        stretchBaseScale = sBase.ToArray();
+
+        Debug.Log($"KillerNPC: chaseContortion resolved {contortionBones.Length}/{ContortionBoneNames.Length} bones, hips={contortionHips != null}, stretch={stretchBones.Length}");
+    }
+
+    /// <summary>Restores the limb scales the stretch warps. The Animator never writes bone scale, so
+    /// unlike the rotation/float (which the Animator overwrites each frame) it can't self-correct.</summary>
+    private void ResetContortion()
+    {
+        if (stretchBones == null) return;
+        for (int i = 0; i < stretchBones.Length; i++)
+            if (stretchBones[i] != null) stretchBones[i].localScale = stretchBaseScale[i];
     }
 
     private void Update()
@@ -827,6 +1012,14 @@ public class KillerNPC : MonoBehaviour
         headSpinDuration = killerEvent.headSpinDuration;
         headDoubleSpinChance = killerEvent.headDoubleSpinChance;
         headTripleSpinChance = killerEvent.headTripleSpinChance;
+
+        // Chase contortion settings (violent spasm while running at the player)
+        chaseContortion = killerEvent.chaseContortion;
+        contortionSpeed = killerEvent.contortionSpeed;
+        contortionAngle = killerEvent.contortionAngle;
+        contortionJitter = killerEvent.contortionJitter;
+        chaseFloatHeight = killerEvent.chaseFloatHeight;
+        contortionStretch = killerEvent.contortionStretch;
 
         // Find the head shake bone
         if (jumpscareHeadShake && !string.IsNullOrEmpty(headShakeBoneName))
