@@ -298,6 +298,30 @@ public class ConditionalKillerEvent : ScriptableObject
     [Range(0f, 1f)]
     public float headTripleSpinChance = 0f;
 
+    [Header("Chase Contortion (violent procedural spasm while running at the player)")]
+    [Tooltip("If true, the killer's arms, legs and head violently spasm and contort in impossible ways WHILE CHASING (procedural, layered on top of the walk animation). Mixamo rig only.")]
+    public bool chaseContortion = false;
+
+    [Tooltip("How fast the spasm thrashes (higher = faster, more frantic).")]
+    [Range(1f, 60f)]
+    public float contortionSpeed = 24f;
+
+    [Tooltip("Max oscillating rotation per axis on each contorted bone, in degrees (higher = more extreme, impossible bends).")]
+    [Range(10f, 180f)]
+    public float contortionAngle = 115f;
+
+    [Tooltip("Per-frame random jitter (degrees) added on top for an erratic, glitchy thrash. 0 = smooth oscillation only.")]
+    [Range(0f, 90f)]
+    public float contortionJitter = 45f;
+
+    [Tooltip("How high (metres) she floats off the ground while chasing. 0 = stays grounded.")]
+    [Range(0f, 2f)]
+    public float chaseFloatHeight = 0.35f;
+
+    [Tooltip("Max random limb-length warp while chasing, as a fraction (0.4 = arms/legs stretch & shrink up to ±40%). 0 = no length change.")]
+    [Range(0f, 1.5f)]
+    public float contortionStretch = 0.4f;
+
     [Header("Jumpscare Dialogue")]
     [Tooltip("If true, displays dialogue text on screen during the jumpscare")]
     public bool showJumpscareDialogue = false;

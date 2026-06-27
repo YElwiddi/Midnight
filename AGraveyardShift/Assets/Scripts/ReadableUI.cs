@@ -32,6 +32,11 @@ public class ReadableUI : MonoBehaviour
     private float defaultLineSpacing;
     private float defaultFontSize;
     private Color defaultFontColor;
+
+    // Background panel sizing (so differently-shaped readables, e.g. an open book,
+    // aren't squashed into the default note rect). Captured once, restored after each readable.
+    private RectTransform backgroundRect;
+    private Vector2 defaultBackgroundSize;
     #endregion
 
     #region UI References
@@ -45,6 +50,9 @@ public class ReadableUI : MonoBehaviour
     [Tooltip("TextMeshPro component for displaying page content")]
     [SerializeField] private TextMeshProUGUI contentText;
 
+    [Tooltip("Optional second text area for the right page of a two-page spread (e.g. an open book). Stretched over the background; enabled only when a readable supplies right-column text.")]
+    [SerializeField] private TextMeshProUGUI contentTextRight;
+
     [Tooltip("Optional page indicator text (e.g., 'Page 1/3')")]
     [SerializeField] private TextMeshProUGUI pageIndicatorText;
 
@@ -52,6 +60,8 @@ public class ReadableUI : MonoBehaviour
 
     #region Private Fields
     private string[] currentPages;
+    private string[] currentRightPages;   // right-page text per spread (two-page mode)
+    private bool twoPageActive;
     private int currentPageIndex;
     private bool isOpen;
     private Movement playerMovement;
@@ -88,6 +98,13 @@ public class ReadableUI : MonoBehaviour
             defaultLineSpacing = contentText.lineSpacing;
             defaultFontSize = contentText.fontSize;
             defaultFontColor = contentText.color;
+        }
+
+        // Capture the background panel's authored size so per-readable overrides can be reverted
+        if (backgroundImage != null)
+        {
+            backgroundRect = backgroundImage.rectTransform;
+            defaultBackgroundSize = backgroundRect.sizeDelta;
         }
 
         if (readablePanel != null)
@@ -160,7 +177,14 @@ public class ReadableUI : MonoBehaviour
     /// <param name="pages">Array of page text content</param>
     /// <param name="background">Optional background sprite (book, scroll, etc.)</param>
     /// <param name="overrides">Optional text formatting overrides</param>
-    public void Open(string[] pages, Sprite background = null, TextOverrides overrides = default)
+    /// <param name="backgroundSize">Optional background panel size (width, height) in canvas units.
+    /// Use for differently-shaped backgrounds (e.g. an open two-page book). Null keeps the default rect.</param>
+    /// <param name="rightColumnPages">Optional right-page text for a two-page spread, one entry per left page
+    /// (parallel to <paramref name="pages"/>). When supplied, the main content fills the left page and these
+    /// fill the right page, and each click flips both together.</param>
+    /// <param name="rightColumnMargin">Margin (l,t,r,b) for the right-page text area. The left page uses the
+    /// normal margins from <paramref name="overrides"/>.</param>
+    public void Open(string[] pages, Sprite background = null, TextOverrides overrides = default, Vector2? backgroundSize = null, string[] rightColumnPages = null, Vector4? rightColumnMargin = null)
     {
         if (pages == null || pages.Length == 0)
         {
@@ -181,6 +205,13 @@ public class ReadableUI : MonoBehaviour
         else if (backgroundImage != null)
         {
             backgroundImage.enabled = false;
+        }
+
+        // Apply per-readable background size; fall back to the authored default rect.
+        // contentText is a stretched child of the background, so it follows automatically.
+        if (backgroundRect != null)
+        {
+            backgroundRect.sizeDelta = backgroundSize ?? defaultBackgroundSize;
         }
 
         // Reset to defaults before applying overrides
@@ -209,6 +240,29 @@ public class ReadableUI : MonoBehaviour
                 contentText.fontSize = overrides.fontSize.Value;
             if (overrides.fontColor.HasValue)
                 contentText.color = overrides.fontColor.Value;
+        }
+
+        // Two-page spread: the main content fills the left page and rightColumnPages[] fills the right page.
+        // Each click flips both columns together (parallel arrays). contentText keeps the resolved (left-page)
+        // margin; the right area mirrors the formatting and uses its own right-page margin.
+        twoPageActive = rightColumnPages != null && rightColumnPages.Length > 0
+                        && contentTextRight != null && contentText != null;
+        currentRightPages = twoPageActive ? rightColumnPages : null;
+        if (twoPageActive)
+        {
+            contentTextRight.font = contentText.font;
+            contentTextRight.alignment = contentText.alignment;
+            contentTextRight.lineSpacing = contentText.lineSpacing;
+            contentTextRight.fontSize = contentText.fontSize;
+            contentTextRight.color = contentText.color;
+            contentTextRight.richText = contentText.richText;
+            if (rightColumnMargin.HasValue)
+                contentTextRight.margin = rightColumnMargin.Value;
+            contentTextRight.gameObject.SetActive(true);
+        }
+        else if (contentTextRight != null)
+        {
+            contentTextRight.gameObject.SetActive(false);
         }
 
         // Apply text shake
@@ -261,6 +315,21 @@ public class ReadableUI : MonoBehaviour
             contentText.color = defaultFontColor;
         }
 
+        // Restore the default background size so the next readable isn't affected
+        if (backgroundRect != null)
+        {
+            backgroundRect.sizeDelta = defaultBackgroundSize;
+        }
+
+        // Hide the right-page text area (two-page spreads only)
+        twoPageActive = false;
+        currentRightPages = null;
+        if (contentTextRight != null)
+        {
+            contentTextRight.text = string.Empty;
+            contentTextRight.gameObject.SetActive(false);
+        }
+
         // Hide panel
         if (readablePanel != null)
         {
@@ -306,6 +375,14 @@ public class ReadableUI : MonoBehaviour
         if (contentText != null)
         {
             contentText.text = currentPages[currentPageIndex];
+        }
+
+        // Set right-page text (two-page spread)
+        if (twoPageActive && contentTextRight != null && currentRightPages != null)
+        {
+            contentTextRight.text = currentPageIndex < currentRightPages.Length
+                ? currentRightPages[currentPageIndex]
+                : string.Empty;
         }
 
         // Update page indicator

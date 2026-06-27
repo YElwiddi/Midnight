@@ -65,8 +65,10 @@ public class FatherKillerSequence : MonoBehaviour
     [SerializeField] private float executionStartDistance = 14f;
 
     [Header("Dart Across Screen")]
-    [Tooltip("How far in front of the player the dart happens.")]
+    [Tooltip("How far in front of the player he STARTS the dart — the near spawn spot (unchanged).")]
     [SerializeField] private float dartDistance = 16f;
+    [Tooltip("How far into the distance he recedes by the END of the dart, before vanishing. He pulls back from dartDistance to here as he crosses, so he's small and far away when he despawns (no clumsy despawn in the player's face). Clamped to at least dartDistance.")]
+    [SerializeField] private float dartEndDistance = 40f;
     [Tooltip("How wide the dart sweeps, as a fraction of the half-FOV to each side (keeps him on-screen).")]
     [Range(0.3f, 0.95f)]
     [SerializeField] private float dartViewportFraction = 0.72f;
@@ -91,7 +93,7 @@ public class FatherKillerSequence : MonoBehaviour
 
     [Header("Terror Radius (Heartbeat) — matches the Wraith")]
     [SerializeField] private AudioClip heartbeatSound;
-    [SerializeField] private float terrorRadius = 20f;
+    [SerializeField] private float terrorRadius = 26f;
     [SerializeField] private float terrorMaxVolumeDistance = 3f;
     [SerializeField] [Range(0f, 1f)] private float heartbeatMaxVolume = 1f;
 
@@ -356,23 +358,30 @@ public class FatherKillerSequence : MonoBehaviour
         }
     }
 
-    /// <summary>Appears off to one side in front of the player, then bolts across their view (always on-screen).</summary>
+    /// <summary>
+    /// Appears off to one side in front of the player (same near spot as before), then bolts across
+    /// their view while pulling back deep into the distance — so he's small and far away by the time
+    /// he vanishes, instead of clumsily despawning right in the player's face.
+    /// </summary>
     private IEnumerator DartAcrossScreen()
     {
         if (playerCamera == null) EnsureRefs();
         if (playerCamera == null) yield break;
 
         float dir = Random.value < 0.5f ? 1f : -1f;   // sweep direction
-        // Keep the sweep within the camera's horizontal FOV so he's always on-screen.
+        // Keep both endpoints on the screen edge within the camera's horizontal FOV (near edge at the
+        // start distance, far edge at the end distance) so he crosses the full view as he recedes.
         float vHalf = playerCamera.fieldOfView * 0.5f * Mathf.Deg2Rad;
         float hHalf = Mathf.Atan(Mathf.Tan(vHalf) * Mathf.Max(0.1f, playerCamera.aspect));
-        float maxSide = dartDistance * Mathf.Tan(hHalf) * dartViewportFraction;
-        float fromX = -maxSide * dir;
-        float toX = maxSide * dir;
+        float edge = Mathf.Tan(hHalf) * dartViewportFraction;
+        float endDist = Mathf.Max(dartDistance, dartEndDistance);   // never come closer than the start
+        float fromX = -dartDistance * edge * dir;
+        float toX = endDist * edge * dir;
 
-        // Appear off to the side, in front, facing across.
+        // Appear off to the side, in front, facing across-and-away (so the run anim matches the diagonal).
+        Vector3 dartFacing = FlatCameraRight() * (toX - fromX) + FlatCameraForward() * (endDist - dartDistance);
         PositionInFrontOfCamera(fromX, dartDistance);
-        FaceDart(toX - fromX);
+        FaceDir(dartFacing, true);
         SetVisible(true);
         SetAnim(run: true);
         yield return new WaitForSeconds(dartStartHold);
@@ -382,8 +391,11 @@ public class FatherKillerSequence : MonoBehaviour
         while (t < 1f && !ended)
         {
             t += Time.deltaTime / Mathf.Max(0.01f, dartDuration);
-            PositionInFrontOfCamera(Mathf.Lerp(fromX, toX, t), dartDistance);
-            FaceDart(toX - fromX);   // re-evaluate vs the live camera so he stays in view even if the player turns
+            float ct = Mathf.Clamp01(t);
+            // Slide sideways while pulling back into the distance. Recompute vs the LIVE camera each
+            // frame so he stays in view — and keeps receding from the player — even if they turn to track.
+            PositionInFrontOfCamera(Mathf.Lerp(fromX, toX, ct), Mathf.Lerp(dartDistance, endDist, ct));
+            FaceDir(FlatCameraRight() * (toX - fromX) + FlatCameraForward() * (endDist - dartDistance), true);
             yield return null;
         }
         SetVisible(false);
@@ -400,10 +412,12 @@ public class FatherKillerSequence : MonoBehaviour
         GroundClamp();
     }
 
-    private void FaceDart(float dirSign)
+    private Vector3 FlatCameraForward()
     {
-        Vector3 move = FlatCameraRight() * dirSign;
-        if (move.sqrMagnitude > 0.01f) transform.rotation = Quaternion.LookRotation(move);
+        Vector3 f = playerCamera != null ? playerCamera.transform.forward : Vector3.forward;
+        f.y = 0f;
+        if (f.sqrMagnitude < 0.01f) f = Vector3.forward;
+        return f.normalized;
     }
 
     private Vector3 FlatCameraRight()
