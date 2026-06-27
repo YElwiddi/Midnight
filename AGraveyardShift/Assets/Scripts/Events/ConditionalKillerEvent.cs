@@ -181,6 +181,9 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("Sound to play during kill sequence")]
     public AudioClip jumpscareSound;
 
+    [Tooltip("If true, silences the ambient sound (AmbientSoundManager) the instant the jumpscare sequence begins, so the scare lands in dead air. Used by the church Bride to cut the church ambience. The ambient bed is gone with the scene on game over, so it never needs un-muting.")]
+    public bool muteAmbientOnJumpscare = false;
+
     [Tooltip("Delay before game over after kill sequence (in real seconds)")]
     [Range(0f, 5f)]
     public float gameOverDelay = 2f;

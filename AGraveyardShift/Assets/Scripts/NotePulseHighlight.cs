@@ -27,10 +27,10 @@ public class NotePulseHighlight : MonoBehaviour
     [SerializeField] private float peakIntensity = 0.4f;
 
     [Tooltip("Seconds for one beat - the glow fading up and back down (the light coming on)")]
-    [SerializeField] private float pulsePeriod = 2.5f;
+    [SerializeField] private float pulsePeriod = 1.2f;
 
     [Tooltip("Dark pause held between beats (seconds). Larger = more time between pulses.")]
-    [SerializeField] private float gapBetweenPulses = 1.75f;
+    [SerializeField] private float gapBetweenPulses = 0.6f;
 
     private static readonly int EmissionColorId = Shader.PropertyToID("_EmissionColor");
     private const string EmissionKeyword = "_EMISSION";

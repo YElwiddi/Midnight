@@ -1,0 +1,212 @@
+[2026-06-27 14:29:43]: Starting build for depot 4897201, content path is "C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds\", build flags 0x0
+[2026-06-27 14:29:43]: Building file listing for depot 4897201 ...
+[2026-06-27 14:29:43]: Found 201 files for mapping: C:\Users\Nikko\Documents\Midnight\AGraveyardShift\Builds * -> .
+[2026-06-27 14:29:43]: Found 201 files (380 MB) for depot 4897201
+[2026-06-27 14:29:44]: Building depot 4897201, no baseline manifest
+[2026-06-27 14:29:46]: Found 530 new chunks ( 0 used previously ) for depot 4897201, took 0 minutes, 2 seconds
+[2026-06-27 14:29:46]: Changes to baseline manifest 0 :
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift.exe" 652 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\app.info" 1 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\boot.config" 1 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\globalgamemanagers" 220 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\globalgamemanagers.assets" 316 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\globalgamemanagers.assets.resS" 2731 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\level0" 73 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\level1" 9508 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\level1.resS" 48837 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Assembly-CSharp-firstpass.dll" 16 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Assembly-CSharp.dll" 686 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\glTFast.dll" 293 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\glTFast.Documentation.Examples.dll" 23 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\glTFast.dots.dll" 4 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\glTFast.Export.dll" 93 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\glTFast.Newtonsoft.dll" 19 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Ink-Libraries.dll" 262 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\MCPForUnity.Runtime.dll" 33 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Mono.Security.dll" 236 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\mscorlib.dll" 4524 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\netstandard.dll" 88 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Newtonsoft.Json.dll" 676 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.ComponentModel.Composition.dll" 251 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Configuration.dll" 122 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Core.dll" 1087 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Data.DataSetExtensions.dll" 29 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Data.dll" 2076 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.dll" 2580 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Drawing.dll" 479 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.EnterpriseServices.dll" 44 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.IO.Compression.dll" 112 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.IO.Compression.FileSystem.dll" 18 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.IO.Hashing.dll" 50 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Memory.dll" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Net.Http.dll" 120 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Numerics.dll" 117 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Runtime.CompilerServices.Unsafe.dll" 18 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Runtime.dll" 12 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Runtime.Serialization.dll" 913 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Security.dll" 313 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.ServiceModel.Internals.dll" 210 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Transactions.dll" 35 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Xml.dll" 3086 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\System.Xml.Linq.dll" 134 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.AI.Navigation.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Burst.dll" 298 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Burst.Unsafe.dll" 6 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Collections.dll" 440 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Collections.LowLevel.ILSupport.dll" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Mathematics.dll" 735 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Multiplayer.Center.Common.dll" 11 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Rendering.LightTransport.Runtime.dll" 299 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll" 9 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll" 907 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Core.Runtime.Shared.dll" 6 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.GPUDriven.Runtime.dll" 229 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.2D.Runtime.dll" 245 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.Config.Runtime.dll" 6 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll" 792 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.TextMeshPro.dll" 436 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.Timeline.dll" 130 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.VisualScripting.Antlr3.Runtime.dll" 84 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.VisualScripting.Core.dll" 614 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.VisualScripting.DocCodeExamples.dll" 7 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.VisualScripting.Flow.dll" 395 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\Unity.VisualScripting.State.dll" 32 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AccessibilityModule.dll" 52 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AIModule.dll" 74 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AMDModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AndroidJNIModule.dll" 117 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AnimationModule.dll" 216 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ARModule.dll" 23 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AssetBundleModule.dll" 40 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.AudioModule.dll" 103 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ClothModule.dll" 34 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ClusterInputModule.dll" 26 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ClusterRendererModule.dll" 25 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ContentLoadModule.dll" 30 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.CoreModule.dll" 1832 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.CrashReportingModule.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.DirectorModule.dll" 39 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.dll" 171 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.DSPGraphModule.dll" 31 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.GameCenterModule.dll" 43 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.GIModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.GraphicsStateCollectionSerializerModule.dll" 14 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.GridModule.dll" 28 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.HierarchyCoreModule.dll" 90 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.HotReloadModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.IdentifiersModule.dll" 15 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ImageConversionModule.dll" 29 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.IMGUIModule.dll" 204 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.InputForUIModule.dll" 57 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.InputLegacyModule.dll" 43 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.InputModule.dll" 26 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.InsightsModule.dll" 14 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.JSONSerializeModule.dll" 25 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.LocalizationModule.dll" 25 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.MarshallingModule.dll" 65 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.MultiplayerModule.dll" 16 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.NVIDIAModule.dll" 36 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ParticleSystemModule.dll" 166 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.PerformanceReportingModule.dll" 23 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.Physics2DModule.dll" 199 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.PhysicsModule.dll" 174 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.PropertiesModule.dll" 146 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ScreenCaptureModule.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.ShaderVariantAnalyticsModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.SharedInternalsModule.dll" 34 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.SpriteMaskModule.dll" 26 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.SpriteShapeModule.dll" 30 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.StreamingModule.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.SubstanceModule.dll" 27 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.SubsystemsModule.dll" 39 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TerrainModule.dll" 128 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TerrainPhysicsModule.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TextCoreFontEngineModule.dll" 85 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll" 304 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TextRenderingModule.dll" 47 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TilemapModule.dll" 55 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.TLSModule.dll" 29 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UI.dll" 270 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UIElementsModule.dll" 2169 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UIModule.dll" 47 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UmbraModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityAnalyticsCommonModule.dll" 33 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityAnalyticsModule.dll" 58 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityConnectModule.dll" 25 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityConsentModule.dll" 16 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityCurlModule.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityTestProtocolModule.dll" 22 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll" 27 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll" 26 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityWebRequestModule.dll" 66 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll" 25 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll" 34 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.VehiclesModule.dll" 29 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.VFXModule.dll" 75 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.VideoModule.dll" 56 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.VirtualTexturingModule.dll" 41 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.VRModule.dll" 29 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.WindModule.dll" 24 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Managed\UnityEngine.XRModule.dll" 85 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Plugins" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Plugins\x86_64" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Plugins\x86_64\lib_burst_generated.dll" 552 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Resources" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\resources.assets" 744 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\resources.assets.resS" 4095 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\resources.resource" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Resources\unity default resources" 5726 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\Resources\unity_builtin_extra" 360 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\RuntimeInitializeOnLoads.json" 3 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\ScriptingAssemblies.json" 5 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\sharedassets0.assets" 3850 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\sharedassets0.assets.resS" 50732 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\sharedassets0.resource" 10058 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\sharedassets1.assets" 31773 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\sharedassets1.assets.resS" 131666 KB 
+[2026-06-27 14:29:46]: Added  : "A Graveyard Shift_Data\sharedassets1.resource" 5345 KB 
+[2026-06-27 14:29:46]: Added  : "D3D12" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "D3D12\D3D12Core.dll" 5770 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\EmbedRuntime" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\EmbedRuntime\mono-2.0-bdwgc.dll" 7648 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\EmbedRuntime\MonoPosixHelper.dll" 597 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0\Browsers" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0\Browsers\Compat.browser" 2 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0\DefaultWsdlHelpGenerator.aspx" 60 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0\machine.config" 29 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0\settings.map" 3 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\2.0\web.config" 12 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0\Browsers" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0\Browsers\Compat.browser" 2 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0\DefaultWsdlHelpGenerator.aspx" 60 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0\machine.config" 33 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0\settings.map" 3 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.0\web.config" 19 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5\Browsers" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5\Browsers\Compat.browser" 2 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5\DefaultWsdlHelpGenerator.aspx" 60 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5\machine.config" 34 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5\settings.map" 3 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\4.5\web.config" 19 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\browscap.ini" 305 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\config" 4 KB 
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\mconfig" 0 KB ,Flags: 64
+[2026-06-27 14:29:46]: Added  : "MonoBleedingEdge\etc\mono\mconfig\config.xml" 26 KB 
+[2026-06-27 14:29:46]: Added  : "UnityCrashHandler64.exe" 1569 KB 
+[2026-06-27 14:29:46]: Added  : "UnityPlayer.dll" 33260 KB 
+[2026-06-27 14:29:46]: Summary: 201 files added (380.54 MB), 0 files changed (0 bytes), 0 files removed (0 bytes)
+[2026-06-27 14:29:46]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 6121782946886486414, 42647 bytes).
+[2026-06-27 14:29:47]: Uploading 530 out of 530 missing chunks.
+[2026-06-27 14:29:58]: Success! New manifestID 5922036029789298699 created and 530 new chunks uploaded.

@@ -286,6 +286,9 @@ public class KillerNPC : MonoBehaviour
     private bool overrideLanternsOnJumpscare = false;
     private Color jumpscareLanternColor = Color.red;
 
+    // Mute the ambient bed (e.g. the church ambience) the instant the jumpscare fires. Set from the event in Initialize().
+    private bool muteAmbientOnJumpscare = false;
+
 
     private void Awake()
     {
@@ -1000,6 +1003,9 @@ public class KillerNPC : MonoBehaviour
         overrideLanternsOnJumpscare = killerEvent.overrideLanternsOnJumpscare;
         jumpscareLanternColor = killerEvent.jumpscareLanternColor;
 
+        // Ambient mute on jumpscare (used by the church Bride to cut the church ambience)
+        muteAmbientOnJumpscare = killerEvent.muteAmbientOnJumpscare;
+
         // Jumpscare head shake settings
         jumpscareHeadShake = killerEvent.jumpscareHeadShake;
         headShakeBoneName = killerEvent.headShakeBoneName;
@@ -1193,6 +1199,13 @@ public class KillerNPC : MonoBehaviour
         {
             navAgent.isStopped = true;
             navAgent.velocity = Vector3.zero;
+        }
+
+        // Silence the ambient bed so the jumpscare lands in dead air (e.g. the church ambience during the Bride).
+        // No un-mute needed: this killer ends in game over / a scene change, which tears down the AmbientSoundManager.
+        if (muteAmbientOnJumpscare)
+        {
+            AmbientSoundManager.Instance?.Mute("killerJumpscare");
         }
 
         // Stop chase animation

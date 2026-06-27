@@ -61,6 +61,7 @@ MonoBehaviour:
   faceHeightOffset: 1.6
   faceLookVerticalOffset: -0.1
   jumpscareSound: {fileID: 0}
+  muteAmbientOnJumpscare: 1
   gameOverDelay: 2
   shakeIntensity: 2
   shakeDuration: 2.16
@@ -91,6 +92,12 @@ MonoBehaviour:
   headSpinDuration: 0.14
   headDoubleSpinChance: 0.9
   headTripleSpinChance: 0.8
+  chaseContortion: 0
+  contortionSpeed: 24
+  contortionAngle: 115
+  contortionJitter: 45
+  chaseFloatHeight: 0.35
+  contortionStretch: 0.4
   showJumpscareDialogue: 1
   jumpscareDialogueText: TOGETHER FOREVER
   jumpscareDialogueFont: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}

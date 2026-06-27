@@ -1,0 +1,33 @@
+// ============================================================
+//  A Graveyard Shift - Steam SteamPipe app build script
+//  App ID 4897200 / Depot ID 4897201 are filled in. To upload:
+//    steamcmd.exe +login <build_account> +run_app_build "<absolute path to this file>" +quit
+// ============================================================
+"AppBuild"
+{
+	"AppID"		"4897200"			// Steam App ID
+	"Desc"		"A Graveyard Shift 1.0"		// internal build note - only shown in the Steamworks admin builds list
+
+	// Absolute path to the finished Unity build. The whole folder ships (no DoNotShip cruft in it):
+	"ContentRoot"	"C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds"
+
+	// Where SteamPipe writes its logs + chunk cache (created automatically on first run):
+	"BuildOutput"	"C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Steam\\output"
+
+	// Left empty on purpose: the build UPLOADS but does NOT auto-publish.
+	// You set it live on a branch yourself from the Steamworks builds page after smoke-testing.
+	"SetLive"	""
+
+	"Depots"
+	{
+		"4897201"					// content Depot ID
+		{
+			"FileMapping"
+			{
+				"LocalPath"	"*"		// everything under ContentRoot...
+				"DepotPath"	"."		// ...mapped into the root of the depot
+				"recursive"	"1"
+			}
+		}
+	}
+}
