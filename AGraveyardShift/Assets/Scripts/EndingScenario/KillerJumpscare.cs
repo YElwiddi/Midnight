@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Standalone jumpscare component that can be added to any killer.
@@ -16,14 +17,28 @@ public class KillerJumpscare : MonoBehaviour
 
     [Tooltip("If no face transform, camera looks at killer position + this height")]
     [SerializeField] private float faceHeightOffset = 1.6f;
+    [Tooltip("Procedurally rotate the face bone to stare straight at the player during the jumpscare (overrides wherever the animation points the head).")]
+    [SerializeField] private bool aimHeadAtPlayer = false;
+    [Tooltip("Which LOCAL axis of the face bone points out of the face (Maria/Tomino head faces -Z).")]
+    [SerializeField] private Vector3 headFaceAxis = new Vector3(0f, 0f, -1f);
+    [Tooltip("Crane/weave the neck left-right during the jumpscare (degrees of tilt, 0 = off). The head still re-locks onto the player on top of this.")]
+    [SerializeField] private float neckCraneAngle = 0f;
+    [SerializeField] private float neckCraneSpeed = 5f;
+    [SerializeField] private string neckBoneName = "Neck";
 
     [Header("Killer Positioning")]
     [Tooltip("Distance to place killer in front of player during jumpscare")]
     [SerializeField] private float killStopDistance = 1.5f;
+    [Tooltip("During the jumpscare, push the killer this much further from the camera (m) so a long neck doesn't crowd in front of the face. 0 = off.")]
+    [SerializeField] private float jumpscareBodyPullback = 0f;
 
     [Header("Player Adjustment")]
     [Tooltip("Lower the player during jumpscare so they look UP at killer (negative = lower)")]
     [SerializeField] private float playerHeightOffset = -0.3f;
+    [Tooltip("Raise the camera to just below the killerFace bone (instead of the fixed offset above) — keeps a tall/giant killer's face framed regardless of its height/scale.")]
+    [SerializeField] private bool raiseCameraToFaceBone = false;
+    [Tooltip("When raiseCameraToFaceBone is on: how far below the face bone to place the camera (m). Larger = more looking-up at the face.")]
+    [SerializeField] private float raiseCameraFaceGap = 2f;
 
     [Header("Animation")]
     [Tooltip("Animation trigger to play during kill")]
@@ -46,6 +61,32 @@ public class KillerJumpscare : MonoBehaviour
     [Header("Camera Shake")]
     [SerializeField] private float shakeIntensity = 0.5f;
     [SerializeField] private float shakeDuration = 2f;
+
+    [Header("Screen Flash")]
+    [Tooltip("Strobe the screen to black and back during the jumpscare.")]
+    [SerializeField] private bool screenFlash = false;
+    [Tooltip("Seconds the screen stays black per strobe.")]
+    [SerializeField] private float flashBlackDuration = 0.07f;
+    [Tooltip("Seconds the screen is visible between strobes.")]
+    [SerializeField] private float flashVisibleDuration = 0.18f;
+    [Tooltip("How many times to flash. After the last flash the jumpscare ends.")]
+    [SerializeField] private int flashCount = 4;
+    [Tooltip("On the final flash, punch the camera this close to the face (m). 0 = no punch-in.")]
+    [SerializeField] private float finalCloseupDistance = 1.8f;
+    [Tooltip("FOV on the final close-up (0 = keep current).")]
+    [SerializeField] private float finalCloseupFOV = 0f;
+    [Tooltip("Seconds to hold the final close-up before the jumpscare ends.")]
+    [SerializeField] private float finalCloseupHold = 1f;
+    [Tooltip("Raise the final close-up's aim by this much (world units) so the FULL face is framed (the Head bone sits low, near the jaw).")]
+    [SerializeField] private float finalCloseupAimUp = 0f;
+    [Tooltip("Name of a GameObject whose audio to cut when the jumpscare ends (e.g. the looping jumpscare sound). Empty = none.")]
+    [SerializeField] private string cutSoundObjectName = "";
+    [Tooltip("Freeze-frame mode: between flashes everything holds still; each flash snaps the neck to a wildly different contorted pose, and the final flash zooms in on finalTargetBone. The camera holds a fixed point so the head visibly jumps around.")]
+    [SerializeField] private bool freezeFramePoses = false;
+    [Tooltip("Max random neck contortion per flash (degrees).")]
+    [SerializeField] private float neckContortRange = 40f;
+    [Tooltip("Bone the FINAL flash zooms in on (empty = the face bone). e.g. 'Neck'.")]
+    [SerializeField] private string finalTargetBoneName = "";
 
     [Header("Camera Zoom")]
     [Tooltip("Field of view to zoom the camera to during the jumpscare (0 = keep the current FOV). Lower = tighter on the face. Useful for tall killers whose face is far from the camera.")]
@@ -72,11 +113,15 @@ public class KillerJumpscare : MonoBehaviour
     [Header("Flashlight")]
     [Tooltip("Height on killer to point flashlight at")]
     [SerializeField] private float flashlightTargetHeight = 1.2f;
+    [Tooltip("Aim the flashlight at the killerFace bone instead of a fixed height (for tall killers whose face is far up).")]
+    [SerializeField] private bool aimFlashlightAtFaceBone = false;
     [SerializeField] private float jumpscareFlashlightIntensity = 3f;
     [SerializeField] private float jumpscareFlashlightRange = 15f;
 
     [Header("VHS Effect")]
     [SerializeField] private bool intensifyVHSOnKill = true;
+    [Tooltip("Disable the VHS retro effect entirely during the jumpscare (kills the glitch/RGB 'double-image' for a clean face). Overrides intensifyVHSOnKill.")]
+    [SerializeField] private bool disableVHSDuringJumpscare = false;
     [SerializeField] private float killGlitchIntensity = 0.7f;
     [SerializeField] private float killRGBShift = 0.04f;
     [SerializeField] private float killNoiseIntensity = 0.25f;
@@ -114,6 +159,11 @@ public class KillerJumpscare : MonoBehaviour
     private Animator animator;
     private NavMeshAgent navAgent;
     private Light jumpscareSpotlight;
+    private Transform neckBone;
+    private GameObject flashOverlay;
+    private Vector3 frozenLookTarget;
+    private Quaternion neckFrozenRot = Quaternion.identity;
+    private Transform finalTargetBone;
 
     // Shake state
     private float currentShakeAmount = 0f;
@@ -197,27 +247,36 @@ public class KillerJumpscare : MonoBehaviour
 
         if (playerCamera != null)
         {
-            if (isShaking && currentShakeDuration > 0)
+            if (freezeFramePoses)
             {
-                ApplyCameraShake();
+                // Frozen: hold the camera on a fixed point. The head visibly jumps around via the per-flash
+                // neck contortion; no shake/roll/zoom between flashes.
+                playerCamera.transform.LookAt(frozenLookTarget);
             }
             else
             {
-                LockCameraOnKiller();
-            }
+                if (isShaking && currentShakeDuration > 0)
+                {
+                    ApplyCameraShake();
+                }
+                else
+                {
+                    LockCameraOnKiller();
+                }
 
-            // Subtle, shaky roll around the view axis (steering-wheel wobble) — applied on top of the look.
-            if (jumpscareRollShakeAmount > 0f)
-            {
-                float roll = ShakeNoise(jumpscareZoomElapsed * jumpscareRollShakeSpeed, 50f) * jumpscareRollShakeAmount;
-                playerCamera.transform.Rotate(0f, 0f, roll, Space.Self);
-            }
+                // Subtle, shaky roll around the view axis (steering-wheel wobble) — applied on top of the look.
+                if (jumpscareRollShakeAmount > 0f)
+                {
+                    float roll = ShakeNoise(jumpscareZoomElapsed * jumpscareRollShakeSpeed, 50f) * jumpscareRollShakeAmount;
+                    playerCamera.transform.Rotate(0f, 0f, roll, Space.Self);
+                }
 
-            // Violent, irregular zoom-in/zoom-out shake — pulse the FOV around its base.
-            if (jumpscareZoomShakeAmount > 0f)
-            {
-                float pulse = ShakeNoise(jumpscareZoomElapsed * jumpscareZoomShakeSpeed, 0f) * jumpscareZoomShakeAmount;
-                playerCamera.fieldOfView = baseJumpscareFOV + pulse;
+                // Violent, irregular zoom-in/zoom-out shake — pulse the FOV around its base.
+                if (jumpscareZoomShakeAmount > 0f)
+                {
+                    float pulse = ShakeNoise(jumpscareZoomElapsed * jumpscareZoomShakeSpeed, 0f) * jumpscareZoomShakeAmount;
+                    playerCamera.fieldOfView = baseJumpscareFOV + pulse;
+                }
             }
         }
 
@@ -260,10 +319,41 @@ public class KillerJumpscare : MonoBehaviour
         limbShakeReady = false;
     }
 
-    // Runs after the Animator so the jitter is layered on top of the (animated) jumpscare pose.
+    // Runs after the Animator so these are layered on top of the (animated) jumpscare pose.
     private void LateUpdate()
     {
-        if (!jumpscareActive || jumpscareLimbShakeAngle <= 0f || limbBones == null) return;
+        if (!jumpscareActive) return;
+
+        // Neck: freeze-frame mode holds a per-flash random contortion; otherwise weave continuously.
+        // Either runs before the head-aim so the face still re-locks onto the player on top of it.
+        if (freezeFramePoses)
+        {
+            if (neckBone == null) neckBone = FindChildRecursive(transform, neckBoneName);
+            if (neckBone != null) neckBone.localRotation = neckBone.localRotation * neckFrozenRot;
+        }
+        else if (neckCraneAngle != 0f && playerCamera != null)
+        {
+            if (neckBone == null) neckBone = FindChildRecursive(transform, neckBoneName);
+            if (neckBone != null)
+            {
+                float a = neckCraneAngle * Mathf.Sin(Time.unscaledTime * neckCraneSpeed);
+                Vector3 viewDir = playerCamera.transform.position - neckBone.position;
+                if (viewDir.sqrMagnitude > 0.0001f)
+                    neckBone.rotation = Quaternion.AngleAxis(a, viewDir.normalized) * neckBone.rotation;
+            }
+        }
+
+        // Aim the face bone straight at the player so she stares directly at them (the kill animation
+        // may point the head elsewhere). Rotates the head's face axis to the camera each frame.
+        if (aimHeadAtPlayer && killerFace != null && playerCamera != null)
+        {
+            Vector3 faceDir = killerFace.rotation * headFaceAxis.normalized;
+            Vector3 toCam = playerCamera.transform.position - killerFace.position;
+            if (toCam.sqrMagnitude > 0.0001f && faceDir.sqrMagnitude > 0.0001f)
+                killerFace.rotation = Quaternion.FromToRotation(faceDir, toCam.normalized) * killerFace.rotation;
+        }
+
+        if (jumpscareLimbShakeAngle <= 0f || limbBones == null) return;
 
         // Re-randomize the per-bone offsets at the configured rate (movements/sec), using real time
         // so slow-motion doesn't slow the shake.
@@ -338,14 +428,12 @@ public class KillerJumpscare : MonoBehaviour
         // Ground the player
         GroundPlayer();
 
-        // Lower player position for dramatic upward angle
-        if (playerTransform != null && playerHeightOffset != 0f)
+        // Fixed-offset raise BEFORE positioning (ORIGINAL behavior — preserved exactly for every killer
+        // except the opt-in face-bone mode below).
+        if (playerTransform != null && !raiseCameraToFaceBone && playerHeightOffset != 0f)
         {
             CharacterController controller = playerTransform.GetComponent<CharacterController>();
-            if (controller != null)
-            {
-                controller.enabled = false;
-            }
+            if (controller != null) controller.enabled = false;
 
             Vector3 loweredPosition = playerTransform.position;
             loweredPosition.y += playerHeightOffset;
@@ -359,6 +447,29 @@ public class KillerJumpscare : MonoBehaviour
         if (playerCamera != null)
         {
             PositionKillerInFrontOfPlayer();
+
+            // Push the killer further from the camera so a long neck doesn't crowd in front of the face.
+            if (jumpscareBodyPullback > 0f)
+            {
+                Vector3 away = transform.position - playerCamera.transform.position; away.y = 0f;
+                if (away.sqrMagnitude > 0.0001f) transform.position += away.normalized * jumpscareBodyPullback;
+            }
+
+            // Opt-in face-bone mode (tall/giant killers): raise the camera to just below the face bone AFTER
+            // positioning, so the framing stays consistent regardless of the killer's height/scale.
+            if (raiseCameraToFaceBone && killerFace != null && playerTransform != null)
+            {
+                CharacterController controller = playerTransform.GetComponent<CharacterController>();
+                if (controller != null) controller.enabled = false;
+
+                float raise = (killerFace.position.y - raiseCameraFaceGap) - playerCamera.transform.position.y;
+                if (Mathf.Abs(raise) > 0.001f)
+                {
+                    Vector3 p = playerTransform.position;
+                    p.y += raise;
+                    playerTransform.position = p;
+                }
+            }
 
             // Make camera look at killer's face
             Vector3 lookTarget = GetKillerFacePosition();
@@ -401,8 +512,16 @@ public class KillerJumpscare : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * slowMotionTimeScale;
         }
 
-        // Start camera shake
-        StartCameraShake();
+        // Start camera shake (skipped in freeze-frame mode, which holds still between flashes).
+        if (freezeFramePoses)
+        {
+            frozenLookTarget = GetKillerFacePosition();
+            if (!string.IsNullOrEmpty(finalTargetBoneName)) finalTargetBone = FindChildRecursive(transform, finalTargetBoneName);
+        }
+        else
+        {
+            StartCameraShake();
+        }
 
         // Show game over UI
         if (gameOverUI != null)
@@ -410,13 +529,24 @@ public class KillerJumpscare : MonoBehaviour
             StartCoroutine(FadeInUI());
         }
 
-        // Wait for sequence
-        yield return new WaitForSecondsRealtime(slowMotionDuration);
-
-        if (gameOverDelay > 0)
+        // Wait for the sequence. The screen-flash path drives its own (finite) timing and ends on a
+        // close-up; otherwise use the fixed slow-mo + game-over delay.
+        if (screenFlash)
         {
-            yield return new WaitForSecondsRealtime(gameOverDelay);
+            yield return StartCoroutine(ScreenFlashRoutine());
         }
+        else
+        {
+            yield return new WaitForSecondsRealtime(slowMotionDuration);
+            if (gameOverDelay > 0)
+            {
+                yield return new WaitForSecondsRealtime(gameOverDelay);
+            }
+        }
+
+        // Tear down jumpscare-only FX (the flash overlay + the looping jumpscare sound) the instant the
+        // jumpscare ends, so they don't bleed into the ending reveal.
+        EndJumpscareFX();
 
         // Restore time scale
         Time.timeScale = originalTimeScale;
@@ -695,7 +825,9 @@ public class KillerJumpscare : MonoBehaviour
         if (jumpscareSpotlight == null || playerCamera == null) return;
 
         jumpscareSpotlight.transform.position = playerCamera.transform.position;
-        Vector3 targetPosition = transform.position + Vector3.up * flashlightTargetHeight;
+        Vector3 targetPosition = (aimFlashlightAtFaceBone && killerFace != null)
+            ? killerFace.position
+            : transform.position + Vector3.up * flashlightTargetHeight;
         jumpscareSpotlight.transform.LookAt(targetPosition);
     }
 
@@ -710,6 +842,15 @@ public class KillerJumpscare : MonoBehaviour
         if (playerCamera != null)
         {
             VHSRetroFeature vhsEffect = playerCamera.GetComponent<VHSRetroFeature>();
+            if (vhsEffect != null && disableVHSDuringJumpscare)
+            {
+                // Clean image — no glitch/RGB double-image on the face. Also stop the sanity controller
+                // from re-driving it during the (brief, terminal) jumpscare.
+                vhsEffect.enabled = false;
+                SanityEffectsController sanity = FindObjectOfType<SanityEffectsController>();
+                if (sanity != null) sanity.enabled = false;
+                yield break;
+            }
             if (vhsEffect != null && intensifyVHSOnKill)
             {
                 vhsEffect.enabled = true;
@@ -726,6 +867,89 @@ public class KillerJumpscare : MonoBehaviour
         if (screenEffectPrefab != null)
         {
             Instantiate(screenEffectPrefab);
+        }
+    }
+
+    // Flashes the screen black->visible flashCount times; on the LAST flash, punches the camera in close
+    // to the face (hidden behind the black) and holds. Completing this routine drives the jumpscare end.
+    private IEnumerator ScreenFlashRoutine()
+    {
+        flashOverlay = new GameObject("JumpscareFlashOverlay");
+        Canvas canvas = flashOverlay.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 32760; // above everything
+        Image img = flashOverlay.AddComponent<Image>();
+        img.color = Color.black;
+        img.raycastTarget = false;
+        RectTransform rt = img.rectTransform;
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
+
+        // See her normally first, THEN start flashing into wildly different poses.
+        img.enabled = false;
+        yield return new WaitForSecondsRealtime(flashVisibleDuration);
+
+        int count = Mathf.Max(1, flashCount);
+        for (int i = 0; i < count; i++)
+        {
+            bool last = (i == count - 1);
+
+            img.enabled = true; // black — change the pose / camera behind it
+            if (last)
+            {
+                neckFrozenRot = Quaternion.identity;   // straighten for the clean close-up
+                PunchCameraToFace();                   // zooms in on finalTargetBone (e.g. the neck)
+            }
+            else if (freezeFramePoses)
+            {
+                neckFrozenRot = Quaternion.Euler(
+                    Random.Range(-neckContortRange, neckContortRange),
+                    Random.Range(-neckContortRange, neckContortRange),
+                    Random.Range(-neckContortRange, neckContortRange));
+            }
+            yield return new WaitForSecondsRealtime(flashBlackDuration);
+            if (flashOverlay == null) yield break;
+
+            img.enabled = false; // visible (frozen pose / final close-up)
+            yield return new WaitForSecondsRealtime(last ? finalCloseupHold : flashVisibleDuration);
+        }
+    }
+
+    // Tears down the jumpscare-only FX so nothing bleeds into the ending reveal.
+    private void EndJumpscareFX()
+    {
+        if (flashOverlay != null) { Destroy(flashOverlay); flashOverlay = null; }
+
+        if (!string.IsNullOrEmpty(cutSoundObjectName))
+        {
+            GameObject snd = GameObject.Find(cutSoundObjectName);
+            if (snd != null) Destroy(snd);
+        }
+    }
+
+    // Snaps the camera to finalCloseupDistance from the face along the current view direction (the LookAt
+    // each frame keeps it aimed). Used for the final-flash punch-in.
+    private void PunchCameraToFace()
+    {
+        if (playerCamera == null || playerTransform == null || finalCloseupDistance <= 0f) return;
+        Vector3 target = (finalTargetBone != null) ? finalTargetBone.position : GetKillerFacePosition();
+        target += Vector3.up * finalCloseupAimUp; // raise to the face center so the FULL face is framed
+        Vector3 camPos = playerCamera.transform.position;
+        Vector3 dir = camPos - target;
+        // Flatten to horizontal so the close-up is FACE-ON (level with the face), not looking up at it from
+        // below (which framed the chin/neck for the tall killer).
+        Vector3 flat = new Vector3(dir.x, 0f, dir.z);
+        if (flat.sqrMagnitude > 0.0001f) dir = flat;
+        if (dir.sqrMagnitude < 0.0001f) return;
+        Vector3 newCamPos = target + dir.normalized * finalCloseupDistance;
+        playerTransform.position += (newCamPos - camPos);
+        if (freezeFramePoses) frozenLookTarget = target; // frame the close-up on the face
+        if (finalCloseupFOV > 0f)
+        {
+            playerCamera.fieldOfView = finalCloseupFOV;
+            baseJumpscareFOV = finalCloseupFOV;
         }
     }
 

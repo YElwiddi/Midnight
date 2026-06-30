@@ -145,6 +145,12 @@ public class WaypointData
     [Tooltip("Optional: Unique ID for this waypoint (used as a branch target). If empty, waypointName is used.")]
     public string waypointId = "";
 
+    [Header("Hold For Signal (Optional)")]
+    [Tooltip("If true, after this waypoint's dialogue ends the NPC stays idle here and does NOT advance or complete the event. " +
+             "An external controller must call EventNPC.ForceComplete() to finish (used for Maria's stop-site / hang beat). " +
+             "Pair with waitForInteraction + facePlayerWhileWaiting.")]
+    public bool holdAfterDialogue = false;
+
     [Header("Proximity Sound (Optional)")]
     [Tooltip("Sound to play when player sees NPC and is within range")]
     public AudioClip proximitySound;

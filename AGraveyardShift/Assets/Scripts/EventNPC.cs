@@ -85,6 +85,11 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     /// <summary>Fired when this NPC arrives at a waypoint. Parameter is the waypoint name.</summary>
     public event Action<string> OnWaypointReached;
+
+    /// <summary>Fired when this NPC enters a hold-for-signal state (a waypoint flagged
+    /// holdAfterDialogue finished its dialogue). The event will not advance or complete
+    /// until ForceComplete() is called. Used by MariaHangTrigger.</summary>
+    public event Action OnHoldForSignal;
     #endregion
 
     #region Private Fields
@@ -1142,6 +1147,24 @@ public class EventNPC : MonoBehaviour, IInteractable
             return;
         }
 
+        // Hold-for-signal: an opt-in waypoint (Maria's stop site) keeps the NPC standing idle
+        // after its dialogue instead of advancing/completing, until an external controller
+        // (MariaHangTrigger) calls ForceComplete().
+        if (waypoints != null && currentWaypointIndex >= 0 && currentWaypointIndex < waypoints.Length
+            && waypoints[currentWaypointIndex].holdAfterDialogue)
+        {
+            WaypointData hw = waypoints[currentWaypointIndex];
+            currentState = NPCState.Idle;
+            isWaitingToBeInteractable = false;
+            StopIdleNudge();
+            shouldTrackPlayer = hw.facePlayerWhileWaiting || hw.backToPlayerWhileWaiting;
+            trackingBackToPlayer = hw.backToPlayerWhileWaiting;
+            playerTrackingSpeed = hw.playerTrackingRotationSpeed;
+            Debug.Log($"EventNPC {npcName}: Holding at '{hw.waypointName}' after dialogue (awaiting external signal)");
+            OnHoldForSignal?.Invoke();
+            return;
+        }
+
         AdvanceToNextWaypoint();
     }
 
@@ -1293,6 +1316,18 @@ public class EventNPC : MonoBehaviour, IInteractable
         {
             dialogueUI.Hide();
         }
+    }
+
+    /// <summary>
+    /// Externally completes this NPC's event right now (fires OnNPCEventCompleted and
+    /// destroys/disables per exitBehavior). Used to end a hold-for-signal waypoint — e.g.
+    /// when Maria hangs herself and must vanish while the queue advances.
+    /// </summary>
+    public void ForceComplete()
+    {
+        if (agent != null && agent.isOnNavMesh) agent.isStopped = true;
+        ClearCurrentIdleAnimation();
+        CompleteEvent();
     }
 
     private void CompleteEvent()

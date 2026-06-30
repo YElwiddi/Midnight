@@ -8,11 +8,11 @@ using UnityEngine;
 /// </summary>
 public class EndingsMenuDisplay : MonoBehaviour
 {
-    [Tooltip("The slot value labels, in order I, II, III, IV, V.")]
-    public TextMeshProUGUI[] slotValues = new TextMeshProUGUI[5];
+    [Tooltip("The slot value labels, in order I, II, III, IV, V, VI.")]
+    public TextMeshProUGUI[] slotValues = new TextMeshProUGUI[6];
 
     [Tooltip("Optional per-slot type labels (Bad/Good/Secret). Same order as slotValues.")]
-    public TextMeshProUGUI[] slotTypes = new TextMeshProUGUI[5];
+    public TextMeshProUGUI[] slotTypes = new TextMeshProUGUI[6];
 
     [Tooltip("Optional 'X / 5 discovered' subtitle.")]
     public TextMeshProUGUI subtitle;

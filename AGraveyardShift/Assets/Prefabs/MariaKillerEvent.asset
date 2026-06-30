@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5f9ed75e3420e43b56b845a7381022, type: 3}
+  m_Name: MariaKillerEvent
+  m_EditorClassIdentifier: Assembly-CSharp::ConditionalKillerEvent
+  eventName: Maria Killer
+  statName: MariaLetIn
+  statComparison: 4
+  thresholdValue: 0
+  checkSanity: 0
+  sanityComparison: 5
+  sanityThreshold: 25
+  checkGraveyardProtection: 0
+  protectionComparison: 5
+  protectionThreshold: 25
+  killerPrefab: {fileID: 3550914219071784827, guid: eac1a86c93f82844fad6c17769901e18, type: 3}
+  sequenceDirectorPrefab: {fileID: 944706187992003736, guid: c7dba815f0026a5419f5c7e40271141e, type: 3}
+  spawnInFrontOfPlayer: 0
+  spawnDistanceFromPlayer: 5
+  spawnHeightOffset: 0
+  spawnPointName: MariaKillerSpawn
+  spawnOnLockedDoorInteract: 0
+  facePlayerOnSpawn: 0
+  backToPlayerOnSpawn: 0
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
+  useCustomRotation: 0
+  waypoints: []
+  endGameOnPlayerTouch: 1
+  killDistance: 1.5
+  useJumpscare: 1
+  useAmbushMode: 1
+  idleAnimationBool: IsIdle
+  activationDistance: 10
+  ignoreActivationDistance: 0
+  requirePlayerLooking: 1
+  lookDurationRequired: 5
+  playerLookAngle: 30
+  chaseAnimationTrigger: StartChase
+  chaseAnimationBool: IsRunning
+  chaseSpeed: 20
+  instantAcceleration: 1
+  idleLoopSound: {fileID: 0}
+  idleLoopVolume: 0.5
+  activationSound: {fileID: 0}
+  activationSoundVolume: 1
+  activationSoundConstant: 0
+  killStopDistance: 1.5
+  killAnimationTrigger: Kill
+  useSlowMotion: 1
+  slowMotionTimeScale: 0.3
+  slowMotionDuration: 2
+  killerFaceObjectName: Head
+  faceHeightOffset: 1.7
+  faceLookVerticalOffset: 0
+  jumpscareSound: {fileID: 0}
+  muteAmbientOnJumpscare: 0
+  gameOverDelay: 2
+  shakeIntensity: 0.5
+  shakeDuration: 2
+  jumpscarePlayerHeightOffset: -0.3
+  causesFlashlightFlicker: 1
+  lockFlashlightOnDuringJumpscare: 1
+  flashlightTargetHeight: 1.2
+  jumpscareFlashlightIntensity: 3
+  jumpscareFlashlightRange: 15
+  screenEffectPrefab: {fileID: 0}
+  screenEffectDelay: 0
+  intensifyVHSOnKill: 1
+  killGlitchIntensity: 0.7
+  killRGBShift: 0.04
+  killNoiseIntensity: 0.25
+  killScanlineIntensity: 0.8
+  killTrackingNoise: 0.1
+  overrideLanternsOnJumpscare: 0
+  jumpscareLanternColor: {r: 1, g: 0, b: 0, a: 1}
+  jumpscareHeadShake: 0
+  headShakeBoneName: CC_Base_Head
+  headShakeTiltAmount: 35
+  headShakeTurnAmount: 15
+  headShakeSpeed: 30
+  headShakeRandomness: 10
+  headSpinEnabled: 0
+  headSpinInterval: 4
+  headSpinDuration: 0.5
+  headDoubleSpinChance: 0
+  headTripleSpinChance: 0
+  chaseContortion: 0
+  contortionSpeed: 24
+  contortionAngle: 115
+  contortionJitter: 45
+  chaseFloatHeight: 0.35
+  contortionStretch: 0.4
+  showJumpscareDialogue: 0
+  jumpscareDialogueText: 
+  jumpscareDialogueFont: {fileID: 0}
+  jumpscareDialogueColor: {r: 1, g: 1, b: 1, a: 1}
+  jumpscareDialogueFontSize: 36
+  jumpscareDialogueDelay: 0.5
+  jumpscareDialogueShakeIntensity: 0
+  jumpscareDialogueShakeSpeed: 25
+  jumpscareDialogueFlash: 0
+  jumpscareDialogueFlashSpeed: 4
+  jumpscareDialogueFlashMinAlpha: 0
+  gameOverSceneName: MainMenu
+  unlocksEnding: 1
+  endingToUnlock: 5
+  exitBehavior: 0
+  exitPointName: KillerExitPoint
+  inkDialogue: {fileID: 0}
+  dialogueKnot: 
+  cameraHeight: -1
+  cameraZoom: -1

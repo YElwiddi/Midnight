@@ -403,6 +403,32 @@ public class GameFlowManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Arms a sequence killer event: marks it active so IsKillerEventActive becomes true (locking
+    /// killer-locked doors) WITHOUT spawning the killer yet. Used by MariaKillerSequence at the
+    /// "corpse vanishes" beat. Ambience muting is handled separately by the sequence.
+    /// </summary>
+    public void SetKillerEventArmed(ConditionalKillerEvent killerEvent)
+    {
+        if (killerEvent == null) return;
+        currentKillerEvent = killerEvent;
+        armedKillerEvent = killerEvent;
+        Debug.Log($"GameFlowManager: Killer event '{killerEvent.eventName}' armed by sequence (killer-locked doors engage).");
+    }
+
+    /// <summary>
+    /// Spawns the killer for an armed/sequence event now (e.g. the Maria sequence reveals the killer
+    /// at the tree). Clears the armed state and instantiates the killer NPC.
+    /// </summary>
+    public void SpawnKillerFromSequence(ConditionalKillerEvent killerEvent)
+    {
+        if (killerEvent == null) return;
+        armedKillerEvent = null;
+        currentKillerEvent = killerEvent;
+        Debug.Log($"GameFlowManager: Sequence spawning killer '{killerEvent.eventName}'.");
+        SpawnKillerNPC(killerEvent);
+    }
+
+    /// <summary>
     /// Gets the killer event queue count.
     /// </summary>
     public int GetKillerEventCount() => killerEventQueue.Count;
@@ -1196,6 +1222,20 @@ public class GameFlowManager : MonoBehaviour
         if (killerEvent.killerPrefab == null)
         {
             Debug.LogError($"GameFlowManager: Killer event '{killerEvent.eventName}' has no killer prefab assigned!");
+            return;
+        }
+
+        // Sequence-director killers (Maria): spawn the director, which runs the custom lead-up
+        // (corpse vanish / mute / door lock) and later spawns the killer itself via
+        // SpawnKillerFromSequence(). Nothing is muted/locked and no killer spawns here yet.
+        if (killerEvent.sequenceDirectorPrefab != null)
+        {
+            currentKillerEvent = killerEvent;
+            Debug.Log($"GameFlowManager: Killer event '{killerEvent.eventName}' starting its sequence director.");
+            GameObject dirObj = Instantiate(killerEvent.sequenceDirectorPrefab);
+            MariaKillerSequence seq = dirObj.GetComponent<MariaKillerSequence>();
+            if (seq != null) seq.Begin(killerEvent);
+            else Debug.LogWarning($"GameFlowManager: '{killerEvent.eventName}' sequenceDirectorPrefab has no MariaKillerSequence component.");
             return;
         }
 

@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[[{"->":"maria_at_grave"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"maria_at_grave":[["^...","\n","^...","\n","ev","str","^Are you okay?","/str","/ev",{"*":".^.c-0","flg":4},{"c-0":["\n",{"->":"maria_grief"},{"#f":5}]}],{"#f":1}],"maria_grief":["#","^speaker: Maria","/#","^...","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}

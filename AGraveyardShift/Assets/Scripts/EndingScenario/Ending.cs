@@ -7,7 +7,8 @@ public enum Ending
     Ambush = 1,            // Bad    - killed by the grave robber
     WrongfulConviction = 2,// Good   - beat the game and exit the crypt
     HappilyEverAfter = 3,  // Good?  - killed by the bride in the church
-    Father = 4             // Secret - caught by the FatherKiller in the forest finale
+    Father = 4,            // Secret - caught by the FatherKiller in the forest finale
+    Maria = 5              // Bad    - let the hanged woman in; killed by her at the tree
 }
 
 /// <summary>
@@ -31,7 +32,8 @@ public static class EndingInfo
         Ending.Ambush,
         Ending.WrongfulConviction,
         Ending.HappilyEverAfter,
-        Ending.Father
+        Ending.Father,
+        Ending.Maria
     };
 
     public static Data Get(Ending e)
@@ -67,6 +69,12 @@ public static class EndingInfo
                 {
                     roman = "V", title = "Hidden Ending - The Father's Fate", typeLabel = "Ending", isGood = false,
                     description = "Did you find what you were looking for?"
+                };
+            case Ending.Maria:
+                return new Data
+                {
+                    roman = "VI", title = "Bad Ending - The Hanged Woman", typeLabel = "Ending", isGood = false,
+                    description = "You let her in. Some guests should never be allowed past the gate."
                 };
             default:
                 return new Data { roman = "?", title = "??????", typeLabel = "", description = "" };

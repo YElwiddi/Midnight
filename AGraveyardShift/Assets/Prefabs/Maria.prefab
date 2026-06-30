@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3894621251204808861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4383807191440785316}
+  - component: {fileID: 6643900912832333662}
+  - component: {fileID: 7444870220655587604}
+  - component: {fileID: 2808772342211516710}
+  - component: {fileID: 4115269592751283730}
+  - component: {fileID: 5080942119334674803}
+  m_Layer: 6
+  m_Name: Maria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4383807191440785316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894621251204808861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.176, z: 0}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4215342531854505889}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6643900912832333662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894621251204808861}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.4923077, z: 1}
+  m_Center: {x: 0, y: 1.2461538, z: 0}
+--- !u!195 &7444870220655587604
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894621251204808861}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2808772342211516710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894621251204808861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3006eda2c8094d549a5b76696013a9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCAntiPush
+--- !u!114 &4115269592751283730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894621251204808861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8170e52ad63e48d46b39dd034834b5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventNPC
+  waypoints: []
+  inkDialogue: {fileID: 0}
+  dialogueKnot: 
+  exitBehavior: 0
+  exitPointName: 
+  exitDialogues: []
+  typewriterSpeed: 0
+  eventCameraHeight: -1
+  eventDialogueSoundClip: {fileID: 0}
+  eventDialogueSoundVolume: -1
+  eventDialogueSoundBasePitch: -1
+  eventDialogueSoundPitchVariation: -1
+  eventDialogueSoundEveryN: -1
+  postDialogueCinematic: {fileID: 0}
+  npcName: NPC
+  interactionPrompt: Talk
+  arrivalThreshold: 0.5
+  loweredCameraHeight: 0.5
+  cameraZoom: -1
+  enableIdleNudge: 1
+  gateWaypointName: NPCGatePoint
+  idleNudgeDelay: 30
+  idleNudgeRepeatInterval: 30
+  idleNudgeText: I should check on my visitor.
+  idleNudgeDisplayDuration: 4
+  idleNudgeTypewriterSpeed: 30
+--- !u!114 &5080942119334674803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894621251204808861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2924efe4629e3224ba641d039d4cd618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MariaHangTrigger
+  lookAwayZoneName: MariaLookAwayZone
+  notLookingConfirmTime: 0.25
+  deadMariaPrefab: {fileID: 3573685559753693862, guid: df65acd24b9e32041861bfa064a808e5, type: 3}
+  treeNoosePointName: TreeNoosePoint
+  neckBreakSound: {fileID: 8300000, guid: 4b1d6bd4ba356714fb9a2d563686ed92, type: 3}
+  neckBreakVolume: 1
+--- !u!1001 &4464578851300044874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4383807191440785316}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5504412
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5504412
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5504412
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_Name
+      value: Character_Female_14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1ae8cfcb8a3db4a44895608a1ae5c374, type: 2}
+    - target: {fileID: 5866666021909216657, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+--- !u!4 &4215342531854505889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d3f19dca40c6cf84eb59f176513b70ea, type: 3}
+  m_PrefabInstance: {fileID: 4464578851300044874}
+  m_PrefabAsset: {fileID: 0}
