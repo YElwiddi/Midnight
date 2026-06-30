@@ -37,11 +37,22 @@ public class DeadMariaHang : MonoBehaviour
     [SerializeField] private AudioClip ropeCreakLoop;
     [SerializeField] private float ropeCreakVolume = 0.5f;
 
+    [Header("Sanity drain (seeing / staring at the corpse)")]
+    [Tooltip("If true, seeing and staring at the hanging corpse drains the player's sanity.")]
+    [SerializeField] private bool drainsSanity = true;
+    [Tooltip("One-time sanity lost the first instant the player sees the body.")]
+    [SerializeField] private int firstSightSanityLoss = 40;
+    [Tooltip("Sanity lost per second while the player keeps staring at the corpse (after the grace period).")]
+    [SerializeField] private float stareSanityDrainPerSecond = 1f;
+    [Tooltip("Grace period (seconds) after the first sight before the per-second stare drain begins.")]
+    [SerializeField] private float stareGracePeriod = 8f;
+
     /// <summary>Fires once, the first time the player sees the hanging body. Future killer event can hook this.</summary>
     public event System.Action OnFirstSeen;
 
     private Camera cam;
     private bool seen;
+    private float firstSeenTime = -1f;
     private Quaternion baseLocalRot;
     private float swayPhase;
 
@@ -87,6 +98,7 @@ public class DeadMariaHang : MonoBehaviour
         transform.localRotation = baseLocalRot * Quaternion.Euler(x, 0f, z);
 
         if (!seen) CheckFirstLook();
+        else UpdateStareDrain();
     }
 
     // Runs after the Animator has applied the hanging pose, so these override it.
@@ -116,8 +128,37 @@ public class DeadMariaHang : MonoBehaviour
 
     private void CheckFirstLook()
     {
+        if (!IsCorpseVisible()) return;
+
+        seen = true;
+        firstSeenTime = Time.time;
+        Debug.Log("DeadMariaHang: player saw the hanging body for the first time.");
+
+        Vector3 seePoint = transform.TransformPoint(seePointLocalOffset);
+        if (dramaticSound != null)
+            AudioSource.PlayClipAtPoint(dramaticSound, seePoint, dramaticVolume);
+
+        // Big one-time sanity hit the instant the player lays eyes on the body.
+        if (drainsSanity && firstSightSanityLoss > 0 && SanityManager.Instance != null)
+            SanityManager.Instance.DrainSanity(firstSightSanityLoss);
+
+        OnFirstSeen?.Invoke();
+    }
+
+    // After the first sight, staring at the corpse keeps bleeding sanity once the grace period elapses.
+    private void UpdateStareDrain()
+    {
+        if (!drainsSanity || stareSanityDrainPerSecond <= 0f || SanityManager.Instance == null) return;
+        if (Time.time - firstSeenTime < stareGracePeriod) return; // grace window after the first sight
+        if (IsCorpseVisible())
+            SanityManager.Instance.DrainSanityPerSecond(stareSanityDrainPerSecond);
+    }
+
+    /// <summary>True if the player currently has the corpse on-screen, within range, with line of sight.</summary>
+    private bool IsCorpseVisible()
+    {
         if (cam == null) cam = Camera.main;
-        if (cam == null || renderers == null || renderers.Length == 0) return;
+        if (cam == null || renderers == null || renderers.Length == 0) return false;
 
         Bounds b = default; bool has = false;
         foreach (var r in renderers)
@@ -125,25 +166,20 @@ public class DeadMariaHang : MonoBehaviour
             if (r == null || !r.enabled) continue;
             if (!has) { b = r.bounds; has = true; } else b.Encapsulate(r.bounds);
         }
-        if (!has) return;
-        if (!GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(cam), b)) return;
+        if (!has) return false;
+        if (!GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(cam), b)) return false;
 
         Vector3 seePoint = transform.TransformPoint(seePointLocalOffset);
         Vector3 camPos = cam.transform.position;
         float dist = Vector3.Distance(camPos, seePoint);
-        if (dist > maxSeeDistance) return;
+        if (dist > maxSeeDistance) return false;
 
         Vector3 dir = seePoint - camPos;
         if (Physics.Raycast(camPos, dir.normalized, out RaycastHit hit, dist - 0.3f, occlusionMask, QueryTriggerInteraction.Ignore))
         {
-            if (!hit.transform.IsChildOf(transform)) return; // occluded
+            if (!hit.transform.IsChildOf(transform)) return false; // occluded
         }
-
-        seen = true;
-        Debug.Log("DeadMariaHang: player saw the hanging body for the first time.");
-        if (dramaticSound != null)
-            AudioSource.PlayClipAtPoint(dramaticSound, seePoint, dramaticVolume);
-        OnFirstSeen?.Invoke();
+        return true;
     }
 
     /// <summary>Finds the first child transform whose name ends with the given suffix (handles the "mixamorig:" prefix).</summary>

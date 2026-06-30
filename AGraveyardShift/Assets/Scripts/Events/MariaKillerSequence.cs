@@ -1,110 +1,132 @@
 using UnityEngine;
 
 /// <summary>
-/// Orchestrates the Maria killer payoff, built on the hanging corpse left by her visit.
-/// Spawned (bare, no model) by GameFlowManager when the end-of-phase MariaLetIn check passes.
+/// End-of-phase cleanup for Maria's hanging corpse. Spawned (bare, no model) by GameFlowManager
+/// when an end-of-phase Maria killer-event entry's condition (MariaLetIn >= 1) passes.
 ///
-/// Stages:
-///  0. Wait until the player is NOT looking at Maria's hanging corpse →
-///       rope-snap SFX (lever) + mute ambience + lock the cabin door (arm the killer event, so
-///       TeleportInteractable.lockDuringKillerEvent engages) + the corpse vanishes.
-///  1. Wait until the player is inside MariaLookAwayZone AND NOT looking at the tree →
-///       spawn the Tomino killer at the tree. It's an ambush killer, so it charges the instant
-///       the player looks at it (then jumpscare → the Maria ending).
+/// The Maria KILLER / jumpscare was removed — seeing the hanging corpse now drains the player's
+/// sanity instead (see DeadMariaHang). This director enforces the intended end-of-phase flow:
+///   1. wait until the player triggers the removal mechanic — i.e. is NOT looking at the body
+///      (bounded by maxWaitForLookAway so a staring player can't stall the game),
+///   2. rope-snap SFX, the body drops/vanishes,
+///   3. a gracePeriodAfterRemoval beat (default 5s),
+///   4. advance the main event queue (StartNextEvent) — so the actual end-of-phase jumpscare (the
+///      next killer-event entry) fires, now that the corpse is gone and the grace has elapsed,
+///   5. self-destruct.
+///
+/// For this to read as "corpse retired → grace → killer", the Maria killer-event entry must sit
+/// BEFORE the real killer entries at each phase end (phase 3 already does; phase 2 was reordered so
+/// Maria#1 precedes the Spirit/GraveRobber entries).
+///
+/// It ALWAYS advances the queue EXACTLY once. A Maria entry whose condition passes is NON-terminal
+/// now (the original killer was a game-over leaf), so failing to advance would STALL the queue and
+/// the end-of-phase jumpscare would never fire. If there is no corpse to retire — e.g. she was let
+/// in during phase 2 so the phase-2 entry already cleaned it up, and this is the phase-3 entry
+/// (MariaLetIn stays 1) — it advances IMMEDIATELY with no grace (nothing was retired).
+///
+/// (Class name kept: GameFlowManager.StartKillerEventDirectly looks it up by type and the
+/// MariaKillerDirector prefab carries this component with its rope-snap clip assigned.)
 /// </summary>
 public class MariaKillerSequence : MonoBehaviour
 {
     [Header("Look detection")]
-    [SerializeField] private string lookAwayZoneName = "MariaLookAwayZone";
+    [Tooltip("Seconds the player must be looking AWAY from the corpse before it is retired.")]
     [SerializeField] private float notLookingConfirmTime = 0.3f;
-    [Tooltip("Half-extents of the box used to test whether the player is 'looking at the tree' (centered above the killer spawn point).")]
-    [SerializeField] private Vector3 treeViewHalfExtents = new Vector3(2f, 3f, 2f);
+
+    [Tooltip("Safety cap (seconds): retire the corpse and continue even if the player never looks away, so the end-of-phase jumpscare is never blocked.")]
+    [SerializeField] private float maxWaitForLookAway = 6f;
+
+    [Header("Grace")]
+    [Tooltip("Seconds to wait AFTER the corpse is removed before the end-of-phase killer event is allowed to fire.")]
+    [SerializeField] private float gracePeriodAfterRemoval = 5f;
 
     [Header("Audio")]
-    [Tooltip("Rope-break snap SFX when the corpse drops/vanishes (lever — assign later).")]
+    [Tooltip("Rope-break snap SFX when the corpse drops/vanishes.")]
     [SerializeField] private AudioClip ropeSnapSound;
     [SerializeField] private float ropeSnapVolume = 1f;
-    [SerializeField] private string ambienceMuteId = "mariaKiller";
 
-    private ConditionalKillerEvent killerEvent;
     private Camera cam;
     private DeadMariaHang corpse;
     private Renderer[] corpseRenderers;
-    private Transform spawnPoint;
-    private int stage; // 0 = watching corpse, 1 = watching tree, 2 = done
-    private float timer;
+    private bool retiring; // corpse retired; waiting out the grace before handing the queue on
+    private bool done;
+    private float notLookingTimer;
+    private float elapsed;
 
     /// <summary>Called by GameFlowManager right after this director is instantiated.</summary>
     public void Begin(ConditionalKillerEvent e)
     {
-        // Guard against a double-spawn (e.g. both the phase-2 and phase-3 end checks).
-        if (FindObjectsOfType<MariaKillerSequence>().Length > 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        killerEvent = e;
         corpse = FindObjectOfType<DeadMariaHang>();
-        if (corpse != null) corpseRenderers = corpse.GetComponentsInChildren<Renderer>();
-
-        if (e != null && !string.IsNullOrEmpty(e.spawnPointName))
+        if (corpse != null)
         {
-            GameObject sp = GameObject.Find(e.spawnPointName);
-            if (sp != null) spawnPoint = sp.transform;
+            corpseRenderers = corpse.GetComponentsInChildren<Renderer>();
+            Debug.Log("MariaKillerSequence: corpse-cleanup director begun (retire corpse → grace → continue the queue).");
         }
-        Debug.Log($"MariaKillerSequence: begun. corpse={(corpse != null)}, spawnPoint={(spawnPoint != null)}");
+        else
+        {
+            Debug.Log("MariaKillerSequence: no corpse to retire — will advance the queue next frame.");
+        }
     }
 
     private void Update()
     {
-        if (killerEvent == null) return;
+        if (done || retiring) return;
+
+        // No corpse (already removed, e.g. the phase-2 cleanup ran) → hand the queue back
+        // immediately, with no grace (there was nothing to retire).
+        if (corpse == null) { Finish(); return; }
+
         if (cam == null) cam = Camera.main;
         if (cam == null) return;
 
-        if (stage == 0)
+        elapsed += Time.deltaTime;
+
+        bool lookingAtCorpse = IsBoundsVisible(GetCorpseBounds());
+        if (!lookingAtCorpse)
         {
-            bool lookingAtCorpse = corpse != null && IsBoundsVisible(GetCorpseBounds());
-            if (!lookingAtCorpse) { timer += Time.deltaTime; if (timer >= notLookingConfirmTime) DoVanish(); }
-            else timer = 0f;
+            notLookingTimer += Time.deltaTime;
+            if (notLookingTimer >= notLookingConfirmTime) { RetireCorpse(); return; }
         }
-        else if (stage == 1)
-        {
-            bool inZone = PlayerZoneTracker.IsInZone(lookAwayZoneName);
-            bool lookingAtTree = IsBoundsVisible(GetTreeBounds());
-            if (inZone && !lookingAtTree) { timer += Time.deltaTime; if (timer >= notLookingConfirmTime) DoSpawnKiller(); }
-            else timer = 0f;
-        }
+        else notLookingTimer = 0f;
+
+        // Safety: never let a staring player block the end-of-phase jumpscare forever.
+        if (elapsed >= maxWaitForLookAway) RetireCorpse();
     }
 
-    private void DoVanish()
+    private void RetireCorpse()
     {
-        stage = 1;
-        timer = 0f;
-        Debug.Log("MariaKillerSequence: player looked away from the corpse — snap, mute, lock, vanish.");
+        if (retiring) return;
+        retiring = true;
 
-        Vector3 at = spawnPoint != null ? spawnPoint.position : transform.position;
-        if (ropeSnapSound != null) AudioSource.PlayClipAtPoint(ropeSnapSound, at, ropeSnapVolume);
-
-        AmbientSoundManager.Instance?.Mute(ambienceMuteId);
-
-        // Arm the killer event → IsKillerEventActive → the cabin door (TeleportInteractable) locks.
-        GameFlowManager.Instance?.SetKillerEventArmed(killerEvent);
-
+        if (ropeSnapSound != null)
+        {
+            Vector3 at = corpse != null ? corpse.transform.position : transform.position;
+            AudioSource.PlayClipAtPoint(ropeSnapSound, at, ropeSnapVolume);
+        }
         if (corpse != null) Destroy(corpse.gameObject);
+        Debug.Log($"MariaKillerSequence: rope snaps, corpse removed — {gracePeriodAfterRemoval}s grace before the killer.");
+
+        StartCoroutine(GraceThenAdvance());
     }
 
-    private void DoSpawnKiller()
+    private System.Collections.IEnumerator GraceThenAdvance()
     {
-        stage = 2;
-        Debug.Log("MariaKillerSequence: player at the zone, not looking at the tree — spawning the killer.");
-        GameFlowManager.Instance?.SpawnKillerFromSequence(killerEvent);
-        Destroy(gameObject); // the ambush killer takes over from here
+        if (gracePeriodAfterRemoval > 0f) yield return new WaitForSeconds(gracePeriodAfterRemoval);
+        Finish();
+    }
+
+    // Hand control back to the event queue (the corpse is gone and the grace has elapsed) and clean up.
+    private void Finish()
+    {
+        if (done) return;
+        done = true;
+        if (GameFlowManager.Instance != null) GameFlowManager.Instance.StartNextEvent();
+        Destroy(gameObject);
     }
 
     private Bounds GetCorpseBounds()
     {
-        Bounds b = new Bounds(transform.position, Vector3.one);
+        Bounds b = new Bounds(corpse != null ? corpse.transform.position : transform.position, Vector3.one);
         bool has = false;
         if (corpseRenderers != null)
             foreach (var r in corpseRenderers)
@@ -113,12 +135,6 @@ public class MariaKillerSequence : MonoBehaviour
                 if (!has) { b = r.bounds; has = true; } else b.Encapsulate(r.bounds);
             }
         return b;
-    }
-
-    private Bounds GetTreeBounds()
-    {
-        Vector3 c = spawnPoint != null ? spawnPoint.position : transform.position;
-        return new Bounds(c + Vector3.up * treeViewHalfExtents.y, treeViewHalfExtents * 2f);
     }
 
     private bool IsBoundsVisible(Bounds b)
