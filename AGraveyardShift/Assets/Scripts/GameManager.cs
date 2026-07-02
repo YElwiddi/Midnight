@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int SpiritAngered = 0;
     public int GraveRobberSetup = 0;
     public int GraveKeeperAngered = 0;
+    [Tooltip("Set to 1 when the player lets Maria in (she reaches her stop site / hangs). Checked by the end-of-phase Maria killer event.")]
+    public int MariaLetIn = 0;
 
     [Header("Boolean Flags")]
     public bool CryptUnlocked = false;
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
             case "spiritangered": return SpiritAngered;
             case "graverobbersetup": return GraveRobberSetup;
             case "gravekeeperangered": return GraveKeeperAngered;
+            case "marialetin": return MariaLetIn;
             // Sanity system stats (read from their managers)
             case "sanity":
                 return SanityManager.Instance != null ? SanityManager.Instance.CurrentSanity : 100;
@@ -99,6 +102,10 @@ public class GameManager : MonoBehaviour
             case "gravekeeperangered":
                 GraveKeeperAngered += value;
                 Debug.Log($"GraveKeeperAngered changed by {value}. New value: {GraveKeeperAngered}");
+                break;
+            case "marialetin":
+                MariaLetIn += value;
+                Debug.Log($"MariaLetIn changed by {value}. New value: {MariaLetIn}");
                 break;
             // Sanity system stats (delegate to their managers)
             case "sanity":
@@ -251,6 +258,7 @@ public class GameManager : MonoBehaviour
         SpiritAngered = 0;
         GraveRobberSetup = 0;
         GraveKeeperAngered = 0;
+        MariaLetIn = 0;
 
         // Reset boolean flags
         CryptUnlocked = false;

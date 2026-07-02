@@ -49,6 +49,13 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("The killer NPC prefab to spawn for this event")]
     public GameObject killerPrefab;
 
+    [Header("Sequence Director (Optional)")]
+    [Tooltip("If set, this killer event does NOT spawn the killer directly when its condition passes. " +
+             "Instead it instantiates this director prefab (a MariaKillerSequence), which runs a custom " +
+             "lead-up and later spawns the killer (killerPrefab) via GameFlowManager.SpawnKillerFromSequence(). " +
+             "Used for the Maria corpse → killer sequence.")]
+    public GameObject sequenceDirectorPrefab;
+
     [Tooltip("If true, spawns in front of the player instead of at a spawn point")]
     public bool spawnInFrontOfPlayer = false;
 

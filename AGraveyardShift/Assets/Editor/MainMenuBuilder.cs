@@ -224,15 +224,15 @@ public static class MainMenuBuilder
         subRt.sizeDelta = new Vector2(700f, 40f);
         subRt.anchoredPosition = new Vector2(0f, -212f);
 
-        // Ending slots, 2-2-1 layout (the 5th, secret, slot is centered below and wider so its
-        // long title fits) — filled at runtime by EndingsMenuDisplay. Count follows InOrder.
+        // Ending slots, 2-2-2 layout — filled at runtime by EndingsMenuDisplay. Count follows InOrder.
+        // (When only 5 endings exist the layout falls back to 2-2-1 with a wide, centered 5th slot.)
         var slotSize = new Vector2(560f, 142f);
         var slot5Size = new Vector2(790f, 142f);
         var slotPos = new Vector2[]
         {
             new Vector2(-294f, 145f), new Vector2(294f, 145f),
             new Vector2(-294f, -13f), new Vector2(294f, -13f),
-            new Vector2(0f, -171f)
+            new Vector2(-294f, -171f), new Vector2(294f, -171f)
         };
         int slotCount = Mathf.Min(EndingInfo.InOrder.Length, slotPos.Length);
         var slotValues = new TextMeshProUGUI[slotCount];
@@ -240,8 +240,11 @@ public static class MainMenuBuilder
         for (int i = 0; i < slotCount; i++)
         {
             var info = EndingInfo.Get(EndingInfo.InOrder[i]);
-            Vector2 sz = (i == slotCount - 1 && slotCount >= 5) ? slot5Size : slotSize;
-            Transform slot = MakeSlot(modalRt, info.roman, slotPos[i], sz, font);
+            // 5-ending fallback: last slot is centered (0,-171) and wider so the long secret title fits.
+            bool wideCenter = (slotCount == 5 && i == 4);
+            Vector2 sz = wideCenter ? slot5Size : slotSize;
+            Vector2 pos = wideCenter ? new Vector2(0f, -171f) : slotPos[i];
+            Transform slot = MakeSlot(modalRt, info.roman, pos, sz, font);
             slotValues[i] = slot.Find("Value").GetComponent<TextMeshProUGUI>();
             slotTypes[i] = slot.Find("Type").GetComponent<TextMeshProUGUI>();
         }

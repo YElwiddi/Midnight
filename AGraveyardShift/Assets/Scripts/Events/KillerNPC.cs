@@ -1179,6 +1179,21 @@ public class KillerNPC : MonoBehaviour
         hasTriggeredGameOver = true;
         Debug.Log($"KillerNPC: Game over triggered by {gameObject.name}!");
 
+        // If a standalone KillerJumpscare is attached, hand the whole scare off to it (richer shake +
+        // face-bone aim + ending handling). Stop our own chase so it doesn't fight the jumpscare positioning.
+        KillerJumpscare customJumpscare = GetComponent<KillerJumpscare>();
+        if (customJumpscare != null)
+        {
+            currentState = KillerState.Killing;
+            if (navAgent != null && navAgent.isOnNavMesh)
+            {
+                navAgent.isStopped = true;
+                navAgent.velocity = Vector3.zero;
+            }
+            customJumpscare.TriggerJumpscare(killAnimationTrigger);
+            return;
+        }
+
         if (useJumpscare)
         {
             StartCoroutine(JumpscareSequence());
