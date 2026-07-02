@@ -28,6 +28,11 @@
 				"DepotPath"	"."		// ...mapped into the root of the depot
 				"recursive"	"1"
 			}
+			// Never ship Unity's debug/backup cruft (Burst debug info, IL2CPP backup, etc.):
+			"FileExclusion"	"*_DoNotShip*"
+			"FileExclusion"	"*_DoNotShipWithBuild*"
+			"FileExclusion"	"*_BackUpThisFolder_ButDontShipItWithYourGame*"
+			"FileExclusion"	"*.pdb"
 		}
 	}
 }
