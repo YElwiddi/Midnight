@@ -153,8 +153,11 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     private Movement player;
     private Camera playerCam;
     private Transform camT;
-    private Vector3 savedCamPos;
-    private Quaternion savedCamRot;
+    // Saved in the camera's LOCAL space: the player body can move while watching
+    // (e.g. landing from a jump after interacting mid-air), so a world-space
+    // snapshot would restore the camera at the wrong height.
+    private Vector3 savedCamLocalPos;
+    private Quaternion savedCamLocalRot;
     private float savedFOV;
 
     void Awake()
@@ -240,8 +243,8 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         if (playerCam == null) return;
         camT = playerCam.transform;
 
-        savedCamPos = camT.position;
-        savedCamRot = camT.rotation;
+        savedCamLocalPos = camT.localPosition;
+        savedCamLocalRot = camT.localRotation;
         savedFOV = playerCam.fieldOfView;
 
         if (player != null) player.DisableAllInput();
@@ -270,7 +273,10 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     {
         if (!isViewing || transitioning) return;
         StopAllCoroutines();
-        StartCoroutine(MoveCamera(savedCamPos, savedCamRot, savedFOV, false));
+        Transform parent = camT.parent;
+        Vector3 returnPos = parent != null ? parent.TransformPoint(savedCamLocalPos) : savedCamLocalPos;
+        Quaternion returnRot = parent != null ? parent.rotation * savedCamLocalRot : savedCamLocalRot;
+        StartCoroutine(MoveCamera(returnPos, returnRot, savedFOV, false));
     }
 
     private IEnumerator MoveCamera(Vector3 targetPos, Quaternion targetRot, float targetFov, bool entering)
@@ -316,6 +322,19 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
             if (screenLabel != null) screenLabel.gameObject.SetActive(false);
             if (crosshair != null) crosshair.Show();
             if (player != null) player.EnableAllInput();
+        }
+    }
+
+    void LateUpdate()
+    {
+        // The camera is a child of the player body, which can still move while
+        // watching (e.g. finishing a jump's fall after interacting mid-air).
+        // Re-pin the camera to the anchor after all movement so the body landing
+        // can't drag the view off the TV.
+        if (isViewing && !transitioning && viewAnchor != null)
+        {
+            camT.position = viewAnchor.position;
+            camT.rotation = viewAnchor.rotation;
         }
     }
 
