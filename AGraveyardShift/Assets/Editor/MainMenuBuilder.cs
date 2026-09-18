@@ -145,6 +145,10 @@ public static class MainMenuBuilder
         // Safety: the headphones disclaimer must always ship enabled.
         if (disclaimer != null) disclaimer.gameObject.SetActive(true);
 
+        // 6b. Localization wiring (language dropdown, LocalizedText/LocalizedSprite on the labels
+        // and sprite buttons built above). Idempotent; see LocalizationSetup.
+        LocalizationSetup.SetupMainMenu();
+
         // 7. Save the scene.
         EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene());

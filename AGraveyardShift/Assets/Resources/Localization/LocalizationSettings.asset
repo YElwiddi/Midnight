@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dae62ee03b0804187df0d3807b721f, type: 3}
+  m_Name: LocalizationSettings
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizationSettings
+  defaultLocale: en
+  locales:
+  - code: en
+    nativeName: English
+    englishName: English
+    systemLanguages: 0a000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules: []
+  - code: zh-Hans
+    nativeName: "\u7B80\u4F53\u4E2D\u6587"
+    englishName: Chinese (Simplified)
+    systemLanguages: 2800000006000000
+    defaultFont: {fileID: 11400000, guid: 1bae81be1f3783a449ed33d782d2e285, type: 2}
+    defaultSizeScale: 1
+    fontRules: []
+  - code: ru
+    nativeName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+    englishName: Russian
+    systemLanguages: 1e000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules:
+    - original: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.82
+    - original: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+      replacement: {fileID: 11400000, guid: bd0907a74af5bc043b77dbbb1c7b2c52, type: 2}
+      sizeScale: 0.9
+    - original: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+    - original: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+      replacement: {fileID: 11400000, guid: c73be777ed2708241bfe1fb91403ac21, type: 2}
+      sizeScale: 0.95
+    - original: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e34dbeedaa0847c40b2431bc507bcc16, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+  - code: es
+    nativeName: "Espa\xF1ol"
+    englishName: Spanish
+    systemLanguages: 22000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules:
+    - original: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.82
+    - original: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+      replacement: {fileID: 11400000, guid: bd0907a74af5bc043b77dbbb1c7b2c52, type: 2}
+      sizeScale: 0.9
+    - original: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+    - original: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+      replacement: {fileID: 11400000, guid: 9bc80d287d23bec4786e053c92b5f3fb, type: 2}
+      sizeScale: 1.1
+    - original: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e34dbeedaa0847c40b2431bc507bcc16, type: 2}
+      replacement: {fileID: 11400000, guid: 4aaefca40ec731b46a4b99bd8dbed8f1, type: 2}
+      sizeScale: 1
+  - code: pt-BR
+    nativeName: "Portugu\xEAs (Brasil)"
+    englishName: Portuguese (Brazil)
+    systemLanguages: 1c000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules:
+    - original: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.82
+    - original: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+      replacement: {fileID: 11400000, guid: bd0907a74af5bc043b77dbbb1c7b2c52, type: 2}
+      sizeScale: 0.9
+    - original: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+    - original: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+      replacement: {fileID: 11400000, guid: 9bc80d287d23bec4786e053c92b5f3fb, type: 2}
+      sizeScale: 1.1
+    - original: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e34dbeedaa0847c40b2431bc507bcc16, type: 2}
+      replacement: {fileID: 11400000, guid: 4aaefca40ec731b46a4b99bd8dbed8f1, type: 2}
+      sizeScale: 1
+  - code: de
+    nativeName: Deutsch
+    englishName: German
+    systemLanguages: 0f000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules:
+    - original: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.82
+    - original: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+      replacement: {fileID: 11400000, guid: bd0907a74af5bc043b77dbbb1c7b2c52, type: 2}
+      sizeScale: 0.9
+    - original: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+    - original: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+      replacement: {fileID: 11400000, guid: 9bc80d287d23bec4786e053c92b5f3fb, type: 2}
+      sizeScale: 1.1
+    - original: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e34dbeedaa0847c40b2431bc507bcc16, type: 2}
+      replacement: {fileID: 11400000, guid: 4aaefca40ec731b46a4b99bd8dbed8f1, type: 2}
+      sizeScale: 1
+  - code: ja
+    nativeName: "\u65E5\u672C\u8A9E"
+    englishName: Japanese
+    systemLanguages: 16000000
+    defaultFont: {fileID: 11400000, guid: 75750156006b6674ca5e4461400764f4, type: 2}
+    defaultSizeScale: 1
+    fontRules: []
+  - code: fr
+    nativeName: "Fran\xE7ais"
+    englishName: French
+    systemLanguages: 0e000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules:
+    - original: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.82
+    - original: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+      replacement: {fileID: 11400000, guid: bd0907a74af5bc043b77dbbb1c7b2c52, type: 2}
+      sizeScale: 0.9
+    - original: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+    - original: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+      replacement: {fileID: 11400000, guid: 9bc80d287d23bec4786e053c92b5f3fb, type: 2}
+      sizeScale: 1.1
+    - original: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+      replacement: {fileID: 11400000, guid: ddde541e0dc192c409f8bf1416d2a23d, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e34dbeedaa0847c40b2431bc507bcc16, type: 2}
+      replacement: {fileID: 11400000, guid: 4aaefca40ec731b46a4b99bd8dbed8f1, type: 2}
+      sizeScale: 1
+  - code: pl
+    nativeName: Polski
+    englishName: Polish
+    systemLanguages: 1b000000
+    defaultFont: {fileID: 0}
+    defaultSizeScale: 1
+    fontRules:
+    - original: {fileID: 11400000, guid: 759accaa4ac2581479aa673fda0ef5c9, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.82
+    - original: {fileID: 11400000, guid: cd1cf9cc035cb5d40aab14e7348c5722, type: 2}
+      replacement: {fileID: 11400000, guid: bd0907a74af5bc043b77dbbb1c7b2c52, type: 2}
+      sizeScale: 0.9
+    - original: {fileID: 11400000, guid: 6a92e3439a1514548b31651f688a69ba, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+    - original: {fileID: 11400000, guid: 0a78256acac7a7b46bdb1b2a71386597, type: 2}
+      replacement: {fileID: 11400000, guid: 9bc80d287d23bec4786e053c92b5f3fb, type: 2}
+      sizeScale: 1.1
+    - original: {fileID: 11400000, guid: 398ceefd8b8f7084faf48853853d5fb1, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: d8b60348e071a7047abbe1036bf5145d, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e4cf2c21c93fda745b09b91b791a22c2, type: 2}
+      replacement: {fileID: 11400000, guid: 1be97c5e31613324d9f5e678effd9822, type: 2}
+      sizeScale: 1
+    - original: {fileID: 11400000, guid: e34dbeedaa0847c40b2431bc507bcc16, type: 2}
+      replacement: {fileID: 11400000, guid: bac51963be6d82340819c59fd32dda38, type: 2}
+      sizeScale: 0.85
+  - code: ko
+    nativeName: "\uD55C\uAD6D\uC5B4"
+    englishName: Korean
+    systemLanguages: 17000000
+    defaultFont: {fileID: 11400000, guid: c66e9995f53f24a4f93cc30713b9d118, type: 2}
+    defaultSizeScale: 1
+    fontRules: []
+  globalFallbackFonts:
+  - {fileID: 11400000, guid: c73be777ed2708241bfe1fb91403ac21, type: 2}
+  - {fileID: 11400000, guid: 1bae81be1f3783a449ed33d782d2e285, type: 2}
+  - {fileID: 11400000, guid: 75750156006b6674ca5e4461400764f4, type: 2}
+  - {fileID: 11400000, guid: c66e9995f53f24a4f93cc30713b9d118, type: 2}
+  logMissingTranslations: 1

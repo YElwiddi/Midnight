@@ -1,0 +1,4721 @@
+{
+ "locale": "de",
+ "entries": [
+  {
+   "k": "ending.wrathfulSpirit.title",
+   "v": "Schlechtes Ende - Ein zorniger Geist"
+  },
+  {
+   "k": "ending.wrathfulSpirit.type",
+   "v": "Ende"
+  },
+  {
+   "k": "ending.wrathfulSpirit.description",
+   "v": "Du hast deinen Verstand verloren. Bleib im Licht und überprüfe deine Besucher."
+  },
+  {
+   "k": "ending.ambush.title",
+   "v": "Schlechtes Ende - Ein Hinterhalt"
+  },
+  {
+   "k": "ending.ambush.type",
+   "v": "Ende"
+  },
+  {
+   "k": "ending.ambush.description",
+   "v": "Du hast den Friedhof nicht gesichert. Patrouilliere öfter über den Friedhof und prüfe die Kameras. Sei nicht zu vertrauensselig."
+  },
+  {
+   "k": "ending.wrongfulConviction.title",
+   "v": "Gutes Ende - Ein Fehlurteil"
+  },
+  {
+   "k": "ending.wrongfulConviction.type",
+   "v": "Ende"
+  },
+  {
+   "k": "ending.wrongfulConviction.description",
+   "v": "Der Friedhof hat seinen Frieden gefunden."
+  },
+  {
+   "k": "ending.happilyEverAfter.title",
+   "v": "Gutes Ende? - Glücklich bis ans Ende"
+  },
+  {
+   "k": "ending.happilyEverAfter.type",
+   "v": "Ende"
+  },
+  {
+   "k": "ending.happilyEverAfter.description",
+   "v": "Glückwunsch!"
+  },
+  {
+   "k": "ending.father.title",
+   "v": "Verborgenes Ende - Das Schicksal des Paters"
+  },
+  {
+   "k": "ending.father.type",
+   "v": "Ende"
+  },
+  {
+   "k": "ending.father.description",
+   "v": "Hast du gefunden, wonach du gesucht hast?"
+  },
+  {
+   "k": "fiend.friend.title",
+   "v": "Der Freund"
+  },
+  {
+   "k": "fiend.friend.flavor",
+   "v": "Langsam, aber methodisch. Ein Meister der Beharrlichkeit."
+  },
+  {
+   "k": "fiend.friend.ability",
+   "v": "Empfindlich gegen Taschenlampenlicht."
+  },
+  {
+   "k": "fiend.friend.spawn",
+   "v": "Anzeichen geringer Intelligenz, von Geistesschwäche."
+  },
+  {
+   "k": "fiend.wraith.title",
+   "v": "Der Schemen"
+  },
+  {
+   "k": "fiend.wraith.flavor",
+   "v": "Schnell, aggressiv, tödlich."
+  },
+  {
+   "k": "fiend.wraith.ability",
+   "v": "Tödliche Jagdgeschwindigkeit."
+  },
+  {
+   "k": "fiend.wraith.spawn",
+   "v": "Anzeichen von Selbstüberschätzung, Arroganz, Tapferkeit."
+  },
+  {
+   "k": "fiend.beast.title",
+   "v": "Die Bestie"
+  },
+  {
+   "k": "fiend.beast.flavor",
+   "v": "Lautlos und schwer zu fassen. Zeigt sich nicht gern."
+  },
+  {
+   "k": "fiend.beast.ability",
+   "v": "Unsichtbarkeit und elektrische Störungen."
+  },
+  {
+   "k": "fiend.beast.spawn",
+   "v": "Anzeichen von Ängstlichkeit, Schüchternheit oder Schwäche."
+  },
+  {
+   "k": "fiend.label.ability",
+   "v": "Besondere Fähigkeit:"
+  },
+  {
+   "k": "fiend.label.spawn",
+   "v": "Erscheinungsbedingung:"
+  },
+  {
+   "k": "ui.menu.play",
+   "v": "SPIELEN"
+  },
+  {
+   "k": "ui.menu.endings",
+   "v": "ENDEN"
+  },
+  {
+   "k": "ui.menu.settings",
+   "v": "OPTIONEN"
+  },
+  {
+   "k": "ui.menu.quit",
+   "v": "BEENDEN"
+  },
+  {
+   "k": "ui.menu.cancel",
+   "v": "ABBRECHEN"
+  },
+  {
+   "k": "ui.menu.accept",
+   "v": "BESTÄTIGEN"
+  },
+  {
+   "k": "ui.menu.back",
+   "v": "ZURÜCK"
+  },
+  {
+   "k": "ui.settings.title",
+   "v": "OPTIONEN"
+  },
+  {
+   "k": "ui.settings.language",
+   "v": "Sprache"
+  },
+  {
+   "k": "ui.settings.resolution",
+   "v": "Auflösung"
+  },
+  {
+   "k": "ui.settings.fullscreen",
+   "v": "Vollbild"
+  },
+  {
+   "k": "ui.settings.brightness",
+   "v": "Helligkeit"
+  },
+  {
+   "k": "ui.settings.volume",
+   "v": "Lautstärke"
+  },
+  {
+   "k": "ui.settings.brightnessNote",
+   "v": "Die Standardhelligkeit wird dringend empfohlen."
+  },
+  {
+   "k": "ui.endings.discovered",
+   "v": "{0} / {1}  ENTDECKT"
+  },
+  {
+   "k": "ui.endings.fiendsTeaserLocked",
+   "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.endings.fiendsTeaser",
+   "v": "{0} / {1}  GRUFTDÄMONEN GEFUNDEN"
+  },
+  {
+   "k": "ui.fiends.header",
+   "v": "GRUFTDÄMONEN"
+  },
+  {
+   "k": "ui.fiends.headerLocked",
+   "v": "?????"
+  },
+  {
+   "k": "ui.fiends.found",
+   "v": "{0} / {1}  GEFUNDEN"
+  },
+  {
+   "k": "ui.disclaimer.headphones",
+   "v": "Es wird empfohlen, Kopfhörer zu verwenden"
+  },
+  {
+   "k": "ui.pause.resume",
+   "v": "Fortsetzen"
+  },
+  {
+   "k": "ui.pause.exit",
+   "v": "Beenden"
+  },
+  {
+   "k": "ui.readable.page",
+   "v": "Seite {0}/{1}"
+  },
+  {
+   "k": "ui.cctv.camera",
+   "v": "KAMERA {0}"
+  },
+  {
+   "k": "??????",
+   "v": "??????"
+  },
+  {
+   "k": "Click to continue...",
+   "v": "Klicken, um fortzufahren..."
+  },
+  {
+   "k": "The last gravekeeper left without a word.",
+   "v": "Der letzte Friedhofswärter ging ohne ein Wort."
+  },
+  {
+   "k": "Don't know why he left, but the job opened up, and I desperately needed cash.",
+   "v": "Keine Ahnung, warum er gegangen ist, aber die Stelle wurde frei, und ich brauchte dringend Geld."
+  },
+  {
+   "k": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here.",
+   "v": "Ist nur ein Job als Friedhofswache. Sollte nicht allzu schwer sein. Einfach die Jugendlichen und Banden von hier fernhalten. Es ist ziemlich öde hier draußen."
+  },
+  {
+   "k": "September 17, 1999.",
+   "v": "17. September 1999."
+  },
+  {
+   "k": "???",
+   "v": "???"
+  },
+  {
+   "k": "I can't think straight...",
+   "v": "Ich kann keinen klaren Gedanken fassen..."
+  },
+  {
+   "k": "Place the rose on the gravesite?",
+   "v": "Die Rose auf dem Grab ablegen?"
+  },
+  {
+   "k": "The rose immediately wilted away...",
+   "v": "Die Rose ist sofort verwelkt..."
+  },
+  {
+   "k": "Where am I?",
+   "v": "Wo bin ich?"
+  },
+  {
+   "k": "I can't leave during my shift...",
+   "v": "Ich kann während meiner Schicht nicht weg..."
+  },
+  {
+   "k": "The door is locked.",
+   "v": "Die Tür ist verschlossen."
+  },
+  {
+   "k": "The door is locked. There is a cold chill coming from the other side.",
+   "v": "Die Tür ist verschlossen. Von der anderen Seite kommt eine eisige Kälte."
+  },
+  {
+   "k": "There is a cold chill coming from the other side. Should I enter?",
+   "v": "Von der anderen Seite kommt eine eisige Kälte. Soll ich hineingehen?"
+  },
+  {
+   "k": "The door won't budge...",
+   "v": "Die Tür rührt sich nicht..."
+  },
+  {
+   "k": "I need a shovel for this.",
+   "v": "Dafür brauche ich eine Schaufel."
+  },
+  {
+   "k": "Are you sure you want to exhume this site?",
+   "v": "Willst du dieses Grab wirklich öffnen?"
+  },
+  {
+   "k": "It's locked.",
+   "v": "Es ist verschlossen."
+  },
+  {
+   "k": "I think this key from the church opens this chest. Should I unlock it?",
+   "v": "Ich glaube, dieser Schlüssel aus der Kirche passt zu dieser Truhe. Soll ich sie aufschließen?"
+  },
+  {
+   "k": "I shouldn't be here",
+   "v": "Ich sollte nicht hier sein"
+  },
+  {
+   "k": "A single rose... should I take it?",
+   "v": "Eine einzelne Rose... soll ich sie mitnehmen?"
+  },
+  {
+   "k": "The door won't budge.",
+   "v": "Die Tür rührt sich nicht."
+  },
+  {
+   "k": "FRONT GATE",
+   "v": "VORDERES TOR"
+  },
+  {
+   "k": "That should be it. I need to keep these on.",
+   "v": "Das sollte reichen. Ich muss sie am Brennen halten."
+  },
+  {
+   "k": "I should finish what I came here for.",
+   "v": "Ich sollte zu Ende bringen, weswegen ich hergekommen bin."
+  },
+  {
+   "k": "The door is locked...",
+   "v": "Die Tür ist verschlossen..."
+  },
+  {
+   "k": "The words on this tombstone are smeared and illegible.",
+   "v": "Die Worte auf diesem Grabstein sind verschmiert und unleserlich."
+  },
+  {
+   "k": "You found a key. Do you want to pick it up?",
+   "v": "Du hast einen Schlüssel gefunden. Willst du ihn aufheben?"
+  },
+  {
+   "k": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?",
+   "v": "Das ist der Schlüssel zum hinteren Tor. Ich glaube, ich sollte ihn hierlassen. Soll ich ihn trotzdem nehmen?"
+  },
+  {
+   "k": "Its locked. I can't find my key...",
+   "v": "Es ist verschlossen. Ich finde meinen Schlüssel nicht..."
+  },
+  {
+   "k": "The gate is stuck.",
+   "v": "Das Tor klemmt."
+  },
+  {
+   "k": "I should definitely keep this locked. Should I open it anyway?",
+   "v": "Ich sollte es unbedingt verschlossen lassen. Soll ich es trotzdem öffnen?"
+  },
+  {
+   "k": "I should get these lights on right away...",
+   "v": "Ich sollte sofort diese Lampen anmachen..."
+  },
+  {
+   "k": "I should read some of the notes that were left behind...",
+   "v": "Ich sollte ein paar der zurückgelassenen Notizen lesen..."
+  },
+  {
+   "k": "An incessant noise in your head has gone silent.",
+   "v": "Ein unaufhörliches Rauschen in deinem Kopf ist verstummt."
+  },
+  {
+   "k": "BACK GATE",
+   "v": "HINTERES TOR"
+  },
+  {
+   "k": "Use the left and right arrow keys to switch between cameras.",
+   "v": "Mit den Pfeiltasten links und rechts wechselst du zwischen den Kameras."
+  },
+  {
+   "k": "I should check on my visitor.",
+   "v": "Ich sollte nach meiner Besucherin sehen."
+  },
+  {
+   "k": "Fine. Go in. But be quick.",
+   "v": "Na gut. Gehen Sie rein. Aber beeilen Sie sich."
+  },
+  {
+   "k": "TOGETHER FOREVER",
+   "v": "FÜR IMMER VEREINT"
+  },
+  {
+   "k": "He seems distraught. Let's give him a moment.",
+   "v": "Er wirkt verstört. Geben wir ihm einen Moment."
+  },
+  {
+   "k": "Let's give him a moment...",
+   "v": "Geben wir ihm einen Moment..."
+  },
+  {
+   "k": "He seems to be fidgeting around.",
+   "v": "Er scheint unruhig herumzuzappeln."
+  },
+  {
+   "k": "He appears to be zoning out. I should give him a moment.",
+   "v": "Er scheint geistesabwesend zu sein. Ich sollte ihm einen Moment geben."
+  },
+  {
+   "k": "He appears to be staring out into the distance...",
+   "v": "Er scheint in die Ferne zu starren..."
+  },
+  {
+   "k": "Let's give her a moment to calm down.",
+   "v": "Geben wir ihr einen Moment, um sich zu beruhigen."
+  },
+  {
+   "k": "She seems lost in grief. Let's give her a moment.",
+   "v": "Sie scheint in ihrer Trauer verloren. Geben wir ihr einen Moment."
+  },
+  {
+   "k": "She's standing very still, staring at nothing.",
+   "v": "Sie steht ganz still da und starrt ins Leere."
+  },
+  {
+   "k": "What was Hector doing out here this late?",
+   "v": "Was hat Hector so spät hier draußen gemacht?"
+  },
+  {
+   "k": "He is conducting his investigation, I shouldn't interfere...",
+   "v": "Er führt seine Ermittlungen durch, ich sollte mich nicht einmischen..."
+  },
+  {
+   "k": "I should give him a moment.",
+   "v": "Ich sollte ihm einen Moment geben."
+  },
+  {
+   "k": "I should give her a moment...",
+   "v": "Ich sollte ihr einen Moment geben..."
+  },
+  {
+   "k": "A Wrongful Conviction",
+   "v": "Ein Fehlurteil"
+  },
+  {
+   "k": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground.",
+   "v": "Der Fluch wurde gebrochen. Kurz darauf verblasste die Erinnerung aller an die Ereignisse, die sich hier zugetragen hatten. Der Friedhof wurde langsam wieder zu einer gewöhnlichen, unbeachteten Begräbnisstätte."
+  },
+  {
+   "k": "The flashlight won't turn on...",
+   "v": "Die Taschenlampe geht nicht an..."
+  },
+  {
+   "k": "My shovel broke...",
+   "v": "Meine Schaufel ist zerbrochen..."
+  },
+  {
+   "k": "The shovel is broken. I can't dig anymore.",
+   "v": "Die Schaufel ist zerbrochen. Ich kann nicht mehr graben."
+  },
+  {
+   "k": "Yes",
+   "v": "Ja"
+  },
+  {
+   "k": "No",
+   "v": "Nein"
+  },
+  {
+   "k": "I shouldn't be here...",
+   "v": "Ich sollte nicht hier sein..."
+  },
+  {
+   "k": "Why am I here?",
+   "v": "Warum bin ich hier?"
+  },
+  {
+   "k": "I need to leave.",
+   "v": "Ich muss hier weg."
+  },
+  {
+   "k": "I'm not safe here",
+   "v": "Hier bin ich nicht sicher"
+  },
+  {
+   "k": "It's not safe",
+   "v": "Es ist nicht sicher"
+  },
+  {
+   "k": "I CAN'T KEEP GOING",
+   "v": "ICH KANN NICHT MEHR"
+  },
+  {
+   "k": "STOP",
+   "v": "HÖR AUF"
+  },
+  {
+   "k": "I'M GOING TO DIE",
+   "v": "ICH WERDE STERBEN"
+  },
+  {
+   "k": "I found something...",
+   "v": "Ich habe etwas gefunden..."
+  },
+  {
+   "k": "Nothing here... just bones.",
+   "v": "Hier ist nichts... nur Knochen."
+  },
+  {
+   "k": "I picked up the shovel.",
+   "v": "Ich habe die Schaufel aufgehoben."
+  },
+  {
+   "k": "The spirits have been appeased...",
+   "v": "Die Geister wurden besänftigt..."
+  },
+  {
+   "k": "Are you sure you want to enter?",
+   "v": "Willst du wirklich hineingehen?"
+  },
+  {
+   "k": "A single rose, perfectly preserved. Should I take it?",
+   "v": "Eine einzelne Rose, perfekt erhalten. Soll ich sie mitnehmen?"
+  },
+  {
+   "k": "I can't... I can't think straight...",
+   "v": "Ich kann nicht... ich kann keinen klaren Gedanken fassen..."
+  },
+  {
+   "k": "Here lies Aaron Vanderbilt\n1924-1993",
+   "v": "Hier ruht Aaron Vanderbilt\n1924-1993"
+  },
+  {
+   "k": "MOCKERY OF LIFE",
+   "v": "EIN HOHN AUF DAS LEBEN"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+   "v": "Geborgene Feldnotiz, informelle Bezeichnung: \n„Die Bestie“\nQuelle geschwärzt\n\nDie Überlebenden sind sich zumindest in einem einig: Die Kreatur kündigt sich nicht an. Sie wartet, bis sie einen beurteilt hat. Anzeichen geistiger Schwäche scheinen sie anzulocken. Sie lauert auf das Zögern. Auf den Moment, in dem die Gedanken langsamer werden und der Wille in sich zusammenfällt.\n\nWer nie merkt, dass er gejagt wurde, berichtet oft gar nichts. Diese Menschen verschwinden lautlos. Keine Schreie, keine Spuren einer Verfolgung. Die Bestie verschwendet keine Kraft auf Panik."
+  },
+  {
+   "k": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+   "v": "Wenn sie sich zeigt, dann gezielt und kurz. Eine Silhouette, wo keine sein sollte.\n\nSie bevorzugt Verborgenheit vor Schnelligkeit, Geduld vor Gewalt. Sie bleibt stundenlang unsichtbar, manchmal tagelang, und verfolgt dieselbe Person, bis die Beute sie – durch Angst, Isolation oder Zweifel – davon überzeugt, dass die Tötung mühelos sein wird.\n\nWer sie anstarrt, verliert den Verstand. Es ist außerdem bekannt, dass sie elektronische Geräte stört."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Adel\n\n\nFamilienmitglieder:\nJason Adel, 5, verstorben\nMaria Adel, 31, lebend\nMonroe Adel, 31, verstorben\n\nJason ist auf diesem Gelände beigesetzt.\n\nTodesursache: Ersticken\n\nTodeszeitpunkt: Dienstag, 28. Dezember 1998, 20:04 Uhr"
+  },
+  {
+   "k": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances.",
+   "v": "Jason und Monroe Adel wurden tot in ihrem Haus aufgefunden, mit deutlichen Spuren eines Kampfes. Monroe war an mehreren Stichwunden verblutet, darunter eine in eine lebenswichtige Halsarterie. Jason starb an einer eindeutigen Halsverletzung, die ihm offenbar sein Vater zugefügt hatte.\n\nMaria wurde unmittelbar nach dem Vorfall in eine Nervenheilanstalt eingewiesen, aber einige Zeit später entlassen. Anschließend wurde ihr dauerhaft der Zutritt zu diesem Gelände verboten, nachdem sie in einem psychotischen Anfall versucht hatte, die Tore aufzubrechen, um das Grab zu besuchen.\n\nMaria darf unter keinen Umständen eingelassen werden."
+  },
+  {
+   "k": "I should let her in",
+   "v": "Ich sollte sie hereinlassen"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+   "v": "Geborgene Feldnotiz, informelle Bezeichnung:\n„Der Freund“\nSeltsame Begegnung\n\nHeute bemerkte ich ungewöhnliche Veränderungen. Die Temperatur fiel plötzlich und ohne Erklärung. Kleine Gegenstände fanden sich verschoben, als wäre etwas hindurchgegangen. Die Bewegungen waren gering, fast unmerklich, aber beharrlich.\n\nDa ist ein Gefühl, schwer zu beschreiben, beobachtet zu werden. Die Schatten wirken schwerer, und manchmal spüre ich eine Gegenwart knapp außerhalb meines Blickfelds. Sie bewegt sich vorsichtig, meidet direktes Licht und gibt keinen Laut von sich, es sei denn, man provoziert sie. Das Muster ist unregelmäßig, aber gezielt genug, um auf Bewusstsein schließen zu lassen."
+  },
+  {
+   "k": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+   "v": "Ich habe subtile Spuren beobachtet, die sich nicht erklären lassen. Zuvor unberührte Flächen zeigen Anzeichen von Störung. Die Luft fühlt sich danach oft dicht an, als bewahrte sie die Erinnerung an eine Bewegung. Die Veränderungen sind nicht gewaltsam, wiederholen sich aber mit beunruhigender Regelmäßigkeit.\n\nIch habe diese Anomalien sorgfältig festgehalten. Es gibt keine baulichen Schäden, keine Anzeichen menschlicher Einwirkung und keine Erklärung, die zu den Beobachtungen passt. Dennoch gehen die Ereignisse weiter, und jeder Vorfall hinterlässt denselben bedrückenden, nachhallenden Eindruck.\n\nIch kann es nicht erklären. Was immer es ist, es scheint sich seiner Handlungen nicht vollständig bewusst zu sein, und doch beeinflusst seine Gegenwart den Ort zutiefst. Die wahre Gefahr, die von dieser Kreatur ausgeht, spürt man in ihrer Abwesenheit. Ich werde weitere Vorkommnisse notieren und Muster festhalten, sobald sie sich abzeichnen."
+  },
+  {
+   "k": "Those who unearth the grave meant to remain closed seal their fate.",
+   "v": "Wer das Grab öffnet, das verschlossen bleiben sollte, besiegelt sein Schicksal."
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
+   "v": "Geborgene Feldnotiz, vorläufige Bezeichnung:\n„Die Braut“\nUnbekannte Begegnung"
+  },
+  {
+   "k": "This entry appears to be empty.",
+   "v": "Dieser Eintrag scheint leer zu sein."
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+   "v": "Geborgene Feldnotiz, informelle Bezeichnung:\n„Der Schemen“\nOrt nicht genannt\n\nDas Register trägt seine Spur, noch bevor ich eine Leiche sehe.\n\nIch gehe seit Jahren über dieses Gelände, und doch verändert sich die Luft, wenn er vorbeizieht. Man sieht ihn nicht, nicht so, wie man erwartet, dass eine Kreatur erscheint. Nur die Stille verrät ihn.\n\nWen er wählt, der flieht nicht. Es gibt keine Jagd. Es gibt keinen Kampf. Bis es jemand bemerkt, hat er sie bereits geholt. Es besteht kein Zweifel: Dieses Wesen scheint das gefährlichste unter allen dokumentierten zu sein."
+  },
+  {
+   "k": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+   "v": "Er wird von Stärke angezogen. Die Fähigen, die Trotzigen, die Vorbereiteten – sie sind seine Beute. Die Schwachen mögen unbemerkt bleiben, aber die Starken... jene, die er für würdig hält, werden mit Präzision ausgelöscht. Kein Überlebender kann von der Begegnung berichten. Nur die Spuren bleiben, subtil und grausam.\n\nIch weiß nicht, wie er sich bewegt oder woher er kommt. \nDie Berichte lassen nur einen Schluss zu: Eine Begegnung mit dieser Kreatur endet nicht in einer gewöhnlichen Jagd."
+  },
+  {
+   "k": "This place was not filled at random.",
+   "v": "Dieser Ort wurde nicht wahllos gefüllt."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Anderson\n\n\nFamilienmitglieder:\nAnthony Anderson, 41, verstorben\nDiane Anderson, 39, verstorben\nJames Anderson, 9, verstorben\nDerek Anderson, 10, verstorben\nLily Anderson, 6, lebend\n\nAnthony ist auf diesem Gelände beigesetzt.\n\nTodesursache: Verbrannt bei einem Hausbrand\n\nTodeszeitpunkt: Dienstag, 11. Oktober 1988, 00:03 Uhr"
+  },
+  {
+   "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
+   "v": "Anthony Anderson, seine Frau Diane und ihre beiden Söhne wurden nach einem kurz nach Mitternacht gemeldeten Brand aus ihrem Haus geborgen. Das Feuer wurde auf einen elektrischen Defekt nahe dem hinteren Treppenhaus zurückgeführt, wo die Schäden am größten waren. Die Opfer wurden gemeinsam in einem Schlafzimmer im Obergeschoss gefunden, als Todesursache wurde Rauchvergiftung vermerkt. Ein Kind überlebte, da es das Haus verlassen hatte, bevor die Rettungskräfte eintrafen, und kam später in eine Pflegefamilie. Der amtliche Bericht vermerkt keine Hinweise auf gewaltsames Eindringen oder Fremdeinwirkung.\n\nNachbarn erinnerten sich, dass die Familie in den Wochen vor dem Brand zu ungewöhnlichen Zeiten wach war und nach und nach Gegenstände aus den oberen Räumen entfernt hatte, ohne dass ein Grund genannt wurde. Prüfungen der Versorgungsleitungen ergaben keine früheren Mängel, und das überlebende Kind weigerte sich, die Ereignisse vor dem Sichtbarwerden der Flammen zu beschreiben; es sagte nur, der Vater habe ihnen aufgetragen, zusammenzubleiben. Ein Feuerzeug wurde im Schutt nahe der Treppe erfasst und wegen der Brandschäden als unbedeutend eingestuft. Der Fall wurde als Unglücksfall geschlossen, weitere Ermittlungen unterblieben."
+  },
+  {
+   "k": "Here lies Zackary Holmes\nFather of One\n1952-1998",
+   "v": "Hier ruht Zackary Holmes\nVater eines Kindes\n1952-1998"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+   "v": "Geborgene Feldnotiz, informelle Bezeichnung:\n„Die Yūrei“\n\nAuf dem Friedhof wurde eine neue Präsenz festgestellt. Der Zeitpunkt deutet auf eine kürzliche Bestattung hin, das zugehörige Grab ist jedoch nicht bestätigt. Die Aktivität setzte abrupt ein, als wäre die Rolle übernommen und nicht mit der Zeit entwickelt worden.\n\nDas Wesen zeigt eine erhöhte emotionale Empfindsamkeit. Menschliche Gegenwart löst wechselnde Wirkungen aus, die persönlicher Natur zu sein scheinen. Manche Besucher berichten von Ruhe oder Zögern, als würden sie sanft ermutigt zu bleiben. Andere erleben Unbehagen, aufdringliche Gedanken und den starken Eindruck, unerwünscht zu sein."
+  },
+  {
+   "k": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+   "v": "Das Verhalten deutet auf ein selektives Urteil hin. Der Zutritt wird manchmal ohne physisches Hindernis verwehrt, in anderen Fällen stillschweigend gewährt. Diese Entscheidungen wirken nicht folgerichtig, was eher auf einen inneren Konflikt als auf Schadensabsicht schließen lässt.\n\nRespektlosigkeit gegenüber dem Gelände führt bei den Verantwortlichen zu unmittelbarer geistiger Verstörung. Die Wirkung lässt nach, sobald die Ordnung wiederhergestellt ist. Kein körperlicher Schaden wurde dem Wesen direkt zugeschrieben.\n\nDie Yūrei scheint an den Friedhof gebunden und um seinen Erhalt bemüht. Sie sucht Ruhe, bleibt aber wachsam. Ihre Bindung an bestimmte Personen erschwert ihre Aufgabe. Weitere Beobachtung ist erforderlich."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Holmes\n\n\nFamilienmitglieder:\nJason Holmes, 48, lebend\nZackary Holmes, 46, verstorben\nEdward Holmes, 17, verstorben\nElisabeth Holmes, 45, lebend\n\nEdward und Zackary sind auf diesem Gelände beigesetzt.\n\nTodesursache: Unbekannt; angeblich ein Unfall\n\nTodeszeitpunkt: Sonntag, 12. April 1998, 03:45 Uhr"
+  },
+  {
+   "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
+   "v": "Zackary und Edward Holmes wurden hier nach einem Unfall beigesetzt, der auf der Landstraße gemeldet wurde. Die amtlichen Berichte beschreiben einen Unfall mit nur einem Fahrzeug; der Wagen wurde jenseits der Baumgrenze auf dem Dach liegend gefunden, der Motor noch warm, als die Behörden eintrafen. Elisabeth wurde in der Nähe unter Schock aufgefunden und später ohne Anklage entlassen. Die verbliebene Familie lehnte weitere Nachforschungen ab, und der Fall wurde als Unglück und nicht als Verbrechen verzeichnet.\n\nIn den Wochen zuvor fielen den Nachbarn ungewöhnliche Zeiten im Haus der Holmes auf sowie das stetige Fortschaffen von Möbeln aus dem Keller an einen unbekannten Ort. Die Kirchenbücher zeigen, dass Zackary und Edward seit einiger Zeit keinen Gottesdienst mehr besucht hatten, obwohl später Kerzen und Asche unter ihren persönlichen Sachen gefunden wurden. Der Friedhofswärter vermerkt, dass das Fahrzeug angesichts der beschriebenen Schwere kaum Schäden aufwies und dass Elisabeth nach der Beisetzung nie wieder auf dieses Gelände zurückkehrte. Was sich vor 3:45 Uhr an jenem Morgen ereignete, wurde nie amtlich untersucht, doch das Schweigen der Lebenden legt nahe, dass die Schlussfolgerung lange vor dem Bericht feststand."
+  },
+  {
+   "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
+   "v": "ER IST EIN VERDAMMTER LÜGNER TRAU IHM NICHT"
+  },
+  {
+   "k": "It patrols. Corners are death.",
+   "v": "Es patrouilliert. Ecken sind der Tod."
+  },
+  {
+   "k": "The necessary course is clear.\nThose interred under false cause must be exhumed.",
+   "v": "Der notwendige Weg ist klar.\nWer unter falscher Ursache beigesetzt wurde, muss exhumiert werden."
+  },
+  {
+   "k": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998",
+   "v": "Hier ruht Jason Adel\nZu schön für diese Welt\n1993-1998"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment.",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nPater Joseph\n\nDie vor einiger Zeit aufgegebene Kirche stammt aus einer Zeit, die älter ist als jene, die hier begraben liegen. Die jahrhundertealte Kirche wurde erst kürzlich aufgegeben. Es wurde angemerkt, dass der Zeitpunkt der Aufgabe der Kirche auffällig mit den anomalen Vorkommnissen zusammenfällt, die seither begonnen haben."
+  },
+  {
+   "k": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate.",
+   "v": "Zur Information über den letzten Verwalter der Kirche und sein rätselhaftes Verschwinden:\n\nPater Joseph besuchte dieses Gelände vor vielen Jahren häufig und war stets willkommen. In seiner Gegenwart herrschte oft eine friedvolle Stimmung.\n\nEr entstammt einer Glaubensgemeinschaft, die dem Klerus die Ehe nicht gestattet. Offenbar verstieß er gegen diese Regel und entfachte innerhalb des Ministeriums einen Streit über gewisse Auslegungen, die er für zu streng hielt. Später sagte er sich vom Klerus los.\n\nEr sollte seine Verlobte heiraten, erschien am Hochzeitstag jedoch nicht am Altar. Frühere Aufzeichnungen erwähnen, dass seine Verlobte aus Kummer starb, als sie angeblich vom Schicksal Pater Josephs erfuhr.\n\nSein Schicksal ist seither nicht geklärt worden."
+  },
+  {
+   "k": "Hannah Wainwright\n1904\nDeath by electric chair",
+   "v": "Hannah Wainwright\n1904\nTod auf dem elektrischen Stuhl"
+  },
+  {
+   "k": "Henry Fairchild\n1802\nDeath during imprisonment",
+   "v": "Henry Fairchild\n1802\nTod in Gefangenschaft"
+  },
+  {
+   "k": "TRAPPED",
+   "v": "GEFANGEN"
+  },
+  {
+   "k": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998",
+   "v": "Hier ruht Edward Holmes\nGeliebter Sohn, treuer Freund\n1981-1998"
+  },
+  {
+   "k": "Anne Radcliffe\n1792\nDeath by guillotine",
+   "v": "Anne Radcliffe\n1792\nTod durch die Guillotine"
+  },
+  {
+   "k": "TORN IN TWO",
+   "v": "ENTZWEIGERISSEN"
+  },
+  {
+   "k": "Benjamin Carver\n1742\nDeath by drowning",
+   "v": "Benjamin Carver\n1742\nTod durch Ertrinken"
+  },
+  {
+   "k": "James Thornton\n1804\nDeath by firing squad",
+   "v": "James Thornton\n1804\nTod durch Erschießungskommando"
+  },
+  {
+   "k": "THE BLEEDING WON'T STOP",
+   "v": "DIE BLUTUNG HÖRT NICHT AUF"
+  },
+  {
+   "k": "Cordelia Monroe\n1802\nBurned at the stake",
+   "v": "Cordelia Monroe\n1802\nAuf dem Scheiterhaufen verbrannt"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Adams\n\nFamilienmitglieder:\nEdwin Adams, 21, lebend\nJane Adams, 54, verstorben\nRebecca Adams, 48, lebend\n\nJane Adams ist auf diesem Gelände beigesetzt.\n\nTodesursache: Suizid\n\nTodeszeitpunkt: Sonntag, 22. Dezember 1985, 03:21 Uhr"
+  },
+  {
+   "k": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
+   "v": "Jane Adams ruht hier nach einem Leben, das von Ordnung und Zurückhaltung geprägt war. Sie arbeitete viele Jahre als Buchhalterin im städtischen Bauamt, hielt ihr Haus makellos und erzog ihren Sohn Edwin mit strengen Routinen und klaren Erwartungen. Als Edwin sieben war, schickte sie ihn zu engen Freunden der Familie in einen anderen Bundesstaat und erzählte den Nachbarn, es sei wegen der besseren Schule. Nach seinem Weggang ließ Janes Anwesenheit bei der Arbeit nach, und sie kündigte in aller Stille.\n\nWochen später nahm sich Jane das Leben. Der Friedhofswärter vermerkt, dass Edwin nie über ihren Tod informiert wurde und die Verantwortlichen übereinkamen, ihn weder zurückzuholen noch ihm die Umstände mitzuteilen. Die Folgen ihrer Taten und die Schande, die sie mit sich brachten, waren mehr, als sie offen zu verantworten bereit war. Sie beendete ihr Leben in Einsamkeit und stellte so sicher, dass die Erinnerung ihres Sohnes an sie unbelastet bleiben würde von der Wahrheit, die sie nicht ertragen konnte."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Vanderbilt\n\nFamilienmitglieder:\nAaron Vanderbilt, 69, verstorben\nHarold Vanderbilt, 42, unbekannt\nErick Vanderbilt, 22, lebend\n\nAaron Vanderbilt ist auf diesem Gelände beigesetzt.\n\nTodesursache: Schussverletzung\n\nTodeszeitpunkt: Sonntag, 27. Juni 1993, 19:48 Uhr"
+  },
+  {
+   "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
+   "v": "Aaron Vanderbilt bleibt hier als ein Mann in Erinnerung, dessen Leben die Last von Abwesenheit und Fehltritten trug. Sein Bruder verschwand vor vielen Jahren unter Umständen, die niemand nachvollziehen konnte, und ließ Aaron allein in der Welt zurück. Obwohl fähig und klug, geriet er in Kreise, die Chancen versprachen und Gefahr brachten, und verband sich mit Menschen von flüchtiger Loyalität und selten ehrlichen Absichten.\n\nWer ihn kannte, spricht von stillen Kämpfen hinter einer selbstsicheren Fassade. Aarons Geschäfte mit den falschen Leuten prägten einen Großteil seiner späten Jahre und machten ihn einsam und misstrauisch. Das Schicksal seines Bruders liegt wie ein Schatten über seinem Leben – eine Mahnung an verlorene Wege und Entscheidungen, deren Folgen sich unserer Kontrolle entziehen.\n\nAaron Vanderbilt ruht hier allein."
+  },
+  {
+   "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
+   "v": "<size=145%><b>DIE AUFZEICHNUNGEN DES WÄCHTERS</b></size>\n<size=85%>1999</size>\n\n<i>In diesem Buch findest du Anweisungen, wie du über diesen Friedhof zu wachen hast. Weiche nicht von diesen Anweisungen ab. Dieses Buch enthält eine Sammlung aller Aufzeichnungen früherer Friedhofswächter.</i>\n\n<i>Diese Ruhestätte ist Jahrhunderte alt und darf nicht angetastet werden. Als Friedhofswärter wirst du die folgenden Anweisungen lesen und dich an sie halten.</i>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Sorge dafür, dass die Lampen auf dem gesamten Friedhof jederzeit brennen.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Sorge dafür, dass das Kruzifix jederzeit ordnungsgemäß an der Tür der Hütte befestigt ist. Das Kruzifix bestimmt deinen Verstand.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Wenn du eine Pause brauchst, kehre zur Hütte zurück. Sie ist immer sicher, solange das Kruzifix an der Tür hängt.</align>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Du darfst nur Besucher einlassen, die direkt mit den Verstorbenen verwandt sind.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Vertraue Besuchern nicht blind. Überprüfe jede Angabe, die sie dir machen.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Du hältst Wache am Tor, damit unerwünschte Besucher die Gräber nicht schänden. Du musst außerdem das Gelände abgehen.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Wenn jemand unbefugt eindringt, vertreibe ihn mit deiner Taschenlampe. Halte in der Nähe der Gräber jederzeit nach Eindringlingen Ausschau.</align>\n\n<size=72%><i>(Fortsetzung)</i></size>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Halte das hintere Tor jederzeit verschlossen. Ein Zutritt von hinten ist nicht gestattet.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Die Überwachungskameras behalten beide Eingangstore im Blick. Es ist wichtig, sie zu überwachen, um das Gelände zu sichern. Du kannst sie in der Ecke der Hütte einsehen.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Vor allem: Achte die Grabstätten. Störe nicht ihre Ruhe; vertreibe die Unerwünschten.</align>\n\n<size=80%><i>— Ende —</i></size>"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Huang\n\nFamilienmitglieder:\nWenqi Huang, 73, lebend\nMei Huang, 70, verstorben\nChen Huang, 48, lebend\n\nMei Huang ist auf diesem Gelände beigesetzt.\n\nTodesursache: Giftspritze\n\nTodeszeitpunkt: Samstag, 27. März 1993, 16:00 Uhr"
+  },
+  {
+   "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
+   "v": "Es gibt nur ein Grab auf den Namen Huang, obwohl die Umstände auf eine in Eile getroffene und mit Sorgfalt eingehaltene Entscheidung hindeuten. Die Grabstelle wählte Huang Wenqi selbst; er kam mit den vorbereiteten Unterlagen und sprach klar, wenn auch nicht immer widerspruchsfrei, und wiederholte gelegentlich Einzelheiten, die bereits geklärt waren. Frau Huang wurde im Morgengrauen gebracht. Keine weiteren Verwandten waren anwesend. Als ich fragte, ob der Sohn kommen würde, sagte Wenqi, die Familie sei so vollständig, und hielt dann inne, als wüsste er nicht, warum die Antwort von Bedeutung war. Die Todesursache wurde vermerkt, ein Verbrechen gesühnt, und die Angelegenheit ohne Widerspruch angenommen.\n\nMei Huang lebte zurückgezogen, bekannt für kleine Freundlichkeiten, die kaum Spuren hinterließen. In ihren letzten Monaten schwand diese Aufmerksamkeit, und mit ihr ihr Schutz. Man sagte mir nur, eine Angelegenheit der Ehre sei bereinigt worden; Einzelheiten wurden nicht genannt. Im Namen des Sohnes sind keine Opfergaben gestattet. Wenqi kommt nun allein, wiederholt sich manchmal, prüft vor dem Gehen stets den Stein, als erwartete er, dass er etwas anderes sagt."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nNicht registrierte Besucherinnen\n\nZwei Frauen erscheinen in regelmäßigen Abständen an den Toren.\n\nSie kommen nie zusammen, doch jede beharrt darauf, dass die andere bereits eingelassen wurde.\n\nBeide behaupten, die Toten zu kennen. Jede weiß Namen, die auf keinem Stein stehen. Fragt man, woher, antwortet die eine sofort und falsch; die andere antwortet langsam und mit Einzelheiten, die nichts klarer machen. Ich habe gelernt, dass es ein Fehler ist, eine von beiden zu korrigieren.\n\nDie eine fragt stets nach dem Zugang. Schlösser, Rundgänge, Zeiten, zu denen die Erde am weichsten ist. Sie spricht von Erbe, von dem, was geschuldet ist, von dem, was man nicht unbeaufsichtigt lassen sollte. Wird sie abgewiesen, lächelt sie, als hätte sie die Abweisung erwartet. Sie kommt trotzdem wieder."
+  },
+  {
+   "k": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+   "v": "Die andere fragt nach Grenzen. Nach dem, was gehalten wird, und dem, was gefangen ist. Sie spricht von Gewicht, von Druck, vom Preis dafür, gewisse Dinge an ihrem Platz zu halten. Wird sie abgewiesen, wirkt sie überrascht, dann erleichtert, dann enttäuscht. Sie streitet nicht. Sie passt beim nächsten Mal einfach ihre Bitte an.\n\nIch halte nicht fest, welche Frau welche Bitte vorbringt. Es ändert sich, je nachdem, wer zuhört.\n\nEine von ihnen wird niemals eingelassen. Diese Entscheidung ist einfach und ändert sich nicht. Sie weiß das und stellt es dennoch auf die Probe, mit Gründen, die einander widersprechen. Manchmal behauptet sie, die Erlaubnis sei bereits erteilt. Manchmal beruft sie sich auf Notwendigkeit. Einmal behauptete sie, ich hätte sie gebeten zu kommen."
+  },
+  {
+   "k": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+   "v": "Die andere wird unter bestimmten Umständen eingelassen. Wetter, Uhrzeit und kürzliche Bestattungen spielen dabei eine Rolle. Ich erkläre ihr meine Gründe nicht. Wird sie abgewiesen, nimmt sie es als vorläufig hin. Wird sie eingelassen, verweilt sie nicht.\n\nJede beschuldigt die andere der Unehrlichkeit. Jede liefert Beweise. Beide sind überzeugend. Keine führt viel aus.\n\nDie eine versäumt es nie, die andere andeutungsweise zu erwähnen. Die andere erwähnt ihre Schwester nur, wenn man sie fragt. \n\nDiejenige, die lügt, darf niemals eingelassen werden."
+  },
+  {
+   "k": "William Pembroke\n1705\nDeath by hanging",
+   "v": "William Pembroke\n1705\nTod durch Erhängen"
+  },
+  {
+   "k": "I CAN'T BREATHE",
+   "v": "ICH KRIEGE KEINE LUFT"
+  },
+  {
+   "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
+   "v": "Nach genug Runden durch diese Gänge lassen sich gewisse Auslassungen nicht mehr übersehen.\nDen Toten, die hier ruhen sollten, fehlt die übliche Ehrerbietung. Dieser Ort dient der Bestrafung."
+  },
+  {
+   "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",
+   "v": "Hier ruht Anthony Anderson\nVater von dreien, Ehemann\n1947-1988"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive",
+   "v": "Auszug aus den Aufzeichnungen des Friedhofswärters\nFamilie Deloitte\n\n\nFamilienmitglieder:\nShane Deloitte, 31, lebend\nReginald Deloitte, 29, lebend"
+  },
+  {
+   "k": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks.",
+   "v": "Die Familie Deloitte ist neu zugezogen. Laut Hintergrundprüfung hegten die beiden Brüder lange Zeit eine Feindseligkeit gegeneinander, die sich erst kürzlich gelegt hat. \n\nDer Wärter macht keine weiteren Anmerkungen."
+  },
+  {
+   "k": "NO REST",
+   "v": "KEINE RUHE"
+  },
+  {
+   "k": "Here lies Mei Huang\nWife, Mother of One\n1923-1993",
+   "v": "Hier ruht Mei Huang\nEhefrau, Mutter eines Kindes\n1923-1993"
+  },
+  {
+   "k": "LIAR",
+   "v": "LÜGNERIN"
+  },
+  {
+   "k": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985",
+   "v": "Hier ruht Jane Adams\nMutter, Schwester, geliebte Freundin.\n1931-1985"
+  },
+  {
+   "k": "SELFISH",
+   "v": "SELBSTSÜCHTIG"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+   "v": "Geborgene Feldnotiz, vorläufige Bezeichnung:\n„Der Grabräuber“\nQuelle geschwärzt\n\nEine wiederkehrende menschliche Präsenz wurde mit der Mehrzahl der Grabschändungen in Verbindung gebracht. Bei der Person handelt es sich vermutlich um einen Ortsansässigen, der als Hauptkontakt für Auswärtige dient, die Diebstahl und Schändung betreiben. Seine wahre Identität ist unbekannt.\n\nEr arbeitet nicht allein. Seine Komplizen werden häufig dabei beobachtet, wie sie den Friedhof außerhalb der Öffnungszeiten auskundschaften und Sichtlinien sowie Reaktionszeiten prüfen. Diese Personen weichen zurück, wenn sie angeleuchtet werden, und konnten durch anhaltenden Einsatz von Taschenlampen erfolgreich vertrieben werden. Ständige Wachsamkeit ist geboten, da ihre Aktivität andauert und gezielt ist."
+  },
+  {
+   "k": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+   "v": "Fremde treffen mit genauer Kenntnis des Friedhofsgeländes, der Rundgänge und der Zugangswege ein, obwohl sie keinerlei Bezug zu dieser Gegend haben. Es ist anzunehmen, dass diese Informationen von ihm stammen. Die Aktivität nimmt nach seinem Eintreffen stark zu und zerstreut sich, sobald er geht.\n\nDer Grabräuber ist gewalttätig. Die Hinweise deuten auf gezielte Einschüchterung, nicht auf Notwendigkeit. Beschädigtes Werkzeug, übermäßige Gewalt und Anzeichen innerer Konflikte unter den Komplizen lassen auf eine durch Furcht aufrechterhaltene Führungsrolle schließen.\n\nFrühere Friedhofswärter berichteten von Begegnungen. In jedem Fall enden die Aufzeichnungen kurz darauf. Ein Wärter verließ den Posten ohne Ankündigung. Ein anderer kam mit Verletzungen ins Krankenhaus, die nicht zu einem Sturz passten. Ein dritter hielt eine Sichtung fest, doch der letzte Eintrag wurde aus dem Buch gerissen."
+  },
+  {
+   "k": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+   "v": "Er entzieht sich jeder Identifizierung. Die Gesichtszüge weichen von Bericht zu Bericht ab, und kein verlässliches Bild konnte aufgenommen werden. Dennoch ist seine Gegenwart unverkennbar. Weitere Beobachtung ist erforderlich. Von einer direkten Konfrontation wird abgeraten."
+  },
+  {
+   "k": "Not every name corresponds to a lived life.",
+   "v": "Nicht jeder Name steht für ein gelebtes Leben."
+  },
+  {
+   "k": "Elizabeth Crowther\n1702\nDeath by illness",
+   "v": "Elizabeth Crowther\n1702\nTod durch Krankheit"
+  },
+  {
+   "k": "STAY AWAY FROM ME",
+   "v": "BLEIB WEG VON MIR"
+  },
+  {
+   "k": "Rebecca Langley\n1733\nDeath by lynching",
+   "v": "Rebecca Langley\n1733\nTod durch Lynchjustiz"
+  },
+  {
+   "k": "LET ME GO",
+   "v": "LASST MICH GEHEN"
+  },
+  {
+   "k": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994",
+   "v": "Hier ruht Samantha Bynes\nGeliebte Mutter von zweien, Ehefrau\n1972-1994"
+  },
+  {
+   "k": "Mary Langley\n1755\nDeath during childbirth",
+   "v": "Mary Langley\n1755\nTod im Kindbett"
+  },
+  {
+   "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
+   "v": "Das Schicksal von Pater Joseph\n\nIch schreibe dies mit zitternden Händen. Ich habe die grauenvolle Wahrheit über diesen Ort und jene, die hier hausen, entdeckt. Pater Joseph ereilte tatsächlich ein Schicksal, das schlimmer ist als der Tod.\n\nSo, wie dieser Ort beschaffen ist, ist Pater Joseph an diesen Friedhof gebunden. Ein Grabstein, der Erinnerung entrissen, von den Glaubenslosen geschändet. Ein Geschenk, das als letzter Abschiedsgruß seiner Geliebten gepflanzt werden sollte.\n\nSollte eine gnädige Seele die letzte Gabe finden, die seine Geliebte gepflückt hat, so möge sie sie auf sein vergessenes Grab legen. Nur dann kann Pater Joseph endlich den Abschied erhalten, der ihm verwehrt blieb, und vielleicht den Frieden finden, der ihm so lange versagt war."
+  },
+  {
+   "k": "I'M FREE",
+   "v": "ICH BIN FREI"
+  },
+  {
+   "k": "Hey Brian! I came by to see how you've been.",
+   "v": "Hey Brian! Ich wollte mal sehen, wie es dir geht."
+  },
+  {
+   "k": "I'm sorry you had to take the night shift here. This place couldn't look more depressing.",
+   "v": "Tut mir leid, dass du hier die Nachtschicht übernehmen musstest. Deprimierender könnte dieser Ort nicht sein."
+  },
+  {
+   "k": "It's not that bad...",
+   "v": "So schlimm ist es nicht..."
+  },
+  {
+   "k": "I appreciate you coming by, Hector. It's good to see you.",
+   "v": "Schön, dass du vorbeischaust, Hector. Gut, dich zu sehen."
+  },
+  {
+   "k": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people.",
+   "v": "Wenn du meinst, Mann. Ich würde nicht in dieser Bruchbude hocken und über die Toten wachen wollen."
+  },
+  {
+   "k": "...",
+   "v": "..."
+  },
+  {
+   "k": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff.",
+   "v": "Hey – versteh mich nicht falsch. Viele Leute würden für so einen Job töten. Gibt hier nicht viel zu tun, außer Radio hören und ein Nickerchen machen. Manche mögen so was."
+  },
+  {
+   "k": "How are you keeping busy anyway?",
+   "v": "Wie vertreibst du dir überhaupt die Zeit?"
+  },
+  {
+   "k": "Honestly, it's been pretty dull so far.",
+   "v": "Ehrlich gesagt war es bisher ziemlich öde."
+  },
+  {
+   "k": "Just been keeping my head down and staying vigilant, to be honest.",
+   "v": "Ich halte mich bedeckt und bleibe wachsam, um ehrlich zu sein."
+  },
+  {
+   "k": "Dull? Well, if you say so. I guess that's better than being creeped out.",
+   "v": "Öde? Na, wenn du meinst. Ist wohl besser, als sich zu gruseln."
+  },
+  {
+   "k": "I can't stand the idea of sleeping a few feet away from those tombstones.",
+   "v": "Ich könnte den Gedanken nicht ertragen, ein paar Meter von diesen Grabsteinen entfernt zu schlafen."
+  },
+  {
+   "k": "But hey, if you're that bored, why not make it a bit more interesting?",
+   "v": "Aber hey, wenn dir so langweilig ist, warum machen wir es nicht ein bisschen spannender?"
+  },
+  {
+   "k": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?",
+   "v": "Hast du die Gerüchte über die wilde Bestie gehört, die nicht weit von hier durch die Wälder streift?"
+  },
+  {
+   "k": "How about I head home to grab some equipment, and then we go track it down together?",
+   "v": "Wie wär's, wenn ich zu Hause ein bisschen Ausrüstung hole und wir sie dann zusammen aufspüren?"
+  },
+  {
+   "k": "No thanks, I really shouldn't leave my shift.",
+   "v": "Nein danke, ich sollte meine Schicht wirklich nicht verlassen."
+  },
+  {
+   "k": "Real funny, Hector.",
+   "v": "Sehr witzig, Hector."
+  },
+  {
+   "k": "Heh, alright, whatever you say.",
+   "v": "Heh, na gut, wie du meinst."
+  },
+  {
+   "k": "Well I just dropped by for a moment to check in on you.",
+   "v": "Na ja, ich bin nur kurz vorbeigekommen, um nach dir zu sehen."
+  },
+  {
+   "k": "I'll stop by again tomorrow to make sure you're alright.",
+   "v": "Ich schau morgen wieder vorbei, um sicherzugehen, dass es dir gut geht."
+  },
+  {
+   "k": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit.",
+   "v": "Deine Eltern haben sich ziemliche Sorgen um dich gemacht, ich richte ihnen also Grüße von dir aus. Hoffentlich beruhigt sie das ein wenig."
+  },
+  {
+   "k": "See you around man.",
+   "v": "Man sieht sich, Mann."
+  },
+  {
+   "k": "Hey man, just trying to help!",
+   "v": "Hey Mann, ich will doch nur helfen!"
+  },
+  {
+   "k": "Sounds boring.",
+   "v": "Klingt langweilig."
+  },
+  {
+   "k": "This place kind of gives me the creeps.",
+   "v": "Dieser Ort ist mir irgendwie unheimlich."
+  },
+  {
+   "k": "In the middle of nowhere too. Why the hell is this place even here?",
+   "v": "Und dann noch mitten im Nirgendwo. Warum zum Teufel gibt es diesen Ort überhaupt?"
+  },
+  {
+   "k": "Feels a bit off, but I guess you're getting paid well at least, right?",
+   "v": "Fühlt sich irgendwie falsch an, aber wenigstens wirst du gut bezahlt, oder?"
+  },
+  {
+   "k": "Yeah, the pay is great.",
+   "v": "Ja, die Bezahlung ist super."
+  },
+  {
+   "k": "I guess.",
+   "v": "Ich schätze schon."
+  },
+  {
+   "k": "It's good to see you too, man.",
+   "v": "Auch schön, dich zu sehen, Mann."
+  },
+  {
+   "k": "That's great to hear man!",
+   "v": "Das freut mich zu hören, Mann!"
+  },
+  {
+   "k": "I'm happy for you.",
+   "v": "Ich freu mich für dich."
+  },
+  {
+   "k": "Well, I should probably head back now. I just dropped by to check in on you.",
+   "v": "Na ja, ich sollte jetzt wohl zurück. Wollte nur kurz nach dir sehen."
+  },
+  {
+   "k": "Well, my friend...",
+   "v": "Nun, mein Freund..."
+  },
+  {
+   "k": "It seems you've done a great job with this old place.",
+   "v": "Es scheint, Sie haben mit diesem alten Ort ganze Arbeit geleistet."
+  },
+  {
+   "k": "Who are you?",
+   "v": "Wer sind Sie?"
+  },
+  {
+   "k": "It's late, old man. Head home.",
+   "v": "Es ist spät, alter Mann. Gehen Sie nach Hause."
+  },
+  {
+   "k": "As astute as always.",
+   "v": "Scharfsinnig wie immer."
+  },
+  {
+   "k": "Allow me to introduce myself, first.",
+   "v": "Erlauben Sie mir zunächst, mich vorzustellen."
+  },
+  {
+   "k": "I think it's about time I introduced myself...",
+   "v": "Ich denke, es ist an der Zeit, dass ich mich vorstelle..."
+  },
+  {
+   "k": "I'm the previous watcher of this cemetary, before you.",
+   "v": "Ich bin der frühere Wächter dieses Friedhofs, vor Ihnen."
+  },
+  {
+   "k": "I think I left this place in the right hands, but I also believe your job here isn't finished.",
+   "v": "Ich denke, ich habe diesen Ort in die richtigen Hände gelegt, aber ich glaube auch, dass Ihre Arbeit hier nicht getan ist."
+  },
+  {
+   "k": "Why did you leave?",
+   "v": "Warum sind Sie gegangen?"
+  },
+  {
+   "k": "Well, yeah. My shift isn't over.",
+   "v": "Na ja, klar. Meine Schicht ist noch nicht vorbei."
+  },
+  {
+   "k": "Well, I'll admit, I didn't uphold my duties as the grave watcher.",
+   "v": "Nun, ich gebe zu, ich habe meine Pflichten als Grabwächter nicht erfüllt."
+  },
+  {
+   "k": "I felt there had to be someone more suited to the job...",
+   "v": "Ich hatte das Gefühl, es müsste jemanden geben, der besser für diese Aufgabe geeignet ist..."
+  },
+  {
+   "k": "You've got quite the sense of humor there, friend...",
+   "v": "Sie haben einen ganz eigenen Sinn für Humor, mein Freund..."
+  },
+  {
+   "k": "No, I meant there's something I left unfinished before I left.",
+   "v": "Nein, ich meinte, es gibt etwas, das ich unerledigt gelassen habe, bevor ich ging."
+  },
+  {
+   "k": "As you might be able to tell by now, this job isn't as easy as it seems.",
+   "v": "Wie Sie inzwischen sicher gemerkt haben, ist diese Aufgabe nicht so einfach, wie sie scheint."
+  },
+  {
+   "k": "This place is quite the attraction to many different folks, both alive and dead.",
+   "v": "Dieser Ort zieht allerlei Leute an, Lebende wie Tote."
+  },
+  {
+   "k": "I'll be candid with you, my friend...",
+   "v": "Ich will offen zu Ihnen sein, mein Freund..."
+  },
+  {
+   "k": "I left because I was afraid.",
+   "v": "Ich bin gegangen, weil ich Angst hatte."
+  },
+  {
+   "k": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen...",
+   "v": "Dies ist keine gewöhnliche Ruhestätte für die Toten. Ich würde Ihnen gern mehr erzählen, wenn Sie bereit sind zuzuhören..."
+  },
+  {
+   "k": "Okay.",
+   "v": "In Ordnung."
+  },
+  {
+   "k": "You should head home grandpa.",
+   "v": "Sie sollten nach Hause gehen, Opa."
+  },
+  {
+   "k": "Listen here.",
+   "v": "Hören Sie mir gut zu."
+  },
+  {
+   "k": "I came here out of the pain of regret. Out of empathy for you and the people of this town.",
+   "v": "Ich bin aus dem Schmerz der Reue hergekommen. Aus Mitgefühl für Sie und die Menschen dieser Stadt."
+  },
+  {
+   "k": "I didn't have to come back, to put up with your arrogance.",
+   "v": "Ich hätte nicht zurückkommen müssen, um mir Ihre Arroganz anzuhören."
+  },
+  {
+   "k": "I'm sorry. Please continue.",
+   "v": "Es tut mir leid. Bitte fahren Sie fort."
+  },
+  {
+   "k": "Don't care. Head home, you crazy old bat.",
+   "v": "Ist mir egal. Gehen Sie nach Hause, Sie verrückter alter Kauz."
+  },
+  {
+   "k": "You are a fool.",
+   "v": "Sie sind ein Narr."
+  },
+  {
+   "k": "I will give you one last chance to listen to me.",
+   "v": "Ich gebe Ihnen eine letzte Chance, mir zuzuhören."
+  },
+  {
+   "k": "I'm sorry. Please continue. I'm listening.",
+   "v": "Es tut mir leid. Bitte fahren Sie fort. Ich höre zu."
+  },
+  {
+   "k": "If you don't leave I'm calling the cops.",
+   "v": "Wenn Sie nicht gehen, rufe ich die Polizei."
+  },
+  {
+   "k": "Thank you.",
+   "v": "Danke."
+  },
+  {
+   "k": "As you can tell, this place gets a lot of attention.",
+   "v": "Wie Sie sehen, erregt dieser Ort viel Aufmerksamkeit."
+  },
+  {
+   "k": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.",
+   "v": "Es geht eine Geschichte um, dass in der Gruft direkt hinter Ihnen etwas sehr Wertvolles liegt. Viele gefährliche Leute sind dahinter her."
+  },
+  {
+   "k": "I personally never cared for it.",
+   "v": "Mich persönlich hat das nie interessiert."
+  },
+  {
+   "k": "However, as my days unfolded in this place, I began growing restless, tired, and anxious.",
+   "v": "Doch je länger ich an diesem Ort war, desto rastloser, müder und ängstlicher wurde ich."
+  },
+  {
+   "k": "I started feel an unsettling draw towards the crypt sitting behind you.",
+   "v": "Ich begann, einen beunruhigenden Sog zu der Gruft hinter Ihnen zu spüren."
+  },
+  {
+   "k": "Have you felt it too?",
+   "v": "Haben Sie ihn auch gespürt?"
+  },
+  {
+   "k": "Yes.",
+   "v": "Ja."
+  },
+  {
+   "k": "No.",
+   "v": "Nein."
+  },
+  {
+   "k": "Interesting.",
+   "v": "Interessant."
+  },
+  {
+   "k": "It's relieving to actually meet someone that feels the same way.",
+   "v": "Es ist eine Erleichterung, endlich jemanden zu treffen, dem es genauso geht."
+  },
+  {
+   "k": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.",
+   "v": "Wie auch immer, ich brauchte Antworten, also begann ich, die alten Notizen zu durchforsten, die die früheren Friedhofswärter in der Hütte für mich hinterlassen hatten."
+  },
+  {
+   "k": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.",
+   "v": "Sicher hatten Sie schon Gelegenheit, einige der dort hinterlassenen Aufzeichnungen zu lesen. Zumindest hoffe ich das."
+  },
+  {
+   "k": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.",
+   "v": "Beim Durchsehen der alten Texte stieß ich auf eine interessante Passage, die ein alter Friedhofswärter hinterlassen hatte. Wahrscheinlich vor Jahrzehnten."
+  },
+  {
+   "k": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.",
+   "v": "Die Dokumente lagen dort offenbar schon sehr lange... sie waren verstaubt und kaum noch lesbar."
+  },
+  {
+   "k": "I had decided to leave this position at the graveyard promptly after I read it.",
+   "v": "Kurz nachdem ich es gelesen hatte, beschloss ich, diese Stelle auf dem Friedhof aufzugeben."
+  },
+  {
+   "k": "Apparently, one of the old gravekeepers had attempted to enter that crypt.",
+   "v": "Offenbar hatte einer der alten Friedhofswärter versucht, diese Gruft zu betreten."
+  },
+  {
+   "k": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.",
+   "v": "In dem Text erwähnte er auch, dass diese Stelle immer besetzt sein muss. Wer diese Aufgabe übernimmt, ist für die Sicherheit der Menschen in dieser Gegend verantwortlich. Wenn man den Posten nicht will, muss man ihn an jemand anderen weitergeben."
+  },
+  {
+   "k": "However.",
+   "v": "Allerdings."
+  },
+  {
+   "k": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.",
+   "v": "Wenn Sie sich entscheiden, diese Aufgabe zu behalten, werden Sie feststellen, dass Sie kein normales Leben mehr führen können. Und Sie werden auch nicht auf normale Weise sterben können."
+  },
+  {
+   "k": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death.",
+   "v": "Dem alten Friedhofswärter zufolge ist dieser Friedhof mehr als eine gewöhnliche Begräbnisstätte. Die Menschen, die hier begraben liegen, führten kein normales Leben. Dieser Ort braucht jederzeit einen Wächter, selbst über den Tod hinaus."
+  },
+  {
+   "k": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.",
+   "v": "Wenn normale Menschen sterben, endet ihr Leben, und sie haben keine Erfahrungen, Gedanken oder Gefühle mehr."
+  },
+  {
+   "k": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.",
+   "v": "Die Texte gingen nicht näher darauf ein, aber wenn Sie hier als Friedhofswärter sterben, ist das nicht ganz das, was mit Ihnen geschehen wird."
+  },
+  {
+   "k": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.",
+   "v": "Der einzige Weg, diesen Kreislauf zu durchbrechen, ist, das Mausoleum zu betreten. Ich weiß nicht, warum oder wie, aber der alte Friedhofswärter erwähnte in seinen Notizen eine Art Rätsel, das gelöst werden muss."
+  },
+  {
+   "k": "What puzzle?",
+   "v": "Was für ein Rätsel?"
+  },
+  {
+   "k": "Everyone who is buried at this graveyard shares something in common.",
+   "v": "Alle, die auf diesem Friedhof begraben sind, haben etwas gemeinsam."
+  },
+  {
+   "k": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.",
+   "v": "Einige dieser Gräber sind Jahrhunderte alt. Doch selbst die neueren, die erst kürzlich angelegt wurden, sollten einem Muster folgen."
+  },
+  {
+   "k": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.",
+   "v": "Ich habe die Dokumente durchwühlt, konnte aber nicht herausfinden, was dieses Muster ist – oder ob es überhaupt existiert."
+  },
+  {
+   "k": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.",
+   "v": "Der einzige Weg, diesen Kreislauf zu durchbrechen, ist, dieses Rätsel zu lösen. Sobald Sie es verstanden haben, müssen Sie die Gruft betreten."
+  },
+  {
+   "k": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.",
+   "v": "Offenbar hat der Friedhofswärter vor uns die Archive gründlich studiert. Er betrat die Gruft mit einer möglichen Lösung, hatte aber keinen Erfolg."
+  },
+  {
+   "k": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.",
+   "v": "In dieser Gruft liegt etwas Jahrhundertealtes, das aufgelöst werden muss – ein Fluch, der noch nicht gebrochen wurde."
+  },
+  {
+   "k": "When I learned about this, I was in disbelief.",
+   "v": "Als ich davon erfuhr, konnte ich es nicht glauben."
+  },
+  {
+   "k": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.",
+   "v": "Ich hatte Angst. Ich verschloss das Mausoleum und das Tor und verließ diesen Ort. Von da an wurde der Friedhof immer unruhiger."
+  },
+  {
+   "k": "I still have the key. I can unlock that crypt.",
+   "v": "Ich habe den Schlüssel noch. Ich kann die Gruft aufschließen."
+  },
+  {
+   "k": "Will you enter it and put an end to this?",
+   "v": "Werden Sie sie betreten und dem ein Ende setzen?"
+  },
+  {
+   "k": "Okay. I'm ready.",
+   "v": "In Ordnung. Ich bin bereit."
+  },
+  {
+   "k": "This is crazy. Go home you old kook.",
+   "v": "Das ist verrückt. Gehen Sie nach Hause, Sie alter Spinner."
+  },
+  {
+   "k": "I am quite disappointed.",
+   "v": "Ich bin sehr enttäuscht."
+  },
+  {
+   "k": "Surely you are joking?",
+   "v": "Das ist doch wohl ein Scherz?"
+  },
+  {
+   "k": "Yeah, just a joke. Go ahead and unlock the crypt.",
+   "v": "Ja, nur ein Scherz. Schließen Sie ruhig die Gruft auf."
+  },
+  {
+   "k": "That wasn't a joke. Please leave.",
+   "v": "Das war kein Scherz. Bitte gehen Sie."
+  },
+  {
+   "k": "I was mistaken.",
+   "v": "Ich habe mich geirrt."
+  },
+  {
+   "k": "You clearly are not the right person for this job.",
+   "v": "Sie sind eindeutig nicht die richtige Person für diese Aufgabe."
+  },
+  {
+   "k": "I will warn you one last time to listen to me.",
+   "v": "Ich warne Sie ein letztes Mal: Hören Sie mir zu."
+  },
+  {
+   "k": "It is your well-being I am concerned about.",
+   "v": "Es geht mir um Ihr Wohl."
+  },
+  {
+   "k": "I'm sorry. Please go ahead and unlock the crypt",
+   "v": "Es tut mir leid. Bitte schließen Sie die Gruft auf"
+  },
+  {
+   "k": "You are quite the intelligent specimen, aren't you?",
+   "v": "Sie sind ja ein wahres Prachtexemplar an Intelligenz, nicht wahr?"
+  },
+  {
+   "k": "Follow me.",
+   "v": "Folgen Sie mir."
+  },
+  {
+   "k": "You truly are a blessing.",
+   "v": "Sie sind wahrhaftig ein Segen."
+  },
+  {
+   "k": "I've went ahead and unlocked the crypt.",
+   "v": "Ich habe die Gruft bereits aufgeschlossen."
+  },
+  {
+   "k": "One more thing.",
+   "v": "Noch etwas."
+  },
+  {
+   "k": "In one of the notes left by a previous gatekeeper...",
+   "v": "In einer der Notizen, die ein früherer Wärter hinterlassen hat..."
+  },
+  {
+   "k": "It mentioned turning off your flashlight before entering.",
+   "v": "stand, man solle die Taschenlampe ausschalten, bevor man hineingeht."
+  },
+  {
+   "k": "I don't know why.",
+   "v": "Ich weiß nicht, warum."
+  },
+  {
+   "k": "I have faith that you'll be able to figure this out.",
+   "v": "Ich vertraue darauf, dass Sie das herausfinden werden."
+  },
+  {
+   "k": "Good luck in there.",
+   "v": "Viel Glück da drin."
+  },
+  {
+   "k": "You did it, my friend.",
+   "v": "Sie haben es geschafft, mein Freund."
+  },
+  {
+   "k": "They have been freed.",
+   "v": "Sie sind befreit."
+  },
+  {
+   "k": "Perhaps their souls can finally rest. As should you.",
+   "v": "Vielleicht können ihre Seelen nun endlich ruhen. So wie Sie."
+  },
+  {
+   "k": "Come.",
+   "v": "Kommen Sie."
+  },
+  {
+   "k": "Evening.",
+   "v": "Guten Abend."
+  },
+  {
+   "k": "Didn’t expect anyone at the gate this late.",
+   "v": "Hab so spät niemanden am Tor erwartet."
+  },
+  {
+   "k": "Name’s Harold Vanderbolt.",
+   "v": "Mein Name ist Harold Vanderbolt."
+  },
+  {
+   "k": "I need to step inside for a moment.",
+   "v": "Ich muss kurz hinein."
+  },
+  {
+   "k": "Visiting hours are over. What’s your business here?",
+   "v": "Die Besuchszeiten sind vorbei. Was wollen Sie hier?"
+  },
+  {
+   "k": "Can I help you with something, sir?",
+   "v": "Kann ich Ihnen helfen, Sir?"
+  },
+  {
+   "k": "Straight question.",
+   "v": "Eine direkte Frage."
+  },
+  {
+   "k": "I like that.",
+   "v": "Das gefällt mir."
+  },
+  {
+   "k": "I’m here to see my brother.",
+   "v": "Ich bin hier, um meinen Bruder zu besuchen."
+  },
+  {
+   "k": "Aaron.",
+   "v": "Aaron."
+  },
+  {
+   "k": "Good man. Bad luck.",
+   "v": "Guter Mann. Pech gehabt."
+  },
+  {
+   "k": "Didn’t think he’d end up here.",
+   "v": "Hätte nicht gedacht, dass er hier landet."
+  },
+  {
+   "k": "Funny how things go.",
+   "v": "Komisch, wie die Dinge laufen."
+  },
+  {
+   "k": "How did you know Aaron?",
+   "v": "Woher kannten Sie Aaron?"
+  },
+  {
+   "k": "Why come so late?",
+   "v": "Warum kommen Sie so spät?"
+  },
+  {
+   "k": "Appreciate the courtesy.",
+   "v": "Ich weiß die Höflichkeit zu schätzen."
+  },
+  {
+   "k": "Not much of it left these days.",
+   "v": "Davon gibt es heutzutage nicht mehr viel."
+  },
+  {
+   "k": "I won’t take long.",
+   "v": "Ich brauche nicht lange."
+  },
+  {
+   "k": "Just paying respects.",
+   "v": "Ich will nur meinen Respekt erweisen."
+  },
+  {
+   "k": "Aaron wouldn’t forgive me if I didn’t.",
+   "v": "Aaron würde es mir nie verzeihen, wenn ich es nicht täte."
+  },
+  {
+   "k": "You’re being vague.",
+   "v": "Sie bleiben vage."
+  },
+  {
+   "k": "I’ll need more than that.",
+   "v": "Da brauche ich schon mehr."
+  },
+  {
+   "k": "We grew up together.",
+   "v": "Wir sind zusammen aufgewachsen."
+  },
+  {
+   "k": "Shared a name. Shared a roof.",
+   "v": "Gleicher Name. Gleiches Dach."
+  },
+  {
+   "k": "Shared more mistakes than I care to count.",
+   "v": "Mehr geteilte Fehler, als ich zählen möchte."
+  },
+  {
+   "k": "I owe him a moment.",
+   "v": "Ich schulde ihm einen Moment."
+  },
+  {
+   "k": "Family has a way of demanding that.",
+   "v": "Familie hat so eine Art, das einzufordern."
+  },
+  {
+   "k": "Your brother?",
+   "v": "Ihr Bruder?"
+  },
+  {
+   "k": "Do you have any proof?",
+   "v": "Haben Sie irgendeinen Beweis?"
+  },
+  {
+   "k": "Privacy.",
+   "v": "Privatsphäre."
+  },
+  {
+   "k": "That’s all.",
+   "v": "Das ist alles."
+  },
+  {
+   "k": "Some things are easier to say",
+   "v": "Manche Dinge sagen sich leichter,"
+  },
+  {
+   "k": "when no one’s listening back.",
+   "v": "wenn niemand zuhört."
+  },
+  {
+   "k": "I say what I need to say.",
+   "v": "Ich sage, was ich sagen muss."
+  },
+  {
+   "k": "Then I leave.",
+   "v": "Dann gehe ich."
+  },
+  {
+   "k": "Careful.",
+   "v": "Vorsicht."
+  },
+  {
+   "k": "You’re doing your job.",
+   "v": "Sie tun Ihre Arbeit."
+  },
+  {
+   "k": "So am I.",
+   "v": "Ich auch."
+  },
+  {
+   "k": "No trouble.",
+   "v": "Kein Ärger."
+  },
+  {
+   "k": "Just a brother standing where he has to.",
+   "v": "Nur ein Bruder, der dort steht, wo er stehen muss."
+  },
+  {
+   "k": "Let’s not turn this into something tedious.",
+   "v": "Machen wir daraus nichts Mühsames."
+  },
+  {
+   "k": "Brother.",
+   "v": "Bruder."
+  },
+  {
+   "k": "Older, if that matters.",
+   "v": "Der ältere, falls das wichtig ist."
+  },
+  {
+   "k": "Usually does.",
+   "v": "Ist es meistens."
+  },
+  {
+   "k": "We didn’t always agree.",
+   "v": "Wir waren nicht immer einer Meinung."
+  },
+  {
+   "k": "But blood’s blood.",
+   "v": "Aber Blut ist Blut."
+  },
+  {
+   "k": "Aaron understood that.",
+   "v": "Aaron hat das verstanden."
+  },
+  {
+   "k": "Proof?",
+   "v": "Beweis?"
+  },
+  {
+   "k": "I don’t carry mementos.",
+   "v": "Ich trage keine Andenken mit mir herum."
+  },
+  {
+   "k": "And family names don’t mean much once someone’s in the ground.",
+   "v": "Und Familiennamen bedeuten nicht mehr viel, wenn jemand erst unter der Erde liegt."
+  },
+  {
+   "k": "You should know that better than anyone.",
+   "v": "Das sollten Sie besser wissen als jeder andere."
+  },
+  {
+   "k": "I wouldn’t be here if it didn’t matter.",
+   "v": "Ich wäre nicht hier, wenn es nicht wichtig wäre."
+  },
+  {
+   "k": "So.",
+   "v": "Also."
+  },
+  {
+   "k": "I just need a few minutes.",
+   "v": "Ich brauche nur ein paar Minuten."
+  },
+  {
+   "k": "I’ll stay out of your way.",
+   "v": "Ich werde Ihnen nicht im Weg stehen."
+  },
+  {
+   "k": "May I go in?",
+   "v": "Darf ich hinein?"
+  },
+  {
+   "k": "Alright. Be quick.",
+   "v": "Also gut. Beeilen Sie sich."
+  },
+  {
+   "k": "No. I can’t allow it.",
+   "v": "Nein. Das kann ich nicht erlauben."
+  },
+  {
+   "k": "I have a few more questions.",
+   "v": "Ich habe noch ein paar Fragen."
+  },
+  {
+   "k": "Hold on, I'll be right back.",
+   "v": "Warten Sie, ich bin gleich zurück."
+  },
+  {
+   "k": "What was your name again?",
+   "v": "Wie war noch mal Ihr Name?"
+  },
+  {
+   "k": "Who are you visiting?",
+   "v": "Wen besuchen Sie?"
+  },
+  {
+   "k": "How many people are in your family?",
+   "v": "Wie viele Menschen gehören zu Ihrer Familie?"
+  },
+  {
+   "k": "Nevermind.",
+   "v": "Schon gut."
+  },
+  {
+   "k": "I'm here to see Aaron.",
+   "v": "Ich bin hier, um Aaron zu besuchen."
+  },
+  {
+   "k": "When did he die?",
+   "v": "Wann ist er gestorben?"
+  },
+  {
+   "k": "What was his cause of death?",
+   "v": "Was war seine Todesursache?"
+  },
+  {
+   "k": "I have other questions.",
+   "v": "Ich habe andere Fragen."
+  },
+  {
+   "k": "June 27th, 1993.",
+   "v": "27. Juni 1993."
+  },
+  {
+   "k": "I have no other questions.",
+   "v": "Ich habe keine weiteren Fragen."
+  },
+  {
+   "k": "He was found in his hotel room, on a trip abroad.",
+   "v": "Er wurde auf einer Auslandsreise in seinem Hotelzimmer gefunden."
+  },
+  {
+   "k": "Had a gunshot wound out the back of his head.",
+   "v": "Hatte eine Schusswunde am Hinterkopf."
+  },
+  {
+   "k": "Terrible way to go. I try not to think about it.",
+   "v": "Ein schrecklicher Abgang. Ich versuche, nicht daran zu denken."
+  },
+  {
+   "k": "We didn't have much family left. It was just him and my nephew.",
+   "v": "Wir hatten nicht mehr viel Familie. Es gab nur ihn und meinen Neffen."
+  },
+  {
+   "k": "I have more questions.",
+   "v": "Ich habe noch mehr Fragen."
+  },
+  {
+   "k": "My name is Harold.",
+   "v": "Mein Name ist Harold."
+  },
+  {
+   "k": "Good.",
+   "v": "Gut."
+  },
+  {
+   "k": "I knew you’d see reason.",
+   "v": "Ich wusste, dass Sie Vernunft annehmen würden."
+  },
+  {
+   "k": "Family doesn’t get many chances to say goodbye properly.",
+   "v": "Familie bekommt nicht viele Gelegenheiten, sich richtig zu verabschieden."
+  },
+  {
+   "k": "I won’t forget this.",
+   "v": "Das werde ich nicht vergessen."
+  },
+  {
+   "k": "That’s disappointing.",
+   "v": "Das ist enttäuschend."
+  },
+  {
+   "k": "Still.",
+   "v": "Trotzdem."
+  },
+  {
+   "k": "Rules are useful things.",
+   "v": "Regeln sind nützliche Dinge."
+  },
+  {
+   "k": "Until they aren’t.",
+   "v": "Bis sie es nicht mehr sind."
+  },
+  {
+   "k": "Give my brother a quiet night, then.",
+   "v": "Dann gönnen Sie meinem Bruder eine ruhige Nacht."
+  },
+  {
+   "k": "I suppose some problems do solve themselves.",
+   "v": "Manche Probleme lösen sich wohl von selbst."
+  },
+  {
+   "k": "I thought you two were close.",
+   "v": "Ich dachte, Sie beide standen sich nahe."
+  },
+  {
+   "k": "What did you say your name was again?",
+   "v": "Wie sagten Sie noch, war Ihr Name?"
+  },
+  {
+   "k": "Just saying goodbye properly.",
+   "v": "Ich verabschiede mich nur anständig."
+  },
+  {
+   "k": "I'll be leaving now.",
+   "v": "Ich gehe jetzt."
+  },
+  {
+   "k": "Thanks for looking the other way.",
+   "v": "Danke, dass Sie weggesehen haben."
+  },
+  {
+   "k": "Harold. Harold Vanderbilt.",
+   "v": "Harold. Harold Vanderbilt."
+  },
+  {
+   "k": "I'll be taking my leave now. Have a great rest of your evening.",
+   "v": "Ich verabschiede mich dann. Ich wünsche Ihnen noch einen schönen Abend."
+  },
+  {
+   "k": "Hello. Excuse me.",
+   "v": "Hallo. Entschuldigung."
+  },
+  {
+   "k": "This is graveyard, yes?",
+   "v": "Das ist Friedhof, ja?"
+  },
+  {
+   "k": "I come to visit my wife.",
+   "v": "Ich komme, meine Frau besuchen."
+  },
+  {
+   "k": "Can I see some identification?",
+   "v": "Kann ich einen Ausweis sehen?"
+  },
+  {
+   "k": "Identification?",
+   "v": "Ausweis?"
+  },
+  {
+   "k": "Yes… yes.",
+   "v": "Ja... ja."
+  },
+  {
+   "k": "My name Mr. Huang.",
+   "v": "Mein Name Herr Huang."
+  },
+  {
+   "k": "I am him.",
+   "v": "Ich bin er."
+  },
+  {
+   "k": "I not carry many papers now.",
+   "v": "Ich trage jetzt nicht viele Papiere."
+  },
+  {
+   "k": "Only me. Only husband.",
+   "v": "Nur ich. Nur Ehemann."
+  },
+  {
+   "k": "I come many times before.",
+   "v": "Ich komme viele Male vorher."
+  },
+  {
+   "k": "Maybe you not see me.",
+   "v": "Vielleicht Sie sehen mich nicht."
+  },
+  {
+   "k": "I come late when quiet.",
+   "v": "Ich komme spät, wenn ruhig."
+  },
+  {
+   "k": "Alright. Why are you here so late?",
+   "v": "Also gut. Warum sind Sie so spät hier?"
+  },
+  {
+   "k": "Okay. Take your time and tell me what you need.",
+   "v": "In Ordnung. Lassen Sie sich Zeit und sagen Sie mir, was Sie brauchen."
+  },
+  {
+   "k": "Late is better.",
+   "v": "Spät ist besser."
+  },
+  {
+   "k": "Less people. Less noise.",
+   "v": "Weniger Leute. Weniger Lärm."
+  },
+  {
+   "k": "My wife not like noise.",
+   "v": "Meine Frau mag keinen Lärm."
+  },
+  {
+   "k": "I stand outside and think.",
+   "v": "Ich stehe draußen und denke."
+  },
+  {
+   "k": "That all.",
+   "v": "Das alles."
+  },
+  {
+   "k": "Which grave are you visiting?",
+   "v": "Welches Grab besuchen Sie?"
+  },
+  {
+   "k": "You can understand why this looks suspicious.",
+   "v": "Sie verstehen sicher, warum das verdächtig wirkt."
+  },
+  {
+   "k": "English hard for me.",
+   "v": "Englisch schwer für mich."
+  },
+  {
+   "k": "My wife help me before.",
+   "v": "Meine Frau hilft mir früher."
+  },
+  {
+   "k": "She here.",
+   "v": "Sie ist hier."
+  },
+  {
+   "k": "Long time already.",
+   "v": "Schon lange Zeit."
+  },
+  {
+   "k": "I'm sorry for your loss.",
+   "v": "Mein Beileid."
+  },
+  {
+   "k": "You shouldn’t be waiting outside the gate.",
+   "v": "Sie sollten nicht vor dem Tor warten."
+  },
+  {
+   "k": "I know.",
+   "v": "Ich weiß."
+  },
+  {
+   "k": "I look bad.",
+   "v": "Ich sehe schlecht aus."
+  },
+  {
+   "k": "Old man. Night time.",
+   "v": "Alter Mann. Nachtzeit."
+  },
+  {
+   "k": "But I not do wrong.",
+   "v": "Aber ich mache nichts Falsches."
+  },
+  {
+   "k": "I promise.",
+   "v": "Ich verspreche."
+  },
+  {
+   "k": "I only want see her.",
+   "v": "Ich will nur sie sehen."
+  },
+  {
+   "k": "Western burial ground.",
+   "v": "Westlicher Friedhof."
+  },
+  {
+   "k": "Near tree.",
+   "v": "Bei Baum."
+  },
+  {
+   "k": "She like tree.",
+   "v": "Sie mag Baum."
+  },
+  {
+   "k": "I talk to her sometimes.",
+   "v": "Ich rede manchmal mit ihr."
+  },
+  {
+   "k": "It help me.",
+   "v": "Es hilft mir."
+  },
+  {
+   "k": "House very quiet now.",
+   "v": "Haus jetzt sehr still."
+  },
+  {
+   "k": "Here feel closer to her.",
+   "v": "Hier fühle ich näher bei ihr."
+  },
+  {
+   "k": "I not stay long.",
+   "v": "Ich bleibe nicht lange."
+  },
+  {
+   "k": "Please.",
+   "v": "Bitte."
+  },
+  {
+   "k": "Just few minutes.",
+   "v": "Nur paar Minuten."
+  },
+  {
+   "k": "I visit my wife.",
+   "v": "Ich besuche meine Frau."
+  },
+  {
+   "k": "May I come in?",
+   "v": "Darf ich hinein?"
+  },
+  {
+   "k": "Alright. You can go in, but don’t stay long.",
+   "v": "Also gut. Sie dürfen hinein, aber bleiben Sie nicht lange."
+  },
+  {
+   "k": "I’m sorry. Visiting hours are over.",
+   "v": "Es tut mir leid. Die Besuchszeiten sind vorbei."
+  },
+  {
+   "k": "My late wife.",
+   "v": "Meine verstorbene Frau."
+  },
+  {
+   "k": "Mei Huang.",
+   "v": "Mei Huang."
+  },
+  {
+   "k": "When did she die?",
+   "v": "Wann ist sie gestorben?"
+  },
+  {
+   "k": "What was her cause of death?",
+   "v": "Was war ihre Todesursache?"
+  },
+  {
+   "k": "I do not remember...",
+   "v": "Ich erinnere nicht..."
+  },
+  {
+   "k": "It has been long time.",
+   "v": "Ist lange Zeit her."
+  },
+  {
+   "k": "I do not like to speak about this matter.",
+   "v": "Ich rede nicht gern über diese Sache."
+  },
+  {
+   "k": "My wife not bad person.",
+   "v": "Meine Frau kein schlechter Mensch."
+  },
+  {
+   "k": "She did no wrong.",
+   "v": "Sie hat nichts falsch gemacht."
+  },
+  {
+   "k": "Please, I would like to see her.",
+   "v": "Bitte, ich möchte sie sehen."
+  },
+  {
+   "k": "No one.",
+   "v": "Niemand."
+  },
+  {
+   "k": "Only me and wife. After passing away, I am alone.",
+   "v": "Nur ich und Frau. Nach ihrem Tod bin ich allein."
+  },
+  {
+   "k": "My name?",
+   "v": "Mein Name?"
+  },
+  {
+   "k": "Huang Wenqi.",
+   "v": "Huang Wenqi."
+  },
+  {
+   "k": "You very kind.",
+   "v": "Sie sehr freundlich."
+  },
+  {
+   "k": "I understand.",
+   "v": "Ich verstehe."
+  },
+  {
+   "k": "Rules are rules.",
+   "v": "Regeln sind Regeln."
+  },
+  {
+   "k": "I come again tomorrow.",
+   "v": "Ich komme morgen wieder."
+  },
+  {
+   "k": "Thank you for listening.",
+   "v": "Danke fürs Zuhören."
+  },
+  {
+   "k": "This is her.",
+   "v": "Das ist sie."
+  },
+  {
+   "k": "I miss her dearly.",
+   "v": "Ich vermisse sie sehr."
+  },
+  {
+   "k": "You two must have loved each other very much.",
+   "v": "Sie beide müssen sich sehr geliebt haben."
+  },
+  {
+   "k": "She would say...",
+   "v": "Sie sagte immer..."
+  },
+  {
+   "k": "\"If I go first, don’t forget me.\"",
+   "v": "„Wenn ich zuerst gehe, vergiss mich nicht.“"
+  },
+  {
+   "k": "I tell her I won’t.",
+   "v": "Ich sage ihr, ich werde nicht."
+  },
+  {
+   "k": "So I come.",
+   "v": "Also komme ich."
+  },
+  {
+   "k": "Even when tired.",
+   "v": "Auch wenn müde."
+  },
+  {
+   "k": "Even when cold.",
+   "v": "Auch wenn kalt."
+  },
+  {
+   "k": "I go now.",
+   "v": "Ich gehe jetzt."
+  },
+  {
+   "k": "…You work here?",
+   "v": "…Sie arbeiten hier?"
+  },
+  {
+   "k": "I didn’t expect anyone still on duty.",
+   "v": "Ich hätte nicht erwartet, dass noch jemand im Dienst ist."
+  },
+  {
+   "k": "Are you here to visit someone?",
+   "v": "Sind Sie hier, um jemanden zu besuchen?"
+  },
+  {
+   "k": "You shouldn’t be wandering around this late.",
+   "v": "Sie sollten so spät nicht hier herumlaufen."
+  },
+  {
+   "k": "Yeah. Just paying my respects.",
+   "v": "Ja. Ich will nur meinen Respekt erweisen."
+  },
+  {
+   "k": "I don't plan to stay long.",
+   "v": "Ich habe nicht vor, lange zu bleiben."
+  },
+  {
+   "k": "Are you related to the deceased?",
+   "v": "Sind Sie mit dem Verstorbenen verwandt?"
+  },
+  {
+   "k": "Thanks, I know the rules.",
+   "v": "Danke, ich kenne die Regeln."
+  },
+  {
+   "k": "You don't have to worry, I’ll be quick.",
+   "v": "Sie müssen sich keine Sorgen machen, ich mache es kurz."
+  },
+  {
+   "k": "Then you can go back to... whatever it is you were doing.",
+   "v": "Dann können Sie wieder zu... was auch immer Sie gerade gemacht haben."
+  },
+  {
+   "k": "Someone with the name Huang.",
+   "v": "Jemand mit dem Namen Huang."
+  },
+  {
+   "k": "That should be enough for you.",
+   "v": "Das sollte Ihnen reichen."
+  },
+  {
+   "k": "That’s vague. What’s your full name?",
+   "v": "Das ist vage. Wie lautet Ihr voller Name?"
+  },
+  {
+   "k": "Are you related to the Huangs?",
+   "v": "Sind Sie mit den Huangs verwandt?"
+  },
+  {
+   "k": "…Chen Huang.",
+   "v": "…Chen Huang."
+  },
+  {
+   "k": "Are you going to keep asking me instrusive questions?",
+   "v": "Werden Sie mir weiter aufdringliche Fragen stellen?"
+  },
+  {
+   "k": "Why are you here?",
+   "v": "Warum sind Sie hier?"
+  },
+  {
+   "k": "Yeah. I am.",
+   "v": "Ja. Bin ich."
+  },
+  {
+   "k": "But to be honest, I don't really think that is any of your concern.",
+   "v": "Aber ehrlich gesagt geht Sie das nichts an."
+  },
+  {
+   "k": "I just need to know who exactly you're visiting.",
+   "v": "Ich muss nur wissen, wen genau Sie besuchen."
+  },
+  {
+   "k": "I just need to know you’re not causing trouble.",
+   "v": "Ich muss nur wissen, dass Sie keinen Ärger machen."
+  },
+  {
+   "k": "I figured you’d ask that.",
+   "v": "Hab mir gedacht, dass Sie das fragen."
+  },
+  {
+   "k": "We’re family.",
+   "v": "Wir sind Familie."
+  },
+  {
+   "k": "Not close.",
+   "v": "Nicht eng."
+  },
+  {
+   "k": "Well, I need to know who you're visiting.",
+   "v": "Nun, ich muss wissen, wen Sie besuchen."
+  },
+  {
+   "k": "What is their name?",
+   "v": "Wie ist der Name?"
+  },
+  {
+   "k": "Family.",
+   "v": "Familie."
+  },
+  {
+   "k": "I need to know their name.",
+   "v": "Ich muss den Namen wissen."
+  },
+  {
+   "k": "You’re avoiding the question.",
+   "v": "Sie weichen der Frage aus."
+  },
+  {
+   "k": "I’m answering enough.",
+   "v": "Ich habe genug beantwortet."
+  },
+  {
+   "k": "This isn’t a confession booth.",
+   "v": "Das hier ist kein Beichtstuhl."
+  },
+  {
+   "k": "I’ll pay my respects and leave.",
+   "v": "Ich erweise meinen Respekt und gehe."
+  },
+  {
+   "k": "You won’t even notice I was here.",
+   "v": "Sie werden nicht einmal merken, dass ich hier war."
+  },
+  {
+   "k": "I'm not going to answer anymore questions.",
+   "v": "Ich beantworte keine weiteren Fragen."
+  },
+  {
+   "k": "Is there going to be a problem?",
+   "v": "Wird es ein Problem geben?"
+  },
+  {
+   "k": "No. Go ahead inside, but be quick.",
+   "v": "Nein. Gehen Sie rein, aber beeilen Sie sich."
+  },
+  {
+   "k": "Visiting hours are over.",
+   "v": "Die Besuchszeiten sind vorbei."
+  },
+  {
+   "k": "…Thanks.",
+   "v": "…Danke."
+  },
+  {
+   "k": "For what it’s worth,",
+   "v": "Falls es etwas zählt:"
+  },
+  {
+   "k": "I appreciate professionalism.",
+   "v": "Ich schätze Professionalität."
+  },
+  {
+   "k": "Figures.",
+   "v": "War ja klar."
+  },
+  {
+   "k": "Didn't even want to be here.",
+   "v": "Wollte sowieso nicht hier sein."
+  },
+  {
+   "k": "Have fun watching over these dead people.",
+   "v": "Viel Spaß beim Wachen über diese Toten."
+  },
+  {
+   "k": "I don't envy you.",
+   "v": "Ich beneide Sie nicht."
+  },
+  {
+   "k": "Please... just give me a moment...",
+   "v": "Bitte... geben Sie mir nur einen Moment..."
+  },
+  {
+   "k": "Are you okay?",
+   "v": "Alles in Ordnung?"
+  },
+  {
+   "k": "I would do anything... just to make her stop.",
+   "v": "Ich würde alles tun... damit sie aufhört."
+  },
+  {
+   "k": "I thought coming here would help... but...",
+   "v": "Ich dachte, hierherzukommen würde helfen... aber..."
+  },
+  {
+   "k": "I think I have made a terrible mistake.",
+   "v": "Ich glaube, ich habe einen schrecklichen Fehler gemacht."
+  },
+  {
+   "k": "Hey there.",
+   "v": "Hallo."
+  },
+  {
+   "k": "Sorry for disturbing you at this late hour.",
+   "v": "Entschuldigen Sie die Störung zu so später Stunde."
+  },
+  {
+   "k": "My name is Dennis Anderson, and I'm here to visit a family member.",
+   "v": "Mein Name ist Dennis Anderson, und ich möchte ein Familienmitglied besuchen."
+  },
+  {
+   "k": "His name is Anthony Anderson.",
+   "v": "Sein Name ist Anthony Anderson."
+  },
+  {
+   "k": "What is your relation to him?",
+   "v": "In welcher Beziehung stehen Sie zu ihm?"
+  },
+  {
+   "k": "Why are you here so late?",
+   "v": "Warum sind Sie so spät hier?"
+  },
+  {
+   "k": "Anthony was my brother.",
+   "v": "Anthony war mein Bruder."
+  },
+  {
+   "k": "I'll only stop by for a moment.",
+   "v": "Ich schaue nur kurz vorbei."
+  },
+  {
+   "k": "I try to visit him every year. It's been a while, my visit is a bit overdue.",
+   "v": "Ich versuche, ihn jedes Jahr zu besuchen. Ist eine Weile her, mein Besuch ist etwas überfällig."
+  },
+  {
+   "k": "I hope you don't mind.",
+   "v": "Ich hoffe, das stört Sie nicht."
+  },
+  {
+   "k": "Are you here to cause any trouble?",
+   "v": "Wollen Sie hier Ärger machen?"
+  },
+  {
+   "k": "Yeah... sorry.",
+   "v": "Ja... tut mir leid."
+  },
+  {
+   "k": "I have a very rigorous work schedule. Terrible hours.",
+   "v": "Ich habe einen sehr strengen Arbeitsplan. Schreckliche Arbeitszeiten."
+  },
+  {
+   "k": "I don't really get the time during the day to make this trip.",
+   "v": "Tagsüber finde ich einfach nicht die Zeit für diese Fahrt."
+  },
+  {
+   "k": "I hope it's alright.",
+   "v": "Ich hoffe, das ist in Ordnung."
+  },
+  {
+   "k": "Trouble?",
+   "v": "Ärger?"
+  },
+  {
+   "k": "I'm afraid I don't understand.",
+   "v": "Ich fürchte, ich verstehe nicht."
+  },
+  {
+   "k": "You seem suspicious.",
+   "v": "Sie wirken verdächtig."
+  },
+  {
+   "k": "On second thought...",
+   "v": "Wenn ich es mir recht überlege..."
+  },
+  {
+   "k": "I'll stop by another time.",
+   "v": "Ich komme ein andermal vorbei."
+  },
+  {
+   "k": "Maybe during the day, when there is someone on duty with a bit more manners.",
+   "v": "Vielleicht tagsüber, wenn jemand mit etwas mehr Manieren Dienst hat."
+  },
+  {
+   "k": "So, can I come in?",
+   "v": "Also, darf ich hinein?"
+  },
+  {
+   "k": "Alright. Go ahead.",
+   "v": "Also gut. Gehen Sie."
+  },
+  {
+   "k": "No. Please leave.",
+   "v": "Nein. Bitte gehen Sie."
+  },
+  {
+   "k": "I already told you.",
+   "v": "Das habe ich Ihnen schon gesagt."
+  },
+  {
+   "k": "Dennis Anderson.",
+   "v": "Dennis Anderson."
+  },
+  {
+   "k": "My brother.",
+   "v": "Meinen Bruder."
+  },
+  {
+   "k": "Anthony Anderson.",
+   "v": "Anthony Anderson."
+  },
+  {
+   "k": "Hmm... it's been quite a while.",
+   "v": "Hmm... das ist schon eine ganze Weile her."
+  },
+  {
+   "k": "A little over ten years ago now.",
+   "v": "Inzwischen etwas über zehn Jahre."
+  },
+  {
+   "k": "Tragic house fire.",
+   "v": "Ein tragischer Hausbrand."
+  },
+  {
+   "k": "Claimed him and the family. Only the little girl made it out alive.",
+   "v": "Hat ihn und die Familie geholt. Nur das kleine Mädchen hat es lebend rausgeschafft."
+  },
+  {
+   "k": "It was a horrible day.",
+   "v": "Es war ein schrecklicher Tag."
+  },
+  {
+   "k": "After the event, only the little girl survived.",
+   "v": "Nach dem Unglück hat nur das kleine Mädchen überlebt."
+  },
+  {
+   "k": "Her name is Lily.",
+   "v": "Sie heißt Lily."
+  },
+  {
+   "k": "Thanks.",
+   "v": "Danke."
+  },
+  {
+   "k": "I won't be long.",
+   "v": "Ich brauche nicht lange."
+  },
+  {
+   "k": "What do you mean \"no\"?",
+   "v": "Was heißt hier „nein“?"
+  },
+  {
+   "k": "You don't own those people in there. Those are family members.",
+   "v": "Die Leute da drin gehören nicht Ihnen. Das sind Familienmitglieder."
+  },
+  {
+   "k": "I'll just come back during the day, when there's someone more professional on duty.",
+   "v": "Ich komme einfach tagsüber wieder, wenn jemand Professionelleres Dienst hat."
+  },
+  {
+   "k": "It's a damn shame what happened that day.",
+   "v": "Es ist eine verdammte Schande, was an dem Tag passiert ist."
+  },
+  {
+   "k": "Wish I could've been there.",
+   "v": "Wäre ich nur da gewesen."
+  },
+  {
+   "k": "Where were you when it happened?",
+   "v": "Wo waren Sie, als es passiert ist?"
+  },
+  {
+   "k": "I think you should be going now.",
+   "v": "Ich denke, Sie sollten jetzt gehen."
+  },
+  {
+   "k": "I...",
+   "v": "Ich..."
+  },
+  {
+   "k": "I think I should be going now. Have a great rest of your evening.",
+   "v": "Ich denke, ich sollte jetzt gehen. Ich wünsche Ihnen noch einen schönen Abend."
+  },
+  {
+   "k": "Yeah, you're probably right.",
+   "v": "Ja, Sie haben wahrscheinlich recht."
+  },
+  {
+   "k": "I'll be heading out now.",
+   "v": "Ich mache mich jetzt auf den Weg."
+  },
+  {
+   "k": "H-hey...",
+   "v": "H-hallo..."
+  },
+  {
+   "k": "I need to come in to visit a grave...",
+   "v": "Ich muss rein, um ein Grab zu besuchen..."
+  },
+  {
+   "k": "Is that okay?",
+   "v": "Geht das?"
+  },
+  {
+   "k": "Well, go on ahead in!",
+   "v": "Na, dann gehen Sie mal rein!"
+  },
+  {
+   "k": "You mean, like, my name?",
+   "v": "Sie meinen, so, meinen Namen?"
+  },
+  {
+   "k": "It's, uh...",
+   "v": "Der ist, äh..."
+  },
+  {
+   "k": "Edwin.",
+   "v": "Edwin."
+  },
+  {
+   "k": "Can I go in now?",
+   "v": "Kann ich jetzt rein?"
+  },
+  {
+   "k": "I'll need your full name.",
+   "v": "Ich brauche Ihren vollen Namen."
+  },
+  {
+   "k": "Sure.",
+   "v": "Klar."
+  },
+  {
+   "k": "M-my full name?",
+   "v": "M-meinen vollen Namen?"
+  },
+  {
+   "k": "My name is Edwin Adams.",
+   "v": "Mein Name ist Edwin Adams."
+  },
+  {
+   "k": "I'm here to visit my mother's grave.",
+   "v": "Ich möchte das Grab meiner Mutter besuchen."
+  },
+  {
+   "k": "I don't have any identification with me, I didn't think anyone would be here.",
+   "v": "Ich habe keinen Ausweis dabei, ich dachte nicht, dass jemand hier wäre."
+  },
+  {
+   "k": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate.",
+   "v": "Ich wohne nicht weit weg und war schon ein paar Mal hier. Am Tor war nie jemand."
+  },
+  {
+   "k": "Can I please go in now?",
+   "v": "Kann ich jetzt bitte rein?"
+  },
+  {
+   "k": "Sorry kid. Graveyard's closed.",
+   "v": "Tut mir leid, Junge. Der Friedhof ist geschlossen."
+  },
+  {
+   "k": "I-it's Edwin Adams.",
+   "v": "E-es ist Edwin Adams."
+  },
+  {
+   "k": "My mother, Jane Adams.",
+   "v": "Meine Mutter, Jane Adams."
+  },
+  {
+   "k": "A long time ago. About fifteen years ago.",
+   "v": "Vor langer Zeit. Vor etwa fünfzehn Jahren."
+  },
+  {
+   "k": "I-I'm sorry but...",
+   "v": "E-es tut mir leid, aber..."
+  },
+  {
+   "k": "I don't really want to talk about it...",
+   "v": "Ich möchte nicht wirklich darüber reden..."
+  },
+  {
+   "k": "My aunt and I live together, there isn't really anyone else.",
+   "v": "Meine Tante und ich wohnen zusammen, sonst gibt es eigentlich niemanden."
+  },
+  {
+   "k": "T-thanks...",
+   "v": "D-danke..."
+  },
+  {
+   "k": "I won't be long...",
+   "v": "Ich brauche nicht lange..."
+  },
+  {
+   "k": "I miss my mother dearly.",
+   "v": "Ich vermisse meine Mutter sehr."
+  },
+  {
+   "k": "She used to hum when she thought no one was listening.",
+   "v": "Sie hat immer gesummt, wenn sie dachte, niemand hört zu."
+  },
+  {
+   "k": "Funny what stays with you, even after everything else is gone.",
+   "v": "Komisch, was einem bleibt, selbst wenn alles andere weg ist."
+  },
+  {
+   "k": "Anyway. I shouldn’t keep you standing here.",
+   "v": "Wie auch immer. Ich sollte Sie hier nicht länger aufhalten."
+  },
+  {
+   "k": "Are you going to be okay?",
+   "v": "Kommen Sie klar?"
+  },
+  {
+   "k": "Get lost, kid.",
+   "v": "Verschwinde, Junge."
+  },
+  {
+   "k": "Yeah... I'll get through this.",
+   "v": "Ja... ich komme da schon durch."
+  },
+  {
+   "k": "Thanks for letting me in, I know it's pretty late and you have a job to do.",
+   "v": "Danke, dass Sie mich reingelassen haben, ich weiß, es ist ziemlich spät und Sie haben zu tun."
+  },
+  {
+   "k": "But this helps more than you know.",
+   "v": "Aber das hilft mehr, als Sie ahnen."
+  },
+  {
+   "k": "Gate still open, huh?",
+   "v": "Das Tor ist noch offen, was?"
+  },
+  {
+   "k": "I need to get inside for a minute.",
+   "v": "Ich muss kurz rein."
+  },
+  {
+   "k": "Just here to visit some graves.",
+   "v": "Ich will nur ein paar Gräber besuchen."
+  },
+  {
+   "k": "Go on in.",
+   "v": "Gehen Sie rein."
+  },
+  {
+   "k": "My name is Jason.",
+   "v": "Mein Name ist Jason."
+  },
+  {
+   "k": "I've been here before many times.",
+   "v": "Ich war schon oft hier."
+  },
+  {
+   "k": "Jason Holmes.",
+   "v": "Jason Holmes."
+  },
+  {
+   "k": "I'm here for my brother, Zackary Holmes.",
+   "v": "Ich bin wegen meines Bruders hier, Zackary Holmes."
+  },
+  {
+   "k": "And his son. Edward Holmes.",
+   "v": "Und seines Sohnes. Edward Holmes."
+  },
+  {
+   "k": "They were buried close together.",
+   "v": "Sie wurden nah beieinander begraben."
+  },
+  {
+   "k": "Can I go in?",
+   "v": "Kann ich rein?"
+  },
+  {
+   "k": "Sorry. Graveyard's closed.",
+   "v": "Tut mir leid. Der Friedhof ist geschlossen."
+  },
+  {
+   "k": "My brother and nephew, Zackary and Edward.",
+   "v": "Mein Bruder und mein Neffe, Zackary und Edward."
+  },
+  {
+   "k": "When did they die?",
+   "v": "Wann sind sie gestorben?"
+  },
+  {
+   "k": "How did they die?",
+   "v": "Wie sind sie gestorben?"
+  },
+  {
+   "k": "Last year. They died at the same time.",
+   "v": "Letztes Jahr. Sie starben zur selben Zeit."
+  },
+  {
+   "k": "They died in a car accident.",
+   "v": "Sie starben bei einem Autounfall."
+  },
+  {
+   "k": "After their burial, it's just me and my brother's widowed wife.",
+   "v": "Seit ihrer Beerdigung gibt es nur noch mich und die Witwe meines Bruders."
+  },
+  {
+   "k": "She disappeared after their deaths.",
+   "v": "Sie ist nach ihrem Tod verschwunden."
+  },
+  {
+   "k": "Why?",
+   "v": "Warum?"
+  },
+  {
+   "k": "My name is Jason Holmes.",
+   "v": "Mein Name ist Jason Holmes."
+  },
+  {
+   "k": "No one knows for certain.",
+   "v": "Niemand weiß es genau."
+  },
+  {
+   "k": "She hasn't spoken to me since their passing.",
+   "v": "Sie hat seit ihrem Tod nicht mehr mit mir gesprochen."
+  },
+  {
+   "k": "I can only imagine what she's going through.",
+   "v": "Ich kann mir nur vorstellen, was sie durchmacht."
+  },
+  {
+   "k": "I appreciate it.",
+   "v": "Ich weiß das zu schätzen."
+  },
+  {
+   "k": "…",
+   "v": "…"
+  },
+  {
+   "k": "Yeah.",
+   "v": "Ja."
+  },
+  {
+   "k": "I should've expected that.",
+   "v": "Das hätte ich erwarten sollen."
+  },
+  {
+   "k": "You're going to end up like every other gravekeeper before you.",
+   "v": "Sie werden enden wie jeder Friedhofswärter vor Ihnen."
+  },
+  {
+   "k": "…Hey.",
+   "v": "…Hey."
+  },
+  {
+   "k": "I'm done.",
+   "v": "Ich bin fertig."
+  },
+  {
+   "k": "Took longer than I thought.",
+   "v": "Hat länger gedauert, als ich dachte."
+  },
+  {
+   "k": "Guess I had more to say than I realized.",
+   "v": "Ich hatte wohl mehr zu sagen, als mir bewusst war."
+  },
+  {
+   "k": "Everything alright?",
+   "v": "Alles in Ordnung?"
+  },
+  {
+   "k": "You should be heading out.",
+   "v": "Sie sollten sich auf den Weg machen."
+  },
+  {
+   "k": "As alright as it gets, I suppose.",
+   "v": "So in Ordnung, wie es eben geht, schätze ich."
+  },
+  {
+   "k": "Edward's stone is still clean.",
+   "v": "Edwards Stein ist noch sauber."
+  },
+  {
+   "k": "Someone's been taking care of it.",
+   "v": "Jemand hat sich darum gekümmert."
+  },
+  {
+   "k": "Anyway.",
+   "v": "Wie auch immer."
+  },
+  {
+   "k": "Thanks for letting me in.",
+   "v": "Danke, dass Sie mich reingelassen haben."
+  },
+  {
+   "k": "Right.",
+   "v": "Stimmt."
+  },
+  {
+   "k": "You're right.",
+   "v": "Sie haben recht."
+  },
+  {
+   "k": "Don't worry.",
+   "v": "Keine Sorge."
+  },
+  {
+   "k": "I wasn't planning on staying.",
+   "v": "Ich hatte nicht vor zu bleiben."
+  },
+  {
+   "k": "They've had enough company for one night.",
+   "v": "Sie hatten genug Gesellschaft für eine Nacht."
+  },
+  {
+   "k": "Try not to take this job too personally.",
+   "v": "Versuchen Sie, diesen Job nicht zu persönlich zu nehmen."
+  },
+  {
+   "k": "People just come here to mourn.",
+   "v": "Die Leute kommen nur zum Trauern hierher."
+  },
+  {
+   "k": "Good night.",
+   "v": "Gute Nacht."
+  },
+  {
+   "k": "Um...",
+   "v": "Ähm..."
+  },
+  {
+   "k": "H-hello?",
+   "v": "H-hallo?"
+  },
+  {
+   "k": "You work here, right?",
+   "v": "Sie arbeiten hier, oder?"
+  },
+  {
+   "k": "I think you do.",
+   "v": "Ich glaube schon."
+  },
+  {
+   "k": "I mean, you're standing there like you do.",
+   "v": "Ich meine, Sie stehen da, als würden Sie hier arbeiten."
+  },
+  {
+   "k": "I was wondering if I could come in for a minute.",
+   "v": "Ich wollte fragen, ob ich kurz reinkommen könnte."
+  },
+  {
+   "k": "Just a minute.",
+   "v": "Nur eine Minute."
+  },
+  {
+   "k": "Something feels off behind me.",
+   "v": "Hinter mir fühlt sich etwas falsch an."
+  },
+  {
+   "k": "But it might just be the wind.",
+   "v": "Aber vielleicht ist es nur der Wind."
+  },
+  {
+   "k": "What do you mean “off”?",
+   "v": "Was meinen Sie mit „falsch“?"
+  },
+  {
+   "k": "What did you see?",
+   "v": "Was haben Sie gesehen?"
+  },
+  {
+   "k": "R-right.",
+   "v": "G-genau."
+  },
+  {
+   "k": "So when I was walking, I heard footsteps.",
+   "v": "Also, als ich lief, hörte ich Schritte."
+  },
+  {
+   "k": "I think.",
+   "v": "Glaube ich."
+  },
+  {
+   "k": "When I stopped walking, the footsteps stopped.",
+   "v": "Als ich stehen blieb, hörten die Schritte auf."
+  },
+  {
+   "k": "Which is normal.",
+   "v": "Was normal ist."
+  },
+  {
+   "k": "Unless someone else stopped at the same time.",
+   "v": "Es sei denn, jemand anderes ist gleichzeitig stehen geblieben."
+  },
+  {
+   "k": "That happens in movies.",
+   "v": "So was passiert in Filmen."
+  },
+  {
+   "k": "Movies aren’t real. Did you see anyone?",
+   "v": "Filme sind nicht echt. Haben Sie jemanden gesehen?"
+  },
+  {
+   "k": "You’re shaking. Take a breath.",
+   "v": "Sie zittern. Atmen Sie durch."
+  },
+  {
+   "k": "Y-yeah.",
+   "v": "J-ja."
+  },
+  {
+   "k": "That's what my mom used to say.",
+   "v": "Das hat meine Mom immer gesagt."
+  },
+  {
+   "k": "That I think too much.",
+   "v": "Dass ich zu viel denke."
+  },
+  {
+   "k": "Or not enough.",
+   "v": "Oder zu wenig."
+  },
+  {
+   "k": "I never figured out which one she meant.",
+   "v": "Ich habe nie herausgefunden, was von beidem sie meinte."
+  },
+  {
+   "k": "I'm probably just tired.",
+   "v": "Ich bin wahrscheinlich nur müde."
+  },
+  {
+   "k": "But being tired makes it easier for bad things to happen, I think.",
+   "v": "Aber müde sein macht es leichter, dass schlimme Dinge passieren, glaube ich."
+  },
+  {
+   "k": "Or maybe that's naps.",
+   "v": "Oder vielleicht ist das bei Nickerchen so."
+  },
+  {
+   "k": "I get those mixed up.",
+   "v": "Ich verwechsle die beiden."
+  },
+  {
+   "k": "Focus. Did you actually see someone?",
+   "v": "Konzentrieren Sie sich. Haben Sie wirklich jemanden gesehen?"
+  },
+  {
+   "k": "Go home. You’re fine.",
+   "v": "Gehen Sie nach Hause. Ihnen geht's gut."
+  },
+  {
+   "k": "Oh.",
+   "v": "Oh."
+  },
+  {
+   "k": "Breathing.",
+   "v": "Atmen."
+  },
+  {
+   "k": "In.",
+   "v": "Ein."
+  },
+  {
+   "k": "Out.",
+   "v": "Aus."
+  },
+  {
+   "k": "I think I'm doing it wrong.",
+   "v": "Ich glaube, ich mache es falsch."
+  },
+  {
+   "k": "But I feel a little better.",
+   "v": "Aber ich fühle mich ein bisschen besser."
+  },
+  {
+   "k": "Still don't like the dark though.",
+   "v": "Die Dunkelheit mag ich trotzdem nicht."
+  },
+  {
+   "k": "The dark feels like it's leaning.",
+   "v": "Die Dunkelheit fühlt sich an, als würde sie sich neigen."
+  },
+  {
+   "k": "Does it look like it's leaning to you?",
+   "v": "Sieht es für Sie auch so aus, als würde sie sich neigen?"
+  },
+  {
+   "k": "No. Tell me what you saw.",
+   "v": "Nein. Sagen Sie mir, was Sie gesehen haben."
+  },
+  {
+   "k": "You’re imagining things.",
+   "v": "Sie bilden sich Dinge ein."
+  },
+  {
+   "k": "S-see them?",
+   "v": "S-sehen?"
+  },
+  {
+   "k": "Not clearly.",
+   "v": "Nicht deutlich."
+  },
+  {
+   "k": "There was a shape.",
+   "v": "Da war eine Gestalt."
+  },
+  {
+   "k": "Or maybe a space where a shape should've been.",
+   "v": "Oder vielleicht eine Leere, wo eine Gestalt hätte sein sollen."
+  },
+  {
+   "k": "It was near the trees.",
+   "v": "Es war bei den Bäumen."
+  },
+  {
+   "k": "But trees are very suspicious at night.",
+   "v": "Aber Bäume sind nachts sehr verdächtig."
+  },
+  {
+   "k": "They move even when they shouldn't.",
+   "v": "Sie bewegen sich, auch wenn sie es nicht sollten."
+  },
+  {
+   "k": "This one felt like it noticed me noticing it.",
+   "v": "Dieser hier schien zu bemerken, dass ich ihn bemerkt hatte."
+  },
+  {
+   "k": "Which sounds silly.",
+   "v": "Was albern klingt."
+  },
+  {
+   "k": "I know that.",
+   "v": "Ich weiß."
+  },
+  {
+   "k": "Describe the shape.",
+   "v": "Beschreiben Sie die Gestalt."
+  },
+  {
+   "k": "You’re just scared.",
+   "v": "Sie haben nur Angst."
+  },
+  {
+   "k": "Oh...",
+   "v": "Oh..."
+  },
+  {
+   "k": "M-maybe you're right.",
+   "v": "V-vielleicht haben Sie recht."
+  },
+  {
+   "k": "I'd feel a lot better if I could come inside for a moment...",
+   "v": "Ich würde mich viel besser fühlen, wenn ich kurz reinkommen dürfte..."
+  },
+  {
+   "k": "You can come inside. Quickly.",
+   "v": "Sie dürfen rein. Schnell."
+  },
+  {
+   "k": "You should leave right now.",
+   "v": "Sie sollten sofort gehen."
+  },
+  {
+   "k": "I have a few more questions...",
+   "v": "Ich habe noch ein paar Fragen..."
+  },
+  {
+   "k": "Where were you headed?",
+   "v": "Wo wollten Sie hin?"
+  },
+  {
+   "k": "Oh, uh...",
+   "v": "Oh, äh..."
+  },
+  {
+   "k": "I was just heading home.",
+   "v": "Ich war nur auf dem Heimweg."
+  },
+  {
+   "k": "My car is, like, out of gas. So I had to walk.",
+   "v": "Mein Auto hat, also, keinen Sprit mehr. Deshalb musste ich laufen."
+  },
+  {
+   "k": "I was just coming back from work. I work at bowling alley a couple of miles down the road.",
+   "v": "Ich kam gerade von der Arbeit. Ich arbeite in der Bowlingbahn ein paar Kilometer die Straße runter."
+  },
+  {
+   "k": "My name is Jessica.",
+   "v": "Mein Name ist Jessica."
+  },
+  {
+   "k": "Not to be rude, but I don't think I would feel comfortable standing out here by myself.",
+   "v": "Ich will nicht unhöflich sein, aber ich glaube nicht, dass ich mich wohlfühlen würde, hier allein draußen zu stehen."
+  },
+  {
+   "k": "Um.",
+   "v": "Ähm."
+  },
+  {
+   "k": "It was tall.",
+   "v": "Es war groß."
+  },
+  {
+   "k": "Or average.",
+   "v": "Oder durchschnittlich."
+  },
+  {
+   "k": "Taller than me.",
+   "v": "Größer als ich."
+  },
+  {
+   "k": "That part I’m sure about.",
+   "v": "Da bin ich mir sicher."
+  },
+  {
+   "k": "It didn't move much.",
+   "v": "Es hat sich kaum bewegt."
+  },
+  {
+   "k": "Which was the worst part.",
+   "v": "Das war das Schlimmste."
+  },
+  {
+   "k": "If it moved, I'd know it was real.",
+   "v": "Wenn es sich bewegt hätte, wüsste ich, dass es echt war."
+  },
+  {
+   "k": "I think it had something dark on.",
+   "v": "Ich glaube, es hatte etwas Dunkles an."
+  },
+  {
+   "k": "Like a coat.",
+   "v": "Wie einen Mantel."
+  },
+  {
+   "k": "Or a shadow pretending to be a coat.",
+   "v": "Oder einen Schatten, der so tut, als wäre er ein Mantel."
+  },
+  {
+   "k": "R-really?",
+   "v": "W-wirklich?"
+  },
+  {
+   "k": "I promise I won't touch anything.",
+   "v": "Ich verspreche, ich fasse nichts an."
+  },
+  {
+   "k": "Or look at anything too long.",
+   "v": "Und schaue nichts zu lange an."
+  },
+  {
+   "k": "That's fair.",
+   "v": "Das ist fair."
+  },
+  {
+   "k": "You're probably right.",
+   "v": "Sie haben wahrscheinlich recht."
+  },
+  {
+   "k": "I'm sorry for bothering you.",
+   "v": "Tut mir leid, dass ich Sie gestört habe."
+  },
+  {
+   "k": "I'll just walk fast.",
+   "v": "Ich gehe einfach schnell."
+  },
+  {
+   "k": "Fast walking makes you harder to catch.",
+   "v": "Wer schnell geht, ist schwerer zu fangen."
+  },
+  {
+   "k": "I heard that somewhere.",
+   "v": "Das habe ich irgendwo gehört."
+  },
+  {
+   "k": "If I start running, don't worry.",
+   "v": "Wenn ich anfange zu rennen, keine Sorge."
+  },
+  {
+   "k": "That's normal for me.",
+   "v": "Das ist bei mir normal."
+  },
+  {
+   "k": "I think I'm okay now.",
+   "v": "Ich glaube, jetzt geht es mir gut."
+  },
+  {
+   "k": "I stayed longer than I meant to.",
+   "v": "Ich bin länger geblieben, als ich wollte."
+  },
+  {
+   "k": "It feels quieter in here.",
+   "v": "Hier drin fühlt es sich ruhiger an."
+  },
+  {
+   "k": "Not good quiet.",
+   "v": "Keine gute Ruhe."
+  },
+  {
+   "k": "Just... tired quiet.",
+   "v": "Nur... eine müde Ruhe."
+  },
+  {
+   "k": "I should probably go home.",
+   "v": "Ich sollte wohl nach Hause gehen."
+  },
+  {
+   "k": "You sure you’re alright to leave alone?",
+   "v": "Sind Sie sicher, dass Sie allein gehen können?"
+  },
+  {
+   "k": "I mean.",
+   "v": "Ich meine."
+  },
+  {
+   "k": "I walked here by myself.",
+   "v": "Ich bin allein hergelaufen."
+  },
+  {
+   "k": "And nothing bad happened.",
+   "v": "Und nichts Schlimmes ist passiert."
+  },
+  {
+   "k": "Probably.",
+   "v": "Wahrscheinlich."
+  },
+  {
+   "k": "So it should be fine going back.",
+   "v": "Also sollte der Rückweg auch in Ordnung sein."
+  },
+  {
+   "k": "If I walk fast.",
+   "v": "Wenn ich schnell gehe."
+  },
+  {
+   "k": "But not run.",
+   "v": "Aber nicht renne."
+  },
+  {
+   "k": "Running makes it obvious you're scared.",
+   "v": "Rennen macht offensichtlich, dass man Angst hat."
+  },
+  {
+   "k": "Goodnight.",
+   "v": "Gute Nacht."
+  },
+  {
+   "k": "For letting me in.",
+   "v": "Dass Sie mich reingelassen haben."
+  },
+  {
+   "k": "And for not laughing.",
+   "v": "Und nicht gelacht haben."
+  },
+  {
+   "k": "I'll be gone in just a second.",
+   "v": "Ich bin gleich weg."
+  },
+  {
+   "k": "My name is officer James. I'm here with my partner, officer Baidey on an investigation.",
+   "v": "Mein Name ist Officer James. Ich bin mit meinem Partner, Officer Baidey, wegen einer Ermittlung hier."
+  },
+  {
+   "k": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.",
+   "v": "Uns wurden Störungen gemeldet, sowohl von diesem Friedhof als auch aus der Nachbarschaft."
+  },
+  {
+   "k": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.",
+   "v": "Offenbar haben einige Leute seltsames Bandenverhalten beobachtet. Wir haben den Anruf entgegengenommen, und deshalb sind wir hier."
+  },
+  {
+   "k": "Would you mind answering some questions for us?",
+   "v": "Würden Sie uns ein paar Fragen beantworten?"
+  },
+  {
+   "k": "Alright, how can I help you?",
+   "v": "In Ordnung, wie kann ich helfen?"
+  },
+  {
+   "k": "Sorry, I can't help you.",
+   "v": "Tut mir leid, ich kann Ihnen nicht helfen."
+  },
+  {
+   "k": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.",
+   "v": "Gut. Uns wurden mehrere Männer gemeldet, die in Häuser in dieser Nachbarschaft eingebrochen sind."
+  },
+  {
+   "k": "Apparently, some of them have been sighted near this cemetary as well.",
+   "v": "Einige von ihnen wurden offenbar auch in der Nähe dieses Friedhofs gesehen."
+  },
+  {
+   "k": "I'd like your help in conducting this investigation.",
+   "v": "Ich hätte gern Ihre Hilfe bei dieser Ermittlung."
+  },
+  {
+   "k": "Firstly, have you seen anyone attempting to enter the premises dressed in black?",
+   "v": "Zunächst: Haben Sie jemanden in Schwarz gesehen, der versucht hat, das Gelände zu betreten?"
+  },
+  {
+   "k": "No, officer.",
+   "v": "Nein, Officer."
+  },
+  {
+   "k": "Yes, I have.",
+   "v": "Ja, habe ich."
+  },
+  {
+   "k": "Could you describe the behavior of this individiual?",
+   "v": "Könnten Sie das Verhalten dieser Person beschreiben?"
+  },
+  {
+   "k": "They asked to come in and see a grave.",
+   "v": "Er hat gebeten, reinzukommen und ein Grab zu sehen."
+  },
+  {
+   "k": "They never approached me.",
+   "v": "Er hat mich nie angesprochen."
+  },
+  {
+   "k": "I don't remember.",
+   "v": "Ich erinnere mich nicht."
+  },
+  {
+   "k": "Alright, I'll move on to my next question.",
+   "v": "In Ordnung, dann zu meiner nächsten Frage."
+  },
+  {
+   "k": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?",
+   "v": "Haben Sie jemanden gesehen, der um das Gelände herumgeschlichen ist? An den Mauern oder am Tor, hineinspähend?"
+  },
+  {
+   "k": "Do you remember anything about this individual?",
+   "v": "Erinnern Sie sich an irgendetwas über diese Person?"
+  },
+  {
+   "k": "Perhaps the color of his clothes or complexion?",
+   "v": "Vielleicht die Farbe der Kleidung oder den Teint?"
+  },
+  {
+   "k": "They wearing a greenish brown shirt.",
+   "v": "Er trug ein grünlich-braunes Hemd."
+  },
+  {
+   "k": "They were wearing a grey robe.",
+   "v": "Er trug eine graue Robe."
+  },
+  {
+   "k": "Alright, we appreciate your coopearation.",
+   "v": "In Ordnung, wir danken Ihnen für Ihre Kooperation."
+  },
+  {
+   "k": "We have one more question.",
+   "v": "Wir haben noch eine Frage."
+  },
+  {
+   "k": "If it's alright with you...",
+   "v": "Wenn es Ihnen recht ist..."
+  },
+  {
+   "k": "I would like to come inside and take a look around.",
+   "v": "Ich würde gern hineingehen und mich umsehen."
+  },
+  {
+   "k": "Alright, go ahead.",
+   "v": "In Ordnung, gehen Sie."
+  },
+  {
+   "k": "I'm afraid I can't let you in sir.",
+   "v": "Ich fürchte, ich kann Sie nicht hineinlassen, Sir."
+  },
+  {
+   "k": "My name is officer James.",
+   "v": "Mein Name ist Officer James."
+  },
+  {
+   "k": "I see...",
+   "v": "Ich verstehe..."
+  },
+  {
+   "k": "Well, we don't have a warrant, so I can't force you to let me in.",
+   "v": "Nun, wir haben keinen Durchsuchungsbefehl, also kann ich Sie nicht zwingen, mich hineinzulassen."
+  },
+  {
+   "k": "We'll be nearby if there's any trouble. Keep an eye out.",
+   "v": "Wir sind in der Nähe, falls es Ärger gibt. Halten Sie die Augen offen."
+  },
+  {
+   "k": "I think I'll be concluding my investigation here...",
+   "v": "Ich denke, ich schließe meine Ermittlung hier ab..."
+  },
+  {
+   "k": "Keep an eye out. Let us know if you see anything strange.",
+   "v": "Halten Sie die Augen offen. Melden Sie sich, wenn Sie etwas Seltsames sehen."
+  },
+  {
+   "k": "Good evening.",
+   "v": "Guten Abend."
+  },
+  {
+   "k": "I'm Father Joseph.",
+   "v": "Ich bin Pater Joseph."
+  },
+  {
+   "k": "I used to be the pastor here at this church.",
+   "v": "Ich war früher der Pfarrer hier an dieser Kirche."
+  },
+  {
+   "k": "I need to come inside for a moment.",
+   "v": "Ich muss kurz hinein."
+  },
+  {
+   "k": "What is your business here?",
+   "v": "Was wollen Sie hier?"
+  },
+  {
+   "k": "Well...",
+   "v": "Nun..."
+  },
+  {
+   "k": "I've left something important in the basement of that abandoned church years ago.",
+   "v": "Ich habe vor Jahren etwas Wichtiges im Keller dieser verlassenen Kirche zurückgelassen."
+  },
+  {
+   "k": "I need to come inside and reclaim it.",
+   "v": "Ich muss hinein und es zurückholen."
+  },
+  {
+   "k": "What did you leave behind?",
+   "v": "Was haben Sie zurückgelassen?"
+  },
+  {
+   "k": "Why wait until now?",
+   "v": "Warum bis jetzt warten?"
+  },
+  {
+   "k": "A wedding ring for my betrothed. It remained here after many years.",
+   "v": "Einen Ehering für meine Verlobte. Er ist hier geblieben, all die Jahre."
+  },
+  {
+   "k": "I need it back.",
+   "v": "Ich brauche ihn zurück."
+  },
+  {
+   "k": "Are you hiding something?",
+   "v": "Verbergen Sie etwas?"
+  },
+  {
+   "k": "You came all this way just for that?",
+   "v": "Sie sind den ganzen Weg nur dafür gekommen?"
+  },
+  {
+   "k": "Yes. It has very large sentimental value to me.",
+   "v": "Ja. Er hat für mich einen sehr hohen ideellen Wert."
+  },
+  {
+   "k": "I need to enter the grounds to retrieve it.",
+   "v": "Ich muss das Gelände betreten, um ihn zu holen."
+  },
+  {
+   "k": "You're hiding something.",
+   "v": "Sie verbergen etwas."
+  },
+  {
+   "k": "Alright, I will be candid with you.",
+   "v": "Nun gut, ich will offen zu Ihnen sein."
+  },
+  {
+   "k": "I had hoped not to return to this place.",
+   "v": "Ich hatte gehofft, nie an diesen Ort zurückkehren zu müssen."
+  },
+  {
+   "k": "But recently... I have felt immense guilt over the loss of my wife to be.",
+   "v": "Aber in letzter Zeit... empfinde ich unermessliche Schuld wegen des Verlusts meiner Braut in spe."
+  },
+  {
+   "k": "She passed away before I had the opportunity to take our vows.",
+   "v": "Sie starb, bevor ich die Gelegenheit hatte, unser Gelübde abzulegen."
+  },
+  {
+   "k": "I must return to retrieve our wedding ring.",
+   "v": "Ich muss zurück, um unseren Ehering zu holen."
+  },
+  {
+   "k": "As something to remember her by.",
+   "v": "Als Erinnerung an sie."
+  },
+  {
+   "k": "Are you lying?",
+   "v": "Lügen Sie?"
+  },
+  {
+   "k": "How can I trust you?",
+   "v": "Wie kann ich Ihnen vertrauen?"
+  },
+  {
+   "k": "No. I know it has been many years since I've returned to these grounds...",
+   "v": "Nein. Ich weiß, es ist viele Jahre her, dass ich an diesem Ort war..."
+  },
+  {
+   "k": "But I'm back now and I need to retrieve what is rightfully mine.",
+   "v": "Aber jetzt bin ich zurück und muss holen, was rechtmäßig mir gehört."
+  },
+  {
+   "k": "So please...",
+   "v": "Also bitte..."
+  },
+  {
+   "k": "You are wise to hesitate.",
+   "v": "Es ist klug von Ihnen zu zögern."
+  },
+  {
+   "k": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return.",
+   "v": "Jeder Schritt zu dieser Kirche fühlt sich an, als ginge ich zurück in eine Erinnerung, die geduldig auf meine Rückkehr gewartet hat."
+  },
+  {
+   "k": "But I need that ring.",
+   "v": "Aber ich brauche diesen Ring."
+  },
+  {
+   "k": "I would like you to come with me to retrieve it.",
+   "v": "Ich möchte, dass Sie mich begleiten, um ihn zu holen."
+  },
+  {
+   "k": "Shall we go together?",
+   "v": "Gehen wir zusammen?"
+  },
+  {
+   "k": "Alright. Let's go.",
+   "v": "In Ordnung. Gehen wir."
+  },
+  {
+   "k": "I'm sorry father, but you should leave.",
+   "v": "Es tut mir leid, Pater, aber Sie sollten gehen."
+  },
+  {
+   "k": "Do you have any family members?",
+   "v": "Haben Sie Familienangehörige?"
+  },
+  {
+   "k": "My name is Father Joseph Smith.",
+   "v": "Mein Name ist Pater Joseph Smith."
+  },
+  {
+   "k": "I have no immediate family members.",
+   "v": "Ich habe keine nahen Angehörigen."
+  },
+  {
+   "k": "We will not be long.",
+   "v": "Wir werden nicht lange brauchen."
+  },
+  {
+   "k": "It is down the hall, on the staircase to the right.",
+   "v": "Es ist den Flur hinunter, über die Treppe rechts."
+  },
+  {
+   "k": "I know the way.",
+   "v": "Ich kenne den Weg."
+  },
+  {
+   "k": "I hope we are not too late.",
+   "v": "Ich hoffe, wir sind nicht zu spät."
+  },
+  {
+   "k": "Hurry.",
+   "v": "Beeilen Sie sich."
+  },
+  {
+   "k": "I urge you to reconsider.",
+   "v": "Ich bitte Sie dringend, es sich noch einmal zu überlegen."
+  },
+  {
+   "k": "It is very important you allow me inside to retrieve the lost item.",
+   "v": "Es ist sehr wichtig, dass Sie mich hineinlassen, um den verlorenen Gegenstand zu holen."
+  },
+  {
+   "k": "Please. Allow me in.",
+   "v": "Bitte. Lassen Sie mich hinein."
+  },
+  {
+   "k": "You're right. I'm sorry. Let's go inside.",
+   "v": "Sie haben recht. Es tut mir leid. Gehen wir hinein."
+  },
+  {
+   "k": "No. Leave.",
+   "v": "Nein. Gehen Sie."
+  },
+  {
+   "k": "Very well.",
+   "v": "Nun gut."
+  },
+  {
+   "k": "I will not force your hand.",
+   "v": "Ich werde Sie nicht zwingen."
+  },
+  {
+   "k": "May God forgive us both.",
+   "v": "Möge Gott uns beiden vergeben."
+  },
+  {
+   "k": "Here we are.",
+   "v": "Da wären wir."
+  },
+  {
+   "k": "I would like you to enter inside and retrieve it for me. I will wait out here.",
+   "v": "Ich möchte, dass Sie hineingehen und ihn für mich holen. Ich warte hier draußen."
+  },
+  {
+   "k": "It is down the hall. Take the first door to your right.",
+   "v": "Es ist den Flur hinunter. Nehmen Sie die erste Tür rechts."
+  },
+  {
+   "k": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom.",
+   "v": "Es ist eine ziemlich lange Treppe hinab in den Keller. Gehen Sie einfach weiter, bis Sie unten sind."
+  },
+  {
+   "k": "The ring should be left in a chest in the back corner.",
+   "v": "Der Ring müsste in einer Truhe in der hinteren Ecke liegen."
+  },
+  {
+   "k": "Before you enter, I would like to give you some advice.",
+   "v": "Bevor Sie hineingehen, möchte ich Ihnen einen Rat geben."
+  },
+  {
+   "k": "When you go down the hall, do not enter the door on the left. No matter what.",
+   "v": "Wenn Sie den Flur entlanggehen, betreten Sie nicht die Tür auf der linken Seite. Unter keinen Umständen."
+  },
+  {
+   "k": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute.",
+   "v": "Und hören Sie auf keine Stimmen, die Sie in die Irre führen könnten. Bleiben Sie auf Ihrem Weg und bleiben Sie standhaft."
+  },
+  {
+   "k": "Do you understand?",
+   "v": "Haben Sie verstanden?"
+  },
+  {
+   "k": "Okay. Thank you, father.",
+   "v": "In Ordnung. Danke, Pater."
+  },
+  {
+   "k": "I've changed my mind. You should leave.",
+   "v": "Ich habe es mir anders überlegt. Sie sollten gehen."
+  },
+  {
+   "k": "Were you able to retrieve the ring?",
+   "v": "Konnten Sie den Ring holen?"
+  },
+  {
+   "k": "Not yet. I'll go get it.",
+   "v": "Noch nicht. Ich hole ihn."
+  },
+  {
+   "k": "Yo… you work here?",
+   "v": "Yo... arbeitest du hier?"
+  },
+  {
+   "k": "Listen, man, I can’t hang around long.",
+   "v": "Hör zu, Mann, ich kann nicht lange bleiben."
+  },
+  {
+   "k": "I don’t even wanna come in.",
+   "v": "Ich will nicht mal rein."
+  },
+  {
+   "k": "Just needed to give you a heads-up.",
+   "v": "Wollte dich nur vorwarnen."
+  },
+  {
+   "k": "A heads-up?",
+   "v": "Vorwarnen?"
+  },
+  {
+   "k": "Yeah. A warning.",
+   "v": "Ja. Eine Warnung."
+  },
+  {
+   "k": "My brother’s been acting real strange lately.",
+   "v": "Mein Bruder benimmt sich in letzter Zeit echt seltsam."
+  },
+  {
+   "k": "Says he’s got some kind of “gig” involving this place.",
+   "v": "Sagt, er hätte irgendeinen „Auftrag“, der mit diesem Ort zu tun hat."
+  },
+  {
+   "k": "Tried telling the cops, but they wouldn’t listen. They never take me seriously.",
+   "v": "Hab versucht, es den Bullen zu sagen, aber die wollten nicht zuhören. Die nehmen mich nie ernst."
+  },
+  {
+   "k": "So I figured I’d come myself.",
+   "v": "Also dachte ich, ich komme selbst."
+  },
+  {
+   "k": "If my brother shows up here to “visit” a grave…",
+   "v": "Wenn mein Bruder hier auftaucht, um ein Grab zu „besuchen“..."
+  },
+  {
+   "k": "Do not let him in.",
+   "v": "Lass ihn nicht rein."
+  },
+  {
+   "k": "You hear me?",
+   "v": "Hörst du?"
+  },
+  {
+   "k": "Why not?",
+   "v": "Warum nicht?"
+  },
+  {
+   "k": "Alright, I understand. Can you give me any more details?",
+   "v": "Okay, verstanden. Kannst du mir mehr Details geben?"
+  },
+  {
+   "k": "I already told you, man.",
+   "v": "Hab ich dir doch gesagt, Mann."
+  },
+  {
+   "k": "He’s been running with the wrong crowd.",
+   "v": "Er hängt mit den falschen Leuten rum."
+  },
+  {
+   "k": "Nothing but trouble.",
+   "v": "Nichts als Ärger."
+  },
+  {
+   "k": "I don’t want him getting in deeper than he already is.",
+   "v": "Ich will nicht, dass er noch tiefer reingerät, als er es schon ist."
+  },
+  {
+   "k": "Just turn him away. Don’t let him in, and don’t let him talk you into it.",
+   "v": "Schick ihn einfach weg. Lass ihn nicht rein, und lass dich nicht von ihm überreden."
+  },
+  {
+   "k": "Him and that weird, cult-like group he’s been hanging around lately…",
+   "v": "Er und diese komische, sektenartige Truppe, mit der er in letzter Zeit abhängt..."
+  },
+  {
+   "k": "I don’t know. Something’s off.",
+   "v": "Ich weiß nicht. Irgendwas stimmt da nicht."
+  },
+  {
+   "k": "Okay. Thanks for the warning.",
+   "v": "Okay. Danke für die Warnung."
+  },
+  {
+   "k": "Sorry, but I’ll be handling security myself. You should go home.",
+   "v": "Tut mir leid, aber um die Sicherheit kümmere ich mich selbst. Du solltest nach Hause gehen."
+  },
+  {
+   "k": "Name’s Reginald. My brother’s Shane.",
+   "v": "Ich heiße Reginald. Mein Bruder ist Shane."
+  },
+  {
+   "k": "We’re part of the Deloitte family — live a few miles down the road.",
+   "v": "Wir gehören zur Familie Deloitte – wohnen ein paar Kilometer die Straße runter."
+  },
+  {
+   "k": "I’m not here to cause trouble.",
+   "v": "Ich bin nicht hier, um Ärger zu machen."
+  },
+  {
+   "k": "I just want to stop him from doing something stupid… something he might regret.",
+   "v": "Ich will nur verhindern, dass er etwas Dummes tut... etwas, das er bereuen könnte."
+  },
+  {
+   "k": "He’s always been like this. Always pushing his luck.",
+   "v": "Er war schon immer so. Reizt sein Glück immer aus."
+  },
+  {
+   "k": "So please — can you promise me you won’t let him or his gang in?",
+   "v": "Also bitte – kannst du mir versprechen, dass du ihn und seine Bande nicht reinlässt?"
+  },
+  {
+   "k": "Thanks for hearing me out.",
+   "v": "Danke, dass du mir zugehört hast."
+  },
+  {
+   "k": "We’re the Deloitte family — live not too far from here.",
+   "v": "Wir sind die Familie Deloitte – wohnen nicht weit von hier."
+  },
+  {
+   "k": "My brother looks a lot like me. Little shorter, but close enough you might mistake us.",
+   "v": "Mein Bruder sieht mir sehr ähnlich. Etwas kleiner, aber nah genug dran, dass du uns verwechseln könntest."
+  },
+  {
+   "k": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go.",
+   "v": "Er hängt in letzter Zeit mit dieser seltsamen Gruppe rum – alle in Schwarz, komische Rituale, machen überall Ärger, wo sie hinkommen."
+  },
+  {
+   "k": "Real cult-like stuff.",
+   "v": "Echtes Sektenzeug."
+  },
+  {
+   "k": "Before he took off, I heard him muttering about this graveyard being “important.”",
+   "v": "Bevor er abgehauen ist, hab ich ihn murmeln hören, dieser Friedhof sei „wichtig“."
+  },
+  {
+   "k": "Didn’t like the sound of that.",
+   "v": "Hat mir nicht gefallen, wie das klang."
+  },
+  {
+   "k": "Feels like he’s planning to mess with something buried out here.",
+   "v": "Fühlt sich an, als hätte er vor, an etwas herumzupfuschen, das hier begraben liegt."
+  },
+  {
+   "k": "Just… don’t let him in.",
+   "v": "Lass ihn einfach... nicht rein."
+  },
+  {
+   "k": "I don’t want to see him ruin his life any more than he already has.",
+   "v": "Ich will nicht mit ansehen, wie er sein Leben noch mehr ruiniert, als er es schon getan hat."
+  },
+  {
+   "k": "Can you promise me that?",
+   "v": "Kannst du mir das versprechen?"
+  },
+  {
+   "k": "Thanks, man.",
+   "v": "Danke, Mann."
+  },
+  {
+   "k": "I owe you one.",
+   "v": "Ich schulde dir was."
+  },
+  {
+   "k": "Yeah… figures.",
+   "v": "Ja... war ja klar."
+  },
+  {
+   "k": "Nobody ever takes me seriously.",
+   "v": "Niemand nimmt mich je ernst."
+  },
+  {
+   "k": "Hope you all get what’s coming to you.",
+   "v": "Ich hoffe, ihr kriegt alle, was ihr verdient."
+  },
+  {
+   "k": "Hey.",
+   "v": "Hey."
+  },
+  {
+   "k": "Didn't think anyone would be out here this late.",
+   "v": "Hätte nicht gedacht, dass so spät noch jemand hier draußen ist."
+  },
+  {
+   "k": "You work this place?",
+   "v": "Du arbeitest hier?"
+  },
+  {
+   "k": "Listen… I don’t wanna make trouble.",
+   "v": "Hör zu... ich will keinen Ärger machen."
+  },
+  {
+   "k": "I just need a minute inside.",
+   "v": "Ich brauche nur eine Minute da drin."
+  },
+  {
+   "k": "It's late. What do you want?",
+   "v": "Es ist spät. Was wollen Sie?"
+  },
+  {
+   "k": "My name's Shane.",
+   "v": "Ich heiße Shane."
+  },
+  {
+   "k": "Deloitte family. We live a ways down the road.",
+   "v": "Familie Deloitte. Wir wohnen ein Stück die Straße runter."
+  },
+  {
+   "k": "I’m not here to steal anything or mess around.",
+   "v": "Ich bin nicht hier, um etwas zu klauen oder Unfug zu treiben."
+  },
+  {
+   "k": "There’s something in there that belongs to my family.",
+   "v": "Da drin ist etwas, das meiner Familie gehört."
+  },
+  {
+   "k": "Something that never got handled right.",
+   "v": "Etwas, das nie richtig erledigt wurde."
+  },
+  {
+   "k": "Handled how?",
+   "v": "Erledigt wie?"
+  },
+  {
+   "k": "Rules are rules. I can’t let you in.",
+   "v": "Regeln sind Regeln. Ich kann Sie nicht reinlassen."
+  },
+  {
+   "k": "I just need to see a grave.",
+   "v": "Ich muss nur ein Grab sehen."
+  },
+  {
+   "k": "It's unmarked.",
+   "v": "Es ist unmarkiert."
+  },
+  {
+   "k": "Most folks don’t even know it’s there.",
+   "v": "Die meisten Leute wissen nicht mal, dass es da ist."
+  },
+  {
+   "k": "I wouldn’t be here if I had another option.",
+   "v": "Ich wäre nicht hier, wenn ich eine andere Möglichkeit hätte."
+  },
+  {
+   "k": "Why is it unmarked?",
+   "v": "Warum ist es unmarkiert?"
+  },
+  {
+   "k": "That doesn’t matter. You need to leave.",
+   "v": "Das spielt keine Rolle. Sie müssen gehen."
+  },
+  {
+   "k": "They buried them in a hurry.",
+   "v": "Sie haben sie in aller Eile begraben."
+  },
+  {
+   "k": "Didn’t ask questions. Didn’t put a name down.",
+   "v": "Keine Fragen gestellt. Keinen Namen vermerkt."
+  },
+  {
+   "k": "Just wanted it done and forgotten.",
+   "v": "Wollten es nur hinter sich bringen und vergessen."
+  },
+  {
+   "k": "That kind of thing sticks with a family.",
+   "v": "So etwas bleibt an einer Familie hängen."
+  },
+  {
+   "k": "Sticks with a place too.",
+   "v": "An einem Ort auch."
+  },
+  {
+   "k": "You’re talking in circles. Be straight with me.",
+   "v": "Sie reden im Kreis. Reden Sie Klartext mit mir."
+  },
+  {
+   "k": "I’m sorry, but I still can’t let you in.",
+   "v": "Es tut mir leid, aber ich kann Sie trotzdem nicht reinlassen."
+  },
+  {
+   "k": "Because it was easier that way.",
+   "v": "Weil es so einfacher war."
+  },
+  {
+   "k": "No paperwork or attention.",
+   "v": "Kein Papierkram, keine Aufmerksamkeit."
+  },
+  {
+   "k": "Just dirt over a problem.",
+   "v": "Nur Erde über einem Problem."
+  },
+  {
+   "k": "I know how this sounds.",
+   "v": "Ich weiß, wie sich das anhört."
+  },
+  {
+   "k": "But I need to see it with my own eyes.",
+   "v": "Aber ich muss es mit eigenen Augen sehen."
+  },
+  {
+   "k": "Make sure nothing’s… wrong.",
+   "v": "Sichergehen, dass nichts... falsch ist."
+  },
+  {
+   "k": "What could be wrong?",
+   "v": "Was könnte falsch sein?"
+  },
+  {
+   "k": "No. You’re not going inside.",
+   "v": "Nein. Sie gehen da nicht rein."
+  },
+  {
+   "k": "…Alright.",
+   "v": "…Na gut."
+  },
+  {
+   "k": "Something’s been off lately.",
+   "v": "In letzter Zeit stimmt etwas nicht."
+  },
+  {
+   "k": "I haven't been able to sleep right. The guilt from the quick burial...",
+   "v": "Ich kann nicht mehr richtig schlafen. Die Schuld wegen der hastigen Beerdigung..."
+  },
+  {
+   "k": "I just wanna make sure the plot is alright.",
+   "v": "Ich will nur sichergehen, dass mit dem Grab alles in Ordnung ist."
+  },
+  {
+   "k": "The paperwork doesn’t line up.",
+   "v": "Die Papiere passen nicht zusammen."
+  },
+  {
+   "k": "Dates, plot number... even the depth’s different depending on who you ask.",
+   "v": "Daten, Grabnummer... sogar die Tiefe ist anders, je nachdem, wen man fragt."
+  },
+  {
+   "k": "That usually means someone rushed it, or skipped steps they shouldn’t have.",
+   "v": "Das heißt meistens, dass jemand es überstürzt hat oder Schritte ausgelassen hat, die er nicht hätte auslassen dürfen."
+  },
+  {
+   "k": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.",
+   "v": "Wenn etwas falsch gemacht wurde, ist es leichter, es jetzt zu beheben, als wenn es zu einem größeren Problem wird."
+  },
+  {
+   "k": "I’ve learned that the hard way.",
+   "v": "Das habe ich auf die harte Tour gelernt."
+  },
+  {
+   "k": "Will you let me come in and have a look?",
+   "v": "Lässt du mich rein, damit ich nachsehen kann?"
+  },
+  {
+   "k": "Fine. You can go in, but be quick.",
+   "v": "Na gut. Sie dürfen rein, aber beeilen Sie sich."
+  },
+  {
+   "k": "My brother, Reginald.",
+   "v": "Meinen Bruder, Reginald."
+  },
+  {
+   "k": "It was very recent.",
+   "v": "Es war erst vor Kurzem."
+  },
+  {
+   "k": "A little over a week ago.",
+   "v": "Vor etwas mehr als einer Woche."
+  },
+  {
+   "k": "You weren't working here when it happened.",
+   "v": "Sie haben hier noch nicht gearbeitet, als es passiert ist."
+  },
+  {
+   "k": "He died close to here.",
+   "v": "Er ist in der Nähe gestorben."
+  },
+  {
+   "k": "He was in a terrible shape when they found him. I don't want to recall the details.",
+   "v": "Er war in einem furchtbaren Zustand, als sie ihn gefunden haben. Ich will mich nicht an die Einzelheiten erinnern."
+  },
+  {
+   "k": "I don't know for certain.",
+   "v": "Ich weiß es nicht genau."
+  },
+  {
+   "k": "After my brother's death, it's just me.",
+   "v": "Seit dem Tod meines Bruders bin nur noch ich übrig."
+  },
+  {
+   "k": "Shane Deloitte.",
+   "v": "Shane Deloitte."
+  },
+  {
+   "k": "Really.",
+   "v": "Wirklich."
+  },
+  {
+   "k": "I’ll be quick.",
+   "v": "Ich beeile mich."
+  },
+  {
+   "k": "That figures.",
+   "v": "War ja klar."
+  },
+  {
+   "k": "Nobody ever wants to deal with things before they rot.",
+   "v": "Niemand will sich um die Dinge kümmern, bevor sie verrotten."
+  },
+  {
+   "k": "They just lock the gate and walk away.",
+   "v": "Sie schließen einfach das Tor ab und gehen."
+  },
+  {
+   "k": "If this turns into a mess later, just remember I came by.",
+   "v": "Wenn das später zum Problem wird, denk einfach daran, dass ich hier war."
+  },
+  {
+   "k": "I tried to handle this properly.",
+   "v": "Ich habe versucht, das ordentlich zu regeln."
+  },
+  {
+   "k": "…Yeah.",
+   "v": "…Ja."
+  },
+  {
+   "k": "It’s still here.",
+   "v": "Es ist noch da."
+  },
+  {
+   "k": "You can go.",
+   "v": "Sie können gehen."
+  },
+  {
+   "k": "I won’t need you watching anymore.",
+   "v": "Ich brauche keine Aufsicht mehr."
+  },
+  {
+   "k": "You said you’d be quick.",
+   "v": "Sie sagten, Sie würden sich beeilen."
+  },
+  {
+   "k": "Yeah, I know.",
+   "v": "Ja, ich weiß."
+  },
+  {
+   "k": "Just needed to see it one more time.",
+   "v": "Musste es nur noch einmal sehen."
+  },
+  {
+   "k": "I’m done.",
+   "v": "Ich bin fertig."
+  },
+  {
+   "k": "You won’t see me again tonight.",
+   "v": "Sie werden mich heute Nacht nicht wiedersehen."
+  },
+  {
+   "k": "That depends.",
+   "v": "Kommt drauf an."
+  },
+  {
+   "k": "But it’s not your problem.",
+   "v": "Aber das ist nicht Ihr Problem."
+  },
+  {
+   "k": "I’m finished here.",
+   "v": "Ich bin hier fertig."
+  },
+  {
+   "k": "You must be the gravekeeper.",
+   "v": "Sie müssen der Friedhofswärter sein."
+  },
+  {
+   "k": "My name is Tabitha.",
+   "v": "Mein Name ist Tabitha."
+  },
+  {
+   "k": "I was hoping you’d be on duty tonight.",
+   "v": "Ich hatte gehofft, dass Sie heute Nacht Dienst haben."
+  },
+  {
+   "k": "I'm not interested.",
+   "v": "Kein Interesse."
+  },
+  {
+   "k": "Can I help you with something?",
+   "v": "Kann ich Ihnen helfen?"
+  },
+  {
+   "k": "Curiosity keeps most people alive longer than confidence.",
+   "v": "Neugier hält die meisten Menschen länger am Leben als Selbstsicherheit."
+  },
+  {
+   "k": "I ask for a mere moment.",
+   "v": "Ich bitte nur um einen Moment."
+  },
+  {
+   "k": "I want to enter the graveyard.",
+   "v": "Ich möchte den Friedhof betreten."
+  },
+  {
+   "k": "Not to disturb anything.",
+   "v": "Nicht, um etwas zu stören."
+  },
+  {
+   "k": "To protect it.",
+   "v": "Um ihn zu schützen."
+  },
+  {
+   "k": "There are… restless things.",
+   "v": "Es gibt... ruhelose Dinge."
+  },
+  {
+   "k": "You don’t see them.",
+   "v": "Sie sehen sie nicht."
+  },
+  {
+   "k": "But they notice places like this.",
+   "v": "Aber sie bemerken Orte wie diesen."
+  },
+  {
+   "k": "That sounds like nonsense.",
+   "v": "Das klingt nach Unsinn."
+  },
+  {
+   "k": "Protect it how?",
+   "v": "Schützen – wie?"
+  },
+  {
+   "k": "You have a kind voice.",
+   "v": "Sie haben eine freundliche Stimme."
+  },
+  {
+   "k": "That helps, in a place like this.",
+   "v": "Das hilft, an einem Ort wie diesem."
+  },
+  {
+   "k": "I work with old rites.",
+   "v": "Ich arbeite mit alten Riten."
+  },
+  {
+   "k": "Small blessings.",
+   "v": "Kleine Segnungen."
+  },
+  {
+   "k": "They keep bad spirits from wandering too close.",
+   "v": "Sie halten böse Geister davon ab, zu nahe zu kommen."
+  },
+  {
+   "k": "This graveyard feels thin.",
+   "v": "Dieser Friedhof fühlt sich dünn an."
+  },
+  {
+   "k": "Like a door left unlocked.",
+   "v": "Wie eine unverschlossene Tür."
+  },
+  {
+   "k": "You expect me to believe that?",
+   "v": "Sie erwarten, dass ich das glaube?"
+  },
+  {
+   "k": "What kind of rites?",
+   "v": "Was für Riten?"
+  },
+  {
+   "k": "You call it nonsense.",
+   "v": "Sie nennen es Unsinn."
+  },
+  {
+   "k": "That’s fine.",
+   "v": "Das ist in Ordnung."
+  },
+  {
+   "k": "Most people do.",
+   "v": "Die meisten tun das."
+  },
+  {
+   "k": "Until something follows them home.",
+   "v": "Bis ihnen etwas nach Hause folgt."
+  },
+  {
+   "k": "I don’t charge.",
+   "v": "Ich verlange kein Geld."
+  },
+  {
+   "k": "I don’t ask for thanks.",
+   "v": "Ich verlange keinen Dank."
+  },
+  {
+   "k": "Just permission.",
+   "v": "Nur Erlaubnis."
+  },
+  {
+   "k": "Nothing dramatic.",
+   "v": "Nichts Dramatisches."
+  },
+  {
+   "k": "No candles. No blood. Just words said in the right places.",
+   "v": "Keine Kerzen. Kein Blut. Nur Worte, an den richtigen Stellen gesprochen."
+  },
+  {
+   "k": "The dead sleep better after, and the living too.",
+   "v": "Die Toten schlafen danach besser, und die Lebenden auch."
+  },
+  {
+   "k": "You look tired.",
+   "v": "Sie sehen müde aus."
+  },
+  {
+   "k": "That kind of tired doesn’t come from long shifts.",
+   "v": "Diese Art von Müdigkeit kommt nicht von langen Schichten."
+  },
+  {
+   "k": "You won’t owe me anything.",
+   "v": "Sie werden mir nichts schulden."
+  },
+  {
+   "k": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.",
+   "v": "Es wird ein einfaches Verfahren. Ich gehe die Wege des Friedhofs ab und bringe die Seelen zur Ruhe."
+  },
+  {
+   "k": "You will immediately feel at ease.",
+   "v": "Sie werden sich sofort erleichtert fühlen."
+  },
+  {
+   "k": "Let me inside.",
+   "v": "Lassen Sie mich hinein."
+  },
+  {
+   "k": "Alright. Go ahead, but I’m watching you.",
+   "v": "Also gut. Gehen Sie, aber ich behalte Sie im Auge."
+  },
+  {
+   "k": "No. I can’t let you in.",
+   "v": "Nein. Ich kann Sie nicht reinlassen."
+  },
+  {
+   "k": "Ask away.",
+   "v": "Fragen Sie nur."
+  },
+  {
+   "k": "Yes, unfortunately.",
+   "v": "Ja, leider."
+  },
+  {
+   "k": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse.",
+   "v": "Meine lästige Schwester, Maribel. Sie könnte versuchen, herzukommen und meine Arbeit zunichtezumachen. Oder alles noch schlimmer zu machen."
+  },
+  {
+   "k": "I trust you are fit for your job and will make the correct decisions.",
+   "v": "Ich vertraue darauf, dass Sie Ihrer Aufgabe gewachsen sind und die richtigen Entscheidungen treffen."
+  },
+  {
+   "k": "I have other questions",
+   "v": "Ich habe andere Fragen"
+  },
+  {
+   "k": "Tabitha.",
+   "v": "Tabitha."
+  },
+  {
+   "k": "I am here to ease the restless spirits in this graveyard.",
+   "v": "Ich bin hier, um die ruhelosen Geister auf diesem Friedhof zu besänftigen."
+  },
+  {
+   "k": "You don't need to be afraid...",
+   "v": "Sie müssen keine Angst haben..."
+  },
+  {
+   "k": "I am here to help.",
+   "v": "Ich bin hier, um zu helfen."
+  },
+  {
+   "k": "Why did you choose this graveyard?",
+   "v": "Warum haben Sie diesen Friedhof gewählt?"
+  },
+  {
+   "k": "Are you attempting to deceive me?",
+   "v": "Versuchen Sie, mich zu täuschen?"
+  },
+  {
+   "k": "Don't get the wrong idea, gravekeeper.",
+   "v": "Verstehen Sie mich nicht falsch, Friedhofswärter."
+  },
+  {
+   "k": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here.",
+   "v": "Ich bin nur eine Hüterin, ganz wie Sie. Ich bin zufällig auf einen Ort gestoßen, der Hilfe brauchte, und Sie waren zufällig hier."
+  },
+  {
+   "k": "I offer my help. You may choose to accept it, or not.",
+   "v": "Ich biete meine Hilfe an. Sie können sie annehmen oder nicht."
+  },
+  {
+   "k": "Deceive you?",
+   "v": "Sie täuschen?"
+  },
+  {
+   "k": "If I were lying, what good would it help to ask me that?",
+   "v": "Wenn ich lügen würde, was brächte es dann, mich das zu fragen?"
+  },
+  {
+   "k": "I don't think you're thinking this through.",
+   "v": "Ich glaube, Sie denken das nicht zu Ende."
+  },
+  {
+   "k": "You made the right choice.",
+   "v": "Sie haben die richtige Wahl getroffen."
+  },
+  {
+   "k": "If tonight feels quieter than usual, that’s me helping.",
+   "v": "Wenn sich die Nacht ruhiger anfühlt als sonst, dann bin das ich, die hilft."
+  },
+  {
+   "k": "I see.",
+   "v": "Ich verstehe."
+  },
+  {
+   "k": "You guard the gate, but not what slips through cracks.",
+   "v": "Sie bewachen das Tor, aber nicht das, was durch die Ritzen schlüpft."
+  },
+  {
+   "k": "Don’t say I didn’t offer.",
+   "v": "Sagen Sie nicht, ich hätte es nicht angeboten."
+  },
+  {
+   "k": "Sleep lightly tonight.",
+   "v": "Schlafen Sie heute Nacht mit einem offenen Auge."
+  },
+  {
+   "k": "Ah! Yes! There it is...",
+   "v": "Ah! Ja! Da ist es..."
+  },
+  {
+   "k": "Did you feel that?",
+   "v": "Haben Sie das gespürt?"
+  },
+  {
+   "k": "They scattered so fast.",
+   "v": "Sie sind so schnell auseinandergestoben."
+  },
+  {
+   "k": "The old ones hate being named.",
+   "v": "Die Alten hassen es, benannt zu werden."
+  },
+  {
+   "k": "Especially out loud.",
+   "v": "Besonders laut."
+  },
+  {
+   "k": "You’re finished, right?",
+   "v": "Sie sind fertig, richtig?"
+  },
+  {
+   "k": "Finished?",
+   "v": "Fertig?"
+  },
+  {
+   "k": "No... completed.",
+   "v": "Nein... vollendet."
+  },
+  {
+   "k": "This place will sleep better now.",
+   "v": "Dieser Ort wird jetzt besser schlafen."
+  },
+  {
+   "k": "You helped more than you know.",
+   "v": "Sie haben mehr geholfen, als Sie ahnen."
+  },
+  {
+   "k": "Thank you, gravekeeper.",
+   "v": "Danke, Friedhofswärter."
+  },
+  {
+   "k": "For your cooperation.",
+   "v": "Für Ihre Mitarbeit."
+  },
+  {
+   "k": "We may speak again.",
+   "v": "Vielleicht sprechen wir uns wieder."
+  },
+  {
+   "k": "Good. You’re still here.",
+   "v": "Gut. Sie sind noch hier."
+  },
+  {
+   "k": "I was worried I’d be too late.",
+   "v": "Ich hatte befürchtet, zu spät zu kommen."
+  },
+  {
+   "k": "You’re the gravekeeper, yes?",
+   "v": "Sie sind der Friedhofswärter, ja?"
+  },
+  {
+   "k": "The graveyard is closed.",
+   "v": "Der Friedhof ist geschlossen."
+  },
+  {
+   "k": "My name is Maribel.",
+   "v": "Mein Name ist Maribel."
+  },
+  {
+   "k": "I’m looking for someone who came through here earlier.",
+   "v": "Ich suche jemanden, der vorhin hier vorbeigekommen ist."
+  },
+  {
+   "k": "A woman named Tabitha.",
+   "v": "Eine Frau namens Tabitha."
+  },
+  {
+   "k": "Thin. Quiet. Thinks she knows how the dead work.",
+   "v": "Dünn. Still. Glaubt, sie wüsste, wie die Toten funktionieren."
+  },
+  {
+   "k": "She’s my sister.",
+   "v": "Sie ist meine Schwester."
+  },
+  {
+   "k": "She was here earlier.",
+   "v": "Sie war vorhin hier."
+  },
+  {
+   "k": "No one like that came by.",
+   "v": "Niemand dieser Art war hier."
+  },
+  {
+   "k": "Closed.",
+   "v": "Geschlossen."
+  },
+  {
+   "k": "Yes, I heard that already.",
+   "v": "Ja, das habe ich schon gehört."
+  },
+  {
+   "k": "But you see, I’m not here for the graveyard.",
+   "v": "Aber sehen Sie, ich bin nicht wegen des Friedhofs hier."
+  },
+  {
+   "k": "I’m here because my sister has a habit of interfering with things she doesn’t understand.",
+   "v": "Ich bin hier, weil meine Schwester die Angewohnheit hat, sich in Dinge einzumischen, die sie nicht versteht."
+  },
+  {
+   "k": "And this place?",
+   "v": "Und dieser Ort?"
+  },
+  {
+   "k": "It attracts those things.",
+   "v": "Er zieht solche Dinge an."
+  },
+  {
+   "k": "Interfering how?",
+   "v": "Einmischen – wie?"
+  },
+  {
+   "k": "I still can’t let you in.",
+   "v": "Ich kann Sie trotzdem nicht reinlassen."
+  },
+  {
+   "k": "I knew it.",
+   "v": "Ich wusste es."
+  },
+  {
+   "k": "She never could resist places like this.",
+   "v": "Sie konnte Orten wie diesem noch nie widerstehen."
+  },
+  {
+   "k": "Always trying to “fix” things.",
+   "v": "Immer versucht sie, Dinge zu „reparieren“."
+  },
+  {
+   "k": "Always making them worse.",
+   "v": "Immer macht sie sie schlimmer."
+  },
+  {
+   "k": "If she performed her little rites here, then something of mine is now trapped inside.",
+   "v": "Wenn sie hier ihre kleinen Riten vollzogen hat, dann ist jetzt etwas von mir dort drinnen gefangen."
+  },
+  {
+   "k": "That’s why I need to enter.",
+   "v": "Deshalb muss ich hinein."
+  },
+  {
+   "k": "Something of yours?",
+   "v": "Etwas von Ihnen?"
+  },
+  {
+   "k": "That’s not my problem.",
+   "v": "Das ist nicht mein Problem."
+  },
+  {
+   "k": "Then she plans to come later.",
+   "v": "Dann hat sie vor, später zu kommen."
+  },
+  {
+   "k": "Or she sent me ahead.",
+   "v": "Oder sie hat mich vorausgeschickt."
+  },
+  {
+   "k": "Either way, the result is the same.",
+   "v": "So oder so, das Ergebnis ist dasselbe."
+  },
+  {
+   "k": "There’s something buried here that doesn’t belong to the dead.",
+   "v": "Hier ist etwas begraben, das nicht den Toten gehört."
+  },
+  {
+   "k": "And I can feel it breathing.",
+   "v": "Und ich kann es atmen spüren."
+  },
+  {
+   "k": "Breathing?",
+   "v": "Atmen?"
+  },
+  {
+   "k": "You’re not making this better.",
+   "v": "Sie machen es nicht besser."
+  },
+  {
+   "k": "Tabitha believes in keeping doors closed.",
+   "v": "Tabitha glaubt daran, Türen geschlossen zu halten."
+  },
+  {
+   "k": "I believe in knowing what’s on the other side.",
+   "v": "Ich glaube daran, zu wissen, was auf der anderen Seite ist."
+  },
+  {
+   "k": "When she meddles, she binds things halfway.",
+   "v": "Wenn sie sich einmischt, bindet sie die Dinge nur halb."
+  },
+  {
+   "k": "Not alive. Not gone.",
+   "v": "Nicht lebendig. Nicht fort."
+  },
+  {
+   "k": "If I don’t retrieve what she disturbed, it will start calling out.",
+   "v": "Wenn ich nicht zurückhole, was sie gestört hat, wird es anfangen zu rufen."
+  },
+  {
+   "k": "First to the dead, then to you.",
+   "v": "Erst nach den Toten, dann nach Ihnen."
+  },
+  {
+   "k": "I won’t need long.",
+   "v": "Ich brauche nicht lange."
+  },
+  {
+   "k": "I’ll find what my sister tangled up.",
+   "v": "Ich finde, was meine Schwester verheddert hat."
+  },
+  {
+   "k": "I’ll take it with me.",
+   "v": "Ich nehme es mit."
+  },
+  {
+   "k": "And this place will finally be quiet.",
+   "v": "Und dieser Ort wird endlich still sein."
+  },
+  {
+   "k": "If you refuse…",
+   "v": "Wenn Sie sich weigern..."
+  },
+  {
+   "k": "Well.",
+   "v": "Nun."
+  },
+  {
+   "k": "It will still get out eventually.",
+   "v": "Es wird trotzdem irgendwann herauskommen."
+  },
+  {
+   "k": "No. You’re not setting foot inside.",
+   "v": "Nein. Sie setzen keinen Fuß hinein."
+  },
+  {
+   "k": "Of course.",
+   "v": "Natürlich."
+  },
+  {
+   "k": "How can I trust you over your sister?",
+   "v": "Wie kann ich Ihnen mehr vertrauen als Ihrer Schwester?"
+  },
+  {
+   "k": "Ah, I see Tabitha has gotten quite the hold on you.",
+   "v": "Ah, ich sehe, Tabitha hat Sie ganz schön für sich eingenommen."
+  },
+  {
+   "k": "It is a decision for you to make, gravekeeper.",
+   "v": "Das ist Ihre Entscheidung, Friedhofswärter."
+  },
+  {
+   "k": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.",
+   "v": "Wenn Sie sich seit dem Erscheinen meiner Schwester unwohl fühlen, dann deshalb, weil die Geister hier zornig sind."
+  },
+  {
+   "k": "Tabitha does not know how to control the spirits she claims to speak to.",
+   "v": "Tabitha weiß nicht, wie man die Geister beherrscht, mit denen sie angeblich spricht."
+  },
+  {
+   "k": "If you did indeed let her into these grounds, only I can undo her damage.",
+   "v": "Wenn Sie sie tatsächlich auf dieses Gelände gelassen haben, kann nur ich ihren Schaden wiedergutmachen."
+  },
+  {
+   "k": "My sister dabbles in dark arts, but does not understand them.",
+   "v": "Meine Schwester dilettiert in den dunklen Künsten, aber sie versteht sie nicht."
+  },
+  {
+   "k": "This is why I must come in.",
+   "v": "Deshalb muss ich hinein."
+  },
+  {
+   "k": "You're quite inquistive. My name is Maribel.",
+   "v": "Sie sind ziemlich neugierig. Mein Name ist Maribel."
+  },
+  {
+   "k": "Likely for the same reason you are.",
+   "v": "Wahrscheinlich aus demselben Grund wie Sie."
+  },
+  {
+   "k": "Fate.",
+   "v": "Schicksal."
+  },
+  {
+   "k": "This graveyard has quite the allure to it.",
+   "v": "Dieser Friedhof hat eine besondere Anziehungskraft."
+  },
+  {
+   "k": "It is a noisy place. I was drawn to it.",
+   "v": "Es ist ein lauter Ort. Er hat mich angezogen."
+  },
+  {
+   "k": "I don't mean to cause any harm to you or the spirits you protect.",
+   "v": "Ich will weder Ihnen noch den Geistern, die Sie beschützen, etwas antun."
+  },
+  {
+   "k": "I feel them calling to me and I am obligated to respond.",
+   "v": "Ich spüre, wie sie mich rufen, und ich bin verpflichtet zu antworten."
+  },
+  {
+   "k": "You’re smarter than my sister.",
+   "v": "Sie sind klüger als meine Schwester."
+  },
+  {
+   "k": "She always begged.",
+   "v": "Sie hat immer gebettelt."
+  },
+  {
+   "k": "I prefer honesty.",
+   "v": "Ich bevorzuge Ehrlichkeit."
+  },
+  {
+   "k": "Ah.",
+   "v": "Ah."
+  },
+  {
+   "k": "So you’re like her after all.",
+   "v": "Sie sind also doch wie sie."
+  },
+  {
+   "k": "I’ll wait.",
+   "v": "Ich werde warten."
+  },
+  {
+   "k": "Things trapped between worlds get impatient.",
+   "v": "Dinge, die zwischen den Welten gefangen sind, werden ungeduldig."
+  },
+  {
+   "k": "And impatience makes noise.",
+   "v": "Und Ungeduld macht Lärm."
+  },
+  {
+   "k": "I’ll see you again.",
+   "v": "Wir sehen uns wieder."
+  },
+  {
+   "k": "All done!",
+   "v": "Alles erledigt!"
+  },
+  {
+   "k": "Thank you for letting me in.",
+   "v": "Danke, dass Sie mich reingelassen haben."
+  },
+  {
+   "k": "I appreciate it more than you know.",
+   "v": "Ich weiß das mehr zu schätzen, als Sie ahnen."
+  },
+  {
+   "k": "The graveyard feels just as it should now.",
+   "v": "Der Friedhof fühlt sich jetzt genau so an, wie er sollte."
+  },
+  {
+   "k": "Unsuppressed.",
+   "v": "Unbeschwert."
+  },
+  {
+   "k": "I’ll be on my way.",
+   "v": "Ich mache mich auf den Weg."
+  },
+  {
+   "k": "Take care of yourself, gravekeeper.",
+   "v": "Passen Sie auf sich auf, Friedhofswärter."
+  },
+  {
+   "k": "It's late to be out here.",
+   "v": "Es ist spät, um hier draußen zu sein."
+  },
+  {
+   "k": "Are you alright?",
+   "v": "Ist alles in Ordnung?"
+  },
+  {
+   "k": "...Let me in.",
+   "v": "...Lassen Sie mich rein."
+  },
+  {
+   "k": "Please...",
+   "v": "Bitte..."
+  },
+  {
+   "k": "Just let me in.",
+   "v": "Lassen Sie mich einfach rein."
+  },
+  {
+   "k": "Okay, come in.",
+   "v": "Okay, kommen Sie rein."
+  },
+  {
+   "k": "I'm sorry ma'am, please go home.",
+   "v": "Es tut mir leid, Ma'am, bitte gehen Sie nach Hause."
+  },
+  {
+   "k": "What is your name?",
+   "v": "Wie heißen Sie?"
+  },
+  {
+   "k": "I have no more questions.",
+   "v": "Ich habe keine weiteren Fragen."
+  },
+  {
+   "k": "Maria.",
+   "v": "Maria."
+  },
+  {
+   "k": "Stop following me.",
+   "v": "Hören Sie auf, mir zu folgen."
+  },
+  {
+   "k": "I think I heard something at the back gate.",
+   "v": "Ich glaube, ich habe etwas am hinteren Tor gehört."
+  },
+  {
+   "k": "Can you please go check?",
+   "v": "Könnten Sie bitte nachsehen?"
+  },
+  {
+   "k": "Chen Huang",
+   "v": "Chen Huang"
+  },
+  {
+   "k": "Harold Vunderbilt",
+   "v": "Harold Vunderbilt"
+  },
+  {
+   "k": "Hector",
+   "v": "Hector"
+  },
+  {
+   "k": "Maria",
+   "v": "Maria"
+  },
+  {
+   "k": "Maribel",
+   "v": "Maribel"
+  },
+  {
+   "k": "Mr. Huang",
+   "v": "Herr Huang"
+  },
+  {
+   "k": "Tabitha",
+   "v": "Tabitha"
+  }
+ ]
+}

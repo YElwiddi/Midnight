@@ -6,7 +6,7 @@
 "AppBuild"
 {
 	"AppID"		"4897200"			// Steam App ID
-	"Desc"		"A Graveyard Shift 1.0"		// internal build note - only shown in the Steamworks admin builds list
+	"Desc"		"A Graveyard Shift - localization update (10 languages), 2026-09-18"		// internal build note - only shown in the Steamworks admin builds list
 
 	// Absolute path to the finished Unity build. The whole folder ships (no DoNotShip cruft in it):
 	"ContentRoot"	"C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds"

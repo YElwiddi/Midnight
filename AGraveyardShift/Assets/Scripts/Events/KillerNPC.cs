@@ -1543,16 +1543,13 @@ public class KillerNPC : MonoBehaviour
         textObj.transform.SetParent(canvasObj.transform, false);
 
         TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
-        tmp.text = jumpscareDialogueText;
+        tmp.text = Loc.Tr(jumpscareDialogueText);
         tmp.color = jumpscareDialogueColor;
-        tmp.fontSize = jumpscareDialogueFontSize;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.enableWordWrapping = true;
 
-        if (jumpscareDialogueFont != null)
-        {
-            tmp.font = jumpscareDialogueFont;
-        }
+        // Font before the outline below: assigning a font resets the material.
+        Loc.ApplyFont(tmp, jumpscareDialogueFont != null ? jumpscareDialogueFont : tmp.font, jumpscareDialogueFontSize);
 
         // White outline via TMP material
         tmp.outlineWidth = 0.2f;

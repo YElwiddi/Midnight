@@ -110,6 +110,13 @@ public class DialogueUI : MonoBehaviour
     private int overrideSoundEveryN = -1;
     private bool hasOverrideSound = false;
     private bool forceMuteTypewriterSound = false;
+
+    // Fonts/sizes as authored on the prefab, so the locale font can be resolved from them
+    // every time (and the authored look restored when switching back to English).
+    private TMP_FontAsset authoredDialogueFont;
+    private float authoredDialogueSize;
+    private TMP_FontAsset authoredSpeakerFont;
+    private float authoredSpeakerSize;
     #endregion
 
     #region Unity Lifecycle
@@ -117,6 +124,17 @@ public class DialogueUI : MonoBehaviour
     {
         ValidateReferences();
         InitializeComponents();
+
+        if (dialogueText != null)
+        {
+            authoredDialogueFont = dialogueText.font;
+            authoredDialogueSize = dialogueText.fontSize;
+        }
+        if (speakerNameText != null)
+        {
+            authoredSpeakerFont = speakerNameText.font;
+            authoredSpeakerSize = speakerNameText.fontSize;
+        }
     }
 
     private void Start()
@@ -186,6 +204,11 @@ public class DialogueUI : MonoBehaviour
     public void SetDialogueText(string text, string speakerName = null)
     {
         if (dialogueText == null) return;
+
+        // Localize here, at the single display point: Ink lines, inspector prompts and
+        // confirm messages all arrive as English source text (see Loc.Tr).
+        text = Loc.Tr(text);
+        speakerName = Loc.Tr(speakerName);
 
         // Handle speaker name
         UpdateSpeakerName(speakerName);
@@ -275,7 +298,7 @@ public class DialogueUI : MonoBehaviour
             TextMeshProUGUI buttonText = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
             if (buttonText != null)
             {
-                buttonText.text = choices[i];
+                buttonText.text = Loc.Tr(choices[i]);
                 ApplyChoiceButtonTextStyle(buttonText);
             }
 
@@ -446,22 +469,32 @@ public class DialogueUI : MonoBehaviour
 
             if (uiSettings != null)
             {
-                if (uiSettings.speakerNameFont != null)
-                    speakerNameText.font = uiSettings.speakerNameFont;
-                speakerNameText.fontSize = uiSettings.speakerNameFontSize;
+                Loc.ApplyFont(speakerNameText,
+                    uiSettings.speakerNameFont != null ? uiSettings.speakerNameFont : authoredSpeakerFont,
+                    uiSettings.speakerNameFontSize);
                 speakerNameText.color = uiSettings.speakerNameColor;
+            }
+            else
+            {
+                Loc.ApplyFont(speakerNameText, authoredSpeakerFont, authoredSpeakerSize);
             }
         }
     }
 
     private void ApplyDialogueTextStyle()
     {
-        if (dialogueText == null || uiSettings == null) return;
+        if (dialogueText == null) return;
 
-        if (uiSettings.dialogueFont != null)
-            dialogueText.font = uiSettings.dialogueFont;
+        if (uiSettings == null)
+        {
+            // No settings asset: keep the prefab styling, but still use the locale font.
+            Loc.ApplyFont(dialogueText, authoredDialogueFont, authoredDialogueSize);
+            return;
+        }
 
-        dialogueText.fontSize = uiSettings.dialogueFontSize;
+        Loc.ApplyFont(dialogueText,
+            uiSettings.dialogueFont != null ? uiSettings.dialogueFont : authoredDialogueFont,
+            uiSettings.dialogueFontSize);
         dialogueText.color = uiSettings.dialogueTextColor;
         dialogueText.fontStyle = uiSettings.dialogueFontStyle;
     }
@@ -472,17 +505,17 @@ public class DialogueUI : MonoBehaviour
 
         if (uiSettings != null)
         {
-            if (uiSettings.choiceButtonFont != null)
-                buttonText.font = uiSettings.choiceButtonFont;
-            buttonText.fontSize = uiSettings.choiceButtonFontSize;
+            Loc.ApplyFont(buttonText,
+                uiSettings.choiceButtonFont != null ? uiSettings.choiceButtonFont : buttonText.font,
+                uiSettings.choiceButtonFontSize);
             buttonText.color = uiSettings.choiceButtonTextColor;
             buttonText.fontStyle = uiSettings.choiceButtonFontStyle;
         }
         else
         {
-            if (choiceButtonFont != null)
-                buttonText.font = choiceButtonFont;
-            buttonText.fontSize = choiceButtonFontSize;
+            Loc.ApplyFont(buttonText,
+                choiceButtonFont != null ? choiceButtonFont : buttonText.font,
+                choiceButtonFontSize);
             buttonText.color = choiceButtonTextColor;
             buttonText.fontStyle = choiceButtonFontStyle;
         }

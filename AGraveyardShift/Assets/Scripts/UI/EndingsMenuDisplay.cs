@@ -32,7 +32,13 @@ public class EndingsMenuDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        Loc.LocaleChanged += Refresh;
         Refresh();
+    }
+
+    private void OnDisable()
+    {
+        Loc.LocaleChanged -= Refresh;
     }
 
     public void Refresh()
@@ -50,27 +56,33 @@ public class EndingsMenuDisplay : MonoBehaviour
 
             if (slotValues != null && i < slotValues.Length && slotValues[i] != null)
             {
-                slotValues[i].text = unlocked ? info.title : lockedText;
+                Loc.EnsureFontComponent(slotValues[i]);
+                slotValues[i].text = unlocked ? info.title : Loc.Tr(lockedText);
                 slotValues[i].color = unlocked ? (info.isGood ? goodColor : badColor) : lockedColor;
             }
 
             if (slotTypes != null && i < slotTypes.Length && slotTypes[i] != null)
             {
+                Loc.EnsureFontComponent(slotTypes[i]);
                 slotTypes[i].text = unlocked ? info.typeLabel : "";
             }
         }
 
         if (subtitle != null)
-            subtitle.text = count + " / " + EndingInfo.InOrder.Length + "  DISCOVERED";
+        {
+            Loc.EnsureFontComponent(subtitle);
+            subtitle.text = Loc.Format("ui.endings.discovered", "{0} / {1}  DISCOVERED", count, EndingInfo.InOrder.Length);
+        }
 
         // Crypt Fiends teaser button label (the gallery opens from inside this modal).
         if (cryptFiendsTeaser != null)
         {
+            Loc.EnsureFontComponent(cryptFiendsTeaser);
             CryptFiendsSave.Reload();
             int fiends = CryptFiendsSave.UnlockedCount();
             cryptFiendsTeaser.text = fiends == 0
-                ? "0 / 3  ?????"
-                : fiends + " / 3  CRYPT FIENDS FOUND";
+                ? Loc.Format("ui.endings.fiendsTeaserLocked", "{0} / {1}  ?????", 0, CryptFiendInfo.InOrder.Length)
+                : Loc.Format("ui.endings.fiendsTeaser", "{0} / {1}  CRYPT FIENDS FOUND", fiends, CryptFiendInfo.InOrder.Length);
         }
     }
 }

@@ -1,0 +1,4721 @@
+{
+ "locale": "en",
+ "entries": [
+  {
+   "k": "ending.wrathfulSpirit.title",
+   "v": "Bad Ending - A Wrathful Spirit"
+  },
+  {
+   "k": "ending.wrathfulSpirit.type",
+   "v": "Ending"
+  },
+  {
+   "k": "ending.wrathfulSpirit.description",
+   "v": "You lost all your sanity. Stay in the light and check your visitors."
+  },
+  {
+   "k": "ending.ambush.title",
+   "v": "Bad Ending - An Ambush"
+  },
+  {
+   "k": "ending.ambush.type",
+   "v": "Ending"
+  },
+  {
+   "k": "ending.ambush.description",
+   "v": "You didn't secure the Graveyard. Patrol the graveyard and check the cameras more often. Don't be too trusting."
+  },
+  {
+   "k": "ending.wrongfulConviction.title",
+   "v": "Good Ending - A Wrongful Conviction"
+  },
+  {
+   "k": "ending.wrongfulConviction.type",
+   "v": "Ending"
+  },
+  {
+   "k": "ending.wrongfulConviction.description",
+   "v": "The Graveyard is at peace."
+  },
+  {
+   "k": "ending.happilyEverAfter.title",
+   "v": "Good Ending? - Happily Ever After"
+  },
+  {
+   "k": "ending.happilyEverAfter.type",
+   "v": "Ending"
+  },
+  {
+   "k": "ending.happilyEverAfter.description",
+   "v": "Congratulations!"
+  },
+  {
+   "k": "ending.father.title",
+   "v": "Hidden Ending - The Father's Fate"
+  },
+  {
+   "k": "ending.father.type",
+   "v": "Ending"
+  },
+  {
+   "k": "ending.father.description",
+   "v": "Did you find what you were looking for?"
+  },
+  {
+   "k": "fiend.friend.title",
+   "v": "The Friend"
+  },
+  {
+   "k": "fiend.friend.flavor",
+   "v": "Slow, but methodical. Adept at persistence."
+  },
+  {
+   "k": "fiend.friend.ability",
+   "v": "Flashlight sensitivity."
+  },
+  {
+   "k": "fiend.friend.spawn",
+   "v": "Signs of low intelligence, feeble-mindedness."
+  },
+  {
+   "k": "fiend.wraith.title",
+   "v": "The Wraith"
+  },
+  {
+   "k": "fiend.wraith.flavor",
+   "v": "Fast, aggressive, deadly."
+  },
+  {
+   "k": "fiend.wraith.ability",
+   "v": "Fatal hunting speed."
+  },
+  {
+   "k": "fiend.wraith.spawn",
+   "v": "Signs of overconfidence, arrogance, bravery."
+  },
+  {
+   "k": "fiend.beast.title",
+   "v": "The Beast"
+  },
+  {
+   "k": "fiend.beast.flavor",
+   "v": "Silent, and elusive. Doesn't like to show itself."
+  },
+  {
+   "k": "fiend.beast.ability",
+   "v": "Imperception & electrical interference."
+  },
+  {
+   "k": "fiend.beast.spawn",
+   "v": "Signs of timidness, shyness, or weakness."
+  },
+  {
+   "k": "fiend.label.ability",
+   "v": "Unique ability:"
+  },
+  {
+   "k": "fiend.label.spawn",
+   "v": "Spawn condition:"
+  },
+  {
+   "k": "ui.menu.play",
+   "v": "PLAY"
+  },
+  {
+   "k": "ui.menu.endings",
+   "v": "ENDINGS"
+  },
+  {
+   "k": "ui.menu.settings",
+   "v": "SETTINGS"
+  },
+  {
+   "k": "ui.menu.quit",
+   "v": "QUIT"
+  },
+  {
+   "k": "ui.menu.cancel",
+   "v": "CANCEL"
+  },
+  {
+   "k": "ui.menu.accept",
+   "v": "ACCEPT"
+  },
+  {
+   "k": "ui.menu.back",
+   "v": "BACK"
+  },
+  {
+   "k": "ui.settings.title",
+   "v": "SETTINGS"
+  },
+  {
+   "k": "ui.settings.language",
+   "v": "Language"
+  },
+  {
+   "k": "ui.settings.resolution",
+   "v": "Resolution"
+  },
+  {
+   "k": "ui.settings.fullscreen",
+   "v": "Fullscreen"
+  },
+  {
+   "k": "ui.settings.brightness",
+   "v": "Brightness"
+  },
+  {
+   "k": "ui.settings.volume",
+   "v": "Volume"
+  },
+  {
+   "k": "ui.settings.brightnessNote",
+   "v": "Default brightness is strongly recommended."
+  },
+  {
+   "k": "ui.endings.discovered",
+   "v": "{0} / {1}  DISCOVERED"
+  },
+  {
+   "k": "ui.endings.fiendsTeaserLocked",
+   "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.endings.fiendsTeaser",
+   "v": "{0} / {1}  CRYPT FIENDS FOUND"
+  },
+  {
+   "k": "ui.fiends.header",
+   "v": "CRYPT FIENDS"
+  },
+  {
+   "k": "ui.fiends.headerLocked",
+   "v": "?????"
+  },
+  {
+   "k": "ui.fiends.found",
+   "v": "{0} / {1}  FOUND"
+  },
+  {
+   "k": "ui.disclaimer.headphones",
+   "v": "It is recommended to use headphones"
+  },
+  {
+   "k": "ui.pause.resume",
+   "v": "Resume"
+  },
+  {
+   "k": "ui.pause.exit",
+   "v": "Exit"
+  },
+  {
+   "k": "ui.readable.page",
+   "v": "Page {0}/{1}"
+  },
+  {
+   "k": "ui.cctv.camera",
+   "v": "CAMERA {0}"
+  },
+  {
+   "k": "??????",
+   "v": "??????"
+  },
+  {
+   "k": "Click to continue...",
+   "v": "Click to continue..."
+  },
+  {
+   "k": "The last gravekeeper left without a word.",
+   "v": "The last gravekeeper left without a word."
+  },
+  {
+   "k": "Don't know why he left, but the job opened up, and I desperately needed cash.",
+   "v": "Don't know why he left, but the job opened up, and I desperately needed cash."
+  },
+  {
+   "k": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here.",
+   "v": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here."
+  },
+  {
+   "k": "September 17, 1999.",
+   "v": "September 17, 1999."
+  },
+  {
+   "k": "???",
+   "v": "???"
+  },
+  {
+   "k": "I can't think straight...",
+   "v": "I can't think straight..."
+  },
+  {
+   "k": "Place the rose on the gravesite?",
+   "v": "Place the rose on the gravesite?"
+  },
+  {
+   "k": "The rose immediately wilted away...",
+   "v": "The rose immediately wilted away..."
+  },
+  {
+   "k": "Where am I?",
+   "v": "Where am I?"
+  },
+  {
+   "k": "I can't leave during my shift...",
+   "v": "I can't leave during my shift..."
+  },
+  {
+   "k": "The door is locked.",
+   "v": "The door is locked."
+  },
+  {
+   "k": "The door is locked. There is a cold chill coming from the other side.",
+   "v": "The door is locked. There is a cold chill coming from the other side."
+  },
+  {
+   "k": "There is a cold chill coming from the other side. Should I enter?",
+   "v": "There is a cold chill coming from the other side. Should I enter?"
+  },
+  {
+   "k": "The door won't budge...",
+   "v": "The door won't budge..."
+  },
+  {
+   "k": "I need a shovel for this.",
+   "v": "I need a shovel for this."
+  },
+  {
+   "k": "Are you sure you want to exhume this site?",
+   "v": "Are you sure you want to exhume this site?"
+  },
+  {
+   "k": "It's locked.",
+   "v": "It's locked."
+  },
+  {
+   "k": "I think this key from the church opens this chest. Should I unlock it?",
+   "v": "I think this key from the church opens this chest. Should I unlock it?"
+  },
+  {
+   "k": "I shouldn't be here",
+   "v": "I shouldn't be here"
+  },
+  {
+   "k": "A single rose... should I take it?",
+   "v": "A single rose... should I take it?"
+  },
+  {
+   "k": "The door won't budge.",
+   "v": "The door won't budge."
+  },
+  {
+   "k": "FRONT GATE",
+   "v": "FRONT GATE"
+  },
+  {
+   "k": "That should be it. I need to keep these on.",
+   "v": "That should be it. I need to keep these on."
+  },
+  {
+   "k": "I should finish what I came here for.",
+   "v": "I should finish what I came here for."
+  },
+  {
+   "k": "The door is locked...",
+   "v": "The door is locked..."
+  },
+  {
+   "k": "The words on this tombstone are smeared and illegible.",
+   "v": "The words on this tombstone are smeared and illegible."
+  },
+  {
+   "k": "You found a key. Do you want to pick it up?",
+   "v": "You found a key. Do you want to pick it up?"
+  },
+  {
+   "k": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?",
+   "v": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?"
+  },
+  {
+   "k": "Its locked. I can't find my key...",
+   "v": "Its locked. I can't find my key..."
+  },
+  {
+   "k": "The gate is stuck.",
+   "v": "The gate is stuck."
+  },
+  {
+   "k": "I should definitely keep this locked. Should I open it anyway?",
+   "v": "I should definitely keep this locked. Should I open it anyway?"
+  },
+  {
+   "k": "I should get these lights on right away...",
+   "v": "I should get these lights on right away..."
+  },
+  {
+   "k": "I should read some of the notes that were left behind...",
+   "v": "I should read some of the notes that were left behind..."
+  },
+  {
+   "k": "An incessant noise in your head has gone silent.",
+   "v": "An incessant noise in your head has gone silent."
+  },
+  {
+   "k": "BACK GATE",
+   "v": "BACK GATE"
+  },
+  {
+   "k": "Use the left and right arrow keys to switch between cameras.",
+   "v": "Use the left and right arrow keys to switch between cameras."
+  },
+  {
+   "k": "I should check on my visitor.",
+   "v": "I should check on my visitor."
+  },
+  {
+   "k": "Fine. Go in. But be quick.",
+   "v": "Fine. Go in. But be quick."
+  },
+  {
+   "k": "TOGETHER FOREVER",
+   "v": "TOGETHER FOREVER"
+  },
+  {
+   "k": "He seems distraught. Let's give him a moment.",
+   "v": "He seems distraught. Let's give him a moment."
+  },
+  {
+   "k": "Let's give him a moment...",
+   "v": "Let's give him a moment..."
+  },
+  {
+   "k": "He seems to be fidgeting around.",
+   "v": "He seems to be fidgeting around."
+  },
+  {
+   "k": "He appears to be zoning out. I should give him a moment.",
+   "v": "He appears to be zoning out. I should give him a moment."
+  },
+  {
+   "k": "He appears to be staring out into the distance...",
+   "v": "He appears to be staring out into the distance..."
+  },
+  {
+   "k": "Let's give her a moment to calm down.",
+   "v": "Let's give her a moment to calm down."
+  },
+  {
+   "k": "She seems lost in grief. Let's give her a moment.",
+   "v": "She seems lost in grief. Let's give her a moment."
+  },
+  {
+   "k": "She's standing very still, staring at nothing.",
+   "v": "She's standing very still, staring at nothing."
+  },
+  {
+   "k": "What was Hector doing out here this late?",
+   "v": "What was Hector doing out here this late?"
+  },
+  {
+   "k": "He is conducting his investigation, I shouldn't interfere...",
+   "v": "He is conducting his investigation, I shouldn't interfere..."
+  },
+  {
+   "k": "I should give him a moment.",
+   "v": "I should give him a moment."
+  },
+  {
+   "k": "I should give her a moment...",
+   "v": "I should give her a moment..."
+  },
+  {
+   "k": "A Wrongful Conviction",
+   "v": "A Wrongful Conviction"
+  },
+  {
+   "k": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground.",
+   "v": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground."
+  },
+  {
+   "k": "The flashlight won't turn on...",
+   "v": "The flashlight won't turn on..."
+  },
+  {
+   "k": "My shovel broke...",
+   "v": "My shovel broke..."
+  },
+  {
+   "k": "The shovel is broken. I can't dig anymore.",
+   "v": "The shovel is broken. I can't dig anymore."
+  },
+  {
+   "k": "Yes",
+   "v": "Yes"
+  },
+  {
+   "k": "No",
+   "v": "No"
+  },
+  {
+   "k": "I shouldn't be here...",
+   "v": "I shouldn't be here..."
+  },
+  {
+   "k": "Why am I here?",
+   "v": "Why am I here?"
+  },
+  {
+   "k": "I need to leave.",
+   "v": "I need to leave."
+  },
+  {
+   "k": "I'm not safe here",
+   "v": "I'm not safe here"
+  },
+  {
+   "k": "It's not safe",
+   "v": "It's not safe"
+  },
+  {
+   "k": "I CAN'T KEEP GOING",
+   "v": "I CAN'T KEEP GOING"
+  },
+  {
+   "k": "STOP",
+   "v": "STOP"
+  },
+  {
+   "k": "I'M GOING TO DIE",
+   "v": "I'M GOING TO DIE"
+  },
+  {
+   "k": "I found something...",
+   "v": "I found something..."
+  },
+  {
+   "k": "Nothing here... just bones.",
+   "v": "Nothing here... just bones."
+  },
+  {
+   "k": "I picked up the shovel.",
+   "v": "I picked up the shovel."
+  },
+  {
+   "k": "The spirits have been appeased...",
+   "v": "The spirits have been appeased..."
+  },
+  {
+   "k": "Are you sure you want to enter?",
+   "v": "Are you sure you want to enter?"
+  },
+  {
+   "k": "A single rose, perfectly preserved. Should I take it?",
+   "v": "A single rose, perfectly preserved. Should I take it?"
+  },
+  {
+   "k": "I can't... I can't think straight...",
+   "v": "I can't... I can't think straight..."
+  },
+  {
+   "k": "Here lies Aaron Vanderbilt\n1924-1993",
+   "v": "Here lies Aaron Vanderbilt\n1924-1993"
+  },
+  {
+   "k": "MOCKERY OF LIFE",
+   "v": "MOCKERY OF LIFE"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+   "v": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic."
+  },
+  {
+   "k": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+   "v": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM",
+   "v": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM"
+  },
+  {
+   "k": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances.",
+   "v": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances."
+  },
+  {
+   "k": "I should let her in",
+   "v": "I should let her in"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+   "v": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness."
+  },
+  {
+   "k": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+   "v": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge."
+  },
+  {
+   "k": "Those who unearth the grave meant to remain closed seal their fate.",
+   "v": "Those who unearth the grave meant to remain closed seal their fate."
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
+   "v": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter"
+  },
+  {
+   "k": "This entry appears to be empty.",
+   "v": "This entry appears to be empty."
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+   "v": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented."
+  },
+  {
+   "k": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+   "v": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt."
+  },
+  {
+   "k": "This place was not filled at random.",
+   "v": "This place was not filled at random."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
+   "v": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM"
+  },
+  {
+   "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
+   "v": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued."
+  },
+  {
+   "k": "Here lies Zackary Holmes\nFather of One\n1952-1998",
+   "v": "Here lies Zackary Holmes\nFather of One\n1952-1998"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+   "v": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome."
+  },
+  {
+   "k": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+   "v": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM",
+   "v": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM"
+  },
+  {
+   "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
+   "v": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written."
+  },
+  {
+   "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
+   "v": "HE IS A LYING BASTARD DO NOT TRUST HIM"
+  },
+  {
+   "k": "It patrols. Corners are death.",
+   "v": "It patrols. Corners are death."
+  },
+  {
+   "k": "The necessary course is clear.\nThose interred under false cause must be exhumed.",
+   "v": "The necessary course is clear.\nThose interred under false cause must be exhumed."
+  },
+  {
+   "k": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998",
+   "v": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment.",
+   "v": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment."
+  },
+  {
+   "k": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate.",
+   "v": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate."
+  },
+  {
+   "k": "Hannah Wainwright\n1904\nDeath by electric chair",
+   "v": "Hannah Wainwright\n1904\nDeath by electric chair"
+  },
+  {
+   "k": "Henry Fairchild\n1802\nDeath during imprisonment",
+   "v": "Henry Fairchild\n1802\nDeath during imprisonment"
+  },
+  {
+   "k": "TRAPPED",
+   "v": "TRAPPED"
+  },
+  {
+   "k": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998",
+   "v": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998"
+  },
+  {
+   "k": "Anne Radcliffe\n1792\nDeath by guillotine",
+   "v": "Anne Radcliffe\n1792\nDeath by guillotine"
+  },
+  {
+   "k": "TORN IN TWO",
+   "v": "TORN IN TWO"
+  },
+  {
+   "k": "Benjamin Carver\n1742\nDeath by drowning",
+   "v": "Benjamin Carver\n1742\nDeath by drowning"
+  },
+  {
+   "k": "James Thornton\n1804\nDeath by firing squad",
+   "v": "James Thornton\n1804\nDeath by firing squad"
+  },
+  {
+   "k": "THE BLEEDING WON'T STOP",
+   "v": "THE BLEEDING WON'T STOP"
+  },
+  {
+   "k": "Cordelia Monroe\n1802\nBurned at the stake",
+   "v": "Cordelia Monroe\n1802\nBurned at the stake"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
+   "v": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM"
+  },
+  {
+   "k": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
+   "v": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
+   "v": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM"
+  },
+  {
+   "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
+   "v": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone."
+  },
+  {
+   "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
+   "v": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
+   "v": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM"
+  },
+  {
+   "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
+   "v": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+   "v": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway."
+  },
+  {
+   "k": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+   "v": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come."
+  },
+  {
+   "k": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+   "v": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in."
+  },
+  {
+   "k": "William Pembroke\n1705\nDeath by hanging",
+   "v": "William Pembroke\n1705\nDeath by hanging"
+  },
+  {
+   "k": "I CAN'T BREATHE",
+   "v": "I CAN'T BREATHE"
+  },
+  {
+   "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
+   "v": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment."
+  },
+  {
+   "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",
+   "v": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive",
+   "v": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive"
+  },
+  {
+   "k": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks.",
+   "v": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks."
+  },
+  {
+   "k": "NO REST",
+   "v": "NO REST"
+  },
+  {
+   "k": "Here lies Mei Huang\nWife, Mother of One\n1923-1993",
+   "v": "Here lies Mei Huang\nWife, Mother of One\n1923-1993"
+  },
+  {
+   "k": "LIAR",
+   "v": "LIAR"
+  },
+  {
+   "k": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985",
+   "v": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985"
+  },
+  {
+   "k": "SELFISH",
+   "v": "SELFISH"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+   "v": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate."
+  },
+  {
+   "k": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+   "v": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log."
+  },
+  {
+   "k": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+   "v": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised."
+  },
+  {
+   "k": "Not every name corresponds to a lived life.",
+   "v": "Not every name corresponds to a lived life."
+  },
+  {
+   "k": "Elizabeth Crowther\n1702\nDeath by illness",
+   "v": "Elizabeth Crowther\n1702\nDeath by illness"
+  },
+  {
+   "k": "STAY AWAY FROM ME",
+   "v": "STAY AWAY FROM ME"
+  },
+  {
+   "k": "Rebecca Langley\n1733\nDeath by lynching",
+   "v": "Rebecca Langley\n1733\nDeath by lynching"
+  },
+  {
+   "k": "LET ME GO",
+   "v": "LET ME GO"
+  },
+  {
+   "k": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994",
+   "v": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994"
+  },
+  {
+   "k": "Mary Langley\n1755\nDeath during childbirth",
+   "v": "Mary Langley\n1755\nDeath during childbirth"
+  },
+  {
+   "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
+   "v": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long."
+  },
+  {
+   "k": "I'M FREE",
+   "v": "I'M FREE"
+  },
+  {
+   "k": "Hey Brian! I came by to see how you've been.",
+   "v": "Hey Brian! I came by to see how you've been."
+  },
+  {
+   "k": "I'm sorry you had to take the night shift here. This place couldn't look more depressing.",
+   "v": "I'm sorry you had to take the night shift here. This place couldn't look more depressing."
+  },
+  {
+   "k": "It's not that bad...",
+   "v": "It's not that bad..."
+  },
+  {
+   "k": "I appreciate you coming by, Hector. It's good to see you.",
+   "v": "I appreciate you coming by, Hector. It's good to see you."
+  },
+  {
+   "k": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people.",
+   "v": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people."
+  },
+  {
+   "k": "...",
+   "v": "..."
+  },
+  {
+   "k": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff.",
+   "v": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff."
+  },
+  {
+   "k": "How are you keeping busy anyway?",
+   "v": "How are you keeping busy anyway?"
+  },
+  {
+   "k": "Honestly, it's been pretty dull so far.",
+   "v": "Honestly, it's been pretty dull so far."
+  },
+  {
+   "k": "Just been keeping my head down and staying vigilant, to be honest.",
+   "v": "Just been keeping my head down and staying vigilant, to be honest."
+  },
+  {
+   "k": "Dull? Well, if you say so. I guess that's better than being creeped out.",
+   "v": "Dull? Well, if you say so. I guess that's better than being creeped out."
+  },
+  {
+   "k": "I can't stand the idea of sleeping a few feet away from those tombstones.",
+   "v": "I can't stand the idea of sleeping a few feet away from those tombstones."
+  },
+  {
+   "k": "But hey, if you're that bored, why not make it a bit more interesting?",
+   "v": "But hey, if you're that bored, why not make it a bit more interesting?"
+  },
+  {
+   "k": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?",
+   "v": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?"
+  },
+  {
+   "k": "How about I head home to grab some equipment, and then we go track it down together?",
+   "v": "How about I head home to grab some equipment, and then we go track it down together?"
+  },
+  {
+   "k": "No thanks, I really shouldn't leave my shift.",
+   "v": "No thanks, I really shouldn't leave my shift."
+  },
+  {
+   "k": "Real funny, Hector.",
+   "v": "Real funny, Hector."
+  },
+  {
+   "k": "Heh, alright, whatever you say.",
+   "v": "Heh, alright, whatever you say."
+  },
+  {
+   "k": "Well I just dropped by for a moment to check in on you.",
+   "v": "Well I just dropped by for a moment to check in on you."
+  },
+  {
+   "k": "I'll stop by again tomorrow to make sure you're alright.",
+   "v": "I'll stop by again tomorrow to make sure you're alright."
+  },
+  {
+   "k": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit.",
+   "v": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit."
+  },
+  {
+   "k": "See you around man.",
+   "v": "See you around man."
+  },
+  {
+   "k": "Hey man, just trying to help!",
+   "v": "Hey man, just trying to help!"
+  },
+  {
+   "k": "Sounds boring.",
+   "v": "Sounds boring."
+  },
+  {
+   "k": "This place kind of gives me the creeps.",
+   "v": "This place kind of gives me the creeps."
+  },
+  {
+   "k": "In the middle of nowhere too. Why the hell is this place even here?",
+   "v": "In the middle of nowhere too. Why the hell is this place even here?"
+  },
+  {
+   "k": "Feels a bit off, but I guess you're getting paid well at least, right?",
+   "v": "Feels a bit off, but I guess you're getting paid well at least, right?"
+  },
+  {
+   "k": "Yeah, the pay is great.",
+   "v": "Yeah, the pay is great."
+  },
+  {
+   "k": "I guess.",
+   "v": "I guess."
+  },
+  {
+   "k": "It's good to see you too, man.",
+   "v": "It's good to see you too, man."
+  },
+  {
+   "k": "That's great to hear man!",
+   "v": "That's great to hear man!"
+  },
+  {
+   "k": "I'm happy for you.",
+   "v": "I'm happy for you."
+  },
+  {
+   "k": "Well, I should probably head back now. I just dropped by to check in on you.",
+   "v": "Well, I should probably head back now. I just dropped by to check in on you."
+  },
+  {
+   "k": "Well, my friend...",
+   "v": "Well, my friend..."
+  },
+  {
+   "k": "It seems you've done a great job with this old place.",
+   "v": "It seems you've done a great job with this old place."
+  },
+  {
+   "k": "Who are you?",
+   "v": "Who are you?"
+  },
+  {
+   "k": "It's late, old man. Head home.",
+   "v": "It's late, old man. Head home."
+  },
+  {
+   "k": "As astute as always.",
+   "v": "As astute as always."
+  },
+  {
+   "k": "Allow me to introduce myself, first.",
+   "v": "Allow me to introduce myself, first."
+  },
+  {
+   "k": "I think it's about time I introduced myself...",
+   "v": "I think it's about time I introduced myself..."
+  },
+  {
+   "k": "I'm the previous watcher of this cemetary, before you.",
+   "v": "I'm the previous watcher of this cemetary, before you."
+  },
+  {
+   "k": "I think I left this place in the right hands, but I also believe your job here isn't finished.",
+   "v": "I think I left this place in the right hands, but I also believe your job here isn't finished."
+  },
+  {
+   "k": "Why did you leave?",
+   "v": "Why did you leave?"
+  },
+  {
+   "k": "Well, yeah. My shift isn't over.",
+   "v": "Well, yeah. My shift isn't over."
+  },
+  {
+   "k": "Well, I'll admit, I didn't uphold my duties as the grave watcher.",
+   "v": "Well, I'll admit, I didn't uphold my duties as the grave watcher."
+  },
+  {
+   "k": "I felt there had to be someone more suited to the job...",
+   "v": "I felt there had to be someone more suited to the job..."
+  },
+  {
+   "k": "You've got quite the sense of humor there, friend...",
+   "v": "You've got quite the sense of humor there, friend..."
+  },
+  {
+   "k": "No, I meant there's something I left unfinished before I left.",
+   "v": "No, I meant there's something I left unfinished before I left."
+  },
+  {
+   "k": "As you might be able to tell by now, this job isn't as easy as it seems.",
+   "v": "As you might be able to tell by now, this job isn't as easy as it seems."
+  },
+  {
+   "k": "This place is quite the attraction to many different folks, both alive and dead.",
+   "v": "This place is quite the attraction to many different folks, both alive and dead."
+  },
+  {
+   "k": "I'll be candid with you, my friend...",
+   "v": "I'll be candid with you, my friend..."
+  },
+  {
+   "k": "I left because I was afraid.",
+   "v": "I left because I was afraid."
+  },
+  {
+   "k": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen...",
+   "v": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen..."
+  },
+  {
+   "k": "Okay.",
+   "v": "Okay."
+  },
+  {
+   "k": "You should head home grandpa.",
+   "v": "You should head home grandpa."
+  },
+  {
+   "k": "Listen here.",
+   "v": "Listen here."
+  },
+  {
+   "k": "I came here out of the pain of regret. Out of empathy for you and the people of this town.",
+   "v": "I came here out of the pain of regret. Out of empathy for you and the people of this town."
+  },
+  {
+   "k": "I didn't have to come back, to put up with your arrogance.",
+   "v": "I didn't have to come back, to put up with your arrogance."
+  },
+  {
+   "k": "I'm sorry. Please continue.",
+   "v": "I'm sorry. Please continue."
+  },
+  {
+   "k": "Don't care. Head home, you crazy old bat.",
+   "v": "Don't care. Head home, you crazy old bat."
+  },
+  {
+   "k": "You are a fool.",
+   "v": "You are a fool."
+  },
+  {
+   "k": "I will give you one last chance to listen to me.",
+   "v": "I will give you one last chance to listen to me."
+  },
+  {
+   "k": "I'm sorry. Please continue. I'm listening.",
+   "v": "I'm sorry. Please continue. I'm listening."
+  },
+  {
+   "k": "If you don't leave I'm calling the cops.",
+   "v": "If you don't leave I'm calling the cops."
+  },
+  {
+   "k": "Thank you.",
+   "v": "Thank you."
+  },
+  {
+   "k": "As you can tell, this place gets a lot of attention.",
+   "v": "As you can tell, this place gets a lot of attention."
+  },
+  {
+   "k": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.",
+   "v": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it."
+  },
+  {
+   "k": "I personally never cared for it.",
+   "v": "I personally never cared for it."
+  },
+  {
+   "k": "However, as my days unfolded in this place, I began growing restless, tired, and anxious.",
+   "v": "However, as my days unfolded in this place, I began growing restless, tired, and anxious."
+  },
+  {
+   "k": "I started feel an unsettling draw towards the crypt sitting behind you.",
+   "v": "I started feel an unsettling draw towards the crypt sitting behind you."
+  },
+  {
+   "k": "Have you felt it too?",
+   "v": "Have you felt it too?"
+  },
+  {
+   "k": "Yes.",
+   "v": "Yes."
+  },
+  {
+   "k": "No.",
+   "v": "No."
+  },
+  {
+   "k": "Interesting.",
+   "v": "Interesting."
+  },
+  {
+   "k": "It's relieving to actually meet someone that feels the same way.",
+   "v": "It's relieving to actually meet someone that feels the same way."
+  },
+  {
+   "k": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.",
+   "v": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin."
+  },
+  {
+   "k": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.",
+   "v": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have."
+  },
+  {
+   "k": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.",
+   "v": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago."
+  },
+  {
+   "k": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.",
+   "v": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible."
+  },
+  {
+   "k": "I had decided to leave this position at the graveyard promptly after I read it.",
+   "v": "I had decided to leave this position at the graveyard promptly after I read it."
+  },
+  {
+   "k": "Apparently, one of the old gravekeepers had attempted to enter that crypt.",
+   "v": "Apparently, one of the old gravekeepers had attempted to enter that crypt."
+  },
+  {
+   "k": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.",
+   "v": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else."
+  },
+  {
+   "k": "However.",
+   "v": "However."
+  },
+  {
+   "k": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.",
+   "v": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either."
+  },
+  {
+   "k": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death.",
+   "v": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death."
+  },
+  {
+   "k": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.",
+   "v": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings."
+  },
+  {
+   "k": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.",
+   "v": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you."
+  },
+  {
+   "k": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.",
+   "v": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved."
+  },
+  {
+   "k": "What puzzle?",
+   "v": "What puzzle?"
+  },
+  {
+   "k": "Everyone who is buried at this graveyard shares something in common.",
+   "v": "Everyone who is buried at this graveyard shares something in common."
+  },
+  {
+   "k": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.",
+   "v": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern."
+  },
+  {
+   "k": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.",
+   "v": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists."
+  },
+  {
+   "k": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.",
+   "v": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt."
+  },
+  {
+   "k": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.",
+   "v": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful."
+  },
+  {
+   "k": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.",
+   "v": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken."
+  },
+  {
+   "k": "When I learned about this, I was in disbelief.",
+   "v": "When I learned about this, I was in disbelief."
+  },
+  {
+   "k": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.",
+   "v": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless."
+  },
+  {
+   "k": "I still have the key. I can unlock that crypt.",
+   "v": "I still have the key. I can unlock that crypt."
+  },
+  {
+   "k": "Will you enter it and put an end to this?",
+   "v": "Will you enter it and put an end to this?"
+  },
+  {
+   "k": "Okay. I'm ready.",
+   "v": "Okay. I'm ready."
+  },
+  {
+   "k": "This is crazy. Go home you old kook.",
+   "v": "This is crazy. Go home you old kook."
+  },
+  {
+   "k": "I am quite disappointed.",
+   "v": "I am quite disappointed."
+  },
+  {
+   "k": "Surely you are joking?",
+   "v": "Surely you are joking?"
+  },
+  {
+   "k": "Yeah, just a joke. Go ahead and unlock the crypt.",
+   "v": "Yeah, just a joke. Go ahead and unlock the crypt."
+  },
+  {
+   "k": "That wasn't a joke. Please leave.",
+   "v": "That wasn't a joke. Please leave."
+  },
+  {
+   "k": "I was mistaken.",
+   "v": "I was mistaken."
+  },
+  {
+   "k": "You clearly are not the right person for this job.",
+   "v": "You clearly are not the right person for this job."
+  },
+  {
+   "k": "I will warn you one last time to listen to me.",
+   "v": "I will warn you one last time to listen to me."
+  },
+  {
+   "k": "It is your well-being I am concerned about.",
+   "v": "It is your well-being I am concerned about."
+  },
+  {
+   "k": "I'm sorry. Please go ahead and unlock the crypt",
+   "v": "I'm sorry. Please go ahead and unlock the crypt"
+  },
+  {
+   "k": "You are quite the intelligent specimen, aren't you?",
+   "v": "You are quite the intelligent specimen, aren't you?"
+  },
+  {
+   "k": "Follow me.",
+   "v": "Follow me."
+  },
+  {
+   "k": "You truly are a blessing.",
+   "v": "You truly are a blessing."
+  },
+  {
+   "k": "I've went ahead and unlocked the crypt.",
+   "v": "I've went ahead and unlocked the crypt."
+  },
+  {
+   "k": "One more thing.",
+   "v": "One more thing."
+  },
+  {
+   "k": "In one of the notes left by a previous gatekeeper...",
+   "v": "In one of the notes left by a previous gatekeeper..."
+  },
+  {
+   "k": "It mentioned turning off your flashlight before entering.",
+   "v": "It mentioned turning off your flashlight before entering."
+  },
+  {
+   "k": "I don't know why.",
+   "v": "I don't know why."
+  },
+  {
+   "k": "I have faith that you'll be able to figure this out.",
+   "v": "I have faith that you'll be able to figure this out."
+  },
+  {
+   "k": "Good luck in there.",
+   "v": "Good luck in there."
+  },
+  {
+   "k": "You did it, my friend.",
+   "v": "You did it, my friend."
+  },
+  {
+   "k": "They have been freed.",
+   "v": "They have been freed."
+  },
+  {
+   "k": "Perhaps their souls can finally rest. As should you.",
+   "v": "Perhaps their souls can finally rest. As should you."
+  },
+  {
+   "k": "Come.",
+   "v": "Come."
+  },
+  {
+   "k": "Evening.",
+   "v": "Evening."
+  },
+  {
+   "k": "Didn’t expect anyone at the gate this late.",
+   "v": "Didn’t expect anyone at the gate this late."
+  },
+  {
+   "k": "Name’s Harold Vanderbolt.",
+   "v": "Name’s Harold Vanderbolt."
+  },
+  {
+   "k": "I need to step inside for a moment.",
+   "v": "I need to step inside for a moment."
+  },
+  {
+   "k": "Visiting hours are over. What’s your business here?",
+   "v": "Visiting hours are over. What’s your business here?"
+  },
+  {
+   "k": "Can I help you with something, sir?",
+   "v": "Can I help you with something, sir?"
+  },
+  {
+   "k": "Straight question.",
+   "v": "Straight question."
+  },
+  {
+   "k": "I like that.",
+   "v": "I like that."
+  },
+  {
+   "k": "I’m here to see my brother.",
+   "v": "I’m here to see my brother."
+  },
+  {
+   "k": "Aaron.",
+   "v": "Aaron."
+  },
+  {
+   "k": "Good man. Bad luck.",
+   "v": "Good man. Bad luck."
+  },
+  {
+   "k": "Didn’t think he’d end up here.",
+   "v": "Didn’t think he’d end up here."
+  },
+  {
+   "k": "Funny how things go.",
+   "v": "Funny how things go."
+  },
+  {
+   "k": "How did you know Aaron?",
+   "v": "How did you know Aaron?"
+  },
+  {
+   "k": "Why come so late?",
+   "v": "Why come so late?"
+  },
+  {
+   "k": "Appreciate the courtesy.",
+   "v": "Appreciate the courtesy."
+  },
+  {
+   "k": "Not much of it left these days.",
+   "v": "Not much of it left these days."
+  },
+  {
+   "k": "I won’t take long.",
+   "v": "I won’t take long."
+  },
+  {
+   "k": "Just paying respects.",
+   "v": "Just paying respects."
+  },
+  {
+   "k": "Aaron wouldn’t forgive me if I didn’t.",
+   "v": "Aaron wouldn’t forgive me if I didn’t."
+  },
+  {
+   "k": "You’re being vague.",
+   "v": "You’re being vague."
+  },
+  {
+   "k": "I’ll need more than that.",
+   "v": "I’ll need more than that."
+  },
+  {
+   "k": "We grew up together.",
+   "v": "We grew up together."
+  },
+  {
+   "k": "Shared a name. Shared a roof.",
+   "v": "Shared a name. Shared a roof."
+  },
+  {
+   "k": "Shared more mistakes than I care to count.",
+   "v": "Shared more mistakes than I care to count."
+  },
+  {
+   "k": "I owe him a moment.",
+   "v": "I owe him a moment."
+  },
+  {
+   "k": "Family has a way of demanding that.",
+   "v": "Family has a way of demanding that."
+  },
+  {
+   "k": "Your brother?",
+   "v": "Your brother?"
+  },
+  {
+   "k": "Do you have any proof?",
+   "v": "Do you have any proof?"
+  },
+  {
+   "k": "Privacy.",
+   "v": "Privacy."
+  },
+  {
+   "k": "That’s all.",
+   "v": "That’s all."
+  },
+  {
+   "k": "Some things are easier to say",
+   "v": "Some things are easier to say"
+  },
+  {
+   "k": "when no one’s listening back.",
+   "v": "when no one’s listening back."
+  },
+  {
+   "k": "I say what I need to say.",
+   "v": "I say what I need to say."
+  },
+  {
+   "k": "Then I leave.",
+   "v": "Then I leave."
+  },
+  {
+   "k": "Careful.",
+   "v": "Careful."
+  },
+  {
+   "k": "You’re doing your job.",
+   "v": "You’re doing your job."
+  },
+  {
+   "k": "So am I.",
+   "v": "So am I."
+  },
+  {
+   "k": "No trouble.",
+   "v": "No trouble."
+  },
+  {
+   "k": "Just a brother standing where he has to.",
+   "v": "Just a brother standing where he has to."
+  },
+  {
+   "k": "Let’s not turn this into something tedious.",
+   "v": "Let’s not turn this into something tedious."
+  },
+  {
+   "k": "Brother.",
+   "v": "Brother."
+  },
+  {
+   "k": "Older, if that matters.",
+   "v": "Older, if that matters."
+  },
+  {
+   "k": "Usually does.",
+   "v": "Usually does."
+  },
+  {
+   "k": "We didn’t always agree.",
+   "v": "We didn’t always agree."
+  },
+  {
+   "k": "But blood’s blood.",
+   "v": "But blood’s blood."
+  },
+  {
+   "k": "Aaron understood that.",
+   "v": "Aaron understood that."
+  },
+  {
+   "k": "Proof?",
+   "v": "Proof?"
+  },
+  {
+   "k": "I don’t carry mementos.",
+   "v": "I don’t carry mementos."
+  },
+  {
+   "k": "And family names don’t mean much once someone’s in the ground.",
+   "v": "And family names don’t mean much once someone’s in the ground."
+  },
+  {
+   "k": "You should know that better than anyone.",
+   "v": "You should know that better than anyone."
+  },
+  {
+   "k": "I wouldn’t be here if it didn’t matter.",
+   "v": "I wouldn’t be here if it didn’t matter."
+  },
+  {
+   "k": "So.",
+   "v": "So."
+  },
+  {
+   "k": "I just need a few minutes.",
+   "v": "I just need a few minutes."
+  },
+  {
+   "k": "I’ll stay out of your way.",
+   "v": "I’ll stay out of your way."
+  },
+  {
+   "k": "May I go in?",
+   "v": "May I go in?"
+  },
+  {
+   "k": "Alright. Be quick.",
+   "v": "Alright. Be quick."
+  },
+  {
+   "k": "No. I can’t allow it.",
+   "v": "No. I can’t allow it."
+  },
+  {
+   "k": "I have a few more questions.",
+   "v": "I have a few more questions."
+  },
+  {
+   "k": "Hold on, I'll be right back.",
+   "v": "Hold on, I'll be right back."
+  },
+  {
+   "k": "What was your name again?",
+   "v": "What was your name again?"
+  },
+  {
+   "k": "Who are you visiting?",
+   "v": "Who are you visiting?"
+  },
+  {
+   "k": "How many people are in your family?",
+   "v": "How many people are in your family?"
+  },
+  {
+   "k": "Nevermind.",
+   "v": "Nevermind."
+  },
+  {
+   "k": "I'm here to see Aaron.",
+   "v": "I'm here to see Aaron."
+  },
+  {
+   "k": "When did he die?",
+   "v": "When did he die?"
+  },
+  {
+   "k": "What was his cause of death?",
+   "v": "What was his cause of death?"
+  },
+  {
+   "k": "I have other questions.",
+   "v": "I have other questions."
+  },
+  {
+   "k": "June 27th, 1993.",
+   "v": "June 27th, 1993."
+  },
+  {
+   "k": "I have no other questions.",
+   "v": "I have no other questions."
+  },
+  {
+   "k": "He was found in his hotel room, on a trip abroad.",
+   "v": "He was found in his hotel room, on a trip abroad."
+  },
+  {
+   "k": "Had a gunshot wound out the back of his head.",
+   "v": "Had a gunshot wound out the back of his head."
+  },
+  {
+   "k": "Terrible way to go. I try not to think about it.",
+   "v": "Terrible way to go. I try not to think about it."
+  },
+  {
+   "k": "We didn't have much family left. It was just him and my nephew.",
+   "v": "We didn't have much family left. It was just him and my nephew."
+  },
+  {
+   "k": "I have more questions.",
+   "v": "I have more questions."
+  },
+  {
+   "k": "My name is Harold.",
+   "v": "My name is Harold."
+  },
+  {
+   "k": "Good.",
+   "v": "Good."
+  },
+  {
+   "k": "I knew you’d see reason.",
+   "v": "I knew you’d see reason."
+  },
+  {
+   "k": "Family doesn’t get many chances to say goodbye properly.",
+   "v": "Family doesn’t get many chances to say goodbye properly."
+  },
+  {
+   "k": "I won’t forget this.",
+   "v": "I won’t forget this."
+  },
+  {
+   "k": "That’s disappointing.",
+   "v": "That’s disappointing."
+  },
+  {
+   "k": "Still.",
+   "v": "Still."
+  },
+  {
+   "k": "Rules are useful things.",
+   "v": "Rules are useful things."
+  },
+  {
+   "k": "Until they aren’t.",
+   "v": "Until they aren’t."
+  },
+  {
+   "k": "Give my brother a quiet night, then.",
+   "v": "Give my brother a quiet night, then."
+  },
+  {
+   "k": "I suppose some problems do solve themselves.",
+   "v": "I suppose some problems do solve themselves."
+  },
+  {
+   "k": "I thought you two were close.",
+   "v": "I thought you two were close."
+  },
+  {
+   "k": "What did you say your name was again?",
+   "v": "What did you say your name was again?"
+  },
+  {
+   "k": "Just saying goodbye properly.",
+   "v": "Just saying goodbye properly."
+  },
+  {
+   "k": "I'll be leaving now.",
+   "v": "I'll be leaving now."
+  },
+  {
+   "k": "Thanks for looking the other way.",
+   "v": "Thanks for looking the other way."
+  },
+  {
+   "k": "Harold. Harold Vanderbilt.",
+   "v": "Harold. Harold Vanderbilt."
+  },
+  {
+   "k": "I'll be taking my leave now. Have a great rest of your evening.",
+   "v": "I'll be taking my leave now. Have a great rest of your evening."
+  },
+  {
+   "k": "Hello. Excuse me.",
+   "v": "Hello. Excuse me."
+  },
+  {
+   "k": "This is graveyard, yes?",
+   "v": "This is graveyard, yes?"
+  },
+  {
+   "k": "I come to visit my wife.",
+   "v": "I come to visit my wife."
+  },
+  {
+   "k": "Can I see some identification?",
+   "v": "Can I see some identification?"
+  },
+  {
+   "k": "Identification?",
+   "v": "Identification?"
+  },
+  {
+   "k": "Yes… yes.",
+   "v": "Yes… yes."
+  },
+  {
+   "k": "My name Mr. Huang.",
+   "v": "My name Mr. Huang."
+  },
+  {
+   "k": "I am him.",
+   "v": "I am him."
+  },
+  {
+   "k": "I not carry many papers now.",
+   "v": "I not carry many papers now."
+  },
+  {
+   "k": "Only me. Only husband.",
+   "v": "Only me. Only husband."
+  },
+  {
+   "k": "I come many times before.",
+   "v": "I come many times before."
+  },
+  {
+   "k": "Maybe you not see me.",
+   "v": "Maybe you not see me."
+  },
+  {
+   "k": "I come late when quiet.",
+   "v": "I come late when quiet."
+  },
+  {
+   "k": "Alright. Why are you here so late?",
+   "v": "Alright. Why are you here so late?"
+  },
+  {
+   "k": "Okay. Take your time and tell me what you need.",
+   "v": "Okay. Take your time and tell me what you need."
+  },
+  {
+   "k": "Late is better.",
+   "v": "Late is better."
+  },
+  {
+   "k": "Less people. Less noise.",
+   "v": "Less people. Less noise."
+  },
+  {
+   "k": "My wife not like noise.",
+   "v": "My wife not like noise."
+  },
+  {
+   "k": "I stand outside and think.",
+   "v": "I stand outside and think."
+  },
+  {
+   "k": "That all.",
+   "v": "That all."
+  },
+  {
+   "k": "Which grave are you visiting?",
+   "v": "Which grave are you visiting?"
+  },
+  {
+   "k": "You can understand why this looks suspicious.",
+   "v": "You can understand why this looks suspicious."
+  },
+  {
+   "k": "English hard for me.",
+   "v": "English hard for me."
+  },
+  {
+   "k": "My wife help me before.",
+   "v": "My wife help me before."
+  },
+  {
+   "k": "She here.",
+   "v": "She here."
+  },
+  {
+   "k": "Long time already.",
+   "v": "Long time already."
+  },
+  {
+   "k": "I'm sorry for your loss.",
+   "v": "I'm sorry for your loss."
+  },
+  {
+   "k": "You shouldn’t be waiting outside the gate.",
+   "v": "You shouldn’t be waiting outside the gate."
+  },
+  {
+   "k": "I know.",
+   "v": "I know."
+  },
+  {
+   "k": "I look bad.",
+   "v": "I look bad."
+  },
+  {
+   "k": "Old man. Night time.",
+   "v": "Old man. Night time."
+  },
+  {
+   "k": "But I not do wrong.",
+   "v": "But I not do wrong."
+  },
+  {
+   "k": "I promise.",
+   "v": "I promise."
+  },
+  {
+   "k": "I only want see her.",
+   "v": "I only want see her."
+  },
+  {
+   "k": "Western burial ground.",
+   "v": "Western burial ground."
+  },
+  {
+   "k": "Near tree.",
+   "v": "Near tree."
+  },
+  {
+   "k": "She like tree.",
+   "v": "She like tree."
+  },
+  {
+   "k": "I talk to her sometimes.",
+   "v": "I talk to her sometimes."
+  },
+  {
+   "k": "It help me.",
+   "v": "It help me."
+  },
+  {
+   "k": "House very quiet now.",
+   "v": "House very quiet now."
+  },
+  {
+   "k": "Here feel closer to her.",
+   "v": "Here feel closer to her."
+  },
+  {
+   "k": "I not stay long.",
+   "v": "I not stay long."
+  },
+  {
+   "k": "Please.",
+   "v": "Please."
+  },
+  {
+   "k": "Just few minutes.",
+   "v": "Just few minutes."
+  },
+  {
+   "k": "I visit my wife.",
+   "v": "I visit my wife."
+  },
+  {
+   "k": "May I come in?",
+   "v": "May I come in?"
+  },
+  {
+   "k": "Alright. You can go in, but don’t stay long.",
+   "v": "Alright. You can go in, but don’t stay long."
+  },
+  {
+   "k": "I’m sorry. Visiting hours are over.",
+   "v": "I’m sorry. Visiting hours are over."
+  },
+  {
+   "k": "My late wife.",
+   "v": "My late wife."
+  },
+  {
+   "k": "Mei Huang.",
+   "v": "Mei Huang."
+  },
+  {
+   "k": "When did she die?",
+   "v": "When did she die?"
+  },
+  {
+   "k": "What was her cause of death?",
+   "v": "What was her cause of death?"
+  },
+  {
+   "k": "I do not remember...",
+   "v": "I do not remember..."
+  },
+  {
+   "k": "It has been long time.",
+   "v": "It has been long time."
+  },
+  {
+   "k": "I do not like to speak about this matter.",
+   "v": "I do not like to speak about this matter."
+  },
+  {
+   "k": "My wife not bad person.",
+   "v": "My wife not bad person."
+  },
+  {
+   "k": "She did no wrong.",
+   "v": "She did no wrong."
+  },
+  {
+   "k": "Please, I would like to see her.",
+   "v": "Please, I would like to see her."
+  },
+  {
+   "k": "No one.",
+   "v": "No one."
+  },
+  {
+   "k": "Only me and wife. After passing away, I am alone.",
+   "v": "Only me and wife. After passing away, I am alone."
+  },
+  {
+   "k": "My name?",
+   "v": "My name?"
+  },
+  {
+   "k": "Huang Wenqi.",
+   "v": "Huang Wenqi."
+  },
+  {
+   "k": "You very kind.",
+   "v": "You very kind."
+  },
+  {
+   "k": "I understand.",
+   "v": "I understand."
+  },
+  {
+   "k": "Rules are rules.",
+   "v": "Rules are rules."
+  },
+  {
+   "k": "I come again tomorrow.",
+   "v": "I come again tomorrow."
+  },
+  {
+   "k": "Thank you for listening.",
+   "v": "Thank you for listening."
+  },
+  {
+   "k": "This is her.",
+   "v": "This is her."
+  },
+  {
+   "k": "I miss her dearly.",
+   "v": "I miss her dearly."
+  },
+  {
+   "k": "You two must have loved each other very much.",
+   "v": "You two must have loved each other very much."
+  },
+  {
+   "k": "She would say...",
+   "v": "She would say..."
+  },
+  {
+   "k": "\"If I go first, don’t forget me.\"",
+   "v": "\"If I go first, don’t forget me.\""
+  },
+  {
+   "k": "I tell her I won’t.",
+   "v": "I tell her I won’t."
+  },
+  {
+   "k": "So I come.",
+   "v": "So I come."
+  },
+  {
+   "k": "Even when tired.",
+   "v": "Even when tired."
+  },
+  {
+   "k": "Even when cold.",
+   "v": "Even when cold."
+  },
+  {
+   "k": "I go now.",
+   "v": "I go now."
+  },
+  {
+   "k": "…You work here?",
+   "v": "…You work here?"
+  },
+  {
+   "k": "I didn’t expect anyone still on duty.",
+   "v": "I didn’t expect anyone still on duty."
+  },
+  {
+   "k": "Are you here to visit someone?",
+   "v": "Are you here to visit someone?"
+  },
+  {
+   "k": "You shouldn’t be wandering around this late.",
+   "v": "You shouldn’t be wandering around this late."
+  },
+  {
+   "k": "Yeah. Just paying my respects.",
+   "v": "Yeah. Just paying my respects."
+  },
+  {
+   "k": "I don't plan to stay long.",
+   "v": "I don't plan to stay long."
+  },
+  {
+   "k": "Are you related to the deceased?",
+   "v": "Are you related to the deceased?"
+  },
+  {
+   "k": "Thanks, I know the rules.",
+   "v": "Thanks, I know the rules."
+  },
+  {
+   "k": "You don't have to worry, I’ll be quick.",
+   "v": "You don't have to worry, I’ll be quick."
+  },
+  {
+   "k": "Then you can go back to... whatever it is you were doing.",
+   "v": "Then you can go back to... whatever it is you were doing."
+  },
+  {
+   "k": "Someone with the name Huang.",
+   "v": "Someone with the name Huang."
+  },
+  {
+   "k": "That should be enough for you.",
+   "v": "That should be enough for you."
+  },
+  {
+   "k": "That’s vague. What’s your full name?",
+   "v": "That’s vague. What’s your full name?"
+  },
+  {
+   "k": "Are you related to the Huangs?",
+   "v": "Are you related to the Huangs?"
+  },
+  {
+   "k": "…Chen Huang.",
+   "v": "…Chen Huang."
+  },
+  {
+   "k": "Are you going to keep asking me instrusive questions?",
+   "v": "Are you going to keep asking me instrusive questions?"
+  },
+  {
+   "k": "Why are you here?",
+   "v": "Why are you here?"
+  },
+  {
+   "k": "Yeah. I am.",
+   "v": "Yeah. I am."
+  },
+  {
+   "k": "But to be honest, I don't really think that is any of your concern.",
+   "v": "But to be honest, I don't really think that is any of your concern."
+  },
+  {
+   "k": "I just need to know who exactly you're visiting.",
+   "v": "I just need to know who exactly you're visiting."
+  },
+  {
+   "k": "I just need to know you’re not causing trouble.",
+   "v": "I just need to know you’re not causing trouble."
+  },
+  {
+   "k": "I figured you’d ask that.",
+   "v": "I figured you’d ask that."
+  },
+  {
+   "k": "We’re family.",
+   "v": "We’re family."
+  },
+  {
+   "k": "Not close.",
+   "v": "Not close."
+  },
+  {
+   "k": "Well, I need to know who you're visiting.",
+   "v": "Well, I need to know who you're visiting."
+  },
+  {
+   "k": "What is their name?",
+   "v": "What is their name?"
+  },
+  {
+   "k": "Family.",
+   "v": "Family."
+  },
+  {
+   "k": "I need to know their name.",
+   "v": "I need to know their name."
+  },
+  {
+   "k": "You’re avoiding the question.",
+   "v": "You’re avoiding the question."
+  },
+  {
+   "k": "I’m answering enough.",
+   "v": "I’m answering enough."
+  },
+  {
+   "k": "This isn’t a confession booth.",
+   "v": "This isn’t a confession booth."
+  },
+  {
+   "k": "I’ll pay my respects and leave.",
+   "v": "I’ll pay my respects and leave."
+  },
+  {
+   "k": "You won’t even notice I was here.",
+   "v": "You won’t even notice I was here."
+  },
+  {
+   "k": "I'm not going to answer anymore questions.",
+   "v": "I'm not going to answer anymore questions."
+  },
+  {
+   "k": "Is there going to be a problem?",
+   "v": "Is there going to be a problem?"
+  },
+  {
+   "k": "No. Go ahead inside, but be quick.",
+   "v": "No. Go ahead inside, but be quick."
+  },
+  {
+   "k": "Visiting hours are over.",
+   "v": "Visiting hours are over."
+  },
+  {
+   "k": "…Thanks.",
+   "v": "…Thanks."
+  },
+  {
+   "k": "For what it’s worth,",
+   "v": "For what it’s worth,"
+  },
+  {
+   "k": "I appreciate professionalism.",
+   "v": "I appreciate professionalism."
+  },
+  {
+   "k": "Figures.",
+   "v": "Figures."
+  },
+  {
+   "k": "Didn't even want to be here.",
+   "v": "Didn't even want to be here."
+  },
+  {
+   "k": "Have fun watching over these dead people.",
+   "v": "Have fun watching over these dead people."
+  },
+  {
+   "k": "I don't envy you.",
+   "v": "I don't envy you."
+  },
+  {
+   "k": "Please... just give me a moment...",
+   "v": "Please... just give me a moment..."
+  },
+  {
+   "k": "Are you okay?",
+   "v": "Are you okay?"
+  },
+  {
+   "k": "I would do anything... just to make her stop.",
+   "v": "I would do anything... just to make her stop."
+  },
+  {
+   "k": "I thought coming here would help... but...",
+   "v": "I thought coming here would help... but..."
+  },
+  {
+   "k": "I think I have made a terrible mistake.",
+   "v": "I think I have made a terrible mistake."
+  },
+  {
+   "k": "Hey there.",
+   "v": "Hey there."
+  },
+  {
+   "k": "Sorry for disturbing you at this late hour.",
+   "v": "Sorry for disturbing you at this late hour."
+  },
+  {
+   "k": "My name is Dennis Anderson, and I'm here to visit a family member.",
+   "v": "My name is Dennis Anderson, and I'm here to visit a family member."
+  },
+  {
+   "k": "His name is Anthony Anderson.",
+   "v": "His name is Anthony Anderson."
+  },
+  {
+   "k": "What is your relation to him?",
+   "v": "What is your relation to him?"
+  },
+  {
+   "k": "Why are you here so late?",
+   "v": "Why are you here so late?"
+  },
+  {
+   "k": "Anthony was my brother.",
+   "v": "Anthony was my brother."
+  },
+  {
+   "k": "I'll only stop by for a moment.",
+   "v": "I'll only stop by for a moment."
+  },
+  {
+   "k": "I try to visit him every year. It's been a while, my visit is a bit overdue.",
+   "v": "I try to visit him every year. It's been a while, my visit is a bit overdue."
+  },
+  {
+   "k": "I hope you don't mind.",
+   "v": "I hope you don't mind."
+  },
+  {
+   "k": "Are you here to cause any trouble?",
+   "v": "Are you here to cause any trouble?"
+  },
+  {
+   "k": "Yeah... sorry.",
+   "v": "Yeah... sorry."
+  },
+  {
+   "k": "I have a very rigorous work schedule. Terrible hours.",
+   "v": "I have a very rigorous work schedule. Terrible hours."
+  },
+  {
+   "k": "I don't really get the time during the day to make this trip.",
+   "v": "I don't really get the time during the day to make this trip."
+  },
+  {
+   "k": "I hope it's alright.",
+   "v": "I hope it's alright."
+  },
+  {
+   "k": "Trouble?",
+   "v": "Trouble?"
+  },
+  {
+   "k": "I'm afraid I don't understand.",
+   "v": "I'm afraid I don't understand."
+  },
+  {
+   "k": "You seem suspicious.",
+   "v": "You seem suspicious."
+  },
+  {
+   "k": "On second thought...",
+   "v": "On second thought..."
+  },
+  {
+   "k": "I'll stop by another time.",
+   "v": "I'll stop by another time."
+  },
+  {
+   "k": "Maybe during the day, when there is someone on duty with a bit more manners.",
+   "v": "Maybe during the day, when there is someone on duty with a bit more manners."
+  },
+  {
+   "k": "So, can I come in?",
+   "v": "So, can I come in?"
+  },
+  {
+   "k": "Alright. Go ahead.",
+   "v": "Alright. Go ahead."
+  },
+  {
+   "k": "No. Please leave.",
+   "v": "No. Please leave."
+  },
+  {
+   "k": "I already told you.",
+   "v": "I already told you."
+  },
+  {
+   "k": "Dennis Anderson.",
+   "v": "Dennis Anderson."
+  },
+  {
+   "k": "My brother.",
+   "v": "My brother."
+  },
+  {
+   "k": "Anthony Anderson.",
+   "v": "Anthony Anderson."
+  },
+  {
+   "k": "Hmm... it's been quite a while.",
+   "v": "Hmm... it's been quite a while."
+  },
+  {
+   "k": "A little over ten years ago now.",
+   "v": "A little over ten years ago now."
+  },
+  {
+   "k": "Tragic house fire.",
+   "v": "Tragic house fire."
+  },
+  {
+   "k": "Claimed him and the family. Only the little girl made it out alive.",
+   "v": "Claimed him and the family. Only the little girl made it out alive."
+  },
+  {
+   "k": "It was a horrible day.",
+   "v": "It was a horrible day."
+  },
+  {
+   "k": "After the event, only the little girl survived.",
+   "v": "After the event, only the little girl survived."
+  },
+  {
+   "k": "Her name is Lily.",
+   "v": "Her name is Lily."
+  },
+  {
+   "k": "Thanks.",
+   "v": "Thanks."
+  },
+  {
+   "k": "I won't be long.",
+   "v": "I won't be long."
+  },
+  {
+   "k": "What do you mean \"no\"?",
+   "v": "What do you mean \"no\"?"
+  },
+  {
+   "k": "You don't own those people in there. Those are family members.",
+   "v": "You don't own those people in there. Those are family members."
+  },
+  {
+   "k": "I'll just come back during the day, when there's someone more professional on duty.",
+   "v": "I'll just come back during the day, when there's someone more professional on duty."
+  },
+  {
+   "k": "It's a damn shame what happened that day.",
+   "v": "It's a damn shame what happened that day."
+  },
+  {
+   "k": "Wish I could've been there.",
+   "v": "Wish I could've been there."
+  },
+  {
+   "k": "Where were you when it happened?",
+   "v": "Where were you when it happened?"
+  },
+  {
+   "k": "I think you should be going now.",
+   "v": "I think you should be going now."
+  },
+  {
+   "k": "I...",
+   "v": "I..."
+  },
+  {
+   "k": "I think I should be going now. Have a great rest of your evening.",
+   "v": "I think I should be going now. Have a great rest of your evening."
+  },
+  {
+   "k": "Yeah, you're probably right.",
+   "v": "Yeah, you're probably right."
+  },
+  {
+   "k": "I'll be heading out now.",
+   "v": "I'll be heading out now."
+  },
+  {
+   "k": "H-hey...",
+   "v": "H-hey..."
+  },
+  {
+   "k": "I need to come in to visit a grave...",
+   "v": "I need to come in to visit a grave..."
+  },
+  {
+   "k": "Is that okay?",
+   "v": "Is that okay?"
+  },
+  {
+   "k": "Well, go on ahead in!",
+   "v": "Well, go on ahead in!"
+  },
+  {
+   "k": "You mean, like, my name?",
+   "v": "You mean, like, my name?"
+  },
+  {
+   "k": "It's, uh...",
+   "v": "It's, uh..."
+  },
+  {
+   "k": "Edwin.",
+   "v": "Edwin."
+  },
+  {
+   "k": "Can I go in now?",
+   "v": "Can I go in now?"
+  },
+  {
+   "k": "I'll need your full name.",
+   "v": "I'll need your full name."
+  },
+  {
+   "k": "Sure.",
+   "v": "Sure."
+  },
+  {
+   "k": "M-my full name?",
+   "v": "M-my full name?"
+  },
+  {
+   "k": "My name is Edwin Adams.",
+   "v": "My name is Edwin Adams."
+  },
+  {
+   "k": "I'm here to visit my mother's grave.",
+   "v": "I'm here to visit my mother's grave."
+  },
+  {
+   "k": "I don't have any identification with me, I didn't think anyone would be here.",
+   "v": "I don't have any identification with me, I didn't think anyone would be here."
+  },
+  {
+   "k": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate.",
+   "v": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate."
+  },
+  {
+   "k": "Can I please go in now?",
+   "v": "Can I please go in now?"
+  },
+  {
+   "k": "Sorry kid. Graveyard's closed.",
+   "v": "Sorry kid. Graveyard's closed."
+  },
+  {
+   "k": "I-it's Edwin Adams.",
+   "v": "I-it's Edwin Adams."
+  },
+  {
+   "k": "My mother, Jane Adams.",
+   "v": "My mother, Jane Adams."
+  },
+  {
+   "k": "A long time ago. About fifteen years ago.",
+   "v": "A long time ago. About fifteen years ago."
+  },
+  {
+   "k": "I-I'm sorry but...",
+   "v": "I-I'm sorry but..."
+  },
+  {
+   "k": "I don't really want to talk about it...",
+   "v": "I don't really want to talk about it..."
+  },
+  {
+   "k": "My aunt and I live together, there isn't really anyone else.",
+   "v": "My aunt and I live together, there isn't really anyone else."
+  },
+  {
+   "k": "T-thanks...",
+   "v": "T-thanks..."
+  },
+  {
+   "k": "I won't be long...",
+   "v": "I won't be long..."
+  },
+  {
+   "k": "I miss my mother dearly.",
+   "v": "I miss my mother dearly."
+  },
+  {
+   "k": "She used to hum when she thought no one was listening.",
+   "v": "She used to hum when she thought no one was listening."
+  },
+  {
+   "k": "Funny what stays with you, even after everything else is gone.",
+   "v": "Funny what stays with you, even after everything else is gone."
+  },
+  {
+   "k": "Anyway. I shouldn’t keep you standing here.",
+   "v": "Anyway. I shouldn’t keep you standing here."
+  },
+  {
+   "k": "Are you going to be okay?",
+   "v": "Are you going to be okay?"
+  },
+  {
+   "k": "Get lost, kid.",
+   "v": "Get lost, kid."
+  },
+  {
+   "k": "Yeah... I'll get through this.",
+   "v": "Yeah... I'll get through this."
+  },
+  {
+   "k": "Thanks for letting me in, I know it's pretty late and you have a job to do.",
+   "v": "Thanks for letting me in, I know it's pretty late and you have a job to do."
+  },
+  {
+   "k": "But this helps more than you know.",
+   "v": "But this helps more than you know."
+  },
+  {
+   "k": "Gate still open, huh?",
+   "v": "Gate still open, huh?"
+  },
+  {
+   "k": "I need to get inside for a minute.",
+   "v": "I need to get inside for a minute."
+  },
+  {
+   "k": "Just here to visit some graves.",
+   "v": "Just here to visit some graves."
+  },
+  {
+   "k": "Go on in.",
+   "v": "Go on in."
+  },
+  {
+   "k": "My name is Jason.",
+   "v": "My name is Jason."
+  },
+  {
+   "k": "I've been here before many times.",
+   "v": "I've been here before many times."
+  },
+  {
+   "k": "Jason Holmes.",
+   "v": "Jason Holmes."
+  },
+  {
+   "k": "I'm here for my brother, Zackary Holmes.",
+   "v": "I'm here for my brother, Zackary Holmes."
+  },
+  {
+   "k": "And his son. Edward Holmes.",
+   "v": "And his son. Edward Holmes."
+  },
+  {
+   "k": "They were buried close together.",
+   "v": "They were buried close together."
+  },
+  {
+   "k": "Can I go in?",
+   "v": "Can I go in?"
+  },
+  {
+   "k": "Sorry. Graveyard's closed.",
+   "v": "Sorry. Graveyard's closed."
+  },
+  {
+   "k": "My brother and nephew, Zackary and Edward.",
+   "v": "My brother and nephew, Zackary and Edward."
+  },
+  {
+   "k": "When did they die?",
+   "v": "When did they die?"
+  },
+  {
+   "k": "How did they die?",
+   "v": "How did they die?"
+  },
+  {
+   "k": "Last year. They died at the same time.",
+   "v": "Last year. They died at the same time."
+  },
+  {
+   "k": "They died in a car accident.",
+   "v": "They died in a car accident."
+  },
+  {
+   "k": "After their burial, it's just me and my brother's widowed wife.",
+   "v": "After their burial, it's just me and my brother's widowed wife."
+  },
+  {
+   "k": "She disappeared after their deaths.",
+   "v": "She disappeared after their deaths."
+  },
+  {
+   "k": "Why?",
+   "v": "Why?"
+  },
+  {
+   "k": "My name is Jason Holmes.",
+   "v": "My name is Jason Holmes."
+  },
+  {
+   "k": "No one knows for certain.",
+   "v": "No one knows for certain."
+  },
+  {
+   "k": "She hasn't spoken to me since their passing.",
+   "v": "She hasn't spoken to me since their passing."
+  },
+  {
+   "k": "I can only imagine what she's going through.",
+   "v": "I can only imagine what she's going through."
+  },
+  {
+   "k": "I appreciate it.",
+   "v": "I appreciate it."
+  },
+  {
+   "k": "…",
+   "v": "…"
+  },
+  {
+   "k": "Yeah.",
+   "v": "Yeah."
+  },
+  {
+   "k": "I should've expected that.",
+   "v": "I should've expected that."
+  },
+  {
+   "k": "You're going to end up like every other gravekeeper before you.",
+   "v": "You're going to end up like every other gravekeeper before you."
+  },
+  {
+   "k": "…Hey.",
+   "v": "…Hey."
+  },
+  {
+   "k": "I'm done.",
+   "v": "I'm done."
+  },
+  {
+   "k": "Took longer than I thought.",
+   "v": "Took longer than I thought."
+  },
+  {
+   "k": "Guess I had more to say than I realized.",
+   "v": "Guess I had more to say than I realized."
+  },
+  {
+   "k": "Everything alright?",
+   "v": "Everything alright?"
+  },
+  {
+   "k": "You should be heading out.",
+   "v": "You should be heading out."
+  },
+  {
+   "k": "As alright as it gets, I suppose.",
+   "v": "As alright as it gets, I suppose."
+  },
+  {
+   "k": "Edward's stone is still clean.",
+   "v": "Edward's stone is still clean."
+  },
+  {
+   "k": "Someone's been taking care of it.",
+   "v": "Someone's been taking care of it."
+  },
+  {
+   "k": "Anyway.",
+   "v": "Anyway."
+  },
+  {
+   "k": "Thanks for letting me in.",
+   "v": "Thanks for letting me in."
+  },
+  {
+   "k": "Right.",
+   "v": "Right."
+  },
+  {
+   "k": "You're right.",
+   "v": "You're right."
+  },
+  {
+   "k": "Don't worry.",
+   "v": "Don't worry."
+  },
+  {
+   "k": "I wasn't planning on staying.",
+   "v": "I wasn't planning on staying."
+  },
+  {
+   "k": "They've had enough company for one night.",
+   "v": "They've had enough company for one night."
+  },
+  {
+   "k": "Try not to take this job too personally.",
+   "v": "Try not to take this job too personally."
+  },
+  {
+   "k": "People just come here to mourn.",
+   "v": "People just come here to mourn."
+  },
+  {
+   "k": "Good night.",
+   "v": "Good night."
+  },
+  {
+   "k": "Um...",
+   "v": "Um..."
+  },
+  {
+   "k": "H-hello?",
+   "v": "H-hello?"
+  },
+  {
+   "k": "You work here, right?",
+   "v": "You work here, right?"
+  },
+  {
+   "k": "I think you do.",
+   "v": "I think you do."
+  },
+  {
+   "k": "I mean, you're standing there like you do.",
+   "v": "I mean, you're standing there like you do."
+  },
+  {
+   "k": "I was wondering if I could come in for a minute.",
+   "v": "I was wondering if I could come in for a minute."
+  },
+  {
+   "k": "Just a minute.",
+   "v": "Just a minute."
+  },
+  {
+   "k": "Something feels off behind me.",
+   "v": "Something feels off behind me."
+  },
+  {
+   "k": "But it might just be the wind.",
+   "v": "But it might just be the wind."
+  },
+  {
+   "k": "What do you mean “off”?",
+   "v": "What do you mean “off”?"
+  },
+  {
+   "k": "What did you see?",
+   "v": "What did you see?"
+  },
+  {
+   "k": "R-right.",
+   "v": "R-right."
+  },
+  {
+   "k": "So when I was walking, I heard footsteps.",
+   "v": "So when I was walking, I heard footsteps."
+  },
+  {
+   "k": "I think.",
+   "v": "I think."
+  },
+  {
+   "k": "When I stopped walking, the footsteps stopped.",
+   "v": "When I stopped walking, the footsteps stopped."
+  },
+  {
+   "k": "Which is normal.",
+   "v": "Which is normal."
+  },
+  {
+   "k": "Unless someone else stopped at the same time.",
+   "v": "Unless someone else stopped at the same time."
+  },
+  {
+   "k": "That happens in movies.",
+   "v": "That happens in movies."
+  },
+  {
+   "k": "Movies aren’t real. Did you see anyone?",
+   "v": "Movies aren’t real. Did you see anyone?"
+  },
+  {
+   "k": "You’re shaking. Take a breath.",
+   "v": "You’re shaking. Take a breath."
+  },
+  {
+   "k": "Y-yeah.",
+   "v": "Y-yeah."
+  },
+  {
+   "k": "That's what my mom used to say.",
+   "v": "That's what my mom used to say."
+  },
+  {
+   "k": "That I think too much.",
+   "v": "That I think too much."
+  },
+  {
+   "k": "Or not enough.",
+   "v": "Or not enough."
+  },
+  {
+   "k": "I never figured out which one she meant.",
+   "v": "I never figured out which one she meant."
+  },
+  {
+   "k": "I'm probably just tired.",
+   "v": "I'm probably just tired."
+  },
+  {
+   "k": "But being tired makes it easier for bad things to happen, I think.",
+   "v": "But being tired makes it easier for bad things to happen, I think."
+  },
+  {
+   "k": "Or maybe that's naps.",
+   "v": "Or maybe that's naps."
+  },
+  {
+   "k": "I get those mixed up.",
+   "v": "I get those mixed up."
+  },
+  {
+   "k": "Focus. Did you actually see someone?",
+   "v": "Focus. Did you actually see someone?"
+  },
+  {
+   "k": "Go home. You’re fine.",
+   "v": "Go home. You’re fine."
+  },
+  {
+   "k": "Oh.",
+   "v": "Oh."
+  },
+  {
+   "k": "Breathing.",
+   "v": "Breathing."
+  },
+  {
+   "k": "In.",
+   "v": "In."
+  },
+  {
+   "k": "Out.",
+   "v": "Out."
+  },
+  {
+   "k": "I think I'm doing it wrong.",
+   "v": "I think I'm doing it wrong."
+  },
+  {
+   "k": "But I feel a little better.",
+   "v": "But I feel a little better."
+  },
+  {
+   "k": "Still don't like the dark though.",
+   "v": "Still don't like the dark though."
+  },
+  {
+   "k": "The dark feels like it's leaning.",
+   "v": "The dark feels like it's leaning."
+  },
+  {
+   "k": "Does it look like it's leaning to you?",
+   "v": "Does it look like it's leaning to you?"
+  },
+  {
+   "k": "No. Tell me what you saw.",
+   "v": "No. Tell me what you saw."
+  },
+  {
+   "k": "You’re imagining things.",
+   "v": "You’re imagining things."
+  },
+  {
+   "k": "S-see them?",
+   "v": "S-see them?"
+  },
+  {
+   "k": "Not clearly.",
+   "v": "Not clearly."
+  },
+  {
+   "k": "There was a shape.",
+   "v": "There was a shape."
+  },
+  {
+   "k": "Or maybe a space where a shape should've been.",
+   "v": "Or maybe a space where a shape should've been."
+  },
+  {
+   "k": "It was near the trees.",
+   "v": "It was near the trees."
+  },
+  {
+   "k": "But trees are very suspicious at night.",
+   "v": "But trees are very suspicious at night."
+  },
+  {
+   "k": "They move even when they shouldn't.",
+   "v": "They move even when they shouldn't."
+  },
+  {
+   "k": "This one felt like it noticed me noticing it.",
+   "v": "This one felt like it noticed me noticing it."
+  },
+  {
+   "k": "Which sounds silly.",
+   "v": "Which sounds silly."
+  },
+  {
+   "k": "I know that.",
+   "v": "I know that."
+  },
+  {
+   "k": "Describe the shape.",
+   "v": "Describe the shape."
+  },
+  {
+   "k": "You’re just scared.",
+   "v": "You’re just scared."
+  },
+  {
+   "k": "Oh...",
+   "v": "Oh..."
+  },
+  {
+   "k": "M-maybe you're right.",
+   "v": "M-maybe you're right."
+  },
+  {
+   "k": "I'd feel a lot better if I could come inside for a moment...",
+   "v": "I'd feel a lot better if I could come inside for a moment..."
+  },
+  {
+   "k": "You can come inside. Quickly.",
+   "v": "You can come inside. Quickly."
+  },
+  {
+   "k": "You should leave right now.",
+   "v": "You should leave right now."
+  },
+  {
+   "k": "I have a few more questions...",
+   "v": "I have a few more questions..."
+  },
+  {
+   "k": "Where were you headed?",
+   "v": "Where were you headed?"
+  },
+  {
+   "k": "Oh, uh...",
+   "v": "Oh, uh..."
+  },
+  {
+   "k": "I was just heading home.",
+   "v": "I was just heading home."
+  },
+  {
+   "k": "My car is, like, out of gas. So I had to walk.",
+   "v": "My car is, like, out of gas. So I had to walk."
+  },
+  {
+   "k": "I was just coming back from work. I work at bowling alley a couple of miles down the road.",
+   "v": "I was just coming back from work. I work at bowling alley a couple of miles down the road."
+  },
+  {
+   "k": "My name is Jessica.",
+   "v": "My name is Jessica."
+  },
+  {
+   "k": "Not to be rude, but I don't think I would feel comfortable standing out here by myself.",
+   "v": "Not to be rude, but I don't think I would feel comfortable standing out here by myself."
+  },
+  {
+   "k": "Um.",
+   "v": "Um."
+  },
+  {
+   "k": "It was tall.",
+   "v": "It was tall."
+  },
+  {
+   "k": "Or average.",
+   "v": "Or average."
+  },
+  {
+   "k": "Taller than me.",
+   "v": "Taller than me."
+  },
+  {
+   "k": "That part I’m sure about.",
+   "v": "That part I’m sure about."
+  },
+  {
+   "k": "It didn't move much.",
+   "v": "It didn't move much."
+  },
+  {
+   "k": "Which was the worst part.",
+   "v": "Which was the worst part."
+  },
+  {
+   "k": "If it moved, I'd know it was real.",
+   "v": "If it moved, I'd know it was real."
+  },
+  {
+   "k": "I think it had something dark on.",
+   "v": "I think it had something dark on."
+  },
+  {
+   "k": "Like a coat.",
+   "v": "Like a coat."
+  },
+  {
+   "k": "Or a shadow pretending to be a coat.",
+   "v": "Or a shadow pretending to be a coat."
+  },
+  {
+   "k": "R-really?",
+   "v": "R-really?"
+  },
+  {
+   "k": "I promise I won't touch anything.",
+   "v": "I promise I won't touch anything."
+  },
+  {
+   "k": "Or look at anything too long.",
+   "v": "Or look at anything too long."
+  },
+  {
+   "k": "That's fair.",
+   "v": "That's fair."
+  },
+  {
+   "k": "You're probably right.",
+   "v": "You're probably right."
+  },
+  {
+   "k": "I'm sorry for bothering you.",
+   "v": "I'm sorry for bothering you."
+  },
+  {
+   "k": "I'll just walk fast.",
+   "v": "I'll just walk fast."
+  },
+  {
+   "k": "Fast walking makes you harder to catch.",
+   "v": "Fast walking makes you harder to catch."
+  },
+  {
+   "k": "I heard that somewhere.",
+   "v": "I heard that somewhere."
+  },
+  {
+   "k": "If I start running, don't worry.",
+   "v": "If I start running, don't worry."
+  },
+  {
+   "k": "That's normal for me.",
+   "v": "That's normal for me."
+  },
+  {
+   "k": "I think I'm okay now.",
+   "v": "I think I'm okay now."
+  },
+  {
+   "k": "I stayed longer than I meant to.",
+   "v": "I stayed longer than I meant to."
+  },
+  {
+   "k": "It feels quieter in here.",
+   "v": "It feels quieter in here."
+  },
+  {
+   "k": "Not good quiet.",
+   "v": "Not good quiet."
+  },
+  {
+   "k": "Just... tired quiet.",
+   "v": "Just... tired quiet."
+  },
+  {
+   "k": "I should probably go home.",
+   "v": "I should probably go home."
+  },
+  {
+   "k": "You sure you’re alright to leave alone?",
+   "v": "You sure you’re alright to leave alone?"
+  },
+  {
+   "k": "I mean.",
+   "v": "I mean."
+  },
+  {
+   "k": "I walked here by myself.",
+   "v": "I walked here by myself."
+  },
+  {
+   "k": "And nothing bad happened.",
+   "v": "And nothing bad happened."
+  },
+  {
+   "k": "Probably.",
+   "v": "Probably."
+  },
+  {
+   "k": "So it should be fine going back.",
+   "v": "So it should be fine going back."
+  },
+  {
+   "k": "If I walk fast.",
+   "v": "If I walk fast."
+  },
+  {
+   "k": "But not run.",
+   "v": "But not run."
+  },
+  {
+   "k": "Running makes it obvious you're scared.",
+   "v": "Running makes it obvious you're scared."
+  },
+  {
+   "k": "Goodnight.",
+   "v": "Goodnight."
+  },
+  {
+   "k": "For letting me in.",
+   "v": "For letting me in."
+  },
+  {
+   "k": "And for not laughing.",
+   "v": "And for not laughing."
+  },
+  {
+   "k": "I'll be gone in just a second.",
+   "v": "I'll be gone in just a second."
+  },
+  {
+   "k": "My name is officer James. I'm here with my partner, officer Baidey on an investigation.",
+   "v": "My name is officer James. I'm here with my partner, officer Baidey on an investigation."
+  },
+  {
+   "k": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.",
+   "v": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood."
+  },
+  {
+   "k": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.",
+   "v": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here."
+  },
+  {
+   "k": "Would you mind answering some questions for us?",
+   "v": "Would you mind answering some questions for us?"
+  },
+  {
+   "k": "Alright, how can I help you?",
+   "v": "Alright, how can I help you?"
+  },
+  {
+   "k": "Sorry, I can't help you.",
+   "v": "Sorry, I can't help you."
+  },
+  {
+   "k": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.",
+   "v": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood."
+  },
+  {
+   "k": "Apparently, some of them have been sighted near this cemetary as well.",
+   "v": "Apparently, some of them have been sighted near this cemetary as well."
+  },
+  {
+   "k": "I'd like your help in conducting this investigation.",
+   "v": "I'd like your help in conducting this investigation."
+  },
+  {
+   "k": "Firstly, have you seen anyone attempting to enter the premises dressed in black?",
+   "v": "Firstly, have you seen anyone attempting to enter the premises dressed in black?"
+  },
+  {
+   "k": "No, officer.",
+   "v": "No, officer."
+  },
+  {
+   "k": "Yes, I have.",
+   "v": "Yes, I have."
+  },
+  {
+   "k": "Could you describe the behavior of this individiual?",
+   "v": "Could you describe the behavior of this individiual?"
+  },
+  {
+   "k": "They asked to come in and see a grave.",
+   "v": "They asked to come in and see a grave."
+  },
+  {
+   "k": "They never approached me.",
+   "v": "They never approached me."
+  },
+  {
+   "k": "I don't remember.",
+   "v": "I don't remember."
+  },
+  {
+   "k": "Alright, I'll move on to my next question.",
+   "v": "Alright, I'll move on to my next question."
+  },
+  {
+   "k": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?",
+   "v": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?"
+  },
+  {
+   "k": "Do you remember anything about this individual?",
+   "v": "Do you remember anything about this individual?"
+  },
+  {
+   "k": "Perhaps the color of his clothes or complexion?",
+   "v": "Perhaps the color of his clothes or complexion?"
+  },
+  {
+   "k": "They wearing a greenish brown shirt.",
+   "v": "They wearing a greenish brown shirt."
+  },
+  {
+   "k": "They were wearing a grey robe.",
+   "v": "They were wearing a grey robe."
+  },
+  {
+   "k": "Alright, we appreciate your coopearation.",
+   "v": "Alright, we appreciate your coopearation."
+  },
+  {
+   "k": "We have one more question.",
+   "v": "We have one more question."
+  },
+  {
+   "k": "If it's alright with you...",
+   "v": "If it's alright with you..."
+  },
+  {
+   "k": "I would like to come inside and take a look around.",
+   "v": "I would like to come inside and take a look around."
+  },
+  {
+   "k": "Alright, go ahead.",
+   "v": "Alright, go ahead."
+  },
+  {
+   "k": "I'm afraid I can't let you in sir.",
+   "v": "I'm afraid I can't let you in sir."
+  },
+  {
+   "k": "My name is officer James.",
+   "v": "My name is officer James."
+  },
+  {
+   "k": "I see...",
+   "v": "I see..."
+  },
+  {
+   "k": "Well, we don't have a warrant, so I can't force you to let me in.",
+   "v": "Well, we don't have a warrant, so I can't force you to let me in."
+  },
+  {
+   "k": "We'll be nearby if there's any trouble. Keep an eye out.",
+   "v": "We'll be nearby if there's any trouble. Keep an eye out."
+  },
+  {
+   "k": "I think I'll be concluding my investigation here...",
+   "v": "I think I'll be concluding my investigation here..."
+  },
+  {
+   "k": "Keep an eye out. Let us know if you see anything strange.",
+   "v": "Keep an eye out. Let us know if you see anything strange."
+  },
+  {
+   "k": "Good evening.",
+   "v": "Good evening."
+  },
+  {
+   "k": "I'm Father Joseph.",
+   "v": "I'm Father Joseph."
+  },
+  {
+   "k": "I used to be the pastor here at this church.",
+   "v": "I used to be the pastor here at this church."
+  },
+  {
+   "k": "I need to come inside for a moment.",
+   "v": "I need to come inside for a moment."
+  },
+  {
+   "k": "What is your business here?",
+   "v": "What is your business here?"
+  },
+  {
+   "k": "Well...",
+   "v": "Well..."
+  },
+  {
+   "k": "I've left something important in the basement of that abandoned church years ago.",
+   "v": "I've left something important in the basement of that abandoned church years ago."
+  },
+  {
+   "k": "I need to come inside and reclaim it.",
+   "v": "I need to come inside and reclaim it."
+  },
+  {
+   "k": "What did you leave behind?",
+   "v": "What did you leave behind?"
+  },
+  {
+   "k": "Why wait until now?",
+   "v": "Why wait until now?"
+  },
+  {
+   "k": "A wedding ring for my betrothed. It remained here after many years.",
+   "v": "A wedding ring for my betrothed. It remained here after many years."
+  },
+  {
+   "k": "I need it back.",
+   "v": "I need it back."
+  },
+  {
+   "k": "Are you hiding something?",
+   "v": "Are you hiding something?"
+  },
+  {
+   "k": "You came all this way just for that?",
+   "v": "You came all this way just for that?"
+  },
+  {
+   "k": "Yes. It has very large sentimental value to me.",
+   "v": "Yes. It has very large sentimental value to me."
+  },
+  {
+   "k": "I need to enter the grounds to retrieve it.",
+   "v": "I need to enter the grounds to retrieve it."
+  },
+  {
+   "k": "You're hiding something.",
+   "v": "You're hiding something."
+  },
+  {
+   "k": "Alright, I will be candid with you.",
+   "v": "Alright, I will be candid with you."
+  },
+  {
+   "k": "I had hoped not to return to this place.",
+   "v": "I had hoped not to return to this place."
+  },
+  {
+   "k": "But recently... I have felt immense guilt over the loss of my wife to be.",
+   "v": "But recently... I have felt immense guilt over the loss of my wife to be."
+  },
+  {
+   "k": "She passed away before I had the opportunity to take our vows.",
+   "v": "She passed away before I had the opportunity to take our vows."
+  },
+  {
+   "k": "I must return to retrieve our wedding ring.",
+   "v": "I must return to retrieve our wedding ring."
+  },
+  {
+   "k": "As something to remember her by.",
+   "v": "As something to remember her by."
+  },
+  {
+   "k": "Are you lying?",
+   "v": "Are you lying?"
+  },
+  {
+   "k": "How can I trust you?",
+   "v": "How can I trust you?"
+  },
+  {
+   "k": "No. I know it has been many years since I've returned to these grounds...",
+   "v": "No. I know it has been many years since I've returned to these grounds..."
+  },
+  {
+   "k": "But I'm back now and I need to retrieve what is rightfully mine.",
+   "v": "But I'm back now and I need to retrieve what is rightfully mine."
+  },
+  {
+   "k": "So please...",
+   "v": "So please..."
+  },
+  {
+   "k": "You are wise to hesitate.",
+   "v": "You are wise to hesitate."
+  },
+  {
+   "k": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return.",
+   "v": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return."
+  },
+  {
+   "k": "But I need that ring.",
+   "v": "But I need that ring."
+  },
+  {
+   "k": "I would like you to come with me to retrieve it.",
+   "v": "I would like you to come with me to retrieve it."
+  },
+  {
+   "k": "Shall we go together?",
+   "v": "Shall we go together?"
+  },
+  {
+   "k": "Alright. Let's go.",
+   "v": "Alright. Let's go."
+  },
+  {
+   "k": "I'm sorry father, but you should leave.",
+   "v": "I'm sorry father, but you should leave."
+  },
+  {
+   "k": "Do you have any family members?",
+   "v": "Do you have any family members?"
+  },
+  {
+   "k": "My name is Father Joseph Smith.",
+   "v": "My name is Father Joseph Smith."
+  },
+  {
+   "k": "I have no immediate family members.",
+   "v": "I have no immediate family members."
+  },
+  {
+   "k": "We will not be long.",
+   "v": "We will not be long."
+  },
+  {
+   "k": "It is down the hall, on the staircase to the right.",
+   "v": "It is down the hall, on the staircase to the right."
+  },
+  {
+   "k": "I know the way.",
+   "v": "I know the way."
+  },
+  {
+   "k": "I hope we are not too late.",
+   "v": "I hope we are not too late."
+  },
+  {
+   "k": "Hurry.",
+   "v": "Hurry."
+  },
+  {
+   "k": "I urge you to reconsider.",
+   "v": "I urge you to reconsider."
+  },
+  {
+   "k": "It is very important you allow me inside to retrieve the lost item.",
+   "v": "It is very important you allow me inside to retrieve the lost item."
+  },
+  {
+   "k": "Please. Allow me in.",
+   "v": "Please. Allow me in."
+  },
+  {
+   "k": "You're right. I'm sorry. Let's go inside.",
+   "v": "You're right. I'm sorry. Let's go inside."
+  },
+  {
+   "k": "No. Leave.",
+   "v": "No. Leave."
+  },
+  {
+   "k": "Very well.",
+   "v": "Very well."
+  },
+  {
+   "k": "I will not force your hand.",
+   "v": "I will not force your hand."
+  },
+  {
+   "k": "May God forgive us both.",
+   "v": "May God forgive us both."
+  },
+  {
+   "k": "Here we are.",
+   "v": "Here we are."
+  },
+  {
+   "k": "I would like you to enter inside and retrieve it for me. I will wait out here.",
+   "v": "I would like you to enter inside and retrieve it for me. I will wait out here."
+  },
+  {
+   "k": "It is down the hall. Take the first door to your right.",
+   "v": "It is down the hall. Take the first door to your right."
+  },
+  {
+   "k": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom.",
+   "v": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom."
+  },
+  {
+   "k": "The ring should be left in a chest in the back corner.",
+   "v": "The ring should be left in a chest in the back corner."
+  },
+  {
+   "k": "Before you enter, I would like to give you some advice.",
+   "v": "Before you enter, I would like to give you some advice."
+  },
+  {
+   "k": "When you go down the hall, do not enter the door on the left. No matter what.",
+   "v": "When you go down the hall, do not enter the door on the left. No matter what."
+  },
+  {
+   "k": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute.",
+   "v": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute."
+  },
+  {
+   "k": "Do you understand?",
+   "v": "Do you understand?"
+  },
+  {
+   "k": "Okay. Thank you, father.",
+   "v": "Okay. Thank you, father."
+  },
+  {
+   "k": "I've changed my mind. You should leave.",
+   "v": "I've changed my mind. You should leave."
+  },
+  {
+   "k": "Were you able to retrieve the ring?",
+   "v": "Were you able to retrieve the ring?"
+  },
+  {
+   "k": "Not yet. I'll go get it.",
+   "v": "Not yet. I'll go get it."
+  },
+  {
+   "k": "Yo… you work here?",
+   "v": "Yo… you work here?"
+  },
+  {
+   "k": "Listen, man, I can’t hang around long.",
+   "v": "Listen, man, I can’t hang around long."
+  },
+  {
+   "k": "I don’t even wanna come in.",
+   "v": "I don’t even wanna come in."
+  },
+  {
+   "k": "Just needed to give you a heads-up.",
+   "v": "Just needed to give you a heads-up."
+  },
+  {
+   "k": "A heads-up?",
+   "v": "A heads-up?"
+  },
+  {
+   "k": "Yeah. A warning.",
+   "v": "Yeah. A warning."
+  },
+  {
+   "k": "My brother’s been acting real strange lately.",
+   "v": "My brother’s been acting real strange lately."
+  },
+  {
+   "k": "Says he’s got some kind of “gig” involving this place.",
+   "v": "Says he’s got some kind of “gig” involving this place."
+  },
+  {
+   "k": "Tried telling the cops, but they wouldn’t listen. They never take me seriously.",
+   "v": "Tried telling the cops, but they wouldn’t listen. They never take me seriously."
+  },
+  {
+   "k": "So I figured I’d come myself.",
+   "v": "So I figured I’d come myself."
+  },
+  {
+   "k": "If my brother shows up here to “visit” a grave…",
+   "v": "If my brother shows up here to “visit” a grave…"
+  },
+  {
+   "k": "Do not let him in.",
+   "v": "Do not let him in."
+  },
+  {
+   "k": "You hear me?",
+   "v": "You hear me?"
+  },
+  {
+   "k": "Why not?",
+   "v": "Why not?"
+  },
+  {
+   "k": "Alright, I understand. Can you give me any more details?",
+   "v": "Alright, I understand. Can you give me any more details?"
+  },
+  {
+   "k": "I already told you, man.",
+   "v": "I already told you, man."
+  },
+  {
+   "k": "He’s been running with the wrong crowd.",
+   "v": "He’s been running with the wrong crowd."
+  },
+  {
+   "k": "Nothing but trouble.",
+   "v": "Nothing but trouble."
+  },
+  {
+   "k": "I don’t want him getting in deeper than he already is.",
+   "v": "I don’t want him getting in deeper than he already is."
+  },
+  {
+   "k": "Just turn him away. Don’t let him in, and don’t let him talk you into it.",
+   "v": "Just turn him away. Don’t let him in, and don’t let him talk you into it."
+  },
+  {
+   "k": "Him and that weird, cult-like group he’s been hanging around lately…",
+   "v": "Him and that weird, cult-like group he’s been hanging around lately…"
+  },
+  {
+   "k": "I don’t know. Something’s off.",
+   "v": "I don’t know. Something’s off."
+  },
+  {
+   "k": "Okay. Thanks for the warning.",
+   "v": "Okay. Thanks for the warning."
+  },
+  {
+   "k": "Sorry, but I’ll be handling security myself. You should go home.",
+   "v": "Sorry, but I’ll be handling security myself. You should go home."
+  },
+  {
+   "k": "Name’s Reginald. My brother’s Shane.",
+   "v": "Name’s Reginald. My brother’s Shane."
+  },
+  {
+   "k": "We’re part of the Deloitte family — live a few miles down the road.",
+   "v": "We’re part of the Deloitte family — live a few miles down the road."
+  },
+  {
+   "k": "I’m not here to cause trouble.",
+   "v": "I’m not here to cause trouble."
+  },
+  {
+   "k": "I just want to stop him from doing something stupid… something he might regret.",
+   "v": "I just want to stop him from doing something stupid… something he might regret."
+  },
+  {
+   "k": "He’s always been like this. Always pushing his luck.",
+   "v": "He’s always been like this. Always pushing his luck."
+  },
+  {
+   "k": "So please — can you promise me you won’t let him or his gang in?",
+   "v": "So please — can you promise me you won’t let him or his gang in?"
+  },
+  {
+   "k": "Thanks for hearing me out.",
+   "v": "Thanks for hearing me out."
+  },
+  {
+   "k": "We’re the Deloitte family — live not too far from here.",
+   "v": "We’re the Deloitte family — live not too far from here."
+  },
+  {
+   "k": "My brother looks a lot like me. Little shorter, but close enough you might mistake us.",
+   "v": "My brother looks a lot like me. Little shorter, but close enough you might mistake us."
+  },
+  {
+   "k": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go.",
+   "v": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go."
+  },
+  {
+   "k": "Real cult-like stuff.",
+   "v": "Real cult-like stuff."
+  },
+  {
+   "k": "Before he took off, I heard him muttering about this graveyard being “important.”",
+   "v": "Before he took off, I heard him muttering about this graveyard being “important.”"
+  },
+  {
+   "k": "Didn’t like the sound of that.",
+   "v": "Didn’t like the sound of that."
+  },
+  {
+   "k": "Feels like he’s planning to mess with something buried out here.",
+   "v": "Feels like he’s planning to mess with something buried out here."
+  },
+  {
+   "k": "Just… don’t let him in.",
+   "v": "Just… don’t let him in."
+  },
+  {
+   "k": "I don’t want to see him ruin his life any more than he already has.",
+   "v": "I don’t want to see him ruin his life any more than he already has."
+  },
+  {
+   "k": "Can you promise me that?",
+   "v": "Can you promise me that?"
+  },
+  {
+   "k": "Thanks, man.",
+   "v": "Thanks, man."
+  },
+  {
+   "k": "I owe you one.",
+   "v": "I owe you one."
+  },
+  {
+   "k": "Yeah… figures.",
+   "v": "Yeah… figures."
+  },
+  {
+   "k": "Nobody ever takes me seriously.",
+   "v": "Nobody ever takes me seriously."
+  },
+  {
+   "k": "Hope you all get what’s coming to you.",
+   "v": "Hope you all get what’s coming to you."
+  },
+  {
+   "k": "Hey.",
+   "v": "Hey."
+  },
+  {
+   "k": "Didn't think anyone would be out here this late.",
+   "v": "Didn't think anyone would be out here this late."
+  },
+  {
+   "k": "You work this place?",
+   "v": "You work this place?"
+  },
+  {
+   "k": "Listen… I don’t wanna make trouble.",
+   "v": "Listen… I don’t wanna make trouble."
+  },
+  {
+   "k": "I just need a minute inside.",
+   "v": "I just need a minute inside."
+  },
+  {
+   "k": "It's late. What do you want?",
+   "v": "It's late. What do you want?"
+  },
+  {
+   "k": "My name's Shane.",
+   "v": "My name's Shane."
+  },
+  {
+   "k": "Deloitte family. We live a ways down the road.",
+   "v": "Deloitte family. We live a ways down the road."
+  },
+  {
+   "k": "I’m not here to steal anything or mess around.",
+   "v": "I’m not here to steal anything or mess around."
+  },
+  {
+   "k": "There’s something in there that belongs to my family.",
+   "v": "There’s something in there that belongs to my family."
+  },
+  {
+   "k": "Something that never got handled right.",
+   "v": "Something that never got handled right."
+  },
+  {
+   "k": "Handled how?",
+   "v": "Handled how?"
+  },
+  {
+   "k": "Rules are rules. I can’t let you in.",
+   "v": "Rules are rules. I can’t let you in."
+  },
+  {
+   "k": "I just need to see a grave.",
+   "v": "I just need to see a grave."
+  },
+  {
+   "k": "It's unmarked.",
+   "v": "It's unmarked."
+  },
+  {
+   "k": "Most folks don’t even know it’s there.",
+   "v": "Most folks don’t even know it’s there."
+  },
+  {
+   "k": "I wouldn’t be here if I had another option.",
+   "v": "I wouldn’t be here if I had another option."
+  },
+  {
+   "k": "Why is it unmarked?",
+   "v": "Why is it unmarked?"
+  },
+  {
+   "k": "That doesn’t matter. You need to leave.",
+   "v": "That doesn’t matter. You need to leave."
+  },
+  {
+   "k": "They buried them in a hurry.",
+   "v": "They buried them in a hurry."
+  },
+  {
+   "k": "Didn’t ask questions. Didn’t put a name down.",
+   "v": "Didn’t ask questions. Didn’t put a name down."
+  },
+  {
+   "k": "Just wanted it done and forgotten.",
+   "v": "Just wanted it done and forgotten."
+  },
+  {
+   "k": "That kind of thing sticks with a family.",
+   "v": "That kind of thing sticks with a family."
+  },
+  {
+   "k": "Sticks with a place too.",
+   "v": "Sticks with a place too."
+  },
+  {
+   "k": "You’re talking in circles. Be straight with me.",
+   "v": "You’re talking in circles. Be straight with me."
+  },
+  {
+   "k": "I’m sorry, but I still can’t let you in.",
+   "v": "I’m sorry, but I still can’t let you in."
+  },
+  {
+   "k": "Because it was easier that way.",
+   "v": "Because it was easier that way."
+  },
+  {
+   "k": "No paperwork or attention.",
+   "v": "No paperwork or attention."
+  },
+  {
+   "k": "Just dirt over a problem.",
+   "v": "Just dirt over a problem."
+  },
+  {
+   "k": "I know how this sounds.",
+   "v": "I know how this sounds."
+  },
+  {
+   "k": "But I need to see it with my own eyes.",
+   "v": "But I need to see it with my own eyes."
+  },
+  {
+   "k": "Make sure nothing’s… wrong.",
+   "v": "Make sure nothing’s… wrong."
+  },
+  {
+   "k": "What could be wrong?",
+   "v": "What could be wrong?"
+  },
+  {
+   "k": "No. You’re not going inside.",
+   "v": "No. You’re not going inside."
+  },
+  {
+   "k": "…Alright.",
+   "v": "…Alright."
+  },
+  {
+   "k": "Something’s been off lately.",
+   "v": "Something’s been off lately."
+  },
+  {
+   "k": "I haven't been able to sleep right. The guilt from the quick burial...",
+   "v": "I haven't been able to sleep right. The guilt from the quick burial..."
+  },
+  {
+   "k": "I just wanna make sure the plot is alright.",
+   "v": "I just wanna make sure the plot is alright."
+  },
+  {
+   "k": "The paperwork doesn’t line up.",
+   "v": "The paperwork doesn’t line up."
+  },
+  {
+   "k": "Dates, plot number... even the depth’s different depending on who you ask.",
+   "v": "Dates, plot number... even the depth’s different depending on who you ask."
+  },
+  {
+   "k": "That usually means someone rushed it, or skipped steps they shouldn’t have.",
+   "v": "That usually means someone rushed it, or skipped steps they shouldn’t have."
+  },
+  {
+   "k": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.",
+   "v": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem."
+  },
+  {
+   "k": "I’ve learned that the hard way.",
+   "v": "I’ve learned that the hard way."
+  },
+  {
+   "k": "Will you let me come in and have a look?",
+   "v": "Will you let me come in and have a look?"
+  },
+  {
+   "k": "Fine. You can go in, but be quick.",
+   "v": "Fine. You can go in, but be quick."
+  },
+  {
+   "k": "My brother, Reginald.",
+   "v": "My brother, Reginald."
+  },
+  {
+   "k": "It was very recent.",
+   "v": "It was very recent."
+  },
+  {
+   "k": "A little over a week ago.",
+   "v": "A little over a week ago."
+  },
+  {
+   "k": "You weren't working here when it happened.",
+   "v": "You weren't working here when it happened."
+  },
+  {
+   "k": "He died close to here.",
+   "v": "He died close to here."
+  },
+  {
+   "k": "He was in a terrible shape when they found him. I don't want to recall the details.",
+   "v": "He was in a terrible shape when they found him. I don't want to recall the details."
+  },
+  {
+   "k": "I don't know for certain.",
+   "v": "I don't know for certain."
+  },
+  {
+   "k": "After my brother's death, it's just me.",
+   "v": "After my brother's death, it's just me."
+  },
+  {
+   "k": "Shane Deloitte.",
+   "v": "Shane Deloitte."
+  },
+  {
+   "k": "Really.",
+   "v": "Really."
+  },
+  {
+   "k": "I’ll be quick.",
+   "v": "I’ll be quick."
+  },
+  {
+   "k": "That figures.",
+   "v": "That figures."
+  },
+  {
+   "k": "Nobody ever wants to deal with things before they rot.",
+   "v": "Nobody ever wants to deal with things before they rot."
+  },
+  {
+   "k": "They just lock the gate and walk away.",
+   "v": "They just lock the gate and walk away."
+  },
+  {
+   "k": "If this turns into a mess later, just remember I came by.",
+   "v": "If this turns into a mess later, just remember I came by."
+  },
+  {
+   "k": "I tried to handle this properly.",
+   "v": "I tried to handle this properly."
+  },
+  {
+   "k": "…Yeah.",
+   "v": "…Yeah."
+  },
+  {
+   "k": "It’s still here.",
+   "v": "It’s still here."
+  },
+  {
+   "k": "You can go.",
+   "v": "You can go."
+  },
+  {
+   "k": "I won’t need you watching anymore.",
+   "v": "I won’t need you watching anymore."
+  },
+  {
+   "k": "You said you’d be quick.",
+   "v": "You said you’d be quick."
+  },
+  {
+   "k": "Yeah, I know.",
+   "v": "Yeah, I know."
+  },
+  {
+   "k": "Just needed to see it one more time.",
+   "v": "Just needed to see it one more time."
+  },
+  {
+   "k": "I’m done.",
+   "v": "I’m done."
+  },
+  {
+   "k": "You won’t see me again tonight.",
+   "v": "You won’t see me again tonight."
+  },
+  {
+   "k": "That depends.",
+   "v": "That depends."
+  },
+  {
+   "k": "But it’s not your problem.",
+   "v": "But it’s not your problem."
+  },
+  {
+   "k": "I’m finished here.",
+   "v": "I’m finished here."
+  },
+  {
+   "k": "You must be the gravekeeper.",
+   "v": "You must be the gravekeeper."
+  },
+  {
+   "k": "My name is Tabitha.",
+   "v": "My name is Tabitha."
+  },
+  {
+   "k": "I was hoping you’d be on duty tonight.",
+   "v": "I was hoping you’d be on duty tonight."
+  },
+  {
+   "k": "I'm not interested.",
+   "v": "I'm not interested."
+  },
+  {
+   "k": "Can I help you with something?",
+   "v": "Can I help you with something?"
+  },
+  {
+   "k": "Curiosity keeps most people alive longer than confidence.",
+   "v": "Curiosity keeps most people alive longer than confidence."
+  },
+  {
+   "k": "I ask for a mere moment.",
+   "v": "I ask for a mere moment."
+  },
+  {
+   "k": "I want to enter the graveyard.",
+   "v": "I want to enter the graveyard."
+  },
+  {
+   "k": "Not to disturb anything.",
+   "v": "Not to disturb anything."
+  },
+  {
+   "k": "To protect it.",
+   "v": "To protect it."
+  },
+  {
+   "k": "There are… restless things.",
+   "v": "There are… restless things."
+  },
+  {
+   "k": "You don’t see them.",
+   "v": "You don’t see them."
+  },
+  {
+   "k": "But they notice places like this.",
+   "v": "But they notice places like this."
+  },
+  {
+   "k": "That sounds like nonsense.",
+   "v": "That sounds like nonsense."
+  },
+  {
+   "k": "Protect it how?",
+   "v": "Protect it how?"
+  },
+  {
+   "k": "You have a kind voice.",
+   "v": "You have a kind voice."
+  },
+  {
+   "k": "That helps, in a place like this.",
+   "v": "That helps, in a place like this."
+  },
+  {
+   "k": "I work with old rites.",
+   "v": "I work with old rites."
+  },
+  {
+   "k": "Small blessings.",
+   "v": "Small blessings."
+  },
+  {
+   "k": "They keep bad spirits from wandering too close.",
+   "v": "They keep bad spirits from wandering too close."
+  },
+  {
+   "k": "This graveyard feels thin.",
+   "v": "This graveyard feels thin."
+  },
+  {
+   "k": "Like a door left unlocked.",
+   "v": "Like a door left unlocked."
+  },
+  {
+   "k": "You expect me to believe that?",
+   "v": "You expect me to believe that?"
+  },
+  {
+   "k": "What kind of rites?",
+   "v": "What kind of rites?"
+  },
+  {
+   "k": "You call it nonsense.",
+   "v": "You call it nonsense."
+  },
+  {
+   "k": "That’s fine.",
+   "v": "That’s fine."
+  },
+  {
+   "k": "Most people do.",
+   "v": "Most people do."
+  },
+  {
+   "k": "Until something follows them home.",
+   "v": "Until something follows them home."
+  },
+  {
+   "k": "I don’t charge.",
+   "v": "I don’t charge."
+  },
+  {
+   "k": "I don’t ask for thanks.",
+   "v": "I don’t ask for thanks."
+  },
+  {
+   "k": "Just permission.",
+   "v": "Just permission."
+  },
+  {
+   "k": "Nothing dramatic.",
+   "v": "Nothing dramatic."
+  },
+  {
+   "k": "No candles. No blood. Just words said in the right places.",
+   "v": "No candles. No blood. Just words said in the right places."
+  },
+  {
+   "k": "The dead sleep better after, and the living too.",
+   "v": "The dead sleep better after, and the living too."
+  },
+  {
+   "k": "You look tired.",
+   "v": "You look tired."
+  },
+  {
+   "k": "That kind of tired doesn’t come from long shifts.",
+   "v": "That kind of tired doesn’t come from long shifts."
+  },
+  {
+   "k": "You won’t owe me anything.",
+   "v": "You won’t owe me anything."
+  },
+  {
+   "k": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.",
+   "v": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest."
+  },
+  {
+   "k": "You will immediately feel at ease.",
+   "v": "You will immediately feel at ease."
+  },
+  {
+   "k": "Let me inside.",
+   "v": "Let me inside."
+  },
+  {
+   "k": "Alright. Go ahead, but I’m watching you.",
+   "v": "Alright. Go ahead, but I’m watching you."
+  },
+  {
+   "k": "No. I can’t let you in.",
+   "v": "No. I can’t let you in."
+  },
+  {
+   "k": "Ask away.",
+   "v": "Ask away."
+  },
+  {
+   "k": "Yes, unfortunately.",
+   "v": "Yes, unfortunately."
+  },
+  {
+   "k": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse.",
+   "v": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse."
+  },
+  {
+   "k": "I trust you are fit for your job and will make the correct decisions.",
+   "v": "I trust you are fit for your job and will make the correct decisions."
+  },
+  {
+   "k": "I have other questions",
+   "v": "I have other questions"
+  },
+  {
+   "k": "Tabitha.",
+   "v": "Tabitha."
+  },
+  {
+   "k": "I am here to ease the restless spirits in this graveyard.",
+   "v": "I am here to ease the restless spirits in this graveyard."
+  },
+  {
+   "k": "You don't need to be afraid...",
+   "v": "You don't need to be afraid..."
+  },
+  {
+   "k": "I am here to help.",
+   "v": "I am here to help."
+  },
+  {
+   "k": "Why did you choose this graveyard?",
+   "v": "Why did you choose this graveyard?"
+  },
+  {
+   "k": "Are you attempting to deceive me?",
+   "v": "Are you attempting to deceive me?"
+  },
+  {
+   "k": "Don't get the wrong idea, gravekeeper.",
+   "v": "Don't get the wrong idea, gravekeeper."
+  },
+  {
+   "k": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here.",
+   "v": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here."
+  },
+  {
+   "k": "I offer my help. You may choose to accept it, or not.",
+   "v": "I offer my help. You may choose to accept it, or not."
+  },
+  {
+   "k": "Deceive you?",
+   "v": "Deceive you?"
+  },
+  {
+   "k": "If I were lying, what good would it help to ask me that?",
+   "v": "If I were lying, what good would it help to ask me that?"
+  },
+  {
+   "k": "I don't think you're thinking this through.",
+   "v": "I don't think you're thinking this through."
+  },
+  {
+   "k": "You made the right choice.",
+   "v": "You made the right choice."
+  },
+  {
+   "k": "If tonight feels quieter than usual, that’s me helping.",
+   "v": "If tonight feels quieter than usual, that’s me helping."
+  },
+  {
+   "k": "I see.",
+   "v": "I see."
+  },
+  {
+   "k": "You guard the gate, but not what slips through cracks.",
+   "v": "You guard the gate, but not what slips through cracks."
+  },
+  {
+   "k": "Don’t say I didn’t offer.",
+   "v": "Don’t say I didn’t offer."
+  },
+  {
+   "k": "Sleep lightly tonight.",
+   "v": "Sleep lightly tonight."
+  },
+  {
+   "k": "Ah! Yes! There it is...",
+   "v": "Ah! Yes! There it is..."
+  },
+  {
+   "k": "Did you feel that?",
+   "v": "Did you feel that?"
+  },
+  {
+   "k": "They scattered so fast.",
+   "v": "They scattered so fast."
+  },
+  {
+   "k": "The old ones hate being named.",
+   "v": "The old ones hate being named."
+  },
+  {
+   "k": "Especially out loud.",
+   "v": "Especially out loud."
+  },
+  {
+   "k": "You’re finished, right?",
+   "v": "You’re finished, right?"
+  },
+  {
+   "k": "Finished?",
+   "v": "Finished?"
+  },
+  {
+   "k": "No... completed.",
+   "v": "No... completed."
+  },
+  {
+   "k": "This place will sleep better now.",
+   "v": "This place will sleep better now."
+  },
+  {
+   "k": "You helped more than you know.",
+   "v": "You helped more than you know."
+  },
+  {
+   "k": "Thank you, gravekeeper.",
+   "v": "Thank you, gravekeeper."
+  },
+  {
+   "k": "For your cooperation.",
+   "v": "For your cooperation."
+  },
+  {
+   "k": "We may speak again.",
+   "v": "We may speak again."
+  },
+  {
+   "k": "Good. You’re still here.",
+   "v": "Good. You’re still here."
+  },
+  {
+   "k": "I was worried I’d be too late.",
+   "v": "I was worried I’d be too late."
+  },
+  {
+   "k": "You’re the gravekeeper, yes?",
+   "v": "You’re the gravekeeper, yes?"
+  },
+  {
+   "k": "The graveyard is closed.",
+   "v": "The graveyard is closed."
+  },
+  {
+   "k": "My name is Maribel.",
+   "v": "My name is Maribel."
+  },
+  {
+   "k": "I’m looking for someone who came through here earlier.",
+   "v": "I’m looking for someone who came through here earlier."
+  },
+  {
+   "k": "A woman named Tabitha.",
+   "v": "A woman named Tabitha."
+  },
+  {
+   "k": "Thin. Quiet. Thinks she knows how the dead work.",
+   "v": "Thin. Quiet. Thinks she knows how the dead work."
+  },
+  {
+   "k": "She’s my sister.",
+   "v": "She’s my sister."
+  },
+  {
+   "k": "She was here earlier.",
+   "v": "She was here earlier."
+  },
+  {
+   "k": "No one like that came by.",
+   "v": "No one like that came by."
+  },
+  {
+   "k": "Closed.",
+   "v": "Closed."
+  },
+  {
+   "k": "Yes, I heard that already.",
+   "v": "Yes, I heard that already."
+  },
+  {
+   "k": "But you see, I’m not here for the graveyard.",
+   "v": "But you see, I’m not here for the graveyard."
+  },
+  {
+   "k": "I’m here because my sister has a habit of interfering with things she doesn’t understand.",
+   "v": "I’m here because my sister has a habit of interfering with things she doesn’t understand."
+  },
+  {
+   "k": "And this place?",
+   "v": "And this place?"
+  },
+  {
+   "k": "It attracts those things.",
+   "v": "It attracts those things."
+  },
+  {
+   "k": "Interfering how?",
+   "v": "Interfering how?"
+  },
+  {
+   "k": "I still can’t let you in.",
+   "v": "I still can’t let you in."
+  },
+  {
+   "k": "I knew it.",
+   "v": "I knew it."
+  },
+  {
+   "k": "She never could resist places like this.",
+   "v": "She never could resist places like this."
+  },
+  {
+   "k": "Always trying to “fix” things.",
+   "v": "Always trying to “fix” things."
+  },
+  {
+   "k": "Always making them worse.",
+   "v": "Always making them worse."
+  },
+  {
+   "k": "If she performed her little rites here, then something of mine is now trapped inside.",
+   "v": "If she performed her little rites here, then something of mine is now trapped inside."
+  },
+  {
+   "k": "That’s why I need to enter.",
+   "v": "That’s why I need to enter."
+  },
+  {
+   "k": "Something of yours?",
+   "v": "Something of yours?"
+  },
+  {
+   "k": "That’s not my problem.",
+   "v": "That’s not my problem."
+  },
+  {
+   "k": "Then she plans to come later.",
+   "v": "Then she plans to come later."
+  },
+  {
+   "k": "Or she sent me ahead.",
+   "v": "Or she sent me ahead."
+  },
+  {
+   "k": "Either way, the result is the same.",
+   "v": "Either way, the result is the same."
+  },
+  {
+   "k": "There’s something buried here that doesn’t belong to the dead.",
+   "v": "There’s something buried here that doesn’t belong to the dead."
+  },
+  {
+   "k": "And I can feel it breathing.",
+   "v": "And I can feel it breathing."
+  },
+  {
+   "k": "Breathing?",
+   "v": "Breathing?"
+  },
+  {
+   "k": "You’re not making this better.",
+   "v": "You’re not making this better."
+  },
+  {
+   "k": "Tabitha believes in keeping doors closed.",
+   "v": "Tabitha believes in keeping doors closed."
+  },
+  {
+   "k": "I believe in knowing what’s on the other side.",
+   "v": "I believe in knowing what’s on the other side."
+  },
+  {
+   "k": "When she meddles, she binds things halfway.",
+   "v": "When she meddles, she binds things halfway."
+  },
+  {
+   "k": "Not alive. Not gone.",
+   "v": "Not alive. Not gone."
+  },
+  {
+   "k": "If I don’t retrieve what she disturbed, it will start calling out.",
+   "v": "If I don’t retrieve what she disturbed, it will start calling out."
+  },
+  {
+   "k": "First to the dead, then to you.",
+   "v": "First to the dead, then to you."
+  },
+  {
+   "k": "I won’t need long.",
+   "v": "I won’t need long."
+  },
+  {
+   "k": "I’ll find what my sister tangled up.",
+   "v": "I’ll find what my sister tangled up."
+  },
+  {
+   "k": "I’ll take it with me.",
+   "v": "I’ll take it with me."
+  },
+  {
+   "k": "And this place will finally be quiet.",
+   "v": "And this place will finally be quiet."
+  },
+  {
+   "k": "If you refuse…",
+   "v": "If you refuse…"
+  },
+  {
+   "k": "Well.",
+   "v": "Well."
+  },
+  {
+   "k": "It will still get out eventually.",
+   "v": "It will still get out eventually."
+  },
+  {
+   "k": "No. You’re not setting foot inside.",
+   "v": "No. You’re not setting foot inside."
+  },
+  {
+   "k": "Of course.",
+   "v": "Of course."
+  },
+  {
+   "k": "How can I trust you over your sister?",
+   "v": "How can I trust you over your sister?"
+  },
+  {
+   "k": "Ah, I see Tabitha has gotten quite the hold on you.",
+   "v": "Ah, I see Tabitha has gotten quite the hold on you."
+  },
+  {
+   "k": "It is a decision for you to make, gravekeeper.",
+   "v": "It is a decision for you to make, gravekeeper."
+  },
+  {
+   "k": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.",
+   "v": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged."
+  },
+  {
+   "k": "Tabitha does not know how to control the spirits she claims to speak to.",
+   "v": "Tabitha does not know how to control the spirits she claims to speak to."
+  },
+  {
+   "k": "If you did indeed let her into these grounds, only I can undo her damage.",
+   "v": "If you did indeed let her into these grounds, only I can undo her damage."
+  },
+  {
+   "k": "My sister dabbles in dark arts, but does not understand them.",
+   "v": "My sister dabbles in dark arts, but does not understand them."
+  },
+  {
+   "k": "This is why I must come in.",
+   "v": "This is why I must come in."
+  },
+  {
+   "k": "You're quite inquistive. My name is Maribel.",
+   "v": "You're quite inquistive. My name is Maribel."
+  },
+  {
+   "k": "Likely for the same reason you are.",
+   "v": "Likely for the same reason you are."
+  },
+  {
+   "k": "Fate.",
+   "v": "Fate."
+  },
+  {
+   "k": "This graveyard has quite the allure to it.",
+   "v": "This graveyard has quite the allure to it."
+  },
+  {
+   "k": "It is a noisy place. I was drawn to it.",
+   "v": "It is a noisy place. I was drawn to it."
+  },
+  {
+   "k": "I don't mean to cause any harm to you or the spirits you protect.",
+   "v": "I don't mean to cause any harm to you or the spirits you protect."
+  },
+  {
+   "k": "I feel them calling to me and I am obligated to respond.",
+   "v": "I feel them calling to me and I am obligated to respond."
+  },
+  {
+   "k": "You’re smarter than my sister.",
+   "v": "You’re smarter than my sister."
+  },
+  {
+   "k": "She always begged.",
+   "v": "She always begged."
+  },
+  {
+   "k": "I prefer honesty.",
+   "v": "I prefer honesty."
+  },
+  {
+   "k": "Ah.",
+   "v": "Ah."
+  },
+  {
+   "k": "So you’re like her after all.",
+   "v": "So you’re like her after all."
+  },
+  {
+   "k": "I’ll wait.",
+   "v": "I’ll wait."
+  },
+  {
+   "k": "Things trapped between worlds get impatient.",
+   "v": "Things trapped between worlds get impatient."
+  },
+  {
+   "k": "And impatience makes noise.",
+   "v": "And impatience makes noise."
+  },
+  {
+   "k": "I’ll see you again.",
+   "v": "I’ll see you again."
+  },
+  {
+   "k": "All done!",
+   "v": "All done!"
+  },
+  {
+   "k": "Thank you for letting me in.",
+   "v": "Thank you for letting me in."
+  },
+  {
+   "k": "I appreciate it more than you know.",
+   "v": "I appreciate it more than you know."
+  },
+  {
+   "k": "The graveyard feels just as it should now.",
+   "v": "The graveyard feels just as it should now."
+  },
+  {
+   "k": "Unsuppressed.",
+   "v": "Unsuppressed."
+  },
+  {
+   "k": "I’ll be on my way.",
+   "v": "I’ll be on my way."
+  },
+  {
+   "k": "Take care of yourself, gravekeeper.",
+   "v": "Take care of yourself, gravekeeper."
+  },
+  {
+   "k": "It's late to be out here.",
+   "v": "It's late to be out here."
+  },
+  {
+   "k": "Are you alright?",
+   "v": "Are you alright?"
+  },
+  {
+   "k": "...Let me in.",
+   "v": "...Let me in."
+  },
+  {
+   "k": "Please...",
+   "v": "Please..."
+  },
+  {
+   "k": "Just let me in.",
+   "v": "Just let me in."
+  },
+  {
+   "k": "Okay, come in.",
+   "v": "Okay, come in."
+  },
+  {
+   "k": "I'm sorry ma'am, please go home.",
+   "v": "I'm sorry ma'am, please go home."
+  },
+  {
+   "k": "What is your name?",
+   "v": "What is your name?"
+  },
+  {
+   "k": "I have no more questions.",
+   "v": "I have no more questions."
+  },
+  {
+   "k": "Maria.",
+   "v": "Maria."
+  },
+  {
+   "k": "Stop following me.",
+   "v": "Stop following me."
+  },
+  {
+   "k": "I think I heard something at the back gate.",
+   "v": "I think I heard something at the back gate."
+  },
+  {
+   "k": "Can you please go check?",
+   "v": "Can you please go check?"
+  },
+  {
+   "k": "Chen Huang",
+   "v": "Chen Huang"
+  },
+  {
+   "k": "Harold Vunderbilt",
+   "v": "Harold Vunderbilt"
+  },
+  {
+   "k": "Hector",
+   "v": "Hector"
+  },
+  {
+   "k": "Maria",
+   "v": "Maria"
+  },
+  {
+   "k": "Maribel",
+   "v": "Maribel"
+  },
+  {
+   "k": "Mr. Huang",
+   "v": "Mr. Huang"
+  },
+  {
+   "k": "Tabitha",
+   "v": "Tabitha"
+  }
+ ]
+}

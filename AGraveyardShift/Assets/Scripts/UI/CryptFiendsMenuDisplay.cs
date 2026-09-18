@@ -50,7 +50,13 @@ public class CryptFiendsMenuDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        Loc.LocaleChanged += Refresh;
         Refresh();
+    }
+
+    private void OnDisable()
+    {
+        Loc.LocaleChanged -= Refresh;
     }
 
     private void WireBackButton()
@@ -77,7 +83,8 @@ public class CryptFiendsMenuDisplay : MonoBehaviour
 
             if (slotNames != null && i < slotNames.Length && slotNames[i] != null)
             {
-                slotNames[i].text = unlocked ? info.title : lockedText;
+                Loc.EnsureFontComponent(slotNames[i]);
+                slotNames[i].text = unlocked ? info.title : Loc.Tr(lockedText);
                 slotNames[i].color = unlocked ? unlockedColor : lockedColor;
             }
 
@@ -95,10 +102,19 @@ public class CryptFiendsMenuDisplay : MonoBehaviour
         }
 
         if (header != null)
-            header.text = count == 0 ? "?????" : "CRYPT FIENDS";
+        {
+            Loc.EnsureFontComponent(header);
+            header.text = count == 0 ? Loc.Get("ui.fiends.headerLocked", "?????") : Loc.Get("ui.fiends.header", "CRYPT FIENDS");
+        }
 
         if (subtitle != null)
-            subtitle.text = count + " / 3  FOUND";
+        {
+            Loc.EnsureFontComponent(subtitle);
+            subtitle.text = Loc.Format("ui.fiends.found", "{0} / {1}  FOUND", count, CryptFiendInfo.InOrder.Length);
+        }
+
+        Loc.EnsureFontComponent(detailName);
+        Loc.EnsureFontComponent(detailBody);
     }
 
     public void ShowDetail(CryptFiend fiend)

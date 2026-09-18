@@ -1,0 +1,4721 @@
+{
+ "locale": "zh-Hans",
+ "entries": [
+  {
+   "k": "ending.wrathfulSpirit.title",
+   "v": "坏结局 - 愤怒之灵"
+  },
+  {
+   "k": "ending.wrathfulSpirit.type",
+   "v": "结局"
+  },
+  {
+   "k": "ending.wrathfulSpirit.description",
+   "v": "你失去了全部理智。留在灯光下，仔细核查你的访客。"
+  },
+  {
+   "k": "ending.ambush.title",
+   "v": "坏结局 - 伏击"
+  },
+  {
+   "k": "ending.ambush.type",
+   "v": "结局"
+  },
+  {
+   "k": "ending.ambush.description",
+   "v": "你没有守住墓园。多巡逻墓园，多查看监控。不要太轻信他人。"
+  },
+  {
+   "k": "ending.wrongfulConviction.title",
+   "v": "好结局 - 冤案"
+  },
+  {
+   "k": "ending.wrongfulConviction.type",
+   "v": "结局"
+  },
+  {
+   "k": "ending.wrongfulConviction.description",
+   "v": "墓园恢复了安宁。"
+  },
+  {
+   "k": "ending.happilyEverAfter.title",
+   "v": "好结局？ - 从此幸福地生活"
+  },
+  {
+   "k": "ending.happilyEverAfter.type",
+   "v": "结局"
+  },
+  {
+   "k": "ending.happilyEverAfter.description",
+   "v": "恭喜！"
+  },
+  {
+   "k": "ending.father.title",
+   "v": "隐藏结局 - 神父的命运"
+  },
+  {
+   "k": "ending.father.type",
+   "v": "结局"
+  },
+  {
+   "k": "ending.father.description",
+   "v": "你找到你要找的东西了吗？"
+  },
+  {
+   "k": "fiend.friend.title",
+   "v": "朋友"
+  },
+  {
+   "k": "fiend.friend.flavor",
+   "v": "缓慢，但有条不紊。执着的行家。"
+  },
+  {
+   "k": "fiend.friend.ability",
+   "v": "对手电筒光线敏感。"
+  },
+  {
+   "k": "fiend.friend.spawn",
+   "v": "智力低下、心智软弱的迹象。"
+  },
+  {
+   "k": "fiend.wraith.title",
+   "v": "幽魂"
+  },
+  {
+   "k": "fiend.wraith.flavor",
+   "v": "迅捷、凶狠、致命。"
+  },
+  {
+   "k": "fiend.wraith.ability",
+   "v": "致命的狩猎速度。"
+  },
+  {
+   "k": "fiend.wraith.spawn",
+   "v": "过度自信、傲慢、勇敢的迹象。"
+  },
+  {
+   "k": "fiend.beast.title",
+   "v": "野兽"
+  },
+  {
+   "k": "fiend.beast.flavor",
+   "v": "无声无息，难以捉摸。不喜欢现身。"
+  },
+  {
+   "k": "fiend.beast.ability",
+   "v": "隐匿与电磁干扰。"
+  },
+  {
+   "k": "fiend.beast.spawn",
+   "v": "胆怯、羞怯或软弱的迹象。"
+  },
+  {
+   "k": "fiend.label.ability",
+   "v": "特殊能力："
+  },
+  {
+   "k": "fiend.label.spawn",
+   "v": "出现条件："
+  },
+  {
+   "k": "ui.menu.play",
+   "v": "开始游戏"
+  },
+  {
+   "k": "ui.menu.endings",
+   "v": "结局"
+  },
+  {
+   "k": "ui.menu.settings",
+   "v": "设置"
+  },
+  {
+   "k": "ui.menu.quit",
+   "v": "退出"
+  },
+  {
+   "k": "ui.menu.cancel",
+   "v": "取消"
+  },
+  {
+   "k": "ui.menu.accept",
+   "v": "确认"
+  },
+  {
+   "k": "ui.menu.back",
+   "v": "返回"
+  },
+  {
+   "k": "ui.settings.title",
+   "v": "设置"
+  },
+  {
+   "k": "ui.settings.language",
+   "v": "语言"
+  },
+  {
+   "k": "ui.settings.resolution",
+   "v": "分辨率"
+  },
+  {
+   "k": "ui.settings.fullscreen",
+   "v": "全屏"
+  },
+  {
+   "k": "ui.settings.brightness",
+   "v": "亮度"
+  },
+  {
+   "k": "ui.settings.volume",
+   "v": "音量"
+  },
+  {
+   "k": "ui.settings.brightnessNote",
+   "v": "强烈建议使用默认亮度。"
+  },
+  {
+   "k": "ui.endings.discovered",
+   "v": "{0} / {1}  已发现"
+  },
+  {
+   "k": "ui.endings.fiendsTeaserLocked",
+   "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.endings.fiendsTeaser",
+   "v": "{0} / {1}  已发现墓穴恶魔"
+  },
+  {
+   "k": "ui.fiends.header",
+   "v": "墓穴恶魔"
+  },
+  {
+   "k": "ui.fiends.headerLocked",
+   "v": "?????"
+  },
+  {
+   "k": "ui.fiends.found",
+   "v": "{0} / {1}  已发现"
+  },
+  {
+   "k": "ui.disclaimer.headphones",
+   "v": "建议佩戴耳机游玩"
+  },
+  {
+   "k": "ui.pause.resume",
+   "v": "继续"
+  },
+  {
+   "k": "ui.pause.exit",
+   "v": "退出"
+  },
+  {
+   "k": "ui.readable.page",
+   "v": "第 {0}/{1} 页"
+  },
+  {
+   "k": "ui.cctv.camera",
+   "v": "摄像头 {0}"
+  },
+  {
+   "k": "??????",
+   "v": "??????"
+  },
+  {
+   "k": "Click to continue...",
+   "v": "点击继续..."
+  },
+  {
+   "k": "The last gravekeeper left without a word.",
+   "v": "上一任守墓人一声不响地走了。"
+  },
+  {
+   "k": "Don't know why he left, but the job opened up, and I desperately needed cash.",
+   "v": "不知道他为什么离开，但职位空了出来，而我急需用钱。"
+  },
+  {
+   "k": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here.",
+   "v": "不过是份看守墓地的工作，应该不难。只要别让年轻人和帮派靠近这里就行。这地方荒凉得很。"
+  },
+  {
+   "k": "September 17, 1999.",
+   "v": "1999年9月17日。"
+  },
+  {
+   "k": "???",
+   "v": "???"
+  },
+  {
+   "k": "I can't think straight...",
+   "v": "我无法思考了..."
+  },
+  {
+   "k": "Place the rose on the gravesite?",
+   "v": "把玫瑰放在墓前？"
+  },
+  {
+   "k": "The rose immediately wilted away...",
+   "v": "玫瑰立刻枯萎了..."
+  },
+  {
+   "k": "Where am I?",
+   "v": "我在哪儿？"
+  },
+  {
+   "k": "I can't leave during my shift...",
+   "v": "值班期间我不能离开..."
+  },
+  {
+   "k": "The door is locked.",
+   "v": "门锁着。"
+  },
+  {
+   "k": "The door is locked. There is a cold chill coming from the other side.",
+   "v": "门锁着。门那头传来一股寒气。"
+  },
+  {
+   "k": "There is a cold chill coming from the other side. Should I enter?",
+   "v": "门那头传来一股寒气。我该进去吗？"
+  },
+  {
+   "k": "The door won't budge...",
+   "v": "门纹丝不动..."
+  },
+  {
+   "k": "I need a shovel for this.",
+   "v": "我需要一把铲子。"
+  },
+  {
+   "k": "Are you sure you want to exhume this site?",
+   "v": "你确定要挖开这座坟墓吗？"
+  },
+  {
+   "k": "It's locked.",
+   "v": "锁着。"
+  },
+  {
+   "k": "I think this key from the church opens this chest. Should I unlock it?",
+   "v": "我想教堂里的这把钥匙能打开这个箱子。要打开吗？"
+  },
+  {
+   "k": "I shouldn't be here",
+   "v": "我不该在这里"
+  },
+  {
+   "k": "A single rose... should I take it?",
+   "v": "一枝孤零零的玫瑰... 我该拿走它吗？"
+  },
+  {
+   "k": "The door won't budge.",
+   "v": "门纹丝不动。"
+  },
+  {
+   "k": "FRONT GATE",
+   "v": "前门"
+  },
+  {
+   "k": "That should be it. I need to keep these on.",
+   "v": "这样就行了。我得让它们一直亮着。"
+  },
+  {
+   "k": "I should finish what I came here for.",
+   "v": "我该把来这里要做的事做完。"
+  },
+  {
+   "k": "The door is locked...",
+   "v": "门锁着..."
+  },
+  {
+   "k": "The words on this tombstone are smeared and illegible.",
+   "v": "这块墓碑上的字迹已经模糊不清。"
+  },
+  {
+   "k": "You found a key. Do you want to pick it up?",
+   "v": "你发现了一把钥匙。要捡起来吗？"
+  },
+  {
+   "k": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?",
+   "v": "这是后门的钥匙。我觉得应该把它留在这里。还是要拿走吗？"
+  },
+  {
+   "k": "Its locked. I can't find my key...",
+   "v": "锁着。我找不到我的钥匙了..."
+  },
+  {
+   "k": "The gate is stuck.",
+   "v": "门卡住了。"
+  },
+  {
+   "k": "I should definitely keep this locked. Should I open it anyway?",
+   "v": "我绝对应该让它锁着。还是要打开吗？"
+  },
+  {
+   "k": "I should get these lights on right away...",
+   "v": "我得马上把这些灯点亮..."
+  },
+  {
+   "k": "I should read some of the notes that were left behind...",
+   "v": "我该读读这里留下的笔记..."
+  },
+  {
+   "k": "An incessant noise in your head has gone silent.",
+   "v": "脑中那阵挥之不去的噪音停止了。"
+  },
+  {
+   "k": "BACK GATE",
+   "v": "后门"
+  },
+  {
+   "k": "Use the left and right arrow keys to switch between cameras.",
+   "v": "使用左右方向键切换摄像头。"
+  },
+  {
+   "k": "I should check on my visitor.",
+   "v": "我该去看看我的访客。"
+  },
+  {
+   "k": "Fine. Go in. But be quick.",
+   "v": "好吧。进去吧。但要快。"
+  },
+  {
+   "k": "TOGETHER FOREVER",
+   "v": "永远在一起"
+  },
+  {
+   "k": "He seems distraught. Let's give him a moment.",
+   "v": "他看起来心烦意乱。给他一点时间吧。"
+  },
+  {
+   "k": "Let's give him a moment...",
+   "v": "给他一点时间吧..."
+  },
+  {
+   "k": "He seems to be fidgeting around.",
+   "v": "他似乎坐立不安。"
+  },
+  {
+   "k": "He appears to be zoning out. I should give him a moment.",
+   "v": "他好像在发呆。我该给他一点时间。"
+  },
+  {
+   "k": "He appears to be staring out into the distance...",
+   "v": "他似乎在凝视远方..."
+  },
+  {
+   "k": "Let's give her a moment to calm down.",
+   "v": "给她一点时间平静下来吧。"
+  },
+  {
+   "k": "She seems lost in grief. Let's give her a moment.",
+   "v": "她似乎沉浸在悲痛中。给她一点时间吧。"
+  },
+  {
+   "k": "She's standing very still, staring at nothing.",
+   "v": "她一动不动地站着，凝视着虚无。"
+  },
+  {
+   "k": "What was Hector doing out here this late?",
+   "v": "赫克托这么晚在外面做什么？"
+  },
+  {
+   "k": "He is conducting his investigation, I shouldn't interfere...",
+   "v": "他正在进行调查，我不该打扰..."
+  },
+  {
+   "k": "I should give him a moment.",
+   "v": "我该给他一点时间。"
+  },
+  {
+   "k": "I should give her a moment...",
+   "v": "我该给她一点时间..."
+  },
+  {
+   "k": "A Wrongful Conviction",
+   "v": "冤案"
+  },
+  {
+   "k": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground.",
+   "v": "诅咒解除了。不久之后，所有人对这里发生过的事的记忆都淡去了。墓园慢慢变回了一处普通的、无人注意的墓地。"
+  },
+  {
+   "k": "The flashlight won't turn on...",
+   "v": "手电筒打不开..."
+  },
+  {
+   "k": "My shovel broke...",
+   "v": "我的铲子断了..."
+  },
+  {
+   "k": "The shovel is broken. I can't dig anymore.",
+   "v": "铲子坏了。我没法再挖了。"
+  },
+  {
+   "k": "Yes",
+   "v": "是"
+  },
+  {
+   "k": "No",
+   "v": "否"
+  },
+  {
+   "k": "I shouldn't be here...",
+   "v": "我不该在这里..."
+  },
+  {
+   "k": "Why am I here?",
+   "v": "我为什么在这里？"
+  },
+  {
+   "k": "I need to leave.",
+   "v": "我得离开。"
+  },
+  {
+   "k": "I'm not safe here",
+   "v": "我在这里不安全"
+  },
+  {
+   "k": "It's not safe",
+   "v": "这里不安全"
+  },
+  {
+   "k": "I CAN'T KEEP GOING",
+   "v": "我撑不下去了"
+  },
+  {
+   "k": "STOP",
+   "v": "停下"
+  },
+  {
+   "k": "I'M GOING TO DIE",
+   "v": "我要死了"
+  },
+  {
+   "k": "I found something...",
+   "v": "我发现了什么..."
+  },
+  {
+   "k": "Nothing here... just bones.",
+   "v": "这里什么都没有... 只有骨头。"
+  },
+  {
+   "k": "I picked up the shovel.",
+   "v": "我捡起了铲子。"
+  },
+  {
+   "k": "The spirits have been appeased...",
+   "v": "亡灵已被安抚..."
+  },
+  {
+   "k": "Are you sure you want to enter?",
+   "v": "你确定要进去吗？"
+  },
+  {
+   "k": "A single rose, perfectly preserved. Should I take it?",
+   "v": "一枝孤零零的玫瑰，保存得完好无损。我该拿走它吗？"
+  },
+  {
+   "k": "I can't... I can't think straight...",
+   "v": "我不能... 我无法思考了..."
+  },
+  {
+   "k": "Here lies Aaron Vanderbilt\n1924-1993",
+   "v": "亚伦·范德比尔特长眠于此\n1924-1993"
+  },
+  {
+   "k": "MOCKERY OF LIFE",
+   "v": "对生命的嘲弄"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+   "v": "回收的现场笔记，非正式代号： \n“野兽”\n来源已删除\n\n幸存者们至少在一点上意见一致：这个生物不会预先现身。它会等到把你看透。心智软弱的迹象似乎会把它引来。它盯着你的犹豫。盯着你思绪迟缓、意志向内蜷缩的那一刻。\n\n那些从未察觉自己正被猎杀的人，往往什么也报告不了。他们悄无声息地消失。没有尖叫，没有追逐的迹象。野兽不会把力气浪费在恐慌上。"
+  },
+  {
+   "k": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+   "v": "当它真的现身时，是刻意而短暂的。一道本不该存在的剪影。\n\n它偏爱隐匿胜过速度，耐心胜过蛮力。它能数小时、有时数天不露踪迹，追踪同一个人，直到猎物通过恐惧、孤立或怀疑让它确信，杀戮将不费吹灰之力。\n\n凝视它的人会失去理智。众所周知，它还会干扰电子设备。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM",
+   "v": "摘自守墓人笔记\n阿德尔家\n\n\n家庭成员：\n杰森·阿德尔，5岁，已故\n玛丽亚·阿德尔，31岁，在世\n门罗·阿德尔，31岁，已故\n\n杰森安葬于本园。\n\n死因：窒息\n\n死亡时间：1998年12月28日，星期二，晚上8:04"
+  },
+  {
+   "k": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances.",
+   "v": "杰森和门罗·阿德尔被发现死于家中，现场有明显的搏斗痕迹。门罗身中多刀失血而亡，其中一刀刺中颈部要害动脉。杰森死于明显的颈部创伤，看来是他父亲所为。\n\n事发后玛丽亚立即被送入精神病院，一段时间后获释。此后她在精神错乱中试图冲破大门去探望坟墓，因此被永久禁止进入本园。\n\n任何情况下都不得允许玛丽亚入内。"
+  },
+  {
+   "k": "I should let her in",
+   "v": "我该让她进来"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+   "v": "回收的现场笔记，非正式代号：\n“朋友”\n离奇遭遇\n\n今天我注意到了不寻常的变化。气温毫无缘由地骤降。小物件被移了位，仿佛有什么东西从中穿过。动作轻微，几乎难以察觉，却持续不断。\n\n有一种难以描述的被注视的感觉。影子显得更沉重，有时我能感到视野边缘之外有什么东西存在。它行动谨慎，避开直射的光，不受惊扰便不出声。规律并不稳定，却足够刻意，让人觉得它有意识。"
+  },
+  {
+   "k": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+   "v": "我观察到一些无法解释的细微痕迹。原本静止的表面出现了被扰动的迹象。之后空气常常变得浓稠，仿佛保留着某种运动的记忆。这些变化并不剧烈，却以令人不安的规律反复出现。\n\n我仔细记录了这些异常。没有结构损坏，没有人为干预的迹象，也没有任何解释符合观察结果。然而事件仍在继续，每一次都留下同样压抑、挥之不去的印象。\n\n我无法解释。无论它是什么，它似乎并未完全意识到自己的行为，但它的存在却深深地影响着这个地方。这个生物真正的威胁，在它不在时才能感受到。我会继续记录任何新的情况，并在规律显现时把它们记下来。"
+  },
+  {
+   "k": "Those who unearth the grave meant to remain closed seal their fate.",
+   "v": "挖开本应永远封闭之墓者，注定了自己的命运。"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
+   "v": "回收的现场笔记，暂定代号：\n“新娘”\n遭遇情况不明"
+  },
+  {
+   "k": "This entry appears to be empty.",
+   "v": "这条记录似乎是空白的。"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+   "v": "回收的现场笔记，非正式代号：\n“幽魂”\n地点保密\n\n在我见到尸体之前，登记簿上就已留下了它的印记。\n\n我在这片土地上走了多年，可它经过时，空气依然会变。它不可见，不是人们所想象的生物现身的方式。只有寂静会暴露它。\n\n被它选中的人不会逃跑。没有追逐。没有挣扎。等到有人察觉时，它早已将他们收走。毫无疑问，这个实体似乎是所有记录在案者中最危险的。"
+  },
+  {
+   "k": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+   "v": "它被力量吸引。有能力的、桀骜的、有准备的——那些就是它的猎物。弱者或许会被忽视，但强者……那些被它视为值得的人，会被精准地了结。没有幸存者能讲述那次遭遇。留下的只有痕迹，隐晦而残酷。\n\n我不知道它如何移动，也不知道它从何而来。 \n报告只能得出一个结论：与这个生物的遭遇不会是一场寻常的狩猎。"
+  },
+  {
+   "k": "This place was not filled at random.",
+   "v": "这个地方不是随意填满的。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
+   "v": "摘自守墓人笔记\n安德森家\n\n\n家庭成员：\n安东尼·安德森，41岁，已故\n黛安·安德森，39岁，已故\n詹姆斯·安德森，9岁，已故\n德里克·安德森，10岁，已故\n莉莉·安德森，6岁，在世\n\n安东尼安葬于本园。\n\n死因：住宅火灾中烧死\n\n死亡时间：1988年10月11日，星期二，凌晨12:03"
+  },
+  {
+   "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
+   "v": "午夜刚过不久有人报告火情，安东尼·安德森、妻子黛安和两个儿子随后从家中被抬出。火灾被归因于后楼梯间附近的电路故障，那里的损毁最为集中。遇难者在楼上一间卧室里被一同发现，死因记录为吸入浓烟。一个孩子幸存，她在救援人员到达前逃出了房子，后来被送入寄养家庭。官方记录未发现强行闯入或外人介入的证据。\n\n邻居们回忆，火灾前几周这家人作息不规律，还陆续把楼上房间里的东西搬走，却没有说明原因。管线检查未发现此前有故障，幸存的孩子拒绝描述火焰出现之前的情况，只说她父亲叫他们待在一起。楼梯间附近的残骸中登记了一只打火机，因火灾损毁而被视为无关物品。此案以意外事故结案，未再进一步调查。"
+  },
+  {
+   "k": "Here lies Zackary Holmes\nFather of One\n1952-1998",
+   "v": "扎卡里·霍尔姆斯长眠于此\n一子之父\n1952-1998"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+   "v": "回收的现场笔记，非正式代号：\n“幽灵”\n\n墓园内确认出现了一个新的存在。时间点表明是近期的一场葬礼，但相关坟墓尚未确认。活动是突然开始的，仿佛这个角色是被接手的，而非随时间形成。\n\n该实体表现出高度的情感敏感。人的出现会引起各种反应，似乎带有针对个人的性质。有些访客称感到平静或迟疑，仿佛被温和地劝说留下。另一些人则感到不安，产生侵入性的念头，并强烈觉得自己不受欢迎。"
+  },
+  {
+   "k": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+   "v": "其行为显示出有选择的判断。有时入口会在没有实体阻碍的情况下受阻，而在另一些情况下，通行又被悄然允许。这些决定看起来并不一致，说明是内心的冲突，而非伤害的意图。\n\n对本园的不敬会立刻导致责任者精神失常。秩序恢复后，这种影响便会消退。没有任何物理损害被直接归咎于该实体。\n\n幽灵似乎被束缚在墓园中，并致力于保护它。她寻求安息，却始终保持警惕。她对某些人的依恋使她的职责变得复杂。有必要持续观察。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM",
+   "v": "摘自守墓人笔记\n霍尔姆斯家\n\n\n家庭成员：\n杰森·霍尔姆斯，48岁，在世\n扎卡里·霍尔姆斯，46岁，已故\n爱德华·霍尔姆斯，17岁，已故\n伊丽莎白·霍尔姆斯，45岁，在世\n\n爱德华和扎卡里安葬于本园。\n\n死因：不明；据称为意外事故\n\n死亡时间：1998年4月12日，星期日，凌晨3:45"
+  },
+  {
+   "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
+   "v": "扎卡里和爱德华·霍尔姆斯在县道上报告的一起事故后被安葬于此。官方记录描述为单车事故，车辆在树林边缘外被发现翻倒，当局赶到时引擎仍是热的。伊丽莎白在附近被发现，处于休克状态，后来未经指控便被释放。幸存的家人拒绝进一步调查，此事被记录为不幸而非恶意。\n\n事故前几周，邻居们注意到霍尔姆斯家作息异常，并不断把地下室的家具搬往某个不明地点。教区记录显示，扎卡里和爱德华已有一段时间没有参加礼拜，但后来在他们的遗物中发现了蜡烛和灰烬。守墓人记录道，车辆的损毁程度与所描述的严重性并不相符，而且伊丽莎白在葬礼后再也没有回过本园。那天凌晨3:45之前发生了什么，官方从未查证，但生者们守口如瓶的沉默表明，早在报告写成之前，结论就已经有了。"
+  },
+  {
+   "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
+   "v": "他是个撒谎的混蛋 别信他"
+  },
+  {
+   "k": "It patrols. Corners are death.",
+   "v": "它在巡逻。拐角即死亡。"
+  },
+  {
+   "k": "The necessary course is clear.\nThose interred under false cause must be exhumed.",
+   "v": "必行之路已然明了。\n以虚假理由下葬者，必须被掘出。"
+  },
+  {
+   "k": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998",
+   "v": "杰森·阿德尔长眠于此\n美好得不属于人间\n1993-1998"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment.",
+   "v": "摘自守墓人笔记\n约瑟夫神父\n\n这座教堂在一段时间前被废弃，它的历史比这里安葬的所有人都要久远。有着数百年历史的教堂最近才被废弃。有人指出，教堂被废弃的时间与此后开始的种种异常情况，恰好吻合。"
+  },
+  {
+   "k": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate.",
+   "v": "关于教堂最后一任管理者及其神秘失踪的信息：\n\n许多年前，约瑟夫神父常来本园，并受到欢迎。他在时，这里的气氛常常十分安宁。\n\n他来自一个不允许神职人员结婚的教派。他似乎违背了这条规定，并在教会内部就某些过于严苛的教义解释挑起了争执。后来他公开脱离了教会。\n\n他本要迎娶未婚妻，却在婚礼当天没有出现在圣坛前。早先的记录提到，他的未婚妻据说在得知约瑟夫神父的下落后悲伤而死。\n\n至今，他的命运仍未有定论。"
+  },
+  {
+   "k": "Hannah Wainwright\n1904\nDeath by electric chair",
+   "v": "汉娜·温赖特\n1904\n死于电椅"
+  },
+  {
+   "k": "Henry Fairchild\n1802\nDeath during imprisonment",
+   "v": "亨利·费尔柴尔德\n1802\n死于监禁期间"
+  },
+  {
+   "k": "TRAPPED",
+   "v": "困住了"
+  },
+  {
+   "k": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998",
+   "v": "爱德华·霍尔姆斯长眠于此\n挚爱之子，忠实之友\n1981-1998"
+  },
+  {
+   "k": "Anne Radcliffe\n1792\nDeath by guillotine",
+   "v": "安妮·拉德克利夫\n1792\n死于断头台"
+  },
+  {
+   "k": "TORN IN TWO",
+   "v": "被撕成两半"
+  },
+  {
+   "k": "Benjamin Carver\n1742\nDeath by drowning",
+   "v": "本杰明·卡弗\n1742\n溺水而亡"
+  },
+  {
+   "k": "James Thornton\n1804\nDeath by firing squad",
+   "v": "詹姆斯·桑顿\n1804\n死于枪决"
+  },
+  {
+   "k": "THE BLEEDING WON'T STOP",
+   "v": "血止不住"
+  },
+  {
+   "k": "Cordelia Monroe\n1802\nBurned at the stake",
+   "v": "科迪莉亚·门罗\n1802\n被处以火刑"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
+   "v": "摘自守墓人笔记\n亚当斯家\n\n家庭成员：\n埃德温·亚当斯，21岁，在世\n简·亚当斯，54岁，已故\n丽贝卡·亚当斯，48岁，在世\n\n简·亚当斯安葬于本园。\n\n死因：自杀\n\n死亡时间：1985年12月22日，星期日，凌晨3:21"
+  },
+  {
+   "k": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
+   "v": "简·亚当斯度过了一生井然有序、克制自持的生活后长眠于此。她多年在市政工程办公室担任簿记员，把家收拾得一尘不染，并以严格的作息和明确的要求抚养儿子埃德温。埃德温七岁时，她把他送到外州的密友家去住，对邻居们说是为了让他上更好的学校。儿子走后，简的出勤开始不稳，随后悄悄辞了职。\n\n几周后，简结束了自己的生命。守墓人记录道，埃德温从未被告知母亲的死讯，相关人等一致认为最好不要把他叫回来，也不要告诉他真相。她行为的后果，以及随之而来的耻辱，超出了她愿意公开承担的范围。她在孤独中了结了生命，以确保儿子对她的记忆不会被那个她无法承受的真相所玷污。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
+   "v": "摘自守墓人笔记\n范德比尔特家\n\n家庭成员：\n亚伦·范德比尔特，69岁，已故\n哈罗德·范德比尔特，42岁，下落不明\n埃里克·范德比尔特，22岁，在世\n\n亚伦·范德比尔特安葬于本园。\n\n死因：枪伤\n\n死亡时间：1993年6月27日，星期日，晚上7:48"
+  },
+  {
+   "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
+   "v": "在这里，人们记住的亚伦·范德比尔特，是一个一生背负着缺失与失足之重的人。多年前，他的兄弟在无人能追查的情况下失踪，留下亚伦独自面对世界。他虽有能力又聪明，却被卷入了那些许诺机遇却带来危险的圈子，与忠诚易变、动机很少诚实的人为伍。\n\n认识他的人谈起他自信外表下隐藏的无声挣扎。亚伦与不良同伙的往来塑造了他晚年的大部分时光，让他孤立而多疑。兄弟的下落始终是笼罩在他生命之上的阴影，提醒着人们那些迷失的道路，以及后果不由人掌控的选择。\n\n亚伦·范德比尔特独自长眠于此。"
+  },
+  {
+   "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
+   "v": "<size=145%><b>守夜人手记</b></size>\n<size=85%>1999</size>\n\n<i>本手册记载了如何看守这片墓园的指示。不得偏离这些指示。本手册汇编了历任守墓人的全部记录。</i>\n\n<i>这处安息之地已有数百年历史，不得擅动。作为守墓人，你须阅读以下指示并严格遵守。</i>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  确保墓园各处的灯始终亮着。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  确保十字架始终牢固地挂在小屋门上。十字架决定你的理智。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  如需休息，请回到小屋。只要十字架在门上，小屋就始终安全。</align>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  只允许与逝者有直接亲属关系的访客进入。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  不要盲目相信访客。务必核对他们提供的一切信息。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  你须在大门处站岗，防止不速之客破坏墓地。你还须巡逻园区。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  如有人擅自闯入，用手电筒驱赶。随时检查墓地附近是否有闯入者。</align>\n\n<size=72%><i>（未完）</i></size>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  后门须始终上锁。禁止从后门进入。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  监控摄像系统监视着两处入口大门。监看它们对保障园区安全至关重要。你可以在小屋的角落查看画面。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  最重要的是：尊重墓地。不要打扰逝者的安息；驱走不受欢迎的人。</align>\n\n<size=80%><i>— 完 —</i></size>"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
+   "v": "摘自守墓人笔记\n黄家\n\n家庭成员：\n黄文琦，73岁，在世\n黄梅，70岁，已故\n黄晨，48岁，在世\n\n黄梅安葬于本园。\n\n死因：注射死刑\n\n死亡时间：1993年3月27日，星期六，下午4:00"
+  },
+  {
+   "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
+   "v": "黄姓名下只有一座坟墓，但种种安排表明这是一个仓促做出、却被小心维持的决定。墓址是黄文琦亲自选定的；他带着备好的文件前来，说话清楚，却不总是前后一致，偶尔重复已经定下的细节。黄夫人在黎明时被送来。没有其他亲属到场。当我问儿子是否会来时，文琦说家里人已经到齐了，然后顿了顿，仿佛不明白这个答案为何重要。死因被记录在案，一桩罪案就此了结，此事无人异议。\n\n黄梅一生安静，以那些几乎不留痕迹的小善举为人所知。在她最后的几个月里，这份关照淡去了，随之而去的还有她的庇护。我只被告知一桩有辱门楣的事已经了结，没有任何细节。不允许以儿子的名义供奉祭品。如今文琦独自前来，有时自言自语，临走前总要查看墓碑，仿佛期待它会说出些不同的话。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+   "v": "摘自守墓人笔记\n未登记的访客\n\n有两个女人会定期出现在大门口。\n\n她们从不一起来，但每个人都坚称另一个已经被放进去了。\n\n两人都声称与逝者相熟。每个人都知道一些没有刻在墓碑上的名字。问她们是怎么知道的，一个立刻作答，却答错；另一个答得很慢，细节繁多却毫无助益。我已经明白，纠正她们中的任何一个都是错误。\n\n其中一个总是问关于进入的事。锁、巡逻、泥土最松软的时辰。她谈论遗产，谈论应得之物，谈论不该无人看管的东西。被拒绝时，她笑得仿佛早已料到。但她还是会回来。"
+  },
+  {
+   "k": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+   "v": "另一个问的是边界。关于什么被拘束，什么被困住。她谈论重量、压力，以及让某些东西留在原处所付出的代价。被拒绝时，她先是惊讶，然后松了口气，接着又失望。她不争辩。下一次，她只是调整自己的请求。\n\n我不记录哪个女人提了哪个请求。这取决于听的人是谁。\n\n她们中的一个永远不得进入。这个决定简单而不变。她心知肚明，却依然试探，给出的理由自相矛盾。有时她声称早已获得许可。有时她声称情况紧急。有一次，她声称是我请她来的。"
+  },
+  {
+   "k": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+   "v": "另一个在特定情况下可以进入。天气、时间和近期的葬礼都是考量因素。我不向她解释理由。被拒时，她当作暂时的。获准时，她不逗留。\n\n每个人都指责对方不诚实。每个人都拿出证据。两套证据都令人信服。两人都不多说。\n\n一个从不放过含沙射影提起另一个的机会。另一个除非被问起，否则不承认自己有姐妹。 \n\n说谎的那一个，永远不能放进来。"
+  },
+  {
+   "k": "William Pembroke\n1705\nDeath by hanging",
+   "v": "威廉·彭布罗克\n1705\n死于绞刑"
+  },
+  {
+   "k": "I CAN'T BREATHE",
+   "v": "我喘不过气"
+  },
+  {
+   "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
+   "v": "在这些走廊里转过足够多的圈之后，某些缺失就再也无法忽视。\n本应在此安息的逝者，没有得到应有的礼遇。这个地方是惩罚的场所。"
+  },
+  {
+   "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",
+   "v": "安东尼·安德森长眠于此\n三个孩子的父亲，丈夫\n1947-1988"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive",
+   "v": "摘自守墓人笔记\n德洛伊特家\n\n\n家庭成员：\n谢恩·德洛伊特，31岁，在世\n雷金纳德·德洛伊特，29岁，在世"
+  },
+  {
+   "k": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks.",
+   "v": "德洛伊特家是新搬来的。背景调查记录显示，两兄弟长期互相敌视，近来才有所缓和。 \n\n守墓人未作其他记录。"
+  },
+  {
+   "k": "NO REST",
+   "v": "不得安息"
+  },
+  {
+   "k": "Here lies Mei Huang\nWife, Mother of One\n1923-1993",
+   "v": "黄梅长眠于此\n妻子，一子之母\n1923-1993"
+  },
+  {
+   "k": "LIAR",
+   "v": "骗子"
+  },
+  {
+   "k": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985",
+   "v": "简·亚当斯长眠于此\n母亲、姐妹、挚友。\n1931-1985"
+  },
+  {
+   "k": "SELFISH",
+   "v": "自私"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+   "v": "回收的现场笔记，暂定代号：\n“盗墓者”\n来源已删除\n\n大多数坟墓被破坏的事件都与一个反复出现的人有关。此人据信是本地居民，是从事盗窃和亵渎的外来者的主要联络人。他的真实身份仍然不明。\n\n他并非单独行动。他的同伙经常在非开放时段被发现在墓园踩点，测试视线和反应时间。这些人一被灯光照到就会退走，持续使用手电筒已成功将他们驱离。必须保持持续警惕，因为他们的活动仍在继续，且蓄谋已久。"
+  },
+  {
+   "k": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+   "v": "外来者带着对墓园布局、巡逻规律和进出路线的详细了解到来，尽管他们与此地毫无关联。这些信息据推测是由他提供的。他一到，活动便急剧增加；他一走，便随之散去。\n\n盗墓者是暴力的。证据表明那是蓄意的恐吓，而非迫不得已。损坏的工具、过度的暴力，以及同伙之间内讧的迹象，都说明他靠恐惧维持着头目的地位。\n\n前几任守墓人都报告过与他遭遇。每一次，记录都在不久之后中断。一个守墓人不告而别。另一个因与跌倒不符的伤势住院。第三个记录下了目击情况，但最后一页被人从日志中撕掉了。"
+  },
+  {
+   "k": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+   "v": "他避免被辨认。各份报告中面部特征各不相同，也从未拍到过可靠的影像。尽管如此，他的存在依然无可置疑。有必要持续观察。不建议正面对抗。"
+  },
+  {
+   "k": "Not every name corresponds to a lived life.",
+   "v": "并非每个名字都对应着一段活过的人生。"
+  },
+  {
+   "k": "Elizabeth Crowther\n1702\nDeath by illness",
+   "v": "伊丽莎白·克劳瑟\n1702\n病故"
+  },
+  {
+   "k": "STAY AWAY FROM ME",
+   "v": "离我远点"
+  },
+  {
+   "k": "Rebecca Langley\n1733\nDeath by lynching",
+   "v": "丽贝卡·兰利\n1733\n死于私刑"
+  },
+  {
+   "k": "LET ME GO",
+   "v": "放我走"
+  },
+  {
+   "k": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994",
+   "v": "萨曼莎·拜恩斯长眠于此\n两个孩子挚爱的母亲，妻子\n1972-1994"
+  },
+  {
+   "k": "Mary Langley\n1755\nDeath during childbirth",
+   "v": "玛丽·兰利\n1755\n死于难产"
+  },
+  {
+   "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
+   "v": "约瑟夫神父的命运\n\n我颤抖着手写下这些。我发现了这个地方以及居于此地之物的可怕真相。约瑟夫神父的确遭遇了比死亡更可怕的命运。\n\n只要此地维持现状，约瑟夫神父就注定被困在这片墓地。一块被遗忘的墓碑，被无信仰者毁坏。一份本该栽下的礼物，是他挚爱留下的最后告别。\n\n倘若有仁慈之人找到他挚爱所摘下的最后一份供奉，请将它放在他被遗忘的坟前。唯有如此，约瑟夫神父才能终于得到那曾被剥夺的告别，或许也能寻得那长久以来与他无缘的安宁。"
+  },
+  {
+   "k": "I'M FREE",
+   "v": "我自由了"
+  },
+  {
+   "k": "Hey Brian! I came by to see how you've been.",
+   "v": "嘿，布莱恩！我来看看你过得怎么样。"
+  },
+  {
+   "k": "I'm sorry you had to take the night shift here. This place couldn't look more depressing.",
+   "v": "很遗憾你得在这里值夜班。这地方简直不能更压抑了。"
+  },
+  {
+   "k": "It's not that bad...",
+   "v": "没那么糟..."
+  },
+  {
+   "k": "I appreciate you coming by, Hector. It's good to see you.",
+   "v": "谢谢你来看我，赫克托。见到你真好。"
+  },
+  {
+   "k": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people.",
+   "v": "你说是就是吧，兄弟。换成我可不想窝在那破木屋里看守一群死人。"
+  },
+  {
+   "k": "...",
+   "v": "..."
+  },
+  {
+   "k": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff.",
+   "v": "嘿，别误会。很多人为了这样的工作挤破头都愿意。除了听广播打个盹，没什么可干的。有些人就喜欢这种。"
+  },
+  {
+   "k": "How are you keeping busy anyway?",
+   "v": "话说回来，你平时怎么打发时间？"
+  },
+  {
+   "k": "Honestly, it's been pretty dull so far.",
+   "v": "说实话，到目前为止挺无聊的。"
+  },
+  {
+   "k": "Just been keeping my head down and staying vigilant, to be honest.",
+   "v": "说实话，就是低调行事，保持警惕。"
+  },
+  {
+   "k": "Dull? Well, if you say so. I guess that's better than being creeped out.",
+   "v": "无聊？行吧，你说是就是。总比吓得半死强。"
+  },
+  {
+   "k": "I can't stand the idea of sleeping a few feet away from those tombstones.",
+   "v": "我一想到要睡在离那些墓碑几步远的地方就受不了。"
+  },
+  {
+   "k": "But hey, if you're that bored, why not make it a bit more interesting?",
+   "v": "不过，既然你这么无聊，为什么不找点乐子？"
+  },
+  {
+   "k": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?",
+   "v": "你听说过离这儿不远的林子里有只到处肆虐的野兽吗？"
+  },
+  {
+   "k": "How about I head home to grab some equipment, and then we go track it down together?",
+   "v": "要不我回家拿点装备，然后咱们一起去追踪它？"
+  },
+  {
+   "k": "No thanks, I really shouldn't leave my shift.",
+   "v": "不了，谢谢，我真的不能离开岗位。"
+  },
+  {
+   "k": "Real funny, Hector.",
+   "v": "真好笑，赫克托。"
+  },
+  {
+   "k": "Heh, alright, whatever you say.",
+   "v": "呵，行吧，随你。"
+  },
+  {
+   "k": "Well I just dropped by for a moment to check in on you.",
+   "v": "好了，我就是顺路来看看你。"
+  },
+  {
+   "k": "I'll stop by again tomorrow to make sure you're alright.",
+   "v": "明天我再来一趟，确认你没事。"
+  },
+  {
+   "k": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit.",
+   "v": "你爸妈挺担心你的，我会替你向他们问好。希望能让他们安心点。"
+  },
+  {
+   "k": "See you around man.",
+   "v": "回头见，兄弟。"
+  },
+  {
+   "k": "Hey man, just trying to help!",
+   "v": "嘿，兄弟，我只是想帮忙！"
+  },
+  {
+   "k": "Sounds boring.",
+   "v": "听起来真无聊。"
+  },
+  {
+   "k": "This place kind of gives me the creeps.",
+   "v": "这地方让我有点毛骨悚然。"
+  },
+  {
+   "k": "In the middle of nowhere too. Why the hell is this place even here?",
+   "v": "还在这荒郊野岭。这地方到底为什么会存在？"
+  },
+  {
+   "k": "Feels a bit off, but I guess you're getting paid well at least, right?",
+   "v": "感觉有点不对劲，不过至少工资不错吧？"
+  },
+  {
+   "k": "Yeah, the pay is great.",
+   "v": "是啊，工资很不错。"
+  },
+  {
+   "k": "I guess.",
+   "v": "大概吧。"
+  },
+  {
+   "k": "It's good to see you too, man.",
+   "v": "我也很高兴见到你，兄弟。"
+  },
+  {
+   "k": "That's great to hear man!",
+   "v": "那太好了，兄弟！"
+  },
+  {
+   "k": "I'm happy for you.",
+   "v": "真替你高兴。"
+  },
+  {
+   "k": "Well, I should probably head back now. I just dropped by to check in on you.",
+   "v": "好了，我该回去了。就是来看看你。"
+  },
+  {
+   "k": "Well, my friend...",
+   "v": "嗯，我的朋友..."
+  },
+  {
+   "k": "It seems you've done a great job with this old place.",
+   "v": "看来你把这个老地方照料得很好。"
+  },
+  {
+   "k": "Who are you?",
+   "v": "你是谁？"
+  },
+  {
+   "k": "It's late, old man. Head home.",
+   "v": "很晚了，老人家。回家去吧。"
+  },
+  {
+   "k": "As astute as always.",
+   "v": "还是这么机敏。"
+  },
+  {
+   "k": "Allow me to introduce myself, first.",
+   "v": "先容我自我介绍一下。"
+  },
+  {
+   "k": "I think it's about time I introduced myself...",
+   "v": "我想是时候自我介绍了..."
+  },
+  {
+   "k": "I'm the previous watcher of this cemetary, before you.",
+   "v": "我是你之前的那位守墓人。"
+  },
+  {
+   "k": "I think I left this place in the right hands, but I also believe your job here isn't finished.",
+   "v": "我想我把这个地方交到了合适的人手里，但我也相信你在这里的工作还没有完成。"
+  },
+  {
+   "k": "Why did you leave?",
+   "v": "你为什么离开？"
+  },
+  {
+   "k": "Well, yeah. My shift isn't over.",
+   "v": "嗯，是啊。我的班还没结束。"
+  },
+  {
+   "k": "Well, I'll admit, I didn't uphold my duties as the grave watcher.",
+   "v": "好吧，我承认，我没有尽到守墓人的职责。"
+  },
+  {
+   "k": "I felt there had to be someone more suited to the job...",
+   "v": "我觉得一定有更适合这份工作的人..."
+  },
+  {
+   "k": "You've got quite the sense of humor there, friend...",
+   "v": "你可真有幽默感，朋友..."
+  },
+  {
+   "k": "No, I meant there's something I left unfinished before I left.",
+   "v": "不，我是说，离开之前我有件事没做完。"
+  },
+  {
+   "k": "As you might be able to tell by now, this job isn't as easy as it seems.",
+   "v": "你现在大概也看出来了，这份工作没有看起来那么简单。"
+  },
+  {
+   "k": "This place is quite the attraction to many different folks, both alive and dead.",
+   "v": "这个地方对各色人等都极有吸引力，无论是活人还是死人。"
+  },
+  {
+   "k": "I'll be candid with you, my friend...",
+   "v": "我跟你说实话吧，我的朋友..."
+  },
+  {
+   "k": "I left because I was afraid.",
+   "v": "我离开是因为我害怕。"
+  },
+  {
+   "k": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen...",
+   "v": "这里不是普通的亡者安息之地。如果你愿意听，我很乐意多说一些..."
+  },
+  {
+   "k": "Okay.",
+   "v": "好的。"
+  },
+  {
+   "k": "You should head home grandpa.",
+   "v": "你该回家了，老爷子。"
+  },
+  {
+   "k": "Listen here.",
+   "v": "你给我听好。"
+  },
+  {
+   "k": "I came here out of the pain of regret. Out of empathy for you and the people of this town.",
+   "v": "我是带着悔恨的痛苦来的。是出于对你和这个镇上的人的同情。"
+  },
+  {
+   "k": "I didn't have to come back, to put up with your arrogance.",
+   "v": "我没必要回来受你的傲慢。"
+  },
+  {
+   "k": "I'm sorry. Please continue.",
+   "v": "对不起。请继续。"
+  },
+  {
+   "k": "Don't care. Head home, you crazy old bat.",
+   "v": "不关心。回家去吧，你这疯老头。"
+  },
+  {
+   "k": "You are a fool.",
+   "v": "你是个傻瓜。"
+  },
+  {
+   "k": "I will give you one last chance to listen to me.",
+   "v": "我最后给你一次机会听我说。"
+  },
+  {
+   "k": "I'm sorry. Please continue. I'm listening.",
+   "v": "对不起。请继续。我在听。"
+  },
+  {
+   "k": "If you don't leave I'm calling the cops.",
+   "v": "你再不走我就报警了。"
+  },
+  {
+   "k": "Thank you.",
+   "v": "谢谢。"
+  },
+  {
+   "k": "As you can tell, this place gets a lot of attention.",
+   "v": "如你所见，这个地方很受关注。"
+  },
+  {
+   "k": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.",
+   "v": "有传言说，你身后的那座墓穴里有非常值钱的东西。很多危险人物都在打它的主意。"
+  },
+  {
+   "k": "I personally never cared for it.",
+   "v": "我个人从不在乎那个。"
+  },
+  {
+   "k": "However, as my days unfolded in this place, I began growing restless, tired, and anxious.",
+   "v": "然而，随着我在这里的日子一天天过去，我变得越来越焦躁、疲惫、不安。"
+  },
+  {
+   "k": "I started feel an unsettling draw towards the crypt sitting behind you.",
+   "v": "我开始感到一种令人不安的力量，把我拉向你身后那座墓穴。"
+  },
+  {
+   "k": "Have you felt it too?",
+   "v": "你也感觉到了吗？"
+  },
+  {
+   "k": "Yes.",
+   "v": "是。"
+  },
+  {
+   "k": "No.",
+   "v": "没有。"
+  },
+  {
+   "k": "Interesting.",
+   "v": "有意思。"
+  },
+  {
+   "k": "It's relieving to actually meet someone that feels the same way.",
+   "v": "终于遇到有同感的人，真让人松了一口气。"
+  },
+  {
+   "k": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.",
+   "v": "总之，我需要答案，于是我开始翻阅前几任守墓人留在小屋里的旧笔记。"
+  },
+  {
+   "k": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.",
+   "v": "我相信你已经有机会读过留在那里的一些记录了。至少我希望如此。"
+  },
+  {
+   "k": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.",
+   "v": "在翻阅那些旧文字时，我读到了一位老守墓人留下的一段有趣的话。大概是几十年前的了。"
+  },
+  {
+   "k": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.",
+   "v": "那些文件似乎已经在那里放了很久很久... 满是灰尘，字迹几乎无法辨认。"
+  },
+  {
+   "k": "I had decided to leave this position at the graveyard promptly after I read it.",
+   "v": "读完之后，我很快就决定辞去墓园的这份工作。"
+  },
+  {
+   "k": "Apparently, one of the old gravekeepers had attempted to enter that crypt.",
+   "v": "显然，有一位老守墓人曾试图进入那座墓穴。"
+  },
+  {
+   "k": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.",
+   "v": "他在文中还提到，这个岗位必须始终有一位守墓人。接下这份工作的人要为这一带居民的安全负责。如果你不想干了，就必须把它交给别人。"
+  },
+  {
+   "k": "However.",
+   "v": "然而。"
+  },
+  {
+   "k": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.",
+   "v": "如果你决定留下这份工作，你会发现自己再也无法过正常的生活。而且，你也无法正常地死去。"
+  },
+  {
+   "k": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death.",
+   "v": "据那位老守墓人所说，这个墓园不只是一处普通的墓地。葬在这里的人生前都不寻常。这个地方在任何时候都需要有人看守，哪怕死后也是如此。"
+  },
+  {
+   "k": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.",
+   "v": "普通人死后，生命就结束了，不再有任何经历、思想或感受。"
+  },
+  {
+   "k": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.",
+   "v": "文字里没有详述，但如果你作为守墓人死在这里，你的结局并不完全是那样。"
+  },
+  {
+   "k": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.",
+   "v": "打破这个循环的唯一办法就是进入陵墓。我不知道原因和方法，但那位老守墓人在笔记里提到，有某种谜题需要解开。"
+  },
+  {
+   "k": "What puzzle?",
+   "v": "什么谜题？"
+  },
+  {
+   "k": "Everyone who is buried at this graveyard shares something in common.",
+   "v": "葬在这个墓园里的每个人都有一个共同点。"
+  },
+  {
+   "k": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.",
+   "v": "有些坟墓已有数百年历史。然而，即使是近期新增的坟墓，也应该遵循某种规律。"
+  },
+  {
+   "k": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.",
+   "v": "我翻遍了文件，却一直没能弄清这个规律是什么，甚至不确定它是否存在。"
+  },
+  {
+   "k": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.",
+   "v": "打破这个循环的唯一办法就是解开这个谜题。弄清楚之后，你必须进入墓穴。"
+  },
+  {
+   "k": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.",
+   "v": "显然，我们之前的那位守墓人深入研究过档案。他带着一个可能的答案进了墓穴，但没有成功。"
+  },
+  {
+   "k": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.",
+   "v": "那座墓穴里有某种几百年前的东西需要了结——一个尚未解除的诅咒。"
+  },
+  {
+   "k": "When I learned about this, I was in disbelief.",
+   "v": "当我得知这一切时，我难以置信。"
+  },
+  {
+   "k": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.",
+   "v": "我害怕了。我锁上了陵墓和大门，然后离开了这里。从那时起，墓园变得越来越不安宁。"
+  },
+  {
+   "k": "I still have the key. I can unlock that crypt.",
+   "v": "钥匙还在我手里。我可以打开那座墓穴。"
+  },
+  {
+   "k": "Will you enter it and put an end to this?",
+   "v": "你愿意进去，给这一切画上句号吗？"
+  },
+  {
+   "k": "Okay. I'm ready.",
+   "v": "好。我准备好了。"
+  },
+  {
+   "k": "This is crazy. Go home you old kook.",
+   "v": "这太荒唐了。回家去吧，你这老疯子。"
+  },
+  {
+   "k": "I am quite disappointed.",
+   "v": "我很失望。"
+  },
+  {
+   "k": "Surely you are joking?",
+   "v": "你是在开玩笑吧？"
+  },
+  {
+   "k": "Yeah, just a joke. Go ahead and unlock the crypt.",
+   "v": "对，开玩笑而已。去把墓穴打开吧。"
+  },
+  {
+   "k": "That wasn't a joke. Please leave.",
+   "v": "那不是玩笑。请你离开。"
+  },
+  {
+   "k": "I was mistaken.",
+   "v": "是我看错了。"
+  },
+  {
+   "k": "You clearly are not the right person for this job.",
+   "v": "你显然不是这份工作的合适人选。"
+  },
+  {
+   "k": "I will warn you one last time to listen to me.",
+   "v": "我最后警告你一次，听我说。"
+  },
+  {
+   "k": "It is your well-being I am concerned about.",
+   "v": "我担心的是你的安危。"
+  },
+  {
+   "k": "I'm sorry. Please go ahead and unlock the crypt",
+   "v": "对不起。请去把墓穴打开吧"
+  },
+  {
+   "k": "You are quite the intelligent specimen, aren't you?",
+   "v": "你可真是个聪明绝顶的标本，是吧？"
+  },
+  {
+   "k": "Follow me.",
+   "v": "跟我来。"
+  },
+  {
+   "k": "You truly are a blessing.",
+   "v": "你真是上天的恩赐。"
+  },
+  {
+   "k": "I've went ahead and unlocked the crypt.",
+   "v": "我已经把墓穴打开了。"
+  },
+  {
+   "k": "One more thing.",
+   "v": "还有一件事。"
+  },
+  {
+   "k": "In one of the notes left by a previous gatekeeper...",
+   "v": "在前一位守门人留下的一条笔记里..."
+  },
+  {
+   "k": "It mentioned turning off your flashlight before entering.",
+   "v": "提到进去之前要关掉手电筒。"
+  },
+  {
+   "k": "I don't know why.",
+   "v": "我不知道为什么。"
+  },
+  {
+   "k": "I have faith that you'll be able to figure this out.",
+   "v": "我相信你能弄明白。"
+  },
+  {
+   "k": "Good luck in there.",
+   "v": "祝你在里面好运。"
+  },
+  {
+   "k": "You did it, my friend.",
+   "v": "你做到了，我的朋友。"
+  },
+  {
+   "k": "They have been freed.",
+   "v": "他们被解放了。"
+  },
+  {
+   "k": "Perhaps their souls can finally rest. As should you.",
+   "v": "也许他们的灵魂终于可以安息了。你也一样。"
+  },
+  {
+   "k": "Come.",
+   "v": "来吧。"
+  },
+  {
+   "k": "Evening.",
+   "v": "晚上好。"
+  },
+  {
+   "k": "Didn’t expect anyone at the gate this late.",
+   "v": "没想到这么晚大门还有人。"
+  },
+  {
+   "k": "Name’s Harold Vanderbolt.",
+   "v": "我叫哈罗德·范德博尔特。"
+  },
+  {
+   "k": "I need to step inside for a moment.",
+   "v": "我需要进去一会儿。"
+  },
+  {
+   "k": "Visiting hours are over. What’s your business here?",
+   "v": "探访时间已经结束了。你来这里有什么事？"
+  },
+  {
+   "k": "Can I help you with something, sir?",
+   "v": "先生，有什么可以帮您的吗？"
+  },
+  {
+   "k": "Straight question.",
+   "v": "直截了当的问题。"
+  },
+  {
+   "k": "I like that.",
+   "v": "我喜欢。"
+  },
+  {
+   "k": "I’m here to see my brother.",
+   "v": "我是来看我弟弟的。"
+  },
+  {
+   "k": "Aaron.",
+   "v": "亚伦。"
+  },
+  {
+   "k": "Good man. Bad luck.",
+   "v": "好人。运气不好。"
+  },
+  {
+   "k": "Didn’t think he’d end up here.",
+   "v": "没想到他会落得躺在这里。"
+  },
+  {
+   "k": "Funny how things go.",
+   "v": "世事真是难料。"
+  },
+  {
+   "k": "How did you know Aaron?",
+   "v": "你是怎么认识亚伦的？"
+  },
+  {
+   "k": "Why come so late?",
+   "v": "为什么这么晚来？"
+  },
+  {
+   "k": "Appreciate the courtesy.",
+   "v": "感谢你的礼貌。"
+  },
+  {
+   "k": "Not much of it left these days.",
+   "v": "如今这种东西不多了。"
+  },
+  {
+   "k": "I won’t take long.",
+   "v": "我不会待太久。"
+  },
+  {
+   "k": "Just paying respects.",
+   "v": "只是来悼念一下。"
+  },
+  {
+   "k": "Aaron wouldn’t forgive me if I didn’t.",
+   "v": "要是不来，亚伦不会原谅我的。"
+  },
+  {
+   "k": "You’re being vague.",
+   "v": "你说得太含糊了。"
+  },
+  {
+   "k": "I’ll need more than that.",
+   "v": "光这样可不够。"
+  },
+  {
+   "k": "We grew up together.",
+   "v": "我们一起长大。"
+  },
+  {
+   "k": "Shared a name. Shared a roof.",
+   "v": "同一个姓氏。同一个屋檐。"
+  },
+  {
+   "k": "Shared more mistakes than I care to count.",
+   "v": "一起犯下的错误多到我数不清。"
+  },
+  {
+   "k": "I owe him a moment.",
+   "v": "我欠他一点时间。"
+  },
+  {
+   "k": "Family has a way of demanding that.",
+   "v": "家人总有办法让你还这笔债。"
+  },
+  {
+   "k": "Your brother?",
+   "v": "你弟弟？"
+  },
+  {
+   "k": "Do you have any proof?",
+   "v": "你有什么证明吗？"
+  },
+  {
+   "k": "Privacy.",
+   "v": "为了清静。"
+  },
+  {
+   "k": "That’s all.",
+   "v": "仅此而已。"
+  },
+  {
+   "k": "Some things are easier to say",
+   "v": "有些话更容易说出口，"
+  },
+  {
+   "k": "when no one’s listening back.",
+   "v": "当没人听着的时候。"
+  },
+  {
+   "k": "I say what I need to say.",
+   "v": "我说完该说的。"
+  },
+  {
+   "k": "Then I leave.",
+   "v": "然后我就走。"
+  },
+  {
+   "k": "Careful.",
+   "v": "小心点。"
+  },
+  {
+   "k": "You’re doing your job.",
+   "v": "你在做你的工作。"
+  },
+  {
+   "k": "So am I.",
+   "v": "我也是。"
+  },
+  {
+   "k": "No trouble.",
+   "v": "不会有麻烦。"
+  },
+  {
+   "k": "Just a brother standing where he has to.",
+   "v": "只是一个站在他该站的地方的兄弟。"
+  },
+  {
+   "k": "Let’s not turn this into something tedious.",
+   "v": "别把这事弄得太麻烦。"
+  },
+  {
+   "k": "Brother.",
+   "v": "兄弟。"
+  },
+  {
+   "k": "Older, if that matters.",
+   "v": "我是哥哥，如果这重要的话。"
+  },
+  {
+   "k": "Usually does.",
+   "v": "通常都重要。"
+  },
+  {
+   "k": "We didn’t always agree.",
+   "v": "我们并不总是意见一致。"
+  },
+  {
+   "k": "But blood’s blood.",
+   "v": "但血浓于水。"
+  },
+  {
+   "k": "Aaron understood that.",
+   "v": "亚伦明白这一点。"
+  },
+  {
+   "k": "Proof?",
+   "v": "证明？"
+  },
+  {
+   "k": "I don’t carry mementos.",
+   "v": "我不随身带纪念品。"
+  },
+  {
+   "k": "And family names don’t mean much once someone’s in the ground.",
+   "v": "而且人一旦入了土，姓氏就没什么意义了。"
+  },
+  {
+   "k": "You should know that better than anyone.",
+   "v": "这一点你应该比谁都清楚。"
+  },
+  {
+   "k": "I wouldn’t be here if it didn’t matter.",
+   "v": "如果这不重要，我就不会站在这里了。"
+  },
+  {
+   "k": "So.",
+   "v": "那么。"
+  },
+  {
+   "k": "I just need a few minutes.",
+   "v": "我只需要几分钟。"
+  },
+  {
+   "k": "I’ll stay out of your way.",
+   "v": "我不会碍你的事。"
+  },
+  {
+   "k": "May I go in?",
+   "v": "我可以进去吗？"
+  },
+  {
+   "k": "Alright. Be quick.",
+   "v": "好吧。快点。"
+  },
+  {
+   "k": "No. I can’t allow it.",
+   "v": "不行。我不能允许。"
+  },
+  {
+   "k": "I have a few more questions.",
+   "v": "我还有几个问题。"
+  },
+  {
+   "k": "Hold on, I'll be right back.",
+   "v": "等一下，我马上回来。"
+  },
+  {
+   "k": "What was your name again?",
+   "v": "你刚才说你叫什么名字？"
+  },
+  {
+   "k": "Who are you visiting?",
+   "v": "你来探望谁？"
+  },
+  {
+   "k": "How many people are in your family?",
+   "v": "你家有几口人？"
+  },
+  {
+   "k": "Nevermind.",
+   "v": "算了。"
+  },
+  {
+   "k": "I'm here to see Aaron.",
+   "v": "我是来看亚伦的。"
+  },
+  {
+   "k": "When did he die?",
+   "v": "他什么时候去世的？"
+  },
+  {
+   "k": "What was his cause of death?",
+   "v": "他的死因是什么？"
+  },
+  {
+   "k": "I have other questions.",
+   "v": "我还有别的问题。"
+  },
+  {
+   "k": "June 27th, 1993.",
+   "v": "1993年6月27日。"
+  },
+  {
+   "k": "I have no other questions.",
+   "v": "我没有别的问题了。"
+  },
+  {
+   "k": "He was found in his hotel room, on a trip abroad.",
+   "v": "他在国外旅行时，被发现死在酒店房间里。"
+  },
+  {
+   "k": "Had a gunshot wound out the back of his head.",
+   "v": "后脑勺有一处枪伤。"
+  },
+  {
+   "k": "Terrible way to go. I try not to think about it.",
+   "v": "死得太惨了。我尽量不去想它。"
+  },
+  {
+   "k": "We didn't have much family left. It was just him and my nephew.",
+   "v": "我们家没剩下几个人了。只有他和我侄子。"
+  },
+  {
+   "k": "I have more questions.",
+   "v": "我还有更多问题。"
+  },
+  {
+   "k": "My name is Harold.",
+   "v": "我叫哈罗德。"
+  },
+  {
+   "k": "Good.",
+   "v": "好。"
+  },
+  {
+   "k": "I knew you’d see reason.",
+   "v": "我就知道你会明白事理。"
+  },
+  {
+   "k": "Family doesn’t get many chances to say goodbye properly.",
+   "v": "家人没有多少机会能好好道别。"
+  },
+  {
+   "k": "I won’t forget this.",
+   "v": "我不会忘记这份情的。"
+  },
+  {
+   "k": "That’s disappointing.",
+   "v": "真令人失望。"
+  },
+  {
+   "k": "Still.",
+   "v": "不过。"
+  },
+  {
+   "k": "Rules are useful things.",
+   "v": "规矩是有用的东西。"
+  },
+  {
+   "k": "Until they aren’t.",
+   "v": "直到它们不再有用为止。"
+  },
+  {
+   "k": "Give my brother a quiet night, then.",
+   "v": "那就让我弟弟安静地过一夜吧。"
+  },
+  {
+   "k": "I suppose some problems do solve themselves.",
+   "v": "看来有些问题会自己解决。"
+  },
+  {
+   "k": "I thought you two were close.",
+   "v": "我还以为你们俩很亲近。"
+  },
+  {
+   "k": "What did you say your name was again?",
+   "v": "你刚才说你叫什么名字来着？"
+  },
+  {
+   "k": "Just saying goodbye properly.",
+   "v": "只是好好地道个别。"
+  },
+  {
+   "k": "I'll be leaving now.",
+   "v": "我这就走。"
+  },
+  {
+   "k": "Thanks for looking the other way.",
+   "v": "谢谢你睁一只眼闭一只眼。"
+  },
+  {
+   "k": "Harold. Harold Vanderbilt.",
+   "v": "哈罗德。哈罗德·范德比尔特。"
+  },
+  {
+   "k": "I'll be taking my leave now. Have a great rest of your evening.",
+   "v": "我先告辞了。祝你今晚愉快。"
+  },
+  {
+   "k": "Hello. Excuse me.",
+   "v": "你好。打扰一下。"
+  },
+  {
+   "k": "This is graveyard, yes?",
+   "v": "这里是墓地，对吧？"
+  },
+  {
+   "k": "I come to visit my wife.",
+   "v": "我来看我妻子。"
+  },
+  {
+   "k": "Can I see some identification?",
+   "v": "能看一下你的证件吗？"
+  },
+  {
+   "k": "Identification?",
+   "v": "证件？"
+  },
+  {
+   "k": "Yes… yes.",
+   "v": "是... 是。"
+  },
+  {
+   "k": "My name Mr. Huang.",
+   "v": "我姓黄。"
+  },
+  {
+   "k": "I am him.",
+   "v": "就是我。"
+  },
+  {
+   "k": "I not carry many papers now.",
+   "v": "我现在不带很多证件。"
+  },
+  {
+   "k": "Only me. Only husband.",
+   "v": "只有我。只有丈夫。"
+  },
+  {
+   "k": "I come many times before.",
+   "v": "我以前来过很多次。"
+  },
+  {
+   "k": "Maybe you not see me.",
+   "v": "也许你没看见我。"
+  },
+  {
+   "k": "I come late when quiet.",
+   "v": "我来得晚，安静的时候。"
+  },
+  {
+   "k": "Alright. Why are you here so late?",
+   "v": "好吧。你为什么这么晚来？"
+  },
+  {
+   "k": "Okay. Take your time and tell me what you need.",
+   "v": "好的。慢慢说，告诉我你需要什么。"
+  },
+  {
+   "k": "Late is better.",
+   "v": "晚一点好。"
+  },
+  {
+   "k": "Less people. Less noise.",
+   "v": "人少。安静。"
+  },
+  {
+   "k": "My wife not like noise.",
+   "v": "我妻子不喜欢吵。"
+  },
+  {
+   "k": "I stand outside and think.",
+   "v": "我站在外面想想事。"
+  },
+  {
+   "k": "That all.",
+   "v": "就这样。"
+  },
+  {
+   "k": "Which grave are you visiting?",
+   "v": "你来看哪座墓？"
+  },
+  {
+   "k": "You can understand why this looks suspicious.",
+   "v": "你应该明白这看起来为什么可疑。"
+  },
+  {
+   "k": "English hard for me.",
+   "v": "英语对我很难。"
+  },
+  {
+   "k": "My wife help me before.",
+   "v": "以前我妻子帮我。"
+  },
+  {
+   "k": "She here.",
+   "v": "她在这里。"
+  },
+  {
+   "k": "Long time already.",
+   "v": "已经很久了。"
+  },
+  {
+   "k": "I'm sorry for your loss.",
+   "v": "请节哀。"
+  },
+  {
+   "k": "You shouldn’t be waiting outside the gate.",
+   "v": "你不该在门外等着。"
+  },
+  {
+   "k": "I know.",
+   "v": "我知道。"
+  },
+  {
+   "k": "I look bad.",
+   "v": "我看起来不好。"
+  },
+  {
+   "k": "Old man. Night time.",
+   "v": "老头。晚上。"
+  },
+  {
+   "k": "But I not do wrong.",
+   "v": "但我不做坏事。"
+  },
+  {
+   "k": "I promise.",
+   "v": "我保证。"
+  },
+  {
+   "k": "I only want see her.",
+   "v": "我只想看看她。"
+  },
+  {
+   "k": "Western burial ground.",
+   "v": "西边的墓地。"
+  },
+  {
+   "k": "Near tree.",
+   "v": "树旁边。"
+  },
+  {
+   "k": "She like tree.",
+   "v": "她喜欢树。"
+  },
+  {
+   "k": "I talk to her sometimes.",
+   "v": "我有时候跟她说话。"
+  },
+  {
+   "k": "It help me.",
+   "v": "对我有帮助。"
+  },
+  {
+   "k": "House very quiet now.",
+   "v": "家里现在很安静。"
+  },
+  {
+   "k": "Here feel closer to her.",
+   "v": "在这里感觉离她近。"
+  },
+  {
+   "k": "I not stay long.",
+   "v": "我不会待很久。"
+  },
+  {
+   "k": "Please.",
+   "v": "拜托。"
+  },
+  {
+   "k": "Just few minutes.",
+   "v": "就几分钟。"
+  },
+  {
+   "k": "I visit my wife.",
+   "v": "我看我妻子。"
+  },
+  {
+   "k": "May I come in?",
+   "v": "我可以进去吗？"
+  },
+  {
+   "k": "Alright. You can go in, but don’t stay long.",
+   "v": "好吧。你可以进去，但别待太久。"
+  },
+  {
+   "k": "I’m sorry. Visiting hours are over.",
+   "v": "抱歉。探访时间已经结束了。"
+  },
+  {
+   "k": "My late wife.",
+   "v": "我过世的妻子。"
+  },
+  {
+   "k": "Mei Huang.",
+   "v": "黄梅。"
+  },
+  {
+   "k": "When did she die?",
+   "v": "她什么时候去世的？"
+  },
+  {
+   "k": "What was her cause of death?",
+   "v": "她的死因是什么？"
+  },
+  {
+   "k": "I do not remember...",
+   "v": "我不记得了..."
+  },
+  {
+   "k": "It has been long time.",
+   "v": "已经很久了。"
+  },
+  {
+   "k": "I do not like to speak about this matter.",
+   "v": "我不喜欢说这件事。"
+  },
+  {
+   "k": "My wife not bad person.",
+   "v": "我妻子不是坏人。"
+  },
+  {
+   "k": "She did no wrong.",
+   "v": "她没做错事。"
+  },
+  {
+   "k": "Please, I would like to see her.",
+   "v": "拜托，我想看看她。"
+  },
+  {
+   "k": "No one.",
+   "v": "没有人。"
+  },
+  {
+   "k": "Only me and wife. After passing away, I am alone.",
+   "v": "只有我和妻子。她走了以后，我一个人。"
+  },
+  {
+   "k": "My name?",
+   "v": "我的名字？"
+  },
+  {
+   "k": "Huang Wenqi.",
+   "v": "黄文琦。"
+  },
+  {
+   "k": "You very kind.",
+   "v": "你人很好。"
+  },
+  {
+   "k": "I understand.",
+   "v": "我明白。"
+  },
+  {
+   "k": "Rules are rules.",
+   "v": "规矩就是规矩。"
+  },
+  {
+   "k": "I come again tomorrow.",
+   "v": "我明天再来。"
+  },
+  {
+   "k": "Thank you for listening.",
+   "v": "谢谢你听我说。"
+  },
+  {
+   "k": "This is her.",
+   "v": "这就是她。"
+  },
+  {
+   "k": "I miss her dearly.",
+   "v": "我很想她。"
+  },
+  {
+   "k": "You two must have loved each other very much.",
+   "v": "你们一定非常相爱。"
+  },
+  {
+   "k": "She would say...",
+   "v": "她说过..."
+  },
+  {
+   "k": "\"If I go first, don’t forget me.\"",
+   "v": "“如果我先走，别忘了我。”"
+  },
+  {
+   "k": "I tell her I won’t.",
+   "v": "我告诉她，我不会忘。"
+  },
+  {
+   "k": "So I come.",
+   "v": "所以我来。"
+  },
+  {
+   "k": "Even when tired.",
+   "v": "累了也来。"
+  },
+  {
+   "k": "Even when cold.",
+   "v": "冷了也来。"
+  },
+  {
+   "k": "I go now.",
+   "v": "我走了。"
+  },
+  {
+   "k": "…You work here?",
+   "v": "…你在这儿工作？"
+  },
+  {
+   "k": "I didn’t expect anyone still on duty.",
+   "v": "没想到还有人值班。"
+  },
+  {
+   "k": "Are you here to visit someone?",
+   "v": "你是来探望什么人的吗？"
+  },
+  {
+   "k": "You shouldn’t be wandering around this late.",
+   "v": "你不该这么晚在外面晃悠。"
+  },
+  {
+   "k": "Yeah. Just paying my respects.",
+   "v": "对。就是来悼念一下。"
+  },
+  {
+   "k": "I don't plan to stay long.",
+   "v": "我不打算待太久。"
+  },
+  {
+   "k": "Are you related to the deceased?",
+   "v": "你是死者的亲属吗？"
+  },
+  {
+   "k": "Thanks, I know the rules.",
+   "v": "谢了，规矩我知道。"
+  },
+  {
+   "k": "You don't have to worry, I’ll be quick.",
+   "v": "不用担心，我很快。"
+  },
+  {
+   "k": "Then you can go back to... whatever it is you were doing.",
+   "v": "然后你就可以回去... 继续干你的事了。"
+  },
+  {
+   "k": "Someone with the name Huang.",
+   "v": "一个姓黄的人。"
+  },
+  {
+   "k": "That should be enough for you.",
+   "v": "这对你来说应该够了。"
+  },
+  {
+   "k": "That’s vague. What’s your full name?",
+   "v": "太含糊了。你的全名是什么？"
+  },
+  {
+   "k": "Are you related to the Huangs?",
+   "v": "你是黄家的亲属吗？"
+  },
+  {
+   "k": "…Chen Huang.",
+   "v": "…黄晨。"
+  },
+  {
+   "k": "Are you going to keep asking me instrusive questions?",
+   "v": "你还要继续问这些侵犯隐私的问题吗？"
+  },
+  {
+   "k": "Why are you here?",
+   "v": "你为什么来这里？"
+  },
+  {
+   "k": "Yeah. I am.",
+   "v": "对。是。"
+  },
+  {
+   "k": "But to be honest, I don't really think that is any of your concern.",
+   "v": "但说实话，我觉得这跟你没什么关系。"
+  },
+  {
+   "k": "I just need to know who exactly you're visiting.",
+   "v": "我只是需要知道你到底来看谁。"
+  },
+  {
+   "k": "I just need to know you’re not causing trouble.",
+   "v": "我只是需要确认你不会惹麻烦。"
+  },
+  {
+   "k": "I figured you’d ask that.",
+   "v": "我就猜到你会这么问。"
+  },
+  {
+   "k": "We’re family.",
+   "v": "我们是一家人。"
+  },
+  {
+   "k": "Not close.",
+   "v": "不亲。"
+  },
+  {
+   "k": "Well, I need to know who you're visiting.",
+   "v": "那，我需要知道你来看谁。"
+  },
+  {
+   "k": "What is their name?",
+   "v": "叫什么名字？"
+  },
+  {
+   "k": "Family.",
+   "v": "家人。"
+  },
+  {
+   "k": "I need to know their name.",
+   "v": "我需要知道名字。"
+  },
+  {
+   "k": "You’re avoiding the question.",
+   "v": "你在回避问题。"
+  },
+  {
+   "k": "I’m answering enough.",
+   "v": "我回答得够多了。"
+  },
+  {
+   "k": "This isn’t a confession booth.",
+   "v": "这里不是忏悔室。"
+  },
+  {
+   "k": "I’ll pay my respects and leave.",
+   "v": "我悼念完就走。"
+  },
+  {
+   "k": "You won’t even notice I was here.",
+   "v": "你甚至不会注意到我来过。"
+  },
+  {
+   "k": "I'm not going to answer anymore questions.",
+   "v": "我不会再回答任何问题了。"
+  },
+  {
+   "k": "Is there going to be a problem?",
+   "v": "会有问题吗？"
+  },
+  {
+   "k": "No. Go ahead inside, but be quick.",
+   "v": "不会。进去吧，但要快。"
+  },
+  {
+   "k": "Visiting hours are over.",
+   "v": "探访时间已经结束了。"
+  },
+  {
+   "k": "…Thanks.",
+   "v": "…谢谢。"
+  },
+  {
+   "k": "For what it’s worth,",
+   "v": "不管有没有用，"
+  },
+  {
+   "k": "I appreciate professionalism.",
+   "v": "我欣赏你的专业。"
+  },
+  {
+   "k": "Figures.",
+   "v": "果然。"
+  },
+  {
+   "k": "Didn't even want to be here.",
+   "v": "我本来就不想来。"
+  },
+  {
+   "k": "Have fun watching over these dead people.",
+   "v": "祝你看守这些死人愉快。"
+  },
+  {
+   "k": "I don't envy you.",
+   "v": "我不羡慕你。"
+  },
+  {
+   "k": "Please... just give me a moment...",
+   "v": "求你... 让我静一会儿..."
+  },
+  {
+   "k": "Are you okay?",
+   "v": "你还好吗？"
+  },
+  {
+   "k": "I would do anything... just to make her stop.",
+   "v": "我什么都愿意做... 只要她能停下来。"
+  },
+  {
+   "k": "I thought coming here would help... but...",
+   "v": "我以为来这里会有帮助... 可是..."
+  },
+  {
+   "k": "I think I have made a terrible mistake.",
+   "v": "我想我犯了一个可怕的错误。"
+  },
+  {
+   "k": "Hey there.",
+   "v": "你好。"
+  },
+  {
+   "k": "Sorry for disturbing you at this late hour.",
+   "v": "抱歉这么晚打扰你。"
+  },
+  {
+   "k": "My name is Dennis Anderson, and I'm here to visit a family member.",
+   "v": "我叫丹尼斯·安德森，我来探望一位家人。"
+  },
+  {
+   "k": "His name is Anthony Anderson.",
+   "v": "他叫安东尼·安德森。"
+  },
+  {
+   "k": "What is your relation to him?",
+   "v": "你和他是什么关系？"
+  },
+  {
+   "k": "Why are you here so late?",
+   "v": "你为什么这么晚来？"
+  },
+  {
+   "k": "Anthony was my brother.",
+   "v": "安东尼是我哥哥。"
+  },
+  {
+   "k": "I'll only stop by for a moment.",
+   "v": "我只待一会儿。"
+  },
+  {
+   "k": "I try to visit him every year. It's been a while, my visit is a bit overdue.",
+   "v": "我尽量每年都来看他。有一阵子没来了，这次来晚了些。"
+  },
+  {
+   "k": "I hope you don't mind.",
+   "v": "希望你不介意。"
+  },
+  {
+   "k": "Are you here to cause any trouble?",
+   "v": "你是来惹麻烦的吗？"
+  },
+  {
+   "k": "Yeah... sorry.",
+   "v": "是啊... 抱歉。"
+  },
+  {
+   "k": "I have a very rigorous work schedule. Terrible hours.",
+   "v": "我的工作时间非常紧。班次很糟糕。"
+  },
+  {
+   "k": "I don't really get the time during the day to make this trip.",
+   "v": "白天我实在抽不出时间跑这一趟。"
+  },
+  {
+   "k": "I hope it's alright.",
+   "v": "希望没问题。"
+  },
+  {
+   "k": "Trouble?",
+   "v": "麻烦？"
+  },
+  {
+   "k": "I'm afraid I don't understand.",
+   "v": "恐怕我不明白。"
+  },
+  {
+   "k": "You seem suspicious.",
+   "v": "你看起来很可疑。"
+  },
+  {
+   "k": "On second thought...",
+   "v": "转念一想..."
+  },
+  {
+   "k": "I'll stop by another time.",
+   "v": "我改天再来。"
+  },
+  {
+   "k": "Maybe during the day, when there is someone on duty with a bit more manners.",
+   "v": "也许白天来，等值班的人更有礼貌一点。"
+  },
+  {
+   "k": "So, can I come in?",
+   "v": "那么，我可以进去吗？"
+  },
+  {
+   "k": "Alright. Go ahead.",
+   "v": "好吧。进去吧。"
+  },
+  {
+   "k": "No. Please leave.",
+   "v": "不行。请你离开。"
+  },
+  {
+   "k": "I already told you.",
+   "v": "我已经告诉过你了。"
+  },
+  {
+   "k": "Dennis Anderson.",
+   "v": "丹尼斯·安德森。"
+  },
+  {
+   "k": "My brother.",
+   "v": "我哥哥。"
+  },
+  {
+   "k": "Anthony Anderson.",
+   "v": "安东尼·安德森。"
+  },
+  {
+   "k": "Hmm... it's been quite a while.",
+   "v": "嗯... 有一阵子了。"
+  },
+  {
+   "k": "A little over ten years ago now.",
+   "v": "到现在十年多一点。"
+  },
+  {
+   "k": "Tragic house fire.",
+   "v": "一场惨烈的住宅火灾。"
+  },
+  {
+   "k": "Claimed him and the family. Only the little girl made it out alive.",
+   "v": "夺走了他和全家人。只有小女孩活着逃了出来。"
+  },
+  {
+   "k": "It was a horrible day.",
+   "v": "那是可怕的一天。"
+  },
+  {
+   "k": "After the event, only the little girl survived.",
+   "v": "事发之后，只有小女孩活了下来。"
+  },
+  {
+   "k": "Her name is Lily.",
+   "v": "她叫莉莉。"
+  },
+  {
+   "k": "Thanks.",
+   "v": "谢谢。"
+  },
+  {
+   "k": "I won't be long.",
+   "v": "我不会太久。"
+  },
+  {
+   "k": "What do you mean \"no\"?",
+   "v": "你说“不行”是什么意思？"
+  },
+  {
+   "k": "You don't own those people in there. Those are family members.",
+   "v": "里面的人不是你的私产。他们是我的家人。"
+  },
+  {
+   "k": "I'll just come back during the day, when there's someone more professional on duty.",
+   "v": "我白天再来，等值班的人更专业一点。"
+  },
+  {
+   "k": "It's a damn shame what happened that day.",
+   "v": "那天发生的事真是太让人痛心了。"
+  },
+  {
+   "k": "Wish I could've been there.",
+   "v": "真希望我当时在场。"
+  },
+  {
+   "k": "Where were you when it happened?",
+   "v": "事情发生的时候你在哪儿？"
+  },
+  {
+   "k": "I think you should be going now.",
+   "v": "我想你该走了。"
+  },
+  {
+   "k": "I...",
+   "v": "我..."
+  },
+  {
+   "k": "I think I should be going now. Have a great rest of your evening.",
+   "v": "我想我该走了。祝你今晚愉快。"
+  },
+  {
+   "k": "Yeah, you're probably right.",
+   "v": "是啊，你说得对。"
+  },
+  {
+   "k": "I'll be heading out now.",
+   "v": "我这就走。"
+  },
+  {
+   "k": "H-hey...",
+   "v": "你、你好..."
+  },
+  {
+   "k": "I need to come in to visit a grave...",
+   "v": "我需要进去看一座墓..."
+  },
+  {
+   "k": "Is that okay?",
+   "v": "可以吗？"
+  },
+  {
+   "k": "Well, go on ahead in!",
+   "v": "行，进去吧！"
+  },
+  {
+   "k": "You mean, like, my name?",
+   "v": "你是说，呃，我的名字？"
+  },
+  {
+   "k": "It's, uh...",
+   "v": "是，呃..."
+  },
+  {
+   "k": "Edwin.",
+   "v": "埃德温。"
+  },
+  {
+   "k": "Can I go in now?",
+   "v": "我现在可以进去了吗？"
+  },
+  {
+   "k": "I'll need your full name.",
+   "v": "我需要你的全名。"
+  },
+  {
+   "k": "Sure.",
+   "v": "当然。"
+  },
+  {
+   "k": "M-my full name?",
+   "v": "我、我的全名？"
+  },
+  {
+   "k": "My name is Edwin Adams.",
+   "v": "我叫埃德温·亚当斯。"
+  },
+  {
+   "k": "I'm here to visit my mother's grave.",
+   "v": "我来看我母亲的墓。"
+  },
+  {
+   "k": "I don't have any identification with me, I didn't think anyone would be here.",
+   "v": "我没带证件，我没想到这里会有人。"
+  },
+  {
+   "k": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate.",
+   "v": "我住得不远，以前也来过几次。大门这儿从来没有人。"
+  },
+  {
+   "k": "Can I please go in now?",
+   "v": "现在我可以进去了吗？"
+  },
+  {
+   "k": "Sorry kid. Graveyard's closed.",
+   "v": "抱歉，孩子。墓园关门了。"
+  },
+  {
+   "k": "I-it's Edwin Adams.",
+   "v": "是、是埃德温·亚当斯。"
+  },
+  {
+   "k": "My mother, Jane Adams.",
+   "v": "我母亲，简·亚当斯。"
+  },
+  {
+   "k": "A long time ago. About fifteen years ago.",
+   "v": "很久以前了。大概十五年前。"
+  },
+  {
+   "k": "I-I'm sorry but...",
+   "v": "对、对不起，可是..."
+  },
+  {
+   "k": "I don't really want to talk about it...",
+   "v": "我不太想谈这个..."
+  },
+  {
+   "k": "My aunt and I live together, there isn't really anyone else.",
+   "v": "我和我姨妈住在一起，其实没有别人了。"
+  },
+  {
+   "k": "T-thanks...",
+   "v": "谢、谢谢..."
+  },
+  {
+   "k": "I won't be long...",
+   "v": "我不会太久..."
+  },
+  {
+   "k": "I miss my mother dearly.",
+   "v": "我很想念我母亲。"
+  },
+  {
+   "k": "She used to hum when she thought no one was listening.",
+   "v": "她以为没人听的时候，总会哼歌。"
+  },
+  {
+   "k": "Funny what stays with you, even after everything else is gone.",
+   "v": "真奇怪，别的都没了，留下的却是这些。"
+  },
+  {
+   "k": "Anyway. I shouldn’t keep you standing here.",
+   "v": "总之。我不该让你站在这儿。"
+  },
+  {
+   "k": "Are you going to be okay?",
+   "v": "你会没事吧？"
+  },
+  {
+   "k": "Get lost, kid.",
+   "v": "滚吧，孩子。"
+  },
+  {
+   "k": "Yeah... I'll get through this.",
+   "v": "嗯... 我会挺过去的。"
+  },
+  {
+   "k": "Thanks for letting me in, I know it's pretty late and you have a job to do.",
+   "v": "谢谢你让我进来，我知道很晚了，你还有工作要做。"
+  },
+  {
+   "k": "But this helps more than you know.",
+   "v": "但这对我的帮助超乎你的想象。"
+  },
+  {
+   "k": "Gate still open, huh?",
+   "v": "门还开着，是吧？"
+  },
+  {
+   "k": "I need to get inside for a minute.",
+   "v": "我需要进去一会儿。"
+  },
+  {
+   "k": "Just here to visit some graves.",
+   "v": "只是来看几座墓。"
+  },
+  {
+   "k": "Go on in.",
+   "v": "进去吧。"
+  },
+  {
+   "k": "My name is Jason.",
+   "v": "我叫杰森。"
+  },
+  {
+   "k": "I've been here before many times.",
+   "v": "我来过这里很多次。"
+  },
+  {
+   "k": "Jason Holmes.",
+   "v": "杰森·霍尔姆斯。"
+  },
+  {
+   "k": "I'm here for my brother, Zackary Holmes.",
+   "v": "我是来看我弟弟扎卡里·霍尔姆斯的。"
+  },
+  {
+   "k": "And his son. Edward Holmes.",
+   "v": "还有他的儿子，爱德华·霍尔姆斯。"
+  },
+  {
+   "k": "They were buried close together.",
+   "v": "他们葬得很近。"
+  },
+  {
+   "k": "Can I go in?",
+   "v": "我可以进去吗？"
+  },
+  {
+   "k": "Sorry. Graveyard's closed.",
+   "v": "抱歉。墓园关门了。"
+  },
+  {
+   "k": "My brother and nephew, Zackary and Edward.",
+   "v": "我弟弟和侄子，扎卡里和爱德华。"
+  },
+  {
+   "k": "When did they die?",
+   "v": "他们什么时候去世的？"
+  },
+  {
+   "k": "How did they die?",
+   "v": "他们是怎么死的？"
+  },
+  {
+   "k": "Last year. They died at the same time.",
+   "v": "去年。他们同时去世的。"
+  },
+  {
+   "k": "They died in a car accident.",
+   "v": "他们死于车祸。"
+  },
+  {
+   "k": "After their burial, it's just me and my brother's widowed wife.",
+   "v": "他们下葬后，就只剩我和我弟弟的遗孀了。"
+  },
+  {
+   "k": "She disappeared after their deaths.",
+   "v": "他们死后她就失踪了。"
+  },
+  {
+   "k": "Why?",
+   "v": "为什么？"
+  },
+  {
+   "k": "My name is Jason Holmes.",
+   "v": "我叫杰森·霍尔姆斯。"
+  },
+  {
+   "k": "No one knows for certain.",
+   "v": "没人说得准。"
+  },
+  {
+   "k": "She hasn't spoken to me since their passing.",
+   "v": "他们走后她再没跟我说过话。"
+  },
+  {
+   "k": "I can only imagine what she's going through.",
+   "v": "我只能想象她在经历什么。"
+  },
+  {
+   "k": "I appreciate it.",
+   "v": "多谢了。"
+  },
+  {
+   "k": "…",
+   "v": "…"
+  },
+  {
+   "k": "Yeah.",
+   "v": "是啊。"
+  },
+  {
+   "k": "I should've expected that.",
+   "v": "我早该料到的。"
+  },
+  {
+   "k": "You're going to end up like every other gravekeeper before you.",
+   "v": "你的下场会和之前每一个守墓人一样。"
+  },
+  {
+   "k": "…Hey.",
+   "v": "…嘿。"
+  },
+  {
+   "k": "I'm done.",
+   "v": "我看完了。"
+  },
+  {
+   "k": "Took longer than I thought.",
+   "v": "比我预想的久。"
+  },
+  {
+   "k": "Guess I had more to say than I realized.",
+   "v": "看来我想说的比我以为的多。"
+  },
+  {
+   "k": "Everything alright?",
+   "v": "一切都好吗？"
+  },
+  {
+   "k": "You should be heading out.",
+   "v": "你该走了。"
+  },
+  {
+   "k": "As alright as it gets, I suppose.",
+   "v": "该有多好就有多好吧，我想。"
+  },
+  {
+   "k": "Edward's stone is still clean.",
+   "v": "爱德华的墓碑还是干干净净的。"
+  },
+  {
+   "k": "Someone's been taking care of it.",
+   "v": "有人一直在照料它。"
+  },
+  {
+   "k": "Anyway.",
+   "v": "总之。"
+  },
+  {
+   "k": "Thanks for letting me in.",
+   "v": "谢谢你让我进来。"
+  },
+  {
+   "k": "Right.",
+   "v": "对。"
+  },
+  {
+   "k": "You're right.",
+   "v": "你说得对。"
+  },
+  {
+   "k": "Don't worry.",
+   "v": "别担心。"
+  },
+  {
+   "k": "I wasn't planning on staying.",
+   "v": "我没打算久留。"
+  },
+  {
+   "k": "They've had enough company for one night.",
+   "v": "他们今晚的访客已经够多了。"
+  },
+  {
+   "k": "Try not to take this job too personally.",
+   "v": "别把这份工作看得太重。"
+  },
+  {
+   "k": "People just come here to mourn.",
+   "v": "人们来这里只是为了哀悼。"
+  },
+  {
+   "k": "Good night.",
+   "v": "晚安。"
+  },
+  {
+   "k": "Um...",
+   "v": "呃..."
+  },
+  {
+   "k": "H-hello?",
+   "v": "你、你好？"
+  },
+  {
+   "k": "You work here, right?",
+   "v": "你在这儿工作，对吧？"
+  },
+  {
+   "k": "I think you do.",
+   "v": "我想是的。"
+  },
+  {
+   "k": "I mean, you're standing there like you do.",
+   "v": "我是说，你站在那儿的样子就像是。"
+  },
+  {
+   "k": "I was wondering if I could come in for a minute.",
+   "v": "我想问能不能进去一分钟。"
+  },
+  {
+   "k": "Just a minute.",
+   "v": "就一分钟。"
+  },
+  {
+   "k": "Something feels off behind me.",
+   "v": "我身后有什么不对劲。"
+  },
+  {
+   "k": "But it might just be the wind.",
+   "v": "不过可能只是风。"
+  },
+  {
+   "k": "What do you mean “off”?",
+   "v": "“不对劲”是什么意思？"
+  },
+  {
+   "k": "What did you see?",
+   "v": "你看到什么了？"
+  },
+  {
+   "k": "R-right.",
+   "v": "对、对。"
+  },
+  {
+   "k": "So when I was walking, I heard footsteps.",
+   "v": "我走路的时候，听到了脚步声。"
+  },
+  {
+   "k": "I think.",
+   "v": "我想是。"
+  },
+  {
+   "k": "When I stopped walking, the footsteps stopped.",
+   "v": "我停下来，脚步声也停了。"
+  },
+  {
+   "k": "Which is normal.",
+   "v": "这很正常。"
+  },
+  {
+   "k": "Unless someone else stopped at the same time.",
+   "v": "除非有别人也在同一时间停下了。"
+  },
+  {
+   "k": "That happens in movies.",
+   "v": "电影里就是这样。"
+  },
+  {
+   "k": "Movies aren’t real. Did you see anyone?",
+   "v": "电影不是现实。你看到人了吗？"
+  },
+  {
+   "k": "You’re shaking. Take a breath.",
+   "v": "你在发抖。深呼吸。"
+  },
+  {
+   "k": "Y-yeah.",
+   "v": "是、是。"
+  },
+  {
+   "k": "That's what my mom used to say.",
+   "v": "我妈妈以前就这么说。"
+  },
+  {
+   "k": "That I think too much.",
+   "v": "说我想太多。"
+  },
+  {
+   "k": "Or not enough.",
+   "v": "或者想得不够。"
+  },
+  {
+   "k": "I never figured out which one she meant.",
+   "v": "我一直没弄明白她指的是哪个。"
+  },
+  {
+   "k": "I'm probably just tired.",
+   "v": "我可能只是累了。"
+  },
+  {
+   "k": "But being tired makes it easier for bad things to happen, I think.",
+   "v": "但我觉得，人一累，坏事就更容易发生。"
+  },
+  {
+   "k": "Or maybe that's naps.",
+   "v": "也可能说的是打盹。"
+  },
+  {
+   "k": "I get those mixed up.",
+   "v": "我总是搞混。"
+  },
+  {
+   "k": "Focus. Did you actually see someone?",
+   "v": "集中精神。你真的看到人了吗？"
+  },
+  {
+   "k": "Go home. You’re fine.",
+   "v": "回家吧。你没事的。"
+  },
+  {
+   "k": "Oh.",
+   "v": "哦。"
+  },
+  {
+   "k": "Breathing.",
+   "v": "呼吸。"
+  },
+  {
+   "k": "In.",
+   "v": "吸。"
+  },
+  {
+   "k": "Out.",
+   "v": "呼。"
+  },
+  {
+   "k": "I think I'm doing it wrong.",
+   "v": "我觉得我做得不对。"
+  },
+  {
+   "k": "But I feel a little better.",
+   "v": "但我感觉好了一点。"
+  },
+  {
+   "k": "Still don't like the dark though.",
+   "v": "不过我还是不喜欢黑暗。"
+  },
+  {
+   "k": "The dark feels like it's leaning.",
+   "v": "黑暗感觉像是在倾斜。"
+  },
+  {
+   "k": "Does it look like it's leaning to you?",
+   "v": "你看着也像在倾斜吗？"
+  },
+  {
+   "k": "No. Tell me what you saw.",
+   "v": "不像。告诉我你看到了什么。"
+  },
+  {
+   "k": "You’re imagining things.",
+   "v": "你在胡思乱想。"
+  },
+  {
+   "k": "S-see them?",
+   "v": "看、看到？"
+  },
+  {
+   "k": "Not clearly.",
+   "v": "不太清楚。"
+  },
+  {
+   "k": "There was a shape.",
+   "v": "有一个影子。"
+  },
+  {
+   "k": "Or maybe a space where a shape should've been.",
+   "v": "或者说，是本该有影子的地方的一片空缺。"
+  },
+  {
+   "k": "It was near the trees.",
+   "v": "在树附近。"
+  },
+  {
+   "k": "But trees are very suspicious at night.",
+   "v": "但树在夜里非常可疑。"
+  },
+  {
+   "k": "They move even when they shouldn't.",
+   "v": "它们不该动的时候也在动。"
+  },
+  {
+   "k": "This one felt like it noticed me noticing it.",
+   "v": "那个东西好像注意到我注意到它了。"
+  },
+  {
+   "k": "Which sounds silly.",
+   "v": "听起来很傻。"
+  },
+  {
+   "k": "I know that.",
+   "v": "我知道。"
+  },
+  {
+   "k": "Describe the shape.",
+   "v": "描述一下那个影子。"
+  },
+  {
+   "k": "You’re just scared.",
+   "v": "你只是害怕而已。"
+  },
+  {
+   "k": "Oh...",
+   "v": "哦..."
+  },
+  {
+   "k": "M-maybe you're right.",
+   "v": "也、也许你说得对。"
+  },
+  {
+   "k": "I'd feel a lot better if I could come inside for a moment...",
+   "v": "如果能进去待一会儿，我会安心很多..."
+  },
+  {
+   "k": "You can come inside. Quickly.",
+   "v": "你可以进来。快点。"
+  },
+  {
+   "k": "You should leave right now.",
+   "v": "你应该马上离开。"
+  },
+  {
+   "k": "I have a few more questions...",
+   "v": "我还有几个问题..."
+  },
+  {
+   "k": "Where were you headed?",
+   "v": "你要去哪儿？"
+  },
+  {
+   "k": "Oh, uh...",
+   "v": "哦，呃..."
+  },
+  {
+   "k": "I was just heading home.",
+   "v": "我只是在回家的路上。"
+  },
+  {
+   "k": "My car is, like, out of gas. So I had to walk.",
+   "v": "我的车，怎么说呢，没油了。所以只能走路。"
+  },
+  {
+   "k": "I was just coming back from work. I work at bowling alley a couple of miles down the road.",
+   "v": "我刚下班回来。我在沿着这条路几英里外的保龄球馆工作。"
+  },
+  {
+   "k": "My name is Jessica.",
+   "v": "我叫杰西卡。"
+  },
+  {
+   "k": "Not to be rude, but I don't think I would feel comfortable standing out here by myself.",
+   "v": "无意冒犯，但我不觉得自己敢一个人站在这外面。"
+  },
+  {
+   "k": "Um.",
+   "v": "呃。"
+  },
+  {
+   "k": "It was tall.",
+   "v": "它很高。"
+  },
+  {
+   "k": "Or average.",
+   "v": "或者中等。"
+  },
+  {
+   "k": "Taller than me.",
+   "v": "比我高。"
+  },
+  {
+   "k": "That part I’m sure about.",
+   "v": "这一点我确定。"
+  },
+  {
+   "k": "It didn't move much.",
+   "v": "它不怎么动。"
+  },
+  {
+   "k": "Which was the worst part.",
+   "v": "这才是最可怕的。"
+  },
+  {
+   "k": "If it moved, I'd know it was real.",
+   "v": "如果它动了，我就知道它是真的。"
+  },
+  {
+   "k": "I think it had something dark on.",
+   "v": "我觉得它穿着深色的东西。"
+  },
+  {
+   "k": "Like a coat.",
+   "v": "像件大衣。"
+  },
+  {
+   "k": "Or a shadow pretending to be a coat.",
+   "v": "或者是一个假装成大衣的影子。"
+  },
+  {
+   "k": "R-really?",
+   "v": "真、真的吗？"
+  },
+  {
+   "k": "I promise I won't touch anything.",
+   "v": "我保证什么都不碰。"
+  },
+  {
+   "k": "Or look at anything too long.",
+   "v": "也不会盯着什么看太久。"
+  },
+  {
+   "k": "That's fair.",
+   "v": "这很公平。"
+  },
+  {
+   "k": "You're probably right.",
+   "v": "你说得对。"
+  },
+  {
+   "k": "I'm sorry for bothering you.",
+   "v": "抱歉打扰你了。"
+  },
+  {
+   "k": "I'll just walk fast.",
+   "v": "我会走快点。"
+  },
+  {
+   "k": "Fast walking makes you harder to catch.",
+   "v": "走得快就更难被抓住。"
+  },
+  {
+   "k": "I heard that somewhere.",
+   "v": "我在哪儿听过。"
+  },
+  {
+   "k": "If I start running, don't worry.",
+   "v": "如果我跑起来，别担心。"
+  },
+  {
+   "k": "That's normal for me.",
+   "v": "我就是这样的。"
+  },
+  {
+   "k": "I think I'm okay now.",
+   "v": "我想我现在没事了。"
+  },
+  {
+   "k": "I stayed longer than I meant to.",
+   "v": "我待得比原本想的久。"
+  },
+  {
+   "k": "It feels quieter in here.",
+   "v": "这里面感觉更安静。"
+  },
+  {
+   "k": "Not good quiet.",
+   "v": "不是好的那种安静。"
+  },
+  {
+   "k": "Just... tired quiet.",
+   "v": "只是... 疲惫的安静。"
+  },
+  {
+   "k": "I should probably go home.",
+   "v": "我大概该回家了。"
+  },
+  {
+   "k": "You sure you’re alright to leave alone?",
+   "v": "你确定一个人走没问题？"
+  },
+  {
+   "k": "I mean.",
+   "v": "我是说。"
+  },
+  {
+   "k": "I walked here by myself.",
+   "v": "我是一个人走来的。"
+  },
+  {
+   "k": "And nothing bad happened.",
+   "v": "什么坏事也没发生。"
+  },
+  {
+   "k": "Probably.",
+   "v": "大概吧。"
+  },
+  {
+   "k": "So it should be fine going back.",
+   "v": "所以走回去应该也没事。"
+  },
+  {
+   "k": "If I walk fast.",
+   "v": "只要我走快点。"
+  },
+  {
+   "k": "But not run.",
+   "v": "但不能跑。"
+  },
+  {
+   "k": "Running makes it obvious you're scared.",
+   "v": "跑起来就暴露了你在害怕。"
+  },
+  {
+   "k": "Goodnight.",
+   "v": "晚安。"
+  },
+  {
+   "k": "For letting me in.",
+   "v": "谢谢你让我进来。"
+  },
+  {
+   "k": "And for not laughing.",
+   "v": "也谢谢你没笑我。"
+  },
+  {
+   "k": "I'll be gone in just a second.",
+   "v": "我马上就走。"
+  },
+  {
+   "k": "My name is officer James. I'm here with my partner, officer Baidey on an investigation.",
+   "v": "我是詹姆斯警官。我和搭档贝迪警官来这里进行调查。"
+  },
+  {
+   "k": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.",
+   "v": "我们接到报告，这座墓园和周边社区都出现了骚扰事件。"
+  },
+  {
+   "k": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.",
+   "v": "据说有居民看到了可疑的帮派活动。我们接了警，所以来了这里。"
+  },
+  {
+   "k": "Would you mind answering some questions for us?",
+   "v": "你介意回答几个问题吗？"
+  },
+  {
+   "k": "Alright, how can I help you?",
+   "v": "好的，我能帮上什么忙？"
+  },
+  {
+   "k": "Sorry, I can't help you.",
+   "v": "抱歉，我帮不了你。"
+  },
+  {
+   "k": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.",
+   "v": "很好。我们接到报告，有几个男人在这一带入室行窃。"
+  },
+  {
+   "k": "Apparently, some of them have been sighted near this cemetary as well.",
+   "v": "据说其中一些人也曾在这座墓园附近出现。"
+  },
+  {
+   "k": "I'd like your help in conducting this investigation.",
+   "v": "我希望你能协助我们调查。"
+  },
+  {
+   "k": "Firstly, have you seen anyone attempting to enter the premises dressed in black?",
+   "v": "首先，你有没有见过穿黑衣服的人试图进入园区？"
+  },
+  {
+   "k": "No, officer.",
+   "v": "没有，警官。"
+  },
+  {
+   "k": "Yes, I have.",
+   "v": "有，我见过。"
+  },
+  {
+   "k": "Could you describe the behavior of this individiual?",
+   "v": "你能描述一下这个人的行为吗？"
+  },
+  {
+   "k": "They asked to come in and see a grave.",
+   "v": "他要求进来看一座墓。"
+  },
+  {
+   "k": "They never approached me.",
+   "v": "他没有靠近过我。"
+  },
+  {
+   "k": "I don't remember.",
+   "v": "我不记得了。"
+  },
+  {
+   "k": "Alright, I'll move on to my next question.",
+   "v": "好的，下一个问题。"
+  },
+  {
+   "k": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?",
+   "v": "你有没有见过有人在这里的围墙或大门附近徘徊、向里张望？"
+  },
+  {
+   "k": "Do you remember anything about this individual?",
+   "v": "你还记得这个人的什么特征吗？"
+  },
+  {
+   "k": "Perhaps the color of his clothes or complexion?",
+   "v": "比如衣服的颜色，或者肤色？"
+  },
+  {
+   "k": "They wearing a greenish brown shirt.",
+   "v": "他穿着一件绿褐色的衬衫。"
+  },
+  {
+   "k": "They were wearing a grey robe.",
+   "v": "他穿着一件灰色的长袍。"
+  },
+  {
+   "k": "Alright, we appreciate your coopearation.",
+   "v": "好的，感谢你的配合。"
+  },
+  {
+   "k": "We have one more question.",
+   "v": "我们还有一个问题。"
+  },
+  {
+   "k": "If it's alright with you...",
+   "v": "如果你不介意的话..."
+  },
+  {
+   "k": "I would like to come inside and take a look around.",
+   "v": "我想进去看看。"
+  },
+  {
+   "k": "Alright, go ahead.",
+   "v": "好的，请进。"
+  },
+  {
+   "k": "I'm afraid I can't let you in sir.",
+   "v": "恐怕我不能让你进去，先生。"
+  },
+  {
+   "k": "My name is officer James.",
+   "v": "我是詹姆斯警官。"
+  },
+  {
+   "k": "I see...",
+   "v": "我明白了..."
+  },
+  {
+   "k": "Well, we don't have a warrant, so I can't force you to let me in.",
+   "v": "好吧，我们没有搜查令，所以不能强迫你让我进去。"
+  },
+  {
+   "k": "We'll be nearby if there's any trouble. Keep an eye out.",
+   "v": "如果有麻烦，我们就在附近。保持警惕。"
+  },
+  {
+   "k": "I think I'll be concluding my investigation here...",
+   "v": "我想我的调查到此为止了..."
+  },
+  {
+   "k": "Keep an eye out. Let us know if you see anything strange.",
+   "v": "保持警惕。如果看到任何异常，请通知我们。"
+  },
+  {
+   "k": "Good evening.",
+   "v": "晚上好。"
+  },
+  {
+   "k": "I'm Father Joseph.",
+   "v": "我是约瑟夫神父。"
+  },
+  {
+   "k": "I used to be the pastor here at this church.",
+   "v": "我曾经是这座教堂的牧师。"
+  },
+  {
+   "k": "I need to come inside for a moment.",
+   "v": "我需要进去一会儿。"
+  },
+  {
+   "k": "What is your business here?",
+   "v": "你来这里有什么事？"
+  },
+  {
+   "k": "Well...",
+   "v": "呃..."
+  },
+  {
+   "k": "I've left something important in the basement of that abandoned church years ago.",
+   "v": "多年前，我把一件重要的东西留在了那座废弃教堂的地下室里。"
+  },
+  {
+   "k": "I need to come inside and reclaim it.",
+   "v": "我需要进去把它取回来。"
+  },
+  {
+   "k": "What did you leave behind?",
+   "v": "你留下了什么？"
+  },
+  {
+   "k": "Why wait until now?",
+   "v": "为什么等到现在？"
+  },
+  {
+   "k": "A wedding ring for my betrothed. It remained here after many years.",
+   "v": "一枚送给我未婚妻的结婚戒指。它在这里留了很多年。"
+  },
+  {
+   "k": "I need it back.",
+   "v": "我需要把它拿回来。"
+  },
+  {
+   "k": "Are you hiding something?",
+   "v": "你在隐瞒什么吗？"
+  },
+  {
+   "k": "You came all this way just for that?",
+   "v": "你大老远跑来就为了这个？"
+  },
+  {
+   "k": "Yes. It has very large sentimental value to me.",
+   "v": "是的。它对我有非常重大的纪念意义。"
+  },
+  {
+   "k": "I need to enter the grounds to retrieve it.",
+   "v": "我需要进入园区去取回它。"
+  },
+  {
+   "k": "You're hiding something.",
+   "v": "你在隐瞒什么。"
+  },
+  {
+   "k": "Alright, I will be candid with you.",
+   "v": "好吧，我跟你说实话。"
+  },
+  {
+   "k": "I had hoped not to return to this place.",
+   "v": "我本希望永远不再回到这个地方。"
+  },
+  {
+   "k": "But recently... I have felt immense guilt over the loss of my wife to be.",
+   "v": "但最近... 我为失去我未过门的妻子而深感愧疚。"
+  },
+  {
+   "k": "She passed away before I had the opportunity to take our vows.",
+   "v": "她在我有机会立下誓言之前就去世了。"
+  },
+  {
+   "k": "I must return to retrieve our wedding ring.",
+   "v": "我必须回来取回我们的结婚戒指。"
+  },
+  {
+   "k": "As something to remember her by.",
+   "v": "作为纪念她的信物。"
+  },
+  {
+   "k": "Are you lying?",
+   "v": "你在撒谎吗？"
+  },
+  {
+   "k": "How can I trust you?",
+   "v": "我怎么能相信你？"
+  },
+  {
+   "k": "No. I know it has been many years since I've returned to these grounds...",
+   "v": "没有。我知道我已经多年没有回到这片土地了..."
+  },
+  {
+   "k": "But I'm back now and I need to retrieve what is rightfully mine.",
+   "v": "但现在我回来了，我需要取回本该属于我的东西。"
+  },
+  {
+   "k": "So please...",
+   "v": "所以，求你..."
+  },
+  {
+   "k": "You are wise to hesitate.",
+   "v": "你犹豫是明智的。"
+  },
+  {
+   "k": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return.",
+   "v": "走向那座教堂的每一步，都像是走回一段耐心等待我归来的记忆。"
+  },
+  {
+   "k": "But I need that ring.",
+   "v": "但我需要那枚戒指。"
+  },
+  {
+   "k": "I would like you to come with me to retrieve it.",
+   "v": "我希望你和我一起去取。"
+  },
+  {
+   "k": "Shall we go together?",
+   "v": "我们一起去吧？"
+  },
+  {
+   "k": "Alright. Let's go.",
+   "v": "好吧。我们走。"
+  },
+  {
+   "k": "I'm sorry father, but you should leave.",
+   "v": "对不起，神父，但你该走了。"
+  },
+  {
+   "k": "Do you have any family members?",
+   "v": "你有家人吗？"
+  },
+  {
+   "k": "My name is Father Joseph Smith.",
+   "v": "我叫约瑟夫·史密斯神父。"
+  },
+  {
+   "k": "I have no immediate family members.",
+   "v": "我没有直系亲属。"
+  },
+  {
+   "k": "We will not be long.",
+   "v": "我们不会太久。"
+  },
+  {
+   "k": "It is down the hall, on the staircase to the right.",
+   "v": "在走廊尽头，右边的楼梯下去。"
+  },
+  {
+   "k": "I know the way.",
+   "v": "我认识路。"
+  },
+  {
+   "k": "I hope we are not too late.",
+   "v": "希望我们还不算太晚。"
+  },
+  {
+   "k": "Hurry.",
+   "v": "快。"
+  },
+  {
+   "k": "I urge you to reconsider.",
+   "v": "我恳请你重新考虑。"
+  },
+  {
+   "k": "It is very important you allow me inside to retrieve the lost item.",
+   "v": "让我进去取回失物，这非常重要。"
+  },
+  {
+   "k": "Please. Allow me in.",
+   "v": "求你了。让我进去。"
+  },
+  {
+   "k": "You're right. I'm sorry. Let's go inside.",
+   "v": "你说得对。对不起。我们进去吧。"
+  },
+  {
+   "k": "No. Leave.",
+   "v": "不行。走吧。"
+  },
+  {
+   "k": "Very well.",
+   "v": "好吧。"
+  },
+  {
+   "k": "I will not force your hand.",
+   "v": "我不会强迫你。"
+  },
+  {
+   "k": "May God forgive us both.",
+   "v": "愿上帝宽恕我们两个。"
+  },
+  {
+   "k": "Here we are.",
+   "v": "我们到了。"
+  },
+  {
+   "k": "I would like you to enter inside and retrieve it for me. I will wait out here.",
+   "v": "我希望你进去替我取回来。我在外面等。"
+  },
+  {
+   "k": "It is down the hall. Take the first door to your right.",
+   "v": "在走廊尽头。走右手边第一扇门。"
+  },
+  {
+   "k": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom.",
+   "v": "通往地下室的楼梯相当长。一直往下走到底。"
+  },
+  {
+   "k": "The ring should be left in a chest in the back corner.",
+   "v": "戒指应该放在后面角落的一个箱子里。"
+  },
+  {
+   "k": "Before you enter, I would like to give you some advice.",
+   "v": "在你进去之前，我想给你一些忠告。"
+  },
+  {
+   "k": "When you go down the hall, do not enter the door on the left. No matter what.",
+   "v": "走过走廊时，不要进左边那扇门。无论如何都不要。"
+  },
+  {
+   "k": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute.",
+   "v": "另外，不要听信任何可能把你引入歧途的声音。坚守你的路，保持坚定。"
+  },
+  {
+   "k": "Do you understand?",
+   "v": "你明白吗？"
+  },
+  {
+   "k": "Okay. Thank you, father.",
+   "v": "好的。谢谢你，神父。"
+  },
+  {
+   "k": "I've changed my mind. You should leave.",
+   "v": "我改主意了。你该走了。"
+  },
+  {
+   "k": "Were you able to retrieve the ring?",
+   "v": "你拿到戒指了吗？"
+  },
+  {
+   "k": "Not yet. I'll go get it.",
+   "v": "还没有。我这就去拿。"
+  },
+  {
+   "k": "Yo… you work here?",
+   "v": "哟... 你在这儿工作？"
+  },
+  {
+   "k": "Listen, man, I can’t hang around long.",
+   "v": "听着，哥们，我不能待太久。"
+  },
+  {
+   "k": "I don’t even wanna come in.",
+   "v": "我压根不想进去。"
+  },
+  {
+   "k": "Just needed to give you a heads-up.",
+   "v": "只是想提醒你一声。"
+  },
+  {
+   "k": "A heads-up?",
+   "v": "提醒？"
+  },
+  {
+   "k": "Yeah. A warning.",
+   "v": "对。是个警告。"
+  },
+  {
+   "k": "My brother’s been acting real strange lately.",
+   "v": "我哥最近行为很反常。"
+  },
+  {
+   "k": "Says he’s got some kind of “gig” involving this place.",
+   "v": "说他有个跟这地方有关的什么“活儿”。"
+  },
+  {
+   "k": "Tried telling the cops, but they wouldn’t listen. They never take me seriously.",
+   "v": "我试过跟警察说，但他们不听。他们从不把我当回事。"
+  },
+  {
+   "k": "So I figured I’d come myself.",
+   "v": "所以我想还是自己来一趟。"
+  },
+  {
+   "k": "If my brother shows up here to “visit” a grave…",
+   "v": "要是我哥来这里“探望”哪座墓..."
+  },
+  {
+   "k": "Do not let him in.",
+   "v": "别让他进去。"
+  },
+  {
+   "k": "You hear me?",
+   "v": "听见了吗？"
+  },
+  {
+   "k": "Why not?",
+   "v": "为什么？"
+  },
+  {
+   "k": "Alright, I understand. Can you give me any more details?",
+   "v": "好，我明白了。你能再多说点细节吗？"
+  },
+  {
+   "k": "I already told you, man.",
+   "v": "我已经跟你说了，哥们。"
+  },
+  {
+   "k": "He’s been running with the wrong crowd.",
+   "v": "他跟一帮不三不四的人混在一起。"
+  },
+  {
+   "k": "Nothing but trouble.",
+   "v": "净是麻烦。"
+  },
+  {
+   "k": "I don’t want him getting in deeper than he already is.",
+   "v": "我不想让他陷得比现在更深。"
+  },
+  {
+   "k": "Just turn him away. Don’t let him in, and don’t let him talk you into it.",
+   "v": "把他打发走就行。别让他进去，也别被他说动。"
+  },
+  {
+   "k": "Him and that weird, cult-like group he’s been hanging around lately…",
+   "v": "他和他最近混在一起的那伙邪教一样的怪人..."
+  },
+  {
+   "k": "I don’t know. Something’s off.",
+   "v": "我说不清。就是不对劲。"
+  },
+  {
+   "k": "Okay. Thanks for the warning.",
+   "v": "好。谢谢你的提醒。"
+  },
+  {
+   "k": "Sorry, but I’ll be handling security myself. You should go home.",
+   "v": "抱歉，安保的事我自己会处理。你该回家了。"
+  },
+  {
+   "k": "Name’s Reginald. My brother’s Shane.",
+   "v": "我叫雷金纳德。我哥叫谢恩。"
+  },
+  {
+   "k": "We’re part of the Deloitte family — live a few miles down the road.",
+   "v": "我们是德洛伊特家的——住在沿这条路几英里外。"
+  },
+  {
+   "k": "I’m not here to cause trouble.",
+   "v": "我不是来找麻烦的。"
+  },
+  {
+   "k": "I just want to stop him from doing something stupid… something he might regret.",
+   "v": "我只想阻止他做傻事... 做他会后悔的事。"
+  },
+  {
+   "k": "He’s always been like this. Always pushing his luck.",
+   "v": "他一直都这样。总爱铤而走险。"
+  },
+  {
+   "k": "So please — can you promise me you won’t let him or his gang in?",
+   "v": "所以拜托——你能答应我，不让他和他那伙人进去吗？"
+  },
+  {
+   "k": "Thanks for hearing me out.",
+   "v": "谢谢你听我说完。"
+  },
+  {
+   "k": "We’re the Deloitte family — live not too far from here.",
+   "v": "我们是德洛伊特家的——住得离这儿不远。"
+  },
+  {
+   "k": "My brother looks a lot like me. Little shorter, but close enough you might mistake us.",
+   "v": "我哥长得很像我。矮一点，但像到你可能会认错。"
+  },
+  {
+   "k": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go.",
+   "v": "他最近跟一群怪人混在一起——一身黑衣，搞些古怪的仪式，走到哪儿惹事到哪儿。"
+  },
+  {
+   "k": "Real cult-like stuff.",
+   "v": "真正的邪教那一套。"
+  },
+  {
+   "k": "Before he took off, I heard him muttering about this graveyard being “important.”",
+   "v": "他走之前，我听到他嘀咕说这座墓园很“重要”。"
+  },
+  {
+   "k": "Didn’t like the sound of that.",
+   "v": "我听着就不对劲。"
+  },
+  {
+   "k": "Feels like he’s planning to mess with something buried out here.",
+   "v": "感觉他打算对埋在这里的什么东西下手。"
+  },
+  {
+   "k": "Just… don’t let him in.",
+   "v": "反正... 别让他进去。"
+  },
+  {
+   "k": "I don’t want to see him ruin his life any more than he already has.",
+   "v": "我不想看他把自己的人生毁得比现在更彻底。"
+  },
+  {
+   "k": "Can you promise me that?",
+   "v": "你能答应我吗？"
+  },
+  {
+   "k": "Thanks, man.",
+   "v": "谢了，哥们。"
+  },
+  {
+   "k": "I owe you one.",
+   "v": "我欠你一个人情。"
+  },
+  {
+   "k": "Yeah… figures.",
+   "v": "唉... 果然。"
+  },
+  {
+   "k": "Nobody ever takes me seriously.",
+   "v": "从来没人把我当回事。"
+  },
+  {
+   "k": "Hope you all get what’s coming to you.",
+   "v": "希望你们都得到应有的报应。"
+  },
+  {
+   "k": "Hey.",
+   "v": "嘿。"
+  },
+  {
+   "k": "Didn't think anyone would be out here this late.",
+   "v": "没想到这么晚还有人在外面。"
+  },
+  {
+   "k": "You work this place?",
+   "v": "这地方是你管的？"
+  },
+  {
+   "k": "Listen… I don’t wanna make trouble.",
+   "v": "听着... 我不想惹麻烦。"
+  },
+  {
+   "k": "I just need a minute inside.",
+   "v": "我只需要进去一分钟。"
+  },
+  {
+   "k": "It's late. What do you want?",
+   "v": "很晚了。你想干什么？"
+  },
+  {
+   "k": "My name's Shane.",
+   "v": "我叫谢恩。"
+  },
+  {
+   "k": "Deloitte family. We live a ways down the road.",
+   "v": "德洛伊特家的。我们住在沿这条路再往前一段。"
+  },
+  {
+   "k": "I’m not here to steal anything or mess around.",
+   "v": "我不是来偷东西或者捣乱的。"
+  },
+  {
+   "k": "There’s something in there that belongs to my family.",
+   "v": "里面有属于我们家的东西。"
+  },
+  {
+   "k": "Something that never got handled right.",
+   "v": "一件从来没被妥善处理过的事。"
+  },
+  {
+   "k": "Handled how?",
+   "v": "怎么处理？"
+  },
+  {
+   "k": "Rules are rules. I can’t let you in.",
+   "v": "规矩就是规矩。我不能让你进去。"
+  },
+  {
+   "k": "I just need to see a grave.",
+   "v": "我只是想看一座墓。"
+  },
+  {
+   "k": "It's unmarked.",
+   "v": "它没有碑文。"
+  },
+  {
+   "k": "Most folks don’t even know it’s there.",
+   "v": "大多数人甚至不知道它在那儿。"
+  },
+  {
+   "k": "I wouldn’t be here if I had another option.",
+   "v": "要是有别的办法，我不会来这里。"
+  },
+  {
+   "k": "Why is it unmarked?",
+   "v": "为什么没有碑文？"
+  },
+  {
+   "k": "That doesn’t matter. You need to leave.",
+   "v": "那不重要。你得离开。"
+  },
+  {
+   "k": "They buried them in a hurry.",
+   "v": "他们匆匆忙忙就把人埋了。"
+  },
+  {
+   "k": "Didn’t ask questions. Didn’t put a name down.",
+   "v": "什么也没问。连名字都没写。"
+  },
+  {
+   "k": "Just wanted it done and forgotten.",
+   "v": "只想赶紧了事，然后忘掉。"
+  },
+  {
+   "k": "That kind of thing sticks with a family.",
+   "v": "这种事会在一个家族里留下阴影。"
+  },
+  {
+   "k": "Sticks with a place too.",
+   "v": "也会在一个地方留下阴影。"
+  },
+  {
+   "k": "You’re talking in circles. Be straight with me.",
+   "v": "你在绕圈子。跟我说实话。"
+  },
+  {
+   "k": "I’m sorry, but I still can’t let you in.",
+   "v": "抱歉，但我还是不能让你进去。"
+  },
+  {
+   "k": "Because it was easier that way.",
+   "v": "因为那样更省事。"
+  },
+  {
+   "k": "No paperwork or attention.",
+   "v": "没有文书，没人关注。"
+  },
+  {
+   "k": "Just dirt over a problem.",
+   "v": "只是把问题用土盖上。"
+  },
+  {
+   "k": "I know how this sounds.",
+   "v": "我知道这听起来像什么。"
+  },
+  {
+   "k": "But I need to see it with my own eyes.",
+   "v": "但我需要亲眼看看。"
+  },
+  {
+   "k": "Make sure nothing’s… wrong.",
+   "v": "确认没有什么... 出岔子。"
+  },
+  {
+   "k": "What could be wrong?",
+   "v": "能出什么岔子？"
+  },
+  {
+   "k": "No. You’re not going inside.",
+   "v": "不行。你不能进去。"
+  },
+  {
+   "k": "…Alright.",
+   "v": "…好吧。"
+  },
+  {
+   "k": "Something’s been off lately.",
+   "v": "最近有些事不对劲。"
+  },
+  {
+   "k": "I haven't been able to sleep right. The guilt from the quick burial...",
+   "v": "我一直睡不好。那场草率葬礼带来的愧疚..."
+  },
+  {
+   "k": "I just wanna make sure the plot is alright.",
+   "v": "我只想确认那块墓地没出问题。"
+  },
+  {
+   "k": "The paperwork doesn’t line up.",
+   "v": "文书对不上。"
+  },
+  {
+   "k": "Dates, plot number... even the depth’s different depending on who you ask.",
+   "v": "日期、墓穴编号... 甚至连深度都因为问的人不同而不一样。"
+  },
+  {
+   "k": "That usually means someone rushed it, or skipped steps they shouldn’t have.",
+   "v": "这通常意味着有人赶工了，或者跳过了不该跳过的步骤。"
+  },
+  {
+   "k": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.",
+   "v": "如果有什么做错了，趁现在修正比等它变成大问题再修正容易得多。"
+  },
+  {
+   "k": "I’ve learned that the hard way.",
+   "v": "这是我吃过亏才学到的。"
+  },
+  {
+   "k": "Will you let me come in and have a look?",
+   "v": "你能让我进去看一眼吗？"
+  },
+  {
+   "k": "Fine. You can go in, but be quick.",
+   "v": "好吧。你可以进去，但要快。"
+  },
+  {
+   "k": "My brother, Reginald.",
+   "v": "我弟弟，雷金纳德。"
+  },
+  {
+   "k": "It was very recent.",
+   "v": "就在最近。"
+  },
+  {
+   "k": "A little over a week ago.",
+   "v": "一个多星期前。"
+  },
+  {
+   "k": "You weren't working here when it happened.",
+   "v": "事情发生时你还没在这儿工作。"
+  },
+  {
+   "k": "He died close to here.",
+   "v": "他死在离这儿不远的地方。"
+  },
+  {
+   "k": "He was in a terrible shape when they found him. I don't want to recall the details.",
+   "v": "他们找到他时，他的样子很惨。我不想回忆细节。"
+  },
+  {
+   "k": "I don't know for certain.",
+   "v": "我不太确定。"
+  },
+  {
+   "k": "After my brother's death, it's just me.",
+   "v": "我弟弟死后，就只剩我一个了。"
+  },
+  {
+   "k": "Shane Deloitte.",
+   "v": "谢恩·德洛伊特。"
+  },
+  {
+   "k": "Really.",
+   "v": "真的。"
+  },
+  {
+   "k": "I’ll be quick.",
+   "v": "我会很快。"
+  },
+  {
+   "k": "That figures.",
+   "v": "果然。"
+  },
+  {
+   "k": "Nobody ever wants to deal with things before they rot.",
+   "v": "从来没人愿意在事情烂掉之前处理它们。"
+  },
+  {
+   "k": "They just lock the gate and walk away.",
+   "v": "他们只是锁上大门然后走开。"
+  },
+  {
+   "k": "If this turns into a mess later, just remember I came by.",
+   "v": "要是这事以后闹大了，记住我来过。"
+  },
+  {
+   "k": "I tried to handle this properly.",
+   "v": "我试过用正当的方式处理这件事。"
+  },
+  {
+   "k": "…Yeah.",
+   "v": "…是啊。"
+  },
+  {
+   "k": "It’s still here.",
+   "v": "它还在。"
+  },
+  {
+   "k": "You can go.",
+   "v": "你可以走了。"
+  },
+  {
+   "k": "I won’t need you watching anymore.",
+   "v": "不需要你再盯着我了。"
+  },
+  {
+   "k": "You said you’d be quick.",
+   "v": "你说过会很快的。"
+  },
+  {
+   "k": "Yeah, I know.",
+   "v": "是啊，我知道。"
+  },
+  {
+   "k": "Just needed to see it one more time.",
+   "v": "只是想再看它一眼。"
+  },
+  {
+   "k": "I’m done.",
+   "v": "我看完了。"
+  },
+  {
+   "k": "You won’t see me again tonight.",
+   "v": "今晚你不会再见到我了。"
+  },
+  {
+   "k": "That depends.",
+   "v": "看情况。"
+  },
+  {
+   "k": "But it’s not your problem.",
+   "v": "但那不是你的问题。"
+  },
+  {
+   "k": "I’m finished here.",
+   "v": "我在这儿的事办完了。"
+  },
+  {
+   "k": "You must be the gravekeeper.",
+   "v": "你一定就是守墓人吧。"
+  },
+  {
+   "k": "My name is Tabitha.",
+   "v": "我叫塔比莎。"
+  },
+  {
+   "k": "I was hoping you’d be on duty tonight.",
+   "v": "我正希望今晚是你值班。"
+  },
+  {
+   "k": "I'm not interested.",
+   "v": "我没兴趣。"
+  },
+  {
+   "k": "Can I help you with something?",
+   "v": "有什么可以帮你的吗？"
+  },
+  {
+   "k": "Curiosity keeps most people alive longer than confidence.",
+   "v": "好奇心比自信更能让人活得长久。"
+  },
+  {
+   "k": "I ask for a mere moment.",
+   "v": "我只求片刻时间。"
+  },
+  {
+   "k": "I want to enter the graveyard.",
+   "v": "我想进墓园。"
+  },
+  {
+   "k": "Not to disturb anything.",
+   "v": "不是去打扰什么。"
+  },
+  {
+   "k": "To protect it.",
+   "v": "是去保护它。"
+  },
+  {
+   "k": "There are… restless things.",
+   "v": "这里有... 不安分的东西。"
+  },
+  {
+   "k": "You don’t see them.",
+   "v": "你看不见它们。"
+  },
+  {
+   "k": "But they notice places like this.",
+   "v": "但它们会留意这样的地方。"
+  },
+  {
+   "k": "That sounds like nonsense.",
+   "v": "听起来像是胡说八道。"
+  },
+  {
+   "k": "Protect it how?",
+   "v": "怎么保护？"
+  },
+  {
+   "k": "You have a kind voice.",
+   "v": "你的声音很温和。"
+  },
+  {
+   "k": "That helps, in a place like this.",
+   "v": "在这样的地方，这很有帮助。"
+  },
+  {
+   "k": "I work with old rites.",
+   "v": "我做的是古老的仪式。"
+  },
+  {
+   "k": "Small blessings.",
+   "v": "小小的祝福。"
+  },
+  {
+   "k": "They keep bad spirits from wandering too close.",
+   "v": "它们能让恶灵不敢靠得太近。"
+  },
+  {
+   "k": "This graveyard feels thin.",
+   "v": "这座墓园感觉很单薄。"
+  },
+  {
+   "k": "Like a door left unlocked.",
+   "v": "像一扇没上锁的门。"
+  },
+  {
+   "k": "You expect me to believe that?",
+   "v": "你指望我相信这个？"
+  },
+  {
+   "k": "What kind of rites?",
+   "v": "什么样的仪式？"
+  },
+  {
+   "k": "You call it nonsense.",
+   "v": "你说这是胡说八道。"
+  },
+  {
+   "k": "That’s fine.",
+   "v": "没关系。"
+  },
+  {
+   "k": "Most people do.",
+   "v": "大多数人都这么说。"
+  },
+  {
+   "k": "Until something follows them home.",
+   "v": "直到有什么东西跟着他们回了家。"
+  },
+  {
+   "k": "I don’t charge.",
+   "v": "我不收钱。"
+  },
+  {
+   "k": "I don’t ask for thanks.",
+   "v": "我不求感谢。"
+  },
+  {
+   "k": "Just permission.",
+   "v": "只求允许。"
+  },
+  {
+   "k": "Nothing dramatic.",
+   "v": "没什么戏剧性的。"
+  },
+  {
+   "k": "No candles. No blood. Just words said in the right places.",
+   "v": "不用蜡烛。不用鲜血。只是在正确的地方说出正确的话。"
+  },
+  {
+   "k": "The dead sleep better after, and the living too.",
+   "v": "之后死者会睡得更安稳，活人也一样。"
+  },
+  {
+   "k": "You look tired.",
+   "v": "你看起来很疲惫。"
+  },
+  {
+   "k": "That kind of tired doesn’t come from long shifts.",
+   "v": "那种疲惫可不是熬夜值班造成的。"
+  },
+  {
+   "k": "You won’t owe me anything.",
+   "v": "你不会欠我任何东西。"
+  },
+  {
+   "k": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.",
+   "v": "过程很简单。我会走遍墓园的小径，让亡魂得以安息。"
+  },
+  {
+   "k": "You will immediately feel at ease.",
+   "v": "你会立刻感到安心。"
+  },
+  {
+   "k": "Let me inside.",
+   "v": "让我进去吧。"
+  },
+  {
+   "k": "Alright. Go ahead, but I’m watching you.",
+   "v": "好吧。进去吧，但我会盯着你。"
+  },
+  {
+   "k": "No. I can’t let you in.",
+   "v": "不行。我不能让你进去。"
+  },
+  {
+   "k": "Ask away.",
+   "v": "尽管问。"
+  },
+  {
+   "k": "Yes, unfortunately.",
+   "v": "有，很不幸。"
+  },
+  {
+   "k": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse.",
+   "v": "我那个讨厌的妹妹，玛丽贝尔。她可能会来这里破坏我的工作。或者让事情变得更糟。"
+  },
+  {
+   "k": "I trust you are fit for your job and will make the correct decisions.",
+   "v": "我相信你能胜任这份工作，会做出正确的决定。"
+  },
+  {
+   "k": "I have other questions",
+   "v": "我还有别的问题"
+  },
+  {
+   "k": "Tabitha.",
+   "v": "塔比莎。"
+  },
+  {
+   "k": "I am here to ease the restless spirits in this graveyard.",
+   "v": "我是来安抚这座墓园里不安的亡魂的。"
+  },
+  {
+   "k": "You don't need to be afraid...",
+   "v": "你不必害怕..."
+  },
+  {
+   "k": "I am here to help.",
+   "v": "我是来帮忙的。"
+  },
+  {
+   "k": "Why did you choose this graveyard?",
+   "v": "你为什么选择这座墓园？"
+  },
+  {
+   "k": "Are you attempting to deceive me?",
+   "v": "你是在试图欺骗我吗？"
+  },
+  {
+   "k": "Don't get the wrong idea, gravekeeper.",
+   "v": "别误会，守墓人。"
+  },
+  {
+   "k": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here.",
+   "v": "我和你一样，只是个守护者。我碰巧遇到了一个需要帮助的地方，而你碰巧在这里。"
+  },
+  {
+   "k": "I offer my help. You may choose to accept it, or not.",
+   "v": "我提供帮助。你可以选择接受，也可以不接受。"
+  },
+  {
+   "k": "Deceive you?",
+   "v": "欺骗你？"
+  },
+  {
+   "k": "If I were lying, what good would it help to ask me that?",
+   "v": "如果我在撒谎，问我这个又有什么用呢？"
+  },
+  {
+   "k": "I don't think you're thinking this through.",
+   "v": "我觉得你没有想清楚。"
+  },
+  {
+   "k": "You made the right choice.",
+   "v": "你做了正确的选择。"
+  },
+  {
+   "k": "If tonight feels quieter than usual, that’s me helping.",
+   "v": "如果今晚感觉比平时安静，那是我在帮忙。"
+  },
+  {
+   "k": "I see.",
+   "v": "我明白了。"
+  },
+  {
+   "k": "You guard the gate, but not what slips through cracks.",
+   "v": "你守着大门，却守不住从缝隙里溜进来的东西。"
+  },
+  {
+   "k": "Don’t say I didn’t offer.",
+   "v": "别说我没提议过。"
+  },
+  {
+   "k": "Sleep lightly tonight.",
+   "v": "今晚睡觉警醒些。"
+  },
+  {
+   "k": "Ah! Yes! There it is...",
+   "v": "啊！对！就是它..."
+  },
+  {
+   "k": "Did you feel that?",
+   "v": "你感觉到了吗？"
+  },
+  {
+   "k": "They scattered so fast.",
+   "v": "它们散得真快。"
+  },
+  {
+   "k": "The old ones hate being named.",
+   "v": "古老的存在最恨被叫出名字。"
+  },
+  {
+   "k": "Especially out loud.",
+   "v": "尤其是大声叫出来。"
+  },
+  {
+   "k": "You’re finished, right?",
+   "v": "你完成了，对吧？"
+  },
+  {
+   "k": "Finished?",
+   "v": "完成？"
+  },
+  {
+   "k": "No... completed.",
+   "v": "不... 是圆满了。"
+  },
+  {
+   "k": "This place will sleep better now.",
+   "v": "这个地方现在会睡得更安稳。"
+  },
+  {
+   "k": "You helped more than you know.",
+   "v": "你帮的忙比你想象的多。"
+  },
+  {
+   "k": "Thank you, gravekeeper.",
+   "v": "谢谢你，守墓人。"
+  },
+  {
+   "k": "For your cooperation.",
+   "v": "谢谢你的配合。"
+  },
+  {
+   "k": "We may speak again.",
+   "v": "我们或许还会再谈。"
+  },
+  {
+   "k": "Good. You’re still here.",
+   "v": "好。你还在。"
+  },
+  {
+   "k": "I was worried I’d be too late.",
+   "v": "我还担心来得太晚了。"
+  },
+  {
+   "k": "You’re the gravekeeper, yes?",
+   "v": "你是守墓人，对吧？"
+  },
+  {
+   "k": "The graveyard is closed.",
+   "v": "墓园关门了。"
+  },
+  {
+   "k": "My name is Maribel.",
+   "v": "我叫玛丽贝尔。"
+  },
+  {
+   "k": "I’m looking for someone who came through here earlier.",
+   "v": "我在找一个早些时候来过这里的人。"
+  },
+  {
+   "k": "A woman named Tabitha.",
+   "v": "一个叫塔比莎的女人。"
+  },
+  {
+   "k": "Thin. Quiet. Thinks she knows how the dead work.",
+   "v": "很瘦。安静。自以为懂得死者的运作方式。"
+  },
+  {
+   "k": "She’s my sister.",
+   "v": "她是我姐姐。"
+  },
+  {
+   "k": "She was here earlier.",
+   "v": "她早些时候来过。"
+  },
+  {
+   "k": "No one like that came by.",
+   "v": "没有那样的人来过。"
+  },
+  {
+   "k": "Closed.",
+   "v": "关门。"
+  },
+  {
+   "k": "Yes, I heard that already.",
+   "v": "是，我已经听说了。"
+  },
+  {
+   "k": "But you see, I’m not here for the graveyard.",
+   "v": "但你看，我不是为墓园而来的。"
+  },
+  {
+   "k": "I’m here because my sister has a habit of interfering with things she doesn’t understand.",
+   "v": "我来是因为我姐姐有个习惯，总爱插手她不了解的事。"
+  },
+  {
+   "k": "And this place?",
+   "v": "而这个地方？"
+  },
+  {
+   "k": "It attracts those things.",
+   "v": "它会吸引那些东西。"
+  },
+  {
+   "k": "Interfering how?",
+   "v": "怎么插手？"
+  },
+  {
+   "k": "I still can’t let you in.",
+   "v": "我还是不能让你进去。"
+  },
+  {
+   "k": "I knew it.",
+   "v": "我就知道。"
+  },
+  {
+   "k": "She never could resist places like this.",
+   "v": "她从来抵挡不住这样的地方。"
+  },
+  {
+   "k": "Always trying to “fix” things.",
+   "v": "总想“修复”些什么。"
+  },
+  {
+   "k": "Always making them worse.",
+   "v": "总是把事情弄得更糟。"
+  },
+  {
+   "k": "If she performed her little rites here, then something of mine is now trapped inside.",
+   "v": "如果她在这里做了她那些小仪式，那么有个属于我的东西现在就被困在里面了。"
+  },
+  {
+   "k": "That’s why I need to enter.",
+   "v": "所以我需要进去。"
+  },
+  {
+   "k": "Something of yours?",
+   "v": "属于你的东西？"
+  },
+  {
+   "k": "That’s not my problem.",
+   "v": "那不是我的问题。"
+  },
+  {
+   "k": "Then she plans to come later.",
+   "v": "那她就是打算晚些时候来。"
+  },
+  {
+   "k": "Or she sent me ahead.",
+   "v": "或者她让我先来。"
+  },
+  {
+   "k": "Either way, the result is the same.",
+   "v": "无论如何，结果都一样。"
+  },
+  {
+   "k": "There’s something buried here that doesn’t belong to the dead.",
+   "v": "这里埋着某个不属于死者的东西。"
+  },
+  {
+   "k": "And I can feel it breathing.",
+   "v": "我能感觉到它在呼吸。"
+  },
+  {
+   "k": "Breathing?",
+   "v": "呼吸？"
+  },
+  {
+   "k": "You’re not making this better.",
+   "v": "你这话可没让情况变好。"
+  },
+  {
+   "k": "Tabitha believes in keeping doors closed.",
+   "v": "塔比莎相信要把门关紧。"
+  },
+  {
+   "k": "I believe in knowing what’s on the other side.",
+   "v": "我相信要弄清门的另一边有什么。"
+  },
+  {
+   "k": "When she meddles, she binds things halfway.",
+   "v": "她一插手，就把东西束缚了一半。"
+  },
+  {
+   "k": "Not alive. Not gone.",
+   "v": "没活着。也没离去。"
+  },
+  {
+   "k": "If I don’t retrieve what she disturbed, it will start calling out.",
+   "v": "如果我不取回她惊扰的东西，它就会开始呼唤。"
+  },
+  {
+   "k": "First to the dead, then to you.",
+   "v": "先是呼唤死者，然后是你。"
+  },
+  {
+   "k": "I won’t need long.",
+   "v": "我不需要太久。"
+  },
+  {
+   "k": "I’ll find what my sister tangled up.",
+   "v": "我会找到我姐姐弄乱的东西。"
+  },
+  {
+   "k": "I’ll take it with me.",
+   "v": "我会把它带走。"
+  },
+  {
+   "k": "And this place will finally be quiet.",
+   "v": "然后这个地方终于会安静下来。"
+  },
+  {
+   "k": "If you refuse…",
+   "v": "如果你拒绝..."
+  },
+  {
+   "k": "Well.",
+   "v": "那么。"
+  },
+  {
+   "k": "It will still get out eventually.",
+   "v": "它终究还是会出来的。"
+  },
+  {
+   "k": "No. You’re not setting foot inside.",
+   "v": "不行。你一步也别想踏进去。"
+  },
+  {
+   "k": "Of course.",
+   "v": "当然。"
+  },
+  {
+   "k": "How can I trust you over your sister?",
+   "v": "我凭什么信你而不是你姐姐？"
+  },
+  {
+   "k": "Ah, I see Tabitha has gotten quite the hold on you.",
+   "v": "啊，看来塔比莎已经把你迷得不轻。"
+  },
+  {
+   "k": "It is a decision for you to make, gravekeeper.",
+   "v": "这要由你来决定，守墓人。"
+  },
+  {
+   "k": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.",
+   "v": "如果我姐姐出现后你一直感到不安，那是因为这里的亡灵被激怒了。"
+  },
+  {
+   "k": "Tabitha does not know how to control the spirits she claims to speak to.",
+   "v": "塔比莎根本不知道如何控制她声称能对话的那些亡灵。"
+  },
+  {
+   "k": "If you did indeed let her into these grounds, only I can undo her damage.",
+   "v": "如果你真的让她进了这片园地，只有我能挽回她造成的破坏。"
+  },
+  {
+   "k": "My sister dabbles in dark arts, but does not understand them.",
+   "v": "我姐姐涉足黑暗法术，却并不理解它们。"
+  },
+  {
+   "k": "This is why I must come in.",
+   "v": "所以我必须进去。"
+  },
+  {
+   "k": "You're quite inquistive. My name is Maribel.",
+   "v": "你可真爱刨根问底。我叫玛丽贝尔。"
+  },
+  {
+   "k": "Likely for the same reason you are.",
+   "v": "大概和你的理由一样。"
+  },
+  {
+   "k": "Fate.",
+   "v": "命运。"
+  },
+  {
+   "k": "This graveyard has quite the allure to it.",
+   "v": "这座墓园有一种独特的吸引力。"
+  },
+  {
+   "k": "It is a noisy place. I was drawn to it.",
+   "v": "这是个喧闹的地方。我被它吸引而来。"
+  },
+  {
+   "k": "I don't mean to cause any harm to you or the spirits you protect.",
+   "v": "我无意伤害你，也无意伤害你保护的亡灵。"
+  },
+  {
+   "k": "I feel them calling to me and I am obligated to respond.",
+   "v": "我感到它们在召唤我，我有义务回应。"
+  },
+  {
+   "k": "You’re smarter than my sister.",
+   "v": "你比我姐姐聪明。"
+  },
+  {
+   "k": "She always begged.",
+   "v": "她总是乞求。"
+  },
+  {
+   "k": "I prefer honesty.",
+   "v": "我更喜欢坦诚。"
+  },
+  {
+   "k": "Ah.",
+   "v": "啊。"
+  },
+  {
+   "k": "So you’re like her after all.",
+   "v": "看来你终究和她一样。"
+  },
+  {
+   "k": "I’ll wait.",
+   "v": "我会等。"
+  },
+  {
+   "k": "Things trapped between worlds get impatient.",
+   "v": "被困在两个世界之间的东西会失去耐心。"
+  },
+  {
+   "k": "And impatience makes noise.",
+   "v": "而失去耐心就会闹出动静。"
+  },
+  {
+   "k": "I’ll see you again.",
+   "v": "我们还会再见的。"
+  },
+  {
+   "k": "All done!",
+   "v": "全都搞定了！"
+  },
+  {
+   "k": "Thank you for letting me in.",
+   "v": "谢谢你让我进来。"
+  },
+  {
+   "k": "I appreciate it more than you know.",
+   "v": "我的感激超乎你的想象。"
+  },
+  {
+   "k": "The graveyard feels just as it should now.",
+   "v": "墓园现在终于恢复了它应有的模样。"
+  },
+  {
+   "k": "Unsuppressed.",
+   "v": "不再受压制。"
+  },
+  {
+   "k": "I’ll be on my way.",
+   "v": "我这就走了。"
+  },
+  {
+   "k": "Take care of yourself, gravekeeper.",
+   "v": "保重，守墓人。"
+  },
+  {
+   "k": "It's late to be out here.",
+   "v": "这么晚了还在外面。"
+  },
+  {
+   "k": "Are you alright?",
+   "v": "你还好吗？"
+  },
+  {
+   "k": "...Let me in.",
+   "v": "...让我进去。"
+  },
+  {
+   "k": "Please...",
+   "v": "求你..."
+  },
+  {
+   "k": "Just let me in.",
+   "v": "让我进去就好。"
+  },
+  {
+   "k": "Okay, come in.",
+   "v": "好吧，进来吧。"
+  },
+  {
+   "k": "I'm sorry ma'am, please go home.",
+   "v": "对不起，女士，请回家吧。"
+  },
+  {
+   "k": "What is your name?",
+   "v": "你叫什么名字？"
+  },
+  {
+   "k": "I have no more questions.",
+   "v": "我没有别的问题了。"
+  },
+  {
+   "k": "Maria.",
+   "v": "玛丽亚。"
+  },
+  {
+   "k": "Stop following me.",
+   "v": "别跟着我。"
+  },
+  {
+   "k": "I think I heard something at the back gate.",
+   "v": "我好像听到后门有动静。"
+  },
+  {
+   "k": "Can you please go check?",
+   "v": "你能去看看吗？"
+  },
+  {
+   "k": "Chen Huang",
+   "v": "黄晨"
+  },
+  {
+   "k": "Harold Vunderbilt",
+   "v": "哈罗德·范德比尔特"
+  },
+  {
+   "k": "Hector",
+   "v": "赫克托"
+  },
+  {
+   "k": "Maria",
+   "v": "玛丽亚"
+  },
+  {
+   "k": "Maribel",
+   "v": "玛丽贝尔"
+  },
+  {
+   "k": "Mr. Huang",
+   "v": "黄先生"
+  },
+  {
+   "k": "Tabitha",
+   "v": "塔比莎"
+  }
+ ]
+}

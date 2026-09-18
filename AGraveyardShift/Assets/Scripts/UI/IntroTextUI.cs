@@ -60,6 +60,8 @@ public class IntroTextUI : MonoBehaviour
     private Coroutine typewriterCoroutine;
     private Action onComplete;
     private Image pageImage;
+    private TMP_FontAsset authoredMainFont;      // fonts as authored, so locale swaps never accumulate
+    private TMP_FontAsset authoredContinueFont;
 
     private void Awake()
     {
@@ -116,6 +118,9 @@ public class IntroTextUI : MonoBehaviour
         onComplete = onCompleteCallback;
         currentPageIndex = 0;
         gameObject.SetActive(true);
+        if (canvas == null) CreateUI();
+        if (authoredMainFont == null && mainText != null) authoredMainFont = mainText.font;
+        if (authoredContinueFont == null && continuePrompt != null) authoredContinueFont = continuePrompt.font;
         StartCoroutine(ShowSequence());
     }
 
@@ -175,11 +180,12 @@ public class IntroTextUI : MonoBehaviour
         if (mainText != null)
         {
             mainText.gameObject.SetActive(true);
-            if (page.font != null)
-                mainText.font = page.font;
-            mainText.fontSize = page.fontSize;
+            Loc.ApplyFont(mainText, page.font != null ? page.font : authoredMainFont, page.fontSize);
             mainText.color = page.textColor;
         }
+
+        // Localized copy of the page text (authored in English in the inspector).
+        string pageText = Loc.Tr(page.text);
 
         // Minimum display time gates advancement for every page type (image or text)
         if (page.minimumDisplayTime > 0f)
@@ -188,15 +194,15 @@ public class IntroTextUI : MonoBehaviour
         }
 
         // Reveal the text (typewriter if enabled and there is text, otherwise instant)
-        if (mainText != null && useTypewriter && !string.IsNullOrEmpty(page.text))
+        if (mainText != null && useTypewriter && !string.IsNullOrEmpty(pageText))
         {
-            typewriterCoroutine = StartCoroutine(TypewriterEffect(page.text));
+            typewriterCoroutine = StartCoroutine(TypewriterEffect(pageText));
         }
         else
         {
             if (mainText != null)
             {
-                mainText.text = page.text;
+                mainText.text = pageText;
                 mainText.maxVisibleCharacters = int.MaxValue;
             }
             MarkTextReady();
@@ -245,7 +251,7 @@ public class IntroTextUI : MonoBehaviour
         // Show full text of current page
         if (currentPageIndex < pages.Length && mainText != null)
         {
-            mainText.text = pages[currentPageIndex].text;
+            mainText.text = Loc.Tr(pages[currentPageIndex].text);
             mainText.maxVisibleCharacters = int.MaxValue;
         }
 
@@ -275,11 +281,9 @@ public class IntroTextUI : MonoBehaviour
         // Show continue prompt
         if (continuePrompt != null)
         {
-            if (continueFont != null)
-                continuePrompt.font = continueFont;
-            continuePrompt.fontSize = continueFontSize;
+            Loc.ApplyFont(continuePrompt, continueFont != null ? continueFont : authoredContinueFont, continueFontSize);
             continuePrompt.color = continueColor;
-            continuePrompt.text = continueText;
+            continuePrompt.text = Loc.Tr(continueText);
         }
 
         canAdvance = true;

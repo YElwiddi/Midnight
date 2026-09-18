@@ -1,0 +1,4721 @@
+{
+ "locale": "ko",
+ "entries": [
+  {
+   "k": "ending.wrathfulSpirit.title",
+   "v": "배드 엔딩 - 분노한 영혼"
+  },
+  {
+   "k": "ending.wrathfulSpirit.type",
+   "v": "엔딩"
+  },
+  {
+   "k": "ending.wrathfulSpirit.description",
+   "v": "정신력을 모두 잃었습니다. 불빛 아래에 머물고 방문객을 확인하세요."
+  },
+  {
+   "k": "ending.ambush.title",
+   "v": "배드 엔딩 - 매복"
+  },
+  {
+   "k": "ending.ambush.type",
+   "v": "엔딩"
+  },
+  {
+   "k": "ending.ambush.description",
+   "v": "묘지를 지키지 못했습니다. 묘지를 더 자주 순찰하고 카메라를 확인하세요. 너무 쉽게 믿지 마세요."
+  },
+  {
+   "k": "ending.wrongfulConviction.title",
+   "v": "굿 엔딩 - 억울한 누명"
+  },
+  {
+   "k": "ending.wrongfulConviction.type",
+   "v": "엔딩"
+  },
+  {
+   "k": "ending.wrongfulConviction.description",
+   "v": "묘지에 평화가 찾아왔습니다."
+  },
+  {
+   "k": "ending.happilyEverAfter.title",
+   "v": "굿 엔딩? - 영원히 행복하게"
+  },
+  {
+   "k": "ending.happilyEverAfter.type",
+   "v": "엔딩"
+  },
+  {
+   "k": "ending.happilyEverAfter.description",
+   "v": "축하합니다!"
+  },
+  {
+   "k": "ending.father.title",
+   "v": "히든 엔딩 - 사제의 운명"
+  },
+  {
+   "k": "ending.father.type",
+   "v": "엔딩"
+  },
+  {
+   "k": "ending.father.description",
+   "v": "찾던 것을 찾았습니까?"
+  },
+  {
+   "k": "fiend.friend.title",
+   "v": "친구"
+  },
+  {
+   "k": "fiend.friend.flavor",
+   "v": "느리지만 치밀하다. 끈기의 달인."
+  },
+  {
+   "k": "fiend.friend.ability",
+   "v": "손전등 빛에 민감함."
+  },
+  {
+   "k": "fiend.friend.spawn",
+   "v": "낮은 지능, 나약한 정신의 징후."
+  },
+  {
+   "k": "fiend.wraith.title",
+   "v": "망령"
+  },
+  {
+   "k": "fiend.wraith.flavor",
+   "v": "빠르고, 공격적이며, 치명적이다."
+  },
+  {
+   "k": "fiend.wraith.ability",
+   "v": "치명적인 사냥 속도."
+  },
+  {
+   "k": "fiend.wraith.spawn",
+   "v": "과신, 오만, 용맹함의 징후."
+  },
+  {
+   "k": "fiend.beast.title",
+   "v": "짐승"
+  },
+  {
+   "k": "fiend.beast.flavor",
+   "v": "소리 없이 움직이며 종잡을 수 없다. 모습을 드러내기 싫어한다."
+  },
+  {
+   "k": "fiend.beast.ability",
+   "v": "은신 및 전기 간섭."
+  },
+  {
+   "k": "fiend.beast.spawn",
+   "v": "소심함, 수줍음 또는 나약함의 징후."
+  },
+  {
+   "k": "fiend.label.ability",
+   "v": "고유 능력:"
+  },
+  {
+   "k": "fiend.label.spawn",
+   "v": "출현 조건:"
+  },
+  {
+   "k": "ui.menu.play",
+   "v": "플레이"
+  },
+  {
+   "k": "ui.menu.endings",
+   "v": "엔딩"
+  },
+  {
+   "k": "ui.menu.settings",
+   "v": "설정"
+  },
+  {
+   "k": "ui.menu.quit",
+   "v": "종료"
+  },
+  {
+   "k": "ui.menu.cancel",
+   "v": "취소"
+  },
+  {
+   "k": "ui.menu.accept",
+   "v": "확인"
+  },
+  {
+   "k": "ui.menu.back",
+   "v": "뒤로"
+  },
+  {
+   "k": "ui.settings.title",
+   "v": "설정"
+  },
+  {
+   "k": "ui.settings.language",
+   "v": "언어"
+  },
+  {
+   "k": "ui.settings.resolution",
+   "v": "해상도"
+  },
+  {
+   "k": "ui.settings.fullscreen",
+   "v": "전체 화면"
+  },
+  {
+   "k": "ui.settings.brightness",
+   "v": "밝기"
+  },
+  {
+   "k": "ui.settings.volume",
+   "v": "음량"
+  },
+  {
+   "k": "ui.settings.brightnessNote",
+   "v": "기본 밝기를 강력히 권장합니다."
+  },
+  {
+   "k": "ui.endings.discovered",
+   "v": "{0} / {1}  발견"
+  },
+  {
+   "k": "ui.endings.fiendsTeaserLocked",
+   "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.endings.fiendsTeaser",
+   "v": "{0} / {1}  지하 묘실의 악귀 발견"
+  },
+  {
+   "k": "ui.fiends.header",
+   "v": "지하 묘실의 악귀"
+  },
+  {
+   "k": "ui.fiends.headerLocked",
+   "v": "?????"
+  },
+  {
+   "k": "ui.fiends.found",
+   "v": "{0} / {1}  발견"
+  },
+  {
+   "k": "ui.disclaimer.headphones",
+   "v": "헤드폰 사용을 권장합니다"
+  },
+  {
+   "k": "ui.pause.resume",
+   "v": "계속하기"
+  },
+  {
+   "k": "ui.pause.exit",
+   "v": "나가기"
+  },
+  {
+   "k": "ui.readable.page",
+   "v": "페이지 {0}/{1}"
+  },
+  {
+   "k": "ui.cctv.camera",
+   "v": "카메라 {0}"
+  },
+  {
+   "k": "??????",
+   "v": "??????"
+  },
+  {
+   "k": "Click to continue...",
+   "v": "클릭하여 계속..."
+  },
+  {
+   "k": "The last gravekeeper left without a word.",
+   "v": "전임 묘지기는 아무 말 없이 떠났다."
+  },
+  {
+   "k": "Don't know why he left, but the job opened up, and I desperately needed cash.",
+   "v": "왜 떠났는지는 모르지만, 자리가 비었고 나는 돈이 절실했다."
+  },
+  {
+   "k": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here.",
+   "v": "그냥 묘지를 지키는 일이다. 그리 어려울 것 없겠지. 젊은 놈들과 패거리들만 이곳에 얼씬 못 하게 하면 된다. 이 근방은 정말 황량하다."
+  },
+  {
+   "k": "September 17, 1999.",
+   "v": "1999년 9월 17일."
+  },
+  {
+   "k": "???",
+   "v": "???"
+  },
+  {
+   "k": "I can't think straight...",
+   "v": "생각을 정리할 수가 없어..."
+  },
+  {
+   "k": "Place the rose on the gravesite?",
+   "v": "무덤에 장미를 놓을까?"
+  },
+  {
+   "k": "The rose immediately wilted away...",
+   "v": "장미가 순식간에 시들어 버렸다..."
+  },
+  {
+   "k": "Where am I?",
+   "v": "여긴 어디지?"
+  },
+  {
+   "k": "I can't leave during my shift...",
+   "v": "근무 중에 자리를 비울 수는 없어..."
+  },
+  {
+   "k": "The door is locked.",
+   "v": "문이 잠겨 있다."
+  },
+  {
+   "k": "The door is locked. There is a cold chill coming from the other side.",
+   "v": "문이 잠겨 있다. 반대편에서 서늘한 기운이 흘러나온다."
+  },
+  {
+   "k": "There is a cold chill coming from the other side. Should I enter?",
+   "v": "반대편에서 서늘한 기운이 흘러나온다. 들어가야 할까?"
+  },
+  {
+   "k": "The door won't budge...",
+   "v": "문이 꿈쩍도 하지 않는다..."
+  },
+  {
+   "k": "I need a shovel for this.",
+   "v": "이걸 하려면 삽이 필요해."
+  },
+  {
+   "k": "Are you sure you want to exhume this site?",
+   "v": "정말 이 무덤을 파헤치시겠습니까?"
+  },
+  {
+   "k": "It's locked.",
+   "v": "잠겨 있다."
+  },
+  {
+   "k": "I think this key from the church opens this chest. Should I unlock it?",
+   "v": "교회에서 얻은 이 열쇠가 이 상자에 맞을 것 같다. 열어 볼까?"
+  },
+  {
+   "k": "I shouldn't be here",
+   "v": "여기 있으면 안 돼"
+  },
+  {
+   "k": "A single rose... should I take it?",
+   "v": "장미 한 송이... 가져가야 할까?"
+  },
+  {
+   "k": "The door won't budge.",
+   "v": "문이 꿈쩍도 하지 않는다."
+  },
+  {
+   "k": "FRONT GATE",
+   "v": "정문"
+  },
+  {
+   "k": "That should be it. I need to keep these on.",
+   "v": "이 정도면 됐어. 이 불들을 계속 켜 둬야 해."
+  },
+  {
+   "k": "I should finish what I came here for.",
+   "v": "여기 온 목적을 마쳐야 해."
+  },
+  {
+   "k": "The door is locked...",
+   "v": "문이 잠겨 있다..."
+  },
+  {
+   "k": "The words on this tombstone are smeared and illegible.",
+   "v": "이 묘비의 글자는 번져서 읽을 수 없다."
+  },
+  {
+   "k": "You found a key. Do you want to pick it up?",
+   "v": "열쇠를 발견했습니다. 주우시겠습니까?"
+  },
+  {
+   "k": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?",
+   "v": "뒷문 열쇠다. 여기 두고 가는 게 좋을 것 같은데. 그래도 가져갈까?"
+  },
+  {
+   "k": "Its locked. I can't find my key...",
+   "v": "잠겨 있다. 내 열쇠가 안 보여..."
+  },
+  {
+   "k": "The gate is stuck.",
+   "v": "문이 걸려서 안 움직인다."
+  },
+  {
+   "k": "I should definitely keep this locked. Should I open it anyway?",
+   "v": "이건 반드시 잠가 둬야 해. 그래도 열까?"
+  },
+  {
+   "k": "I should get these lights on right away...",
+   "v": "당장 저 불들을 켜야겠어..."
+  },
+  {
+   "k": "I should read some of the notes that were left behind...",
+   "v": "여기 남겨진 메모들을 좀 읽어 봐야겠어..."
+  },
+  {
+   "k": "An incessant noise in your head has gone silent.",
+   "v": "머릿속에서 끊임없이 울리던 소음이 잦아들었다."
+  },
+  {
+   "k": "BACK GATE",
+   "v": "뒷문"
+  },
+  {
+   "k": "Use the left and right arrow keys to switch between cameras.",
+   "v": "좌우 방향키로 카메라를 전환하세요."
+  },
+  {
+   "k": "I should check on my visitor.",
+   "v": "방문객을 살펴봐야겠어."
+  },
+  {
+   "k": "Fine. Go in. But be quick.",
+   "v": "좋아요. 들어가세요. 하지만 서둘러 주세요."
+  },
+  {
+   "k": "TOGETHER FOREVER",
+   "v": "영원히 함께"
+  },
+  {
+   "k": "He seems distraught. Let's give him a moment.",
+   "v": "심란해 보인다. 잠시 시간을 주자."
+  },
+  {
+   "k": "Let's give him a moment...",
+   "v": "잠시 시간을 주자..."
+  },
+  {
+   "k": "He seems to be fidgeting around.",
+   "v": "안절부절못하는 것 같다."
+  },
+  {
+   "k": "He appears to be zoning out. I should give him a moment.",
+   "v": "멍하니 넋을 놓은 것 같다. 잠시 시간을 줘야겠어."
+  },
+  {
+   "k": "He appears to be staring out into the distance...",
+   "v": "먼 곳을 응시하고 있는 것 같다..."
+  },
+  {
+   "k": "Let's give her a moment to calm down.",
+   "v": "진정할 수 있게 잠시 시간을 주자."
+  },
+  {
+   "k": "She seems lost in grief. Let's give her a moment.",
+   "v": "슬픔에 잠긴 것 같다. 잠시 시간을 주자."
+  },
+  {
+   "k": "She's standing very still, staring at nothing.",
+   "v": "그녀는 미동도 없이 서서 허공을 응시하고 있다."
+  },
+  {
+   "k": "What was Hector doing out here this late?",
+   "v": "헥터는 이 늦은 시간에 밖에서 뭘 하고 있었던 거지?"
+  },
+  {
+   "k": "He is conducting his investigation, I shouldn't interfere...",
+   "v": "수사 중이니 방해하면 안 되겠어..."
+  },
+  {
+   "k": "I should give him a moment.",
+   "v": "잠시 시간을 줘야겠어."
+  },
+  {
+   "k": "I should give her a moment...",
+   "v": "잠시 시간을 줘야겠어..."
+  },
+  {
+   "k": "A Wrongful Conviction",
+   "v": "억울한 누명"
+  },
+  {
+   "k": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground.",
+   "v": "저주가 풀렸다. 얼마 지나지 않아 이곳에서 벌어진 일들에 대한 모두의 기억이 희미해졌다. 묘지는 서서히 아무도 눈여겨보지 않는 평범한 매장지로 돌아갔다."
+  },
+  {
+   "k": "The flashlight won't turn on...",
+   "v": "손전등이 켜지지 않아..."
+  },
+  {
+   "k": "My shovel broke...",
+   "v": "삽이 부러졌다..."
+  },
+  {
+   "k": "The shovel is broken. I can't dig anymore.",
+   "v": "삽이 부러졌다. 더는 팔 수 없어."
+  },
+  {
+   "k": "Yes",
+   "v": "예"
+  },
+  {
+   "k": "No",
+   "v": "아니요"
+  },
+  {
+   "k": "I shouldn't be here...",
+   "v": "여기 있으면 안 돼..."
+  },
+  {
+   "k": "Why am I here?",
+   "v": "내가 왜 여기 있지?"
+  },
+  {
+   "k": "I need to leave.",
+   "v": "떠나야 해."
+  },
+  {
+   "k": "I'm not safe here",
+   "v": "여긴 안전하지 않아"
+  },
+  {
+   "k": "It's not safe",
+   "v": "위험해"
+  },
+  {
+   "k": "I CAN'T KEEP GOING",
+   "v": "더는 못 가겠어"
+  },
+  {
+   "k": "STOP",
+   "v": "그만"
+  },
+  {
+   "k": "I'M GOING TO DIE",
+   "v": "죽을 거야"
+  },
+  {
+   "k": "I found something...",
+   "v": "뭔가 찾았다..."
+  },
+  {
+   "k": "Nothing here... just bones.",
+   "v": "아무것도 없어... 뼈뿐이야."
+  },
+  {
+   "k": "I picked up the shovel.",
+   "v": "삽을 주웠다."
+  },
+  {
+   "k": "The spirits have been appeased...",
+   "v": "영혼들이 진정되었다..."
+  },
+  {
+   "k": "Are you sure you want to enter?",
+   "v": "정말 들어가시겠습니까?"
+  },
+  {
+   "k": "A single rose, perfectly preserved. Should I take it?",
+   "v": "온전히 보존된 장미 한 송이. 가져가야 할까?"
+  },
+  {
+   "k": "I can't... I can't think straight...",
+   "v": "안 돼... 생각을 정리할 수가 없어..."
+  },
+  {
+   "k": "Here lies Aaron Vanderbilt\n1924-1993",
+   "v": "애런 밴더빌트 여기 잠들다\n1924-1993"
+  },
+  {
+   "k": "MOCKERY OF LIFE",
+   "v": "삶에 대한 조롱"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+   "v": "회수된 현장 기록, 비공식 명칭: \n「짐승」\n출처 삭제됨\n\n생존자들이 한결같이 말하는 것이 하나 있다. 그 생물은 자신의 존재를 알리지 않는다. 당신을 판단하기 전까지 기다린다. 나약한 정신의 징후가 그것을 끌어들이는 듯하다. 그것은 망설임을 노린다. 생각이 느려지고 의지가 안으로 무너져 내리는 그 순간을.\n\n자신이 사냥당하고 있었음을 끝내 깨닫지 못한 자들은 대개 아무것도 보고하지 않는다. 그들은 조용히 사라진다. 비명도, 추격의 흔적도 없다. 짐승은 공포 따위에 힘을 낭비하지 않는다."
+  },
+  {
+   "k": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+   "v": "모습을 드러낼 때는 의도적이고 짧다. 있어서는 안 될 곳에 나타나는 실루엣.\n\n그것은 속도보다 은신을, 힘보다 인내를 택한다. 몇 시간, 때로는 며칠 동안 보이지 않은 채 같은 사람을 추적하며, 사냥감이 두려움, 고립, 혹은 의심을 통해 살해가 손쉬울 것임을 스스로 증명할 때까지 기다린다.\n\n그것을 응시한 자는 정신을 잃는다. 전자 기기를 교란한다는 사실도 알려져 있다."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM",
+   "v": "묘지기의 기록 발췌\n아델 가족\n\n\n가족 구성원:\n제이슨 아델, 5세, 사망\n마리아 아델, 31세, 생존\n먼로 아델, 31세, 사망\n\n제이슨은 이곳에 안치되어 있다.\n\n사인: 질식\n\n사망 시각: 1998년 12월 28일 화요일 오후 8시 04분"
+  },
+  {
+   "k": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances.",
+   "v": "제이슨과 먼로 아델은 명백한 몸싸움의 흔적이 남은 자택에서 숨진 채 발견되었다. 먼로는 목의 주요 동맥을 포함한 여러 자상으로 인해 과다 출혈로 사망했다. 제이슨은 목에 입은 명백한 상처로 사망했으며, 그 상처는 그의 아버지가 입힌 것으로 보인다.\n\n마리아는 사건 직후 정신병원에 수용되었으나 얼마 후 퇴원했다. 이후 그녀는 정신착란 상태에서 무덤을 찾기 위해 문을 부수고 들어오려 한 일로 이곳 출입이 영구 금지되었다.\n\n마리아는 어떠한 경우에도 출입이 허용되지 않는다."
+  },
+  {
+   "k": "I should let her in",
+   "v": "그녀를 들여보내야 해"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「친구」\n기이한 조우\n\n오늘 이상한 변화를 알아차렸다. 기온이 아무 이유 없이 급격히 떨어졌다. 작은 물건들이 마치 무언가가 지나간 듯 자리를 옮겨 있었다. 움직임은 미미하고 거의 감지할 수 없었지만 끈질겼다.\n\n설명하기 어려운, 누군가 지켜보고 있다는 감각이 있다. 그림자는 더 무거워 보이고, 이따금 시야 가장자리 바로 너머에서 어떤 존재가 느껴진다. 그것은 조심스럽게 움직이며 직접적인 빛을 피하고, 자극받지 않는 한 소리를 내지 않는다. 그 양상은 일관되지 않지만, 의식이 있음을 짐작케 할 만큼은 의도적이다."
+  },
+  {
+   "k": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+   "v": "설명할 수 없는 미묘한 흔적들을 관찰했다. 이전에는 고요했던 표면에 흐트러진 자국이 남는다. 그 후의 공기는 종종 무겁게 느껴지며, 마치 움직임의 기억을 간직한 듯하다. 변화는 격렬하지 않지만 불안할 정도로 규칙적으로 반복된다.\n\n이 이상 현상들을 신중하게 기록했다. 구조적 손상도, 사람이 손댄 흔적도, 관찰과 맞아떨어지는 설명도 없다. 그런데도 현상은 계속되고, 매번 똑같이 억누르는 듯한, 오래 남는 인상을 남긴다.\n\n설명할 수 없다. 그것이 무엇이든, 자신의 행동을 온전히 자각하지 못하는 듯하면서도 그 존재는 이 공간에 깊은 영향을 미친다. 이 생물의 진짜 위협은 그것의 부재 속에서 느껴진다. 앞으로도 추가 발생을 기록하고, 드러나는 규칙을 계속 적어 나갈 것이다."
+  },
+  {
+   "k": "Those who unearth the grave meant to remain closed seal their fate.",
+   "v": "닫힌 채로 남아야 할 무덤을 파헤치는 자는 스스로 운명을 봉인한다."
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
+   "v": "회수된 현장 기록, 임시 명칭:\n「신부」\n조우 내용 불명"
+  },
+  {
+   "k": "This entry appears to be empty.",
+   "v": "이 항목은 비어 있는 듯하다."
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「망령」\n장소 비공개\n\n내가 시신을 보기도 전에 장부에 그것의 흔적이 남는다.\n\n이 땅을 수년째 걸어 다녔건만, 그것이 지나갈 때면 공기가 달라진다. 그것은 보이지 않는다. 생물이 나타나리라 기대하는 방식으로는. 오직 정적만이 그것을 드러낸다.\n\n그것이 고른 자들은 도망치지 않는다. 추격도 없다. 몸부림도 없다. 누군가 알아차릴 즈음이면 이미 그것이 데려간 뒤다. 의심의 여지가 없다. 이 존재는 기록된 것들 중 가장 위험해 보인다."
+  },
+  {
+   "k": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+   "v": "그것은 강함에 이끌린다. 유능한 자, 반항하는 자, 준비된 자. 그들이 먹잇감이다. 약한 자는 눈에 띄지 않고 지나갈 수 있지만, 강한 자는... 그것이 자격 있다고 여긴 자는 정확하게 끝장난다. 어떤 생존자도 그 조우를 이야기하지 못한다. 남는 것은 미묘하고 잔혹한 증거뿐이다.\n\n그것이 어떻게 움직이는지, 어디서 오는지는 모른다. \n보고서들은 이 생물과의 조우가 통상적인 사냥으로 끝나지 않으리라는 결론만을 내린다."
+  },
+  {
+   "k": "This place was not filled at random.",
+   "v": "이곳은 아무렇게나 채워진 것이 아니다."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
+   "v": "묘지기의 기록 발췌\n앤더슨 가족\n\n\n가족 구성원:\n앤서니 앤더슨, 41세, 사망\n다이앤 앤더슨, 39세, 사망\n제임스 앤더슨, 9세, 사망\n데릭 앤더슨, 10세, 사망\n릴리 앤더슨, 6세, 생존\n\n앤서니는 이곳에 안치되어 있다.\n\n사인: 주택 화재로 인한 소사\n\n사망 시각: 1988년 10월 11일 화요일 오전 12시 03분"
+  },
+  {
+   "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
+   "v": "앤서니 앤더슨과 아내 다이앤, 두 아들은 자정 직후 신고된 화재 후 자택에서 수습되었다. 화재 원인은 피해가 가장 집중된 뒤쪽 계단 근처의 전기 결함으로 추정되었다. 희생자들은 위층 침실에서 함께 발견되었으며 사인은 연기 흡입으로 기록되었다. 아이 하나가 구조대 도착 전에 집을 빠져나와 살아남았고, 이후 위탁 가정에 맡겨졌다. 공식 기록에는 강제 침입이나 외부 개입의 증거가 없다.\n\n이웃들은 화재 전 몇 주 동안 가족이 불규칙하게 생활했고, 이유도 밝히지 않은 채 위층 방에서 물건들을 조금씩 치웠다고 회상했다. 설비 점검에서 이전 결함은 발견되지 않았고, 생존한 아이는 불길이 보이기 전의 상황을 설명하기를 거부한 채, 아버지가 다 함께 있으라고 했다고만 말했다. 계단 근처 잔해에서 라이터 하나가 목록에 올랐으나 화재 손상을 이유로 무의미한 것으로 처리되었다. 사건은 사고사로 종결되었고 추가 조사는 없었다."
+  },
+  {
+   "k": "Here lies Zackary Holmes\nFather of One\n1952-1998",
+   "v": "재커리 홈즈 여기 잠들다\n한 아이의 아버지\n1952-1998"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「유레이」\n\n묘지 안에서 새로운 존재가 확인되었다. 시기로 보아 최근의 매장과 관련된 듯하나, 해당 무덤은 확인되지 않았다. 활동은 시간을 두고 발전했다기보다 어떤 역할을 떠맡은 듯 갑작스럽게 시작되었다.\n\n이 존재는 고조된 감정적 민감성을 보인다. 사람의 존재는 개인적인 성격을 띠는 듯한 다양한 영향을 낳는다. 어떤 방문객은 마치 머무르라고 부드럽게 권유받는 듯한 평온함이나 망설임을 느낀다고 말한다. 다른 이들은 불안, 침습적인 생각, 그리고 환영받지 못한다는 강한 인상을 받는다."
+  },
+  {
+   "k": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+   "v": "행동은 선택적 판단을 보여 준다. 물리적 장애물 없이 출입이 방해되는 경우가 있는가 하면, 조용히 허용되는 경우도 있다. 이런 결정은 일관성이 없어 보이며, 해를 끼치려는 의도보다는 내적 갈등을 시사한다.\n\n이 땅에 대한 무례는 책임 있는 자에게 즉각적인 정신 착란을 일으킨다. 질서가 회복되면 그 영향은 가라앉는다. 이 존재에게 직접 귀속된 물리적 피해는 없다.\n\n유레이는 묘지에 매여 있으며 그 보존에 마음을 쏟는 듯하다. 그녀는 안식을 구하면서도 경계를 늦추지 않는다. 특정 인물에 대한 애착이 그녀의 역할을 복잡하게 만든다. 지속적인 관찰이 필요하다."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM",
+   "v": "묘지기의 기록 발췌\n홈즈 가족\n\n\n가족 구성원:\n제이슨 홈즈, 48세, 생존\n재커리 홈즈, 46세, 사망\n에드워드 홈즈, 17세, 사망\n엘리자베스 홈즈, 45세, 생존\n\n에드워드와 재커리는 이곳에 안치되어 있다.\n\n사인: 불명, 사고로 추정\n\n사망 시각: 1998년 4월 12일 일요일 오전 3시 45분"
+  },
+  {
+   "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
+   "v": "재커리와 에드워드 홈즈는 군도(郡道)에서 신고된 사고 후 이곳에 안장되었다. 공식 기록은 단독 차량 사고로 기술하며, 차량은 수목 경계선 너머에서 전복된 채 발견되었고 당국이 도착했을 때 엔진은 아직 따뜻했다. 엘리자베스는 근처에서 충격에 빠진 상태로 발견되어 이후 기소 없이 풀려났다. 남은 가족은 추가 조사를 거부했고, 사건은 악의가 아닌 불운으로 기록되었다.\n\n그 몇 주 전, 이웃들은 홈즈 가 저택의 이상한 생활 시간과, 지하실의 가구가 어딘가로 꾸준히 옮겨지는 것을 알아차렸다. 교구 기록에 따르면 재커리와 에드워드는 한동안 예배에 참석하지 않았으나, 이후 그들의 유품 중에서 양초와 재가 발견되었다. 묘지기는 차량의 손상이 기술된 심각성에 비해 경미했으며, 엘리자베스가 매장 후 다시는 이곳에 돌아오지 않았다고 기록한다. 그날 새벽 3시 45분 이전에 무슨 일이 있었는지는 공식적으로 조사되지 않았으나, 산 자들이 지키는 침묵은 보고서가 쓰이기 훨씬 전에 결론이 나 있었음을 시사한다."
+  },
+  {
+   "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
+   "v": "그놈은 거짓말쟁이 개자식이다 믿지 마라"
+  },
+  {
+   "k": "It patrols. Corners are death.",
+   "v": "그것은 순찰한다. 모퉁이는 죽음이다."
+  },
+  {
+   "k": "The necessary course is clear.\nThose interred under false cause must be exhumed.",
+   "v": "필요한 길은 명확하다.\n거짓된 사유로 매장된 자들은 파내어져야 한다."
+  },
+  {
+   "k": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998",
+   "v": "제이슨 아델 여기 잠들다\n이 세상에 있기엔 너무 아름다웠던\n1993-1998"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment.",
+   "v": "묘지기의 기록 발췌\n조지프 신부\n\n얼마 전 버려진 이 교회는 이곳에 묻힌 이들보다 더 오래된 시대에 지어졌다. 수백 년의 역사를 지닌 교회가 최근에 버려졌다. 교회가 버려진 시기와, 그 이후 시작된 기이한 상황들의 우연한 일치에 대한 언급이 있었다."
+  },
+  {
+   "k": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate.",
+   "v": "교회의 마지막 관리인과 그의 수수께끼 같은 실종에 관한 정보:\n\n조지프 신부는 오래전 이곳을 자주 찾았고 환영받았다. 그가 있을 때면 이곳의 분위기는 대개 평온했다.\n\n그는 성직자의 결혼을 허용하지 않는 교파 출신이다. 그는 이 규율을 어기고, 지나치게 엄격하다고 여긴 특정 해석을 두고 교단 내에 분쟁을 일으킨 것으로 보인다. 이후 그는 성직을 부정했다.\n\n그는 약혼자와 결혼할 예정이었으나 결혼식 당일 제단에 나타나지 않았다. 이전 기록에는 약혼자가 조지프 신부의 운명을 알게 되었다고 전해진 뒤 슬픔으로 세상을 떠났다고 언급되어 있다.\n\n그의 운명은 아직까지 밝혀지지 않았다."
+  },
+  {
+   "k": "Hannah Wainwright\n1904\nDeath by electric chair",
+   "v": "해나 웨인라이트\n1904\n전기의자로 사망"
+  },
+  {
+   "k": "Henry Fairchild\n1802\nDeath during imprisonment",
+   "v": "헨리 페어차일드\n1802\n수감 중 사망"
+  },
+  {
+   "k": "TRAPPED",
+   "v": "갇혔다"
+  },
+  {
+   "k": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998",
+   "v": "에드워드 홈즈 여기 잠들다\n사랑받은 아들, 헌신적인 친구\n1981-1998"
+  },
+  {
+   "k": "Anne Radcliffe\n1792\nDeath by guillotine",
+   "v": "앤 래드클리프\n1792\n단두대로 사망"
+  },
+  {
+   "k": "TORN IN TWO",
+   "v": "둘로 찢겼다"
+  },
+  {
+   "k": "Benjamin Carver\n1742\nDeath by drowning",
+   "v": "벤저민 카버\n1742\n익사"
+  },
+  {
+   "k": "James Thornton\n1804\nDeath by firing squad",
+   "v": "제임스 손턴\n1804\n총살형으로 사망"
+  },
+  {
+   "k": "THE BLEEDING WON'T STOP",
+   "v": "피가 멈추지 않아"
+  },
+  {
+   "k": "Cordelia Monroe\n1802\nBurned at the stake",
+   "v": "코델리아 먼로\n1802\n화형"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
+   "v": "묘지기의 기록 발췌\n애덤스 가족\n\n가족 구성원:\n에드윈 애덤스, 21세, 생존\n제인 애덤스, 54세, 사망\n레베카 애덤스, 48세, 생존\n\n제인 애덤스는 이곳에 안치되어 있다.\n\n사인: 자살\n\n사망 시각: 1985년 12월 22일 일요일 오전 3시 21분"
+  },
+  {
+   "k": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
+   "v": "제인 애덤스는 질서와 절제로 규정된 삶을 마치고 이곳에 잠들었다. 그녀는 오랜 세월 시 공공사업소에서 경리로 일했고, 집을 티 없이 관리했으며, 아들 에드윈을 엄격한 일과와 분명한 기대 속에서 키웠다. 에드윈이 일곱 살이 되자 그녀는 아들을 다른 주에 사는 가까운 지인 가족에게 보냈고, 이웃에게는 더 나은 교육을 위해서라고 말했다. 아들이 떠난 뒤 제인은 직장에 나가지 않는 날이 잦아졌고, 조용히 사직했다.\n\n몇 주 후 제인은 스스로 목숨을 끊었다. 묘지기는 에드윈이 그녀의 죽음을 끝내 통보받지 못했으며, 관계자들이 그를 불러들이지도, 사정을 알리지도 않는 것이 최선이라는 데 동의했다고 기록한다. 자신의 행동이 낳은 결과와 그에 따른 불명예는 그녀가 공개적으로 감당할 수 있는 수준을 넘어섰다. 그녀는 고독 속에서 생을 마감했고, 그로써 아들의 기억 속 어머니는 그녀가 견딜 수 없었던 진실로부터 자유롭게 남게 되었다."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
+   "v": "묘지기의 기록 발췌\n밴더빌트 가족\n\n가족 구성원:\n애런 밴더빌트, 69세, 사망\n해럴드 밴더빌트, 42세, 불명\n에릭 밴더빌트, 22세, 생존\n\n애런 밴더빌트는 이곳에 안치되어 있다.\n\n사인: 총상\n\n사망 시각: 1993년 6월 27일 일요일 오후 7시 48분"
+  },
+  {
+   "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
+   "v": "애런 밴더빌트는 부재와 실수의 무게를 짊어진 삶을 산 남자로 이곳에 기억된다. 그의 형제는 오래전 누구도 추적할 수 없는 상황에서 사라졌고, 애런은 홀로 세상을 헤쳐 나가야 했다. 유능하고 영리했음에도 그는 기회를 약속하지만 위험을 안겨 주는 무리에 이끌렸고, 충성심은 덧없고 의도는 좀처럼 정직하지 않은 이들과 어울렸다.\n\n그를 알던 이들은 자신감 넘치는 겉모습 뒤에 감춰진 조용한 고통을 이야기한다. 나쁜 무리와의 거래는 그의 말년 대부분을 규정했고, 그를 고립되고 경계심 많은 사람으로 만들었다. 형제의 운명은 그의 삶 위에 드리운 그림자로 남아, 잃어버린 길과 스스로 통제할 수 없는 결과를 낳는 선택을 상기시킨다.\n\n애런 밴더빌트는 이곳에 홀로 잠들어 있다."
+  },
+  {
+   "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
+   "v": "<size=145%><b>파수꾼의 수기</b></size>\n<size=85%>1999</size>\n\n<i>이 책에는 이 묘지를 지키는 방법에 대한 지침이 담겨 있다. 이 지침에서 벗어나지 말 것. 이 책은 역대 묘지 파수꾼들의 모든 기록을 모은 것이다.</i>\n\n<i>이 안식처는 수백 년의 역사를 지녔으며 함부로 손대서는 안 된다. 묘지기로서 다음 지침을 읽고 이를 준수할 것.</i>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  묘지 전체의 등불이 항상 켜져 있도록 할 것.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  십자가가 항상 오두막 문에 제대로 걸려 있도록 할 것. 십자가가 당신의 정신력을 좌우한다.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  휴식이 필요하면 오두막으로 돌아갈 것. 십자가가 문에 걸려 있는 한 그곳은 언제나 안전하다.</align>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  고인과 직접적인 혈연관계가 있는 방문객만 들여보낼 것.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  방문객을 맹목적으로 믿지 말 것. 그들이 제공하는 모든 정보를 반드시 대조 확인할 것.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  원치 않는 방문객이 무덤을 훼손하지 못하도록 정문에서 보초를 설 것. 구내 순찰도 해야 한다.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  무단 침입자가 있으면 손전등으로 쫓아낼 것. 무덤 근처에 침입자가 없는지 항상 확인할 것.</align>\n\n<size=72%><i>(계속)</i></size>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  뒷문은 항상 잠가 둘 것. 뒤쪽을 통한 출입은 허용되지 않는다.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  CCTV 카메라 시스템이 양쪽 출입문을 감시한다. 구역의 안전을 위해 이를 살피는 것이 중요하다. 오두막 구석에서 영상을 볼 수 있다.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  무엇보다 중요한 것: 묘소를 존중할 것. 그들의 안식을 방해하지 말 것. 환영받지 못하는 자들은 쫓아낼 것.</align>\n\n<size=80%><i>— 끝 —</i></size>"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
+   "v": "묘지기의 기록 발췌\n황 가족\n\n가족 구성원:\n황원치, 73세, 생존\n황메이, 70세, 사망\n황천, 48세, 생존\n\n황메이는 이곳에 안치되어 있다.\n\n사인: 약물 주사형\n\n사망 시각: 1993년 3월 27일 토요일 오후 4시 00분"
+  },
+  {
+   "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
+   "v": "황 씨 성으로 된 무덤은 하나뿐이지만, 그 준비 과정은 서둘러 내렸으되 정성껏 지켜진 결정을 짐작케 한다. 묘역은 황원치 본인이 골랐다. 그는 서류를 준비해 왔고 또렷하게 말했으나 늘 일관되지는 않았으며, 이미 정해진 세부 사항을 이따금 되풀이했다. 황 부인은 새벽에 옮겨져 왔다. 다른 친척은 아무도 참석하지 않았다. 아들이 오느냐고 묻자 원치는 가족은 이대로 다 왔다고 답한 뒤, 왜 그 대답이 중요한지 모르겠다는 듯 잠시 말을 멈췄다. 사인은 기록되었고, 하나의 범죄는 해결되었으며, 이 일은 이의 없이 받아들여졌다.\n\n황메이는 기록에 거의 남지 않은 작은 친절들로 알려진, 조용한 삶을 살았다. 마지막 몇 달 동안 그 배려는 희미해졌고, 그와 함께 그녀를 지켜 주던 것도 사라졌다. 나는 불명예에 관한 문제가 해결되었다는 말만 들었을 뿐, 자세한 내용은 듣지 못했다. 아들의 이름으로 된 공물은 허용되지 않는다. 원치는 이제 혼자 찾아오며, 때로 같은 말을 되풀이하고, 떠나기 전에는 언제나 묘비를 확인한다. 마치 그것이 다른 말을 해 주기를 기대하는 것처럼."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+   "v": "묘지기의 기록 발췌\n미등록 방문객\n\n정문에 주기적으로 나타나는 두 여자가 있다.\n\n그들은 결코 함께 오지 않지만, 각자 상대가 이미 들어갔다고 우긴다.\n\n둘 다 죽은 이들을 잘 안다고 주장한다. 둘 다 묘비에 새겨지지 않은 이름들을 알고 있다. 어떻게 아느냐고 물으면 한 사람은 즉시, 그리고 틀리게 대답한다. 다른 한 사람은 천천히, 명확함에 아무 도움도 되지 않는 세부 사항을 곁들여 대답한다. 나는 둘 중 누구를 바로잡는 것도 실수라는 것을 배웠다.\n\n한 사람은 언제나 출입에 대해 묻는다. 자물쇠, 순찰, 흙이 가장 무른 시간. 그녀는 유산에 대해, 빚진 것에 대해, 방치해 두어서는 안 될 것에 대해 말한다. 거절당하면 마치 거절을 예상했다는 듯 미소 짓는다. 그래도 그녀는 다시 온다."
+  },
+  {
+   "k": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+   "v": "다른 한 사람은 경계에 대해 묻는다. 무엇이 붙들려 있고 무엇이 갇혀 있는지에 대해. 그녀는 무게, 압력, 어떤 것들을 제자리에 붙들어 두는 대가에 대해 말한다. 거절당하면 놀란 듯하다가, 안도하고, 이내 실망한 표정을 짓는다. 그녀는 따지지 않는다. 다음번에는 그저 요구를 바꿀 뿐이다.\n\n어느 여자가 어느 요구를 하는지는 기록하지 않는다. 그것은 듣는 사람에 따라 달라지기 때문이다.\n\n둘 중 한 사람은 절대 들여보내지 않는다. 이 결정은 단순하며 변하지 않는다. 그녀는 이를 알면서도 서로 모순되는 이유를 대며 어김없이 시험한다. 때로는 이미 허락을 받았다고 주장한다. 때로는 꼭 필요한 일이라고 주장한다. 한번은 내가 오라고 했다고 주장한 적도 있다."
+  },
+  {
+   "k": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+   "v": "다른 한 사람은 특정한 조건에서 들어올 수 있다. 날씨, 시간, 최근의 매장이 모두 여기에 영향을 준다. 나는 그녀에게 이유를 설명하지 않는다. 돌려보내지면 그녀는 그것을 잠정적인 것으로 받아들인다. 들여보내지면 오래 머물지 않는다.\n\n각자 상대를 부정직하다고 비난한다. 각자 증거를 내놓는다. 양쪽 다 설득력이 있다. 어느 쪽도 길게 설명하지 않는다.\n\n한 사람은 어김없이 상대를 넌지시 언급한다. 다른 한 사람은 묻지 않으면 자매를 인정하지 않는다. \n\n거짓말을 하는 쪽은 결코 들여보내서는 안 된다."
+  },
+  {
+   "k": "William Pembroke\n1705\nDeath by hanging",
+   "v": "윌리엄 펨브로크\n1705\n교수형으로 사망"
+  },
+  {
+   "k": "I CAN'T BREATHE",
+   "v": "숨을 쉴 수 없어"
+  },
+  {
+   "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
+   "v": "이 회랑을 충분히 돌고 나면, 어떤 누락들은 더 이상 무시할 수 없게 된다.\n이곳에 안식해야 할 죽은 이들은 마땅히 받아야 할 예우를 받지 못하고 있다. 이곳은 형벌의 장이다."
+  },
+  {
+   "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",
+   "v": "앤서니 앤더슨 여기 잠들다\n세 아이의 아버지, 남편\n1947-1988"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive",
+   "v": "묘지기의 기록 발췌\n들로이트 가족\n\n\n가족 구성원:\n셰인 들로이트, 31세, 생존\n레지널드 들로이트, 29세, 생존"
+  },
+  {
+   "k": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks.",
+   "v": "들로이트 가족은 새로 이주해 온 이들이다. 신원 조회 기록에 따르면 두 형제는 오랫동안 서로 반목해 왔으나 최근 들어 그 감정이 가라앉았다고 한다. \n\n묘지기는 그 밖의 언급을 남기지 않았다."
+  },
+  {
+   "k": "NO REST",
+   "v": "안식은 없다"
+  },
+  {
+   "k": "Here lies Mei Huang\nWife, Mother of One\n1923-1993",
+   "v": "황메이 여기 잠들다\n아내, 한 아이의 어머니\n1923-1993"
+  },
+  {
+   "k": "LIAR",
+   "v": "거짓말쟁이"
+  },
+  {
+   "k": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985",
+   "v": "제인 애덤스 여기 잠들다\n어머니, 자매, 사랑받은 친구.\n1931-1985"
+  },
+  {
+   "k": "SELFISH",
+   "v": "이기적인"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+   "v": "회수된 현장 기록, 임시 명칭:\n「도굴꾼」\n출처 삭제됨\n\n반복적으로 나타나는 한 인물이 무덤 훼손 사건 대부분과 연관되어 있다. 이 인물은 절도와 신성모독을 일삼는 외부인들의 주요 연락책 노릇을 하는 지역 주민으로 추정된다. 그의 진짜 정체는 밝혀지지 않았다.\n\n그는 혼자 움직이지 않는다. 그의 공범들은 개방 시간 외에 묘지를 정찰하며 시야와 대응 시간을 시험하는 모습이 자주 목격된다. 이들은 빛을 비추면 물러나며, 손전등을 지속적으로 사용해 성공적으로 쫓아낸 바 있다. 그들의 활동은 계속되고 있으며 의도적이므로 끊임없는 경계가 필요하다."
+  },
+  {
+   "k": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+   "v": "외부인들은 이 지역과 아무런 연고가 없음에도 묘지의 배치, 순찰 패턴, 접근 경로를 상세히 알고 찾아온다. 이 정보는 그가 제공한 것으로 추정된다. 그가 나타나면 활동이 급격히 늘고, 그가 떠나면 흩어진다.\n\n도굴꾼은 폭력적이다. 증거는 필요에 의한 것이 아니라 의도적인 위협임을 시사한다. 부서진 도구, 과도한 폭력, 공범들 사이의 내분 흔적은 공포로 유지되는 우두머리의 지위를 보여 준다.\n\n이전 묘지기들은 그와 마주친 일을 보고했다. 매번 그 직후 기록이 끊긴다. 한 묘지기는 예고 없이 자리를 버렸다. 다른 한 사람은 추락과는 맞지 않는 부상으로 입원했다. 세 번째 사람은 목격을 기록했지만 마지막 항목은 일지에서 찢겨 나갔다."
+  },
+  {
+   "k": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+   "v": "그는 신원 파악을 피한다. 얼굴 특징은 보고마다 다르며, 믿을 만한 영상은 한 번도 확보되지 않았다. 그럼에도 그의 존재는 틀림없다. 지속적인 관찰이 필요하다. 직접적인 대치는 권장하지 않는다."
+  },
+  {
+   "k": "Not every name corresponds to a lived life.",
+   "v": "모든 이름이 살아 낸 삶에 대응하는 것은 아니다."
+  },
+  {
+   "k": "Elizabeth Crowther\n1702\nDeath by illness",
+   "v": "엘리자베스 크로더\n1702\n병사"
+  },
+  {
+   "k": "STAY AWAY FROM ME",
+   "v": "내게서 떨어져"
+  },
+  {
+   "k": "Rebecca Langley\n1733\nDeath by lynching",
+   "v": "레베카 랭글리\n1733\n사형(私刑)으로 사망"
+  },
+  {
+   "k": "LET ME GO",
+   "v": "놓아줘"
+  },
+  {
+   "k": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994",
+   "v": "서맨사 바인스 여기 잠들다\n두 아이의 사랑받은 어머니, 아내\n1972-1994"
+  },
+  {
+   "k": "Mary Langley\n1755\nDeath during childbirth",
+   "v": "메리 랭글리\n1755\n출산 중 사망"
+  },
+  {
+   "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
+   "v": "조지프 신부의 운명\n\n떨리는 손으로 이 글을 쓴다. 나는 이곳과 이곳에 깃든 자들의 끔찍한 진실을 알아냈다. 조지프 신부는 정말로 죽음보다 끔찍한 운명을 맞았다.\n\n이곳이 지금 이대로인 한, 조지프 신부는 이 묘지에 매여 있는 신세다. 기억에서 잊히고, 믿음 없는 자들에게 훼손된 묘비. 그의 연인이 남긴 마지막 작별 인사로 심어져야 했던 선물.\n\n자비로운 영혼이 그의 연인이 꺾은 마지막 공물을 찾게 된다면, 잊힌 그의 무덤 위에 놓아 주기를. 그때에야 비로소 조지프 신부는 자신에게 허락되지 않았던 작별을 받고, 그토록 오래 그를 비껴간 안식을 찾을 수 있을지도 모른다."
+  },
+  {
+   "k": "I'M FREE",
+   "v": "자유다"
+  },
+  {
+   "k": "Hey Brian! I came by to see how you've been.",
+   "v": "어이, 브라이언! 어떻게 지내나 보러 왔어."
+  },
+  {
+   "k": "I'm sorry you had to take the night shift here. This place couldn't look more depressing.",
+   "v": "여기서 야간 근무를 맡게 돼서 안됐다. 이보다 우울한 곳도 없을 거야."
+  },
+  {
+   "k": "It's not that bad...",
+   "v": "그렇게 나쁘진 않아..."
+  },
+  {
+   "k": "I appreciate you coming by, Hector. It's good to see you.",
+   "v": "와 줘서 고마워, 헥터. 얼굴 보니 좋다."
+  },
+  {
+   "k": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people.",
+   "v": "네가 그렇다면야. 난 저 다 쓰러져 가는 오두막에 틀어박혀서 죽은 사람들이나 지키고 싶진 않거든."
+  },
+  {
+   "k": "...",
+   "v": "..."
+  },
+  {
+   "k": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff.",
+   "v": "야, 오해는 하지 마. 이런 일자리라면 목숨 걸고 달려들 사람도 많아. 라디오 듣고 꾸벅꾸벅 조는 것 말곤 할 일도 없잖아. 그런 걸 좋아하는 사람도 있으니까."
+  },
+  {
+   "k": "How are you keeping busy anyway?",
+   "v": "그나저나 시간은 어떻게 때우고 있어?"
+  },
+  {
+   "k": "Honestly, it's been pretty dull so far.",
+   "v": "솔직히 지금까진 꽤 지루했어."
+  },
+  {
+   "k": "Just been keeping my head down and staying vigilant, to be honest.",
+   "v": "솔직히 말하면 조용히 지내면서 경계만 하고 있어."
+  },
+  {
+   "k": "Dull? Well, if you say so. I guess that's better than being creeped out.",
+   "v": "지루하다고? 뭐, 네가 그렇다면야. 겁에 질려 있는 것보단 낫겠지."
+  },
+  {
+   "k": "I can't stand the idea of sleeping a few feet away from those tombstones.",
+   "v": "난 저 묘비들에서 몇 걸음 떨어진 데서 잔다는 생각만으로도 견딜 수가 없어."
+  },
+  {
+   "k": "But hey, if you're that bored, why not make it a bit more interesting?",
+   "v": "근데 말이야, 그렇게 지루하면 좀 재밌게 만들어 보는 건 어때?"
+  },
+  {
+   "k": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?",
+   "v": "여기서 멀지 않은 숲을 배회한다는 흉포한 괴물 소문 들어 봤어?"
+  },
+  {
+   "k": "How about I head home to grab some equipment, and then we go track it down together?",
+   "v": "내가 집에 가서 장비 좀 챙겨 오면, 같이 그놈을 추적해 보는 거 어때?"
+  },
+  {
+   "k": "No thanks, I really shouldn't leave my shift.",
+   "v": "됐어, 난 정말 근무지를 떠날 수 없어."
+  },
+  {
+   "k": "Real funny, Hector.",
+   "v": "진짜 웃기네, 헥터."
+  },
+  {
+   "k": "Heh, alright, whatever you say.",
+   "v": "흐흐, 알았어, 네 맘대로 해."
+  },
+  {
+   "k": "Well I just dropped by for a moment to check in on you.",
+   "v": "뭐, 잠깐 들러서 네 안부나 확인하러 온 거야."
+  },
+  {
+   "k": "I'll stop by again tomorrow to make sure you're alright.",
+   "v": "내일 또 들러서 괜찮은지 확인할게."
+  },
+  {
+   "k": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit.",
+   "v": "너희 부모님이 꽤 걱정하시더라. 네가 안부 전하더라고 말씀드릴게. 그러면 좀 안심하시겠지."
+  },
+  {
+   "k": "See you around man.",
+   "v": "또 보자."
+  },
+  {
+   "k": "Hey man, just trying to help!",
+   "v": "야, 난 그냥 도우려는 거라고!"
+  },
+  {
+   "k": "Sounds boring.",
+   "v": "지루하겠네."
+  },
+  {
+   "k": "This place kind of gives me the creeps.",
+   "v": "이 동네는 좀 소름 끼쳐."
+  },
+  {
+   "k": "In the middle of nowhere too. Why the hell is this place even here?",
+   "v": "게다가 이런 외딴곳에. 도대체 왜 이런 곳이 있는 거야?"
+  },
+  {
+   "k": "Feels a bit off, but I guess you're getting paid well at least, right?",
+   "v": "뭔가 좀 이상하긴 한데, 그래도 돈은 잘 주는 거지?"
+  },
+  {
+   "k": "Yeah, the pay is great.",
+   "v": "응, 급여는 좋아."
+  },
+  {
+   "k": "I guess.",
+   "v": "그런 셈이지."
+  },
+  {
+   "k": "It's good to see you too, man.",
+   "v": "나도 얼굴 보니 좋다."
+  },
+  {
+   "k": "That's great to hear man!",
+   "v": "그거 잘됐다!"
+  },
+  {
+   "k": "I'm happy for you.",
+   "v": "네가 잘돼서 기뻐."
+  },
+  {
+   "k": "Well, I should probably head back now. I just dropped by to check in on you.",
+   "v": "자, 그럼 이제 돌아가야겠다. 그냥 안부 보러 들른 거니까."
+  },
+  {
+   "k": "Well, my friend...",
+   "v": "음, 친구여..."
+  },
+  {
+   "k": "It seems you've done a great job with this old place.",
+   "v": "이 오래된 곳을 참 잘 돌보고 있는 것 같군."
+  },
+  {
+   "k": "Who are you?",
+   "v": "누구시죠?"
+  },
+  {
+   "k": "It's late, old man. Head home.",
+   "v": "늦었어요, 어르신. 집에 가세요."
+  },
+  {
+   "k": "As astute as always.",
+   "v": "여전히 예리하군."
+  },
+  {
+   "k": "Allow me to introduce myself, first.",
+   "v": "먼저 내 소개부터 하지."
+  },
+  {
+   "k": "I think it's about time I introduced myself...",
+   "v": "이제 내 소개를 할 때가 된 것 같군..."
+  },
+  {
+   "k": "I'm the previous watcher of this cemetary, before you.",
+   "v": "자네 이전에 이 묘지를 지키던 사람이라네."
+  },
+  {
+   "k": "I think I left this place in the right hands, but I also believe your job here isn't finished.",
+   "v": "이곳을 제대로 된 사람에게 맡겼다고 생각하지만, 자네가 여기서 할 일이 아직 끝나지 않았다고도 생각하네."
+  },
+  {
+   "k": "Why did you leave?",
+   "v": "왜 떠나셨습니까?"
+  },
+  {
+   "k": "Well, yeah. My shift isn't over.",
+   "v": "뭐, 그렇죠. 제 근무는 아직 안 끝났으니까요."
+  },
+  {
+   "k": "Well, I'll admit, I didn't uphold my duties as the grave watcher.",
+   "v": "글쎄, 인정하지. 나는 묘지기로서의 의무를 다하지 못했네."
+  },
+  {
+   "k": "I felt there had to be someone more suited to the job...",
+   "v": "이 일에 더 적합한 사람이 있어야 한다고 느꼈지..."
+  },
+  {
+   "k": "You've got quite the sense of humor there, friend...",
+   "v": "유머 감각이 꽤 있군, 친구..."
+  },
+  {
+   "k": "No, I meant there's something I left unfinished before I left.",
+   "v": "아니, 떠나기 전에 끝내지 못한 일이 있다는 뜻이었네."
+  },
+  {
+   "k": "As you might be able to tell by now, this job isn't as easy as it seems.",
+   "v": "이제 자네도 알겠지만, 이 일은 보기만큼 쉽지 않아."
+  },
+  {
+   "k": "This place is quite the attraction to many different folks, both alive and dead.",
+   "v": "이곳은 산 자든 죽은 자든 온갖 이들을 끌어들이거든."
+  },
+  {
+   "k": "I'll be candid with you, my friend...",
+   "v": "솔직히 말하겠네, 친구여..."
+  },
+  {
+   "k": "I left because I was afraid.",
+   "v": "나는 두려워서 떠났네."
+  },
+  {
+   "k": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen...",
+   "v": "이곳은 죽은 자들의 평범한 안식처가 아니야. 들을 생각이 있다면 더 이야기해 주고 싶은데..."
+  },
+  {
+   "k": "Okay.",
+   "v": "알겠습니다."
+  },
+  {
+   "k": "You should head home grandpa.",
+   "v": "집에 가세요, 할아버지."
+  },
+  {
+   "k": "Listen here.",
+   "v": "잘 듣게."
+  },
+  {
+   "k": "I came here out of the pain of regret. Out of empathy for you and the people of this town.",
+   "v": "나는 후회의 고통 때문에 여기 왔네. 자네와 이 마을 사람들을 생각하는 마음에서 말이야."
+  },
+  {
+   "k": "I didn't have to come back, to put up with your arrogance.",
+   "v": "자네의 오만함이나 참아 주려고 돌아올 필요는 없었어."
+  },
+  {
+   "k": "I'm sorry. Please continue.",
+   "v": "죄송합니다. 계속 말씀해 주세요."
+  },
+  {
+   "k": "Don't care. Head home, you crazy old bat.",
+   "v": "관심 없어요. 집에 가세요, 미친 노인네."
+  },
+  {
+   "k": "You are a fool.",
+   "v": "자네는 바보로군."
+  },
+  {
+   "k": "I will give you one last chance to listen to me.",
+   "v": "내 말을 들을 마지막 기회를 주지."
+  },
+  {
+   "k": "I'm sorry. Please continue. I'm listening.",
+   "v": "죄송합니다. 계속 말씀해 주세요. 듣고 있습니다."
+  },
+  {
+   "k": "If you don't leave I'm calling the cops.",
+   "v": "안 가시면 경찰을 부르겠습니다."
+  },
+  {
+   "k": "Thank you.",
+   "v": "고맙네."
+  },
+  {
+   "k": "As you can tell, this place gets a lot of attention.",
+   "v": "보다시피 이곳은 많은 관심을 받고 있어."
+  },
+  {
+   "k": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.",
+   "v": "자네 바로 뒤에 있는 지하 묘실에 아주 귀중한 것이 있다는 소문이 돌고 있네. 위험한 자들이 잔뜩 그걸 노리고 있지."
+  },
+  {
+   "k": "I personally never cared for it.",
+   "v": "나는 개인적으로 그런 것엔 관심이 없었네."
+  },
+  {
+   "k": "However, as my days unfolded in this place, I began growing restless, tired, and anxious.",
+   "v": "하지만 이곳에서 하루하루를 보내면서 나는 점점 불안하고, 지치고, 초조해졌지."
+  },
+  {
+   "k": "I started feel an unsettling draw towards the crypt sitting behind you.",
+   "v": "자네 뒤에 있는 지하 묘실에 불길하게 이끌리는 느낌이 들기 시작했어."
+  },
+  {
+   "k": "Have you felt it too?",
+   "v": "자네도 느꼈나?"
+  },
+  {
+   "k": "Yes.",
+   "v": "예."
+  },
+  {
+   "k": "No.",
+   "v": "아니요."
+  },
+  {
+   "k": "Interesting.",
+   "v": "흥미롭군."
+  },
+  {
+   "k": "It's relieving to actually meet someone that feels the same way.",
+   "v": "같은 걸 느끼는 사람을 마침내 만나니 마음이 놓이는군."
+  },
+  {
+   "k": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.",
+   "v": "어쨌든 나는 답이 필요했고, 그래서 이전 묘지기들이 오두막에 남겨 둔 오래된 기록들을 파헤치기 시작했네."
+  },
+  {
+   "k": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.",
+   "v": "자네도 거기 남겨진 문서들을 읽어 볼 기회가 있었겠지. 적어도 그랬기를 바라네."
+  },
+  {
+   "k": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.",
+   "v": "오래된 글들을 훑어보다가, 옛 묘지기가 남긴 흥미로운 구절을 읽었네. 아마 수십 년 전 것이었을 거야."
+  },
+  {
+   "k": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.",
+   "v": "문서들은 아주 오랫동안 그곳에 놓여 있었던 것 같았어... 먼지투성이에 글씨도 겨우 알아볼 정도였지."
+  },
+  {
+   "k": "I had decided to leave this position at the graveyard promptly after I read it.",
+   "v": "그걸 읽고 나서 곧바로 이 묘지 일을 그만두기로 했네."
+  },
+  {
+   "k": "Apparently, one of the old gravekeepers had attempted to enter that crypt.",
+   "v": "아무래도 옛 묘지기 중 한 명이 그 지하 묘실에 들어가려 했던 모양이야."
+  },
+  {
+   "k": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.",
+   "v": "그 글에는 이 자리에 항상 묘지기가 배정되어 있어야 한다고도 적혀 있었네. 이 일을 맡는 사람은 누구든 이 지역 사람들의 안전을 책임지게 되지. 이 일을 원치 않으면 다른 사람에게 넘겨야 하네."
+  },
+  {
+   "k": "However.",
+   "v": "하지만."
+  },
+  {
+   "k": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.",
+   "v": "이 일을 계속하기로 한다면, 더는 평범한 삶을 살 수 없다는 걸 알게 될 거야. 게다가 평범하게 죽을 수도 없게 되지."
+  },
+  {
+   "k": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death.",
+   "v": "옛 묘지기에 따르면 이 묘지는 단순한 매장지가 아니야. 여기 묻힌 사람들은 평범한 삶을 살지 않았어. 이곳은 언제나, 죽음 이후에도 지키는 자를 필요로 하지."
+  },
+  {
+   "k": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.",
+   "v": "평범한 사람이 죽으면 삶은 끝나고, 더 이상 어떤 경험도, 생각도, 감정도 갖지 못하네."
+  },
+  {
+   "k": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.",
+   "v": "글에 자세한 설명은 없었지만, 자네가 묘지기로서 여기서 죽는다면 그런 식으로 끝나지는 않을 걸세."
+  },
+  {
+   "k": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.",
+   "v": "이 굴레를 끊는 유일한 방법은 영묘에 들어가는 것이야. 왜인지, 어떻게인지는 모르지만, 옛 묘지기는 기록에 풀어야 할 수수께끼 같은 것이 있다고 적어 두었네."
+  },
+  {
+   "k": "What puzzle?",
+   "v": "무슨 수수께끼요?"
+  },
+  {
+   "k": "Everyone who is buried at this graveyard shares something in common.",
+   "v": "이 묘지에 묻힌 모든 이들에게는 공통점이 있어."
+  },
+  {
+   "k": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.",
+   "v": "이 무덤들 중 일부는 수백 년이나 되었지. 하지만 최근에 만들어진 새 무덤들조차 어떤 규칙을 따르고 있을 거야."
+  },
+  {
+   "k": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.",
+   "v": "나는 문서들을 샅샅이 뒤졌지만 그 규칙이 무엇인지, 아니, 존재하기나 하는지조차 알아내지 못했네."
+  },
+  {
+   "k": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.",
+   "v": "이 굴레를 끊는 유일한 방법은 이 수수께끼를 푸는 것이야. 그걸 알아낸 뒤에는 지하 묘실에 들어가야 하네."
+  },
+  {
+   "k": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.",
+   "v": "아무래도 우리 이전의 묘지기는 기록을 깊이 연구했던 모양이야. 그는 나름의 해답을 가지고 지하 묘실에 들어갔지만 성공하지 못했지."
+  },
+  {
+   "k": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.",
+   "v": "그 지하 묘실에는 수백 년 된, 해결해야 할 무언가가 있어. 아직 풀리지 않은 저주 말일세."
+  },
+  {
+   "k": "When I learned about this, I was in disbelief.",
+   "v": "그 사실을 알았을 때 나는 믿을 수 없었네."
+  },
+  {
+   "k": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.",
+   "v": "두려웠지. 나는 영묘와 문을 잠그고 이곳을 떠났네. 그때부터 묘지는 점점 더 소란스러워졌어."
+  },
+  {
+   "k": "I still have the key. I can unlock that crypt.",
+   "v": "열쇠는 아직 내게 있네. 그 지하 묘실을 열 수 있어."
+  },
+  {
+   "k": "Will you enter it and put an end to this?",
+   "v": "자네가 그곳에 들어가 이 일을 끝내 주겠나?"
+  },
+  {
+   "k": "Okay. I'm ready.",
+   "v": "알겠습니다. 준비됐습니다."
+  },
+  {
+   "k": "This is crazy. Go home you old kook.",
+   "v": "말도 안 돼요. 집에 가세요, 괴짜 노인네."
+  },
+  {
+   "k": "I am quite disappointed.",
+   "v": "몹시 실망스럽군."
+  },
+  {
+   "k": "Surely you are joking?",
+   "v": "설마 농담이겠지?"
+  },
+  {
+   "k": "Yeah, just a joke. Go ahead and unlock the crypt.",
+   "v": "네, 그냥 농담이에요. 어서 지하 묘실을 열어 주세요."
+  },
+  {
+   "k": "That wasn't a joke. Please leave.",
+   "v": "농담이 아니었습니다. 제발 가세요."
+  },
+  {
+   "k": "I was mistaken.",
+   "v": "내가 잘못 봤군."
+  },
+  {
+   "k": "You clearly are not the right person for this job.",
+   "v": "자네는 분명 이 일에 적합한 사람이 아니야."
+  },
+  {
+   "k": "I will warn you one last time to listen to me.",
+   "v": "마지막으로 경고하네. 내 말을 듣게."
+  },
+  {
+   "k": "It is your well-being I am concerned about.",
+   "v": "내가 걱정하는 건 자네의 안위라네."
+  },
+  {
+   "k": "I'm sorry. Please go ahead and unlock the crypt",
+   "v": "죄송합니다. 어서 지하 묘실을 열어 주세요"
+  },
+  {
+   "k": "You are quite the intelligent specimen, aren't you?",
+   "v": "자네는 참으로 지성이 넘치는 표본이군, 안 그런가?"
+  },
+  {
+   "k": "Follow me.",
+   "v": "따라오게."
+  },
+  {
+   "k": "You truly are a blessing.",
+   "v": "자네는 진정 축복이야."
+  },
+  {
+   "k": "I've went ahead and unlocked the crypt.",
+   "v": "지하 묘실은 미리 열어 두었네."
+  },
+  {
+   "k": "One more thing.",
+   "v": "한 가지 더."
+  },
+  {
+   "k": "In one of the notes left by a previous gatekeeper...",
+   "v": "이전 관리인이 남긴 기록 중 하나에..."
+  },
+  {
+   "k": "It mentioned turning off your flashlight before entering.",
+   "v": "들어가기 전에 손전등을 끄라고 적혀 있었네."
+  },
+  {
+   "k": "I don't know why.",
+   "v": "이유는 모르겠어."
+  },
+  {
+   "k": "I have faith that you'll be able to figure this out.",
+   "v": "자네라면 알아낼 수 있으리라 믿네."
+  },
+  {
+   "k": "Good luck in there.",
+   "v": "그 안에서 행운을 빌겠네."
+  },
+  {
+   "k": "You did it, my friend.",
+   "v": "해냈군, 친구여."
+  },
+  {
+   "k": "They have been freed.",
+   "v": "그들이 해방되었어."
+  },
+  {
+   "k": "Perhaps their souls can finally rest. As should you.",
+   "v": "이제 그들의 영혼도 마침내 쉴 수 있겠지. 자네도 그래야 하고."
+  },
+  {
+   "k": "Come.",
+   "v": "이리 오게."
+  },
+  {
+   "k": "Evening.",
+   "v": "좋은 저녁입니다."
+  },
+  {
+   "k": "Didn’t expect anyone at the gate this late.",
+   "v": "이렇게 늦은 시간에 문 앞에 누가 있을 줄은 몰랐군요."
+  },
+  {
+   "k": "Name’s Harold Vanderbolt.",
+   "v": "해럴드 밴더볼트라고 합니다."
+  },
+  {
+   "k": "I need to step inside for a moment.",
+   "v": "잠시 안에 들어가야 합니다."
+  },
+  {
+   "k": "Visiting hours are over. What’s your business here?",
+   "v": "면회 시간은 끝났습니다. 무슨 일로 오셨죠?"
+  },
+  {
+   "k": "Can I help you with something, sir?",
+   "v": "무엇을 도와드릴까요, 선생님?"
+  },
+  {
+   "k": "Straight question.",
+   "v": "직설적인 질문이군요."
+  },
+  {
+   "k": "I like that.",
+   "v": "마음에 듭니다."
+  },
+  {
+   "k": "I’m here to see my brother.",
+   "v": "동생을 보러 왔습니다."
+  },
+  {
+   "k": "Aaron.",
+   "v": "애런이요."
+  },
+  {
+   "k": "Good man. Bad luck.",
+   "v": "좋은 녀석이었죠. 운이 없었을 뿐."
+  },
+  {
+   "k": "Didn’t think he’d end up here.",
+   "v": "여기서 끝날 줄은 몰랐습니다."
+  },
+  {
+   "k": "Funny how things go.",
+   "v": "세상일이란 참 알 수 없죠."
+  },
+  {
+   "k": "How did you know Aaron?",
+   "v": "애런과는 어떻게 아는 사이입니까?"
+  },
+  {
+   "k": "Why come so late?",
+   "v": "왜 이렇게 늦게 오셨습니까?"
+  },
+  {
+   "k": "Appreciate the courtesy.",
+   "v": "예의를 갖춰 주니 고맙군요."
+  },
+  {
+   "k": "Not much of it left these days.",
+   "v": "요즘엔 그런 게 흔치 않죠."
+  },
+  {
+   "k": "I won’t take long.",
+   "v": "오래 걸리진 않을 겁니다."
+  },
+  {
+   "k": "Just paying respects.",
+   "v": "그저 조의를 표하러 온 것뿐입니다."
+  },
+  {
+   "k": "Aaron wouldn’t forgive me if I didn’t.",
+   "v": "그러지 않으면 애런이 절 용서하지 않을 테니까요."
+  },
+  {
+   "k": "You’re being vague.",
+   "v": "말씀이 모호하군요."
+  },
+  {
+   "k": "I’ll need more than that.",
+   "v": "그것만으론 부족합니다."
+  },
+  {
+   "k": "We grew up together.",
+   "v": "함께 자랐습니다."
+  },
+  {
+   "k": "Shared a name. Shared a roof.",
+   "v": "같은 성을 쓰고, 같은 지붕 아래 살았죠."
+  },
+  {
+   "k": "Shared more mistakes than I care to count.",
+   "v": "헤아리기 싫을 만큼 많은 실수도 함께했고요."
+  },
+  {
+   "k": "I owe him a moment.",
+   "v": "그에게 시간을 빚졌습니다."
+  },
+  {
+   "k": "Family has a way of demanding that.",
+   "v": "가족이란 그런 걸 요구하는 법이니까요."
+  },
+  {
+   "k": "Your brother?",
+   "v": "동생분이라고요?"
+  },
+  {
+   "k": "Do you have any proof?",
+   "v": "증거는 있습니까?"
+  },
+  {
+   "k": "Privacy.",
+   "v": "혼자 있고 싶어서요."
+  },
+  {
+   "k": "That’s all.",
+   "v": "그게 다입니다."
+  },
+  {
+   "k": "Some things are easier to say",
+   "v": "어떤 말들은 더 쉽게 나오는 법이죠,"
+  },
+  {
+   "k": "when no one’s listening back.",
+   "v": "아무도 듣고 있지 않을 때는."
+  },
+  {
+   "k": "I say what I need to say.",
+   "v": "할 말을 하고,"
+  },
+  {
+   "k": "Then I leave.",
+   "v": "그리고 떠납니다."
+  },
+  {
+   "k": "Careful.",
+   "v": "조심하세요."
+  },
+  {
+   "k": "You’re doing your job.",
+   "v": "당신은 당신 일을 하는 거고,"
+  },
+  {
+   "k": "So am I.",
+   "v": "저도 마찬가지입니다."
+  },
+  {
+   "k": "No trouble.",
+   "v": "말썽은 없을 겁니다."
+  },
+  {
+   "k": "Just a brother standing where he has to.",
+   "v": "그저 있어야 할 자리에 선 형일 뿐이죠."
+  },
+  {
+   "k": "Let’s not turn this into something tedious.",
+   "v": "이걸 번거로운 일로 만들지는 맙시다."
+  },
+  {
+   "k": "Brother.",
+   "v": "형제입니다."
+  },
+  {
+   "k": "Older, if that matters.",
+   "v": "중요하다면 말씀드리지만, 제가 형이죠."
+  },
+  {
+   "k": "Usually does.",
+   "v": "대개는 중요하더군요."
+  },
+  {
+   "k": "We didn’t always agree.",
+   "v": "늘 뜻이 맞진 않았습니다."
+  },
+  {
+   "k": "But blood’s blood.",
+   "v": "하지만 피는 피죠."
+  },
+  {
+   "k": "Aaron understood that.",
+   "v": "애런도 그걸 알았습니다."
+  },
+  {
+   "k": "Proof?",
+   "v": "증거요?"
+  },
+  {
+   "k": "I don’t carry mementos.",
+   "v": "기념품 같은 건 갖고 다니지 않습니다."
+  },
+  {
+   "k": "And family names don’t mean much once someone’s in the ground.",
+   "v": "그리고 땅에 묻힌 사람에게 가문의 이름 따위는 별 의미가 없죠."
+  },
+  {
+   "k": "You should know that better than anyone.",
+   "v": "당신이라면 누구보다 잘 알 텐데요."
+  },
+  {
+   "k": "I wouldn’t be here if it didn’t matter.",
+   "v": "중요하지 않았다면 여기 오지도 않았을 겁니다."
+  },
+  {
+   "k": "So.",
+   "v": "그러니."
+  },
+  {
+   "k": "I just need a few minutes.",
+   "v": "몇 분이면 됩니다."
+  },
+  {
+   "k": "I’ll stay out of your way.",
+   "v": "방해는 하지 않겠습니다."
+  },
+  {
+   "k": "May I go in?",
+   "v": "들어가도 되겠습니까?"
+  },
+  {
+   "k": "Alright. Be quick.",
+   "v": "알겠습니다. 서둘러 주세요."
+  },
+  {
+   "k": "No. I can’t allow it.",
+   "v": "안 됩니다. 허락할 수 없습니다."
+  },
+  {
+   "k": "I have a few more questions.",
+   "v": "몇 가지 더 묻겠습니다."
+  },
+  {
+   "k": "Hold on, I'll be right back.",
+   "v": "잠시만요, 금방 돌아오겠습니다."
+  },
+  {
+   "k": "What was your name again?",
+   "v": "성함이 뭐라고 하셨죠?"
+  },
+  {
+   "k": "Who are you visiting?",
+   "v": "누구를 찾아오셨습니까?"
+  },
+  {
+   "k": "How many people are in your family?",
+   "v": "가족은 몇 분이나 되십니까?"
+  },
+  {
+   "k": "Nevermind.",
+   "v": "아닙니다, 됐습니다."
+  },
+  {
+   "k": "I'm here to see Aaron.",
+   "v": "애런을 보러 왔습니다."
+  },
+  {
+   "k": "When did he die?",
+   "v": "언제 돌아가셨습니까?"
+  },
+  {
+   "k": "What was his cause of death?",
+   "v": "사인이 무엇이었습니까?"
+  },
+  {
+   "k": "I have other questions.",
+   "v": "다른 질문이 있습니다."
+  },
+  {
+   "k": "June 27th, 1993.",
+   "v": "1993년 6월 27일입니다."
+  },
+  {
+   "k": "I have no other questions.",
+   "v": "더 이상 질문은 없습니다."
+  },
+  {
+   "k": "He was found in his hotel room, on a trip abroad.",
+   "v": "해외여행 중 호텔 방에서 발견됐습니다."
+  },
+  {
+   "k": "Had a gunshot wound out the back of his head.",
+   "v": "뒤통수에 총상이 있었죠."
+  },
+  {
+   "k": "Terrible way to go. I try not to think about it.",
+   "v": "끔찍한 죽음이었습니다. 생각하지 않으려고 합니다."
+  },
+  {
+   "k": "We didn't have much family left. It was just him and my nephew.",
+   "v": "남은 가족이 많지 않았습니다. 그 애와 제 조카뿐이었죠."
+  },
+  {
+   "k": "I have more questions.",
+   "v": "질문이 더 있습니다."
+  },
+  {
+   "k": "My name is Harold.",
+   "v": "해럴드라고 합니다."
+  },
+  {
+   "k": "Good.",
+   "v": "좋습니다."
+  },
+  {
+   "k": "I knew you’d see reason.",
+   "v": "이성적으로 판단해 줄 줄 알았습니다."
+  },
+  {
+   "k": "Family doesn’t get many chances to say goodbye properly.",
+   "v": "가족이 제대로 작별할 기회는 많지 않죠."
+  },
+  {
+   "k": "I won’t forget this.",
+   "v": "이 일은 잊지 않겠습니다."
+  },
+  {
+   "k": "That’s disappointing.",
+   "v": "실망스럽군요."
+  },
+  {
+   "k": "Still.",
+   "v": "그래도."
+  },
+  {
+   "k": "Rules are useful things.",
+   "v": "규칙이란 유용한 것이죠."
+  },
+  {
+   "k": "Until they aren’t.",
+   "v": "쓸모없어지기 전까지는요."
+  },
+  {
+   "k": "Give my brother a quiet night, then.",
+   "v": "그럼 제 동생이 조용한 밤을 보내게 해 주십시오."
+  },
+  {
+   "k": "I suppose some problems do solve themselves.",
+   "v": "어떤 문제는 저절로 해결되는 모양이군요."
+  },
+  {
+   "k": "I thought you two were close.",
+   "v": "두 분이 가까운 사이인 줄 알았는데요."
+  },
+  {
+   "k": "What did you say your name was again?",
+   "v": "성함이 뭐라고 하셨죠?"
+  },
+  {
+   "k": "Just saying goodbye properly.",
+   "v": "그저 제대로 작별 인사를 한 것뿐입니다."
+  },
+  {
+   "k": "I'll be leaving now.",
+   "v": "이제 가 보겠습니다."
+  },
+  {
+   "k": "Thanks for looking the other way.",
+   "v": "못 본 척해 줘서 고맙습니다."
+  },
+  {
+   "k": "Harold. Harold Vanderbilt.",
+   "v": "해럴드. 해럴드 밴더빌트입니다."
+  },
+  {
+   "k": "I'll be taking my leave now. Have a great rest of your evening.",
+   "v": "이만 물러가겠습니다. 남은 밤 편히 보내십시오."
+  },
+  {
+   "k": "Hello. Excuse me.",
+   "v": "안녕하세요. 실례합니다."
+  },
+  {
+   "k": "This is graveyard, yes?",
+   "v": "여기 묘지, 맞지요?"
+  },
+  {
+   "k": "I come to visit my wife.",
+   "v": "제 아내 보러 왔습니다."
+  },
+  {
+   "k": "Can I see some identification?",
+   "v": "신분증을 볼 수 있을까요?"
+  },
+  {
+   "k": "Identification?",
+   "v": "신분증?"
+  },
+  {
+   "k": "Yes… yes.",
+   "v": "네... 네."
+  },
+  {
+   "k": "My name Mr. Huang.",
+   "v": "제 이름, 황입니다."
+  },
+  {
+   "k": "I am him.",
+   "v": "제가 그 사람입니다."
+  },
+  {
+   "k": "I not carry many papers now.",
+   "v": "지금은 서류 많이 안 가지고 다닙니다."
+  },
+  {
+   "k": "Only me. Only husband.",
+   "v": "저만. 남편만."
+  },
+  {
+   "k": "I come many times before.",
+   "v": "전에도 많이 왔습니다."
+  },
+  {
+   "k": "Maybe you not see me.",
+   "v": "아마 당신, 저 못 봤을 겁니다."
+  },
+  {
+   "k": "I come late when quiet.",
+   "v": "늦게, 조용할 때 옵니다."
+  },
+  {
+   "k": "Alright. Why are you here so late?",
+   "v": "알겠습니다. 왜 이렇게 늦게 오셨습니까?"
+  },
+  {
+   "k": "Okay. Take your time and tell me what you need.",
+   "v": "알겠습니다. 천천히 필요하신 게 뭔지 말씀해 주세요."
+  },
+  {
+   "k": "Late is better.",
+   "v": "늦은 게 더 좋습니다."
+  },
+  {
+   "k": "Less people. Less noise.",
+   "v": "사람 적고. 소음 적고."
+  },
+  {
+   "k": "My wife not like noise.",
+   "v": "제 아내, 시끄러운 거 싫어합니다."
+  },
+  {
+   "k": "I stand outside and think.",
+   "v": "밖에 서서 생각합니다."
+  },
+  {
+   "k": "That all.",
+   "v": "그게 다입니다."
+  },
+  {
+   "k": "Which grave are you visiting?",
+   "v": "어느 무덤을 찾아오셨습니까?"
+  },
+  {
+   "k": "You can understand why this looks suspicious.",
+   "v": "이게 왜 수상해 보이는지는 이해하시겠죠."
+  },
+  {
+   "k": "English hard for me.",
+   "v": "영어, 저한테 어렵습니다."
+  },
+  {
+   "k": "My wife help me before.",
+   "v": "전에는 아내가 도와줬습니다."
+  },
+  {
+   "k": "She here.",
+   "v": "아내는 여기 있습니다."
+  },
+  {
+   "k": "Long time already.",
+   "v": "이미 오래됐습니다."
+  },
+  {
+   "k": "I'm sorry for your loss.",
+   "v": "삼가 조의를 표합니다."
+  },
+  {
+   "k": "You shouldn’t be waiting outside the gate.",
+   "v": "문밖에서 기다리고 계시면 안 됩니다."
+  },
+  {
+   "k": "I know.",
+   "v": "압니다."
+  },
+  {
+   "k": "I look bad.",
+   "v": "저, 안 좋아 보입니다."
+  },
+  {
+   "k": "Old man. Night time.",
+   "v": "늙은 남자. 밤."
+  },
+  {
+   "k": "But I not do wrong.",
+   "v": "하지만 나쁜 짓 안 합니다."
+  },
+  {
+   "k": "I promise.",
+   "v": "약속합니다."
+  },
+  {
+   "k": "I only want see her.",
+   "v": "그냥 아내 보고 싶을 뿐입니다."
+  },
+  {
+   "k": "Western burial ground.",
+   "v": "서쪽 묘지."
+  },
+  {
+   "k": "Near tree.",
+   "v": "나무 근처."
+  },
+  {
+   "k": "She like tree.",
+   "v": "아내, 나무 좋아합니다."
+  },
+  {
+   "k": "I talk to her sometimes.",
+   "v": "가끔 아내한테 말합니다."
+  },
+  {
+   "k": "It help me.",
+   "v": "저한테 도움 됩니다."
+  },
+  {
+   "k": "House very quiet now.",
+   "v": "집, 이제 아주 조용합니다."
+  },
+  {
+   "k": "Here feel closer to her.",
+   "v": "여기, 아내 더 가깝게 느낍니다."
+  },
+  {
+   "k": "I not stay long.",
+   "v": "오래 안 있습니다."
+  },
+  {
+   "k": "Please.",
+   "v": "부탁합니다."
+  },
+  {
+   "k": "Just few minutes.",
+   "v": "몇 분만."
+  },
+  {
+   "k": "I visit my wife.",
+   "v": "제 아내 보러 갑니다."
+  },
+  {
+   "k": "May I come in?",
+   "v": "들어가도 됩니까?"
+  },
+  {
+   "k": "Alright. You can go in, but don’t stay long.",
+   "v": "알겠습니다. 들어가셔도 되지만 오래 계시진 마세요."
+  },
+  {
+   "k": "I’m sorry. Visiting hours are over.",
+   "v": "죄송합니다. 면회 시간은 끝났습니다."
+  },
+  {
+   "k": "My late wife.",
+   "v": "돌아가신 제 아내."
+  },
+  {
+   "k": "Mei Huang.",
+   "v": "황메이."
+  },
+  {
+   "k": "When did she die?",
+   "v": "언제 돌아가셨습니까?"
+  },
+  {
+   "k": "What was her cause of death?",
+   "v": "사인이 무엇이었습니까?"
+  },
+  {
+   "k": "I do not remember...",
+   "v": "기억 안 납니다..."
+  },
+  {
+   "k": "It has been long time.",
+   "v": "오래됐습니다."
+  },
+  {
+   "k": "I do not like to speak about this matter.",
+   "v": "그 일은 말하고 싶지 않습니다."
+  },
+  {
+   "k": "My wife not bad person.",
+   "v": "제 아내, 나쁜 사람 아닙니다."
+  },
+  {
+   "k": "She did no wrong.",
+   "v": "잘못한 거 없습니다."
+  },
+  {
+   "k": "Please, I would like to see her.",
+   "v": "부탁합니다, 아내를 보고 싶습니다."
+  },
+  {
+   "k": "No one.",
+   "v": "아무도 없습니다."
+  },
+  {
+   "k": "Only me and wife. After passing away, I am alone.",
+   "v": "저와 아내뿐. 아내 떠나고, 저 혼자입니다."
+  },
+  {
+   "k": "My name?",
+   "v": "제 이름?"
+  },
+  {
+   "k": "Huang Wenqi.",
+   "v": "황원치."
+  },
+  {
+   "k": "You very kind.",
+   "v": "당신 아주 친절합니다."
+  },
+  {
+   "k": "I understand.",
+   "v": "이해합니다."
+  },
+  {
+   "k": "Rules are rules.",
+   "v": "규칙은 규칙입니다."
+  },
+  {
+   "k": "I come again tomorrow.",
+   "v": "내일 다시 옵니다."
+  },
+  {
+   "k": "Thank you for listening.",
+   "v": "들어 주셔서 고맙습니다."
+  },
+  {
+   "k": "This is her.",
+   "v": "이 사람입니다."
+  },
+  {
+   "k": "I miss her dearly.",
+   "v": "많이 그립습니다."
+  },
+  {
+   "k": "You two must have loved each other very much.",
+   "v": "두 분이 정말 많이 사랑하셨나 봅니다."
+  },
+  {
+   "k": "She would say...",
+   "v": "아내가 말했습니다..."
+  },
+  {
+   "k": "\"If I go first, don’t forget me.\"",
+   "v": "\"내가 먼저 가면, 날 잊지 마.\""
+  },
+  {
+   "k": "I tell her I won’t.",
+   "v": "안 잊는다고 말했습니다."
+  },
+  {
+   "k": "So I come.",
+   "v": "그래서 옵니다."
+  },
+  {
+   "k": "Even when tired.",
+   "v": "피곤해도."
+  },
+  {
+   "k": "Even when cold.",
+   "v": "추워도."
+  },
+  {
+   "k": "I go now.",
+   "v": "이제 갑니다."
+  },
+  {
+   "k": "…You work here?",
+   "v": "…여기서 일하시나요?"
+  },
+  {
+   "k": "I didn’t expect anyone still on duty.",
+   "v": "아직 근무 중인 사람이 있을 줄은 몰랐네요."
+  },
+  {
+   "k": "Are you here to visit someone?",
+   "v": "누구를 찾아오셨습니까?"
+  },
+  {
+   "k": "You shouldn’t be wandering around this late.",
+   "v": "이렇게 늦은 시간에 돌아다니시면 안 됩니다."
+  },
+  {
+   "k": "Yeah. Just paying my respects.",
+   "v": "네. 그냥 조의를 표하러 왔어요."
+  },
+  {
+   "k": "I don't plan to stay long.",
+   "v": "오래 있을 생각은 없습니다."
+  },
+  {
+   "k": "Are you related to the deceased?",
+   "v": "고인과 친족 관계이십니까?"
+  },
+  {
+   "k": "Thanks, I know the rules.",
+   "v": "고맙지만, 규칙은 알아요."
+  },
+  {
+   "k": "You don't have to worry, I’ll be quick.",
+   "v": "걱정 안 하셔도 돼요. 금방 끝낼 테니까."
+  },
+  {
+   "k": "Then you can go back to... whatever it is you were doing.",
+   "v": "그럼 당신은... 하던 일이 뭐든 그걸로 돌아가면 되죠."
+  },
+  {
+   "k": "Someone with the name Huang.",
+   "v": "황 씨 성을 가진 사람이요."
+  },
+  {
+   "k": "That should be enough for you.",
+   "v": "그 정도면 충분할 텐데요."
+  },
+  {
+   "k": "That’s vague. What’s your full name?",
+   "v": "모호하네요. 성함이 어떻게 되시죠?"
+  },
+  {
+   "k": "Are you related to the Huangs?",
+   "v": "황 씨 집안과 친척이십니까?"
+  },
+  {
+   "k": "…Chen Huang.",
+   "v": "…황천입니다."
+  },
+  {
+   "k": "Are you going to keep asking me instrusive questions?",
+   "v": "계속 사생활을 캐물으실 겁니까?"
+  },
+  {
+   "k": "Why are you here?",
+   "v": "왜 여기 오셨습니까?"
+  },
+  {
+   "k": "Yeah. I am.",
+   "v": "네. 그렇습니다."
+  },
+  {
+   "k": "But to be honest, I don't really think that is any of your concern.",
+   "v": "하지만 솔직히 그건 당신이 상관할 일이 아닌 것 같은데요."
+  },
+  {
+   "k": "I just need to know who exactly you're visiting.",
+   "v": "정확히 누구를 찾아오셨는지만 알면 됩니다."
+  },
+  {
+   "k": "I just need to know you’re not causing trouble.",
+   "v": "문제를 일으키지 않을 분이라는 것만 알면 됩니다."
+  },
+  {
+   "k": "I figured you’d ask that.",
+   "v": "그렇게 물을 줄 알았습니다."
+  },
+  {
+   "k": "We’re family.",
+   "v": "가족입니다."
+  },
+  {
+   "k": "Not close.",
+   "v": "가깝진 않지만."
+  },
+  {
+   "k": "Well, I need to know who you're visiting.",
+   "v": "그래도 누구를 찾아오셨는지는 알아야 합니다."
+  },
+  {
+   "k": "What is their name?",
+   "v": "이름이 어떻게 되십니까?"
+  },
+  {
+   "k": "Family.",
+   "v": "가족이요."
+  },
+  {
+   "k": "I need to know their name.",
+   "v": "이름을 알아야 합니다."
+  },
+  {
+   "k": "You’re avoiding the question.",
+   "v": "질문을 피하고 계시는군요."
+  },
+  {
+   "k": "I’m answering enough.",
+   "v": "대답은 충분히 했습니다."
+  },
+  {
+   "k": "This isn’t a confession booth.",
+   "v": "여긴 고해소가 아니에요."
+  },
+  {
+   "k": "I’ll pay my respects and leave.",
+   "v": "조의만 표하고 갈 겁니다."
+  },
+  {
+   "k": "You won’t even notice I was here.",
+   "v": "제가 왔었는지도 모르실 거예요."
+  },
+  {
+   "k": "I'm not going to answer anymore questions.",
+   "v": "더 이상 질문에는 대답하지 않겠습니다."
+  },
+  {
+   "k": "Is there going to be a problem?",
+   "v": "문제라도 있습니까?"
+  },
+  {
+   "k": "No. Go ahead inside, but be quick.",
+   "v": "아니요. 들어가세요. 하지만 서둘러 주세요."
+  },
+  {
+   "k": "Visiting hours are over.",
+   "v": "면회 시간은 끝났습니다."
+  },
+  {
+   "k": "…Thanks.",
+   "v": "…고맙습니다."
+  },
+  {
+   "k": "For what it’s worth,",
+   "v": "이런 말이 의미가 있을진 모르겠지만,"
+  },
+  {
+   "k": "I appreciate professionalism.",
+   "v": "프로다운 태도는 높이 삽니다."
+  },
+  {
+   "k": "Figures.",
+   "v": "그럴 줄 알았습니다."
+  },
+  {
+   "k": "Didn't even want to be here.",
+   "v": "애초에 오고 싶지도 않았어요."
+  },
+  {
+   "k": "Have fun watching over these dead people.",
+   "v": "이 죽은 사람들 잘 지키시길."
+  },
+  {
+   "k": "I don't envy you.",
+   "v": "부럽진 않네요."
+  },
+  {
+   "k": "Please... just give me a moment...",
+   "v": "제발... 잠시만 시간을 주세요..."
+  },
+  {
+   "k": "Are you okay?",
+   "v": "괜찮으십니까?"
+  },
+  {
+   "k": "I would do anything... just to make her stop.",
+   "v": "무슨 짓이든 했을 겁니다... 그녀를 멈추게 할 수만 있다면."
+  },
+  {
+   "k": "I thought coming here would help... but...",
+   "v": "여기 오면 도움이 될 줄 알았는데... 하지만..."
+  },
+  {
+   "k": "I think I have made a terrible mistake.",
+   "v": "끔찍한 실수를 저지른 것 같습니다."
+  },
+  {
+   "k": "Hey there.",
+   "v": "안녕하세요."
+  },
+  {
+   "k": "Sorry for disturbing you at this late hour.",
+   "v": "이 늦은 시간에 방해해서 죄송합니다."
+  },
+  {
+   "k": "My name is Dennis Anderson, and I'm here to visit a family member.",
+   "v": "데니스 앤더슨이라고 합니다. 가족을 보러 왔습니다."
+  },
+  {
+   "k": "His name is Anthony Anderson.",
+   "v": "이름은 앤서니 앤더슨입니다."
+  },
+  {
+   "k": "What is your relation to him?",
+   "v": "그분과는 어떤 관계입니까?"
+  },
+  {
+   "k": "Why are you here so late?",
+   "v": "왜 이렇게 늦게 오셨습니까?"
+  },
+  {
+   "k": "Anthony was my brother.",
+   "v": "앤서니는 제 형이었습니다."
+  },
+  {
+   "k": "I'll only stop by for a moment.",
+   "v": "잠깐만 들르겠습니다."
+  },
+  {
+   "k": "I try to visit him every year. It's been a while, my visit is a bit overdue.",
+   "v": "매년 형을 찾아오려고 합니다. 한동안 못 와서 이번엔 좀 늦었네요."
+  },
+  {
+   "k": "I hope you don't mind.",
+   "v": "괜찮으시길 바랍니다."
+  },
+  {
+   "k": "Are you here to cause any trouble?",
+   "v": "문제를 일으키러 오신 겁니까?"
+  },
+  {
+   "k": "Yeah... sorry.",
+   "v": "네... 죄송합니다."
+  },
+  {
+   "k": "I have a very rigorous work schedule. Terrible hours.",
+   "v": "일정이 아주 빡빡해서요. 근무 시간이 끔찍합니다."
+  },
+  {
+   "k": "I don't really get the time during the day to make this trip.",
+   "v": "낮에는 도무지 여기까지 올 시간이 안 나서요."
+  },
+  {
+   "k": "I hope it's alright.",
+   "v": "괜찮으시길 바랍니다."
+  },
+  {
+   "k": "Trouble?",
+   "v": "문제요?"
+  },
+  {
+   "k": "I'm afraid I don't understand.",
+   "v": "무슨 말씀인지 모르겠는데요."
+  },
+  {
+   "k": "You seem suspicious.",
+   "v": "수상해 보이시는군요."
+  },
+  {
+   "k": "On second thought...",
+   "v": "다시 생각해 보니..."
+  },
+  {
+   "k": "I'll stop by another time.",
+   "v": "다른 날 다시 오겠습니다."
+  },
+  {
+   "k": "Maybe during the day, when there is someone on duty with a bit more manners.",
+   "v": "낮에, 예의를 좀 더 아는 사람이 근무할 때로요."
+  },
+  {
+   "k": "So, can I come in?",
+   "v": "그래서, 들어가도 됩니까?"
+  },
+  {
+   "k": "Alright. Go ahead.",
+   "v": "알겠습니다. 들어가세요."
+  },
+  {
+   "k": "No. Please leave.",
+   "v": "안 됩니다. 돌아가 주십시오."
+  },
+  {
+   "k": "I already told you.",
+   "v": "이미 말씀드렸잖아요."
+  },
+  {
+   "k": "Dennis Anderson.",
+   "v": "데니스 앤더슨입니다."
+  },
+  {
+   "k": "My brother.",
+   "v": "제 형이요."
+  },
+  {
+   "k": "Anthony Anderson.",
+   "v": "앤서니 앤더슨."
+  },
+  {
+   "k": "Hmm... it's been quite a while.",
+   "v": "음... 꽤 오래됐습니다."
+  },
+  {
+   "k": "A little over ten years ago now.",
+   "v": "이제 십 년이 조금 넘었네요."
+  },
+  {
+   "k": "Tragic house fire.",
+   "v": "비극적인 화재였습니다."
+  },
+  {
+   "k": "Claimed him and the family. Only the little girl made it out alive.",
+   "v": "형과 가족을 모두 앗아 갔죠. 어린 딸만 살아서 빠져나왔습니다."
+  },
+  {
+   "k": "It was a horrible day.",
+   "v": "끔찍한 날이었습니다."
+  },
+  {
+   "k": "After the event, only the little girl survived.",
+   "v": "그 일 이후 어린 딸만 살아남았습니다."
+  },
+  {
+   "k": "Her name is Lily.",
+   "v": "이름은 릴리입니다."
+  },
+  {
+   "k": "Thanks.",
+   "v": "고맙습니다."
+  },
+  {
+   "k": "I won't be long.",
+   "v": "오래 걸리진 않을 겁니다."
+  },
+  {
+   "k": "What do you mean \"no\"?",
+   "v": "\"안 된다\"니, 무슨 소리예요?"
+  },
+  {
+   "k": "You don't own those people in there. Those are family members.",
+   "v": "안에 있는 사람들은 당신 소유가 아니에요. 제 가족이라고요."
+  },
+  {
+   "k": "I'll just come back during the day, when there's someone more professional on duty.",
+   "v": "낮에, 좀 더 프로다운 사람이 근무할 때 다시 오죠."
+  },
+  {
+   "k": "It's a damn shame what happened that day.",
+   "v": "그날 일어난 일은 정말 안타깝습니다."
+  },
+  {
+   "k": "Wish I could've been there.",
+   "v": "제가 거기 있었더라면."
+  },
+  {
+   "k": "Where were you when it happened?",
+   "v": "그 일이 일어났을 때 어디 계셨습니까?"
+  },
+  {
+   "k": "I think you should be going now.",
+   "v": "이제 가 보셔야 할 것 같습니다."
+  },
+  {
+   "k": "I...",
+   "v": "저는..."
+  },
+  {
+   "k": "I think I should be going now. Have a great rest of your evening.",
+   "v": "이제 가 봐야 할 것 같네요. 남은 밤 편히 보내세요."
+  },
+  {
+   "k": "Yeah, you're probably right.",
+   "v": "네, 그 말이 맞겠죠."
+  },
+  {
+   "k": "I'll be heading out now.",
+   "v": "이제 가 보겠습니다."
+  },
+  {
+   "k": "H-hey...",
+   "v": "아, 안녕하세요..."
+  },
+  {
+   "k": "I need to come in to visit a grave...",
+   "v": "무덤을 보러 들어가야 하는데요..."
+  },
+  {
+   "k": "Is that okay?",
+   "v": "괜찮을까요?"
+  },
+  {
+   "k": "Well, go on ahead in!",
+   "v": "그래, 어서 들어가!"
+  },
+  {
+   "k": "You mean, like, my name?",
+   "v": "그러니까, 제 이름 말인가요?"
+  },
+  {
+   "k": "It's, uh...",
+   "v": "그게, 어..."
+  },
+  {
+   "k": "Edwin.",
+   "v": "에드윈이요."
+  },
+  {
+   "k": "Can I go in now?",
+   "v": "이제 들어가도 돼요?"
+  },
+  {
+   "k": "I'll need your full name.",
+   "v": "전체 이름이 필요해."
+  },
+  {
+   "k": "Sure.",
+   "v": "그래."
+  },
+  {
+   "k": "M-my full name?",
+   "v": "저, 전체 이름이요?"
+  },
+  {
+   "k": "My name is Edwin Adams.",
+   "v": "에드윈 애덤스예요."
+  },
+  {
+   "k": "I'm here to visit my mother's grave.",
+   "v": "어머니 무덤을 보러 왔어요."
+  },
+  {
+   "k": "I don't have any identification with me, I didn't think anyone would be here.",
+   "v": "신분증은 없어요. 누가 있을 줄 몰랐거든요."
+  },
+  {
+   "k": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate.",
+   "v": "가까이 살아서 몇 번 와 봤어요. 문에 사람이 있던 적은 한 번도 없었는데."
+  },
+  {
+   "k": "Can I please go in now?",
+   "v": "이제 들어가도 될까요?"
+  },
+  {
+   "k": "Sorry kid. Graveyard's closed.",
+   "v": "미안하다, 꼬마야. 묘지는 닫았어."
+  },
+  {
+   "k": "I-it's Edwin Adams.",
+   "v": "에, 에드윈 애덤스예요."
+  },
+  {
+   "k": "My mother, Jane Adams.",
+   "v": "어머니요, 제인 애덤스."
+  },
+  {
+   "k": "A long time ago. About fifteen years ago.",
+   "v": "오래전이에요. 십오 년쯤 전."
+  },
+  {
+   "k": "I-I'm sorry but...",
+   "v": "죄, 죄송하지만..."
+  },
+  {
+   "k": "I don't really want to talk about it...",
+   "v": "그 얘기는 별로 하고 싶지 않아요..."
+  },
+  {
+   "k": "My aunt and I live together, there isn't really anyone else.",
+   "v": "이모랑 같이 살아요. 다른 사람은 정말 없어요."
+  },
+  {
+   "k": "T-thanks...",
+   "v": "고, 고맙습니다..."
+  },
+  {
+   "k": "I won't be long...",
+   "v": "오래 걸리진 않을 거예요..."
+  },
+  {
+   "k": "I miss my mother dearly.",
+   "v": "어머니가 정말 그리워요."
+  },
+  {
+   "k": "She used to hum when she thought no one was listening.",
+   "v": "아무도 안 듣는다고 생각하면 콧노래를 부르곤 하셨어요."
+  },
+  {
+   "k": "Funny what stays with you, even after everything else is gone.",
+   "v": "다른 건 다 사라져도 남는 게 있다는 게 참 이상하죠."
+  },
+  {
+   "k": "Anyway. I shouldn’t keep you standing here.",
+   "v": "아무튼. 여기 붙잡고 있으면 안 되겠네요."
+  },
+  {
+   "k": "Are you going to be okay?",
+   "v": "괜찮겠니?"
+  },
+  {
+   "k": "Get lost, kid.",
+   "v": "꺼져, 꼬마야."
+  },
+  {
+   "k": "Yeah... I'll get through this.",
+   "v": "네... 이겨 낼 거예요."
+  },
+  {
+   "k": "Thanks for letting me in, I know it's pretty late and you have a job to do.",
+   "v": "들여보내 주셔서 고맙습니다. 늦은 시간이고 하실 일도 있으신데."
+  },
+  {
+   "k": "But this helps more than you know.",
+   "v": "하지만 생각보다 훨씬 큰 도움이 됐어요."
+  },
+  {
+   "k": "Gate still open, huh?",
+   "v": "문이 아직 열려 있네요?"
+  },
+  {
+   "k": "I need to get inside for a minute.",
+   "v": "잠깐 안에 들어가야 합니다."
+  },
+  {
+   "k": "Just here to visit some graves.",
+   "v": "무덤 몇 군데 보러 온 것뿐입니다."
+  },
+  {
+   "k": "Go on in.",
+   "v": "들어가세요."
+  },
+  {
+   "k": "My name is Jason.",
+   "v": "제이슨입니다."
+  },
+  {
+   "k": "I've been here before many times.",
+   "v": "여기엔 여러 번 왔었습니다."
+  },
+  {
+   "k": "Jason Holmes.",
+   "v": "제이슨 홈즈입니다."
+  },
+  {
+   "k": "I'm here for my brother, Zackary Holmes.",
+   "v": "동생 재커리 홈즈를 보러 왔습니다."
+  },
+  {
+   "k": "And his son. Edward Holmes.",
+   "v": "그리고 동생의 아들, 에드워드 홈즈도요."
+  },
+  {
+   "k": "They were buried close together.",
+   "v": "둘은 가까이 묻혔습니다."
+  },
+  {
+   "k": "Can I go in?",
+   "v": "들어가도 될까요?"
+  },
+  {
+   "k": "Sorry. Graveyard's closed.",
+   "v": "죄송합니다. 묘지는 닫았습니다."
+  },
+  {
+   "k": "My brother and nephew, Zackary and Edward.",
+   "v": "동생과 조카, 재커리와 에드워드입니다."
+  },
+  {
+   "k": "When did they die?",
+   "v": "언제 돌아가셨습니까?"
+  },
+  {
+   "k": "How did they die?",
+   "v": "어떻게 돌아가셨습니까?"
+  },
+  {
+   "k": "Last year. They died at the same time.",
+   "v": "작년입니다. 같은 때에 죽었죠."
+  },
+  {
+   "k": "They died in a car accident.",
+   "v": "교통사고로 죽었습니다."
+  },
+  {
+   "k": "After their burial, it's just me and my brother's widowed wife.",
+   "v": "둘을 묻고 나니 저와 동생의 아내만 남았습니다."
+  },
+  {
+   "k": "She disappeared after their deaths.",
+   "v": "그녀는 두 사람이 죽은 뒤 사라졌습니다."
+  },
+  {
+   "k": "Why?",
+   "v": "왜죠?"
+  },
+  {
+   "k": "My name is Jason Holmes.",
+   "v": "제이슨 홈즈입니다."
+  },
+  {
+   "k": "No one knows for certain.",
+   "v": "아무도 확실히는 모릅니다."
+  },
+  {
+   "k": "She hasn't spoken to me since their passing.",
+   "v": "두 사람이 떠난 뒤로 저와는 말을 하지 않았죠."
+  },
+  {
+   "k": "I can only imagine what she's going through.",
+   "v": "그녀가 무엇을 겪고 있을지는 짐작만 할 뿐입니다."
+  },
+  {
+   "k": "I appreciate it.",
+   "v": "고맙습니다."
+  },
+  {
+   "k": "…",
+   "v": "…"
+  },
+  {
+   "k": "Yeah.",
+   "v": "그래요."
+  },
+  {
+   "k": "I should've expected that.",
+   "v": "예상했어야 했는데."
+  },
+  {
+   "k": "You're going to end up like every other gravekeeper before you.",
+   "v": "당신도 이전의 모든 묘지기들처럼 끝나겠군요."
+  },
+  {
+   "k": "…Hey.",
+   "v": "…저기요."
+  },
+  {
+   "k": "I'm done.",
+   "v": "다 끝났습니다."
+  },
+  {
+   "k": "Took longer than I thought.",
+   "v": "생각보다 오래 걸렸네요."
+  },
+  {
+   "k": "Guess I had more to say than I realized.",
+   "v": "제가 생각한 것보다 할 말이 많았나 봅니다."
+  },
+  {
+   "k": "Everything alright?",
+   "v": "괜찮으십니까?"
+  },
+  {
+   "k": "You should be heading out.",
+   "v": "이제 가 보셔야죠."
+  },
+  {
+   "k": "As alright as it gets, I suppose.",
+   "v": "괜찮을 수 있는 만큼은 괜찮습니다."
+  },
+  {
+   "k": "Edward's stone is still clean.",
+   "v": "에드워드의 묘비가 여전히 깨끗하더군요."
+  },
+  {
+   "k": "Someone's been taking care of it.",
+   "v": "누군가 돌보고 있었나 봅니다."
+  },
+  {
+   "k": "Anyway.",
+   "v": "어쨌든."
+  },
+  {
+   "k": "Thanks for letting me in.",
+   "v": "들여보내 줘서 고맙습니다."
+  },
+  {
+   "k": "Right.",
+   "v": "그렇죠."
+  },
+  {
+   "k": "You're right.",
+   "v": "당신 말이 맞습니다."
+  },
+  {
+   "k": "Don't worry.",
+   "v": "걱정 마세요."
+  },
+  {
+   "k": "I wasn't planning on staying.",
+   "v": "오래 있을 생각은 없었습니다."
+  },
+  {
+   "k": "They've had enough company for one night.",
+   "v": "하룻밤 손님으로는 충분했을 테니까요."
+  },
+  {
+   "k": "Try not to take this job too personally.",
+   "v": "이 일을 너무 개인적으로 받아들이지 마세요."
+  },
+  {
+   "k": "People just come here to mourn.",
+   "v": "사람들은 그저 슬퍼하러 여기 오는 겁니다."
+  },
+  {
+   "k": "Good night.",
+   "v": "안녕히 계세요."
+  },
+  {
+   "k": "Um...",
+   "v": "저기..."
+  },
+  {
+   "k": "H-hello?",
+   "v": "저, 저기요?"
+  },
+  {
+   "k": "You work here, right?",
+   "v": "여기서 일하시는 분 맞죠?"
+  },
+  {
+   "k": "I think you do.",
+   "v": "그런 것 같은데."
+  },
+  {
+   "k": "I mean, you're standing there like you do.",
+   "v": "그러니까, 그렇게 서 계시니까요."
+  },
+  {
+   "k": "I was wondering if I could come in for a minute.",
+   "v": "잠깐 들어가도 될까 해서요."
+  },
+  {
+   "k": "Just a minute.",
+   "v": "정말 잠깐만요."
+  },
+  {
+   "k": "Something feels off behind me.",
+   "v": "제 뒤에 뭔가 이상한 게 있어요."
+  },
+  {
+   "k": "But it might just be the wind.",
+   "v": "그냥 바람일 수도 있지만요."
+  },
+  {
+   "k": "What do you mean “off”?",
+   "v": "\"이상하다\"는 게 무슨 뜻입니까?"
+  },
+  {
+   "k": "What did you see?",
+   "v": "뭘 보셨습니까?"
+  },
+  {
+   "k": "R-right.",
+   "v": "네, 네."
+  },
+  {
+   "k": "So when I was walking, I heard footsteps.",
+   "v": "그러니까 걷고 있는데 발소리가 들렸어요."
+  },
+  {
+   "k": "I think.",
+   "v": "아마도요."
+  },
+  {
+   "k": "When I stopped walking, the footsteps stopped.",
+   "v": "제가 멈추니까 발소리도 멈췄어요."
+  },
+  {
+   "k": "Which is normal.",
+   "v": "그건 정상이죠."
+  },
+  {
+   "k": "Unless someone else stopped at the same time.",
+   "v": "누군가 동시에 멈춘 게 아니라면요."
+  },
+  {
+   "k": "That happens in movies.",
+   "v": "영화에서는 그렇잖아요."
+  },
+  {
+   "k": "Movies aren’t real. Did you see anyone?",
+   "v": "영화는 현실이 아닙니다. 누군가를 봤습니까?"
+  },
+  {
+   "k": "You’re shaking. Take a breath.",
+   "v": "떨고 계시네요. 심호흡하세요."
+  },
+  {
+   "k": "Y-yeah.",
+   "v": "네, 네."
+  },
+  {
+   "k": "That's what my mom used to say.",
+   "v": "엄마도 늘 그렇게 말했어요."
+  },
+  {
+   "k": "That I think too much.",
+   "v": "제가 생각이 너무 많다고요."
+  },
+  {
+   "k": "Or not enough.",
+   "v": "아니면 너무 없다고요."
+  },
+  {
+   "k": "I never figured out which one she meant.",
+   "v": "어느 쪽이었는지 끝내 못 알아냈어요."
+  },
+  {
+   "k": "I'm probably just tired.",
+   "v": "아마 그냥 피곤한 걸 거예요."
+  },
+  {
+   "k": "But being tired makes it easier for bad things to happen, I think.",
+   "v": "그런데 피곤하면 나쁜 일이 더 쉽게 일어나는 것 같아요."
+  },
+  {
+   "k": "Or maybe that's naps.",
+   "v": "아니면 그건 낮잠 얘기였나."
+  },
+  {
+   "k": "I get those mixed up.",
+   "v": "자꾸 헷갈려요."
+  },
+  {
+   "k": "Focus. Did you actually see someone?",
+   "v": "집중하세요. 정말 누군가를 봤습니까?"
+  },
+  {
+   "k": "Go home. You’re fine.",
+   "v": "집에 가세요. 괜찮으니까요."
+  },
+  {
+   "k": "Oh.",
+   "v": "아."
+  },
+  {
+   "k": "Breathing.",
+   "v": "호흡."
+  },
+  {
+   "k": "In.",
+   "v": "들이쉬고."
+  },
+  {
+   "k": "Out.",
+   "v": "내쉬고."
+  },
+  {
+   "k": "I think I'm doing it wrong.",
+   "v": "잘못하고 있는 것 같아요."
+  },
+  {
+   "k": "But I feel a little better.",
+   "v": "그래도 조금 나아졌어요."
+  },
+  {
+   "k": "Still don't like the dark though.",
+   "v": "그래도 어둠은 여전히 싫어요."
+  },
+  {
+   "k": "The dark feels like it's leaning.",
+   "v": "어둠이 기울어지는 것 같아요."
+  },
+  {
+   "k": "Does it look like it's leaning to you?",
+   "v": "당신 눈에도 기울어져 보여요?"
+  },
+  {
+   "k": "No. Tell me what you saw.",
+   "v": "아니요. 뭘 봤는지 말해 주세요."
+  },
+  {
+   "k": "You’re imagining things.",
+   "v": "헛것을 보신 겁니다."
+  },
+  {
+   "k": "S-see them?",
+   "v": "보, 봤냐고요?"
+  },
+  {
+   "k": "Not clearly.",
+   "v": "또렷하진 않았어요."
+  },
+  {
+   "k": "There was a shape.",
+   "v": "형체가 있었어요."
+  },
+  {
+   "k": "Or maybe a space where a shape should've been.",
+   "v": "아니면 형체가 있어야 할 자리가 비어 있었거나요."
+  },
+  {
+   "k": "It was near the trees.",
+   "v": "나무 근처였어요."
+  },
+  {
+   "k": "But trees are very suspicious at night.",
+   "v": "그런데 나무는 밤에 아주 수상하잖아요."
+  },
+  {
+   "k": "They move even when they shouldn't.",
+   "v": "움직이면 안 되는데도 움직이고요."
+  },
+  {
+   "k": "This one felt like it noticed me noticing it.",
+   "v": "그건 제가 자기를 알아챈 걸 알아챈 것 같았어요."
+  },
+  {
+   "k": "Which sounds silly.",
+   "v": "바보 같은 소리죠."
+  },
+  {
+   "k": "I know that.",
+   "v": "저도 알아요."
+  },
+  {
+   "k": "Describe the shape.",
+   "v": "그 형체를 묘사해 보세요."
+  },
+  {
+   "k": "You’re just scared.",
+   "v": "그냥 겁을 먹으신 겁니다."
+  },
+  {
+   "k": "Oh...",
+   "v": "아..."
+  },
+  {
+   "k": "M-maybe you're right.",
+   "v": "그, 그럴지도요."
+  },
+  {
+   "k": "I'd feel a lot better if I could come inside for a moment...",
+   "v": "잠깐이라도 안에 들어갈 수 있으면 훨씬 마음이 놓일 것 같은데..."
+  },
+  {
+   "k": "You can come inside. Quickly.",
+   "v": "들어와도 됩니다. 빨리요."
+  },
+  {
+   "k": "You should leave right now.",
+   "v": "지금 당장 가셔야 합니다."
+  },
+  {
+   "k": "I have a few more questions...",
+   "v": "몇 가지 더 묻겠습니다..."
+  },
+  {
+   "k": "Where were you headed?",
+   "v": "어디로 가는 길이었습니까?"
+  },
+  {
+   "k": "Oh, uh...",
+   "v": "아, 그게..."
+  },
+  {
+   "k": "I was just heading home.",
+   "v": "그냥 집에 가는 길이었어요."
+  },
+  {
+   "k": "My car is, like, out of gas. So I had to walk.",
+   "v": "차가, 그러니까, 기름이 떨어져서요. 그래서 걸어야 했어요."
+  },
+  {
+   "k": "I was just coming back from work. I work at bowling alley a couple of miles down the road.",
+   "v": "일 끝나고 오는 길이었어요. 이 길로 몇 킬로 내려가면 있는 볼링장에서 일해요."
+  },
+  {
+   "k": "My name is Jessica.",
+   "v": "제시카예요."
+  },
+  {
+   "k": "Not to be rude, but I don't think I would feel comfortable standing out here by myself.",
+   "v": "무례하려는 건 아니지만, 여기 혼자 서 있는 건 마음이 편하지 않을 것 같아요."
+  },
+  {
+   "k": "Um.",
+   "v": "음."
+  },
+  {
+   "k": "It was tall.",
+   "v": "키가 컸어요."
+  },
+  {
+   "k": "Or average.",
+   "v": "아니면 보통이거나."
+  },
+  {
+   "k": "Taller than me.",
+   "v": "저보다는 컸어요."
+  },
+  {
+   "k": "That part I’m sure about.",
+   "v": "그건 확실해요."
+  },
+  {
+   "k": "It didn't move much.",
+   "v": "별로 움직이지 않았어요."
+  },
+  {
+   "k": "Which was the worst part.",
+   "v": "그게 제일 무서웠어요."
+  },
+  {
+   "k": "If it moved, I'd know it was real.",
+   "v": "움직였다면 진짜라는 걸 알았을 텐데."
+  },
+  {
+   "k": "I think it had something dark on.",
+   "v": "뭔가 어두운 걸 입고 있었던 것 같아요."
+  },
+  {
+   "k": "Like a coat.",
+   "v": "코트 같은 거요."
+  },
+  {
+   "k": "Or a shadow pretending to be a coat.",
+   "v": "아니면 코트인 척하는 그림자거나."
+  },
+  {
+   "k": "R-really?",
+   "v": "저, 정말요?"
+  },
+  {
+   "k": "I promise I won't touch anything.",
+   "v": "아무것도 안 만질게요, 약속해요."
+  },
+  {
+   "k": "Or look at anything too long.",
+   "v": "뭘 너무 오래 쳐다보지도 않을게요."
+  },
+  {
+   "k": "That's fair.",
+   "v": "그렇겠죠."
+  },
+  {
+   "k": "You're probably right.",
+   "v": "당신 말이 맞을 거예요."
+  },
+  {
+   "k": "I'm sorry for bothering you.",
+   "v": "귀찮게 해서 죄송해요."
+  },
+  {
+   "k": "I'll just walk fast.",
+   "v": "그냥 빨리 걸을게요."
+  },
+  {
+   "k": "Fast walking makes you harder to catch.",
+   "v": "빨리 걸으면 잡기가 더 어렵대요."
+  },
+  {
+   "k": "I heard that somewhere.",
+   "v": "어디선가 들었어요."
+  },
+  {
+   "k": "If I start running, don't worry.",
+   "v": "제가 뛰기 시작해도 걱정 마세요."
+  },
+  {
+   "k": "That's normal for me.",
+   "v": "저한텐 흔한 일이에요."
+  },
+  {
+   "k": "I think I'm okay now.",
+   "v": "이제 괜찮은 것 같아요."
+  },
+  {
+   "k": "I stayed longer than I meant to.",
+   "v": "생각보다 오래 있었네요."
+  },
+  {
+   "k": "It feels quieter in here.",
+   "v": "안은 더 조용하게 느껴져요."
+  },
+  {
+   "k": "Not good quiet.",
+   "v": "좋은 조용함은 아니고요."
+  },
+  {
+   "k": "Just... tired quiet.",
+   "v": "그냥... 지친 조용함이에요."
+  },
+  {
+   "k": "I should probably go home.",
+   "v": "이제 집에 가야겠어요."
+  },
+  {
+   "k": "You sure you’re alright to leave alone?",
+   "v": "혼자 가셔도 정말 괜찮겠습니까?"
+  },
+  {
+   "k": "I mean.",
+   "v": "그러니까요."
+  },
+  {
+   "k": "I walked here by myself.",
+   "v": "여기까지 혼자 걸어왔잖아요."
+  },
+  {
+   "k": "And nothing bad happened.",
+   "v": "그리고 나쁜 일은 없었어요."
+  },
+  {
+   "k": "Probably.",
+   "v": "아마도요."
+  },
+  {
+   "k": "So it should be fine going back.",
+   "v": "그러니까 돌아가는 것도 괜찮을 거예요."
+  },
+  {
+   "k": "If I walk fast.",
+   "v": "빨리 걸으면요."
+  },
+  {
+   "k": "But not run.",
+   "v": "하지만 뛰지는 않고요."
+  },
+  {
+   "k": "Running makes it obvious you're scared.",
+   "v": "뛰면 무서워한다는 게 티가 나니까요."
+  },
+  {
+   "k": "Goodnight.",
+   "v": "안녕히 가세요."
+  },
+  {
+   "k": "For letting me in.",
+   "v": "들여보내 주셔서요."
+  },
+  {
+   "k": "And for not laughing.",
+   "v": "그리고 웃지 않아 주셔서요."
+  },
+  {
+   "k": "I'll be gone in just a second.",
+   "v": "금방 갈게요."
+  },
+  {
+   "k": "My name is officer James. I'm here with my partner, officer Baidey on an investigation.",
+   "v": "제임스 경관입니다. 동료인 베이디 경관과 함께 수사차 왔습니다."
+  },
+  {
+   "k": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.",
+   "v": "이 묘지와 인근 주택가에서 소란이 있었다는 신고가 접수됐습니다."
+  },
+  {
+   "k": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.",
+   "v": "주민 몇 분이 수상한 패거리의 행동을 목격했다고 합니다. 신고를 받고 이렇게 온 겁니다."
+  },
+  {
+   "k": "Would you mind answering some questions for us?",
+   "v": "몇 가지 질문에 답해 주시겠습니까?"
+  },
+  {
+   "k": "Alright, how can I help you?",
+   "v": "알겠습니다. 어떻게 도와드릴까요?"
+  },
+  {
+   "k": "Sorry, I can't help you.",
+   "v": "죄송합니다. 도와드릴 수 없습니다."
+  },
+  {
+   "k": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.",
+   "v": "좋습니다. 이 동네 주택에 침입한 남자 몇 명이 있다는 신고가 있었습니다."
+  },
+  {
+   "k": "Apparently, some of them have been sighted near this cemetary as well.",
+   "v": "그중 일부는 이 묘지 근처에서도 목격됐다고 합니다."
+  },
+  {
+   "k": "I'd like your help in conducting this investigation.",
+   "v": "이 수사에 협조해 주셨으면 합니다."
+  },
+  {
+   "k": "Firstly, have you seen anyone attempting to enter the premises dressed in black?",
+   "v": "먼저, 검은 옷을 입고 구내로 들어오려는 사람을 본 적이 있습니까?"
+  },
+  {
+   "k": "No, officer.",
+   "v": "아니요, 경관님."
+  },
+  {
+   "k": "Yes, I have.",
+   "v": "네, 봤습니다."
+  },
+  {
+   "k": "Could you describe the behavior of this individiual?",
+   "v": "그 사람의 행동을 설명해 주시겠습니까?"
+  },
+  {
+   "k": "They asked to come in and see a grave.",
+   "v": "무덤을 보겠다며 들어오게 해 달라고 했습니다."
+  },
+  {
+   "k": "They never approached me.",
+   "v": "제게 다가온 적은 없습니다."
+  },
+  {
+   "k": "I don't remember.",
+   "v": "기억이 안 납니다."
+  },
+  {
+   "k": "Alright, I'll move on to my next question.",
+   "v": "알겠습니다. 다음 질문으로 넘어가죠."
+  },
+  {
+   "k": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?",
+   "v": "이 시설 주변을 배회하는 사람을 본 적이 있습니까? 담이나 문 근처에서 안을 들여다본다든가요."
+  },
+  {
+   "k": "Do you remember anything about this individual?",
+   "v": "그 사람에 대해 기억나는 게 있습니까?"
+  },
+  {
+   "k": "Perhaps the color of his clothes or complexion?",
+   "v": "옷 색깔이나 피부색 같은 것 말입니다."
+  },
+  {
+   "k": "They wearing a greenish brown shirt.",
+   "v": "녹갈색 셔츠를 입고 있었습니다."
+  },
+  {
+   "k": "They were wearing a grey robe.",
+   "v": "회색 로브를 입고 있었습니다."
+  },
+  {
+   "k": "Alright, we appreciate your coopearation.",
+   "v": "알겠습니다. 협조에 감사드립니다."
+  },
+  {
+   "k": "We have one more question.",
+   "v": "질문이 하나 더 있습니다."
+  },
+  {
+   "k": "If it's alright with you...",
+   "v": "괜찮으시다면..."
+  },
+  {
+   "k": "I would like to come inside and take a look around.",
+   "v": "안에 들어가서 둘러보고 싶습니다."
+  },
+  {
+   "k": "Alright, go ahead.",
+   "v": "알겠습니다. 들어가세요."
+  },
+  {
+   "k": "I'm afraid I can't let you in sir.",
+   "v": "죄송하지만 들여보내 드릴 수 없습니다."
+  },
+  {
+   "k": "My name is officer James.",
+   "v": "제임스 경관입니다."
+  },
+  {
+   "k": "I see...",
+   "v": "그렇군요..."
+  },
+  {
+   "k": "Well, we don't have a warrant, so I can't force you to let me in.",
+   "v": "뭐, 영장이 없으니 강제로 들어갈 수는 없죠."
+  },
+  {
+   "k": "We'll be nearby if there's any trouble. Keep an eye out.",
+   "v": "문제가 생기면 근처에 있겠습니다. 경계를 늦추지 마십시오."
+  },
+  {
+   "k": "I think I'll be concluding my investigation here...",
+   "v": "여기서 수사를 마무리해야겠군요..."
+  },
+  {
+   "k": "Keep an eye out. Let us know if you see anything strange.",
+   "v": "경계를 늦추지 마십시오. 이상한 것을 보면 알려 주십시오."
+  },
+  {
+   "k": "Good evening.",
+   "v": "좋은 저녁입니다."
+  },
+  {
+   "k": "I'm Father Joseph.",
+   "v": "조지프 신부입니다."
+  },
+  {
+   "k": "I used to be the pastor here at this church.",
+   "v": "예전에 이 교회에서 목회를 했습니다."
+  },
+  {
+   "k": "I need to come inside for a moment.",
+   "v": "잠시 안에 들어가야 합니다."
+  },
+  {
+   "k": "What is your business here?",
+   "v": "무슨 일로 오셨습니까?"
+  },
+  {
+   "k": "Well...",
+   "v": "그게..."
+  },
+  {
+   "k": "I've left something important in the basement of that abandoned church years ago.",
+   "v": "몇 년 전 저 버려진 교회 지하실에 중요한 것을 두고 왔습니다."
+  },
+  {
+   "k": "I need to come inside and reclaim it.",
+   "v": "안에 들어가서 되찾아야 합니다."
+  },
+  {
+   "k": "What did you leave behind?",
+   "v": "무엇을 두고 오셨습니까?"
+  },
+  {
+   "k": "Why wait until now?",
+   "v": "왜 지금까지 기다리셨습니까?"
+  },
+  {
+   "k": "A wedding ring for my betrothed. It remained here after many years.",
+   "v": "약혼자에게 줄 결혼반지입니다. 오랜 세월 이곳에 남아 있었죠."
+  },
+  {
+   "k": "I need it back.",
+   "v": "되찾아야 합니다."
+  },
+  {
+   "k": "Are you hiding something?",
+   "v": "뭔가 숨기고 계신 겁니까?"
+  },
+  {
+   "k": "You came all this way just for that?",
+   "v": "고작 그것 때문에 여기까지 오셨다고요?"
+  },
+  {
+   "k": "Yes. It has very large sentimental value to me.",
+   "v": "네. 제게는 아주 큰 의미가 있는 물건입니다."
+  },
+  {
+   "k": "I need to enter the grounds to retrieve it.",
+   "v": "그걸 되찾으려면 구내에 들어가야 합니다."
+  },
+  {
+   "k": "You're hiding something.",
+   "v": "뭔가 숨기고 계시는군요."
+  },
+  {
+   "k": "Alright, I will be candid with you.",
+   "v": "좋습니다. 솔직히 말씀드리죠."
+  },
+  {
+   "k": "I had hoped not to return to this place.",
+   "v": "이곳에 다시는 돌아오지 않기를 바랐습니다."
+  },
+  {
+   "k": "But recently... I have felt immense guilt over the loss of my wife to be.",
+   "v": "하지만 최근... 제 아내가 될 사람을 잃은 것에 대해 엄청난 죄책감을 느끼고 있습니다."
+  },
+  {
+   "k": "She passed away before I had the opportunity to take our vows.",
+   "v": "그녀는 제가 서약을 할 기회를 갖기도 전에 세상을 떠났습니다."
+  },
+  {
+   "k": "I must return to retrieve our wedding ring.",
+   "v": "우리의 결혼반지를 되찾으러 돌아와야만 했습니다."
+  },
+  {
+   "k": "As something to remember her by.",
+   "v": "그녀를 기억할 무언가로요."
+  },
+  {
+   "k": "Are you lying?",
+   "v": "거짓말하시는 겁니까?"
+  },
+  {
+   "k": "How can I trust you?",
+   "v": "당신을 어떻게 믿죠?"
+  },
+  {
+   "k": "No. I know it has been many years since I've returned to these grounds...",
+   "v": "아닙니다. 이 땅에 돌아온 것이 몇 년 만인지 압니다..."
+  },
+  {
+   "k": "But I'm back now and I need to retrieve what is rightfully mine.",
+   "v": "하지만 이제 돌아왔고, 정당하게 제 것인 물건을 되찾아야 합니다."
+  },
+  {
+   "k": "So please...",
+   "v": "그러니 부디..."
+  },
+  {
+   "k": "You are wise to hesitate.",
+   "v": "망설이는 것은 현명한 일입니다."
+  },
+  {
+   "k": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return.",
+   "v": "저 교회로 향하는 한 걸음 한 걸음이, 제가 돌아오기를 참을성 있게 기다려 온 기억 속으로 되돌아가는 것만 같습니다."
+  },
+  {
+   "k": "But I need that ring.",
+   "v": "하지만 그 반지가 필요합니다."
+  },
+  {
+   "k": "I would like you to come with me to retrieve it.",
+   "v": "저와 함께 가서 되찾아 주셨으면 합니다."
+  },
+  {
+   "k": "Shall we go together?",
+   "v": "함께 가시겠습니까?"
+  },
+  {
+   "k": "Alright. Let's go.",
+   "v": "알겠습니다. 갑시다."
+  },
+  {
+   "k": "I'm sorry father, but you should leave.",
+   "v": "죄송합니다, 신부님. 하지만 돌아가셔야 합니다."
+  },
+  {
+   "k": "Do you have any family members?",
+   "v": "가족은 있으십니까?"
+  },
+  {
+   "k": "My name is Father Joseph Smith.",
+   "v": "조지프 스미스 신부입니다."
+  },
+  {
+   "k": "I have no immediate family members.",
+   "v": "가까운 가족은 없습니다."
+  },
+  {
+   "k": "We will not be long.",
+   "v": "오래 걸리지 않을 겁니다."
+  },
+  {
+   "k": "It is down the hall, on the staircase to the right.",
+   "v": "복도 끝, 오른쪽 계단입니다."
+  },
+  {
+   "k": "I know the way.",
+   "v": "길은 압니다."
+  },
+  {
+   "k": "I hope we are not too late.",
+   "v": "너무 늦지 않았기를 바랍니다."
+  },
+  {
+   "k": "Hurry.",
+   "v": "서두르세요."
+  },
+  {
+   "k": "I urge you to reconsider.",
+   "v": "다시 생각해 주시길 간청합니다."
+  },
+  {
+   "k": "It is very important you allow me inside to retrieve the lost item.",
+   "v": "잃어버린 물건을 되찾도록 저를 들여보내 주시는 것이 매우 중요합니다."
+  },
+  {
+   "k": "Please. Allow me in.",
+   "v": "부디. 들여보내 주세요."
+  },
+  {
+   "k": "You're right. I'm sorry. Let's go inside.",
+   "v": "신부님 말씀이 맞습니다. 죄송합니다. 들어가시죠."
+  },
+  {
+   "k": "No. Leave.",
+   "v": "안 됩니다. 가세요."
+  },
+  {
+   "k": "Very well.",
+   "v": "좋습니다."
+  },
+  {
+   "k": "I will not force your hand.",
+   "v": "강요하지는 않겠습니다."
+  },
+  {
+   "k": "May God forgive us both.",
+   "v": "하느님께서 우리 둘 다 용서하시기를."
+  },
+  {
+   "k": "Here we are.",
+   "v": "다 왔습니다."
+  },
+  {
+   "k": "I would like you to enter inside and retrieve it for me. I will wait out here.",
+   "v": "안으로 들어가 저 대신 가져와 주셨으면 합니다. 저는 여기서 기다리겠습니다."
+  },
+  {
+   "k": "It is down the hall. Take the first door to your right.",
+   "v": "복도 끝입니다. 오른쪽 첫 번째 문으로 들어가세요."
+  },
+  {
+   "k": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom.",
+   "v": "지하실까지 계단이 꽤 깁니다. 맨 아래에 닿을 때까지 계속 내려가세요."
+  },
+  {
+   "k": "The ring should be left in a chest in the back corner.",
+   "v": "반지는 뒤쪽 구석의 상자 안에 있을 겁니다."
+  },
+  {
+   "k": "Before you enter, I would like to give you some advice.",
+   "v": "들어가기 전에 조언을 하나 드리겠습니다."
+  },
+  {
+   "k": "When you go down the hall, do not enter the door on the left. No matter what.",
+   "v": "복도를 지날 때 왼쪽 문으로는 들어가지 마세요. 무슨 일이 있어도요."
+  },
+  {
+   "k": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute.",
+   "v": "그리고 당신을 미혹할지 모를 어떤 목소리에도 귀 기울이지 마세요. 길을 지키고, 흔들리지 마세요."
+  },
+  {
+   "k": "Do you understand?",
+   "v": "이해하셨습니까?"
+  },
+  {
+   "k": "Okay. Thank you, father.",
+   "v": "알겠습니다. 고맙습니다, 신부님."
+  },
+  {
+   "k": "I've changed my mind. You should leave.",
+   "v": "마음이 바뀌었습니다. 돌아가셔야겠습니다."
+  },
+  {
+   "k": "Were you able to retrieve the ring?",
+   "v": "반지를 되찾으셨습니까?"
+  },
+  {
+   "k": "Not yet. I'll go get it.",
+   "v": "아직입니다. 가서 가져오겠습니다."
+  },
+  {
+   "k": "Yo… you work here?",
+   "v": "어이... 여기서 일하는 사람이야?"
+  },
+  {
+   "k": "Listen, man, I can’t hang around long.",
+   "v": "잘 들어, 난 오래 못 있어."
+  },
+  {
+   "k": "I don’t even wanna come in.",
+   "v": "안에 들어가고 싶지도 않고."
+  },
+  {
+   "k": "Just needed to give you a heads-up.",
+   "v": "그냥 미리 알려 주려고 온 거야."
+  },
+  {
+   "k": "A heads-up?",
+   "v": "미리 알려 준다고요?"
+  },
+  {
+   "k": "Yeah. A warning.",
+   "v": "응. 경고야."
+  },
+  {
+   "k": "My brother’s been acting real strange lately.",
+   "v": "우리 형이 요즘 진짜 이상하게 굴어."
+  },
+  {
+   "k": "Says he’s got some kind of “gig” involving this place.",
+   "v": "이 장소랑 관련된 무슨 \"일거리\"가 있다나."
+  },
+  {
+   "k": "Tried telling the cops, but they wouldn’t listen. They never take me seriously.",
+   "v": "경찰한테 말해 봤는데 들으려고도 안 하더라. 아무도 날 진지하게 안 받아들여."
+  },
+  {
+   "k": "So I figured I’d come myself.",
+   "v": "그래서 직접 오기로 했어."
+  },
+  {
+   "k": "If my brother shows up here to “visit” a grave…",
+   "v": "우리 형이 무덤을 \"보러\" 여기 나타나면..."
+  },
+  {
+   "k": "Do not let him in.",
+   "v": "들여보내지 마."
+  },
+  {
+   "k": "You hear me?",
+   "v": "알아들었어?"
+  },
+  {
+   "k": "Why not?",
+   "v": "왜죠?"
+  },
+  {
+   "k": "Alright, I understand. Can you give me any more details?",
+   "v": "알겠습니다. 좀 더 자세히 말해 줄 수 있습니까?"
+  },
+  {
+   "k": "I already told you, man.",
+   "v": "이미 말했잖아."
+  },
+  {
+   "k": "He’s been running with the wrong crowd.",
+   "v": "형은 질 나쁜 놈들이랑 어울려 다녀."
+  },
+  {
+   "k": "Nothing but trouble.",
+   "v": "말썽밖에 안 돼."
+  },
+  {
+   "k": "I don’t want him getting in deeper than he already is.",
+   "v": "형이 지금보다 더 깊이 빠지는 걸 원치 않아."
+  },
+  {
+   "k": "Just turn him away. Don’t let him in, and don’t let him talk you into it.",
+   "v": "그냥 돌려보내. 들여보내지도 말고, 설득당하지도 마."
+  },
+  {
+   "k": "Him and that weird, cult-like group he’s been hanging around lately…",
+   "v": "형이랑, 요즘 어울리는 그 이상한 사이비 같은 무리..."
+  },
+  {
+   "k": "I don’t know. Something’s off.",
+   "v": "모르겠어. 뭔가 잘못됐어."
+  },
+  {
+   "k": "Okay. Thanks for the warning.",
+   "v": "알겠습니다. 경고 고맙습니다."
+  },
+  {
+   "k": "Sorry, but I’ll be handling security myself. You should go home.",
+   "v": "미안하지만 경비는 내가 알아서 하겠습니다. 집에 가세요."
+  },
+  {
+   "k": "Name’s Reginald. My brother’s Shane.",
+   "v": "레지널드야. 형은 셰인이고."
+  },
+  {
+   "k": "We’re part of the Deloitte family — live a few miles down the road.",
+   "v": "우린 들로이트 집안이야. 이 길로 몇 킬로 내려가면 살아."
+  },
+  {
+   "k": "I’m not here to cause trouble.",
+   "v": "말썽 부리러 온 거 아니야."
+  },
+  {
+   "k": "I just want to stop him from doing something stupid… something he might regret.",
+   "v": "그냥 형이 멍청한 짓을 못 하게 막고 싶을 뿐이야... 후회할 만한 짓 말이야."
+  },
+  {
+   "k": "He’s always been like this. Always pushing his luck.",
+   "v": "형은 늘 그랬어. 항상 무리수를 두지."
+  },
+  {
+   "k": "So please — can you promise me you won’t let him or his gang in?",
+   "v": "그러니까 제발, 형이랑 형 패거리를 안 들여보내겠다고 약속해 줄 수 있어?"
+  },
+  {
+   "k": "Thanks for hearing me out.",
+   "v": "들어 줘서 고마워."
+  },
+  {
+   "k": "We’re the Deloitte family — live not too far from here.",
+   "v": "우린 들로이트 집안이야. 여기서 멀지 않은 데 살아."
+  },
+  {
+   "k": "My brother looks a lot like me. Little shorter, but close enough you might mistake us.",
+   "v": "형은 나랑 많이 닮았어. 키는 좀 작지만, 헷갈릴 만큼 비슷해."
+  },
+  {
+   "k": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go.",
+   "v": "요즘 이상한 무리랑 어울려 다녀. 온통 검은 옷에, 괴상한 의식이나 하고, 가는 곳마다 문제를 일으켜."
+  },
+  {
+   "k": "Real cult-like stuff.",
+   "v": "진짜 사이비 같은 짓거리야."
+  },
+  {
+   "k": "Before he took off, I heard him muttering about this graveyard being “important.”",
+   "v": "떠나기 전에 형이 이 묘지가 \"중요하다\"고 중얼거리는 걸 들었어."
+  },
+  {
+   "k": "Didn’t like the sound of that.",
+   "v": "그 말이 영 찜찜하더라고."
+  },
+  {
+   "k": "Feels like he’s planning to mess with something buried out here.",
+   "v": "여기 묻힌 뭔가를 건드리려는 것 같아."
+  },
+  {
+   "k": "Just… don’t let him in.",
+   "v": "그냥... 들여보내지 마."
+  },
+  {
+   "k": "I don’t want to see him ruin his life any more than he already has.",
+   "v": "형이 이미 망친 인생을 더 망치는 걸 보고 싶지 않아."
+  },
+  {
+   "k": "Can you promise me that?",
+   "v": "약속해 줄 수 있어?"
+  },
+  {
+   "k": "Thanks, man.",
+   "v": "고마워."
+  },
+  {
+   "k": "I owe you one.",
+   "v": "신세 졌네."
+  },
+  {
+   "k": "Yeah… figures.",
+   "v": "그래... 그럴 줄 알았어."
+  },
+  {
+   "k": "Nobody ever takes me seriously.",
+   "v": "아무도 날 진지하게 안 받아들이지."
+  },
+  {
+   "k": "Hope you all get what’s coming to you.",
+   "v": "너희 전부 벌 받길 바란다."
+  },
+  {
+   "k": "Hey.",
+   "v": "저기요."
+  },
+  {
+   "k": "Didn't think anyone would be out here this late.",
+   "v": "이렇게 늦은 시간에 밖에 누가 있을 줄은 몰랐네요."
+  },
+  {
+   "k": "You work this place?",
+   "v": "여기서 일하십니까?"
+  },
+  {
+   "k": "Listen… I don’t wanna make trouble.",
+   "v": "들어 보세요... 문제 일으키려는 거 아닙니다."
+  },
+  {
+   "k": "I just need a minute inside.",
+   "v": "안에 잠깐만 들어가면 됩니다."
+  },
+  {
+   "k": "It's late. What do you want?",
+   "v": "늦었습니다. 무슨 용건이죠?"
+  },
+  {
+   "k": "My name's Shane.",
+   "v": "셰인입니다."
+  },
+  {
+   "k": "Deloitte family. We live a ways down the road.",
+   "v": "들로이트 집안이에요. 이 길 따라 좀 내려가면 삽니다."
+  },
+  {
+   "k": "I’m not here to steal anything or mess around.",
+   "v": "뭘 훔치거나 장난치러 온 게 아닙니다."
+  },
+  {
+   "k": "There’s something in there that belongs to my family.",
+   "v": "저 안에 우리 가족 것이 있어요."
+  },
+  {
+   "k": "Something that never got handled right.",
+   "v": "제대로 처리되지 않은 것이요."
+  },
+  {
+   "k": "Handled how?",
+   "v": "처리라니, 어떻게요?"
+  },
+  {
+   "k": "Rules are rules. I can’t let you in.",
+   "v": "규칙은 규칙입니다. 들여보낼 수 없습니다."
+  },
+  {
+   "k": "I just need to see a grave.",
+   "v": "무덤 하나만 보면 됩니다."
+  },
+  {
+   "k": "It's unmarked.",
+   "v": "표시가 없는 무덤이에요."
+  },
+  {
+   "k": "Most folks don’t even know it’s there.",
+   "v": "대부분은 거기 무덤이 있는지도 모릅니다."
+  },
+  {
+   "k": "I wouldn’t be here if I had another option.",
+   "v": "다른 방법이 있었으면 여기 안 왔을 겁니다."
+  },
+  {
+   "k": "Why is it unmarked?",
+   "v": "왜 표시가 없습니까?"
+  },
+  {
+   "k": "That doesn’t matter. You need to leave.",
+   "v": "그건 중요하지 않습니다. 가셔야 합니다."
+  },
+  {
+   "k": "They buried them in a hurry.",
+   "v": "서둘러 묻었거든요."
+  },
+  {
+   "k": "Didn’t ask questions. Didn’t put a name down.",
+   "v": "묻지도 않고. 이름도 적지 않고."
+  },
+  {
+   "k": "Just wanted it done and forgotten.",
+   "v": "그냥 끝내고 잊어버리고 싶었던 거죠."
+  },
+  {
+   "k": "That kind of thing sticks with a family.",
+   "v": "그런 일은 가족한테 들러붙습니다."
+  },
+  {
+   "k": "Sticks with a place too.",
+   "v": "장소에도 들러붙고요."
+  },
+  {
+   "k": "You’re talking in circles. Be straight with me.",
+   "v": "말을 빙빙 돌리시는군요. 솔직히 말씀하세요."
+  },
+  {
+   "k": "I’m sorry, but I still can’t let you in.",
+   "v": "죄송하지만 그래도 들여보낼 수 없습니다."
+  },
+  {
+   "k": "Because it was easier that way.",
+   "v": "그게 더 쉬웠으니까요."
+  },
+  {
+   "k": "No paperwork or attention.",
+   "v": "서류도, 관심도 없이."
+  },
+  {
+   "k": "Just dirt over a problem.",
+   "v": "문제 위에 흙만 덮은 거죠."
+  },
+  {
+   "k": "I know how this sounds.",
+   "v": "이게 어떻게 들리는지는 압니다."
+  },
+  {
+   "k": "But I need to see it with my own eyes.",
+   "v": "하지만 제 눈으로 직접 봐야겠어요."
+  },
+  {
+   "k": "Make sure nothing’s… wrong.",
+   "v": "아무것도... 잘못되지 않았는지 확인하려고요."
+  },
+  {
+   "k": "What could be wrong?",
+   "v": "뭐가 잘못될 수 있다는 겁니까?"
+  },
+  {
+   "k": "No. You’re not going inside.",
+   "v": "안 됩니다. 들어갈 수 없습니다."
+  },
+  {
+   "k": "…Alright.",
+   "v": "…알겠습니다."
+  },
+  {
+   "k": "Something’s been off lately.",
+   "v": "요즘 뭔가 이상해요."
+  },
+  {
+   "k": "I haven't been able to sleep right. The guilt from the quick burial...",
+   "v": "잠을 제대로 못 자요. 서둘러 묻은 것에 대한 죄책감 때문에..."
+  },
+  {
+   "k": "I just wanna make sure the plot is alright.",
+   "v": "그냥 묘역이 괜찮은지 확인하고 싶을 뿐입니다."
+  },
+  {
+   "k": "The paperwork doesn’t line up.",
+   "v": "서류가 맞지 않아요."
+  },
+  {
+   "k": "Dates, plot number... even the depth’s different depending on who you ask.",
+   "v": "날짜, 묘역 번호... 깊이조차 누구한테 묻느냐에 따라 달라요."
+  },
+  {
+   "k": "That usually means someone rushed it, or skipped steps they shouldn’t have.",
+   "v": "그건 보통 누군가 서둘렀거나, 건너뛰면 안 되는 절차를 건너뛰었다는 뜻이죠."
+  },
+  {
+   "k": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.",
+   "v": "뭔가 잘못됐다면, 더 큰 문제가 되기 전에 지금 바로잡는 게 쉽습니다."
+  },
+  {
+   "k": "I’ve learned that the hard way.",
+   "v": "그건 뼈아프게 배웠거든요."
+  },
+  {
+   "k": "Will you let me come in and have a look?",
+   "v": "들어가서 한번 볼 수 있게 해 주시겠습니까?"
+  },
+  {
+   "k": "Fine. You can go in, but be quick.",
+   "v": "좋습니다. 들어가셔도 되지만 서둘러 주세요."
+  },
+  {
+   "k": "My brother, Reginald.",
+   "v": "제 동생, 레지널드입니다."
+  },
+  {
+   "k": "It was very recent.",
+   "v": "아주 최근이었어요."
+  },
+  {
+   "k": "A little over a week ago.",
+   "v": "일주일 조금 넘었습니다."
+  },
+  {
+   "k": "You weren't working here when it happened.",
+   "v": "그 일이 있었을 때 당신은 여기서 일하지 않았죠."
+  },
+  {
+   "k": "He died close to here.",
+   "v": "여기서 가까운 곳에서 죽었습니다."
+  },
+  {
+   "k": "He was in a terrible shape when they found him. I don't want to recall the details.",
+   "v": "발견됐을 때 상태가 끔찍했어요. 자세히 떠올리고 싶지 않습니다."
+  },
+  {
+   "k": "I don't know for certain.",
+   "v": "확실히는 모릅니다."
+  },
+  {
+   "k": "After my brother's death, it's just me.",
+   "v": "동생이 죽고 나니 저만 남았습니다."
+  },
+  {
+   "k": "Shane Deloitte.",
+   "v": "셰인 들로이트입니다."
+  },
+  {
+   "k": "Really.",
+   "v": "정말입니다."
+  },
+  {
+   "k": "I’ll be quick.",
+   "v": "빨리 끝내겠습니다."
+  },
+  {
+   "k": "That figures.",
+   "v": "그럴 줄 알았습니다."
+  },
+  {
+   "k": "Nobody ever wants to deal with things before they rot.",
+   "v": "아무도 일이 썩기 전에 처리하려 들지 않죠."
+  },
+  {
+   "k": "They just lock the gate and walk away.",
+   "v": "그냥 문을 잠그고 가 버릴 뿐."
+  },
+  {
+   "k": "If this turns into a mess later, just remember I came by.",
+   "v": "나중에 이게 엉망이 되면, 제가 왔었다는 걸 기억하세요."
+  },
+  {
+   "k": "I tried to handle this properly.",
+   "v": "제대로 처리하려고 했습니다."
+  },
+  {
+   "k": "…Yeah.",
+   "v": "…그래요."
+  },
+  {
+   "k": "It’s still here.",
+   "v": "아직 여기 있군요."
+  },
+  {
+   "k": "You can go.",
+   "v": "가셔도 됩니다."
+  },
+  {
+   "k": "I won’t need you watching anymore.",
+   "v": "더 이상 지켜보실 필요 없습니다."
+  },
+  {
+   "k": "You said you’d be quick.",
+   "v": "빨리 끝내겠다고 하셨잖아요."
+  },
+  {
+   "k": "Yeah, I know.",
+   "v": "네, 압니다."
+  },
+  {
+   "k": "Just needed to see it one more time.",
+   "v": "한 번만 더 보고 싶었을 뿐이에요."
+  },
+  {
+   "k": "I’m done.",
+   "v": "다 끝났습니다."
+  },
+  {
+   "k": "You won’t see me again tonight.",
+   "v": "오늘 밤엔 다시 보실 일 없을 겁니다."
+  },
+  {
+   "k": "That depends.",
+   "v": "글쎄요."
+  },
+  {
+   "k": "But it’s not your problem.",
+   "v": "하지만 당신이 신경 쓸 일은 아닙니다."
+  },
+  {
+   "k": "I’m finished here.",
+   "v": "여기서 할 일은 끝났습니다."
+  },
+  {
+   "k": "You must be the gravekeeper.",
+   "v": "당신이 묘지기군요."
+  },
+  {
+   "k": "My name is Tabitha.",
+   "v": "태비사라고 합니다."
+  },
+  {
+   "k": "I was hoping you’d be on duty tonight.",
+   "v": "오늘 밤 당신이 근무하길 바랐어요."
+  },
+  {
+   "k": "I'm not interested.",
+   "v": "관심 없습니다."
+  },
+  {
+   "k": "Can I help you with something?",
+   "v": "무엇을 도와드릴까요?"
+  },
+  {
+   "k": "Curiosity keeps most people alive longer than confidence.",
+   "v": "호기심은 자신감보다 사람을 더 오래 살게 하죠."
+  },
+  {
+   "k": "I ask for a mere moment.",
+   "v": "잠깐이면 됩니다."
+  },
+  {
+   "k": "I want to enter the graveyard.",
+   "v": "묘지에 들어가고 싶어요."
+  },
+  {
+   "k": "Not to disturb anything.",
+   "v": "무언가를 어지럽히려는 게 아니에요."
+  },
+  {
+   "k": "To protect it.",
+   "v": "지키려는 거예요."
+  },
+  {
+   "k": "There are… restless things.",
+   "v": "여기엔... 안식하지 못한 것들이 있어요."
+  },
+  {
+   "k": "You don’t see them.",
+   "v": "당신 눈엔 보이지 않죠."
+  },
+  {
+   "k": "But they notice places like this.",
+   "v": "하지만 그것들은 이런 장소를 알아봐요."
+  },
+  {
+   "k": "That sounds like nonsense.",
+   "v": "헛소리처럼 들리는군요."
+  },
+  {
+   "k": "Protect it how?",
+   "v": "어떻게 지킨다는 겁니까?"
+  },
+  {
+   "k": "You have a kind voice.",
+   "v": "친절한 목소리를 가지셨네요."
+  },
+  {
+   "k": "That helps, in a place like this.",
+   "v": "이런 곳에서는 그게 도움이 되죠."
+  },
+  {
+   "k": "I work with old rites.",
+   "v": "저는 오래된 의식을 다룹니다."
+  },
+  {
+   "k": "Small blessings.",
+   "v": "작은 축복들이죠."
+  },
+  {
+   "k": "They keep bad spirits from wandering too close.",
+   "v": "악령들이 너무 가까이 오지 못하게 막아 줘요."
+  },
+  {
+   "k": "This graveyard feels thin.",
+   "v": "이 묘지는 얇게 느껴져요."
+  },
+  {
+   "k": "Like a door left unlocked.",
+   "v": "잠기지 않은 문처럼요."
+  },
+  {
+   "k": "You expect me to believe that?",
+   "v": "그걸 믿으라는 겁니까?"
+  },
+  {
+   "k": "What kind of rites?",
+   "v": "어떤 의식입니까?"
+  },
+  {
+   "k": "You call it nonsense.",
+   "v": "헛소리라고 하시는군요."
+  },
+  {
+   "k": "That’s fine.",
+   "v": "괜찮아요."
+  },
+  {
+   "k": "Most people do.",
+   "v": "대부분 그렇게 말하죠."
+  },
+  {
+   "k": "Until something follows them home.",
+   "v": "무언가가 집까지 따라올 때까지는요."
+  },
+  {
+   "k": "I don’t charge.",
+   "v": "돈은 받지 않아요."
+  },
+  {
+   "k": "I don’t ask for thanks.",
+   "v": "감사도 바라지 않아요."
+  },
+  {
+   "k": "Just permission.",
+   "v": "허락만 바랄 뿐이죠."
+  },
+  {
+   "k": "Nothing dramatic.",
+   "v": "요란한 건 없어요."
+  },
+  {
+   "k": "No candles. No blood. Just words said in the right places.",
+   "v": "촛불도, 피도 없어요. 그저 알맞은 곳에서 말을 읊을 뿐이죠."
+  },
+  {
+   "k": "The dead sleep better after, and the living too.",
+   "v": "그러면 죽은 자들은 더 잘 잠들고, 산 자들도 그렇죠."
+  },
+  {
+   "k": "You look tired.",
+   "v": "피곤해 보이네요."
+  },
+  {
+   "k": "That kind of tired doesn’t come from long shifts.",
+   "v": "그런 피로는 긴 근무 때문에 오는 게 아니에요."
+  },
+  {
+   "k": "You won’t owe me anything.",
+   "v": "제게 빚질 건 아무것도 없어요."
+  },
+  {
+   "k": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.",
+   "v": "간단한 절차예요. 묘지의 길을 걸으며 영혼들을 잠재울 거예요."
+  },
+  {
+   "k": "You will immediately feel at ease.",
+   "v": "곧바로 마음이 편해질 거예요."
+  },
+  {
+   "k": "Let me inside.",
+   "v": "들여보내 주세요."
+  },
+  {
+   "k": "Alright. Go ahead, but I’m watching you.",
+   "v": "좋습니다. 들어가세요. 하지만 지켜보고 있겠습니다."
+  },
+  {
+   "k": "No. I can’t let you in.",
+   "v": "안 됩니다. 들여보낼 수 없습니다."
+  },
+  {
+   "k": "Ask away.",
+   "v": "물어보세요."
+  },
+  {
+   "k": "Yes, unfortunately.",
+   "v": "네, 안타깝게도요."
+  },
+  {
+   "k": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse.",
+   "v": "성가신 제 동생, 마리벨이요. 여기 와서 제가 한 일을 망치려 들지도 몰라요. 아니면 상황을 더 나쁘게 만들거나."
+  },
+  {
+   "k": "I trust you are fit for your job and will make the correct decisions.",
+   "v": "당신이 이 일에 걸맞은 사람이고 올바른 결정을 내리리라 믿어요."
+  },
+  {
+   "k": "I have other questions",
+   "v": "다른 질문이 있습니다"
+  },
+  {
+   "k": "Tabitha.",
+   "v": "태비사예요."
+  },
+  {
+   "k": "I am here to ease the restless spirits in this graveyard.",
+   "v": "이 묘지의 안식하지 못한 영혼들을 달래러 왔어요."
+  },
+  {
+   "k": "You don't need to be afraid...",
+   "v": "두려워할 필요 없어요..."
+  },
+  {
+   "k": "I am here to help.",
+   "v": "도우러 온 거예요."
+  },
+  {
+   "k": "Why did you choose this graveyard?",
+   "v": "왜 이 묘지를 택하셨습니까?"
+  },
+  {
+   "k": "Are you attempting to deceive me?",
+   "v": "저를 속이려는 겁니까?"
+  },
+  {
+   "k": "Don't get the wrong idea, gravekeeper.",
+   "v": "오해하지 마세요, 묘지기님."
+  },
+  {
+   "k": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here.",
+   "v": "저도 당신과 같은 수호자일 뿐이에요. 우연히 도움이 필요한 곳을 만났고, 우연히 당신이 여기 있었던 거죠."
+  },
+  {
+   "k": "I offer my help. You may choose to accept it, or not.",
+   "v": "저는 도움을 제안할 뿐이에요. 받아들이든 말든 당신 선택이에요."
+  },
+  {
+   "k": "Deceive you?",
+   "v": "속인다고요?"
+  },
+  {
+   "k": "If I were lying, what good would it help to ask me that?",
+   "v": "제가 거짓말을 하고 있다면, 그렇게 묻는 게 무슨 소용이죠?"
+  },
+  {
+   "k": "I don't think you're thinking this through.",
+   "v": "깊이 생각하지 않으시는 것 같네요."
+  },
+  {
+   "k": "You made the right choice.",
+   "v": "옳은 선택을 하셨어요."
+  },
+  {
+   "k": "If tonight feels quieter than usual, that’s me helping.",
+   "v": "오늘 밤이 평소보다 조용하게 느껴진다면, 그건 제가 돕고 있는 거예요."
+  },
+  {
+   "k": "I see.",
+   "v": "그렇군요."
+  },
+  {
+   "k": "You guard the gate, but not what slips through cracks.",
+   "v": "당신은 문을 지키지만, 틈새로 스며드는 것들은 지키지 못하죠."
+  },
+  {
+   "k": "Don’t say I didn’t offer.",
+   "v": "제안하지 않았다고는 말하지 마세요."
+  },
+  {
+   "k": "Sleep lightly tonight.",
+   "v": "오늘 밤은 선잠을 자도록 하세요."
+  },
+  {
+   "k": "Ah! Yes! There it is...",
+   "v": "아! 그래! 저기 있네..."
+  },
+  {
+   "k": "Did you feel that?",
+   "v": "느껴졌어요?"
+  },
+  {
+   "k": "They scattered so fast.",
+   "v": "저렇게 빨리 흩어지다니."
+  },
+  {
+   "k": "The old ones hate being named.",
+   "v": "오래된 것들은 이름이 불리는 걸 싫어하죠."
+  },
+  {
+   "k": "Especially out loud.",
+   "v": "특히 소리 내어 부르면요."
+  },
+  {
+   "k": "You’re finished, right?",
+   "v": "끝났죠?"
+  },
+  {
+   "k": "Finished?",
+   "v": "끝났냐고요?"
+  },
+  {
+   "k": "No... completed.",
+   "v": "아니요... 완성됐어요."
+  },
+  {
+   "k": "This place will sleep better now.",
+   "v": "이제 이곳은 더 편히 잠들 거예요."
+  },
+  {
+   "k": "You helped more than you know.",
+   "v": "당신은 생각보다 큰 도움을 줬어요."
+  },
+  {
+   "k": "Thank you, gravekeeper.",
+   "v": "고마워요, 묘지기님."
+  },
+  {
+   "k": "For your cooperation.",
+   "v": "협조해 주셔서요."
+  },
+  {
+   "k": "We may speak again.",
+   "v": "다시 이야기할 날이 올지도 모르죠."
+  },
+  {
+   "k": "Good. You’re still here.",
+   "v": "다행이에요. 아직 계시네요."
+  },
+  {
+   "k": "I was worried I’d be too late.",
+   "v": "너무 늦었을까 봐 걱정했어요."
+  },
+  {
+   "k": "You’re the gravekeeper, yes?",
+   "v": "당신이 묘지기죠?"
+  },
+  {
+   "k": "The graveyard is closed.",
+   "v": "묘지는 닫았습니다."
+  },
+  {
+   "k": "My name is Maribel.",
+   "v": "마리벨이라고 해요."
+  },
+  {
+   "k": "I’m looking for someone who came through here earlier.",
+   "v": "아까 이곳을 지나간 사람을 찾고 있어요."
+  },
+  {
+   "k": "A woman named Tabitha.",
+   "v": "태비사라는 여자예요."
+  },
+  {
+   "k": "Thin. Quiet. Thinks she knows how the dead work.",
+   "v": "마르고. 조용하고. 죽은 자들이 어떻게 움직이는지 안다고 착각하죠."
+  },
+  {
+   "k": "She’s my sister.",
+   "v": "제 언니예요."
+  },
+  {
+   "k": "She was here earlier.",
+   "v": "아까 왔었습니다."
+  },
+  {
+   "k": "No one like that came by.",
+   "v": "그런 사람은 온 적 없습니다."
+  },
+  {
+   "k": "Closed.",
+   "v": "닫았다."
+  },
+  {
+   "k": "Yes, I heard that already.",
+   "v": "네, 그 말은 이미 들었어요."
+  },
+  {
+   "k": "But you see, I’m not here for the graveyard.",
+   "v": "하지만 저는 묘지 때문에 온 게 아니에요."
+  },
+  {
+   "k": "I’m here because my sister has a habit of interfering with things she doesn’t understand.",
+   "v": "언니가 자기가 이해하지 못하는 것들에 참견하는 버릇이 있어서 온 거예요."
+  },
+  {
+   "k": "And this place?",
+   "v": "그리고 이곳은요?"
+  },
+  {
+   "k": "It attracts those things.",
+   "v": "그런 것들을 끌어들이죠."
+  },
+  {
+   "k": "Interfering how?",
+   "v": "어떻게 참견한다는 겁니까?"
+  },
+  {
+   "k": "I still can’t let you in.",
+   "v": "그래도 들여보낼 수 없습니다."
+  },
+  {
+   "k": "I knew it.",
+   "v": "그럴 줄 알았어요."
+  },
+  {
+   "k": "She never could resist places like this.",
+   "v": "언니는 이런 곳을 그냥 지나치지 못하죠."
+  },
+  {
+   "k": "Always trying to “fix” things.",
+   "v": "늘 뭔가를 \"고치려\" 들어요."
+  },
+  {
+   "k": "Always making them worse.",
+   "v": "늘 더 나쁘게 만들면서요."
+  },
+  {
+   "k": "If she performed her little rites here, then something of mine is now trapped inside.",
+   "v": "언니가 여기서 그 자잘한 의식을 치렀다면, 제 것 하나가 지금 안에 갇혀 있어요."
+  },
+  {
+   "k": "That’s why I need to enter.",
+   "v": "그래서 들어가야 해요."
+  },
+  {
+   "k": "Something of yours?",
+   "v": "당신 것이라고요?"
+  },
+  {
+   "k": "That’s not my problem.",
+   "v": "제가 알 바 아닙니다."
+  },
+  {
+   "k": "Then she plans to come later.",
+   "v": "그럼 나중에 올 생각이겠군요."
+  },
+  {
+   "k": "Or she sent me ahead.",
+   "v": "아니면 저를 먼저 보냈거나."
+  },
+  {
+   "k": "Either way, the result is the same.",
+   "v": "어느 쪽이든 결과는 같아요."
+  },
+  {
+   "k": "There’s something buried here that doesn’t belong to the dead.",
+   "v": "여기엔 죽은 자들의 것이 아닌 무언가가 묻혀 있어요."
+  },
+  {
+   "k": "And I can feel it breathing.",
+   "v": "그리고 그것이 숨 쉬는 게 느껴져요."
+  },
+  {
+   "k": "Breathing?",
+   "v": "숨을 쉰다고요?"
+  },
+  {
+   "k": "You’re not making this better.",
+   "v": "그런 말은 도움이 안 됩니다."
+  },
+  {
+   "k": "Tabitha believes in keeping doors closed.",
+   "v": "태비사는 문을 닫아 두는 걸 믿죠."
+  },
+  {
+   "k": "I believe in knowing what’s on the other side.",
+   "v": "저는 문 너머에 뭐가 있는지 아는 걸 믿어요."
+  },
+  {
+   "k": "When she meddles, she binds things halfway.",
+   "v": "언니가 참견하면 모든 게 반쯤만 묶여요."
+  },
+  {
+   "k": "Not alive. Not gone.",
+   "v": "살아 있지도, 떠나지도 못한 채로."
+  },
+  {
+   "k": "If I don’t retrieve what she disturbed, it will start calling out.",
+   "v": "언니가 어지럽힌 것을 제가 거두지 않으면, 그건 부르기 시작할 거예요."
+  },
+  {
+   "k": "First to the dead, then to you.",
+   "v": "처음엔 죽은 자들을, 다음엔 당신을."
+  },
+  {
+   "k": "I won’t need long.",
+   "v": "오래 걸리진 않아요."
+  },
+  {
+   "k": "I’ll find what my sister tangled up.",
+   "v": "언니가 엉키게 만든 걸 찾아서"
+  },
+  {
+   "k": "I’ll take it with me.",
+   "v": "제가 가져갈 거예요."
+  },
+  {
+   "k": "And this place will finally be quiet.",
+   "v": "그러면 이곳은 마침내 조용해지겠죠."
+  },
+  {
+   "k": "If you refuse…",
+   "v": "거절하신다면..."
+  },
+  {
+   "k": "Well.",
+   "v": "뭐."
+  },
+  {
+   "k": "It will still get out eventually.",
+   "v": "어차피 언젠가는 빠져나올 거예요."
+  },
+  {
+   "k": "No. You’re not setting foot inside.",
+   "v": "안 됩니다. 한 발짝도 들이지 못합니다."
+  },
+  {
+   "k": "Of course.",
+   "v": "물론이죠."
+  },
+  {
+   "k": "How can I trust you over your sister?",
+   "v": "당신 언니가 아니라 당신을 믿어야 할 이유가 뭡니까?"
+  },
+  {
+   "k": "Ah, I see Tabitha has gotten quite the hold on you.",
+   "v": "아, 태비사가 당신을 단단히 사로잡았군요."
+  },
+  {
+   "k": "It is a decision for you to make, gravekeeper.",
+   "v": "결정은 당신 몫이에요, 묘지기님."
+  },
+  {
+   "k": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.",
+   "v": "언니가 나타난 뒤로 불안했다면, 그건 이곳의 영혼들이 분노했기 때문이에요."
+  },
+  {
+   "k": "Tabitha does not know how to control the spirits she claims to speak to.",
+   "v": "태비사는 자기가 말을 건다는 그 영혼들을 다스릴 줄 몰라요."
+  },
+  {
+   "k": "If you did indeed let her into these grounds, only I can undo her damage.",
+   "v": "정말로 언니를 이 땅에 들였다면, 그 피해를 되돌릴 수 있는 건 저뿐이에요."
+  },
+  {
+   "k": "My sister dabbles in dark arts, but does not understand them.",
+   "v": "언니는 어둠의 술법에 손을 대지만, 그걸 이해하진 못해요."
+  },
+  {
+   "k": "This is why I must come in.",
+   "v": "그래서 제가 들어가야 해요."
+  },
+  {
+   "k": "You're quite inquistive. My name is Maribel.",
+   "v": "꽤 캐묻는 성격이시네요. 마리벨이에요."
+  },
+  {
+   "k": "Likely for the same reason you are.",
+   "v": "아마 당신과 같은 이유겠죠."
+  },
+  {
+   "k": "Fate.",
+   "v": "운명이요."
+  },
+  {
+   "k": "This graveyard has quite the allure to it.",
+   "v": "이 묘지는 꽤나 매혹적이에요."
+  },
+  {
+   "k": "It is a noisy place. I was drawn to it.",
+   "v": "시끄러운 곳이죠. 거기에 이끌렸어요."
+  },
+  {
+   "k": "I don't mean to cause any harm to you or the spirits you protect.",
+   "v": "당신에게도, 당신이 지키는 영혼들에게도 해를 끼칠 생각은 없어요."
+  },
+  {
+   "k": "I feel them calling to me and I am obligated to respond.",
+   "v": "그들이 저를 부르는 게 느껴지고, 저는 응답할 의무가 있어요."
+  },
+  {
+   "k": "You’re smarter than my sister.",
+   "v": "당신은 제 언니보다 똑똑하네요."
+  },
+  {
+   "k": "She always begged.",
+   "v": "언니는 늘 애원했죠."
+  },
+  {
+   "k": "I prefer honesty.",
+   "v": "저는 솔직한 게 좋아요."
+  },
+  {
+   "k": "Ah.",
+   "v": "아."
+  },
+  {
+   "k": "So you’re like her after all.",
+   "v": "결국 당신도 언니와 같군요."
+  },
+  {
+   "k": "I’ll wait.",
+   "v": "기다릴게요."
+  },
+  {
+   "k": "Things trapped between worlds get impatient.",
+   "v": "세계 사이에 갇힌 것들은 조바심을 내죠."
+  },
+  {
+   "k": "And impatience makes noise.",
+   "v": "그리고 조바심은 소음을 만들어요."
+  },
+  {
+   "k": "I’ll see you again.",
+   "v": "또 만나요."
+  },
+  {
+   "k": "All done!",
+   "v": "다 끝났어요!"
+  },
+  {
+   "k": "Thank you for letting me in.",
+   "v": "들여보내 주셔서 고마워요."
+  },
+  {
+   "k": "I appreciate it more than you know.",
+   "v": "생각하시는 것보다 훨씬 감사해요."
+  },
+  {
+   "k": "The graveyard feels just as it should now.",
+   "v": "이제 묘지는 마땅히 그래야 할 모습이 됐어요."
+  },
+  {
+   "k": "Unsuppressed.",
+   "v": "억눌리지 않은 채로요."
+  },
+  {
+   "k": "I’ll be on my way.",
+   "v": "이만 가 볼게요."
+  },
+  {
+   "k": "Take care of yourself, gravekeeper.",
+   "v": "몸조심하세요, 묘지기님."
+  },
+  {
+   "k": "It's late to be out here.",
+   "v": "밖에 있기엔 늦은 시간입니다."
+  },
+  {
+   "k": "Are you alright?",
+   "v": "괜찮으십니까?"
+  },
+  {
+   "k": "...Let me in.",
+   "v": "...들여보내 줘요."
+  },
+  {
+   "k": "Please...",
+   "v": "제발..."
+  },
+  {
+   "k": "Just let me in.",
+   "v": "그냥 들여보내 줘요."
+  },
+  {
+   "k": "Okay, come in.",
+   "v": "알겠습니다. 들어오세요."
+  },
+  {
+   "k": "I'm sorry ma'am, please go home.",
+   "v": "죄송합니다, 부인. 집으로 돌아가 주세요."
+  },
+  {
+   "k": "What is your name?",
+   "v": "성함이 어떻게 되십니까?"
+  },
+  {
+   "k": "I have no more questions.",
+   "v": "더 이상 질문은 없습니다."
+  },
+  {
+   "k": "Maria.",
+   "v": "마리아."
+  },
+  {
+   "k": "Stop following me.",
+   "v": "따라오지 마요."
+  },
+  {
+   "k": "I think I heard something at the back gate.",
+   "v": "뒷문에서 뭔가 소리가 들린 것 같아요."
+  },
+  {
+   "k": "Can you please go check?",
+   "v": "가서 확인해 줄래요?"
+  },
+  {
+   "k": "Chen Huang",
+   "v": "황천"
+  },
+  {
+   "k": "Harold Vunderbilt",
+   "v": "해럴드 밴더빌트"
+  },
+  {
+   "k": "Hector",
+   "v": "헥터"
+  },
+  {
+   "k": "Maria",
+   "v": "마리아"
+  },
+  {
+   "k": "Maribel",
+   "v": "마리벨"
+  },
+  {
+   "k": "Mr. Huang",
+   "v": "황 씨"
+  },
+  {
+   "k": "Tabitha",
+   "v": "태비사"
+  }
+ ]
+}

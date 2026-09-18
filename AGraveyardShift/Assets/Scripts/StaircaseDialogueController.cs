@@ -313,11 +313,10 @@ public class StaircaseDialogueController : MonoBehaviour
 
         TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
         tmp.enableWordWrapping = true;
-        tmp.fontSize = size;
         tmp.color = color;
         tmp.alignment = entry.alignment;
         TMP_FontAsset entryFont = entry.font != null ? entry.font : font;
-        if (entryFont != null) tmp.font = entryFont;
+        Loc.ApplyFont(tmp, entryFont != null ? entryFont : tmp.font, size);
         tmp.text = "";
         tmp.maxVisibleCharacters = 0;
 
@@ -363,7 +362,7 @@ public class StaircaseDialogueController : MonoBehaviour
         rect.sizeDelta = new Vector2(w, h);
         rect.anchoredPosition = new Vector2(px, py);
 
-        tmp.text = entry.text;
+        tmp.text = Loc.Tr(entry.text);
         tmp.ForceMeshUpdate();
 
         Debug.Log($"StaircaseDialogue: Rect actual size = {rect.rect.width}x{rect.rect.height}, sizeDelta = {rect.sizeDelta}");
@@ -447,11 +446,10 @@ public class StaircaseDialogueController : MonoBehaviour
 
         TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
         tmp.enableWordWrapping = true;
-        tmp.fontSize = finalTextFontSize;
         tmp.color = finalTextColor;
         tmp.alignment = TextAlignmentOptions.Center;
-        if (font != null) tmp.font = font;
-        tmp.text = finalText;
+        Loc.ApplyFont(tmp, font != null ? font : tmp.font, finalTextFontSize);
+        tmp.text = Loc.Tr(finalText);
         tmp.maxVisibleCharacters = 0;
 
         CanvasGroup cg = textObj.AddComponent<CanvasGroup>();

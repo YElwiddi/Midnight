@@ -88,10 +88,12 @@ public class EndingScreenUI : MonoBehaviour
         }
 
         // Per-ending font for the reveal — the title AND the description/tip line share it.
-        if (titleFontOverride != null)
+        // Resolved through the locale font map so non-Latin locales get a font that can draw them.
+        TMP_FontAsset revealFont = Loc.ResolveFont(titleFontOverride != null ? titleFontOverride : (titleText != null ? titleText.font : null));
+        if (revealFont != null)
         {
-            if (titleText != null) titleText.font = titleFontOverride;
-            if (descriptionText != null) descriptionText.font = titleFontOverride;
+            if (titleText != null) titleText.font = revealFont;
+            if (descriptionText != null) descriptionText.font = revealFont;
         }
 
         // Normalize the rendered text size across endings. Different fonts render very

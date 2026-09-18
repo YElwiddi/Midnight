@@ -1,0 +1,4721 @@
+{
+ "locale": "ru",
+ "entries": [
+  {
+   "k": "ending.wrathfulSpirit.title",
+   "v": "Плохая концовка - Гневный дух"
+  },
+  {
+   "k": "ending.wrathfulSpirit.type",
+   "v": "Концовка"
+  },
+  {
+   "k": "ending.wrathfulSpirit.description",
+   "v": "Вы полностью лишились рассудка. Держитесь света и проверяйте посетителей."
+  },
+  {
+   "k": "ending.ambush.title",
+   "v": "Плохая концовка - Засада"
+  },
+  {
+   "k": "ending.ambush.type",
+   "v": "Концовка"
+  },
+  {
+   "k": "ending.ambush.description",
+   "v": "Вы не защитили кладбище. Чаще обходите территорию и проверяйте камеры. Не будьте слишком доверчивы."
+  },
+  {
+   "k": "ending.wrongfulConviction.title",
+   "v": "Хорошая концовка - Несправедливый приговор"
+  },
+  {
+   "k": "ending.wrongfulConviction.type",
+   "v": "Концовка"
+  },
+  {
+   "k": "ending.wrongfulConviction.description",
+   "v": "На кладбище воцарился покой."
+  },
+  {
+   "k": "ending.happilyEverAfter.title",
+   "v": "Хорошая концовка? - Долго и счастливо"
+  },
+  {
+   "k": "ending.happilyEverAfter.type",
+   "v": "Концовка"
+  },
+  {
+   "k": "ending.happilyEverAfter.description",
+   "v": "Поздравляем!"
+  },
+  {
+   "k": "ending.father.title",
+   "v": "Скрытая концовка - Судьба Отца"
+  },
+  {
+   "k": "ending.father.type",
+   "v": "Концовка"
+  },
+  {
+   "k": "ending.father.description",
+   "v": "Вы нашли то, что искали?"
+  },
+  {
+   "k": "fiend.friend.title",
+   "v": "Друг"
+  },
+  {
+   "k": "fiend.friend.flavor",
+   "v": "Медлительный, но методичный. Мастер упорства."
+  },
+  {
+   "k": "fiend.friend.ability",
+   "v": "Чувствительность к свету фонаря."
+  },
+  {
+   "k": "fiend.friend.spawn",
+   "v": "Признаки низкого интеллекта, слабоумия."
+  },
+  {
+   "k": "fiend.wraith.title",
+   "v": "Призрак"
+  },
+  {
+   "k": "fiend.wraith.flavor",
+   "v": "Быстрый, агрессивный, смертоносный."
+  },
+  {
+   "k": "fiend.wraith.ability",
+   "v": "Смертельная скорость охоты."
+  },
+  {
+   "k": "fiend.wraith.spawn",
+   "v": "Признаки самоуверенности, высокомерия, храбрости."
+  },
+  {
+   "k": "fiend.beast.title",
+   "v": "Зверь"
+  },
+  {
+   "k": "fiend.beast.flavor",
+   "v": "Бесшумный и неуловимый. Не любит показываться."
+  },
+  {
+   "k": "fiend.beast.ability",
+   "v": "Незаметность и электрические помехи."
+  },
+  {
+   "k": "fiend.beast.spawn",
+   "v": "Признаки робости, застенчивости или слабости."
+  },
+  {
+   "k": "fiend.label.ability",
+   "v": "Уникальная способность:"
+  },
+  {
+   "k": "fiend.label.spawn",
+   "v": "Условие появления:"
+  },
+  {
+   "k": "ui.menu.play",
+   "v": "ИГРАТЬ"
+  },
+  {
+   "k": "ui.menu.endings",
+   "v": "КОНЦОВКИ"
+  },
+  {
+   "k": "ui.menu.settings",
+   "v": "НАСТРОЙКИ"
+  },
+  {
+   "k": "ui.menu.quit",
+   "v": "ВЫХОД"
+  },
+  {
+   "k": "ui.menu.cancel",
+   "v": "ОТМЕНА"
+  },
+  {
+   "k": "ui.menu.accept",
+   "v": "ПРИНЯТЬ"
+  },
+  {
+   "k": "ui.menu.back",
+   "v": "НАЗАД"
+  },
+  {
+   "k": "ui.settings.title",
+   "v": "НАСТРОЙКИ"
+  },
+  {
+   "k": "ui.settings.language",
+   "v": "Язык"
+  },
+  {
+   "k": "ui.settings.resolution",
+   "v": "Разрешение"
+  },
+  {
+   "k": "ui.settings.fullscreen",
+   "v": "Полный экран"
+  },
+  {
+   "k": "ui.settings.brightness",
+   "v": "Яркость"
+  },
+  {
+   "k": "ui.settings.volume",
+   "v": "Громкость"
+  },
+  {
+   "k": "ui.settings.brightnessNote",
+   "v": "Настоятельно рекомендуется яркость по умолчанию."
+  },
+  {
+   "k": "ui.endings.discovered",
+   "v": "{0} / {1}  ОТКРЫТО"
+  },
+  {
+   "k": "ui.endings.fiendsTeaserLocked",
+   "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.endings.fiendsTeaser",
+   "v": "{0} / {1}  ТВАРЕЙ СКЛЕПА НАЙДЕНО"
+  },
+  {
+   "k": "ui.fiends.header",
+   "v": "ТВАРИ СКЛЕПА"
+  },
+  {
+   "k": "ui.fiends.headerLocked",
+   "v": "?????"
+  },
+  {
+   "k": "ui.fiends.found",
+   "v": "{0} / {1}  НАЙДЕНО"
+  },
+  {
+   "k": "ui.disclaimer.headphones",
+   "v": "Рекомендуется играть в наушниках"
+  },
+  {
+   "k": "ui.pause.resume",
+   "v": "Продолжить"
+  },
+  {
+   "k": "ui.pause.exit",
+   "v": "Выход"
+  },
+  {
+   "k": "ui.readable.page",
+   "v": "Страница {0}/{1}"
+  },
+  {
+   "k": "ui.cctv.camera",
+   "v": "КАМЕРА {0}"
+  },
+  {
+   "k": "??????",
+   "v": "??????"
+  },
+  {
+   "k": "Click to continue...",
+   "v": "Нажмите, чтобы продолжить..."
+  },
+  {
+   "k": "The last gravekeeper left without a word.",
+   "v": "Последний смотритель кладбища ушёл, не сказав ни слова."
+  },
+  {
+   "k": "Don't know why he left, but the job opened up, and I desperately needed cash.",
+   "v": "Не знаю, почему он ушёл, но место освободилось, а мне отчаянно нужны были деньги."
+  },
+  {
+   "k": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here.",
+   "v": "Это всего лишь работа сторожа на кладбище. Ничего сложного. Просто не подпускать к этому месту молодёжь и всякие шайки. Тут довольно пустынно."
+  },
+  {
+   "k": "September 17, 1999.",
+   "v": "17 сентября 1999 года."
+  },
+  {
+   "k": "???",
+   "v": "???"
+  },
+  {
+   "k": "I can't think straight...",
+   "v": "Не могу собраться с мыслями..."
+  },
+  {
+   "k": "Place the rose on the gravesite?",
+   "v": "Положить розу на могилу?"
+  },
+  {
+   "k": "The rose immediately wilted away...",
+   "v": "Роза мгновенно завяла..."
+  },
+  {
+   "k": "Where am I?",
+   "v": "Где я?"
+  },
+  {
+   "k": "I can't leave during my shift...",
+   "v": "Я не могу уйти во время смены..."
+  },
+  {
+   "k": "The door is locked.",
+   "v": "Дверь заперта."
+  },
+  {
+   "k": "The door is locked. There is a cold chill coming from the other side.",
+   "v": "Дверь заперта. С той стороны тянет ледяным холодом."
+  },
+  {
+   "k": "There is a cold chill coming from the other side. Should I enter?",
+   "v": "С той стороны тянет ледяным холодом. Стоит ли мне войти?"
+  },
+  {
+   "k": "The door won't budge...",
+   "v": "Дверь не поддаётся..."
+  },
+  {
+   "k": "I need a shovel for this.",
+   "v": "Для этого мне нужна лопата."
+  },
+  {
+   "k": "Are you sure you want to exhume this site?",
+   "v": "Вы уверены, что хотите вскрыть эту могилу?"
+  },
+  {
+   "k": "It's locked.",
+   "v": "Заперто."
+  },
+  {
+   "k": "I think this key from the church opens this chest. Should I unlock it?",
+   "v": "Кажется, этот ключ из церкви подходит к сундуку. Открыть его?"
+  },
+  {
+   "k": "I shouldn't be here",
+   "v": "Мне здесь не место"
+  },
+  {
+   "k": "A single rose... should I take it?",
+   "v": "Одинокая роза... взять её?"
+  },
+  {
+   "k": "The door won't budge.",
+   "v": "Дверь не поддаётся."
+  },
+  {
+   "k": "FRONT GATE",
+   "v": "ПЕРЕДНИЕ ВОРОТА"
+  },
+  {
+   "k": "That should be it. I need to keep these on.",
+   "v": "Вот и всё. Нужно, чтобы они горели."
+  },
+  {
+   "k": "I should finish what I came here for.",
+   "v": "Мне стоит закончить то, ради чего я сюда пришёл."
+  },
+  {
+   "k": "The door is locked...",
+   "v": "Дверь заперта..."
+  },
+  {
+   "k": "The words on this tombstone are smeared and illegible.",
+   "v": "Надпись на этом надгробии стёрта и не читается."
+  },
+  {
+   "k": "You found a key. Do you want to pick it up?",
+   "v": "Вы нашли ключ. Хотите его подобрать?"
+  },
+  {
+   "k": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?",
+   "v": "Это ключ от задних ворот. Думаю, лучше оставить его здесь. Всё равно взять?"
+  },
+  {
+   "k": "Its locked. I can't find my key...",
+   "v": "Заперто. Не могу найти свой ключ..."
+  },
+  {
+   "k": "The gate is stuck.",
+   "v": "Ворота заклинило."
+  },
+  {
+   "k": "I should definitely keep this locked. Should I open it anyway?",
+   "v": "Их точно стоит держать запертыми. Всё равно открыть?"
+  },
+  {
+   "k": "I should get these lights on right away...",
+   "v": "Нужно немедленно зажечь эти лампы..."
+  },
+  {
+   "k": "I should read some of the notes that were left behind...",
+   "v": "Стоит почитать записки, которые здесь оставили..."
+  },
+  {
+   "k": "An incessant noise in your head has gone silent.",
+   "v": "Непрекращающийся шум в голове стих."
+  },
+  {
+   "k": "BACK GATE",
+   "v": "ЗАДНИЕ ВОРОТА"
+  },
+  {
+   "k": "Use the left and right arrow keys to switch between cameras.",
+   "v": "Используйте стрелки влево и вправо, чтобы переключать камеры."
+  },
+  {
+   "k": "I should check on my visitor.",
+   "v": "Надо бы проверить, как там мой посетитель."
+  },
+  {
+   "k": "Fine. Go in. But be quick.",
+   "v": "Ладно. Проходите. Но побыстрее."
+  },
+  {
+   "k": "TOGETHER FOREVER",
+   "v": "ВМЕСТЕ НАВСЕГДА"
+  },
+  {
+   "k": "He seems distraught. Let's give him a moment.",
+   "v": "Он выглядит подавленным. Дадим ему минуту."
+  },
+  {
+   "k": "Let's give him a moment...",
+   "v": "Дадим ему минуту..."
+  },
+  {
+   "k": "He seems to be fidgeting around.",
+   "v": "Кажется, он не находит себе места."
+  },
+  {
+   "k": "He appears to be zoning out. I should give him a moment.",
+   "v": "Кажется, он ушёл в себя. Стоит дать ему минуту."
+  },
+  {
+   "k": "He appears to be staring out into the distance...",
+   "v": "Кажется, он смотрит куда-то вдаль..."
+  },
+  {
+   "k": "Let's give her a moment to calm down.",
+   "v": "Дадим ей минуту, чтобы успокоиться."
+  },
+  {
+   "k": "She seems lost in grief. Let's give her a moment.",
+   "v": "Она словно потерялась в горе. Дадим ей минуту."
+  },
+  {
+   "k": "She's standing very still, staring at nothing.",
+   "v": "Она стоит совершенно неподвижно, глядя в пустоту."
+  },
+  {
+   "k": "What was Hector doing out here this late?",
+   "v": "Что Гектор делал здесь так поздно?"
+  },
+  {
+   "k": "He is conducting his investigation, I shouldn't interfere...",
+   "v": "Он ведёт расследование, не стоит ему мешать..."
+  },
+  {
+   "k": "I should give him a moment.",
+   "v": "Стоит дать ему минуту."
+  },
+  {
+   "k": "I should give her a moment...",
+   "v": "Стоит дать ей минуту..."
+  },
+  {
+   "k": "A Wrongful Conviction",
+   "v": "Несправедливый приговор"
+  },
+  {
+   "k": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground.",
+   "v": "Проклятие было снято. Вскоре память обо всём, что здесь произошло, стёрлась у всех. Кладбище постепенно вновь стало обычным, никем не замечаемым местом погребения."
+  },
+  {
+   "k": "The flashlight won't turn on...",
+   "v": "Фонарь не включается..."
+  },
+  {
+   "k": "My shovel broke...",
+   "v": "Моя лопата сломалась..."
+  },
+  {
+   "k": "The shovel is broken. I can't dig anymore.",
+   "v": "Лопата сломана. Больше копать нельзя."
+  },
+  {
+   "k": "Yes",
+   "v": "Да"
+  },
+  {
+   "k": "No",
+   "v": "Нет"
+  },
+  {
+   "k": "I shouldn't be here...",
+   "v": "Мне здесь не место..."
+  },
+  {
+   "k": "Why am I here?",
+   "v": "Почему я здесь?"
+  },
+  {
+   "k": "I need to leave.",
+   "v": "Мне нужно уходить."
+  },
+  {
+   "k": "I'm not safe here",
+   "v": "Здесь небезопасно для меня"
+  },
+  {
+   "k": "It's not safe",
+   "v": "Здесь небезопасно"
+  },
+  {
+   "k": "I CAN'T KEEP GOING",
+   "v": "Я БОЛЬШЕ НЕ МОГУ"
+  },
+  {
+   "k": "STOP",
+   "v": "ХВАТИТ"
+  },
+  {
+   "k": "I'M GOING TO DIE",
+   "v": "Я УМРУ"
+  },
+  {
+   "k": "I found something...",
+   "v": "Я что-то нашёл..."
+  },
+  {
+   "k": "Nothing here... just bones.",
+   "v": "Здесь ничего нет... только кости."
+  },
+  {
+   "k": "I picked up the shovel.",
+   "v": "Я подобрал лопату."
+  },
+  {
+   "k": "The spirits have been appeased...",
+   "v": "Духи успокоены..."
+  },
+  {
+   "k": "Are you sure you want to enter?",
+   "v": "Вы уверены, что хотите войти?"
+  },
+  {
+   "k": "A single rose, perfectly preserved. Should I take it?",
+   "v": "Одинокая роза, прекрасно сохранившаяся. Взять её?"
+  },
+  {
+   "k": "I can't... I can't think straight...",
+   "v": "Не могу... не могу собраться с мыслями..."
+  },
+  {
+   "k": "Here lies Aaron Vanderbilt\n1924-1993",
+   "v": "Здесь покоится Аарон Вандербильт\n1924-1993"
+  },
+  {
+   "k": "MOCKERY OF LIFE",
+   "v": "НАСМЕШКА НАД ЖИЗНЬЮ"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+   "v": "Найденная полевая заметка, неофициальное обозначение: \n«Зверь»\nИсточник засекречен\n\nВыжившие сходятся хотя бы в одном: тварь не объявляет о себе. Она ждёт, пока не оценит тебя. Признаки слабости духа, похоже, притягивают её. Она подстерегает колебание. Тот миг, когда мысли замедляются, а воля сворачивается внутрь.\n\nТе, кто так и не понял, что на них охотились, чаще всего ничего не сообщают. Они тихо исчезают. Ни криков, ни следов погони. Зверь не тратит силы на панику."
+  },
+  {
+   "k": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+   "v": "Когда она всё же показывается, это происходит намеренно и недолго. Силуэт там, где его быть не должно.\n\nОна предпочитает скрытность скорости, терпение - силе. Она остаётся невидимой часами, порой днями, преследуя одного и того же человека, пока жертва не убедит её - страхом, одиночеством или сомнением, - что убийство будет лёгким.\n\nТе, кто смотрит на неё, теряют рассудок. Известно также, что она создаёт помехи в электронных приборах."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Адель\n\n\nЧлены семьи:\nДжейсон Адель, 5 лет, умер\nМария Адель, 31 год, жива\nМонро Адель, 31 год, умер\n\nДжейсон погребён на этой земле.\n\nПричина смерти: удушье\n\nВремя смерти: вторник, 28 декабря 1998 года, 20:04"
+  },
+  {
+   "k": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances.",
+   "v": "Джейсон и Монро Адель были найдены мёртвыми в своём доме с явными следами борьбы. Монро истёк кровью от множественных ножевых ранений, включая одно в жизненно важную артерию на шее. Джейсон умер от явной травмы шеи, нанесённой, судя по всему, его отцом.\n\nМария была помещена в психиатрическую лечебницу сразу после случившегося, но спустя некоторое время выпущена. Затем ей навсегда запретили входить на эту территорию после того, как в приступе психоза она попыталась прорваться через ворота, чтобы посетить могилу.\n\nМарию нельзя впускать ни при каких обстоятельствах."
+  },
+  {
+   "k": "I should let her in",
+   "v": "Мне стоит впустить её"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Друг»\nСтранная встреча\n\nСегодня я заметил необычные изменения. Температура внезапно упала без всякого объяснения. Мелкие предметы оказались сдвинуты, будто сквозь них что-то прошло. Движения были слабыми, почти незаметными, но настойчивыми.\n\nЕсть ощущение, которое трудно описать, - будто за тобой наблюдают. Тени кажутся тяжелее, и порой я чувствую чьё-то присутствие на самом краю зрения. Оно движется осторожно, избегает прямого света и не издаёт звуков, если его не потревожить. Закономерности нет, но действия достаточно осмысленны, чтобы предположить разум."
+  },
+  {
+   "k": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+   "v": "Я заметил едва уловимые следы, которым нет объяснения. На поверхностях, прежде нетронутых, видны признаки беспокойства. Воздух после этого часто кажется плотным, будто хранит память о движении. Изменения не жестоки, но повторяются с пугающей регулярностью.\n\nЯ тщательно записывал эти аномалии. Нет ни повреждений строений, ни следов вмешательства людей, ни объяснения, подходящего к наблюдениям. И всё же события продолжаются, и каждое оставляет то же гнетущее, неотступное впечатление.\n\nЯ не могу этого объяснить. Чем бы оно ни было, оно, похоже, не вполне осознаёт свои действия, и всё же его присутствие глубоко влияет на это место. Истинная угроза этой твари ощущается в её отсутствии. Я продолжу отмечать любые новые случаи и записывать закономерности по мере их появления."
+  },
+  {
+   "k": "Those who unearth the grave meant to remain closed seal their fate.",
+   "v": "Тот, кто вскроет могилу, которой должно оставаться закрытой, решит свою судьбу."
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
+   "v": "Найденная полевая заметка, предварительное обозначение:\n«Невеста»\nНеизвестная встреча"
+  },
+  {
+   "k": "This entry appears to be empty.",
+   "v": "Эта запись, похоже, пуста."
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Призрак»\nМесто не указано\n\nВ книге появляется его отметка прежде, чем я вижу тело.\n\nЯ хожу по этой земле годами, и всё же воздух меняется, когда он проходит. Его не видно - не так, как ожидаешь увидеть тварь. Его выдаёт лишь тишина.\n\nТе, кого он выбирает, не бегут. Нет погони. Нет борьбы. К тому моменту, как кто-то замечает, он уже забрал их. Ошибки быть не может: эта сущность, похоже, самая опасная из всех описанных."
+  },
+  {
+   "k": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+   "v": "Его влечёт сила. Способные, дерзкие, подготовленные - вот его добыча. Слабые могут остаться незамеченными, но сильные... те, кого он сочтёт достойными, уничтожаются с точностью. Ни один выживший не может рассказать о встрече. Остаются лишь улики, едва заметные и жестокие.\n\nЯ не знаю, как он передвигается и откуда приходит. \nОтчёты позволяют заключить лишь одно: встреча с этой тварью не обернётся обычной охотой."
+  },
+  {
+   "k": "This place was not filled at random.",
+   "v": "Это место заполняли не случайно."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Андерсон\n\n\nЧлены семьи:\nЭнтони Андерсон, 41 год, умер\nДайан Андерсон, 39 лет, умерла\nДжеймс Андерсон, 9 лет, умер\nДерек Андерсон, 10 лет, умер\nЛили Андерсон, 6 лет, жива\n\nЭнтони погребён на этой земле.\n\nПричина смерти: сгорел при пожаре в доме\n\nВремя смерти: вторник, 11 октября 1988 года, 00:03"
+  },
+  {
+   "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
+   "v": "Энтони Андерсон, его жена Дайан и двое их сыновей были извлечены из дома после пожара, о котором сообщили вскоре после полуночи. Возгорание списали на неисправность проводки у задней лестницы, где повреждения были наиболее сильными. Погибших нашли вместе в спальне на верхнем этаже; причиной смерти указано отравление дымом. Один ребёнок выжил, покинув дом до прибытия спасателей, и позже был передан в приёмную семью. В официальном отчёте нет следов взлома или постороннего участия.\n\nСоседи вспоминали, что в недели перед пожаром семья жила в странном режиме и постепенно выносила вещи из верхних комнат, не объясняя причин. Проверки коммуникаций не выявили прежних неполадок, а выжившая девочка отказалась описывать события до появления огня, сказав лишь, что отец велел им держаться вместе. Среди обломков у лестницы была описана зажигалка, признанная несущественной из-за повреждений от огня. Дело закрыли как несчастный случай, дальнейшего расследования не проводилось."
+  },
+  {
+   "k": "Here lies Zackary Holmes\nFather of One\n1952-1998",
+   "v": "Здесь покоится Закари Холмс\nОтец одного ребёнка\n1952-1998"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Юрэй»\n\nНа кладбище выявлено новое присутствие. Время указывает на недавнее погребение, хотя соответствующая могила не установлена. Активность началась резко, будто роль была принята, а не развилась со временем.\n\nСущность проявляет обострённую эмоциональную чувствительность. Присутствие людей вызывает разные, по всей видимости личные, реакции. Одни посетители отмечают чувство покоя или нерешительности, словно их мягко уговаривают остаться. Другие испытывают тревогу, навязчивые мысли и сильное ощущение, что им здесь не рады."
+  },
+  {
+   "k": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+   "v": "Поведение указывает на избирательное суждение. Вход порой оказывается затруднён без физических преград, а в других случаях доступ тихо разрешается. Эти решения не выглядят последовательными, что говорит скорее о внутреннем конфликте, чем о намерении навредить.\n\nНеуважение к этой земле немедленно оборачивается помрачением рассудка у виновных. Действие проходит, как только порядок восстановлен. Никакого физического вреда сущности напрямую не приписывают.\n\nЮрэй, похоже, привязана к кладбищу и заботится о его сохранности. Она ищет покоя, но остаётся бдительной. Её привязанность к некоторым людям осложняет её роль. Требуется дальнейшее наблюдение."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Холмс\n\n\nЧлены семьи:\nДжейсон Холмс, 48 лет, жив\nЗакари Холмс, 46 лет, умер\nЭдвард Холмс, 17 лет, умер\nЭлизабет Холмс, 45 лет, жива\n\nЭдвард и Закари погребены на этой земле.\n\nПричина смерти: неизвестна; предположительно несчастный случай\n\nВремя смерти: воскресенье, 12 апреля 1998 года, 3:45"
+  },
+  {
+   "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
+   "v": "Закари и Эдвард Холмс были похоронены здесь после аварии, о которой сообщили на окружной дороге. Официальные отчёты описывают столкновение с участием одной машины: автомобиль нашли перевёрнутым за линией деревьев, двигатель был ещё тёплым, когда прибыли власти. Элизабет обнаружили неподалёку в состоянии шока и позже отпустили без обвинений. Оставшиеся родственники отказались от дальнейшего расследования, и дело было записано как несчастье, а не злой умысел.\n\nВ предшествующие недели соседи отмечали странный распорядок в доме Холмсов и постоянный вынос мебели из подвала в неизвестное место. Приходские книги показывают, что Закари и Эдвард давно не посещали службы, хотя позже среди их личных вещей нашли свечи и пепел. Смотритель отмечает, что машина была повреждена слабо для описанной тяжести аварии и что Элизабет после погребения никогда не возвращалась на эту землю. Что произошло до 3:45 тем утром, официально так и не выяснили, хотя молчание живых говорит о выводе, сделанном задолго до написания отчёта."
+  },
+  {
+   "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
+   "v": "ОН ЛЖИВЫЙ УБЛЮДОК НЕ ВЕРЬ ЕМУ"
+  },
+  {
+   "k": "It patrols. Corners are death.",
+   "v": "Оно патрулирует. Углы - это смерть."
+  },
+  {
+   "k": "The necessary course is clear.\nThose interred under false cause must be exhumed.",
+   "v": "Необходимый путь ясен.\nПогребённые под ложным предлогом должны быть извлечены."
+  },
+  {
+   "k": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998",
+   "v": "Здесь покоится Джейсон Адель\nСлишком прекрасен для этого мира\n1993-1998"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment.",
+   "v": "Выдержка из записей смотрителя кладбища\nОтец Джозеф\n\nЗаброшенная некоторое время назад церковь восходит к временам более древним, чем те, кто здесь похоронен. Церковь, которой не одна сотня лет, недавно была заброшена. Было отмечено совпадение между временем, когда церковь опустела, и аномальными обстоятельствами, начавшимися с тех пор."
+  },
+  {
+   "k": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate.",
+   "v": "Сведения о последнем смотрителе церкви и его таинственном исчезновении:\n\nМного лет назад отец Джозеф часто бывал на этой земле, и его здесь принимали с радостью. В его присутствии здесь обычно царил покой.\n\nОн принадлежит к конфессии, не допускающей брака среди духовенства. По всей видимости, он нарушил это правило и затеял в церковных кругах спор о чрезмерной строгости некоторых толкований. Позже он отрёкся от духовного сана.\n\nОн должен был жениться на своей невесте, но не явился к алтарю в день свадьбы. В прежних записях упоминается, что его невеста умерла от горя, когда, как утверждают, узнала о судьбе отца Джозефа.\n\nЕго судьба до сих пор не прояснена."
+  },
+  {
+   "k": "Hannah Wainwright\n1904\nDeath by electric chair",
+   "v": "Ханна Уэйнрайт\n1904\nСмерть на электрическом стуле"
+  },
+  {
+   "k": "Henry Fairchild\n1802\nDeath during imprisonment",
+   "v": "Генри Фэрчайлд\n1802\nСмерть в заключении"
+  },
+  {
+   "k": "TRAPPED",
+   "v": "В ЛОВУШКЕ"
+  },
+  {
+   "k": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998",
+   "v": "Здесь покоится Эдвард Холмс\nЛюбимый сын, преданный друг\n1981-1998"
+  },
+  {
+   "k": "Anne Radcliffe\n1792\nDeath by guillotine",
+   "v": "Энн Рэдклифф\n1792\nСмерть на гильотине"
+  },
+  {
+   "k": "TORN IN TWO",
+   "v": "РАЗОРВАНА НАДВОЕ"
+  },
+  {
+   "k": "Benjamin Carver\n1742\nDeath by drowning",
+   "v": "Бенджамин Карвер\n1742\nСмерть от утопления"
+  },
+  {
+   "k": "James Thornton\n1804\nDeath by firing squad",
+   "v": "Джеймс Торнтон\n1804\nСмерть от расстрела"
+  },
+  {
+   "k": "THE BLEEDING WON'T STOP",
+   "v": "КРОВЬ НЕ ОСТАНАВЛИВАЕТСЯ"
+  },
+  {
+   "k": "Cordelia Monroe\n1802\nBurned at the stake",
+   "v": "Корделия Монро\n1802\nСожжена на костре"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Адамс\n\nЧлены семьи:\nЭдвин Адамс, 21 год, жив\nДжейн Адамс, 54 года, умерла\nРебекка Адамс, 48 лет, жива\n\nДжейн Адамс погребена на этой земле.\n\nПричина смерти: самоубийство\n\nВремя смерти: воскресенье, 22 декабря 1985 года, 3:21"
+  },
+  {
+   "k": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
+   "v": "Джейн Адамс покоится здесь после жизни, определённой порядком и сдержанностью. Много лет она работала бухгалтером в городском управлении, содержала дом в безупречной чистоте и воспитывала сына Эдвина в строгом распорядке и с ясными требованиями. Когда Эдвину было семь, она отправила его жить к близким друзьям семьи в другой штат, сказав соседям, что ради лучшей школы. После его отъезда Джейн стала пропускать работу и тихо уволилась.\n\nСпустя несколько недель Джейн покончила с собой. Смотритель отмечает, что Эдвину так и не сообщили о её смерти, а ответственные сочли за лучшее не возвращать его и не рассказывать об обстоятельствах. Последствия её поступков и связанный с ними позор были большим, чем она готова была ответить открыто. Она ушла из жизни в одиночестве, позаботившись о том, чтобы память сына о ней осталась не отягощённой правдой, которую она не могла вынести."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Вандербильт\n\nЧлены семьи:\nАарон Вандербильт, 69 лет, умер\nГарольд Вандербильт, 42 года, неизвестно\nЭрик Вандербильт, 22 года, жив\n\nАарон Вандербильт погребён на этой земле.\n\nПричина смерти: огнестрельное ранение\n\nВремя смерти: воскресенье, 27 июня 1993 года, 19:48"
+  },
+  {
+   "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
+   "v": "Аарон Вандербильт запомнился здесь как человек, чья жизнь несла на себе бремя утраты и ошибок. Его брат исчез много лет назад при обстоятельствах, которые никто не смог установить, оставив Аарона одного в этом мире. Способный и умный, он оказался втянут в круги, сулившие возможности, но приносившие опасность, и связался с людьми, чья верность была недолгой, а намерения редко честными.\n\nТе, кто знал его, говорят о тихой борьбе, скрытой за уверенным видом. Дела Аарона с дурной компанией во многом определили его поздние годы, оставив его одиноким и настороженным. Судьба брата так и осталась тенью над его жизнью - напоминанием о потерянных дорогах и решениях, последствия которых нам неподвластны.\n\nАарон Вандербильт покоится здесь один."
+  },
+  {
+   "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
+   "v": "<size=145%><b>ЗАПИСКИ СТОРОЖА</b></size>\n<size=85%>1999</size>\n\n<i>В этой книге вы найдёте указания о том, как охранять это кладбище. Не отступайте от этих указаний. В книге собраны все записи предыдущих сторожей.</i>\n\n<i>Этому месту упокоения не одна сотня лет, и его нельзя тревожить. Как смотритель кладбища, вы прочтёте следующие указания и будете им следовать.</i>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Следите, чтобы лампы по всему кладбищу горели постоянно.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Следите, чтобы распятие всегда было надёжно закреплено на двери хижины. Распятие определяет ваш рассудок.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Если нужен отдых, вернитесь в хижину. Она всегда безопасна, пока распятие на двери.</align>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Впускайте только посетителей, состоящих в прямом родстве с усопшими.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Не доверяйте посетителям слепо. Всегда сверяйте любые сведения, которые они вам сообщают.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Вы будете нести караул у ворот, чтобы нежеланные гости не трогали могилы. Вы также должны обходить территорию.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Если кто-то проник на территорию, отпугните его фонарём. Постоянно проверяйте окрестности могил на предмет нарушителей.</align>\n\n<size=72%><i>(продолжение следует)</i></size>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Держите задние ворота постоянно запертыми. Вход с задней стороны запрещён.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Система видеонаблюдения следит за обоими входами. Важно наблюдать за ними, чтобы территория оставалась в безопасности. Экраны находятся в углу хижины.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Самое главное: уважайте захоронения. Не тревожьте их покой; отгоняйте нежеланных.</align>\n\n<size=80%><i>— конец —</i></size>"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Хуан\n\nЧлены семьи:\nВэньци Хуан, 73 года, жив\nМэй Хуан, 70 лет, умерла\nЧэнь Хуан, 48 лет, жив\n\nМэй Хуан погребена на этой земле.\n\nПричина смерти: смертельная инъекция\n\nВремя смерти: суббота, 27 марта 1993 года, 16:00"
+  },
+  {
+   "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
+   "v": "Под фамилией Хуан здесь только одна могила, хотя всё указывает на решение, принятое в спешке и исполненное с заботой. Участок выбрал сам Хуан Вэньци; он пришёл с готовыми бумагами и говорил ясно, хоть и не всегда последовательно, порой повторяя уже оговорённые детали. Госпожу Хуан привезли на рассвете. Дальних родственников не было. Когда я спросил, придёт ли сын, Вэньци сказал, что семья и так в полном составе, а затем замолчал, словно не понимая, почему этот ответ важен. Причина смерти была записана, преступление сочтено раскрытым, и дело приняли без возражений.\n\nМэй Хуан жила тихо, известная мелкими добрыми делами, от которых почти не осталось следов. В последние месяцы это внимание угасло, а с ним и её защита. Мне сказали лишь, что дело о бесчестье было улажено; подробностей не сообщили. Подношения от имени сына не допускаются. Теперь Вэньци приходит один, порой повторяясь, и всегда осматривает камень перед уходом, будто ждёт, что тот скажет что-то другое."
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+   "v": "Выдержка из записей смотрителя кладбища\nНезарегистрированные посетительницы\n\nДве женщины время от времени появляются у ворот.\n\nОни никогда не приходят вместе, хотя каждая уверяет, что другую уже впустили.\n\nОбе утверждают, что знают мёртвых. Каждая знает имена, не высеченные на камне. На вопрос, откуда, одна отвечает сразу и неверно; другая - медленно и с подробностями, которые ничего не проясняют. Я понял, что поправлять любую из них - ошибка.\n\nОдна всегда спрашивает о доступе. Замки, обходы, часы, когда земля мягче всего. Она говорит о наследстве, о том, что причитается, о том, что нельзя оставлять без присмотра. Получив отказ, она улыбается, словно ждала его. И всё равно возвращается."
+  },
+  {
+   "k": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+   "v": "Другая спрашивает о границах. О том, что удерживается, и о том, что заперто. Она говорит о тяжести, о давлении, о цене удержания некоторых вещей на месте. Получив отказ, она выглядит удивлённой, потом облегчённой, потом разочарованной. Она не спорит. Просто в следующий раз меняет просьбу.\n\nЯ не записываю, какая из женщин о чём просит. Это меняется в зависимости от того, кто слушает.\n\nОдну из них никогда не впускают. Это решение простое и неизменное. Она это знает и всё же проверяет, приводя доводы, противоречащие друг другу. Иногда она заявляет, что разрешение уже дано. Иногда ссылается на необходимость. Однажды она заявила, что я сам просил её прийти."
+  },
+  {
+   "k": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+   "v": "Другую впускают при определённых обстоятельствах. Погода, время и недавние погребения - всё имеет значение. Я не объясняю ей своих причин. Получив отказ, она принимает его как временный. Когда её впускают, она не задерживается.\n\nКаждая обвиняет другую во лжи. Каждая приводит доказательства. Оба набора убедительны. Ни одна не вдаётся в подробности.\n\nОдна никогда не упускает случая намекнуть на другую. Другая не признаёт сестру, пока не спросишь. \n\nТу, что лжёт, нельзя впускать никогда."
+  },
+  {
+   "k": "William Pembroke\n1705\nDeath by hanging",
+   "v": "Уильям Пемброк\n1705\nСмерть через повешение"
+  },
+  {
+   "k": "I CAN'T BREATHE",
+   "v": "Я НЕ МОГУ ДЫШАТЬ"
+  },
+  {
+   "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
+   "v": "После достаточного числа кругов по этим коридорам некоторые упущения невозможно не заметить.\nМёртвые, которые должны здесь покоиться, лишены обычных почестей. Это место служит наказанию."
+  },
+  {
+   "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",
+   "v": "Здесь покоится Энтони Андерсон\nОтец троих детей, муж\n1947-1988"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive",
+   "v": "Выдержка из записей смотрителя кладбища\nСемья Делойт\n\n\nЧлены семьи:\nШейн Делойт, 31 год, жив\nРеджинальд Делойт, 29 лет, жив"
+  },
+  {
+   "k": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks.",
+   "v": "Семья Делойт - новые жители. Проверка показала, что братья долго враждовали друг с другом, но недавно вражда утихла. \n\nДругих замечаний смотритель не делает."
+  },
+  {
+   "k": "NO REST",
+   "v": "НЕТ ПОКОЯ"
+  },
+  {
+   "k": "Here lies Mei Huang\nWife, Mother of One\n1923-1993",
+   "v": "Здесь покоится Мэй Хуан\nЖена, мать одного ребёнка\n1923-1993"
+  },
+  {
+   "k": "LIAR",
+   "v": "ЛГУНЬЯ"
+  },
+  {
+   "k": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985",
+   "v": "Здесь покоится Джейн Адамс\nМать, сестра, любимая подруга.\n1931-1985"
+  },
+  {
+   "k": "SELFISH",
+   "v": "ЭГОИСТКА"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+   "v": "Найденная полевая заметка, предварительное обозначение:\n«Расхититель могил»\nИсточник засекречен\n\nС большинством случаев осквернения могил связано одно и то же человеческое присутствие. Предположительно, это местный житель, служащий главным связным для чужаков, занимающихся кражами и осквернением. Его подлинная личность неизвестна.\n\nОн действует не один. Его сообщников часто замечают в нерабочие часы на кладбище: они изучают линии обзора и время реакции. Эти люди отступают, когда на них направляют свет, и их удавалось отпугивать длительным использованием фонарей. Требуется постоянная бдительность, поскольку их деятельность продолжается и носит преднамеренный характер."
+  },
+  {
+   "k": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+   "v": "Чужаки приходят с подробным знанием планировки кладбища, маршрутов обхода и путей доступа, хотя прежде не имели никакого отношения к этим местам. Предполагается, что сведения им передаёт он. Активность резко возрастает после его появления и рассеивается, как только он уходит.\n\nРасхититель могил жесток. Улики указывают на намеренное запугивание, а не на необходимость. Повреждённые инструменты, чрезмерная сила и признаки раздоров среди сообщников говорят о главенстве, удерживаемом страхом.\n\nПрежние смотрители сообщали о встречах. В каждом случае записи вскоре обрываются. Один смотритель покинул пост без предупреждения. Другой попал в больницу с травмами, не похожими на падение. Третий записал наблюдение, но последняя запись была вырвана из журнала."
+  },
+  {
+   "k": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+   "v": "Он избегает опознания. Черты лица в отчётах различаются, и ни одного надёжного изображения получить не удалось. Несмотря на это, его присутствие ни с чем не спутать. Требуется дальнейшее наблюдение. Прямое столкновение не рекомендуется."
+  },
+  {
+   "k": "Not every name corresponds to a lived life.",
+   "v": "Не каждое имя соответствует прожитой жизни."
+  },
+  {
+   "k": "Elizabeth Crowther\n1702\nDeath by illness",
+   "v": "Элизабет Краутер\n1702\nСмерть от болезни"
+  },
+  {
+   "k": "STAY AWAY FROM ME",
+   "v": "НЕ ПОДХОДИ КО МНЕ"
+  },
+  {
+   "k": "Rebecca Langley\n1733\nDeath by lynching",
+   "v": "Ребекка Лэнгли\n1733\nСмерть от самосуда"
+  },
+  {
+   "k": "LET ME GO",
+   "v": "ОТПУСТИТЕ МЕНЯ"
+  },
+  {
+   "k": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994",
+   "v": "Здесь покоится Саманта Байнс\nЛюбимая мать двоих детей, жена\n1972-1994"
+  },
+  {
+   "k": "Mary Langley\n1755\nDeath during childbirth",
+   "v": "Мэри Лэнгли\n1755\nСмерть при родах"
+  },
+  {
+   "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
+   "v": "Судьба отца Джозефа\n\nЯ пишу это дрожащими руками. Я открыл ужасную правду об этом месте и о тех, кто здесь обитает. Отца Джозефа и впрямь постигла участь хуже смерти.\n\nПока это место таково, отец Джозеф обречён оставаться на этом кладбище. Надгробие, стёртое из памяти, изуродованное безбожниками. Дар, который должен был быть посажен как последнее прощание от его возлюбленной.\n\nЕсли какая-нибудь милосердная душа найдёт последнее подношение, сорванное его возлюбленной, пусть возложит его на его забытую могилу. Лишь тогда отец Джозеф наконец получит прощание, в котором ему было отказано, и, быть может, обретёт покой, так долго ускользавший от него."
+  },
+  {
+   "k": "I'M FREE",
+   "v": "Я СВОБОДЕН"
+  },
+  {
+   "k": "Hey Brian! I came by to see how you've been.",
+   "v": "Привет, Брайан! Заскочил узнать, как ты тут."
+  },
+  {
+   "k": "I'm sorry you had to take the night shift here. This place couldn't look more depressing.",
+   "v": "Жаль, что тебе пришлось взять здесь ночную смену. Более унылого места и не придумаешь."
+  },
+  {
+   "k": "It's not that bad...",
+   "v": "Не так уж всё и плохо..."
+  },
+  {
+   "k": "I appreciate you coming by, Hector. It's good to see you.",
+   "v": "Спасибо, что зашёл, Гектор. Рад тебя видеть."
+  },
+  {
+   "k": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people.",
+   "v": "Как скажешь, дружище. Я бы не хотел торчать в этой развалюхе и сторожить покойников."
+  },
+  {
+   "k": "...",
+   "v": "..."
+  },
+  {
+   "k": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff.",
+   "v": "Эй, не пойми меня неправильно. Многие бы душу продали за такую работу. Делать тут особо нечего: слушай радио да дремли. Некоторым такое нравится."
+  },
+  {
+   "k": "How are you keeping busy anyway?",
+   "v": "Чем ты вообще себя занимаешь?"
+  },
+  {
+   "k": "Honestly, it's been pretty dull so far.",
+   "v": "Честно говоря, пока довольно скучно."
+  },
+  {
+   "k": "Just been keeping my head down and staying vigilant, to be honest.",
+   "v": "Если честно, просто сижу тихо и держу ухо востро."
+  },
+  {
+   "k": "Dull? Well, if you say so. I guess that's better than being creeped out.",
+   "v": "Скучно? Ну, как скажешь. Наверное, это лучше, чем трястись от страха."
+  },
+  {
+   "k": "I can't stand the idea of sleeping a few feet away from those tombstones.",
+   "v": "Я бы не вынес мысли, что сплю в паре метров от этих надгробий."
+  },
+  {
+   "k": "But hey, if you're that bored, why not make it a bit more interesting?",
+   "v": "Но слушай, раз тебе так скучно, почему бы не сделать ночь поинтереснее?"
+  },
+  {
+   "k": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?",
+   "v": "Слышал слухи про свирепую тварь, что бродит по лесам неподалёку отсюда?"
+  },
+  {
+   "k": "How about I head home to grab some equipment, and then we go track it down together?",
+   "v": "Может, я сгоняю домой за снаряжением, и мы вместе её выследим?"
+  },
+  {
+   "k": "No thanks, I really shouldn't leave my shift.",
+   "v": "Нет, спасибо, мне правда нельзя покидать пост."
+  },
+  {
+   "k": "Real funny, Hector.",
+   "v": "Очень смешно, Гектор."
+  },
+  {
+   "k": "Heh, alright, whatever you say.",
+   "v": "Хех, ладно, как скажешь."
+  },
+  {
+   "k": "Well I just dropped by for a moment to check in on you.",
+   "v": "Ну, я заскочил всего на минутку, проведать тебя."
+  },
+  {
+   "k": "I'll stop by again tomorrow to make sure you're alright.",
+   "v": "Завтра ещё зайду, убедиться, что с тобой всё в порядке."
+  },
+  {
+   "k": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit.",
+   "v": "Твои родители сильно за тебя переживали, так что передам им от тебя привет. Надеюсь, это их немного успокоит."
+  },
+  {
+   "k": "See you around man.",
+   "v": "Увидимся, дружище."
+  },
+  {
+   "k": "Hey man, just trying to help!",
+   "v": "Эй, я же просто пытаюсь помочь!"
+  },
+  {
+   "k": "Sounds boring.",
+   "v": "Звучит скучно."
+  },
+  {
+   "k": "This place kind of gives me the creeps.",
+   "v": "От этого места у меня мурашки по коже."
+  },
+  {
+   "k": "In the middle of nowhere too. Why the hell is this place even here?",
+   "v": "Да ещё и у чёрта на куличках. Какого чёрта это место вообще здесь?"
+  },
+  {
+   "k": "Feels a bit off, but I guess you're getting paid well at least, right?",
+   "v": "Что-то тут не так, но хоть платят, надеюсь, хорошо?"
+  },
+  {
+   "k": "Yeah, the pay is great.",
+   "v": "Да, платят отлично."
+  },
+  {
+   "k": "I guess.",
+   "v": "Наверное."
+  },
+  {
+   "k": "It's good to see you too, man.",
+   "v": "Я тоже рад тебя видеть, дружище."
+  },
+  {
+   "k": "That's great to hear man!",
+   "v": "Рад это слышать, дружище!"
+  },
+  {
+   "k": "I'm happy for you.",
+   "v": "Я за тебя рад."
+  },
+  {
+   "k": "Well, I should probably head back now. I just dropped by to check in on you.",
+   "v": "Ну, мне, пожалуй, пора. Просто заскочил проведать тебя."
+  },
+  {
+   "k": "Well, my friend...",
+   "v": "Что ж, друг мой..."
+  },
+  {
+   "k": "It seems you've done a great job with this old place.",
+   "v": "Похоже, вы отлично справляетесь с этим старым местом."
+  },
+  {
+   "k": "Who are you?",
+   "v": "Кто вы?"
+  },
+  {
+   "k": "It's late, old man. Head home.",
+   "v": "Уже поздно, старик. Идите домой."
+  },
+  {
+   "k": "As astute as always.",
+   "v": "Проницателен, как всегда."
+  },
+  {
+   "k": "Allow me to introduce myself, first.",
+   "v": "Позвольте сначала представиться."
+  },
+  {
+   "k": "I think it's about time I introduced myself...",
+   "v": "Думаю, пора мне представиться..."
+  },
+  {
+   "k": "I'm the previous watcher of this cemetary, before you.",
+   "v": "Я прежний сторож этого кладбища, до вас."
+  },
+  {
+   "k": "I think I left this place in the right hands, but I also believe your job here isn't finished.",
+   "v": "Думаю, я оставил это место в надёжных руках, но также считаю, что ваша работа здесь не окончена."
+  },
+  {
+   "k": "Why did you leave?",
+   "v": "Почему вы ушли?"
+  },
+  {
+   "k": "Well, yeah. My shift isn't over.",
+   "v": "Ну да. Моя смена ещё не закончилась."
+  },
+  {
+   "k": "Well, I'll admit, I didn't uphold my duties as the grave watcher.",
+   "v": "Что ж, признаю, я не справился со своими обязанностями кладбищенского сторожа."
+  },
+  {
+   "k": "I felt there had to be someone more suited to the job...",
+   "v": "Мне казалось, что должен быть кто-то более подходящий для этой работы..."
+  },
+  {
+   "k": "You've got quite the sense of humor there, friend...",
+   "v": "А у вас неплохое чувство юмора, друг мой..."
+  },
+  {
+   "k": "No, I meant there's something I left unfinished before I left.",
+   "v": "Нет, я имел в виду, что перед уходом оставил кое-что незавершённым."
+  },
+  {
+   "k": "As you might be able to tell by now, this job isn't as easy as it seems.",
+   "v": "Как вы, наверное, уже поняли, эта работа не так проста, как кажется."
+  },
+  {
+   "k": "This place is quite the attraction to many different folks, both alive and dead.",
+   "v": "Это место притягивает самых разных людей, живых и мёртвых."
+  },
+  {
+   "k": "I'll be candid with you, my friend...",
+   "v": "Буду с вами откровенен, друг мой..."
+  },
+  {
+   "k": "I left because I was afraid.",
+   "v": "Я ушёл, потому что боялся."
+  },
+  {
+   "k": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen...",
+   "v": "Это не обычное место упокоения мёртвых. Я бы с радостью рассказал больше, если вы готовы выслушать..."
+  },
+  {
+   "k": "Okay.",
+   "v": "Хорошо."
+  },
+  {
+   "k": "You should head home grandpa.",
+   "v": "Шли бы вы домой, дедуля."
+  },
+  {
+   "k": "Listen here.",
+   "v": "Послушайте меня."
+  },
+  {
+   "k": "I came here out of the pain of regret. Out of empathy for you and the people of this town.",
+   "v": "Я пришёл сюда из-за боли сожаления. Из сочувствия к вам и к людям этого города."
+  },
+  {
+   "k": "I didn't have to come back, to put up with your arrogance.",
+   "v": "Я не обязан был возвращаться, чтобы терпеть вашу спесь."
+  },
+  {
+   "k": "I'm sorry. Please continue.",
+   "v": "Простите. Пожалуйста, продолжайте."
+  },
+  {
+   "k": "Don't care. Head home, you crazy old bat.",
+   "v": "Мне всё равно. Идите домой, старый чудак."
+  },
+  {
+   "k": "You are a fool.",
+   "v": "Вы глупец."
+  },
+  {
+   "k": "I will give you one last chance to listen to me.",
+   "v": "Даю вам последний шанс выслушать меня."
+  },
+  {
+   "k": "I'm sorry. Please continue. I'm listening.",
+   "v": "Простите. Пожалуйста, продолжайте. Я слушаю."
+  },
+  {
+   "k": "If you don't leave I'm calling the cops.",
+   "v": "Если не уйдёте, я вызову полицию."
+  },
+  {
+   "k": "Thank you.",
+   "v": "Спасибо."
+  },
+  {
+   "k": "As you can tell, this place gets a lot of attention.",
+   "v": "Как видите, это место привлекает много внимания."
+  },
+  {
+   "k": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.",
+   "v": "Ходит история, что в склепе прямо за вами лежит нечто очень ценное. За ним охотится много опасных людей."
+  },
+  {
+   "k": "I personally never cared for it.",
+   "v": "Лично мне до этого никогда не было дела."
+  },
+  {
+   "k": "However, as my days unfolded in this place, I began growing restless, tired, and anxious.",
+   "v": "Однако день за днём в этом месте я становился всё беспокойнее, изнурённее и тревожнее."
+  },
+  {
+   "k": "I started feel an unsettling draw towards the crypt sitting behind you.",
+   "v": "Я начал ощущать тревожное влечение к склепу у вас за спиной."
+  },
+  {
+   "k": "Have you felt it too?",
+   "v": "Вы тоже это чувствовали?"
+  },
+  {
+   "k": "Yes.",
+   "v": "Да."
+  },
+  {
+   "k": "No.",
+   "v": "Нет."
+  },
+  {
+   "k": "Interesting.",
+   "v": "Любопытно."
+  },
+  {
+   "k": "It's relieving to actually meet someone that feels the same way.",
+   "v": "Какое облегчение - наконец встретить того, кто чувствует то же самое."
+  },
+  {
+   "k": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.",
+   "v": "В общем, мне нужны были ответы, и я начал рыться в старых записях, которые прежние смотрители оставили мне в хижине."
+  },
+  {
+   "k": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.",
+   "v": "Уверен, у вас была возможность прочесть часть оставленных там документов. По крайней мере, надеюсь."
+  },
+  {
+   "k": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.",
+   "v": "Перебирая старые тексты, я прочёл любопытный отрывок, оставленный одним старым смотрителем. Наверное, десятки лет назад."
+  },
+  {
+   "k": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.",
+   "v": "Документы пролежали там, казалось, очень долго... они были пыльными и едва читались."
+  },
+  {
+   "k": "I had decided to leave this position at the graveyard promptly after I read it.",
+   "v": "Прочитав это, я вскоре решил оставить эту должность на кладбище."
+  },
+  {
+   "k": "Apparently, one of the old gravekeepers had attempted to enter that crypt.",
+   "v": "Судя по всему, один из старых смотрителей пытался войти в тот склеп."
+  },
+  {
+   "k": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.",
+   "v": "В тексте он также упоминал, что на этой должности всегда должен быть смотритель. Тот, кто берётся за эту работу, отвечает за безопасность жителей округи. Если вам не нужна эта работа, вы должны передать её кому-то другому."
+  },
+  {
+   "k": "However.",
+   "v": "Однако."
+  },
+  {
+   "k": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.",
+   "v": "Если вы решите остаться на этой работе, то поймёте, что больше не сможете вести нормальную жизнь. Более того, и умереть нормально вы тоже не сможете."
+  },
+  {
+   "k": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death.",
+   "v": "По словам старого смотрителя, это кладбище - не просто обычное место погребения. Люди, похороненные здесь, жили не как все. Этому месту всегда нужен сторож, даже после смерти."
+  },
+  {
+   "k": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.",
+   "v": "Когда умирают обычные люди, их жизнь кончается, и у них больше нет ни переживаний, ни мыслей, ни чувств."
+  },
+  {
+   "k": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.",
+   "v": "Тексты не вдавались в подробности, но если вы умрёте здесь смотрителем, с вами случится совсем не это."
+  },
+  {
+   "k": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.",
+   "v": "Единственный способ разорвать этот круг - войти в мавзолей. Не знаю, почему и как, но старый смотритель упоминал в записях некую загадку, которую нужно разгадать."
+  },
+  {
+   "k": "What puzzle?",
+   "v": "Какую загадку?"
+  },
+  {
+   "k": "Everyone who is buried at this graveyard shares something in common.",
+   "v": "У всех, кто похоронен на этом кладбище, есть кое-что общее."
+  },
+  {
+   "k": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.",
+   "v": "Некоторым из этих могил не одна сотня лет. Но даже более новые, появившиеся недавно, должны следовать некой закономерности."
+  },
+  {
+   "k": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.",
+   "v": "Я перерыл все документы, но так и не смог понять, что это за закономерность и существует ли она вообще."
+  },
+  {
+   "k": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.",
+   "v": "Единственный способ разорвать этот круг - разгадать эту загадку. Когда узнаете ответ, вы должны войти в склеп."
+  },
+  {
+   "k": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.",
+   "v": "Судя по всему, смотритель до нас глубоко изучил архивы. Он вошёл в склеп с возможной разгадкой, но потерпел неудачу."
+  },
+  {
+   "k": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.",
+   "v": "В этом склепе есть нечто, чему не одна сотня лет, и это нужно разрешить - проклятие, которое до сих пор не снято."
+  },
+  {
+   "k": "When I learned about this, I was in disbelief.",
+   "v": "Когда я узнал об этом, я не поверил."
+  },
+  {
+   "k": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.",
+   "v": "Мне было страшно. Я запер мавзолей и ворота и покинул это место. С тех пор кладбище становилось всё беспокойнее."
+  },
+  {
+   "k": "I still have the key. I can unlock that crypt.",
+   "v": "Ключ всё ещё у меня. Я могу отпереть склеп."
+  },
+  {
+   "k": "Will you enter it and put an end to this?",
+   "v": "Вы войдёте туда и положите этому конец?"
+  },
+  {
+   "k": "Okay. I'm ready.",
+   "v": "Хорошо. Я готов."
+  },
+  {
+   "k": "This is crazy. Go home you old kook.",
+   "v": "Это безумие. Идите домой, старый чокнутый."
+  },
+  {
+   "k": "I am quite disappointed.",
+   "v": "Я весьма разочарован."
+  },
+  {
+   "k": "Surely you are joking?",
+   "v": "Вы ведь шутите?"
+  },
+  {
+   "k": "Yeah, just a joke. Go ahead and unlock the crypt.",
+   "v": "Да, просто шутка. Давайте, отпирайте склеп."
+  },
+  {
+   "k": "That wasn't a joke. Please leave.",
+   "v": "Это была не шутка. Пожалуйста, уходите."
+  },
+  {
+   "k": "I was mistaken.",
+   "v": "Я ошибался."
+  },
+  {
+   "k": "You clearly are not the right person for this job.",
+   "v": "Вы явно не тот человек, который нужен для этой работы."
+  },
+  {
+   "k": "I will warn you one last time to listen to me.",
+   "v": "Предупреждаю в последний раз: выслушайте меня."
+  },
+  {
+   "k": "It is your well-being I am concerned about.",
+   "v": "Меня беспокоит ваше благополучие."
+  },
+  {
+   "k": "I'm sorry. Please go ahead and unlock the crypt",
+   "v": "Простите. Пожалуйста, отпирайте склеп"
+  },
+  {
+   "k": "You are quite the intelligent specimen, aren't you?",
+   "v": "Да вы просто образец интеллекта, не так ли?"
+  },
+  {
+   "k": "Follow me.",
+   "v": "Следуйте за мной."
+  },
+  {
+   "k": "You truly are a blessing.",
+   "v": "Вы поистине благословение."
+  },
+  {
+   "k": "I've went ahead and unlocked the crypt.",
+   "v": "Я уже отпер склеп."
+  },
+  {
+   "k": "One more thing.",
+   "v": "И ещё кое-что."
+  },
+  {
+   "k": "In one of the notes left by a previous gatekeeper...",
+   "v": "В одной из записок, оставленных прежним сторожем..."
+  },
+  {
+   "k": "It mentioned turning off your flashlight before entering.",
+   "v": "Говорилось, что перед входом нужно выключить фонарь."
+  },
+  {
+   "k": "I don't know why.",
+   "v": "Не знаю почему."
+  },
+  {
+   "k": "I have faith that you'll be able to figure this out.",
+   "v": "Верю, что вы сумеете разобраться."
+  },
+  {
+   "k": "Good luck in there.",
+   "v": "Удачи вам там."
+  },
+  {
+   "k": "You did it, my friend.",
+   "v": "Вы справились, друг мой."
+  },
+  {
+   "k": "They have been freed.",
+   "v": "Они освобождены."
+  },
+  {
+   "k": "Perhaps their souls can finally rest. As should you.",
+   "v": "Быть может, их души наконец обретут покой. Как и вы."
+  },
+  {
+   "k": "Come.",
+   "v": "Идёмте."
+  },
+  {
+   "k": "Evening.",
+   "v": "Добрый вечер."
+  },
+  {
+   "k": "Didn’t expect anyone at the gate this late.",
+   "v": "Не ожидал никого у ворот в такой час."
+  },
+  {
+   "k": "Name’s Harold Vanderbolt.",
+   "v": "Меня зовут Гарольд Вандерболт."
+  },
+  {
+   "k": "I need to step inside for a moment.",
+   "v": "Мне нужно ненадолго зайти."
+  },
+  {
+   "k": "Visiting hours are over. What’s your business here?",
+   "v": "Часы посещения закончились. Что вам здесь нужно?"
+  },
+  {
+   "k": "Can I help you with something, sir?",
+   "v": "Чем могу помочь, сэр?"
+  },
+  {
+   "k": "Straight question.",
+   "v": "Прямой вопрос."
+  },
+  {
+   "k": "I like that.",
+   "v": "Мне это нравится."
+  },
+  {
+   "k": "I’m here to see my brother.",
+   "v": "Я пришёл навестить брата."
+  },
+  {
+   "k": "Aaron.",
+   "v": "Аарона."
+  },
+  {
+   "k": "Good man. Bad luck.",
+   "v": "Хороший человек. Не повезло."
+  },
+  {
+   "k": "Didn’t think he’d end up here.",
+   "v": "Не думал, что он окажется здесь."
+  },
+  {
+   "k": "Funny how things go.",
+   "v": "Забавно, как всё оборачивается."
+  },
+  {
+   "k": "How did you know Aaron?",
+   "v": "Откуда вы знали Аарона?"
+  },
+  {
+   "k": "Why come so late?",
+   "v": "Почему так поздно?"
+  },
+  {
+   "k": "Appreciate the courtesy.",
+   "v": "Ценю учтивость."
+  },
+  {
+   "k": "Not much of it left these days.",
+   "v": "Её нынче осталось немного."
+  },
+  {
+   "k": "I won’t take long.",
+   "v": "Я ненадолго."
+  },
+  {
+   "k": "Just paying respects.",
+   "v": "Только отдать дань уважения."
+  },
+  {
+   "k": "Aaron wouldn’t forgive me if I didn’t.",
+   "v": "Аарон не простил бы мне, если бы я этого не сделал."
+  },
+  {
+   "k": "You’re being vague.",
+   "v": "Вы говорите уклончиво."
+  },
+  {
+   "k": "I’ll need more than that.",
+   "v": "Мне нужно больше, чем это."
+  },
+  {
+   "k": "We grew up together.",
+   "v": "Мы вместе росли."
+  },
+  {
+   "k": "Shared a name. Shared a roof.",
+   "v": "Одна фамилия. Одна крыша."
+  },
+  {
+   "k": "Shared more mistakes than I care to count.",
+   "v": "И больше общих ошибок, чем я хотел бы сосчитать."
+  },
+  {
+   "k": "I owe him a moment.",
+   "v": "Я должен ему минуту."
+  },
+  {
+   "k": "Family has a way of demanding that.",
+   "v": "Семья умеет этого требовать."
+  },
+  {
+   "k": "Your brother?",
+   "v": "Ваш брат?"
+  },
+  {
+   "k": "Do you have any proof?",
+   "v": "У вас есть доказательства?"
+  },
+  {
+   "k": "Privacy.",
+   "v": "Уединение."
+  },
+  {
+   "k": "That’s all.",
+   "v": "Вот и всё."
+  },
+  {
+   "k": "Some things are easier to say",
+   "v": "Некоторые вещи легче сказать,"
+  },
+  {
+   "k": "when no one’s listening back.",
+   "v": "когда никто не слушает."
+  },
+  {
+   "k": "I say what I need to say.",
+   "v": "Я говорю то, что должен сказать."
+  },
+  {
+   "k": "Then I leave.",
+   "v": "И ухожу."
+  },
+  {
+   "k": "Careful.",
+   "v": "Осторожнее."
+  },
+  {
+   "k": "You’re doing your job.",
+   "v": "Вы делаете свою работу."
+  },
+  {
+   "k": "So am I.",
+   "v": "Я тоже."
+  },
+  {
+   "k": "No trouble.",
+   "v": "Никаких проблем."
+  },
+  {
+   "k": "Just a brother standing where he has to.",
+   "v": "Просто брат, стоящий там, где должен."
+  },
+  {
+   "k": "Let’s not turn this into something tedious.",
+   "v": "Давайте не будем превращать это в нудную тяжбу."
+  },
+  {
+   "k": "Brother.",
+   "v": "Брат."
+  },
+  {
+   "k": "Older, if that matters.",
+   "v": "Старший, если это важно."
+  },
+  {
+   "k": "Usually does.",
+   "v": "Обычно важно."
+  },
+  {
+   "k": "We didn’t always agree.",
+   "v": "Мы не всегда ладили."
+  },
+  {
+   "k": "But blood’s blood.",
+   "v": "Но кровь есть кровь."
+  },
+  {
+   "k": "Aaron understood that.",
+   "v": "Аарон это понимал."
+  },
+  {
+   "k": "Proof?",
+   "v": "Доказательства?"
+  },
+  {
+   "k": "I don’t carry mementos.",
+   "v": "Я не ношу с собой памятных вещиц."
+  },
+  {
+   "k": "And family names don’t mean much once someone’s in the ground.",
+   "v": "А фамилии мало что значат, когда человек уже в земле."
+  },
+  {
+   "k": "You should know that better than anyone.",
+   "v": "Вам ли этого не знать."
+  },
+  {
+   "k": "I wouldn’t be here if it didn’t matter.",
+   "v": "Меня бы здесь не было, если бы это не имело значения."
+  },
+  {
+   "k": "So.",
+   "v": "Итак."
+  },
+  {
+   "k": "I just need a few minutes.",
+   "v": "Мне нужно всего несколько минут."
+  },
+  {
+   "k": "I’ll stay out of your way.",
+   "v": "Я не буду вам мешать."
+  },
+  {
+   "k": "May I go in?",
+   "v": "Можно мне войти?"
+  },
+  {
+   "k": "Alright. Be quick.",
+   "v": "Ладно. Только быстро."
+  },
+  {
+   "k": "No. I can’t allow it.",
+   "v": "Нет. Я не могу этого позволить."
+  },
+  {
+   "k": "I have a few more questions.",
+   "v": "У меня ещё есть вопросы."
+  },
+  {
+   "k": "Hold on, I'll be right back.",
+   "v": "Подождите, я сейчас вернусь."
+  },
+  {
+   "k": "What was your name again?",
+   "v": "Как, вы сказали, вас зовут?"
+  },
+  {
+   "k": "Who are you visiting?",
+   "v": "Кого вы навещаете?"
+  },
+  {
+   "k": "How many people are in your family?",
+   "v": "Сколько человек в вашей семье?"
+  },
+  {
+   "k": "Nevermind.",
+   "v": "Неважно."
+  },
+  {
+   "k": "I'm here to see Aaron.",
+   "v": "Я пришёл навестить Аарона."
+  },
+  {
+   "k": "When did he die?",
+   "v": "Когда он умер?"
+  },
+  {
+   "k": "What was his cause of death?",
+   "v": "Какова была причина его смерти?"
+  },
+  {
+   "k": "I have other questions.",
+   "v": "У меня есть другие вопросы."
+  },
+  {
+   "k": "June 27th, 1993.",
+   "v": "27 июня 1993 года."
+  },
+  {
+   "k": "I have no other questions.",
+   "v": "Больше вопросов нет."
+  },
+  {
+   "k": "He was found in his hotel room, on a trip abroad.",
+   "v": "Его нашли в номере отеля, во время поездки за границу."
+  },
+  {
+   "k": "Had a gunshot wound out the back of his head.",
+   "v": "Огнестрельная рана в затылок."
+  },
+  {
+   "k": "Terrible way to go. I try not to think about it.",
+   "v": "Ужасная смерть. Стараюсь об этом не думать."
+  },
+  {
+   "k": "We didn't have much family left. It was just him and my nephew.",
+   "v": "Семьи у нас почти не осталось. Только он и мой племянник."
+  },
+  {
+   "k": "I have more questions.",
+   "v": "У меня ещё есть вопросы."
+  },
+  {
+   "k": "My name is Harold.",
+   "v": "Меня зовут Гарольд."
+  },
+  {
+   "k": "Good.",
+   "v": "Хорошо."
+  },
+  {
+   "k": "I knew you’d see reason.",
+   "v": "Я знал, что вы прислушаетесь к разуму."
+  },
+  {
+   "k": "Family doesn’t get many chances to say goodbye properly.",
+   "v": "Семье нечасто выпадает шанс попрощаться как следует."
+  },
+  {
+   "k": "I won’t forget this.",
+   "v": "Я этого не забуду."
+  },
+  {
+   "k": "That’s disappointing.",
+   "v": "Досадно."
+  },
+  {
+   "k": "Still.",
+   "v": "И всё же."
+  },
+  {
+   "k": "Rules are useful things.",
+   "v": "Правила - полезная штука."
+  },
+  {
+   "k": "Until they aren’t.",
+   "v": "Пока не перестают быть таковой."
+  },
+  {
+   "k": "Give my brother a quiet night, then.",
+   "v": "Что ж, подарите моему брату спокойную ночь."
+  },
+  {
+   "k": "I suppose some problems do solve themselves.",
+   "v": "Полагаю, некоторые проблемы решаются сами собой."
+  },
+  {
+   "k": "I thought you two were close.",
+   "v": "Я думал, вы двое были близки."
+  },
+  {
+   "k": "What did you say your name was again?",
+   "v": "Как, вы сказали, вас зовут?"
+  },
+  {
+   "k": "Just saying goodbye properly.",
+   "v": "Просто прощаюсь как положено."
+  },
+  {
+   "k": "I'll be leaving now.",
+   "v": "Я ухожу."
+  },
+  {
+   "k": "Thanks for looking the other way.",
+   "v": "Спасибо, что закрыли глаза."
+  },
+  {
+   "k": "Harold. Harold Vanderbilt.",
+   "v": "Гарольд. Гарольд Вандербильт."
+  },
+  {
+   "k": "I'll be taking my leave now. Have a great rest of your evening.",
+   "v": "Позвольте откланяться. Приятного вам вечера."
+  },
+  {
+   "k": "Hello. Excuse me.",
+   "v": "Здравствуйте. Простите."
+  },
+  {
+   "k": "This is graveyard, yes?",
+   "v": "Это кладбище, да?"
+  },
+  {
+   "k": "I come to visit my wife.",
+   "v": "Я прийти навестить моя жена."
+  },
+  {
+   "k": "Can I see some identification?",
+   "v": "Могу я взглянуть на документы?"
+  },
+  {
+   "k": "Identification?",
+   "v": "Документы?"
+  },
+  {
+   "k": "Yes… yes.",
+   "v": "Да... да."
+  },
+  {
+   "k": "My name Mr. Huang.",
+   "v": "Моё имя мистер Хуан."
+  },
+  {
+   "k": "I am him.",
+   "v": "Это я."
+  },
+  {
+   "k": "I not carry many papers now.",
+   "v": "Я теперь не носить много бумаги."
+  },
+  {
+   "k": "Only me. Only husband.",
+   "v": "Только я. Только муж."
+  },
+  {
+   "k": "I come many times before.",
+   "v": "Я приходить много раз раньше."
+  },
+  {
+   "k": "Maybe you not see me.",
+   "v": "Может, вы меня не видеть."
+  },
+  {
+   "k": "I come late when quiet.",
+   "v": "Я приходить поздно, когда тихо."
+  },
+  {
+   "k": "Alright. Why are you here so late?",
+   "v": "Ладно. Почему вы здесь так поздно?"
+  },
+  {
+   "k": "Okay. Take your time and tell me what you need.",
+   "v": "Хорошо. Не торопитесь и скажите, что вам нужно."
+  },
+  {
+   "k": "Late is better.",
+   "v": "Поздно лучше."
+  },
+  {
+   "k": "Less people. Less noise.",
+   "v": "Меньше людей. Меньше шума."
+  },
+  {
+   "k": "My wife not like noise.",
+   "v": "Моя жена не любить шум."
+  },
+  {
+   "k": "I stand outside and think.",
+   "v": "Я стоять снаружи и думать."
+  },
+  {
+   "k": "That all.",
+   "v": "Это всё."
+  },
+  {
+   "k": "Which grave are you visiting?",
+   "v": "Какую могилу вы навещаете?"
+  },
+  {
+   "k": "You can understand why this looks suspicious.",
+   "v": "Вы понимаете, почему это выглядит подозрительно."
+  },
+  {
+   "k": "English hard for me.",
+   "v": "Английский трудный для меня."
+  },
+  {
+   "k": "My wife help me before.",
+   "v": "Моя жена раньше помогать мне."
+  },
+  {
+   "k": "She here.",
+   "v": "Она здесь."
+  },
+  {
+   "k": "Long time already.",
+   "v": "Уже давно."
+  },
+  {
+   "k": "I'm sorry for your loss.",
+   "v": "Соболезную вашей утрате."
+  },
+  {
+   "k": "You shouldn’t be waiting outside the gate.",
+   "v": "Вам не стоит ждать у ворот."
+  },
+  {
+   "k": "I know.",
+   "v": "Я знать."
+  },
+  {
+   "k": "I look bad.",
+   "v": "Я выглядеть плохо."
+  },
+  {
+   "k": "Old man. Night time.",
+   "v": "Старик. Ночь."
+  },
+  {
+   "k": "But I not do wrong.",
+   "v": "Но я не делать плохого."
+  },
+  {
+   "k": "I promise.",
+   "v": "Я обещать."
+  },
+  {
+   "k": "I only want see her.",
+   "v": "Я только хотеть увидеть её."
+  },
+  {
+   "k": "Western burial ground.",
+   "v": "Западная часть кладбища."
+  },
+  {
+   "k": "Near tree.",
+   "v": "Около дерево."
+  },
+  {
+   "k": "She like tree.",
+   "v": "Она любить дерево."
+  },
+  {
+   "k": "I talk to her sometimes.",
+   "v": "Я иногда говорить с ней."
+  },
+  {
+   "k": "It help me.",
+   "v": "Это помогать мне."
+  },
+  {
+   "k": "House very quiet now.",
+   "v": "Дом теперь очень тихий."
+  },
+  {
+   "k": "Here feel closer to her.",
+   "v": "Здесь я чувствовать ближе к ней."
+  },
+  {
+   "k": "I not stay long.",
+   "v": "Я не оставаться долго."
+  },
+  {
+   "k": "Please.",
+   "v": "Пожалуйста."
+  },
+  {
+   "k": "Just few minutes.",
+   "v": "Только несколько минут."
+  },
+  {
+   "k": "I visit my wife.",
+   "v": "Я навестить моя жена."
+  },
+  {
+   "k": "May I come in?",
+   "v": "Можно мне войти?"
+  },
+  {
+   "k": "Alright. You can go in, but don’t stay long.",
+   "v": "Ладно. Можете войти, но не задерживайтесь."
+  },
+  {
+   "k": "I’m sorry. Visiting hours are over.",
+   "v": "Простите. Часы посещения закончились."
+  },
+  {
+   "k": "My late wife.",
+   "v": "Моя покойная жена."
+  },
+  {
+   "k": "Mei Huang.",
+   "v": "Мэй Хуан."
+  },
+  {
+   "k": "When did she die?",
+   "v": "Когда она умерла?"
+  },
+  {
+   "k": "What was her cause of death?",
+   "v": "Какова была причина её смерти?"
+  },
+  {
+   "k": "I do not remember...",
+   "v": "Я не помнить..."
+  },
+  {
+   "k": "It has been long time.",
+   "v": "Это было давно."
+  },
+  {
+   "k": "I do not like to speak about this matter.",
+   "v": "Я не любить говорить про это дело."
+  },
+  {
+   "k": "My wife not bad person.",
+   "v": "Моя жена не плохой человек."
+  },
+  {
+   "k": "She did no wrong.",
+   "v": "Она не сделать ничего плохого."
+  },
+  {
+   "k": "Please, I would like to see her.",
+   "v": "Пожалуйста, я хотеть увидеть её."
+  },
+  {
+   "k": "No one.",
+   "v": "Никого."
+  },
+  {
+   "k": "Only me and wife. After passing away, I am alone.",
+   "v": "Только я и жена. Когда она уйти, я остаться один."
+  },
+  {
+   "k": "My name?",
+   "v": "Моё имя?"
+  },
+  {
+   "k": "Huang Wenqi.",
+   "v": "Хуан Вэньци."
+  },
+  {
+   "k": "You very kind.",
+   "v": "Вы очень добрый."
+  },
+  {
+   "k": "I understand.",
+   "v": "Я понимать."
+  },
+  {
+   "k": "Rules are rules.",
+   "v": "Правила есть правила."
+  },
+  {
+   "k": "I come again tomorrow.",
+   "v": "Я прийти снова завтра."
+  },
+  {
+   "k": "Thank you for listening.",
+   "v": "Спасибо, что выслушать."
+  },
+  {
+   "k": "This is her.",
+   "v": "Это она."
+  },
+  {
+   "k": "I miss her dearly.",
+   "v": "Я очень скучать по ней."
+  },
+  {
+   "k": "You two must have loved each other very much.",
+   "v": "Вы, должно быть, очень любили друг друга."
+  },
+  {
+   "k": "She would say...",
+   "v": "Она говорить..."
+  },
+  {
+   "k": "\"If I go first, don’t forget me.\"",
+   "v": "«Если я уйду первой, не забывай меня»."
+  },
+  {
+   "k": "I tell her I won’t.",
+   "v": "Я сказать ей, что не забуду."
+  },
+  {
+   "k": "So I come.",
+   "v": "Поэтому я приходить."
+  },
+  {
+   "k": "Even when tired.",
+   "v": "Даже усталый."
+  },
+  {
+   "k": "Even when cold.",
+   "v": "Даже когда холодно."
+  },
+  {
+   "k": "I go now.",
+   "v": "Я идти теперь."
+  },
+  {
+   "k": "…You work here?",
+   "v": "…Вы здесь работаете?"
+  },
+  {
+   "k": "I didn’t expect anyone still on duty.",
+   "v": "Не ожидал, что кто-то ещё на посту."
+  },
+  {
+   "k": "Are you here to visit someone?",
+   "v": "Вы пришли кого-то навестить?"
+  },
+  {
+   "k": "You shouldn’t be wandering around this late.",
+   "v": "Не стоит бродить здесь так поздно."
+  },
+  {
+   "k": "Yeah. Just paying my respects.",
+   "v": "Да. Просто отдать дань уважения."
+  },
+  {
+   "k": "I don't plan to stay long.",
+   "v": "Я не собираюсь задерживаться."
+  },
+  {
+   "k": "Are you related to the deceased?",
+   "v": "Вы родственник покойного?"
+  },
+  {
+   "k": "Thanks, I know the rules.",
+   "v": "Спасибо, правила я знаю."
+  },
+  {
+   "k": "You don't have to worry, I’ll be quick.",
+   "v": "Не беспокойтесь, я быстро."
+  },
+  {
+   "k": "Then you can go back to... whatever it is you were doing.",
+   "v": "А потом можете вернуться к... чем вы там занимались."
+  },
+  {
+   "k": "Someone with the name Huang.",
+   "v": "Кое-кого по фамилии Хуан."
+  },
+  {
+   "k": "That should be enough for you.",
+   "v": "Этого вам должно быть достаточно."
+  },
+  {
+   "k": "That’s vague. What’s your full name?",
+   "v": "Это слишком расплывчато. Как ваше полное имя?"
+  },
+  {
+   "k": "Are you related to the Huangs?",
+   "v": "Вы родственник Хуанов?"
+  },
+  {
+   "k": "…Chen Huang.",
+   "v": "…Чэнь Хуан."
+  },
+  {
+   "k": "Are you going to keep asking me instrusive questions?",
+   "v": "Вы и дальше будете задавать мне навязчивые вопросы?"
+  },
+  {
+   "k": "Why are you here?",
+   "v": "Зачем вы здесь?"
+  },
+  {
+   "k": "Yeah. I am.",
+   "v": "Да. Родственник."
+  },
+  {
+   "k": "But to be honest, I don't really think that is any of your concern.",
+   "v": "Но, честно говоря, не думаю, что это ваше дело."
+  },
+  {
+   "k": "I just need to know who exactly you're visiting.",
+   "v": "Мне просто нужно знать, кого именно вы навещаете."
+  },
+  {
+   "k": "I just need to know you’re not causing trouble.",
+   "v": "Мне просто нужно знать, что вы не создадите проблем."
+  },
+  {
+   "k": "I figured you’d ask that.",
+   "v": "Так и думал, что вы это спросите."
+  },
+  {
+   "k": "We’re family.",
+   "v": "Мы семья."
+  },
+  {
+   "k": "Not close.",
+   "v": "Не близкие."
+  },
+  {
+   "k": "Well, I need to know who you're visiting.",
+   "v": "Что ж, мне нужно знать, кого вы навещаете."
+  },
+  {
+   "k": "What is their name?",
+   "v": "Как их зовут?"
+  },
+  {
+   "k": "Family.",
+   "v": "Семья."
+  },
+  {
+   "k": "I need to know their name.",
+   "v": "Мне нужно знать имя."
+  },
+  {
+   "k": "You’re avoiding the question.",
+   "v": "Вы уходите от ответа."
+  },
+  {
+   "k": "I’m answering enough.",
+   "v": "Я и так сказал достаточно."
+  },
+  {
+   "k": "This isn’t a confession booth.",
+   "v": "Это не исповедальня."
+  },
+  {
+   "k": "I’ll pay my respects and leave.",
+   "v": "Я отдам дань уважения и уйду."
+  },
+  {
+   "k": "You won’t even notice I was here.",
+   "v": "Вы даже не заметите, что я здесь был."
+  },
+  {
+   "k": "I'm not going to answer anymore questions.",
+   "v": "Больше я на вопросы отвечать не буду."
+  },
+  {
+   "k": "Is there going to be a problem?",
+   "v": "Будут проблемы?"
+  },
+  {
+   "k": "No. Go ahead inside, but be quick.",
+   "v": "Нет. Проходите, но побыстрее."
+  },
+  {
+   "k": "Visiting hours are over.",
+   "v": "Часы посещения закончились."
+  },
+  {
+   "k": "…Thanks.",
+   "v": "…Спасибо."
+  },
+  {
+   "k": "For what it’s worth,",
+   "v": "Если это что-то значит,"
+  },
+  {
+   "k": "I appreciate professionalism.",
+   "v": "я ценю профессионализм."
+  },
+  {
+   "k": "Figures.",
+   "v": "Ну конечно."
+  },
+  {
+   "k": "Didn't even want to be here.",
+   "v": "Я и не хотел сюда приходить."
+  },
+  {
+   "k": "Have fun watching over these dead people.",
+   "v": "Приятно вам сторожить этих покойников."
+  },
+  {
+   "k": "I don't envy you.",
+   "v": "Не завидую."
+  },
+  {
+   "k": "Please... just give me a moment...",
+   "v": "Пожалуйста... дайте мне минуту..."
+  },
+  {
+   "k": "Are you okay?",
+   "v": "Вы в порядке?"
+  },
+  {
+   "k": "I would do anything... just to make her stop.",
+   "v": "Я бы сделал что угодно... лишь бы она перестала."
+  },
+  {
+   "k": "I thought coming here would help... but...",
+   "v": "Я думал, что если приду сюда, станет легче... но..."
+  },
+  {
+   "k": "I think I have made a terrible mistake.",
+   "v": "Кажется, я совершил ужасную ошибку."
+  },
+  {
+   "k": "Hey there.",
+   "v": "Здравствуйте."
+  },
+  {
+   "k": "Sorry for disturbing you at this late hour.",
+   "v": "Простите, что беспокою в такой поздний час."
+  },
+  {
+   "k": "My name is Dennis Anderson, and I'm here to visit a family member.",
+   "v": "Меня зовут Деннис Андерсон, я пришёл навестить родственника."
+  },
+  {
+   "k": "His name is Anthony Anderson.",
+   "v": "Его зовут Энтони Андерсон."
+  },
+  {
+   "k": "What is your relation to him?",
+   "v": "Кем вы ему приходитесь?"
+  },
+  {
+   "k": "Why are you here so late?",
+   "v": "Почему вы здесь так поздно?"
+  },
+  {
+   "k": "Anthony was my brother.",
+   "v": "Энтони был моим братом."
+  },
+  {
+   "k": "I'll only stop by for a moment.",
+   "v": "Я зайду всего на минутку."
+  },
+  {
+   "k": "I try to visit him every year. It's been a while, my visit is a bit overdue.",
+   "v": "Я стараюсь навещать его каждый год. Прошло уже много времени, я немного припозднился."
+  },
+  {
+   "k": "I hope you don't mind.",
+   "v": "Надеюсь, вы не против."
+  },
+  {
+   "k": "Are you here to cause any trouble?",
+   "v": "Вы пришли создавать проблемы?"
+  },
+  {
+   "k": "Yeah... sorry.",
+   "v": "Да... простите."
+  },
+  {
+   "k": "I have a very rigorous work schedule. Terrible hours.",
+   "v": "У меня очень жёсткий график работы. Ужасные часы."
+  },
+  {
+   "k": "I don't really get the time during the day to make this trip.",
+   "v": "Днём у меня просто нет времени сюда добраться."
+  },
+  {
+   "k": "I hope it's alright.",
+   "v": "Надеюсь, это ничего."
+  },
+  {
+   "k": "Trouble?",
+   "v": "Проблемы?"
+  },
+  {
+   "k": "I'm afraid I don't understand.",
+   "v": "Боюсь, я не понимаю."
+  },
+  {
+   "k": "You seem suspicious.",
+   "v": "Вы выглядите подозрительно."
+  },
+  {
+   "k": "On second thought...",
+   "v": "Хотя, если подумать..."
+  },
+  {
+   "k": "I'll stop by another time.",
+   "v": "Я зайду в другой раз."
+  },
+  {
+   "k": "Maybe during the day, when there is someone on duty with a bit more manners.",
+   "v": "Может быть, днём, когда на посту будет кто-то повоспитаннее."
+  },
+  {
+   "k": "So, can I come in?",
+   "v": "Так мне можно войти?"
+  },
+  {
+   "k": "Alright. Go ahead.",
+   "v": "Ладно. Проходите."
+  },
+  {
+   "k": "No. Please leave.",
+   "v": "Нет. Пожалуйста, уходите."
+  },
+  {
+   "k": "I already told you.",
+   "v": "Я уже говорил."
+  },
+  {
+   "k": "Dennis Anderson.",
+   "v": "Деннис Андерсон."
+  },
+  {
+   "k": "My brother.",
+   "v": "Моего брата."
+  },
+  {
+   "k": "Anthony Anderson.",
+   "v": "Энтони Андерсона."
+  },
+  {
+   "k": "Hmm... it's been quite a while.",
+   "v": "Хм... прошло довольно много времени."
+  },
+  {
+   "k": "A little over ten years ago now.",
+   "v": "Уже чуть больше десяти лет."
+  },
+  {
+   "k": "Tragic house fire.",
+   "v": "Трагический пожар в доме."
+  },
+  {
+   "k": "Claimed him and the family. Only the little girl made it out alive.",
+   "v": "Унёс его и всю семью. Только маленькая девочка выбралась живой."
+  },
+  {
+   "k": "It was a horrible day.",
+   "v": "Это был ужасный день."
+  },
+  {
+   "k": "After the event, only the little girl survived.",
+   "v": "После случившегося выжила только маленькая девочка."
+  },
+  {
+   "k": "Her name is Lily.",
+   "v": "Её зовут Лили."
+  },
+  {
+   "k": "Thanks.",
+   "v": "Спасибо."
+  },
+  {
+   "k": "I won't be long.",
+   "v": "Я ненадолго."
+  },
+  {
+   "k": "What do you mean \"no\"?",
+   "v": "Что значит «нет»?"
+  },
+  {
+   "k": "You don't own those people in there. Those are family members.",
+   "v": "Люди там - не ваша собственность. Это члены семьи."
+  },
+  {
+   "k": "I'll just come back during the day, when there's someone more professional on duty.",
+   "v": "Я просто вернусь днём, когда на посту будет кто-то попрофессиональнее."
+  },
+  {
+   "k": "It's a damn shame what happened that day.",
+   "v": "Чертовски жаль, что тогда случилось."
+  },
+  {
+   "k": "Wish I could've been there.",
+   "v": "Жаль, что меня там не было."
+  },
+  {
+   "k": "Where were you when it happened?",
+   "v": "Где вы были, когда это случилось?"
+  },
+  {
+   "k": "I think you should be going now.",
+   "v": "Думаю, вам пора идти."
+  },
+  {
+   "k": "I...",
+   "v": "Я..."
+  },
+  {
+   "k": "I think I should be going now. Have a great rest of your evening.",
+   "v": "Думаю, мне пора. Приятного вам вечера."
+  },
+  {
+   "k": "Yeah, you're probably right.",
+   "v": "Да, наверное, вы правы."
+  },
+  {
+   "k": "I'll be heading out now.",
+   "v": "Я ухожу."
+  },
+  {
+   "k": "H-hey...",
+   "v": "П-привет..."
+  },
+  {
+   "k": "I need to come in to visit a grave...",
+   "v": "Мне нужно зайти, навестить могилу..."
+  },
+  {
+   "k": "Is that okay?",
+   "v": "Можно?"
+  },
+  {
+   "k": "Well, go on ahead in!",
+   "v": "Ну, проходи!"
+  },
+  {
+   "k": "You mean, like, my name?",
+   "v": "В смысле, как меня зовут?"
+  },
+  {
+   "k": "It's, uh...",
+   "v": "Это, э-э..."
+  },
+  {
+   "k": "Edwin.",
+   "v": "Эдвин."
+  },
+  {
+   "k": "Can I go in now?",
+   "v": "Теперь можно войти?"
+  },
+  {
+   "k": "I'll need your full name.",
+   "v": "Мне нужно твоё полное имя."
+  },
+  {
+   "k": "Sure.",
+   "v": "Конечно."
+  },
+  {
+   "k": "M-my full name?",
+   "v": "П-полное имя?"
+  },
+  {
+   "k": "My name is Edwin Adams.",
+   "v": "Меня зовут Эдвин Адамс."
+  },
+  {
+   "k": "I'm here to visit my mother's grave.",
+   "v": "Я пришёл навестить могилу матери."
+  },
+  {
+   "k": "I don't have any identification with me, I didn't think anyone would be here.",
+   "v": "У меня нет с собой документов, я не думал, что здесь кто-то будет."
+  },
+  {
+   "k": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate.",
+   "v": "Я живу недалеко и бывал здесь несколько раз. У ворот никогда никого не было."
+  },
+  {
+   "k": "Can I please go in now?",
+   "v": "Можно мне теперь войти, пожалуйста?"
+  },
+  {
+   "k": "Sorry kid. Graveyard's closed.",
+   "v": "Прости, парень. Кладбище закрыто."
+  },
+  {
+   "k": "I-it's Edwin Adams.",
+   "v": "Э-Эдвин Адамс."
+  },
+  {
+   "k": "My mother, Jane Adams.",
+   "v": "Мою мать, Джейн Адамс."
+  },
+  {
+   "k": "A long time ago. About fifteen years ago.",
+   "v": "Давно. Лет пятнадцать назад."
+  },
+  {
+   "k": "I-I'm sorry but...",
+   "v": "П-простите, но..."
+  },
+  {
+   "k": "I don't really want to talk about it...",
+   "v": "Я не хочу об этом говорить..."
+  },
+  {
+   "k": "My aunt and I live together, there isn't really anyone else.",
+   "v": "Мы живём вдвоём с тётей, больше никого нет."
+  },
+  {
+   "k": "T-thanks...",
+   "v": "С-спасибо..."
+  },
+  {
+   "k": "I won't be long...",
+   "v": "Я ненадолго..."
+  },
+  {
+   "k": "I miss my mother dearly.",
+   "v": "Я очень скучаю по маме."
+  },
+  {
+   "k": "She used to hum when she thought no one was listening.",
+   "v": "Она напевала, когда думала, что никто не слышит."
+  },
+  {
+   "k": "Funny what stays with you, even after everything else is gone.",
+   "v": "Странно, что остаётся в памяти, даже когда всё остальное ушло."
+  },
+  {
+   "k": "Anyway. I shouldn’t keep you standing here.",
+   "v": "В общем. Не буду вас задерживать."
+  },
+  {
+   "k": "Are you going to be okay?",
+   "v": "Ты справишься?"
+  },
+  {
+   "k": "Get lost, kid.",
+   "v": "Проваливай, парень."
+  },
+  {
+   "k": "Yeah... I'll get through this.",
+   "v": "Да... я справлюсь."
+  },
+  {
+   "k": "Thanks for letting me in, I know it's pretty late and you have a job to do.",
+   "v": "Спасибо, что впустили, я знаю, что уже поздно и у вас работа."
+  },
+  {
+   "k": "But this helps more than you know.",
+   "v": "Но это помогает больше, чем вы думаете."
+  },
+  {
+   "k": "Gate still open, huh?",
+   "v": "Ворота ещё открыты, да?"
+  },
+  {
+   "k": "I need to get inside for a minute.",
+   "v": "Мне нужно зайти на минутку."
+  },
+  {
+   "k": "Just here to visit some graves.",
+   "v": "Просто навестить пару могил."
+  },
+  {
+   "k": "Go on in.",
+   "v": "Проходите."
+  },
+  {
+   "k": "My name is Jason.",
+   "v": "Меня зовут Джейсон."
+  },
+  {
+   "k": "I've been here before many times.",
+   "v": "Я бывал здесь много раз."
+  },
+  {
+   "k": "Jason Holmes.",
+   "v": "Джейсон Холмс."
+  },
+  {
+   "k": "I'm here for my brother, Zackary Holmes.",
+   "v": "Я пришёл к брату, Закари Холмсу."
+  },
+  {
+   "k": "And his son. Edward Holmes.",
+   "v": "И к его сыну. Эдварду Холмсу."
+  },
+  {
+   "k": "They were buried close together.",
+   "v": "Их похоронили рядом."
+  },
+  {
+   "k": "Can I go in?",
+   "v": "Можно войти?"
+  },
+  {
+   "k": "Sorry. Graveyard's closed.",
+   "v": "Простите. Кладбище закрыто."
+  },
+  {
+   "k": "My brother and nephew, Zackary and Edward.",
+   "v": "Мой брат и племянник, Закари и Эдвард."
+  },
+  {
+   "k": "When did they die?",
+   "v": "Когда они умерли?"
+  },
+  {
+   "k": "How did they die?",
+   "v": "Как они умерли?"
+  },
+  {
+   "k": "Last year. They died at the same time.",
+   "v": "В прошлом году. Они погибли одновременно."
+  },
+  {
+   "k": "They died in a car accident.",
+   "v": "Они погибли в автокатастрофе."
+  },
+  {
+   "k": "After their burial, it's just me and my brother's widowed wife.",
+   "v": "После их похорон остались только я и вдова брата."
+  },
+  {
+   "k": "She disappeared after their deaths.",
+   "v": "Она исчезла после их смерти."
+  },
+  {
+   "k": "Why?",
+   "v": "Почему?"
+  },
+  {
+   "k": "My name is Jason Holmes.",
+   "v": "Меня зовут Джейсон Холмс."
+  },
+  {
+   "k": "No one knows for certain.",
+   "v": "Никто точно не знает."
+  },
+  {
+   "k": "She hasn't spoken to me since their passing.",
+   "v": "Она не разговаривала со мной с тех пор, как они умерли."
+  },
+  {
+   "k": "I can only imagine what she's going through.",
+   "v": "Могу только представить, через что она проходит."
+  },
+  {
+   "k": "I appreciate it.",
+   "v": "Я это ценю."
+  },
+  {
+   "k": "…",
+   "v": "…"
+  },
+  {
+   "k": "Yeah.",
+   "v": "Да."
+  },
+  {
+   "k": "I should've expected that.",
+   "v": "Стоило этого ожидать."
+  },
+  {
+   "k": "You're going to end up like every other gravekeeper before you.",
+   "v": "Вы кончите так же, как все смотрители до вас."
+  },
+  {
+   "k": "…Hey.",
+   "v": "…Эй."
+  },
+  {
+   "k": "I'm done.",
+   "v": "Я закончил."
+  },
+  {
+   "k": "Took longer than I thought.",
+   "v": "Заняло больше времени, чем я думал."
+  },
+  {
+   "k": "Guess I had more to say than I realized.",
+   "v": "Видимо, мне было что сказать, больше, чем я думал."
+  },
+  {
+   "k": "Everything alright?",
+   "v": "Всё в порядке?"
+  },
+  {
+   "k": "You should be heading out.",
+   "v": "Вам пора уходить."
+  },
+  {
+   "k": "As alright as it gets, I suppose.",
+   "v": "Настолько в порядке, насколько это возможно, наверное."
+  },
+  {
+   "k": "Edward's stone is still clean.",
+   "v": "Надгробие Эдварда всё ещё чистое."
+  },
+  {
+   "k": "Someone's been taking care of it.",
+   "v": "Кто-то за ним ухаживает."
+  },
+  {
+   "k": "Anyway.",
+   "v": "В общем."
+  },
+  {
+   "k": "Thanks for letting me in.",
+   "v": "Спасибо, что впустили."
+  },
+  {
+   "k": "Right.",
+   "v": "Верно."
+  },
+  {
+   "k": "You're right.",
+   "v": "Вы правы."
+  },
+  {
+   "k": "Don't worry.",
+   "v": "Не волнуйтесь."
+  },
+  {
+   "k": "I wasn't planning on staying.",
+   "v": "Я и не собирался задерживаться."
+  },
+  {
+   "k": "They've had enough company for one night.",
+   "v": "Им на сегодня хватило компании."
+  },
+  {
+   "k": "Try not to take this job too personally.",
+   "v": "Постарайтесь не принимать эту работу слишком близко к сердцу."
+  },
+  {
+   "k": "People just come here to mourn.",
+   "v": "Люди приходят сюда только скорбеть."
+  },
+  {
+   "k": "Good night.",
+   "v": "Доброй ночи."
+  },
+  {
+   "k": "Um...",
+   "v": "Эм..."
+  },
+  {
+   "k": "H-hello?",
+   "v": "З-здравствуйте?"
+  },
+  {
+   "k": "You work here, right?",
+   "v": "Вы ведь здесь работаете, да?"
+  },
+  {
+   "k": "I think you do.",
+   "v": "Думаю, да."
+  },
+  {
+   "k": "I mean, you're standing there like you do.",
+   "v": "Ну, вы стоите так, будто работаете."
+  },
+  {
+   "k": "I was wondering if I could come in for a minute.",
+   "v": "Я хотела узнать, можно ли мне зайти на минутку."
+  },
+  {
+   "k": "Just a minute.",
+   "v": "Всего на минутку."
+  },
+  {
+   "k": "Something feels off behind me.",
+   "v": "Что-то не так у меня за спиной."
+  },
+  {
+   "k": "But it might just be the wind.",
+   "v": "Но, может, это просто ветер."
+  },
+  {
+   "k": "What do you mean “off”?",
+   "v": "Что значит «не так»?"
+  },
+  {
+   "k": "What did you see?",
+   "v": "Что вы видели?"
+  },
+  {
+   "k": "R-right.",
+   "v": "Д-да."
+  },
+  {
+   "k": "So when I was walking, I heard footsteps.",
+   "v": "Ну, когда я шла, я слышала шаги."
+  },
+  {
+   "k": "I think.",
+   "v": "Кажется."
+  },
+  {
+   "k": "When I stopped walking, the footsteps stopped.",
+   "v": "Когда я остановилась, шаги стихли."
+  },
+  {
+   "k": "Which is normal.",
+   "v": "Что нормально."
+  },
+  {
+   "k": "Unless someone else stopped at the same time.",
+   "v": "Если только кто-то другой не остановился в тот же момент."
+  },
+  {
+   "k": "That happens in movies.",
+   "v": "В кино такое бывает."
+  },
+  {
+   "k": "Movies aren’t real. Did you see anyone?",
+   "v": "Кино - не реальность. Вы кого-нибудь видели?"
+  },
+  {
+   "k": "You’re shaking. Take a breath.",
+   "v": "Вы дрожите. Вдохните поглубже."
+  },
+  {
+   "k": "Y-yeah.",
+   "v": "Д-да."
+  },
+  {
+   "k": "That's what my mom used to say.",
+   "v": "Так всегда говорила моя мама."
+  },
+  {
+   "k": "That I think too much.",
+   "v": "Что я слишком много думаю."
+  },
+  {
+   "k": "Or not enough.",
+   "v": "Или слишком мало."
+  },
+  {
+   "k": "I never figured out which one she meant.",
+   "v": "Я так и не поняла, что именно она имела в виду."
+  },
+  {
+   "k": "I'm probably just tired.",
+   "v": "Наверное, я просто устала."
+  },
+  {
+   "k": "But being tired makes it easier for bad things to happen, I think.",
+   "v": "Но когда устаёшь, плохое случается проще, мне кажется."
+  },
+  {
+   "k": "Or maybe that's naps.",
+   "v": "Или это про дневной сон."
+  },
+  {
+   "k": "I get those mixed up.",
+   "v": "Я их путаю."
+  },
+  {
+   "k": "Focus. Did you actually see someone?",
+   "v": "Сосредоточьтесь. Вы действительно кого-то видели?"
+  },
+  {
+   "k": "Go home. You’re fine.",
+   "v": "Идите домой. С вами всё в порядке."
+  },
+  {
+   "k": "Oh.",
+   "v": "О."
+  },
+  {
+   "k": "Breathing.",
+   "v": "Дышать."
+  },
+  {
+   "k": "In.",
+   "v": "Вдох."
+  },
+  {
+   "k": "Out.",
+   "v": "Выдох."
+  },
+  {
+   "k": "I think I'm doing it wrong.",
+   "v": "Кажется, я делаю это неправильно."
+  },
+  {
+   "k": "But I feel a little better.",
+   "v": "Но мне немного лучше."
+  },
+  {
+   "k": "Still don't like the dark though.",
+   "v": "Хотя темнота мне всё равно не нравится."
+  },
+  {
+   "k": "The dark feels like it's leaning.",
+   "v": "Темнота как будто наклоняется."
+  },
+  {
+   "k": "Does it look like it's leaning to you?",
+   "v": "Вам тоже кажется, что она наклоняется?"
+  },
+  {
+   "k": "No. Tell me what you saw.",
+   "v": "Нет. Расскажите, что вы видели."
+  },
+  {
+   "k": "You’re imagining things.",
+   "v": "Вам всё это мерещится."
+  },
+  {
+   "k": "S-see them?",
+   "v": "В-видела?"
+  },
+  {
+   "k": "Not clearly.",
+   "v": "Не отчётливо."
+  },
+  {
+   "k": "There was a shape.",
+   "v": "Там был силуэт."
+  },
+  {
+   "k": "Or maybe a space where a shape should've been.",
+   "v": "Или, может, пустота там, где должен быть силуэт."
+  },
+  {
+   "k": "It was near the trees.",
+   "v": "Это было рядом с деревьями."
+  },
+  {
+   "k": "But trees are very suspicious at night.",
+   "v": "Но деревья ночью очень подозрительные."
+  },
+  {
+   "k": "They move even when they shouldn't.",
+   "v": "Они шевелятся, даже когда не должны."
+  },
+  {
+   "k": "This one felt like it noticed me noticing it.",
+   "v": "Это дерево будто заметило, что я его заметила."
+  },
+  {
+   "k": "Which sounds silly.",
+   "v": "Звучит глупо."
+  },
+  {
+   "k": "I know that.",
+   "v": "Я знаю."
+  },
+  {
+   "k": "Describe the shape.",
+   "v": "Опишите силуэт."
+  },
+  {
+   "k": "You’re just scared.",
+   "v": "Вы просто напуганы."
+  },
+  {
+   "k": "Oh...",
+   "v": "О..."
+  },
+  {
+   "k": "M-maybe you're right.",
+   "v": "М-может, вы правы."
+  },
+  {
+   "k": "I'd feel a lot better if I could come inside for a moment...",
+   "v": "Мне было бы намного спокойнее, если бы я могла ненадолго зайти внутрь..."
+  },
+  {
+   "k": "You can come inside. Quickly.",
+   "v": "Можете зайти. Быстро."
+  },
+  {
+   "k": "You should leave right now.",
+   "v": "Вам нужно уйти прямо сейчас."
+  },
+  {
+   "k": "I have a few more questions...",
+   "v": "У меня ещё есть вопросы..."
+  },
+  {
+   "k": "Where were you headed?",
+   "v": "Куда вы направлялись?"
+  },
+  {
+   "k": "Oh, uh...",
+   "v": "О, эм..."
+  },
+  {
+   "k": "I was just heading home.",
+   "v": "Я просто шла домой."
+  },
+  {
+   "k": "My car is, like, out of gas. So I had to walk.",
+   "v": "У меня в машине, типа, кончился бензин. Пришлось идти пешком."
+  },
+  {
+   "k": "I was just coming back from work. I work at bowling alley a couple of miles down the road.",
+   "v": "Я возвращалась с работы. Я работаю в боулинге в паре миль отсюда по дороге."
+  },
+  {
+   "k": "My name is Jessica.",
+   "v": "Меня зовут Джессика."
+  },
+  {
+   "k": "Not to be rude, but I don't think I would feel comfortable standing out here by myself.",
+   "v": "Не хочу показаться грубой, но мне было бы неуютно стоять здесь одной."
+  },
+  {
+   "k": "Um.",
+   "v": "Эм."
+  },
+  {
+   "k": "It was tall.",
+   "v": "Он был высокий."
+  },
+  {
+   "k": "Or average.",
+   "v": "Или обычный."
+  },
+  {
+   "k": "Taller than me.",
+   "v": "Выше меня."
+  },
+  {
+   "k": "That part I’m sure about.",
+   "v": "В этом я уверена."
+  },
+  {
+   "k": "It didn't move much.",
+   "v": "Он почти не двигался."
+  },
+  {
+   "k": "Which was the worst part.",
+   "v": "Это было хуже всего."
+  },
+  {
+   "k": "If it moved, I'd know it was real.",
+   "v": "Если бы он двигался, я бы знала, что он настоящий."
+  },
+  {
+   "k": "I think it had something dark on.",
+   "v": "Кажется, на нём было что-то тёмное."
+  },
+  {
+   "k": "Like a coat.",
+   "v": "Вроде пальто."
+  },
+  {
+   "k": "Or a shadow pretending to be a coat.",
+   "v": "Или тень, притворяющаяся пальто."
+  },
+  {
+   "k": "R-really?",
+   "v": "П-правда?"
+  },
+  {
+   "k": "I promise I won't touch anything.",
+   "v": "Обещаю, я ничего не трону."
+  },
+  {
+   "k": "Or look at anything too long.",
+   "v": "И ни на что не буду смотреть слишком долго."
+  },
+  {
+   "k": "That's fair.",
+   "v": "Справедливо."
+  },
+  {
+   "k": "You're probably right.",
+   "v": "Наверное, вы правы."
+  },
+  {
+   "k": "I'm sorry for bothering you.",
+   "v": "Простите, что побеспокоила."
+  },
+  {
+   "k": "I'll just walk fast.",
+   "v": "Я просто пойду быстро."
+  },
+  {
+   "k": "Fast walking makes you harder to catch.",
+   "v": "Когда идёшь быстро, тебя труднее поймать."
+  },
+  {
+   "k": "I heard that somewhere.",
+   "v": "Я где-то это слышала."
+  },
+  {
+   "k": "If I start running, don't worry.",
+   "v": "Если я побегу, не волнуйтесь."
+  },
+  {
+   "k": "That's normal for me.",
+   "v": "Для меня это нормально."
+  },
+  {
+   "k": "I think I'm okay now.",
+   "v": "Кажется, теперь я в порядке."
+  },
+  {
+   "k": "I stayed longer than I meant to.",
+   "v": "Я задержалась дольше, чем собиралась."
+  },
+  {
+   "k": "It feels quieter in here.",
+   "v": "Здесь тише."
+  },
+  {
+   "k": "Not good quiet.",
+   "v": "Не хорошая тишина."
+  },
+  {
+   "k": "Just... tired quiet.",
+   "v": "Просто... усталая тишина."
+  },
+  {
+   "k": "I should probably go home.",
+   "v": "Наверное, мне пора домой."
+  },
+  {
+   "k": "You sure you’re alright to leave alone?",
+   "v": "Вы уверены, что вам можно идти одной?"
+  },
+  {
+   "k": "I mean.",
+   "v": "Ну."
+  },
+  {
+   "k": "I walked here by myself.",
+   "v": "Сюда я пришла одна."
+  },
+  {
+   "k": "And nothing bad happened.",
+   "v": "И ничего плохого не случилось."
+  },
+  {
+   "k": "Probably.",
+   "v": "Наверное."
+  },
+  {
+   "k": "So it should be fine going back.",
+   "v": "Так что и обратно должно быть нормально."
+  },
+  {
+   "k": "If I walk fast.",
+   "v": "Если идти быстро."
+  },
+  {
+   "k": "But not run.",
+   "v": "Но не бежать."
+  },
+  {
+   "k": "Running makes it obvious you're scared.",
+   "v": "Если бежишь, сразу видно, что боишься."
+  },
+  {
+   "k": "Goodnight.",
+   "v": "Доброй ночи."
+  },
+  {
+   "k": "For letting me in.",
+   "v": "За то, что впустили."
+  },
+  {
+   "k": "And for not laughing.",
+   "v": "И за то, что не смеялись."
+  },
+  {
+   "k": "I'll be gone in just a second.",
+   "v": "Я уйду через секунду."
+  },
+  {
+   "k": "My name is officer James. I'm here with my partner, officer Baidey on an investigation.",
+   "v": "Меня зовут офицер Джеймс. Я здесь с напарником, офицером Бейди, по делу."
+  },
+  {
+   "k": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.",
+   "v": "Мы получили сообщения о беспорядках как на этом кладбище, так и в окрестностях."
+  },
+  {
+   "k": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.",
+   "v": "Судя по всему, кто-то видел странное поведение банды. Мы приняли вызов, поэтому мы здесь."
+  },
+  {
+   "k": "Would you mind answering some questions for us?",
+   "v": "Вы не против ответить на несколько вопросов?"
+  },
+  {
+   "k": "Alright, how can I help you?",
+   "v": "Хорошо, чем могу помочь?"
+  },
+  {
+   "k": "Sorry, I can't help you.",
+   "v": "Простите, я не могу вам помочь."
+  },
+  {
+   "k": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.",
+   "v": "Отлично. Итак, мы получили сообщения о нескольких мужчинах, вламывающихся в дома в этом районе."
+  },
+  {
+   "k": "Apparently, some of them have been sighted near this cemetary as well.",
+   "v": "Судя по всему, некоторых из них видели и возле этого кладбища."
+  },
+  {
+   "k": "I'd like your help in conducting this investigation.",
+   "v": "Я хотел бы, чтобы вы помогли нам в расследовании."
+  },
+  {
+   "k": "Firstly, have you seen anyone attempting to enter the premises dressed in black?",
+   "v": "Во-первых, вы видели кого-нибудь в чёрном, кто пытался проникнуть на территорию?"
+  },
+  {
+   "k": "No, officer.",
+   "v": "Нет, офицер."
+  },
+  {
+   "k": "Yes, I have.",
+   "v": "Да, видел."
+  },
+  {
+   "k": "Could you describe the behavior of this individiual?",
+   "v": "Не могли бы вы описать поведение этого человека?"
+  },
+  {
+   "k": "They asked to come in and see a grave.",
+   "v": "Он просил впустить его, чтобы посмотреть на могилу."
+  },
+  {
+   "k": "They never approached me.",
+   "v": "Он ко мне не подходил."
+  },
+  {
+   "k": "I don't remember.",
+   "v": "Не помню."
+  },
+  {
+   "k": "Alright, I'll move on to my next question.",
+   "v": "Хорошо, перейду к следующему вопросу."
+  },
+  {
+   "k": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?",
+   "v": "Видели ли вы кого-нибудь, кто крутился по периметру? У стен или у ворот, заглядывая внутрь?"
+  },
+  {
+   "k": "Do you remember anything about this individual?",
+   "v": "Вы помните что-нибудь об этом человеке?"
+  },
+  {
+   "k": "Perhaps the color of his clothes or complexion?",
+   "v": "Может, цвет одежды или цвет кожи?"
+  },
+  {
+   "k": "They wearing a greenish brown shirt.",
+   "v": "На нём была зеленовато-коричневая рубашка."
+  },
+  {
+   "k": "They were wearing a grey robe.",
+   "v": "На нём была серая мантия."
+  },
+  {
+   "k": "Alright, we appreciate your coopearation.",
+   "v": "Хорошо, благодарим за содействие."
+  },
+  {
+   "k": "We have one more question.",
+   "v": "У нас ещё один вопрос."
+  },
+  {
+   "k": "If it's alright with you...",
+   "v": "Если вы не против..."
+  },
+  {
+   "k": "I would like to come inside and take a look around.",
+   "v": "Я хотел бы зайти и осмотреться."
+  },
+  {
+   "k": "Alright, go ahead.",
+   "v": "Хорошо, проходите."
+  },
+  {
+   "k": "I'm afraid I can't let you in sir.",
+   "v": "Боюсь, я не могу вас впустить, сэр."
+  },
+  {
+   "k": "My name is officer James.",
+   "v": "Меня зовут офицер Джеймс."
+  },
+  {
+   "k": "I see...",
+   "v": "Понятно..."
+  },
+  {
+   "k": "Well, we don't have a warrant, so I can't force you to let me in.",
+   "v": "Что ж, ордера у нас нет, так что заставить вас впустить меня я не могу."
+  },
+  {
+   "k": "We'll be nearby if there's any trouble. Keep an eye out.",
+   "v": "Мы будем неподалёку, если что-то случится. Будьте начеку."
+  },
+  {
+   "k": "I think I'll be concluding my investigation here...",
+   "v": "Думаю, на этом я закончу своё расследование..."
+  },
+  {
+   "k": "Keep an eye out. Let us know if you see anything strange.",
+   "v": "Будьте начеку. Дайте нам знать, если заметите что-то странное."
+  },
+  {
+   "k": "Good evening.",
+   "v": "Добрый вечер."
+  },
+  {
+   "k": "I'm Father Joseph.",
+   "v": "Я отец Джозеф."
+  },
+  {
+   "k": "I used to be the pastor here at this church.",
+   "v": "Когда-то я был пастором в этой церкви."
+  },
+  {
+   "k": "I need to come inside for a moment.",
+   "v": "Мне нужно ненадолго зайти."
+  },
+  {
+   "k": "What is your business here?",
+   "v": "Что вам здесь нужно?"
+  },
+  {
+   "k": "Well...",
+   "v": "Что ж..."
+  },
+  {
+   "k": "I've left something important in the basement of that abandoned church years ago.",
+   "v": "Много лет назад я оставил в подвале этой заброшенной церкви кое-что важное."
+  },
+  {
+   "k": "I need to come inside and reclaim it.",
+   "v": "Мне нужно войти и забрать это."
+  },
+  {
+   "k": "What did you leave behind?",
+   "v": "Что вы оставили?"
+  },
+  {
+   "k": "Why wait until now?",
+   "v": "Почему вы ждали до сих пор?"
+  },
+  {
+   "k": "A wedding ring for my betrothed. It remained here after many years.",
+   "v": "Обручальное кольцо для моей невесты. Оно пролежало здесь много лет."
+  },
+  {
+   "k": "I need it back.",
+   "v": "Мне нужно его вернуть."
+  },
+  {
+   "k": "Are you hiding something?",
+   "v": "Вы что-то скрываете?"
+  },
+  {
+   "k": "You came all this way just for that?",
+   "v": "Вы проделали весь этот путь только ради этого?"
+  },
+  {
+   "k": "Yes. It has very large sentimental value to me.",
+   "v": "Да. Оно имеет для меня огромную ценность как память."
+  },
+  {
+   "k": "I need to enter the grounds to retrieve it.",
+   "v": "Мне нужно попасть на территорию, чтобы забрать его."
+  },
+  {
+   "k": "You're hiding something.",
+   "v": "Вы что-то скрываете."
+  },
+  {
+   "k": "Alright, I will be candid with you.",
+   "v": "Хорошо, буду с вами откровенен."
+  },
+  {
+   "k": "I had hoped not to return to this place.",
+   "v": "Я надеялся никогда не возвращаться в это место."
+  },
+  {
+   "k": "But recently... I have felt immense guilt over the loss of my wife to be.",
+   "v": "Но в последнее время... я ощущаю огромную вину за потерю той, что должна была стать моей женой."
+  },
+  {
+   "k": "She passed away before I had the opportunity to take our vows.",
+   "v": "Она скончалась прежде, чем я успел произнести наши обеты."
+  },
+  {
+   "k": "I must return to retrieve our wedding ring.",
+   "v": "Я должен вернуться за нашим обручальным кольцом."
+  },
+  {
+   "k": "As something to remember her by.",
+   "v": "Как за памятью о ней."
+  },
+  {
+   "k": "Are you lying?",
+   "v": "Вы лжёте?"
+  },
+  {
+   "k": "How can I trust you?",
+   "v": "Как я могу вам доверять?"
+  },
+  {
+   "k": "No. I know it has been many years since I've returned to these grounds...",
+   "v": "Нет. Я знаю, прошло много лет с тех пор, как я был на этой земле..."
+  },
+  {
+   "k": "But I'm back now and I need to retrieve what is rightfully mine.",
+   "v": "Но теперь я вернулся, и мне нужно забрать то, что принадлежит мне по праву."
+  },
+  {
+   "k": "So please...",
+   "v": "Так что прошу вас..."
+  },
+  {
+   "k": "You are wise to hesitate.",
+   "v": "Вы мудро поступаете, сомневаясь."
+  },
+  {
+   "k": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return.",
+   "v": "Каждый шаг к этой церкви - словно возвращение в воспоминание, терпеливо ждавшее моего прихода."
+  },
+  {
+   "k": "But I need that ring.",
+   "v": "Но мне нужно это кольцо."
+  },
+  {
+   "k": "I would like you to come with me to retrieve it.",
+   "v": "Я хотел бы, чтобы вы пошли со мной за ним."
+  },
+  {
+   "k": "Shall we go together?",
+   "v": "Пойдём вместе?"
+  },
+  {
+   "k": "Alright. Let's go.",
+   "v": "Хорошо. Идём."
+  },
+  {
+   "k": "I'm sorry father, but you should leave.",
+   "v": "Простите, отец, но вам следует уйти."
+  },
+  {
+   "k": "Do you have any family members?",
+   "v": "У вас есть родственники?"
+  },
+  {
+   "k": "My name is Father Joseph Smith.",
+   "v": "Меня зовут отец Джозеф Смит."
+  },
+  {
+   "k": "I have no immediate family members.",
+   "v": "Близких родственников у меня нет."
+  },
+  {
+   "k": "We will not be long.",
+   "v": "Мы ненадолго."
+  },
+  {
+   "k": "It is down the hall, on the staircase to the right.",
+   "v": "Это в конце коридора, по лестнице направо."
+  },
+  {
+   "k": "I know the way.",
+   "v": "Я знаю дорогу."
+  },
+  {
+   "k": "I hope we are not too late.",
+   "v": "Надеюсь, мы не опоздали."
+  },
+  {
+   "k": "Hurry.",
+   "v": "Поторопитесь."
+  },
+  {
+   "k": "I urge you to reconsider.",
+   "v": "Прошу вас передумать."
+  },
+  {
+   "k": "It is very important you allow me inside to retrieve the lost item.",
+   "v": "Очень важно, чтобы вы впустили меня забрать потерянную вещь."
+  },
+  {
+   "k": "Please. Allow me in.",
+   "v": "Прошу. Впустите меня."
+  },
+  {
+   "k": "You're right. I'm sorry. Let's go inside.",
+   "v": "Вы правы. Простите. Идёмте внутрь."
+  },
+  {
+   "k": "No. Leave.",
+   "v": "Нет. Уходите."
+  },
+  {
+   "k": "Very well.",
+   "v": "Что ж, хорошо."
+  },
+  {
+   "k": "I will not force your hand.",
+   "v": "Я не стану вас принуждать."
+  },
+  {
+   "k": "May God forgive us both.",
+   "v": "Да простит Господь нас обоих."
+  },
+  {
+   "k": "Here we are.",
+   "v": "Вот мы и на месте."
+  },
+  {
+   "k": "I would like you to enter inside and retrieve it for me. I will wait out here.",
+   "v": "Я хотел бы, чтобы вы вошли и забрали его для меня. Я подожду здесь."
+  },
+  {
+   "k": "It is down the hall. Take the first door to your right.",
+   "v": "Это в конце коридора. Первая дверь направо."
+  },
+  {
+   "k": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom.",
+   "v": "В подвал ведёт довольно длинная лестница. Просто спускайтесь, пока не дойдёте до самого низа."
+  },
+  {
+   "k": "The ring should be left in a chest in the back corner.",
+   "v": "Кольцо должно лежать в сундуке в дальнем углу."
+  },
+  {
+   "k": "Before you enter, I would like to give you some advice.",
+   "v": "Прежде чем вы войдёте, я хотел бы дать вам совет."
+  },
+  {
+   "k": "When you go down the hall, do not enter the door on the left. No matter what.",
+   "v": "Когда пойдёте по коридору, не входите в дверь слева. Ни в коем случае."
+  },
+  {
+   "k": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute.",
+   "v": "И не слушайте голоса, которые могут сбить вас с пути. Держитесь своего пути и будьте тверды."
+  },
+  {
+   "k": "Do you understand?",
+   "v": "Вы понимаете?"
+  },
+  {
+   "k": "Okay. Thank you, father.",
+   "v": "Хорошо. Спасибо, отец."
+  },
+  {
+   "k": "I've changed my mind. You should leave.",
+   "v": "Я передумал. Вам следует уйти."
+  },
+  {
+   "k": "Were you able to retrieve the ring?",
+   "v": "Вам удалось забрать кольцо?"
+  },
+  {
+   "k": "Not yet. I'll go get it.",
+   "v": "Ещё нет. Сейчас схожу за ним."
+  },
+  {
+   "k": "Yo… you work here?",
+   "v": "Йоу... ты здесь работаешь?"
+  },
+  {
+   "k": "Listen, man, I can’t hang around long.",
+   "v": "Слушай, чувак, я не могу долго тут торчать."
+  },
+  {
+   "k": "I don’t even wanna come in.",
+   "v": "Я даже заходить не хочу."
+  },
+  {
+   "k": "Just needed to give you a heads-up.",
+   "v": "Просто хотел тебя предупредить."
+  },
+  {
+   "k": "A heads-up?",
+   "v": "Предупредить?"
+  },
+  {
+   "k": "Yeah. A warning.",
+   "v": "Ага. Предостеречь."
+  },
+  {
+   "k": "My brother’s been acting real strange lately.",
+   "v": "Мой брат в последнее время ведёт себя очень странно."
+  },
+  {
+   "k": "Says he’s got some kind of “gig” involving this place.",
+   "v": "Говорит, у него какое-то «дельце», связанное с этим местом."
+  },
+  {
+   "k": "Tried telling the cops, but they wouldn’t listen. They never take me seriously.",
+   "v": "Пытался рассказать копам, но они и слушать не стали. Меня никогда не воспринимают всерьёз."
+  },
+  {
+   "k": "So I figured I’d come myself.",
+   "v": "Вот я и решил прийти сам."
+  },
+  {
+   "k": "If my brother shows up here to “visit” a grave…",
+   "v": "Если мой брат заявится сюда «навестить» могилу..."
+  },
+  {
+   "k": "Do not let him in.",
+   "v": "Не впускай его."
+  },
+  {
+   "k": "You hear me?",
+   "v": "Слышишь?"
+  },
+  {
+   "k": "Why not?",
+   "v": "Почему нет?"
+  },
+  {
+   "k": "Alright, I understand. Can you give me any more details?",
+   "v": "Ладно, понял. Можешь рассказать подробнее?"
+  },
+  {
+   "k": "I already told you, man.",
+   "v": "Я же говорил, чувак."
+  },
+  {
+   "k": "He’s been running with the wrong crowd.",
+   "v": "Он связался с плохой компанией."
+  },
+  {
+   "k": "Nothing but trouble.",
+   "v": "Одни неприятности."
+  },
+  {
+   "k": "I don’t want him getting in deeper than he already is.",
+   "v": "Не хочу, чтобы он увяз ещё глубже, чем уже увяз."
+  },
+  {
+   "k": "Just turn him away. Don’t let him in, and don’t let him talk you into it.",
+   "v": "Просто прогони его. Не впускай и не дай себя уговорить."
+  },
+  {
+   "k": "Him and that weird, cult-like group he’s been hanging around lately…",
+   "v": "Он и эта странная, похожая на секту компашка, с которой он в последнее время водится..."
+  },
+  {
+   "k": "I don’t know. Something’s off.",
+   "v": "Не знаю. Что-то тут не так."
+  },
+  {
+   "k": "Okay. Thanks for the warning.",
+   "v": "Ладно. Спасибо за предупреждение."
+  },
+  {
+   "k": "Sorry, but I’ll be handling security myself. You should go home.",
+   "v": "Извини, но охраной я займусь сам. Тебе лучше пойти домой."
+  },
+  {
+   "k": "Name’s Reginald. My brother’s Shane.",
+   "v": "Меня зовут Реджинальд. Моего брата - Шейн."
+  },
+  {
+   "k": "We’re part of the Deloitte family — live a few miles down the road.",
+   "v": "Мы из семьи Делойт - живём в паре миль отсюда по дороге."
+  },
+  {
+   "k": "I’m not here to cause trouble.",
+   "v": "Я не собираюсь создавать проблем."
+  },
+  {
+   "k": "I just want to stop him from doing something stupid… something he might regret.",
+   "v": "Я просто хочу удержать его от глупости... от того, о чём он может пожалеть."
+  },
+  {
+   "k": "He’s always been like this. Always pushing his luck.",
+   "v": "Он всегда был таким. Вечно испытывает судьбу."
+  },
+  {
+   "k": "So please — can you promise me you won’t let him or his gang in?",
+   "v": "Так что, пожалуйста, - обещаешь, что не впустишь ни его, ни его шайку?"
+  },
+  {
+   "k": "Thanks for hearing me out.",
+   "v": "Спасибо, что выслушал."
+  },
+  {
+   "k": "We’re the Deloitte family — live not too far from here.",
+   "v": "Мы семья Делойт - живём недалеко отсюда."
+  },
+  {
+   "k": "My brother looks a lot like me. Little shorter, but close enough you might mistake us.",
+   "v": "Мой брат очень похож на меня. Чуть ниже ростом, но настолько похож, что нас можно перепутать."
+  },
+  {
+   "k": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go.",
+   "v": "В последнее время он водится со странной компанией - все в чёрном, странные ритуалы, везде создают проблемы."
+  },
+  {
+   "k": "Real cult-like stuff.",
+   "v": "Настоящая секта."
+  },
+  {
+   "k": "Before he took off, I heard him muttering about this graveyard being “important.”",
+   "v": "Перед тем как уйти, он бормотал, что это кладбище «важное»."
+  },
+  {
+   "k": "Didn’t like the sound of that.",
+   "v": "Мне это не понравилось."
+  },
+  {
+   "k": "Feels like he’s planning to mess with something buried out here.",
+   "v": "Похоже, он собирается что-то сделать с тем, что здесь похоронено."
+  },
+  {
+   "k": "Just… don’t let him in.",
+   "v": "Просто... не впускай его."
+  },
+  {
+   "k": "I don’t want to see him ruin his life any more than he already has.",
+   "v": "Не хочу смотреть, как он губит свою жизнь ещё больше, чем уже успел."
+  },
+  {
+   "k": "Can you promise me that?",
+   "v": "Обещаешь?"
+  },
+  {
+   "k": "Thanks, man.",
+   "v": "Спасибо, чувак."
+  },
+  {
+   "k": "I owe you one.",
+   "v": "Я у тебя в долгу."
+  },
+  {
+   "k": "Yeah… figures.",
+   "v": "Ага... как обычно."
+  },
+  {
+   "k": "Nobody ever takes me seriously.",
+   "v": "Никто никогда не воспринимает меня всерьёз."
+  },
+  {
+   "k": "Hope you all get what’s coming to you.",
+   "v": "Надеюсь, вы все получите по заслугам."
+  },
+  {
+   "k": "Hey.",
+   "v": "Привет."
+  },
+  {
+   "k": "Didn't think anyone would be out here this late.",
+   "v": "Не думал, что кто-то будет здесь в такой час."
+  },
+  {
+   "k": "You work this place?",
+   "v": "Ты здесь работаешь?"
+  },
+  {
+   "k": "Listen… I don’t wanna make trouble.",
+   "v": "Слушай... я не хочу неприятностей."
+  },
+  {
+   "k": "I just need a minute inside.",
+   "v": "Мне нужна всего минута внутри."
+  },
+  {
+   "k": "It's late. What do you want?",
+   "v": "Уже поздно. Чего вы хотите?"
+  },
+  {
+   "k": "My name's Shane.",
+   "v": "Меня зовут Шейн."
+  },
+  {
+   "k": "Deloitte family. We live a ways down the road.",
+   "v": "Семья Делойт. Мы живём чуть дальше по дороге."
+  },
+  {
+   "k": "I’m not here to steal anything or mess around.",
+   "v": "Я не собираюсь ничего красть или хулиганить."
+  },
+  {
+   "k": "There’s something in there that belongs to my family.",
+   "v": "Там есть кое-что, что принадлежит моей семье."
+  },
+  {
+   "k": "Something that never got handled right.",
+   "v": "Кое-что, с чем так и не разобрались как следует."
+  },
+  {
+   "k": "Handled how?",
+   "v": "Не разобрались - как?"
+  },
+  {
+   "k": "Rules are rules. I can’t let you in.",
+   "v": "Правила есть правила. Я не могу вас впустить."
+  },
+  {
+   "k": "I just need to see a grave.",
+   "v": "Мне нужно всего лишь взглянуть на могилу."
+  },
+  {
+   "k": "It's unmarked.",
+   "v": "Она безымянная."
+  },
+  {
+   "k": "Most folks don’t even know it’s there.",
+   "v": "Большинство людей даже не знает, что она там есть."
+  },
+  {
+   "k": "I wouldn’t be here if I had another option.",
+   "v": "Меня бы здесь не было, будь у меня другой выход."
+  },
+  {
+   "k": "Why is it unmarked?",
+   "v": "Почему она безымянная?"
+  },
+  {
+   "k": "That doesn’t matter. You need to leave.",
+   "v": "Это неважно. Вам нужно уйти."
+  },
+  {
+   "k": "They buried them in a hurry.",
+   "v": "Их похоронили в спешке."
+  },
+  {
+   "k": "Didn’t ask questions. Didn’t put a name down.",
+   "v": "Ни о чём не спрашивали. Имя не записали."
+  },
+  {
+   "k": "Just wanted it done and forgotten.",
+   "v": "Просто хотели покончить с этим и забыть."
+  },
+  {
+   "k": "That kind of thing sticks with a family.",
+   "v": "Такое остаётся с семьёй."
+  },
+  {
+   "k": "Sticks with a place too.",
+   "v": "И с местом тоже."
+  },
+  {
+   "k": "You’re talking in circles. Be straight with me.",
+   "v": "Вы ходите вокруг да около. Говорите прямо."
+  },
+  {
+   "k": "I’m sorry, but I still can’t let you in.",
+   "v": "Простите, но я всё равно не могу вас впустить."
+  },
+  {
+   "k": "Because it was easier that way.",
+   "v": "Потому что так было проще."
+  },
+  {
+   "k": "No paperwork or attention.",
+   "v": "Ни бумаг, ни внимания."
+  },
+  {
+   "k": "Just dirt over a problem.",
+   "v": "Просто засыпали проблему землёй."
+  },
+  {
+   "k": "I know how this sounds.",
+   "v": "Я знаю, как это звучит."
+  },
+  {
+   "k": "But I need to see it with my own eyes.",
+   "v": "Но мне нужно увидеть это своими глазами."
+  },
+  {
+   "k": "Make sure nothing’s… wrong.",
+   "v": "Убедиться, что всё... в порядке."
+  },
+  {
+   "k": "What could be wrong?",
+   "v": "Что может быть не в порядке?"
+  },
+  {
+   "k": "No. You’re not going inside.",
+   "v": "Нет. Вы туда не войдёте."
+  },
+  {
+   "k": "…Alright.",
+   "v": "…Ладно."
+  },
+  {
+   "k": "Something’s been off lately.",
+   "v": "В последнее время что-то не так."
+  },
+  {
+   "k": "I haven't been able to sleep right. The guilt from the quick burial...",
+   "v": "Я не могу нормально спать. Вина из-за поспешных похорон..."
+  },
+  {
+   "k": "I just wanna make sure the plot is alright.",
+   "v": "Я просто хочу убедиться, что с могилой всё в порядке."
+  },
+  {
+   "k": "The paperwork doesn’t line up.",
+   "v": "Бумаги не сходятся."
+  },
+  {
+   "k": "Dates, plot number... even the depth’s different depending on who you ask.",
+   "v": "Даты, номер участка... даже глубина разная, смотря кого спросить."
+  },
+  {
+   "k": "That usually means someone rushed it, or skipped steps they shouldn’t have.",
+   "v": "Обычно это значит, что кто-то торопился или пропустил то, чего пропускать нельзя."
+  },
+  {
+   "k": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.",
+   "v": "Если что-то сделано не так, проще исправить сейчас, чем когда это станет большой проблемой."
+  },
+  {
+   "k": "I’ve learned that the hard way.",
+   "v": "Я усвоил это на собственном горьком опыте."
+  },
+  {
+   "k": "Will you let me come in and have a look?",
+   "v": "Впустишь меня взглянуть?"
+  },
+  {
+   "k": "Fine. You can go in, but be quick.",
+   "v": "Ладно. Можете войти, но побыстрее."
+  },
+  {
+   "k": "My brother, Reginald.",
+   "v": "Моего брата, Реджинальда."
+  },
+  {
+   "k": "It was very recent.",
+   "v": "Это случилось совсем недавно."
+  },
+  {
+   "k": "A little over a week ago.",
+   "v": "Чуть больше недели назад."
+  },
+  {
+   "k": "You weren't working here when it happened.",
+   "v": "Вы тогда здесь ещё не работали."
+  },
+  {
+   "k": "He died close to here.",
+   "v": "Он погиб недалеко отсюда."
+  },
+  {
+   "k": "He was in a terrible shape when they found him. I don't want to recall the details.",
+   "v": "Он был в ужасном состоянии, когда его нашли. Не хочу вспоминать подробности."
+  },
+  {
+   "k": "I don't know for certain.",
+   "v": "Я точно не знаю."
+  },
+  {
+   "k": "After my brother's death, it's just me.",
+   "v": "После смерти брата остался только я."
+  },
+  {
+   "k": "Shane Deloitte.",
+   "v": "Шейн Делойт."
+  },
+  {
+   "k": "Really.",
+   "v": "Правда."
+  },
+  {
+   "k": "I’ll be quick.",
+   "v": "Я быстро."
+  },
+  {
+   "k": "That figures.",
+   "v": "Как и следовало ожидать."
+  },
+  {
+   "k": "Nobody ever wants to deal with things before they rot.",
+   "v": "Никто не хочет разбираться с вещами, пока они не сгниют."
+  },
+  {
+   "k": "They just lock the gate and walk away.",
+   "v": "Просто запирают ворота и уходят."
+  },
+  {
+   "k": "If this turns into a mess later, just remember I came by.",
+   "v": "Если это потом обернётся бедой, просто помни, что я приходил."
+  },
+  {
+   "k": "I tried to handle this properly.",
+   "v": "Я пытался решить всё по-хорошему."
+  },
+  {
+   "k": "…Yeah.",
+   "v": "…Да."
+  },
+  {
+   "k": "It’s still here.",
+   "v": "Она всё ещё здесь."
+  },
+  {
+   "k": "You can go.",
+   "v": "Можете идти."
+  },
+  {
+   "k": "I won’t need you watching anymore.",
+   "v": "Больше не нужно за мной присматривать."
+  },
+  {
+   "k": "You said you’d be quick.",
+   "v": "Вы сказали, что будете быстро."
+  },
+  {
+   "k": "Yeah, I know.",
+   "v": "Да, знаю."
+  },
+  {
+   "k": "Just needed to see it one more time.",
+   "v": "Просто нужно было увидеть её ещё раз."
+  },
+  {
+   "k": "I’m done.",
+   "v": "Я закончил."
+  },
+  {
+   "k": "You won’t see me again tonight.",
+   "v": "Сегодня вы меня больше не увидите."
+  },
+  {
+   "k": "That depends.",
+   "v": "Как сказать."
+  },
+  {
+   "k": "But it’s not your problem.",
+   "v": "Но это не ваша проблема."
+  },
+  {
+   "k": "I’m finished here.",
+   "v": "Я здесь закончил."
+  },
+  {
+   "k": "You must be the gravekeeper.",
+   "v": "Вы, должно быть, смотритель кладбища."
+  },
+  {
+   "k": "My name is Tabitha.",
+   "v": "Меня зовут Табита."
+  },
+  {
+   "k": "I was hoping you’d be on duty tonight.",
+   "v": "Я надеялась, что сегодня дежурите именно вы."
+  },
+  {
+   "k": "I'm not interested.",
+   "v": "Мне это неинтересно."
+  },
+  {
+   "k": "Can I help you with something?",
+   "v": "Чем могу помочь?"
+  },
+  {
+   "k": "Curiosity keeps most people alive longer than confidence.",
+   "v": "Любопытство сохраняет людям жизнь дольше, чем самоуверенность."
+  },
+  {
+   "k": "I ask for a mere moment.",
+   "v": "Я прошу лишь минуту."
+  },
+  {
+   "k": "I want to enter the graveyard.",
+   "v": "Я хочу войти на кладбище."
+  },
+  {
+   "k": "Not to disturb anything.",
+   "v": "Не для того, чтобы что-то потревожить."
+  },
+  {
+   "k": "To protect it.",
+   "v": "Чтобы защитить его."
+  },
+  {
+   "k": "There are… restless things.",
+   "v": "Здесь есть... беспокойные сущности."
+  },
+  {
+   "k": "You don’t see them.",
+   "v": "Вы их не видите."
+  },
+  {
+   "k": "But they notice places like this.",
+   "v": "Но они замечают такие места."
+  },
+  {
+   "k": "That sounds like nonsense.",
+   "v": "Звучит как чушь."
+  },
+  {
+   "k": "Protect it how?",
+   "v": "Защитить - как?"
+  },
+  {
+   "k": "You have a kind voice.",
+   "v": "У вас добрый голос."
+  },
+  {
+   "k": "That helps, in a place like this.",
+   "v": "В таком месте это помогает."
+  },
+  {
+   "k": "I work with old rites.",
+   "v": "Я занимаюсь древними обрядами."
+  },
+  {
+   "k": "Small blessings.",
+   "v": "Маленькими благословениями."
+  },
+  {
+   "k": "They keep bad spirits from wandering too close.",
+   "v": "Они не дают злым духам подходить слишком близко."
+  },
+  {
+   "k": "This graveyard feels thin.",
+   "v": "Это кладбище кажется истончённым."
+  },
+  {
+   "k": "Like a door left unlocked.",
+   "v": "Как незапертая дверь."
+  },
+  {
+   "k": "You expect me to believe that?",
+   "v": "Вы ждёте, что я в это поверю?"
+  },
+  {
+   "k": "What kind of rites?",
+   "v": "Какими обрядами?"
+  },
+  {
+   "k": "You call it nonsense.",
+   "v": "Вы называете это чушью."
+  },
+  {
+   "k": "That’s fine.",
+   "v": "Ничего."
+  },
+  {
+   "k": "Most people do.",
+   "v": "Большинство так и делает."
+  },
+  {
+   "k": "Until something follows them home.",
+   "v": "Пока что-то не увяжется за ними домой."
+  },
+  {
+   "k": "I don’t charge.",
+   "v": "Я не беру денег."
+  },
+  {
+   "k": "I don’t ask for thanks.",
+   "v": "Я не прошу благодарности."
+  },
+  {
+   "k": "Just permission.",
+   "v": "Только разрешения."
+  },
+  {
+   "k": "Nothing dramatic.",
+   "v": "Ничего драматичного."
+  },
+  {
+   "k": "No candles. No blood. Just words said in the right places.",
+   "v": "Ни свечей. Ни крови. Лишь слова, сказанные в нужных местах."
+  },
+  {
+   "k": "The dead sleep better after, and the living too.",
+   "v": "После этого мёртвые спят спокойнее, и живые тоже."
+  },
+  {
+   "k": "You look tired.",
+   "v": "Вы выглядите усталым."
+  },
+  {
+   "k": "That kind of tired doesn’t come from long shifts.",
+   "v": "Такая усталость не от долгих смен."
+  },
+  {
+   "k": "You won’t owe me anything.",
+   "v": "Вы ничего не будете мне должны."
+  },
+  {
+   "k": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.",
+   "v": "Это простая процедура. Я пройду по дорожкам кладбища и упокою души."
+  },
+  {
+   "k": "You will immediately feel at ease.",
+   "v": "Вы сразу почувствуете облегчение."
+  },
+  {
+   "k": "Let me inside.",
+   "v": "Впустите меня."
+  },
+  {
+   "k": "Alright. Go ahead, but I’m watching you.",
+   "v": "Ладно. Идите, но я слежу за вами."
+  },
+  {
+   "k": "No. I can’t let you in.",
+   "v": "Нет. Я не могу вас впустить."
+  },
+  {
+   "k": "Ask away.",
+   "v": "Спрашивайте."
+  },
+  {
+   "k": "Yes, unfortunately.",
+   "v": "Да, к сожалению."
+  },
+  {
+   "k": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse.",
+   "v": "Моя несносная сестра, Марибель. Она может попытаться прийти сюда и разрушить мою работу. Или сделать всё ещё хуже."
+  },
+  {
+   "k": "I trust you are fit for your job and will make the correct decisions.",
+   "v": "Я верю, что вы годитесь для своей работы и примете верные решения."
+  },
+  {
+   "k": "I have other questions",
+   "v": "У меня есть другие вопросы"
+  },
+  {
+   "k": "Tabitha.",
+   "v": "Табита."
+  },
+  {
+   "k": "I am here to ease the restless spirits in this graveyard.",
+   "v": "Я здесь, чтобы успокоить беспокойных духов этого кладбища."
+  },
+  {
+   "k": "You don't need to be afraid...",
+   "v": "Вам не нужно бояться..."
+  },
+  {
+   "k": "I am here to help.",
+   "v": "Я здесь, чтобы помочь."
+  },
+  {
+   "k": "Why did you choose this graveyard?",
+   "v": "Почему вы выбрали это кладбище?"
+  },
+  {
+   "k": "Are you attempting to deceive me?",
+   "v": "Вы пытаетесь меня обмануть?"
+  },
+  {
+   "k": "Don't get the wrong idea, gravekeeper.",
+   "v": "Не поймите неправильно, смотритель."
+  },
+  {
+   "k": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here.",
+   "v": "Я всего лишь хранительница, как и вы. Я случайно наткнулась на место, которому нужна помощь, а вы случайно оказались здесь."
+  },
+  {
+   "k": "I offer my help. You may choose to accept it, or not.",
+   "v": "Я предлагаю помощь. Вы можете принять её или нет."
+  },
+  {
+   "k": "Deceive you?",
+   "v": "Обмануть вас?"
+  },
+  {
+   "k": "If I were lying, what good would it help to ask me that?",
+   "v": "Если бы я лгала, какой смысл меня об этом спрашивать?"
+  },
+  {
+   "k": "I don't think you're thinking this through.",
+   "v": "По-моему, вы не додумали это до конца."
+  },
+  {
+   "k": "You made the right choice.",
+   "v": "Вы сделали правильный выбор."
+  },
+  {
+   "k": "If tonight feels quieter than usual, that’s me helping.",
+   "v": "Если этой ночью будет тише обычного - это моя заслуга."
+  },
+  {
+   "k": "I see.",
+   "v": "Понятно."
+  },
+  {
+   "k": "You guard the gate, but not what slips through cracks.",
+   "v": "Вы охраняете ворота, но не то, что просачивается сквозь щели."
+  },
+  {
+   "k": "Don’t say I didn’t offer.",
+   "v": "Не говорите, что я не предлагала."
+  },
+  {
+   "k": "Sleep lightly tonight.",
+   "v": "Спите сегодня чутко."
+  },
+  {
+   "k": "Ah! Yes! There it is...",
+   "v": "Ах! Да! Вот оно..."
+  },
+  {
+   "k": "Did you feel that?",
+   "v": "Вы это почувствовали?"
+  },
+  {
+   "k": "They scattered so fast.",
+   "v": "Они разбежались так быстро."
+  },
+  {
+   "k": "The old ones hate being named.",
+   "v": "Древние ненавидят, когда их называют по имени."
+  },
+  {
+   "k": "Especially out loud.",
+   "v": "Особенно вслух."
+  },
+  {
+   "k": "You’re finished, right?",
+   "v": "Вы закончили, верно?"
+  },
+  {
+   "k": "Finished?",
+   "v": "Закончила?"
+  },
+  {
+   "k": "No... completed.",
+   "v": "Нет... завершила."
+  },
+  {
+   "k": "This place will sleep better now.",
+   "v": "Теперь это место будет спать спокойнее."
+  },
+  {
+   "k": "You helped more than you know.",
+   "v": "Вы помогли больше, чем думаете."
+  },
+  {
+   "k": "Thank you, gravekeeper.",
+   "v": "Спасибо, смотритель."
+  },
+  {
+   "k": "For your cooperation.",
+   "v": "За сотрудничество."
+  },
+  {
+   "k": "We may speak again.",
+   "v": "Возможно, мы ещё поговорим."
+  },
+  {
+   "k": "Good. You’re still here.",
+   "v": "Хорошо. Вы ещё здесь."
+  },
+  {
+   "k": "I was worried I’d be too late.",
+   "v": "Я боялась, что опоздаю."
+  },
+  {
+   "k": "You’re the gravekeeper, yes?",
+   "v": "Вы смотритель кладбища, да?"
+  },
+  {
+   "k": "The graveyard is closed.",
+   "v": "Кладбище закрыто."
+  },
+  {
+   "k": "My name is Maribel.",
+   "v": "Меня зовут Марибель."
+  },
+  {
+   "k": "I’m looking for someone who came through here earlier.",
+   "v": "Я ищу кое-кого, кто проходил здесь раньше."
+  },
+  {
+   "k": "A woman named Tabitha.",
+   "v": "Женщину по имени Табита."
+  },
+  {
+   "k": "Thin. Quiet. Thinks she knows how the dead work.",
+   "v": "Худая. Тихая. Думает, что знает, как устроены мёртвые."
+  },
+  {
+   "k": "She’s my sister.",
+   "v": "Она моя сестра."
+  },
+  {
+   "k": "She was here earlier.",
+   "v": "Она была здесь раньше."
+  },
+  {
+   "k": "No one like that came by.",
+   "v": "Никого похожего не было."
+  },
+  {
+   "k": "Closed.",
+   "v": "Закрыто."
+  },
+  {
+   "k": "Yes, I heard that already.",
+   "v": "Да, я уже слышала."
+  },
+  {
+   "k": "But you see, I’m not here for the graveyard.",
+   "v": "Но, видите ли, я здесь не ради кладбища."
+  },
+  {
+   "k": "I’m here because my sister has a habit of interfering with things she doesn’t understand.",
+   "v": "Я здесь потому, что моя сестра имеет привычку вмешиваться в то, чего не понимает."
+  },
+  {
+   "k": "And this place?",
+   "v": "А это место?"
+  },
+  {
+   "k": "It attracts those things.",
+   "v": "Оно притягивает такие вещи."
+  },
+  {
+   "k": "Interfering how?",
+   "v": "Вмешиваться - как?"
+  },
+  {
+   "k": "I still can’t let you in.",
+   "v": "Я всё равно не могу вас впустить."
+  },
+  {
+   "k": "I knew it.",
+   "v": "Так и знала."
+  },
+  {
+   "k": "She never could resist places like this.",
+   "v": "Она никогда не могла устоять перед такими местами."
+  },
+  {
+   "k": "Always trying to “fix” things.",
+   "v": "Вечно пытается что-то «исправить»."
+  },
+  {
+   "k": "Always making them worse.",
+   "v": "И вечно делает только хуже."
+  },
+  {
+   "k": "If she performed her little rites here, then something of mine is now trapped inside.",
+   "v": "Если она провела здесь свои обряды, значит, кое-что моё теперь заперто внутри."
+  },
+  {
+   "k": "That’s why I need to enter.",
+   "v": "Вот почему мне нужно войти."
+  },
+  {
+   "k": "Something of yours?",
+   "v": "Кое-что ваше?"
+  },
+  {
+   "k": "That’s not my problem.",
+   "v": "Это не моя проблема."
+  },
+  {
+   "k": "Then she plans to come later.",
+   "v": "Значит, она собирается прийти позже."
+  },
+  {
+   "k": "Or she sent me ahead.",
+   "v": "Или послала меня вперёд."
+  },
+  {
+   "k": "Either way, the result is the same.",
+   "v": "В любом случае итог один."
+  },
+  {
+   "k": "There’s something buried here that doesn’t belong to the dead.",
+   "v": "Здесь похоронено нечто, что не принадлежит мёртвым."
+  },
+  {
+   "k": "And I can feel it breathing.",
+   "v": "И я чувствую, как оно дышит."
+  },
+  {
+   "k": "Breathing?",
+   "v": "Дышит?"
+  },
+  {
+   "k": "You’re not making this better.",
+   "v": "Вы не облегчаете дело."
+  },
+  {
+   "k": "Tabitha believes in keeping doors closed.",
+   "v": "Табита верит, что двери нужно держать закрытыми."
+  },
+  {
+   "k": "I believe in knowing what’s on the other side.",
+   "v": "Я верю, что нужно знать, что по ту сторону."
+  },
+  {
+   "k": "When she meddles, she binds things halfway.",
+   "v": "Когда она вмешивается, она связывает вещи наполовину."
+  },
+  {
+   "k": "Not alive. Not gone.",
+   "v": "Не живые. Не ушедшие."
+  },
+  {
+   "k": "If I don’t retrieve what she disturbed, it will start calling out.",
+   "v": "Если я не заберу то, что она потревожила, оно начнёт звать."
+  },
+  {
+   "k": "First to the dead, then to you.",
+   "v": "Сначала мёртвых, потом вас."
+  },
+  {
+   "k": "I won’t need long.",
+   "v": "Мне не нужно много времени."
+  },
+  {
+   "k": "I’ll find what my sister tangled up.",
+   "v": "Я найду то, что запутала моя сестра."
+  },
+  {
+   "k": "I’ll take it with me.",
+   "v": "Я заберу это с собой."
+  },
+  {
+   "k": "And this place will finally be quiet.",
+   "v": "И это место наконец затихнет."
+  },
+  {
+   "k": "If you refuse…",
+   "v": "Если откажете..."
+  },
+  {
+   "k": "Well.",
+   "v": "Что ж."
+  },
+  {
+   "k": "It will still get out eventually.",
+   "v": "Оно всё равно рано или поздно выберется."
+  },
+  {
+   "k": "No. You’re not setting foot inside.",
+   "v": "Нет. Вы сюда и шагу не ступите."
+  },
+  {
+   "k": "Of course.",
+   "v": "Конечно."
+  },
+  {
+   "k": "How can I trust you over your sister?",
+   "v": "Почему я должен доверять вам, а не вашей сестре?"
+  },
+  {
+   "k": "Ah, I see Tabitha has gotten quite the hold on you.",
+   "v": "А, вижу, Табита неплохо вас обработала."
+  },
+  {
+   "k": "It is a decision for you to make, gravekeeper.",
+   "v": "Решать вам, смотритель."
+  },
+  {
+   "k": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.",
+   "v": "Если с появлением моей сестры вам не по себе, это потому, что здешние духи разгневаны."
+  },
+  {
+   "k": "Tabitha does not know how to control the spirits she claims to speak to.",
+   "v": "Табита не умеет управлять духами, с которыми якобы говорит."
+  },
+  {
+   "k": "If you did indeed let her into these grounds, only I can undo her damage.",
+   "v": "Если вы действительно впустили её на эту землю, только я могу исправить её вред."
+  },
+  {
+   "k": "My sister dabbles in dark arts, but does not understand them.",
+   "v": "Моя сестра балуется тёмными искусствами, но не понимает их."
+  },
+  {
+   "k": "This is why I must come in.",
+   "v": "Вот почему я должна войти."
+  },
+  {
+   "k": "You're quite inquistive. My name is Maribel.",
+   "v": "А вы любопытный. Меня зовут Марибель."
+  },
+  {
+   "k": "Likely for the same reason you are.",
+   "v": "Вероятно, по той же причине, что и вы."
+  },
+  {
+   "k": "Fate.",
+   "v": "Судьба."
+  },
+  {
+   "k": "This graveyard has quite the allure to it.",
+   "v": "У этого кладбища есть особая притягательность."
+  },
+  {
+   "k": "It is a noisy place. I was drawn to it.",
+   "v": "Это шумное место. Оно меня притянуло."
+  },
+  {
+   "k": "I don't mean to cause any harm to you or the spirits you protect.",
+   "v": "Я не желаю зла ни вам, ни духам, которых вы охраняете."
+  },
+  {
+   "k": "I feel them calling to me and I am obligated to respond.",
+   "v": "Я чувствую, как они зовут меня, и обязана ответить."
+  },
+  {
+   "k": "You’re smarter than my sister.",
+   "v": "Вы умнее моей сестры."
+  },
+  {
+   "k": "She always begged.",
+   "v": "Она всегда умоляла."
+  },
+  {
+   "k": "I prefer honesty.",
+   "v": "Я предпочитаю честность."
+  },
+  {
+   "k": "Ah.",
+   "v": "А."
+  },
+  {
+   "k": "So you’re like her after all.",
+   "v": "Значит, вы всё-таки такой же, как она."
+  },
+  {
+   "k": "I’ll wait.",
+   "v": "Я подожду."
+  },
+  {
+   "k": "Things trapped between worlds get impatient.",
+   "v": "То, что застряло между мирами, теряет терпение."
+  },
+  {
+   "k": "And impatience makes noise.",
+   "v": "А нетерпение создаёт шум."
+  },
+  {
+   "k": "I’ll see you again.",
+   "v": "Мы ещё увидимся."
+  },
+  {
+   "k": "All done!",
+   "v": "Готово!"
+  },
+  {
+   "k": "Thank you for letting me in.",
+   "v": "Спасибо, что впустили."
+  },
+  {
+   "k": "I appreciate it more than you know.",
+   "v": "Я благодарна больше, чем вы думаете."
+  },
+  {
+   "k": "The graveyard feels just as it should now.",
+   "v": "Теперь кладбище такое, каким и должно быть."
+  },
+  {
+   "k": "Unsuppressed.",
+   "v": "Ничем не сдерживаемое."
+  },
+  {
+   "k": "I’ll be on my way.",
+   "v": "Я пойду."
+  },
+  {
+   "k": "Take care of yourself, gravekeeper.",
+   "v": "Берегите себя, смотритель."
+  },
+  {
+   "k": "It's late to be out here.",
+   "v": "Поздновато для прогулок."
+  },
+  {
+   "k": "Are you alright?",
+   "v": "Вы в порядке?"
+  },
+  {
+   "k": "...Let me in.",
+   "v": "...Впустите меня."
+  },
+  {
+   "k": "Please...",
+   "v": "Пожалуйста..."
+  },
+  {
+   "k": "Just let me in.",
+   "v": "Просто впустите меня."
+  },
+  {
+   "k": "Okay, come in.",
+   "v": "Хорошо, проходите."
+  },
+  {
+   "k": "I'm sorry ma'am, please go home.",
+   "v": "Простите, мэм, пожалуйста, идите домой."
+  },
+  {
+   "k": "What is your name?",
+   "v": "Как вас зовут?"
+  },
+  {
+   "k": "I have no more questions.",
+   "v": "Больше вопросов нет."
+  },
+  {
+   "k": "Maria.",
+   "v": "Мария."
+  },
+  {
+   "k": "Stop following me.",
+   "v": "Перестаньте ходить за мной."
+  },
+  {
+   "k": "I think I heard something at the back gate.",
+   "v": "Кажется, я слышала что-то у задних ворот."
+  },
+  {
+   "k": "Can you please go check?",
+   "v": "Вы не могли бы сходить проверить?"
+  },
+  {
+   "k": "Chen Huang",
+   "v": "Чэнь Хуан"
+  },
+  {
+   "k": "Harold Vunderbilt",
+   "v": "Гарольд Вандербильт"
+  },
+  {
+   "k": "Hector",
+   "v": "Гектор"
+  },
+  {
+   "k": "Maria",
+   "v": "Мария"
+  },
+  {
+   "k": "Maribel",
+   "v": "Марибель"
+  },
+  {
+   "k": "Mr. Huang",
+   "v": "Мистер Хуан"
+  },
+  {
+   "k": "Tabitha",
+   "v": "Табита"
+  }
+ ]
+}

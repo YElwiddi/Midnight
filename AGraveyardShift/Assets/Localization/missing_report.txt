@@ -1,0 +1,147 @@
+Missing translation report — 2026-09-18 14:36
+Source strings: 1165
+
+== zh-Hans: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== ru: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== es: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== pt-BR: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== de: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== ja: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== fr: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== pl: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+
+== ko: 1165/1165 translated, 0 missing, 14 unused entries
+   UNUSED   I found something...
+   UNUSED   Nothing here... just bones.
+   UNUSED   I picked up the shovel.
+   UNUSED   The spirits have been appeased...
+   UNUSED   Are you sure you want to enter?
+   UNUSED   A single rose, perfectly preserved. Should I take it?
+   UNUSED   I can't... I can't think straight...
+   UNUSED   Chen Huang
+   UNUSED   Harold Vunderbilt
+   UNUSED   Hector
+   UNUSED   Maria
+   UNUSED   Maribel
+   UNUSED   Mr. Huang
+   UNUSED   Tabitha
+

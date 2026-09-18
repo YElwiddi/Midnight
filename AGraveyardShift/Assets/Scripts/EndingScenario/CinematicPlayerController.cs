@@ -431,8 +431,8 @@ public class CinematicPlayerController : MonoBehaviour
         }
 
         // Show the ending screen — use the consistent reveal format + font for tagged endings.
-        string endTitle = currentCinematic.endingTitle;
-        string endDesc = currentCinematic.endingDescription;
+        string endTitle = Loc.Tr(currentCinematic.endingTitle);
+        string endDesc = Loc.Tr(currentCinematic.endingDescription);
         TMPro.TMP_FontAsset endFont = null;
         if (currentCinematic.unlocksEnding)
         {

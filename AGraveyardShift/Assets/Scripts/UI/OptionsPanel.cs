@@ -29,6 +29,10 @@ public class OptionsPanel : MonoBehaviour
     [Header("Brightness")]
     public Slider brightnessSlider;
 
+    [Header("Language")]
+    [Tooltip("Language selector. Populated and applied by its LanguageDropdown component; the choice is saved as soon as it changes (PlayerPrefs \"Locale\").")]
+    public TMP_Dropdown languageDropdown;
+
     // PlayerPrefs keys
     private const string MASTER_VOLUME_KEY = "MasterVolume";
     private const string MUSIC_VOLUME_KEY = "MusicVolume";
@@ -309,6 +313,7 @@ public class OptionsPanel : MonoBehaviour
 
     public void ResetToDefaults()
     {
+        // Language is deliberately not reset: it is a preference, not a tuning value.
         if (masterVolumeSlider != null) masterVolumeSlider.value = 0.75f;
         if (musicVolumeSlider != null) musicVolumeSlider.value = 0.75f;
         if (sfxVolumeSlider != null) sfxVolumeSlider.value = 0.75f;
@@ -345,7 +350,10 @@ public class OptionsPanel : MonoBehaviour
         rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
         rt.pivot = new Vector2(0.5f, 0.5f);
         rt.sizeDelta = new Vector2(760f, 32f);
-        rt.anchoredPosition = new Vector2(0f, -95f); // just under the brightness row
+        // Just under the brightness row, wherever the row layout puts it.
+        var sliderRt = brightnessSlider.GetComponent<RectTransform>();
+        float rowY = sliderRt != null ? sliderRt.anchoredPosition.y : -45f;
+        rt.anchoredPosition = new Vector2(0f, rowY - 50f);
 
         var tmp = go.AddComponent<TextMeshProUGUI>();
         if (font != null) tmp.font = font;
@@ -355,5 +363,8 @@ public class OptionsPanel : MonoBehaviour
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = new Color(0.86f, 0.78f, 0.5f, 1f); // soft amber caution
         tmp.raycastTarget = false;
+
+        // Localized (and re-localized when the language dropdown above it changes).
+        Loc.BindKey(tmp, "ui.settings.brightnessNote");
     }
 }

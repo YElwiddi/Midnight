@@ -1,0 +1,4721 @@
+{
+ "locale": "ja",
+ "entries": [
+  {
+   "k": "ending.wrathfulSpirit.title",
+   "v": "バッドエンド - 怒れる霊"
+  },
+  {
+   "k": "ending.wrathfulSpirit.type",
+   "v": "エンディング"
+  },
+  {
+   "k": "ending.wrathfulSpirit.description",
+   "v": "正気をすべて失ってしまった。光の中にとどまり、訪問者をよく確かめよう。"
+  },
+  {
+   "k": "ending.ambush.title",
+   "v": "バッドエンド - 待ち伏せ"
+  },
+  {
+   "k": "ending.ambush.type",
+   "v": "エンディング"
+  },
+  {
+   "k": "ending.ambush.description",
+   "v": "墓地を守りきれなかった。墓地をもっと頻繁に巡回し、カメラを確認しよう。人を信じすぎないように。"
+  },
+  {
+   "k": "ending.wrongfulConviction.title",
+   "v": "グッドエンド - 冤罪"
+  },
+  {
+   "k": "ending.wrongfulConviction.type",
+   "v": "エンディング"
+  },
+  {
+   "k": "ending.wrongfulConviction.description",
+   "v": "墓地に安らぎが戻った。"
+  },
+  {
+   "k": "ending.happilyEverAfter.title",
+   "v": "グッドエンド？ - 末永く幸せに"
+  },
+  {
+   "k": "ending.happilyEverAfter.type",
+   "v": "エンディング"
+  },
+  {
+   "k": "ending.happilyEverAfter.description",
+   "v": "おめでとう！"
+  },
+  {
+   "k": "ending.father.title",
+   "v": "隠しエンド - 神父の運命"
+  },
+  {
+   "k": "ending.father.type",
+   "v": "エンディング"
+  },
+  {
+   "k": "ending.father.description",
+   "v": "探していたものは見つかった？"
+  },
+  {
+   "k": "fiend.friend.title",
+   "v": "友"
+  },
+  {
+   "k": "fiend.friend.flavor",
+   "v": "遅いが、几帳面。執念の達人。"
+  },
+  {
+   "k": "fiend.friend.ability",
+   "v": "懐中電灯の光に敏感。"
+  },
+  {
+   "k": "fiend.friend.spawn",
+   "v": "知性の低さ、精神の弱さの兆候。"
+  },
+  {
+   "k": "fiend.wraith.title",
+   "v": "亡霊"
+  },
+  {
+   "k": "fiend.wraith.flavor",
+   "v": "速く、攻撃的で、致命的。"
+  },
+  {
+   "k": "fiend.wraith.ability",
+   "v": "致死的な狩りの速さ。"
+  },
+  {
+   "k": "fiend.wraith.spawn",
+   "v": "過信、傲慢、勇敢さの兆候。"
+  },
+  {
+   "k": "fiend.beast.title",
+   "v": "獣"
+  },
+  {
+   "k": "fiend.beast.flavor",
+   "v": "静かで、捉えどころがない。姿を見せたがらない。"
+  },
+  {
+   "k": "fiend.beast.ability",
+   "v": "不可視性と電気的干渉。"
+  },
+  {
+   "k": "fiend.beast.spawn",
+   "v": "臆病さ、内気さ、弱さの兆候。"
+  },
+  {
+   "k": "fiend.label.ability",
+   "v": "固有能力："
+  },
+  {
+   "k": "fiend.label.spawn",
+   "v": "出現条件："
+  },
+  {
+   "k": "ui.menu.play",
+   "v": "プレイ"
+  },
+  {
+   "k": "ui.menu.endings",
+   "v": "エンディング"
+  },
+  {
+   "k": "ui.menu.settings",
+   "v": "設定"
+  },
+  {
+   "k": "ui.menu.quit",
+   "v": "終了"
+  },
+  {
+   "k": "ui.menu.cancel",
+   "v": "キャンセル"
+  },
+  {
+   "k": "ui.menu.accept",
+   "v": "決定"
+  },
+  {
+   "k": "ui.menu.back",
+   "v": "戻る"
+  },
+  {
+   "k": "ui.settings.title",
+   "v": "設定"
+  },
+  {
+   "k": "ui.settings.language",
+   "v": "言語"
+  },
+  {
+   "k": "ui.settings.resolution",
+   "v": "解像度"
+  },
+  {
+   "k": "ui.settings.fullscreen",
+   "v": "フルスクリーン"
+  },
+  {
+   "k": "ui.settings.brightness",
+   "v": "明るさ"
+  },
+  {
+   "k": "ui.settings.volume",
+   "v": "音量"
+  },
+  {
+   "k": "ui.settings.brightnessNote",
+   "v": "初期設定の明るさを強く推奨します。"
+  },
+  {
+   "k": "ui.endings.discovered",
+   "v": "{0} / {1}  発見済み"
+  },
+  {
+   "k": "ui.endings.fiendsTeaserLocked",
+   "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.endings.fiendsTeaser",
+   "v": "{0} / {1}  地下聖堂の魔物を発見"
+  },
+  {
+   "k": "ui.fiends.header",
+   "v": "地下聖堂の魔物"
+  },
+  {
+   "k": "ui.fiends.headerLocked",
+   "v": "?????"
+  },
+  {
+   "k": "ui.fiends.found",
+   "v": "{0} / {1}  発見済み"
+  },
+  {
+   "k": "ui.disclaimer.headphones",
+   "v": "ヘッドホンの使用を推奨します"
+  },
+  {
+   "k": "ui.pause.resume",
+   "v": "再開"
+  },
+  {
+   "k": "ui.pause.exit",
+   "v": "終了"
+  },
+  {
+   "k": "ui.readable.page",
+   "v": "ページ {0}/{1}"
+  },
+  {
+   "k": "ui.cctv.camera",
+   "v": "カメラ {0}"
+  },
+  {
+   "k": "??????",
+   "v": "??????"
+  },
+  {
+   "k": "Click to continue...",
+   "v": "クリックで続ける..."
+  },
+  {
+   "k": "The last gravekeeper left without a word.",
+   "v": "前の墓守は、何も言わずに去った。"
+  },
+  {
+   "k": "Don't know why he left, but the job opened up, and I desperately needed cash.",
+   "v": "なぜ辞めたのかは知らない。だが職が空き、俺はどうしても金が必要だった。"
+  },
+  {
+   "k": "It's just a grave watching job. Shouldn't be too difficult. Just keeping younger folks and gangs away from the place. It's pretty barren out here.",
+   "v": "ただの墓地の見張りの仕事だ。そう難しいはずがない。若い連中やギャングを近づけなければいいだけ。この辺りは本当に何もない。"
+  },
+  {
+   "k": "September 17, 1999.",
+   "v": "1999年9月17日。"
+  },
+  {
+   "k": "???",
+   "v": "???"
+  },
+  {
+   "k": "I can't think straight...",
+   "v": "考えがまとまらない..."
+  },
+  {
+   "k": "Place the rose on the gravesite?",
+   "v": "墓にバラを供える？"
+  },
+  {
+   "k": "The rose immediately wilted away...",
+   "v": "バラはたちまち枯れてしまった..."
+  },
+  {
+   "k": "Where am I?",
+   "v": "ここはどこだ？"
+  },
+  {
+   "k": "I can't leave during my shift...",
+   "v": "勤務中に持ち場を離れるわけにはいかない..."
+  },
+  {
+   "k": "The door is locked.",
+   "v": "ドアには鍵がかかっている。"
+  },
+  {
+   "k": "The door is locked. There is a cold chill coming from the other side.",
+   "v": "ドアには鍵がかかっている。向こう側から冷たい気配が漂ってくる。"
+  },
+  {
+   "k": "There is a cold chill coming from the other side. Should I enter?",
+   "v": "向こう側から冷たい気配が漂ってくる。入るべきか？"
+  },
+  {
+   "k": "The door won't budge...",
+   "v": "ドアはびくともしない..."
+  },
+  {
+   "k": "I need a shovel for this.",
+   "v": "これにはシャベルが必要だ。"
+  },
+  {
+   "k": "Are you sure you want to exhume this site?",
+   "v": "本当にこの墓を掘り起こしますか？"
+  },
+  {
+   "k": "It's locked.",
+   "v": "鍵がかかっている。"
+  },
+  {
+   "k": "I think this key from the church opens this chest. Should I unlock it?",
+   "v": "教会で拾ったこの鍵がこの箱に合いそうだ。開けるか？"
+  },
+  {
+   "k": "I shouldn't be here",
+   "v": "ここにいてはいけない"
+  },
+  {
+   "k": "A single rose... should I take it?",
+   "v": "一輪のバラ... 持っていくべきか？"
+  },
+  {
+   "k": "The door won't budge.",
+   "v": "ドアはびくともしない。"
+  },
+  {
+   "k": "FRONT GATE",
+   "v": "正門"
+  },
+  {
+   "k": "That should be it. I need to keep these on.",
+   "v": "これで大丈夫だ。この灯りは絶やさないようにしないと。"
+  },
+  {
+   "k": "I should finish what I came here for.",
+   "v": "ここへ来た目的を果たすべきだ。"
+  },
+  {
+   "k": "The door is locked...",
+   "v": "ドアには鍵がかかっている..."
+  },
+  {
+   "k": "The words on this tombstone are smeared and illegible.",
+   "v": "この墓石の文字はかすれていて読めない。"
+  },
+  {
+   "k": "You found a key. Do you want to pick it up?",
+   "v": "鍵を見つけた。拾いますか？"
+  },
+  {
+   "k": "This is the key to the back gate. I think I should leave it here. Should I pick it up anyway?",
+   "v": "これは裏門の鍵だ。ここに置いておくべきだと思う。それでも拾うか？"
+  },
+  {
+   "k": "Its locked. I can't find my key...",
+   "v": "鍵がかかっている。俺の鍵が見当たらない..."
+  },
+  {
+   "k": "The gate is stuck.",
+   "v": "門が引っかかって動かない。"
+  },
+  {
+   "k": "I should definitely keep this locked. Should I open it anyway?",
+   "v": "これは絶対に施錠しておくべきだ。それでも開けるか？"
+  },
+  {
+   "k": "I should get these lights on right away...",
+   "v": "すぐにあの灯りをつけないと..."
+  },
+  {
+   "k": "I should read some of the notes that were left behind...",
+   "v": "残されたメモをいくつか読んでおくべきだな..."
+  },
+  {
+   "k": "An incessant noise in your head has gone silent.",
+   "v": "頭の中で鳴り続けていた雑音が静まった。"
+  },
+  {
+   "k": "BACK GATE",
+   "v": "裏門"
+  },
+  {
+   "k": "Use the left and right arrow keys to switch between cameras.",
+   "v": "左右の矢印キーでカメラを切り替えます。"
+  },
+  {
+   "k": "I should check on my visitor.",
+   "v": "訪問者の様子を見に行くべきだ。"
+  },
+  {
+   "k": "Fine. Go in. But be quick.",
+   "v": "分かった。入っていい。ただし手短に。"
+  },
+  {
+   "k": "TOGETHER FOREVER",
+   "v": "永遠に一緒"
+  },
+  {
+   "k": "He seems distraught. Let's give him a moment.",
+   "v": "取り乱しているようだ。少し時間をあげよう。"
+  },
+  {
+   "k": "Let's give him a moment...",
+   "v": "少し時間をあげよう..."
+  },
+  {
+   "k": "He seems to be fidgeting around.",
+   "v": "そわそわしているようだ。"
+  },
+  {
+   "k": "He appears to be zoning out. I should give him a moment.",
+   "v": "ぼんやりしているようだ。少し時間をあげるべきだ。"
+  },
+  {
+   "k": "He appears to be staring out into the distance...",
+   "v": "遠くをじっと見つめているようだ..."
+  },
+  {
+   "k": "Let's give her a moment to calm down.",
+   "v": "落ち着くまで少し時間をあげよう。"
+  },
+  {
+   "k": "She seems lost in grief. Let's give her a moment.",
+   "v": "悲しみに沈んでいるようだ。少し時間をあげよう。"
+  },
+  {
+   "k": "She's standing very still, staring at nothing.",
+   "v": "彼女はじっと立ち尽くし、虚空を見つめている。"
+  },
+  {
+   "k": "What was Hector doing out here this late?",
+   "v": "ヘクターはこんな夜更けに外で何をしていたんだ？"
+  },
+  {
+   "k": "He is conducting his investigation, I shouldn't interfere...",
+   "v": "彼は捜査中だ。邪魔をしてはいけない..."
+  },
+  {
+   "k": "I should give him a moment.",
+   "v": "少し時間をあげるべきだ。"
+  },
+  {
+   "k": "I should give her a moment...",
+   "v": "少し時間をあげるべきだ..."
+  },
+  {
+   "k": "A Wrongful Conviction",
+   "v": "冤罪"
+  },
+  {
+   "k": "The curse was lifted. Soon after, everyone’s memory of the events that took place here faded. The graveyard slowly took its place as a normal, unnoticed burial ground.",
+   "v": "呪いは解けた。ほどなくして、ここで起きた出来事の記憶は人々から薄れていった。墓地はゆっくりと、誰にも顧みられない普通の埋葬地へと戻っていった。"
+  },
+  {
+   "k": "The flashlight won't turn on...",
+   "v": "懐中電灯がつかない..."
+  },
+  {
+   "k": "My shovel broke...",
+   "v": "シャベルが折れた..."
+  },
+  {
+   "k": "The shovel is broken. I can't dig anymore.",
+   "v": "シャベルが壊れている。もう掘れない。"
+  },
+  {
+   "k": "Yes",
+   "v": "はい"
+  },
+  {
+   "k": "No",
+   "v": "いいえ"
+  },
+  {
+   "k": "I shouldn't be here...",
+   "v": "ここにいてはいけない..."
+  },
+  {
+   "k": "Why am I here?",
+   "v": "なぜ俺はここに？"
+  },
+  {
+   "k": "I need to leave.",
+   "v": "出なければ。"
+  },
+  {
+   "k": "I'm not safe here",
+   "v": "ここは安全じゃない"
+  },
+  {
+   "k": "It's not safe",
+   "v": "危険だ"
+  },
+  {
+   "k": "I CAN'T KEEP GOING",
+   "v": "もう進めない"
+  },
+  {
+   "k": "STOP",
+   "v": "やめろ"
+  },
+  {
+   "k": "I'M GOING TO DIE",
+   "v": "死ぬ"
+  },
+  {
+   "k": "I found something...",
+   "v": "何か見つけた..."
+  },
+  {
+   "k": "Nothing here... just bones.",
+   "v": "何もない... 骨だけだ。"
+  },
+  {
+   "k": "I picked up the shovel.",
+   "v": "シャベルを拾った。"
+  },
+  {
+   "k": "The spirits have been appeased...",
+   "v": "霊たちは鎮まった..."
+  },
+  {
+   "k": "Are you sure you want to enter?",
+   "v": "本当に入りますか？"
+  },
+  {
+   "k": "A single rose, perfectly preserved. Should I take it?",
+   "v": "一輪のバラ、完璧な状態で残っている。持っていくべきか？"
+  },
+  {
+   "k": "I can't... I can't think straight...",
+   "v": "だめだ... 考えがまとまらない..."
+  },
+  {
+   "k": "Here lies Aaron Vanderbilt\n1924-1993",
+   "v": "アーロン・ヴァンダービルト ここに眠る\n1924-1993"
+  },
+  {
+   "k": "MOCKERY OF LIFE",
+   "v": "命への冒涜"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+   "v": "回収された調査記録、仮称： \n「獣」\n出所は非公開\n\n生存者たちが口を揃えるのはこの点だ。あの生き物は自らの存在を知らせない。こちらを見定めるまで待つのだ。精神の弱さの兆候が、それを引き寄せるらしい。ためらいを見張っている。思考が鈍り、意志が内側へ折れ曲がる、その瞬間を。\n\n狩られていたことに気づかなかった者は、何も報告しないことが多い。彼らは静かに消える。悲鳴も、追跡の痕跡もない。獣は恐慌に力を費やさない。"
+  },
+  {
+   "k": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+   "v": "姿を見せるときは、意図的で、短い。いるはずのない場所に浮かぶ影。\n\n速さより潜伏を、力より忍耐を好む。何時間も、時には何日も姿を隠したまま同じ人物を追い続け、獲物が恐怖、孤立、あるいは疑念によって「殺すのはたやすい」と確信させるまで待つ。\n\nそれを見つめた者は正気を失う。電子機器に干渉することも知られている。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdel family\n\n\nFamily members:\nJason Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death: December 28th, 1998, Tuesday 8:04 PM",
+   "v": "墓守の手記より抜粋\nアデル家\n\n\n家族構成：\nジェイソン・アデル、5歳、死亡\nマリア・アデル、31歳、生存\nモンロー・アデル、31歳、死亡\n\nジェイソンは当墓地に埋葬されている。\n\n死因：窒息\n\n死亡時刻：1998年12月28日（火）午後8時04分"
+  },
+  {
+   "k": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances.",
+   "v": "ジェイソンとモンロー・アデルは、明らかな争いの跡のある自宅で遺体となって発見された。モンローは首の主要動脈への一撃を含む複数の刺し傷により失血死。ジェイソンは首への明白な損傷により死亡しており、父親によるものと見られる。\n\nマリアは事件直後に精神病院へ収容されたが、しばらくして退院した。その後、錯乱状態で墓を訪れようと門を突破しようとしたため、当墓地への立ち入りを永久に禁じられた。\n\nマリアはいかなる場合も入場を許可してはならない。"
+  },
+  {
+   "k": "I should let her in",
+   "v": "彼女を入れてあげるべきだ"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+   "v": "回収された調査記録、仮称：\n「友」\n奇妙な遭遇\n\n今日、異常な変化に気づいた。気温が説明のつかない急激な下がり方をした。小さな物が、何かが通り抜けたかのように動かされていた。動きはわずかで、ほとんど気づけないほどだが、しつこく続いた。\n\n言葉にしがたい、見られているという感覚がある。影は重く見え、時折、視界の端のすぐ外に何かの気配を感じる。それは慎重に動き、直接の光を避け、挑発されない限り音を立てない。パターンは一貫しないが、意識の存在を思わせる程度には意図的だ。"
+  },
+  {
+   "k": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+   "v": "説明のつかない微かな痕跡を観察した。それまで動いていなかった表面に、乱れの跡が残る。その後の空気はしばしば重く、まるで動きの記憶を留めているかのようだ。変化は暴力的ではないが、不気味なほど規則的に繰り返される。\n\nこれらの異常を慎重に記録した。構造的な損傷も、人為的な干渉の形跡も、観察に合致する説明もない。それでも出来事は続き、そのたびに同じ息苦しい、消えない印象が残る。\n\n説明できない。それが何であれ、自らの行動を完全には自覚していないようだが、その存在はこの場所に深く影響を及ぼしている。この生き物の真の脅威は、その不在の中で感じられる。今後も出来事を記録し、浮かび上がるパターンを書き留めていく。"
+  },
+  {
+   "k": "Those who unearth the grave meant to remain closed seal their fate.",
+   "v": "閉ざされたままであるべき墓を暴く者は、自らの運命を決する。"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
+   "v": "回収された調査記録、暫定名称：\n「花嫁」\n遭遇内容不明"
+  },
+  {
+   "k": "This entry appears to be empty.",
+   "v": "この記述は空白のようだ。"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+   "v": "回収された調査記録、仮称：\n「亡霊」\n場所は非公開\n\n遺体を見るより先に、台帳にその印が刻まれる。\n\nこの地を何年も歩いてきたが、それが通ると空気が変わる。姿は見えない。生き物が現れるというような形では。静寂だけがそれを物語る。\n\nそれに選ばれた者は逃げない。追跡はない。抵抗もない。誰かが気づく頃には、すでに奪われている。間違いようがない。この存在は、記録されたものの中で最も危険と思われる。"
+  },
+  {
+   "k": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+   "v": "それは強さに引き寄せられる。有能な者、反抗的な者、備えのある者。それが獲物だ。弱い者は見過ごされることもあるが、強い者は……それが「値する」と見なした者は、正確に始末される。遭遇を語れる生存者はいない。残るのは、微かで残酷な痕跡だけだ。\n\nどう動くのか、どこから来るのかは分からない。 \n報告から言えるのは、この生き物との遭遇は通常の狩りにはならないということだけだ。"
+  },
+  {
+   "k": "This place was not filled at random.",
+   "v": "この場所は、でたらめに埋められたのではない。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
+   "v": "墓守の手記より抜粋\nアンダーソン家\n\n\n家族構成：\nアンソニー・アンダーソン、41歳、死亡\nダイアン・アンダーソン、39歳、死亡\nジェームズ・アンダーソン、9歳、死亡\nデレク・アンダーソン、10歳、死亡\nリリー・アンダーソン、6歳、生存\n\nアンソニーは当墓地に埋葬されている。\n\n死因：住宅火災による焼死\n\n死亡時刻：1988年10月11日（火）午前0時03分"
+  },
+  {
+   "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
+   "v": "アンソニー・アンダーソン、妻ダイアン、そして二人の息子は、真夜中過ぎに通報された火災の後、自宅から搬出された。火元は、損傷が最も集中していた裏階段付近の電気系統の故障とされた。犠牲者は二階の寝室でともに発見され、死因は煙の吸入と記録された。子供一人が生き残り、救助隊の到着前に家から脱出しており、後に里親に預けられた。公式記録には、侵入や外部の関与を示す証拠はない。\n\n近隣住民によれば、火災前の数週間、一家は不規則な生活を送り、理由も告げずに上階の部屋から物を少しずつ運び出していたという。設備点検では過去の不具合は見つからず、生き残った少女は炎が見える前の出来事を語ることを拒み、父親に「みんなで一緒にいるように」と言われたとだけ述べた。階段付近の瓦礫の中からライターが一つ記録されたが、火災による損傷を理由に重要視されなかった。この件は事故として処理され、それ以上の調査は行われなかった。"
+  },
+  {
+   "k": "Here lies Zackary Holmes\nFather of One\n1952-1998",
+   "v": "ザッカリー・ホームズ ここに眠る\n一児の父\n1952-1998"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+   "v": "回収された調査記録、仮称：\n「ユウレイ」\n\n墓地内で新たな存在が確認された。時期からして最近の埋葬と思われるが、該当する墓は確認されていない。活動は突然始まり、時間をかけて育ったというより、役割を引き受けたかのようだった。\n\nこの存在は強い感情的な敏感さを示す。人の存在は、個人的な性質を持つと思われる様々な影響を及ぼす。訪問者の中には、穏やかさやためらいを感じ、そっと留まるよう促されたように感じる者もいる。一方で、不安、侵入的な思考、そして歓迎されていないという強い印象を受ける者もいる。"
+  },
+  {
+   "k": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+   "v": "その行動は選択的な判断を示している。物理的な障害なしに立ち入りが妨げられることもあれば、静かに許されることもある。これらの判断に一貫性はなく、害意というより内面の葛藤を思わせる。\n\nこの地への不敬は、責めを負う者に即座の精神的な乱れをもたらす。秩序が戻ればその影響は収まる。この存在に直接起因する物理的な損害はない。\n\nユウレイは墓地に縛られ、その保全に心を砕いているようだ。安らぎを求めながらも、警戒を怠らない。特定の人物への執着が、その役割を複雑にしている。継続的な観察が必要だ。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHolmes family\n\n\nFamily members:\nJason Holmes, 48, Alive\nZackary Holmes, 46, Deceased\nEdward Holmes, 17, Deceased\nElisabeth Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday 3:45 AM",
+   "v": "墓守の手記より抜粋\nホームズ家\n\n\n家族構成：\nジェイソン・ホームズ、48歳、生存\nザッカリー・ホームズ、46歳、死亡\nエドワード・ホームズ、17歳、死亡\nエリザベス・ホームズ、45歳、生存\n\nエドワードとザッカリーは当墓地に埋葬されている。\n\n死因：不明、事故とされる\n\n死亡時刻：1998年4月12日（日）午前3時45分"
+  },
+  {
+   "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
+   "v": "ザッカリーとエドワード・ホームズは、郡道で報告された事故の後、ここに埋葬された。公式記録によれば単独車両の事故で、車は林の向こうで横転した状態で見つかり、当局が到着した時にはエンジンがまだ温かかったという。エリザベスは近くで放心状態で発見され、後に不起訴で解放された。遺族はそれ以上の調査を拒み、この件は悪意ではなく不運として記録された。\n\nその数週間前、近隣住民はホームズ家の不規則な生活と、地下室から家具が絶えずどこかへ運び出されていたことに気づいていた。教区の記録によれば、ザッカリーとエドワードはしばらく礼拝に出ておらず、後に遺品の中から蝋燭と灰が見つかった。墓守は、車両の損傷が報告された事故の重大さに比して軽微であったこと、そしてエリザベスが埋葬後二度とこの地に戻らなかったことを記している。あの朝の3時45分以前に何が起きたのかは公式には調べられていないが、生者たちが守り続ける沈黙は、報告書が書かれるずっと前に結論が出ていたことを物語っている。"
+  },
+  {
+   "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
+   "v": "あいつは嘘つきのクズだ 信じるな"
+  },
+  {
+   "k": "It patrols. Corners are death.",
+   "v": "それは巡回する。角は死。"
+  },
+  {
+   "k": "The necessary course is clear.\nThose interred under false cause must be exhumed.",
+   "v": "取るべき道は明らかだ。\n偽りの理由で埋葬された者は、掘り起こさねばならない。"
+  },
+  {
+   "k": "Here lies Jason Adel\nToo Beautiful for Earth\n1993-1998",
+   "v": "ジェイソン・アデル ここに眠る\nこの世には美しすぎた\n1993-1998"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nFather Joseph\n\nAbandoned some time ago, the church dates back to a time older than those that are buried here. Over centuries old, the church has recently been abandoned. A remark has been made about the coincedental timing of the abandonment of the church and the anamolous circumstances that have began since its abandonment.",
+   "v": "墓守の手記より抜粋\nジョセフ神父\n\nしばらく前に放棄されたこの教会は、ここに埋葬されている者たちよりも古い時代に遡る。数世紀の歴史を持つこの教会は、つい最近放棄された。教会が放棄された時期と、それ以降に始まった異常な状況との符合について指摘がなされている。"
+  },
+  {
+   "k": "For information regarding the last caretaker of the church and his mysterious disappearance:\n\nFather Joseph would frequent these grounds many years ago and was welcomed in. The atmosphere was often peaceful with his presence.\n\nHe comes from a denomination that does not allow for marriage amongst the clergy. He appears to have gone against this rule and started a feud amongst the ministry over certain interpretations being too strict. He later denounced the clergy.\n\nHe was set to marry his betrothed but did not appear at the altar on the wedding day. Previous recordings mention that his betrothed passed away from grief when she allegedly learned about the fate of Father Joseph.\n\nThere has not yet since been a clarification on his fate.",
+   "v": "教会の最後の管理者と、その謎の失踪に関する情報：\n\nジョセフ神父は何年も前からこの地をよく訪れ、歓迎されていた。彼がいる時の空気は、いつも穏やかだった。\n\n彼は聖職者の結婚を認めない教派の出身である。この規則に背き、ある解釈が厳格すぎるとして教会内部で争いを起こしたようだ。後に彼は聖職を離れた。\n\n婚約者と結婚するはずだったが、式の当日、祭壇に現れなかった。過去の記録によれば、婚約者はジョセフ神父の運命を知ったとされる後、悲しみのあまり亡くなったという。\n\n彼の運命は、いまだに明らかになっていない。"
+  },
+  {
+   "k": "Hannah Wainwright\n1904\nDeath by electric chair",
+   "v": "ハンナ・ウェインライト\n1904\n電気椅子による死"
+  },
+  {
+   "k": "Henry Fairchild\n1802\nDeath during imprisonment",
+   "v": "ヘンリー・フェアチャイルド\n1802\n獄中死"
+  },
+  {
+   "k": "TRAPPED",
+   "v": "閉じ込められた"
+  },
+  {
+   "k": "Here lies Edward Holmes\nBeloved Son, A Devoted Friend\n1981-1998",
+   "v": "エドワード・ホームズ ここに眠る\n愛された息子、誠実な友\n1981-1998"
+  },
+  {
+   "k": "Anne Radcliffe\n1792\nDeath by guillotine",
+   "v": "アン・ラドクリフ\n1792\nギロチンによる死"
+  },
+  {
+   "k": "TORN IN TWO",
+   "v": "真っ二つに"
+  },
+  {
+   "k": "Benjamin Carver\n1742\nDeath by drowning",
+   "v": "ベンジャミン・カーヴァー\n1742\n溺死"
+  },
+  {
+   "k": "James Thornton\n1804\nDeath by firing squad",
+   "v": "ジェームズ・ソーントン\n1804\n銃殺刑"
+  },
+  {
+   "k": "THE BLEEDING WON'T STOP",
+   "v": "血が止まらない"
+  },
+  {
+   "k": "Cordelia Monroe\n1802\nBurned at the stake",
+   "v": "コーデリア・モンロー\n1802\n火刑"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
+   "v": "墓守の手記より抜粋\nアダムス家\n\n家族構成：\nエドウィン・アダムス、21歳、生存\nジェーン・アダムス、54歳、死亡\nレベッカ・アダムス、48歳、生存\n\nジェーン・アダムスは当墓地に埋葬されている。\n\n死因：自殺\n\n死亡時刻：1985年12月22日（日）午前3時21分"
+  },
+  {
+   "k": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
+   "v": "ジェーン・アダムスは、秩序と節制に貫かれた生涯を終え、ここに眠る。長年、市の公共事業局で経理を務め、家を常に清潔に保ち、息子エドウィンを厳格な日課と明確な期待のもとで育てた。エドウィンが七歳の時、彼女は彼を州外の親しい友人一家に預け、近所には「良い学校に通わせるため」と説明した。息子が去った後、ジェーンの勤務は途絶えがちになり、彼女は静かに退職した。\n\n数週間後、ジェーンは自ら命を絶った。墓守の記録によれば、エドウィンには彼女の死は知らされず、関係者は彼を呼び戻さず、事情も伝えないのが最善だと同意した。自らの行いがもたらした結果と、それに伴う不名誉は、彼女が公に負う覚悟のできる範囲を超えていた。彼女は孤独のうちに生涯を閉じ、息子の中の母の記憶が、彼女が耐えられなかった真実に汚されないようにした。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
+   "v": "墓守の手記より抜粋\nヴァンダービルト家\n\n家族構成：\nアーロン・ヴァンダービルト、69歳、死亡\nハロルド・ヴァンダービルト、42歳、不明\nエリック・ヴァンダービルト、22歳、生存\n\nアーロン・ヴァンダービルトは当墓地に埋葬されている。\n\n死因：銃創\n\n死亡時刻：1993年6月27日（日）午後7時48分"
+  },
+  {
+   "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
+   "v": "アーロン・ヴァンダービルトは、不在と過ちの重みを背負った人生を送った男として、ここに記憶される。彼の兄弟は何年も前、誰にも辿れない状況で姿を消し、アーロンは一人で世を渡ることになった。有能で聡明ではあったが、機会を約束しながら危険をもたらす人々の輪に引き込まれ、忠誠は移ろいやすく、意図は滅多に誠実でない者たちと手を組んだ。\n\n彼を知る者は、自信に満ちた外面の裏に隠された静かな苦闘を語る。悪しき仲間との関わりは晩年の多くを形作り、彼を孤立させ、警戒心の強い人間にした。兄弟の運命は生涯にわたって影を落とし続けた。失われた道と、自らの手に負えない結果をもたらす選択の戒めとして。\n\nアーロン・ヴァンダービルトは、ここに一人で眠る。"
+  },
+  {
+   "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
+   "v": "<size=145%><b>見張り番の手記</b></size>\n<size=85%>1999</size>\n\n<i>この書には、この墓地の見守り方が記されている。この指示から逸脱してはならない。この書には歴代の墓の見張り番による記録がすべてまとめられている。</i>\n\n<i>この安息の地は数世紀の歴史を持ち、手を加えてはならない。墓守として、以下の指示を読み、これに従うこと。</i>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  墓地全体の灯りを常に点けておくこと。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  十字架を常に小屋の扉にしっかりと取り付けておくこと。十字架があなたの正気を左右する。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  休憩が必要なら小屋に戻ること。十字架が扉にある限り、そこは常に安全である。</align>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  故人と直接の血縁関係にある訪問者のみを通すこと。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  訪問者をむやみに信用しないこと。彼らの話す情報は必ず照合すること。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  門で見張りに立ち、望まぬ訪問者が墓を荒らすのを防ぐこと。敷地の巡回も行うこと。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  侵入者がいれば懐中電灯で追い払うこと。墓の周辺に侵入者がいないか常に確認すること。</align>\n\n<size=72%><i>（続く）</i></size>"
+  },
+  {
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Keep the back gate locked at all times. No entry is permitted through the back.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  The CCTV camera system monitors both entry gates. It is important to monitor them to keep the area secure. You can view them in the corner of the cabin.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Most importantly: respect the burial sites. Do not disturb their rest; deter those who are unwelcomed.</align>\n\n<size=80%><i>— end —</i></size>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  裏門は常に施錠しておくこと。裏からの立ち入りは一切許可しない。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  監視カメラは両方の門を映している。敷地の安全のため、監視を怠らないこと。小屋の隅で映像を確認できる。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  何より、墓を敬うこと。眠りを乱してはならない。望まれぬ者は追い払うこと。</align>\n\n<size=80%><i>— 終わり —</i></size>"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
+   "v": "墓守の手記より抜粋\nファン家\n\n家族構成：\nウェンチー・ファン、73歳、生存\nメイ・ファン、70歳、死亡\nチェン・ファン、48歳、生存\n\nメイ・ファンは当墓地に埋葬されている。\n\n死因：薬物注射による死刑\n\n死亡時刻：1993年3月27日（土）午後4時00分"
+  },
+  {
+   "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
+   "v": "ファン姓の墓は一つしかないが、その手配は急いで決められ、丁寧に守られてきた決断を思わせる。区画はファン・ウェンチー本人が選んだ。彼は書類を整えて現れ、明瞭に話したが、常に一貫しているわけではなく、時折すでに決まった事柄を繰り返した。ファン夫人は夜明けに運ばれてきた。遠縁の者は誰も参列しなかった。息子は来るのかと尋ねると、ウェンチーは「家族はこれで全員だ」と答え、そして、なぜその答えが重要なのか分からないというように言葉を止めた。死因は記録され、罪は解決済みとされ、この件は異議なく受け入れられた。\n\nメイ・ファンは静かに暮らし、記録にほとんど残らない小さな親切で知られていた。最後の数か月、その気配りは薄れ、それとともに彼女の守りも失われた。私が聞かされたのは、不名誉に関わる問題が解決されたということだけで、詳細は語られなかった。息子の名での供物は許されていない。ウェンチーは今、一人で訪れる。時に同じことを繰り返し、帰る前には必ず墓石を確かめる。まるで、それが違う言葉を語るのを待っているかのように。"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+   "v": "墓守の手記より抜粋\n登録されていない訪問者\n\n門に定期的に現れる二人の女がいる。\n\n二人が一緒に来ることはないが、どちらも「もう一人はすでに通された」と言い張る。\n\n二人とも死者を知っていると主張する。どちらも墓石に刻まれていない名前を知っている。どうやって知ったのかと問うと、一人は即座に、そして間違って答える。もう一人はゆっくりと、何も明らかにしない細部を交えて答える。どちらを正すのも間違いだと学んだ。\n\n一人は常に立ち入りについて尋ねる。錠、巡回、土が最も柔らかい時間。彼女は遺産について、負われているものについて、放っておいてはならないものについて語る。断られると、断られるのが当然だったかのように微笑む。それでもまた来る。"
+  },
+  {
+   "k": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+   "v": "もう一人は境界について尋ねる。何が留められ、何が閉じ込められているのかを。重さ、圧力、ある物事を所定の場所に保つ代償について語る。断られると、驚き、次に安堵し、それから落胆した表情を見せる。言い争いはしない。次の機会に、ただ要求を変えてくる。\n\nどちらの女がどちらの要求をするのかは記録していない。それは聞き手によって変わるからだ。\n\n一人は決して立ち入りを許されない。この決定は単純で、揺るがない。彼女はそれを知りながら、なお試してくる。互いに矛盾する理由を並べて。許可はもう出ていると言うこともある。必要に迫られてと言うこともある。一度など、私が来るように頼んだと言い張った。"
+  },
+  {
+   "k": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+   "v": "もう一人は、特定の条件のもとで立ち入りを許される。天候、時刻、最近の埋葬がすべて関わってくる。彼女に理由は説明しない。追い返されれば、一時的なものとして受け入れる。通されれば、長居はしない。\n\n互いに相手を嘘つきだと非難する。互いに証拠を示す。どちらも説得力がある。どちらも多くは語らない。\n\n一人は必ず、遠回しにもう一人に言及する。もう一人は、尋ねられない限り姉妹のことを認めない。 \n\n嘘をついている方を、決して通してはならない。"
+  },
+  {
+   "k": "William Pembroke\n1705\nDeath by hanging",
+   "v": "ウィリアム・ペンブローク\n1705\n絞首刑"
+  },
+  {
+   "k": "I CAN'T BREATHE",
+   "v": "息ができない"
+  },
+  {
+   "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
+   "v": "この回廊を十分に巡れば、ある種の欠落が無視できなくなる。\nここに安らかに眠るべき死者たちは、本来与えられるべき礼を欠いている。この場所は罰のための場だ。"
+  },
+  {
+   "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",
+   "v": "アンソニー・アンダーソン ここに眠る\n三児の父、夫\n1947-1988"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nDeloitte family\n\n\nFamily members:\nShane Deloitte, 31, Alive\nReginald Deloitte, 29, Alive",
+   "v": "墓守の手記より抜粋\nデロイト家\n\n\n家族構成：\nシェーン・デロイト、31歳、生存\nレジナルド・デロイト、29歳、生存"
+  },
+  {
+   "k": "The Deloitte family are new arrivals. Background checks record that the two brothers had a history of animosity towards one another that has recently subsided. \n\nThe keeper makes no other remarks.",
+   "v": "デロイト家は新たな移住者である。身元調査によれば、兄弟は長らく互いに反目してきたが、最近になって収まったという。 \n\n墓守はこれ以上の記述を残していない。"
+  },
+  {
+   "k": "NO REST",
+   "v": "安息はない"
+  },
+  {
+   "k": "Here lies Mei Huang\nWife, Mother of One\n1923-1993",
+   "v": "メイ・ファン ここに眠る\n妻、一児の母\n1923-1993"
+  },
+  {
+   "k": "LIAR",
+   "v": "嘘つき"
+  },
+  {
+   "k": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985",
+   "v": "ジェーン・アダムス ここに眠る\n母、姉妹、愛された友。\n1931-1985"
+  },
+  {
+   "k": "SELFISH",
+   "v": "身勝手"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+   "v": "回収された調査記録、暫定名称：\n「墓荒らし」\n出所は非公開\n\n墓の被害の大半に、繰り返し現れる一人の人物が関わっている。地元住民と見られ、盗掘や冒涜を行う外部の者たちの主要な連絡役を務めているらしい。正体は不明のままだ。\n\n単独ではない。共犯者たちは営業時間外に墓地を下見し、視線の通る場所や対応の速さを試している姿がしばしば目撃されている。彼らは光を当てられると退き、懐中電灯を当て続けることで追い払うことに成功している。彼らの活動は継続的かつ意図的であるため、常に警戒が必要だ。"
+  },
+  {
+   "k": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+   "v": "よそ者たちは、この地域と何のつながりもないにもかかわらず、墓地の配置、巡回の順路、進入経路を詳しく知ってやって来る。この情報は彼が提供しているものと推定される。彼が現れると活動は急増し、去るとともに散る。\n\n墓荒らしは暴力的だ。証拠は必要性ではなく意図的な威嚇を示している。壊された道具、過剰な力、共犯者間の内紛の痕跡は、恐怖によって維持される支配的な立場を物語る。\n\n歴代の墓守が遭遇を報告している。いずれの場合も、記録はその直後に途絶えている。ある墓守は予告なく職を捨てた。別の者は転落とは説明のつかない怪我で入院した。三人目は目撃を記録したが、最後のページは日誌から破り取られていた。"
+  },
+  {
+   "k": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+   "v": "彼は特定を避ける。顔の特徴は報告ごとに異なり、信頼できる姿は一度も捉えられていない。それでも、その存在は紛れもない。継続的な観察が必要だ。直接の対峙は勧められない。"
+  },
+  {
+   "k": "Not every name corresponds to a lived life.",
+   "v": "すべての名前が、生きられた人生に対応するわけではない。"
+  },
+  {
+   "k": "Elizabeth Crowther\n1702\nDeath by illness",
+   "v": "エリザベス・クロウザー\n1702\n病死"
+  },
+  {
+   "k": "STAY AWAY FROM ME",
+   "v": "近づかないで"
+  },
+  {
+   "k": "Rebecca Langley\n1733\nDeath by lynching",
+   "v": "レベッカ・ラングレー\n1733\n私刑による死"
+  },
+  {
+   "k": "LET ME GO",
+   "v": "放して"
+  },
+  {
+   "k": "Here lies Samantha Bynes\nBeloved Mother of Two, Wife\n1972-1994",
+   "v": "サマンサ・バインズ ここに眠る\n二児の愛された母、妻\n1972-1994"
+  },
+  {
+   "k": "Mary Langley\n1755\nDeath during childbirth",
+   "v": "メアリー・ラングレー\n1755\n出産中に死亡"
+  },
+  {
+   "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
+   "v": "ジョセフ神父の運命\n\n震える手でこれを書いている。私はこの場所と、ここに住まう者たちの恐ろしい真実を知ってしまった。ジョセフ神父は、確かに死よりも恐ろしい運命をたどった。\n\nこの場所がこのままである限り、ジョセフ神父はこの墓地に囚われ続ける。記憶から失われ、信仰なき者たちに傷つけられた墓石。愛する人からの最後の別れとして植えられるはずだった贈り物。\n\nもし慈悲深い魂が、彼の愛する人が摘んだ最後の供物を見つけたなら、それを忘れられた彼の墓に供えてほしい。その時初めて、ジョセフ神父は拒まれた別れをようやく受け取り、長く彼から逃れ続けた安らぎを見出せるかもしれない。"
+  },
+  {
+   "k": "I'M FREE",
+   "v": "自由だ"
+  },
+  {
+   "k": "Hey Brian! I came by to see how you've been.",
+   "v": "よう、ブライアン！様子を見に来たぜ。"
+  },
+  {
+   "k": "I'm sorry you had to take the night shift here. This place couldn't look more depressing.",
+   "v": "ここで夜勤なんて気の毒にな。これ以上ないってくらい陰気な場所だ。"
+  },
+  {
+   "k": "It's not that bad...",
+   "v": "そんなに悪くないさ..."
+  },
+  {
+   "k": "I appreciate you coming by, Hector. It's good to see you.",
+   "v": "来てくれてありがとう、ヘクター。会えて嬉しいよ。"
+  },
+  {
+   "k": "If you say so, man. I wouldn't want to be cooped up in that shanty cabin watching over those dead people.",
+   "v": "お前がそう言うならな。俺なら、あんなボロ小屋に閉じこもって死人の見張りなんてごめんだね。"
+  },
+  {
+   "k": "...",
+   "v": "..."
+  },
+  {
+   "k": "Hey - don't get me wrong. A lot of people would kill to have a job like this. Not much to do around here but listen to the radio and doze off. Some people like that kind of stuff.",
+   "v": "おっと、誤解するなよ。こんな仕事、欲しがる奴は山ほどいる。ラジオを聴いて居眠りするくらいしかやることがないんだからな。そういうのが好きな奴もいる。"
+  },
+  {
+   "k": "How are you keeping busy anyway?",
+   "v": "で、暇な時は何してるんだ？"
+  },
+  {
+   "k": "Honestly, it's been pretty dull so far.",
+   "v": "正直、今のところかなり退屈だよ。"
+  },
+  {
+   "k": "Just been keeping my head down and staying vigilant, to be honest.",
+   "v": "正直言うと、目立たないようにして警戒を怠らないようにしてる。"
+  },
+  {
+   "k": "Dull? Well, if you say so. I guess that's better than being creeped out.",
+   "v": "退屈？まあ、お前がそう言うなら。ビビってるよりはマシか。"
+  },
+  {
+   "k": "I can't stand the idea of sleeping a few feet away from those tombstones.",
+   "v": "俺なら、あの墓石から数メートルのところで寝るなんて耐えられない。"
+  },
+  {
+   "k": "But hey, if you're that bored, why not make it a bit more interesting?",
+   "v": "でもさ、そんなに退屈なら、少し面白くしてみないか？"
+  },
+  {
+   "k": "Have you heard the rumors about the ravaging wildebeast that roams the woods not too far from these parts?",
+   "v": "この辺の森をうろついてるっていう凶暴な怪物の噂、聞いたことあるか？"
+  },
+  {
+   "k": "How about I head home to grab some equipment, and then we go track it down together?",
+   "v": "俺が家から装備を取ってきて、一緒にそいつを追跡するってのはどうだ？"
+  },
+  {
+   "k": "No thanks, I really shouldn't leave my shift.",
+   "v": "遠慮しとくよ、持ち場を離れるわけにはいかない。"
+  },
+  {
+   "k": "Real funny, Hector.",
+   "v": "笑えるな、ヘクター。"
+  },
+  {
+   "k": "Heh, alright, whatever you say.",
+   "v": "へへ、分かったよ、好きにしな。"
+  },
+  {
+   "k": "Well I just dropped by for a moment to check in on you.",
+   "v": "まあ、ちょっと様子を見に寄っただけだ。"
+  },
+  {
+   "k": "I'll stop by again tomorrow to make sure you're alright.",
+   "v": "明日も無事か確かめに来るよ。"
+  },
+  {
+   "k": "Your folks were pretty worried about you, so I'll make sure to give them your regards. Hopefully that'll ease them a bit.",
+   "v": "お前の親御さん、かなり心配してたぞ。お前からよろしくと伝えとく。少しは安心してくれるといいな。"
+  },
+  {
+   "k": "See you around man.",
+   "v": "じゃあな。"
+  },
+  {
+   "k": "Hey man, just trying to help!",
+   "v": "おい、助けようとしてるだけだって！"
+  },
+  {
+   "k": "Sounds boring.",
+   "v": "退屈そうだな。"
+  },
+  {
+   "k": "This place kind of gives me the creeps.",
+   "v": "この場所、なんか薄気味悪いんだよ。"
+  },
+  {
+   "k": "In the middle of nowhere too. Why the hell is this place even here?",
+   "v": "しかもこんな人里離れた所にさ。なんでこんな場所があるんだ？"
+  },
+  {
+   "k": "Feels a bit off, but I guess you're getting paid well at least, right?",
+   "v": "何か変な感じがするけど、まあ給料はいいんだろ？"
+  },
+  {
+   "k": "Yeah, the pay is great.",
+   "v": "ああ、給料は最高だよ。"
+  },
+  {
+   "k": "I guess.",
+   "v": "まあね。"
+  },
+  {
+   "k": "It's good to see you too, man.",
+   "v": "俺も会えて嬉しいよ。"
+  },
+  {
+   "k": "That's great to hear man!",
+   "v": "そりゃよかった！"
+  },
+  {
+   "k": "I'm happy for you.",
+   "v": "よかったな。"
+  },
+  {
+   "k": "Well, I should probably head back now. I just dropped by to check in on you.",
+   "v": "さて、そろそろ戻るよ。様子を見に寄っただけだからな。"
+  },
+  {
+   "k": "Well, my friend...",
+   "v": "さて、我が友よ..."
+  },
+  {
+   "k": "It seems you've done a great job with this old place.",
+   "v": "この古い場所を、実によく守ってくれているようだね。"
+  },
+  {
+   "k": "Who are you?",
+   "v": "あなたは誰ですか？"
+  },
+  {
+   "k": "It's late, old man. Head home.",
+   "v": "もう遅い時間だ、じいさん。家に帰りなよ。"
+  },
+  {
+   "k": "As astute as always.",
+   "v": "相変わらず鋭い。"
+  },
+  {
+   "k": "Allow me to introduce myself, first.",
+   "v": "まずは自己紹介をさせてくれ。"
+  },
+  {
+   "k": "I think it's about time I introduced myself...",
+   "v": "そろそろ自己紹介をする頃合いだろう..."
+  },
+  {
+   "k": "I'm the previous watcher of this cemetary, before you.",
+   "v": "私は君の前にこの墓地を見守っていた者だ。"
+  },
+  {
+   "k": "I think I left this place in the right hands, but I also believe your job here isn't finished.",
+   "v": "この場所を正しい人の手に託せたと思っているが、君の仕事はまだ終わっていないとも思っている。"
+  },
+  {
+   "k": "Why did you leave?",
+   "v": "なぜ辞めたんです？"
+  },
+  {
+   "k": "Well, yeah. My shift isn't over.",
+   "v": "ええ、まあ。まだ勤務中ですから。"
+  },
+  {
+   "k": "Well, I'll admit, I didn't uphold my duties as the grave watcher.",
+   "v": "そうだな、認めよう。私は墓の見張りとしての務めを果たせなかった。"
+  },
+  {
+   "k": "I felt there had to be someone more suited to the job...",
+   "v": "この仕事にもっとふさわしい者がいるはずだと感じたのだ..."
+  },
+  {
+   "k": "You've got quite the sense of humor there, friend...",
+   "v": "なかなかユーモアのセンスがあるな、友よ..."
+  },
+  {
+   "k": "No, I meant there's something I left unfinished before I left.",
+   "v": "いや、私が言いたいのは、去る前にやり残したことがあるということだ。"
+  },
+  {
+   "k": "As you might be able to tell by now, this job isn't as easy as it seems.",
+   "v": "もう気づいているだろうが、この仕事は見た目ほど楽ではない。"
+  },
+  {
+   "k": "This place is quite the attraction to many different folks, both alive and dead.",
+   "v": "この場所は、生者も死者も、実に様々な者を引き寄せる。"
+  },
+  {
+   "k": "I'll be candid with you, my friend...",
+   "v": "率直に言おう、我が友よ..."
+  },
+  {
+   "k": "I left because I was afraid.",
+   "v": "私は怖くなって去ったのだ。"
+  },
+  {
+   "k": "This place isn't any normal resting place for the dead. I'd love to share more with you, if you'd be willing to listen...",
+   "v": "ここは死者にとって普通の安息の地ではない。聞く気があるなら、もっと話したいのだが..."
+  },
+  {
+   "k": "Okay.",
+   "v": "分かりました。"
+  },
+  {
+   "k": "You should head home grandpa.",
+   "v": "家に帰った方がいいよ、じいさん。"
+  },
+  {
+   "k": "Listen here.",
+   "v": "よく聞け。"
+  },
+  {
+   "k": "I came here out of the pain of regret. Out of empathy for you and the people of this town.",
+   "v": "私は後悔の痛みから、ここへ来た。君と、この町の人々を思う気持ちからだ。"
+  },
+  {
+   "k": "I didn't have to come back, to put up with your arrogance.",
+   "v": "君の傲慢さに付き合うために戻ってきたわけではない。"
+  },
+  {
+   "k": "I'm sorry. Please continue.",
+   "v": "すみません。続けてください。"
+  },
+  {
+   "k": "Don't care. Head home, you crazy old bat.",
+   "v": "どうでもいい。家に帰れよ、頭のおかしいじいさん。"
+  },
+  {
+   "k": "You are a fool.",
+   "v": "愚か者め。"
+  },
+  {
+   "k": "I will give you one last chance to listen to me.",
+   "v": "私の話を聞く最後の機会をやろう。"
+  },
+  {
+   "k": "I'm sorry. Please continue. I'm listening.",
+   "v": "すみません。続けてください。聞いています。"
+  },
+  {
+   "k": "If you don't leave I'm calling the cops.",
+   "v": "帰らないなら警察を呼びますよ。"
+  },
+  {
+   "k": "Thank you.",
+   "v": "ありがとう。"
+  },
+  {
+   "k": "As you can tell, this place gets a lot of attention.",
+   "v": "見ての通り、この場所は多くの注目を集めている。"
+  },
+  {
+   "k": "There is a story going around, that there is something very valuable in the crypt sitting right behind you. A lot of dangerous folks are after it.",
+   "v": "君のすぐ後ろにある地下聖堂に、とても貴重な何かがあるという噂が広まっている。多くの危険な連中がそれを狙っているのだ。"
+  },
+  {
+   "k": "I personally never cared for it.",
+   "v": "私自身は、そんなものに興味はなかった。"
+  },
+  {
+   "k": "However, as my days unfolded in this place, I began growing restless, tired, and anxious.",
+   "v": "だが、この場所で日々を過ごすうちに、私はますます落ち着きを失い、疲れ、不安になっていった。"
+  },
+  {
+   "k": "I started feel an unsettling draw towards the crypt sitting behind you.",
+   "v": "君の後ろにあるあの地下聖堂に、不穏な引力を感じ始めたのだ。"
+  },
+  {
+   "k": "Have you felt it too?",
+   "v": "君も感じたことがあるだろう？"
+  },
+  {
+   "k": "Yes.",
+   "v": "はい。"
+  },
+  {
+   "k": "No.",
+   "v": "いいえ。"
+  },
+  {
+   "k": "Interesting.",
+   "v": "興味深い。"
+  },
+  {
+   "k": "It's relieving to actually meet someone that feels the same way.",
+   "v": "同じことを感じる者にようやく出会えて、ほっとしたよ。"
+  },
+  {
+   "k": "Anyway, I needed answers so I began digging into the old notes that the previous gravekeepers had left for me within the cabin.",
+   "v": "ともかく、答えが必要だった私は、歴代の墓守が小屋に残してくれた古い手記を調べ始めた。"
+  },
+  {
+   "k": "I'm sure you've had a chance to read some of the documentation that had been left there. At least, I hope you have.",
+   "v": "君もそこに残された文書を読む機会があっただろう。少なくとも、そう願っている。"
+  },
+  {
+   "k": "As I sifted through the old text, I read an interesting passage that an old grave keeper left. Probably decades ago.",
+   "v": "古い文書をめくるうち、昔の墓守が残した興味深い一節を読んだ。おそらく何十年も前のものだ。"
+  },
+  {
+   "k": "The documents had been sitting there for what seemed like a very long time... they were dusty and barely legible.",
+   "v": "文書は途方もなく長い間そこに置かれていたようで... 埃をかぶり、かろうじて読める状態だった。"
+  },
+  {
+   "k": "I had decided to leave this position at the graveyard promptly after I read it.",
+   "v": "それを読んで間もなく、私はこの墓地の職を辞することにした。"
+  },
+  {
+   "k": "Apparently, one of the old gravekeepers had attempted to enter that crypt.",
+   "v": "どうやら、昔の墓守の一人があの地下聖堂に入ろうとしたらしい。"
+  },
+  {
+   "k": "In the text, he also mentioned that there must always be a gravekeeper assigned to this position. Anyone who takes this job is responsible for the safety of the folks in this area. If you don't want this job, you have to pass it onto someone else.",
+   "v": "その文書には、この職には常に墓守が置かれねばならないとも書かれていた。この仕事を引き受けた者は、この地域の人々の安全に責任を負う。この仕事を望まないなら、誰か別の者に引き継がねばならない。"
+  },
+  {
+   "k": "However.",
+   "v": "しかし。"
+  },
+  {
+   "k": "If you do decide to keep this job, you will learn that you will no longer be able to lead a normal life. Additionally, you will not be able to die normally either.",
+   "v": "もしこの仕事を続けると決めたなら、もはや普通の生活は送れないと知ることになる。さらに、普通に死ぬこともできなくなる。"
+  },
+  {
+   "k": "According to the old grave keeper, this graveyard is more than just a normal burial place. The people buried here did not lead normal lives. This site requires a watcher at all times, even through death.",
+   "v": "昔の墓守によれば、この墓地はただの埋葬地ではない。ここに眠る者たちは普通の人生を送ってはいなかった。この地には常に見張りが必要なのだ。死を越えてもなお。"
+  },
+  {
+   "k": "When normal people die, their lives end and they no longer have any experiences, thoughts, or feelings.",
+   "v": "普通の人間が死ねば、その人生は終わり、経験も思考も感情も失われる。"
+  },
+  {
+   "k": "The texts didn't elaborate on this, but if you die here, as the gravekeeper, that isn't exactly what will happen to you.",
+   "v": "文書に詳細はなかったが、君がここで墓守として死んだ場合、そうはならないのだ。"
+  },
+  {
+   "k": "The only way to break this cycle is to enter the mausoleum. I don't know why or how, but the old gravekeeper mentioned in his notes there was some sort of puzzle that needed to be solved.",
+   "v": "この輪廻を断ち切る唯一の方法は、霊廟に入ることだ。なぜかも、どうやってかも分からないが、昔の墓守は手記に、解かねばならない謎のようなものがあると記していた。"
+  },
+  {
+   "k": "What puzzle?",
+   "v": "どんな謎です？"
+  },
+  {
+   "k": "Everyone who is buried at this graveyard shares something in common.",
+   "v": "この墓地に埋葬された者には、皆ある共通点がある。"
+  },
+  {
+   "k": "Some of these graves are centuries old. However, even the newer ones that were placed here more recently should be following a pattern.",
+   "v": "これらの墓の中には数世紀前のものもある。しかし、最近ここに置かれた新しい墓でさえ、ある法則に従っているはずなのだ。"
+  },
+  {
+   "k": "I've torn through the documents but have not been able to figure out what this pattern is, or if it even exists.",
+   "v": "私は文書を調べ尽くしたが、その法則が何なのか、そもそも存在するのかさえ突き止められなかった。"
+  },
+  {
+   "k": "The only way to break this cycle is solve this puzzle. After you've learned it, you must enter the crypt.",
+   "v": "この輪廻を断つ唯一の方法は、この謎を解くことだ。それを知ったなら、地下聖堂に入らねばならない。"
+  },
+  {
+   "k": "Apparently, the gravekeeper before us studied the archives deeply. He had entered the crypt with a possible solution but wasn't successful.",
+   "v": "どうやら、我々の前任の墓守は記録を深く研究していたようだ。彼は答えらしきものを携えて地下聖堂に入ったが、成功しなかった。"
+  },
+  {
+   "k": "There is something in that crypt that is centuries old that needs to be resolved - a curse that has yet to be broken.",
+   "v": "あの地下聖堂には、数世紀にわたって解決されずにいる何かがある。いまだ解かれていない呪いだ。"
+  },
+  {
+   "k": "When I learned about this, I was in disbelief.",
+   "v": "これを知った時、私は信じられなかった。"
+  },
+  {
+   "k": "I was afraid. I locked the mausoleum and the gate, and then left this place. That's when the graveyard became more and more restless.",
+   "v": "怖かった。私は霊廟と門に鍵をかけ、この場所を去った。その時から、墓地はますます騒がしくなっていったのだ。"
+  },
+  {
+   "k": "I still have the key. I can unlock that crypt.",
+   "v": "鍵はまだ持っている。あの地下聖堂を開けることができる。"
+  },
+  {
+   "k": "Will you enter it and put an end to this?",
+   "v": "君が中に入り、これに終止符を打ってくれるか？"
+  },
+  {
+   "k": "Okay. I'm ready.",
+   "v": "分かりました。準備はできています。"
+  },
+  {
+   "k": "This is crazy. Go home you old kook.",
+   "v": "どうかしてる。家に帰れよ、変わり者のじいさん。"
+  },
+  {
+   "k": "I am quite disappointed.",
+   "v": "実に失望した。"
+  },
+  {
+   "k": "Surely you are joking?",
+   "v": "冗談だろう？"
+  },
+  {
+   "k": "Yeah, just a joke. Go ahead and unlock the crypt.",
+   "v": "ええ、ただの冗談です。どうぞ地下聖堂を開けてください。"
+  },
+  {
+   "k": "That wasn't a joke. Please leave.",
+   "v": "冗談じゃありません。帰ってください。"
+  },
+  {
+   "k": "I was mistaken.",
+   "v": "私が間違っていた。"
+  },
+  {
+   "k": "You clearly are not the right person for this job.",
+   "v": "君は明らかにこの仕事にふさわしい人間ではない。"
+  },
+  {
+   "k": "I will warn you one last time to listen to me.",
+   "v": "最後にもう一度だけ忠告する。私の話を聞け。"
+  },
+  {
+   "k": "It is your well-being I am concerned about.",
+   "v": "君の身を案じているのだ。"
+  },
+  {
+   "k": "I'm sorry. Please go ahead and unlock the crypt",
+   "v": "すみません。どうぞ地下聖堂を開けてください"
+  },
+  {
+   "k": "You are quite the intelligent specimen, aren't you?",
+   "v": "君は実に知性あふれる標本だな？"
+  },
+  {
+   "k": "Follow me.",
+   "v": "ついて来なさい。"
+  },
+  {
+   "k": "You truly are a blessing.",
+   "v": "君はまさに天の恵みだ。"
+  },
+  {
+   "k": "I've went ahead and unlocked the crypt.",
+   "v": "地下聖堂の鍵はもう開けておいた。"
+  },
+  {
+   "k": "One more thing.",
+   "v": "もう一つ。"
+  },
+  {
+   "k": "In one of the notes left by a previous gatekeeper...",
+   "v": "前任の墓守が残した手記の一つに..."
+  },
+  {
+   "k": "It mentioned turning off your flashlight before entering.",
+   "v": "入る前に懐中電灯を消すよう書かれていた。"
+  },
+  {
+   "k": "I don't know why.",
+   "v": "理由は分からない。"
+  },
+  {
+   "k": "I have faith that you'll be able to figure this out.",
+   "v": "君なら解き明かせると信じている。"
+  },
+  {
+   "k": "Good luck in there.",
+   "v": "中での幸運を祈る。"
+  },
+  {
+   "k": "You did it, my friend.",
+   "v": "やり遂げたな、我が友よ。"
+  },
+  {
+   "k": "They have been freed.",
+   "v": "彼らは解放された。"
+  },
+  {
+   "k": "Perhaps their souls can finally rest. As should you.",
+   "v": "彼らの魂もようやく安らげるだろう。君もそうあるべきだ。"
+  },
+  {
+   "k": "Come.",
+   "v": "来なさい。"
+  },
+  {
+   "k": "Evening.",
+   "v": "こんばんは。"
+  },
+  {
+   "k": "Didn’t expect anyone at the gate this late.",
+   "v": "こんな時間に門番がいるとは思わなかった。"
+  },
+  {
+   "k": "Name’s Harold Vanderbolt.",
+   "v": "ハロルド・ヴァンダーボルトという者だ。"
+  },
+  {
+   "k": "I need to step inside for a moment.",
+   "v": "少し中に入りたい。"
+  },
+  {
+   "k": "Visiting hours are over. What’s your business here?",
+   "v": "面会時間は終わっています。ここに何の用ですか？"
+  },
+  {
+   "k": "Can I help you with something, sir?",
+   "v": "何かご用でしょうか？"
+  },
+  {
+   "k": "Straight question.",
+   "v": "率直な質問だ。"
+  },
+  {
+   "k": "I like that.",
+   "v": "気に入った。"
+  },
+  {
+   "k": "I’m here to see my brother.",
+   "v": "弟に会いに来た。"
+  },
+  {
+   "k": "Aaron.",
+   "v": "アーロンだ。"
+  },
+  {
+   "k": "Good man. Bad luck.",
+   "v": "いい男だった。運がなかった。"
+  },
+  {
+   "k": "Didn’t think he’d end up here.",
+   "v": "ここに眠ることになるとは思わなかった。"
+  },
+  {
+   "k": "Funny how things go.",
+   "v": "人生とは面白いものだ。"
+  },
+  {
+   "k": "How did you know Aaron?",
+   "v": "アーロンとはどういう関係で？"
+  },
+  {
+   "k": "Why come so late?",
+   "v": "なぜこんな遅くに？"
+  },
+  {
+   "k": "Appreciate the courtesy.",
+   "v": "礼儀正しいのはありがたい。"
+  },
+  {
+   "k": "Not much of it left these days.",
+   "v": "近頃はそういうものが少なくなった。"
+  },
+  {
+   "k": "I won’t take long.",
+   "v": "長くはかからない。"
+  },
+  {
+   "k": "Just paying respects.",
+   "v": "ただ弔いに来ただけだ。"
+  },
+  {
+   "k": "Aaron wouldn’t forgive me if I didn’t.",
+   "v": "そうしなければアーロンが許してくれない。"
+  },
+  {
+   "k": "You’re being vague.",
+   "v": "はっきりしませんね。"
+  },
+  {
+   "k": "I’ll need more than that.",
+   "v": "それだけでは足りません。"
+  },
+  {
+   "k": "We grew up together.",
+   "v": "一緒に育った。"
+  },
+  {
+   "k": "Shared a name. Shared a roof.",
+   "v": "同じ姓、同じ屋根の下で。"
+  },
+  {
+   "k": "Shared more mistakes than I care to count.",
+   "v": "数え切れないほどの過ちも共にした。"
+  },
+  {
+   "k": "I owe him a moment.",
+   "v": "あいつに一時を捧げる義理がある。"
+  },
+  {
+   "k": "Family has a way of demanding that.",
+   "v": "家族というのは、そういうものを求めてくる。"
+  },
+  {
+   "k": "Your brother?",
+   "v": "弟さんですか？"
+  },
+  {
+   "k": "Do you have any proof?",
+   "v": "何か証明できるものは？"
+  },
+  {
+   "k": "Privacy.",
+   "v": "静かに過ごすためだ。"
+  },
+  {
+   "k": "That’s all.",
+   "v": "それだけだ。"
+  },
+  {
+   "k": "Some things are easier to say",
+   "v": "言葉にしやすいこともある、"
+  },
+  {
+   "k": "when no one’s listening back.",
+   "v": "誰も聞いていない時の方が。"
+  },
+  {
+   "k": "I say what I need to say.",
+   "v": "言うべきことを言う。"
+  },
+  {
+   "k": "Then I leave.",
+   "v": "そして去る。"
+  },
+  {
+   "k": "Careful.",
+   "v": "気をつけろ。"
+  },
+  {
+   "k": "You’re doing your job.",
+   "v": "あんたは仕事をしている。"
+  },
+  {
+   "k": "So am I.",
+   "v": "俺もだ。"
+  },
+  {
+   "k": "No trouble.",
+   "v": "面倒は起こさない。"
+  },
+  {
+   "k": "Just a brother standing where he has to.",
+   "v": "いるべき場所に立っている、ただの兄だ。"
+  },
+  {
+   "k": "Let’s not turn this into something tedious.",
+   "v": "これを面倒なことにするのはやめよう。"
+  },
+  {
+   "k": "Brother.",
+   "v": "兄だ。"
+  },
+  {
+   "k": "Older, if that matters.",
+   "v": "重要なら言っておくが、年上の方だ。"
+  },
+  {
+   "k": "Usually does.",
+   "v": "たいてい重要だがな。"
+  },
+  {
+   "k": "We didn’t always agree.",
+   "v": "いつも意見が合ったわけじゃない。"
+  },
+  {
+   "k": "But blood’s blood.",
+   "v": "だが血は血だ。"
+  },
+  {
+   "k": "Aaron understood that.",
+   "v": "アーロンはそれを分かっていた。"
+  },
+  {
+   "k": "Proof?",
+   "v": "証明？"
+  },
+  {
+   "k": "I don’t carry mementos.",
+   "v": "形見を持ち歩く趣味はない。"
+  },
+  {
+   "k": "And family names don’t mean much once someone’s in the ground.",
+   "v": "それに、土の下に入った者にとって、姓など大した意味はない。"
+  },
+  {
+   "k": "You should know that better than anyone.",
+   "v": "あんたなら誰よりも分かっているだろう。"
+  },
+  {
+   "k": "I wouldn’t be here if it didn’t matter.",
+   "v": "大事でなければ、ここにはいない。"
+  },
+  {
+   "k": "So.",
+   "v": "さて。"
+  },
+  {
+   "k": "I just need a few minutes.",
+   "v": "ほんの数分でいい。"
+  },
+  {
+   "k": "I’ll stay out of your way.",
+   "v": "邪魔はしない。"
+  },
+  {
+   "k": "May I go in?",
+   "v": "入ってもいいか？"
+  },
+  {
+   "k": "Alright. Be quick.",
+   "v": "分かりました。手短にお願いします。"
+  },
+  {
+   "k": "No. I can’t allow it.",
+   "v": "いいえ。許可できません。"
+  },
+  {
+   "k": "I have a few more questions.",
+   "v": "もう少し質問があります。"
+  },
+  {
+   "k": "Hold on, I'll be right back.",
+   "v": "待ってください、すぐ戻ります。"
+  },
+  {
+   "k": "What was your name again?",
+   "v": "お名前をもう一度伺えますか？"
+  },
+  {
+   "k": "Who are you visiting?",
+   "v": "どなたを訪ねに？"
+  },
+  {
+   "k": "How many people are in your family?",
+   "v": "ご家族は何人ですか？"
+  },
+  {
+   "k": "Nevermind.",
+   "v": "いえ、なんでもありません。"
+  },
+  {
+   "k": "I'm here to see Aaron.",
+   "v": "アーロンに会いに来た。"
+  },
+  {
+   "k": "When did he die?",
+   "v": "いつ亡くなったのですか？"
+  },
+  {
+   "k": "What was his cause of death?",
+   "v": "死因は何でしたか？"
+  },
+  {
+   "k": "I have other questions.",
+   "v": "他にも質問があります。"
+  },
+  {
+   "k": "June 27th, 1993.",
+   "v": "1993年6月27日だ。"
+  },
+  {
+   "k": "I have no other questions.",
+   "v": "他に質問はありません。"
+  },
+  {
+   "k": "He was found in his hotel room, on a trip abroad.",
+   "v": "海外旅行中に、ホテルの部屋で見つかった。"
+  },
+  {
+   "k": "Had a gunshot wound out the back of his head.",
+   "v": "後頭部に銃創があった。"
+  },
+  {
+   "k": "Terrible way to go. I try not to think about it.",
+   "v": "ひどい死に方だ。考えないようにしている。"
+  },
+  {
+   "k": "We didn't have much family left. It was just him and my nephew.",
+   "v": "家族はほとんど残っていなかった。あいつと、俺の甥だけだ。"
+  },
+  {
+   "k": "I have more questions.",
+   "v": "他にも質問があります。"
+  },
+  {
+   "k": "My name is Harold.",
+   "v": "ハロルドだ。"
+  },
+  {
+   "k": "Good.",
+   "v": "よし。"
+  },
+  {
+   "k": "I knew you’d see reason.",
+   "v": "分かってくれると思っていた。"
+  },
+  {
+   "k": "Family doesn’t get many chances to say goodbye properly.",
+   "v": "家族がきちんと別れを告げる機会は、そう多くない。"
+  },
+  {
+   "k": "I won’t forget this.",
+   "v": "この恩は忘れない。"
+  },
+  {
+   "k": "That’s disappointing.",
+   "v": "残念だ。"
+  },
+  {
+   "k": "Still.",
+   "v": "それでも。"
+  },
+  {
+   "k": "Rules are useful things.",
+   "v": "規則は役に立つものだ。"
+  },
+  {
+   "k": "Until they aren’t.",
+   "v": "役に立たなくなるまでは。"
+  },
+  {
+   "k": "Give my brother a quiet night, then.",
+   "v": "では、弟に静かな夜を。"
+  },
+  {
+   "k": "I suppose some problems do solve themselves.",
+   "v": "問題の中には、勝手に片付くものもあるようだな。"
+  },
+  {
+   "k": "I thought you two were close.",
+   "v": "お二人は親しかったのだと思っていました。"
+  },
+  {
+   "k": "What did you say your name was again?",
+   "v": "お名前は何とおっしゃいましたっけ？"
+  },
+  {
+   "k": "Just saying goodbye properly.",
+   "v": "きちんと別れを告げただけだ。"
+  },
+  {
+   "k": "I'll be leaving now.",
+   "v": "もう帰る。"
+  },
+  {
+   "k": "Thanks for looking the other way.",
+   "v": "見逃してくれて感謝する。"
+  },
+  {
+   "k": "Harold. Harold Vanderbilt.",
+   "v": "ハロルド。ハロルド・ヴァンダービルトだ。"
+  },
+  {
+   "k": "I'll be taking my leave now. Have a great rest of your evening.",
+   "v": "これで失礼する。良い夜を。"
+  },
+  {
+   "k": "Hello. Excuse me.",
+   "v": "こんにちは。すみません。"
+  },
+  {
+   "k": "This is graveyard, yes?",
+   "v": "ここ、墓地、ですね？"
+  },
+  {
+   "k": "I come to visit my wife.",
+   "v": "妻に、会いに来ました。"
+  },
+  {
+   "k": "Can I see some identification?",
+   "v": "身分証を見せていただけますか？"
+  },
+  {
+   "k": "Identification?",
+   "v": "身分証？"
+  },
+  {
+   "k": "Yes… yes.",
+   "v": "はい... はい。"
+  },
+  {
+   "k": "My name Mr. Huang.",
+   "v": "私、ファンといいます。"
+  },
+  {
+   "k": "I am him.",
+   "v": "私が本人です。"
+  },
+  {
+   "k": "I not carry many papers now.",
+   "v": "今は、書類、あまり持ってません。"
+  },
+  {
+   "k": "Only me. Only husband.",
+   "v": "私だけ。夫だけ。"
+  },
+  {
+   "k": "I come many times before.",
+   "v": "前にも、何度も来ました。"
+  },
+  {
+   "k": "Maybe you not see me.",
+   "v": "たぶん、あなた、私を見てない。"
+  },
+  {
+   "k": "I come late when quiet.",
+   "v": "遅い時間、静かな時に来ます。"
+  },
+  {
+   "k": "Alright. Why are you here so late?",
+   "v": "分かりました。なぜこんな遅くに？"
+  },
+  {
+   "k": "Okay. Take your time and tell me what you need.",
+   "v": "分かりました。ゆっくりでいいので、ご用件を聞かせてください。"
+  },
+  {
+   "k": "Late is better.",
+   "v": "遅い方が、いい。"
+  },
+  {
+   "k": "Less people. Less noise.",
+   "v": "人が少ない。音も少ない。"
+  },
+  {
+   "k": "My wife not like noise.",
+   "v": "妻は、うるさいの嫌い。"
+  },
+  {
+   "k": "I stand outside and think.",
+   "v": "外に立って、考えます。"
+  },
+  {
+   "k": "That all.",
+   "v": "それだけ。"
+  },
+  {
+   "k": "Which grave are you visiting?",
+   "v": "どの墓を訪ねに？"
+  },
+  {
+   "k": "You can understand why this looks suspicious.",
+   "v": "怪しく見える理由は分かりますよね。"
+  },
+  {
+   "k": "English hard for me.",
+   "v": "英語、私には難しい。"
+  },
+  {
+   "k": "My wife help me before.",
+   "v": "前は妻が、助けてくれました。"
+  },
+  {
+   "k": "She here.",
+   "v": "彼女は、ここにいます。"
+  },
+  {
+   "k": "Long time already.",
+   "v": "もう、長い間。"
+  },
+  {
+   "k": "I'm sorry for your loss.",
+   "v": "お悔やみ申し上げます。"
+  },
+  {
+   "k": "You shouldn’t be waiting outside the gate.",
+   "v": "門の外で待っているべきではありませんよ。"
+  },
+  {
+   "k": "I know.",
+   "v": "分かってます。"
+  },
+  {
+   "k": "I look bad.",
+   "v": "私、怪しく見える。"
+  },
+  {
+   "k": "Old man. Night time.",
+   "v": "年寄り。夜。"
+  },
+  {
+   "k": "But I not do wrong.",
+   "v": "でも、悪いことしない。"
+  },
+  {
+   "k": "I promise.",
+   "v": "約束します。"
+  },
+  {
+   "k": "I only want see her.",
+   "v": "ただ、彼女に会いたいだけ。"
+  },
+  {
+   "k": "Western burial ground.",
+   "v": "西側の墓地。"
+  },
+  {
+   "k": "Near tree.",
+   "v": "木の近く。"
+  },
+  {
+   "k": "She like tree.",
+   "v": "彼女、木が好き。"
+  },
+  {
+   "k": "I talk to her sometimes.",
+   "v": "時々、彼女と話します。"
+  },
+  {
+   "k": "It help me.",
+   "v": "私の、助けになる。"
+  },
+  {
+   "k": "House very quiet now.",
+   "v": "家、今はとても静か。"
+  },
+  {
+   "k": "Here feel closer to her.",
+   "v": "ここ、彼女を近く感じる。"
+  },
+  {
+   "k": "I not stay long.",
+   "v": "長くは、いません。"
+  },
+  {
+   "k": "Please.",
+   "v": "お願いします。"
+  },
+  {
+   "k": "Just few minutes.",
+   "v": "数分だけ。"
+  },
+  {
+   "k": "I visit my wife.",
+   "v": "妻に会います。"
+  },
+  {
+   "k": "May I come in?",
+   "v": "入ってもいいですか？"
+  },
+  {
+   "k": "Alright. You can go in, but don’t stay long.",
+   "v": "分かりました。入っていいですが、長居はしないでください。"
+  },
+  {
+   "k": "I’m sorry. Visiting hours are over.",
+   "v": "申し訳ありません。面会時間は終わっています。"
+  },
+  {
+   "k": "My late wife.",
+   "v": "亡くなった妻。"
+  },
+  {
+   "k": "Mei Huang.",
+   "v": "メイ・ファン。"
+  },
+  {
+   "k": "When did she die?",
+   "v": "いつ亡くなったのですか？"
+  },
+  {
+   "k": "What was her cause of death?",
+   "v": "死因は何でしたか？"
+  },
+  {
+   "k": "I do not remember...",
+   "v": "覚えて、いません..."
+  },
+  {
+   "k": "It has been long time.",
+   "v": "ずっと前のこと。"
+  },
+  {
+   "k": "I do not like to speak about this matter.",
+   "v": "その話は、したくありません。"
+  },
+  {
+   "k": "My wife not bad person.",
+   "v": "妻、悪い人じゃない。"
+  },
+  {
+   "k": "She did no wrong.",
+   "v": "何も悪いことしてない。"
+  },
+  {
+   "k": "Please, I would like to see her.",
+   "v": "お願い、彼女に会わせてください。"
+  },
+  {
+   "k": "No one.",
+   "v": "誰もいない。"
+  },
+  {
+   "k": "Only me and wife. After passing away, I am alone.",
+   "v": "私と妻だけ。彼女が亡くなって、私は一人。"
+  },
+  {
+   "k": "My name?",
+   "v": "私の名前？"
+  },
+  {
+   "k": "Huang Wenqi.",
+   "v": "ファン・ウェンチー。"
+  },
+  {
+   "k": "You very kind.",
+   "v": "あなた、とても親切。"
+  },
+  {
+   "k": "I understand.",
+   "v": "分かりました。"
+  },
+  {
+   "k": "Rules are rules.",
+   "v": "規則は規則。"
+  },
+  {
+   "k": "I come again tomorrow.",
+   "v": "明日、また来ます。"
+  },
+  {
+   "k": "Thank you for listening.",
+   "v": "聞いてくれて、ありがとう。"
+  },
+  {
+   "k": "This is her.",
+   "v": "これが、彼女。"
+  },
+  {
+   "k": "I miss her dearly.",
+   "v": "とても、寂しい。"
+  },
+  {
+   "k": "You two must have loved each other very much.",
+   "v": "お二人はとても愛し合っていたのですね。"
+  },
+  {
+   "k": "She would say...",
+   "v": "彼女、言ってた..."
+  },
+  {
+   "k": "\"If I go first, don’t forget me.\"",
+   "v": "「私が先に逝っても、忘れないで」"
+  },
+  {
+   "k": "I tell her I won’t.",
+   "v": "忘れない、と言った。"
+  },
+  {
+   "k": "So I come.",
+   "v": "だから、来ます。"
+  },
+  {
+   "k": "Even when tired.",
+   "v": "疲れていても。"
+  },
+  {
+   "k": "Even when cold.",
+   "v": "寒くても。"
+  },
+  {
+   "k": "I go now.",
+   "v": "もう、行きます。"
+  },
+  {
+   "k": "…You work here?",
+   "v": "…ここで働いてるのか？"
+  },
+  {
+   "k": "I didn’t expect anyone still on duty.",
+   "v": "まだ誰か勤務してるとは思わなかった。"
+  },
+  {
+   "k": "Are you here to visit someone?",
+   "v": "どなたかを訪ねに？"
+  },
+  {
+   "k": "You shouldn’t be wandering around this late.",
+   "v": "こんな遅くにうろつくべきではありませんよ。"
+  },
+  {
+   "k": "Yeah. Just paying my respects.",
+   "v": "ああ。ちょっと墓参りにな。"
+  },
+  {
+   "k": "I don't plan to stay long.",
+   "v": "長居するつもりはない。"
+  },
+  {
+   "k": "Are you related to the deceased?",
+   "v": "故人とご親族ですか？"
+  },
+  {
+   "k": "Thanks, I know the rules.",
+   "v": "どうも、規則は知ってる。"
+  },
+  {
+   "k": "You don't have to worry, I’ll be quick.",
+   "v": "心配しなくていい、すぐ済む。"
+  },
+  {
+   "k": "Then you can go back to... whatever it is you were doing.",
+   "v": "そしたらあんたは... 何をしてたか知らないが、それに戻ればいい。"
+  },
+  {
+   "k": "Someone with the name Huang.",
+   "v": "ファンって名前の誰かだ。"
+  },
+  {
+   "k": "That should be enough for you.",
+   "v": "それで十分だろ。"
+  },
+  {
+   "k": "That’s vague. What’s your full name?",
+   "v": "曖昧ですね。フルネームは？"
+  },
+  {
+   "k": "Are you related to the Huangs?",
+   "v": "ファン家のご親族ですか？"
+  },
+  {
+   "k": "…Chen Huang.",
+   "v": "…チェン・ファンだ。"
+  },
+  {
+   "k": "Are you going to keep asking me instrusive questions?",
+   "v": "まだ詮索するつもりか？"
+  },
+  {
+   "k": "Why are you here?",
+   "v": "なぜここに？"
+  },
+  {
+   "k": "Yeah. I am.",
+   "v": "ああ。そうだ。"
+  },
+  {
+   "k": "But to be honest, I don't really think that is any of your concern.",
+   "v": "だが正直、あんたには関係ないと思うがな。"
+  },
+  {
+   "k": "I just need to know who exactly you're visiting.",
+   "v": "誰を訪ねるのか、正確に知る必要があるんです。"
+  },
+  {
+   "k": "I just need to know you’re not causing trouble.",
+   "v": "面倒を起こさないと分かればいいんです。"
+  },
+  {
+   "k": "I figured you’d ask that.",
+   "v": "そう聞かれると思ったよ。"
+  },
+  {
+   "k": "We’re family.",
+   "v": "家族だ。"
+  },
+  {
+   "k": "Not close.",
+   "v": "親しくはない。"
+  },
+  {
+   "k": "Well, I need to know who you're visiting.",
+   "v": "それでも、誰を訪ねるのか知る必要があります。"
+  },
+  {
+   "k": "What is their name?",
+   "v": "お名前は？"
+  },
+  {
+   "k": "Family.",
+   "v": "家族だ。"
+  },
+  {
+   "k": "I need to know their name.",
+   "v": "名前を教えてください。"
+  },
+  {
+   "k": "You’re avoiding the question.",
+   "v": "質問をはぐらかしていますね。"
+  },
+  {
+   "k": "I’m answering enough.",
+   "v": "もう十分答えた。"
+  },
+  {
+   "k": "This isn’t a confession booth.",
+   "v": "ここは懺悔室じゃない。"
+  },
+  {
+   "k": "I’ll pay my respects and leave.",
+   "v": "墓参りを済ませて帰る。"
+  },
+  {
+   "k": "You won’t even notice I was here.",
+   "v": "俺がいたことにも気づかないさ。"
+  },
+  {
+   "k": "I'm not going to answer anymore questions.",
+   "v": "これ以上質問には答えない。"
+  },
+  {
+   "k": "Is there going to be a problem?",
+   "v": "何か問題でも？"
+  },
+  {
+   "k": "No. Go ahead inside, but be quick.",
+   "v": "いいえ。入ってください、ただし手短に。"
+  },
+  {
+   "k": "Visiting hours are over.",
+   "v": "面会時間は終わっています。"
+  },
+  {
+   "k": "…Thanks.",
+   "v": "…どうも。"
+  },
+  {
+   "k": "For what it’s worth,",
+   "v": "言っておくが、"
+  },
+  {
+   "k": "I appreciate professionalism.",
+   "v": "プロらしい対応には感謝してる。"
+  },
+  {
+   "k": "Figures.",
+   "v": "だろうな。"
+  },
+  {
+   "k": "Didn't even want to be here.",
+   "v": "そもそも来たくもなかった。"
+  },
+  {
+   "k": "Have fun watching over these dead people.",
+   "v": "せいぜい死人の見張りを楽しめよ。"
+  },
+  {
+   "k": "I don't envy you.",
+   "v": "羨ましくはないね。"
+  },
+  {
+   "k": "Please... just give me a moment...",
+   "v": "頼む... 少し、一人にしてくれ..."
+  },
+  {
+   "k": "Are you okay?",
+   "v": "大丈夫ですか？"
+  },
+  {
+   "k": "I would do anything... just to make her stop.",
+   "v": "何でもする... 彼女を止めるためなら。"
+  },
+  {
+   "k": "I thought coming here would help... but...",
+   "v": "ここに来れば楽になると思った... でも..."
+  },
+  {
+   "k": "I think I have made a terrible mistake.",
+   "v": "取り返しのつかない過ちを犯したようだ。"
+  },
+  {
+   "k": "Hey there.",
+   "v": "どうも。"
+  },
+  {
+   "k": "Sorry for disturbing you at this late hour.",
+   "v": "こんな夜更けにすみません。"
+  },
+  {
+   "k": "My name is Dennis Anderson, and I'm here to visit a family member.",
+   "v": "デニス・アンダーソンといいます。家族の墓参りに来ました。"
+  },
+  {
+   "k": "His name is Anthony Anderson.",
+   "v": "アンソニー・アンダーソンです。"
+  },
+  {
+   "k": "What is your relation to him?",
+   "v": "その方とはどういうご関係で？"
+  },
+  {
+   "k": "Why are you here so late?",
+   "v": "なぜこんな遅くに？"
+  },
+  {
+   "k": "Anthony was my brother.",
+   "v": "アンソニーは俺の兄でした。"
+  },
+  {
+   "k": "I'll only stop by for a moment.",
+   "v": "少し立ち寄るだけです。"
+  },
+  {
+   "k": "I try to visit him every year. It's been a while, my visit is a bit overdue.",
+   "v": "毎年会いに来るようにしてるんです。しばらく来られなくて、今年は少し遅れてしまいました。"
+  },
+  {
+   "k": "I hope you don't mind.",
+   "v": "構わないでしょうか。"
+  },
+  {
+   "k": "Are you here to cause any trouble?",
+   "v": "面倒を起こしに来たのですか？"
+  },
+  {
+   "k": "Yeah... sorry.",
+   "v": "ええ... すみません。"
+  },
+  {
+   "k": "I have a very rigorous work schedule. Terrible hours.",
+   "v": "仕事がとにかく厳しくて。ひどい勤務時間なんです。"
+  },
+  {
+   "k": "I don't really get the time during the day to make this trip.",
+   "v": "昼間にここまで来る時間がなくて。"
+  },
+  {
+   "k": "I hope it's alright.",
+   "v": "問題なければいいのですが。"
+  },
+  {
+   "k": "Trouble?",
+   "v": "面倒？"
+  },
+  {
+   "k": "I'm afraid I don't understand.",
+   "v": "おっしゃる意味が分かりませんが。"
+  },
+  {
+   "k": "You seem suspicious.",
+   "v": "怪しいですね。"
+  },
+  {
+   "k": "On second thought...",
+   "v": "考え直しました..."
+  },
+  {
+   "k": "I'll stop by another time.",
+   "v": "また別の日に来ます。"
+  },
+  {
+   "k": "Maybe during the day, when there is someone on duty with a bit more manners.",
+   "v": "昼間の、もう少し礼儀のある人が勤務している時にでも。"
+  },
+  {
+   "k": "So, can I come in?",
+   "v": "それで、入ってもいいですか？"
+  },
+  {
+   "k": "Alright. Go ahead.",
+   "v": "分かりました。どうぞ。"
+  },
+  {
+   "k": "No. Please leave.",
+   "v": "いいえ。お帰りください。"
+  },
+  {
+   "k": "I already told you.",
+   "v": "もう言いましたよ。"
+  },
+  {
+   "k": "Dennis Anderson.",
+   "v": "デニス・アンダーソンです。"
+  },
+  {
+   "k": "My brother.",
+   "v": "兄です。"
+  },
+  {
+   "k": "Anthony Anderson.",
+   "v": "アンソニー・アンダーソン。"
+  },
+  {
+   "k": "Hmm... it's been quite a while.",
+   "v": "うーん... もうずいぶん前です。"
+  },
+  {
+   "k": "A little over ten years ago now.",
+   "v": "十年ちょっと前ですね。"
+  },
+  {
+   "k": "Tragic house fire.",
+   "v": "悲惨な住宅火災でした。"
+  },
+  {
+   "k": "Claimed him and the family. Only the little girl made it out alive.",
+   "v": "兄と家族を奪っていった。小さな女の子だけが生き残りました。"
+  },
+  {
+   "k": "It was a horrible day.",
+   "v": "恐ろしい日でした。"
+  },
+  {
+   "k": "After the event, only the little girl survived.",
+   "v": "あの出来事の後、生き残ったのは小さな女の子だけです。"
+  },
+  {
+   "k": "Her name is Lily.",
+   "v": "リリーという名です。"
+  },
+  {
+   "k": "Thanks.",
+   "v": "ありがとう。"
+  },
+  {
+   "k": "I won't be long.",
+   "v": "長くはかかりません。"
+  },
+  {
+   "k": "What do you mean \"no\"?",
+   "v": "「だめ」ってどういうことだ？"
+  },
+  {
+   "k": "You don't own those people in there. Those are family members.",
+   "v": "中にいる人たちはあんたのものじゃない。家族なんだぞ。"
+  },
+  {
+   "k": "I'll just come back during the day, when there's someone more professional on duty.",
+   "v": "昼間の、もっとまともな人が勤務している時に出直すよ。"
+  },
+  {
+   "k": "It's a damn shame what happened that day.",
+   "v": "あの日の出来事は、本当に残念だった。"
+  },
+  {
+   "k": "Wish I could've been there.",
+   "v": "そこにいてやれればよかった。"
+  },
+  {
+   "k": "Where were you when it happened?",
+   "v": "それが起きた時、どこにいたんです？"
+  },
+  {
+   "k": "I think you should be going now.",
+   "v": "そろそろお帰りになった方がいいですよ。"
+  },
+  {
+   "k": "I...",
+   "v": "俺は..."
+  },
+  {
+   "k": "I think I should be going now. Have a great rest of your evening.",
+   "v": "そろそろ帰るとします。良い夜を。"
+  },
+  {
+   "k": "Yeah, you're probably right.",
+   "v": "ああ、そうだな。"
+  },
+  {
+   "k": "I'll be heading out now.",
+   "v": "もう帰ります。"
+  },
+  {
+   "k": "H-hey...",
+   "v": "ど、どうも..."
+  },
+  {
+   "k": "I need to come in to visit a grave...",
+   "v": "お墓参りに入りたいんですけど..."
+  },
+  {
+   "k": "Is that okay?",
+   "v": "いいですか？"
+  },
+  {
+   "k": "Well, go on ahead in!",
+   "v": "ああ、入りな！"
+  },
+  {
+   "k": "You mean, like, my name?",
+   "v": "えっと、名前、ですか？"
+  },
+  {
+   "k": "It's, uh...",
+   "v": "えー、その..."
+  },
+  {
+   "k": "Edwin.",
+   "v": "エドウィンです。"
+  },
+  {
+   "k": "Can I go in now?",
+   "v": "もう入ってもいいですか？"
+  },
+  {
+   "k": "I'll need your full name.",
+   "v": "フルネームを教えてくれ。"
+  },
+  {
+   "k": "Sure.",
+   "v": "いいよ。"
+  },
+  {
+   "k": "M-my full name?",
+   "v": "フ、フルネームですか？"
+  },
+  {
+   "k": "My name is Edwin Adams.",
+   "v": "エドウィン・アダムスです。"
+  },
+  {
+   "k": "I'm here to visit my mother's grave.",
+   "v": "母の墓参りに来ました。"
+  },
+  {
+   "k": "I don't have any identification with me, I didn't think anyone would be here.",
+   "v": "身分証は持ってません。誰かいるとは思わなかったので。"
+  },
+  {
+   "k": "I don't live far from here and I've been here before a few times. There was never anyone here at the gate.",
+   "v": "近くに住んでて、何度か来たことがあります。門に人がいたことは一度もなかった。"
+  },
+  {
+   "k": "Can I please go in now?",
+   "v": "もう入ってもいいですか？"
+  },
+  {
+   "k": "Sorry kid. Graveyard's closed.",
+   "v": "悪いな、坊主。墓地は閉まってる。"
+  },
+  {
+   "k": "I-it's Edwin Adams.",
+   "v": "エ、エドウィン・アダムスです。"
+  },
+  {
+   "k": "My mother, Jane Adams.",
+   "v": "母の、ジェーン・アダムスです。"
+  },
+  {
+   "k": "A long time ago. About fifteen years ago.",
+   "v": "ずっと前です。十五年くらい前。"
+  },
+  {
+   "k": "I-I'm sorry but...",
+   "v": "す、すみません、でも..."
+  },
+  {
+   "k": "I don't really want to talk about it...",
+   "v": "あまり話したくなくて..."
+  },
+  {
+   "k": "My aunt and I live together, there isn't really anyone else.",
+   "v": "叔母と二人で暮らしてます。他には本当に誰もいません。"
+  },
+  {
+   "k": "T-thanks...",
+   "v": "あ、ありがとう..."
+  },
+  {
+   "k": "I won't be long...",
+   "v": "長くはかかりません..."
+  },
+  {
+   "k": "I miss my mother dearly.",
+   "v": "母がいなくて寂しいです。"
+  },
+  {
+   "k": "She used to hum when she thought no one was listening.",
+   "v": "誰も聞いてないと思うと、鼻歌を歌ってました。"
+  },
+  {
+   "k": "Funny what stays with you, even after everything else is gone.",
+   "v": "他のことは全部消えても、そういうことは残るんですね。不思議です。"
+  },
+  {
+   "k": "Anyway. I shouldn’t keep you standing here.",
+   "v": "とにかく。ここで引き止めちゃいけませんね。"
+  },
+  {
+   "k": "Are you going to be okay?",
+   "v": "大丈夫か？"
+  },
+  {
+   "k": "Get lost, kid.",
+   "v": "消えろ、坊主。"
+  },
+  {
+   "k": "Yeah... I'll get through this.",
+   "v": "ええ... 乗り越えます。"
+  },
+  {
+   "k": "Thanks for letting me in, I know it's pretty late and you have a job to do.",
+   "v": "入れてくれてありがとう。こんな遅くに、お仕事の邪魔をして。"
+  },
+  {
+   "k": "But this helps more than you know.",
+   "v": "でも、思っている以上に助かりました。"
+  },
+  {
+   "k": "Gate still open, huh?",
+   "v": "門、まだ開いてるのか？"
+  },
+  {
+   "k": "I need to get inside for a minute.",
+   "v": "少しだけ中に入りたい。"
+  },
+  {
+   "k": "Just here to visit some graves.",
+   "v": "墓参りに来ただけだ。"
+  },
+  {
+   "k": "Go on in.",
+   "v": "どうぞ、お入りください。"
+  },
+  {
+   "k": "My name is Jason.",
+   "v": "ジェイソンだ。"
+  },
+  {
+   "k": "I've been here before many times.",
+   "v": "ここには何度も来ている。"
+  },
+  {
+   "k": "Jason Holmes.",
+   "v": "ジェイソン・ホームズ。"
+  },
+  {
+   "k": "I'm here for my brother, Zackary Holmes.",
+   "v": "弟のザッカリー・ホームズに会いに来た。"
+  },
+  {
+   "k": "And his son. Edward Holmes.",
+   "v": "それから、その息子のエドワード・ホームズにも。"
+  },
+  {
+   "k": "They were buried close together.",
+   "v": "二人は近くに埋葬されている。"
+  },
+  {
+   "k": "Can I go in?",
+   "v": "入ってもいいか？"
+  },
+  {
+   "k": "Sorry. Graveyard's closed.",
+   "v": "すみません。墓地は閉まっています。"
+  },
+  {
+   "k": "My brother and nephew, Zackary and Edward.",
+   "v": "弟と甥、ザッカリーとエドワードだ。"
+  },
+  {
+   "k": "When did they die?",
+   "v": "いつ亡くなったのですか？"
+  },
+  {
+   "k": "How did they die?",
+   "v": "死因は？"
+  },
+  {
+   "k": "Last year. They died at the same time.",
+   "v": "去年だ。同時に亡くなった。"
+  },
+  {
+   "k": "They died in a car accident.",
+   "v": "交通事故で亡くなった。"
+  },
+  {
+   "k": "After their burial, it's just me and my brother's widowed wife.",
+   "v": "埋葬の後は、俺と弟の未亡人だけになった。"
+  },
+  {
+   "k": "She disappeared after their deaths.",
+   "v": "彼女は二人が死んだ後、姿を消した。"
+  },
+  {
+   "k": "Why?",
+   "v": "なぜ？"
+  },
+  {
+   "k": "My name is Jason Holmes.",
+   "v": "ジェイソン・ホームズだ。"
+  },
+  {
+   "k": "No one knows for certain.",
+   "v": "誰にもはっきりとは分からない。"
+  },
+  {
+   "k": "She hasn't spoken to me since their passing.",
+   "v": "二人が亡くなってから、俺とは口をきいていない。"
+  },
+  {
+   "k": "I can only imagine what she's going through.",
+   "v": "彼女がどんな思いでいるか、想像するしかない。"
+  },
+  {
+   "k": "I appreciate it.",
+   "v": "感謝する。"
+  },
+  {
+   "k": "…",
+   "v": "…"
+  },
+  {
+   "k": "Yeah.",
+   "v": "ああ。"
+  },
+  {
+   "k": "I should've expected that.",
+   "v": "そうなると思っていたよ。"
+  },
+  {
+   "k": "You're going to end up like every other gravekeeper before you.",
+   "v": "あんたも、これまでの墓守たちと同じ末路をたどることになる。"
+  },
+  {
+   "k": "…Hey.",
+   "v": "…おい。"
+  },
+  {
+   "k": "I'm done.",
+   "v": "終わった。"
+  },
+  {
+   "k": "Took longer than I thought.",
+   "v": "思ったより長くかかった。"
+  },
+  {
+   "k": "Guess I had more to say than I realized.",
+   "v": "自分でも気づかないほど、話すことがあったらしい。"
+  },
+  {
+   "k": "Everything alright?",
+   "v": "大丈夫ですか？"
+  },
+  {
+   "k": "You should be heading out.",
+   "v": "そろそろお帰りください。"
+  },
+  {
+   "k": "As alright as it gets, I suppose.",
+   "v": "まあ、これ以上ないくらいには大丈夫だ。"
+  },
+  {
+   "k": "Edward's stone is still clean.",
+   "v": "エドワードの墓石は今もきれいだった。"
+  },
+  {
+   "k": "Someone's been taking care of it.",
+   "v": "誰かが手入れしてくれているんだな。"
+  },
+  {
+   "k": "Anyway.",
+   "v": "とにかく。"
+  },
+  {
+   "k": "Thanks for letting me in.",
+   "v": "入れてくれてありがとう。"
+  },
+  {
+   "k": "Right.",
+   "v": "そうだな。"
+  },
+  {
+   "k": "You're right.",
+   "v": "あんたの言う通りだ。"
+  },
+  {
+   "k": "Don't worry.",
+   "v": "心配するな。"
+  },
+  {
+   "k": "I wasn't planning on staying.",
+   "v": "長居するつもりはなかった。"
+  },
+  {
+   "k": "They've had enough company for one night.",
+   "v": "あいつらも、一晩分の来客はもう十分だろう。"
+  },
+  {
+   "k": "Try not to take this job too personally.",
+   "v": "この仕事をあまり深刻に受け止めない方がいい。"
+  },
+  {
+   "k": "People just come here to mourn.",
+   "v": "人はただ、悲しむためにここへ来るだけだ。"
+  },
+  {
+   "k": "Good night.",
+   "v": "おやすみ。"
+  },
+  {
+   "k": "Um...",
+   "v": "あの..."
+  },
+  {
+   "k": "H-hello?",
+   "v": "こ、こんばんは？"
+  },
+  {
+   "k": "You work here, right?",
+   "v": "ここで働いてる人、ですよね？"
+  },
+  {
+   "k": "I think you do.",
+   "v": "たぶん、そう。"
+  },
+  {
+   "k": "I mean, you're standing there like you do.",
+   "v": "だって、そういう感じで立ってるから。"
+  },
+  {
+   "k": "I was wondering if I could come in for a minute.",
+   "v": "少しだけ中に入れてもらえないかと思って。"
+  },
+  {
+   "k": "Just a minute.",
+   "v": "本当に少しだけ。"
+  },
+  {
+   "k": "Something feels off behind me.",
+   "v": "後ろに、何か変な感じがするんです。"
+  },
+  {
+   "k": "But it might just be the wind.",
+   "v": "でも、ただの風かもしれないけど。"
+  },
+  {
+   "k": "What do you mean “off”?",
+   "v": "「変」というのは？"
+  },
+  {
+   "k": "What did you see?",
+   "v": "何を見たんです？"
+  },
+  {
+   "k": "R-right.",
+   "v": "え、ええと。"
+  },
+  {
+   "k": "So when I was walking, I heard footsteps.",
+   "v": "歩いてたら、足音が聞こえたんです。"
+  },
+  {
+   "k": "I think.",
+   "v": "たぶん。"
+  },
+  {
+   "k": "When I stopped walking, the footsteps stopped.",
+   "v": "立ち止まったら、足音も止まりました。"
+  },
+  {
+   "k": "Which is normal.",
+   "v": "それは普通のことですけど。"
+  },
+  {
+   "k": "Unless someone else stopped at the same time.",
+   "v": "誰かが同時に立ち止まったんじゃなければ。"
+  },
+  {
+   "k": "That happens in movies.",
+   "v": "映画だとそうなりますよね。"
+  },
+  {
+   "k": "Movies aren’t real. Did you see anyone?",
+   "v": "映画は現実ではありません。誰かを見たのですか？"
+  },
+  {
+   "k": "You’re shaking. Take a breath.",
+   "v": "震えていますよ。深呼吸してください。"
+  },
+  {
+   "k": "Y-yeah.",
+   "v": "え、ええ。"
+  },
+  {
+   "k": "That's what my mom used to say.",
+   "v": "母もよく言ってました。"
+  },
+  {
+   "k": "That I think too much.",
+   "v": "私は考えすぎだって。"
+  },
+  {
+   "k": "Or not enough.",
+   "v": "それか、考えなさすぎだって。"
+  },
+  {
+   "k": "I never figured out which one she meant.",
+   "v": "どっちの意味だったのか、結局分かりませんでした。"
+  },
+  {
+   "k": "I'm probably just tired.",
+   "v": "たぶん疲れてるだけです。"
+  },
+  {
+   "k": "But being tired makes it easier for bad things to happen, I think.",
+   "v": "でも疲れてると、悪いことが起きやすくなると思うんです。"
+  },
+  {
+   "k": "Or maybe that's naps.",
+   "v": "あ、それは昼寝の話だったかも。"
+  },
+  {
+   "k": "I get those mixed up.",
+   "v": "よく混同するんです。"
+  },
+  {
+   "k": "Focus. Did you actually see someone?",
+   "v": "落ち着いて。本当に誰かを見たんですか？"
+  },
+  {
+   "k": "Go home. You’re fine.",
+   "v": "家に帰ってください。大丈夫ですよ。"
+  },
+  {
+   "k": "Oh.",
+   "v": "あ。"
+  },
+  {
+   "k": "Breathing.",
+   "v": "呼吸。"
+  },
+  {
+   "k": "In.",
+   "v": "吸って。"
+  },
+  {
+   "k": "Out.",
+   "v": "吐いて。"
+  },
+  {
+   "k": "I think I'm doing it wrong.",
+   "v": "やり方、間違ってる気がします。"
+  },
+  {
+   "k": "But I feel a little better.",
+   "v": "でも少し楽になりました。"
+  },
+  {
+   "k": "Still don't like the dark though.",
+   "v": "暗いのは相変わらず嫌ですけど。"
+  },
+  {
+   "k": "The dark feels like it's leaning.",
+   "v": "暗闇が、傾いてるみたいに感じるんです。"
+  },
+  {
+   "k": "Does it look like it's leaning to you?",
+   "v": "あなたにも傾いて見えます？"
+  },
+  {
+   "k": "No. Tell me what you saw.",
+   "v": "いいえ。何を見たのか話してください。"
+  },
+  {
+   "k": "You’re imagining things.",
+   "v": "気のせいですよ。"
+  },
+  {
+   "k": "S-see them?",
+   "v": "み、見た、かどうか？"
+  },
+  {
+   "k": "Not clearly.",
+   "v": "はっきりとは。"
+  },
+  {
+   "k": "There was a shape.",
+   "v": "何かの形がありました。"
+  },
+  {
+   "k": "Or maybe a space where a shape should've been.",
+   "v": "それか、形があるべき場所にぽっかり空いた隙間かも。"
+  },
+  {
+   "k": "It was near the trees.",
+   "v": "木の近くでした。"
+  },
+  {
+   "k": "But trees are very suspicious at night.",
+   "v": "でも夜の木ってすごく怪しいですよね。"
+  },
+  {
+   "k": "They move even when they shouldn't.",
+   "v": "動くはずがないのに動くし。"
+  },
+  {
+   "k": "This one felt like it noticed me noticing it.",
+   "v": "あれは、私が気づいたことに気づいたみたいでした。"
+  },
+  {
+   "k": "Which sounds silly.",
+   "v": "馬鹿みたいに聞こえますよね。"
+  },
+  {
+   "k": "I know that.",
+   "v": "分かってます。"
+  },
+  {
+   "k": "Describe the shape.",
+   "v": "その形を描写してください。"
+  },
+  {
+   "k": "You’re just scared.",
+   "v": "怖がっているだけですよ。"
+  },
+  {
+   "k": "Oh...",
+   "v": "あ..."
+  },
+  {
+   "k": "M-maybe you're right.",
+   "v": "そ、そうかもしれません。"
+  },
+  {
+   "k": "I'd feel a lot better if I could come inside for a moment...",
+   "v": "少しの間だけでも中に入れたら、ずっと安心できるんですけど..."
+  },
+  {
+   "k": "You can come inside. Quickly.",
+   "v": "入っていいですよ。急いで。"
+  },
+  {
+   "k": "You should leave right now.",
+   "v": "今すぐ帰った方がいい。"
+  },
+  {
+   "k": "I have a few more questions...",
+   "v": "もう少し質問があります..."
+  },
+  {
+   "k": "Where were you headed?",
+   "v": "どこへ向かっていたのですか？"
+  },
+  {
+   "k": "Oh, uh...",
+   "v": "あ、えっと..."
+  },
+  {
+   "k": "I was just heading home.",
+   "v": "家に帰る途中でした。"
+  },
+  {
+   "k": "My car is, like, out of gas. So I had to walk.",
+   "v": "車が、その、ガス欠で。歩くしかなくて。"
+  },
+  {
+   "k": "I was just coming back from work. I work at bowling alley a couple of miles down the road.",
+   "v": "仕事帰りだったんです。この道を数キロ行ったところのボウリング場で働いてます。"
+  },
+  {
+   "k": "My name is Jessica.",
+   "v": "ジェシカです。"
+  },
+  {
+   "k": "Not to be rude, but I don't think I would feel comfortable standing out here by myself.",
+   "v": "失礼を言うつもりはないんですけど、ここに一人で立ってるのは落ち着かなくて。"
+  },
+  {
+   "k": "Um.",
+   "v": "えっと。"
+  },
+  {
+   "k": "It was tall.",
+   "v": "背が高かったです。"
+  },
+  {
+   "k": "Or average.",
+   "v": "それか普通。"
+  },
+  {
+   "k": "Taller than me.",
+   "v": "私よりは高かった。"
+  },
+  {
+   "k": "That part I’m sure about.",
+   "v": "それは確かです。"
+  },
+  {
+   "k": "It didn't move much.",
+   "v": "あまり動きませんでした。"
+  },
+  {
+   "k": "Which was the worst part.",
+   "v": "それが一番怖かった。"
+  },
+  {
+   "k": "If it moved, I'd know it was real.",
+   "v": "動いてくれれば、本物だって分かるのに。"
+  },
+  {
+   "k": "I think it had something dark on.",
+   "v": "何か暗いものを着てた気がします。"
+  },
+  {
+   "k": "Like a coat.",
+   "v": "コートみたいな。"
+  },
+  {
+   "k": "Or a shadow pretending to be a coat.",
+   "v": "それか、コートのふりをした影。"
+  },
+  {
+   "k": "R-really?",
+   "v": "ほ、本当ですか？"
+  },
+  {
+   "k": "I promise I won't touch anything.",
+   "v": "何にも触りません、約束します。"
+  },
+  {
+   "k": "Or look at anything too long.",
+   "v": "何かをじっと見たりもしません。"
+  },
+  {
+   "k": "That's fair.",
+   "v": "そうですよね。"
+  },
+  {
+   "k": "You're probably right.",
+   "v": "たぶんあなたの言う通り。"
+  },
+  {
+   "k": "I'm sorry for bothering you.",
+   "v": "お邪魔してすみませんでした。"
+  },
+  {
+   "k": "I'll just walk fast.",
+   "v": "速足で帰ります。"
+  },
+  {
+   "k": "Fast walking makes you harder to catch.",
+   "v": "速く歩くと捕まりにくいんです。"
+  },
+  {
+   "k": "I heard that somewhere.",
+   "v": "どこかで聞きました。"
+  },
+  {
+   "k": "If I start running, don't worry.",
+   "v": "もし走り出しても、心配しないでください。"
+  },
+  {
+   "k": "That's normal for me.",
+   "v": "私にとっては普通のことなので。"
+  },
+  {
+   "k": "I think I'm okay now.",
+   "v": "もう大丈夫だと思います。"
+  },
+  {
+   "k": "I stayed longer than I meant to.",
+   "v": "思ったより長くいちゃいました。"
+  },
+  {
+   "k": "It feels quieter in here.",
+   "v": "ここの中の方が静かですね。"
+  },
+  {
+   "k": "Not good quiet.",
+   "v": "いい静けさじゃなくて。"
+  },
+  {
+   "k": "Just... tired quiet.",
+   "v": "ただ... 疲れた静けさ。"
+  },
+  {
+   "k": "I should probably go home.",
+   "v": "そろそろ家に帰らないと。"
+  },
+  {
+   "k": "You sure you’re alright to leave alone?",
+   "v": "一人で帰って本当に大丈夫ですか？"
+  },
+  {
+   "k": "I mean.",
+   "v": "だって。"
+  },
+  {
+   "k": "I walked here by myself.",
+   "v": "ここまで一人で歩いてきましたし。"
+  },
+  {
+   "k": "And nothing bad happened.",
+   "v": "何も悪いことは起きなかったし。"
+  },
+  {
+   "k": "Probably.",
+   "v": "たぶん。"
+  },
+  {
+   "k": "So it should be fine going back.",
+   "v": "だから帰りも大丈夫なはずです。"
+  },
+  {
+   "k": "If I walk fast.",
+   "v": "速く歩けば。"
+  },
+  {
+   "k": "But not run.",
+   "v": "でも走らない。"
+  },
+  {
+   "k": "Running makes it obvious you're scared.",
+   "v": "走ると、怖がってるのがばれちゃうから。"
+  },
+  {
+   "k": "Goodnight.",
+   "v": "おやすみなさい。"
+  },
+  {
+   "k": "For letting me in.",
+   "v": "入れてくれて。"
+  },
+  {
+   "k": "And for not laughing.",
+   "v": "笑わないでくれて。"
+  },
+  {
+   "k": "I'll be gone in just a second.",
+   "v": "すぐにいなくなりますから。"
+  },
+  {
+   "k": "My name is officer James. I'm here with my partner, officer Baidey on an investigation.",
+   "v": "ジェームズ巡査です。相棒のベイディ巡査と一緒に捜査に来ました。"
+  },
+  {
+   "k": "We've heard reports of some disturbances coming from both from this cemetery and the surrounding neighborhood.",
+   "v": "この墓地と周辺の住宅地の両方から、騒ぎがあったとの通報を受けています。"
+  },
+  {
+   "k": "Apparently some folks saw some strange gang behavior. We took the call, and that's why we're here.",
+   "v": "どうやら不審なギャング行為を見た住民がいるようで。通報を受けて、我々がここへ来たというわけです。"
+  },
+  {
+   "k": "Would you mind answering some questions for us?",
+   "v": "いくつか質問に答えていただけますか？"
+  },
+  {
+   "k": "Alright, how can I help you?",
+   "v": "分かりました。何をすれば？"
+  },
+  {
+   "k": "Sorry, I can't help you.",
+   "v": "すみません、お力にはなれません。"
+  },
+  {
+   "k": "Great, so we've received reports of a few men breaking and entering into homes around this neighborhood.",
+   "v": "結構。この近隣で、複数の男が住居に押し入ったという通報がありまして。"
+  },
+  {
+   "k": "Apparently, some of them have been sighted near this cemetary as well.",
+   "v": "その一部が、この墓地の近くでも目撃されているそうです。"
+  },
+  {
+   "k": "I'd like your help in conducting this investigation.",
+   "v": "捜査にご協力いただきたい。"
+  },
+  {
+   "k": "Firstly, have you seen anyone attempting to enter the premises dressed in black?",
+   "v": "まず、黒い服を着た人物が敷地に入ろうとしているのを見ましたか？"
+  },
+  {
+   "k": "No, officer.",
+   "v": "いいえ、巡査。"
+  },
+  {
+   "k": "Yes, I have.",
+   "v": "はい、見ました。"
+  },
+  {
+   "k": "Could you describe the behavior of this individiual?",
+   "v": "その人物の様子を説明してもらえますか？"
+  },
+  {
+   "k": "They asked to come in and see a grave.",
+   "v": "墓を見たいと言って、入れてほしいと頼んできました。"
+  },
+  {
+   "k": "They never approached me.",
+   "v": "私には近づいてきませんでした。"
+  },
+  {
+   "k": "I don't remember.",
+   "v": "覚えていません。"
+  },
+  {
+   "k": "Alright, I'll move on to my next question.",
+   "v": "分かりました。次の質問に移ります。"
+  },
+  {
+   "k": "Have you seen anyone stalking the perimeter of this facility? Either by the walls, or the gate, looking in?",
+   "v": "この施設の周囲をうろつく人物を見ましたか？塀や門のそばで、中を覗き込むような。"
+  },
+  {
+   "k": "Do you remember anything about this individual?",
+   "v": "その人物について何か覚えていますか？"
+  },
+  {
+   "k": "Perhaps the color of his clothes or complexion?",
+   "v": "服の色や肌の色など？"
+  },
+  {
+   "k": "They wearing a greenish brown shirt.",
+   "v": "緑がかった茶色のシャツを着ていました。"
+  },
+  {
+   "k": "They were wearing a grey robe.",
+   "v": "灰色のローブを着ていました。"
+  },
+  {
+   "k": "Alright, we appreciate your coopearation.",
+   "v": "結構です。ご協力に感謝します。"
+  },
+  {
+   "k": "We have one more question.",
+   "v": "もう一つ質問があります。"
+  },
+  {
+   "k": "If it's alright with you...",
+   "v": "よろしければ..."
+  },
+  {
+   "k": "I would like to come inside and take a look around.",
+   "v": "中に入って、少し見て回りたいのですが。"
+  },
+  {
+   "k": "Alright, go ahead.",
+   "v": "分かりました、どうぞ。"
+  },
+  {
+   "k": "I'm afraid I can't let you in sir.",
+   "v": "申し訳ありませんが、お通しすることはできません。"
+  },
+  {
+   "k": "My name is officer James.",
+   "v": "ジェームズ巡査です。"
+  },
+  {
+   "k": "I see...",
+   "v": "なるほど..."
+  },
+  {
+   "k": "Well, we don't have a warrant, so I can't force you to let me in.",
+   "v": "まあ、令状がないので、無理に入れさせることはできません。"
+  },
+  {
+   "k": "We'll be nearby if there's any trouble. Keep an eye out.",
+   "v": "何かあれば近くにいます。警戒を怠らないように。"
+  },
+  {
+   "k": "I think I'll be concluding my investigation here...",
+   "v": "ここでの捜査はこれで終わりにします..."
+  },
+  {
+   "k": "Keep an eye out. Let us know if you see anything strange.",
+   "v": "警戒を怠らないように。何か異変があれば知らせてください。"
+  },
+  {
+   "k": "Good evening.",
+   "v": "こんばんは。"
+  },
+  {
+   "k": "I'm Father Joseph.",
+   "v": "ジョセフ神父です。"
+  },
+  {
+   "k": "I used to be the pastor here at this church.",
+   "v": "かつてこの教会で司祭を務めていました。"
+  },
+  {
+   "k": "I need to come inside for a moment.",
+   "v": "少し中に入る必要があるのです。"
+  },
+  {
+   "k": "What is your business here?",
+   "v": "ここに何の用ですか？"
+  },
+  {
+   "k": "Well...",
+   "v": "実は..."
+  },
+  {
+   "k": "I've left something important in the basement of that abandoned church years ago.",
+   "v": "何年も前、あの廃教会の地下に大切なものを置いてきてしまったのです。"
+  },
+  {
+   "k": "I need to come inside and reclaim it.",
+   "v": "中に入って、それを取り戻さねばなりません。"
+  },
+  {
+   "k": "What did you leave behind?",
+   "v": "何を置いてきたのですか？"
+  },
+  {
+   "k": "Why wait until now?",
+   "v": "なぜ今まで待ったのです？"
+  },
+  {
+   "k": "A wedding ring for my betrothed. It remained here after many years.",
+   "v": "婚約者への結婚指輪です。長い年月、ここに残されたままでした。"
+  },
+  {
+   "k": "I need it back.",
+   "v": "取り戻さなければならない。"
+  },
+  {
+   "k": "Are you hiding something?",
+   "v": "何か隠していませんか？"
+  },
+  {
+   "k": "You came all this way just for that?",
+   "v": "そのためだけに、はるばる来たのですか？"
+  },
+  {
+   "k": "Yes. It has very large sentimental value to me.",
+   "v": "ええ。私にとって非常に大切な思い出の品なのです。"
+  },
+  {
+   "k": "I need to enter the grounds to retrieve it.",
+   "v": "それを取り戻すために、敷地に入らねばなりません。"
+  },
+  {
+   "k": "You're hiding something.",
+   "v": "何か隠していますね。"
+  },
+  {
+   "k": "Alright, I will be candid with you.",
+   "v": "分かりました。率直にお話ししましょう。"
+  },
+  {
+   "k": "I had hoped not to return to this place.",
+   "v": "この場所には二度と戻らないつもりでした。"
+  },
+  {
+   "k": "But recently... I have felt immense guilt over the loss of my wife to be.",
+   "v": "しかし最近... 妻となるはずだった人を失ったことに、耐え難い罪悪感を覚えるのです。"
+  },
+  {
+   "k": "She passed away before I had the opportunity to take our vows.",
+   "v": "誓いを交わす機会を得る前に、彼女は亡くなりました。"
+  },
+  {
+   "k": "I must return to retrieve our wedding ring.",
+   "v": "私たちの結婚指輪を取り戻しに、戻らねばならないのです。"
+  },
+  {
+   "k": "As something to remember her by.",
+   "v": "彼女を偲ぶ縁として。"
+  },
+  {
+   "k": "Are you lying?",
+   "v": "嘘をついていませんか？"
+  },
+  {
+   "k": "How can I trust you?",
+   "v": "どうすれば信じられますか？"
+  },
+  {
+   "k": "No. I know it has been many years since I've returned to these grounds...",
+   "v": "いいえ。この地に戻るのは何年ぶりか分かりませんが..."
+  },
+  {
+   "k": "But I'm back now and I need to retrieve what is rightfully mine.",
+   "v": "今こうして戻り、正当に私のものであるものを取り戻さねばなりません。"
+  },
+  {
+   "k": "So please...",
+   "v": "ですから、どうか..."
+  },
+  {
+   "k": "You are wise to hesitate.",
+   "v": "ためらうのは賢明です。"
+  },
+  {
+   "k": "Every step toward that church feels like walking back into a memory that has been waiting patiently for my return.",
+   "v": "あの教会へ向かう一歩一歩が、私の帰りをじっと待っていた記憶の中へ戻っていくようです。"
+  },
+  {
+   "k": "But I need that ring.",
+   "v": "しかし、あの指輪が必要なのです。"
+  },
+  {
+   "k": "I would like you to come with me to retrieve it.",
+   "v": "一緒に取りに来てほしいのです。"
+  },
+  {
+   "k": "Shall we go together?",
+   "v": "共に行きましょうか？"
+  },
+  {
+   "k": "Alright. Let's go.",
+   "v": "分かりました。行きましょう。"
+  },
+  {
+   "k": "I'm sorry father, but you should leave.",
+   "v": "申し訳ありませんが神父、お帰りください。"
+  },
+  {
+   "k": "Do you have any family members?",
+   "v": "ご家族はいらっしゃいますか？"
+  },
+  {
+   "k": "My name is Father Joseph Smith.",
+   "v": "ジョセフ・スミス神父です。"
+  },
+  {
+   "k": "I have no immediate family members.",
+   "v": "近しい家族はおりません。"
+  },
+  {
+   "k": "We will not be long.",
+   "v": "長くはかかりません。"
+  },
+  {
+   "k": "It is down the hall, on the staircase to the right.",
+   "v": "廊下の突き当たり、右手の階段です。"
+  },
+  {
+   "k": "I know the way.",
+   "v": "道は分かっています。"
+  },
+  {
+   "k": "I hope we are not too late.",
+   "v": "手遅れでなければよいのですが。"
+  },
+  {
+   "k": "Hurry.",
+   "v": "急いで。"
+  },
+  {
+   "k": "I urge you to reconsider.",
+   "v": "考え直すよう、強くお願いします。"
+  },
+  {
+   "k": "It is very important you allow me inside to retrieve the lost item.",
+   "v": "失った品を取り戻すため、私を中に入れていただくことがとても重要なのです。"
+  },
+  {
+   "k": "Please. Allow me in.",
+   "v": "どうか。入れてください。"
+  },
+  {
+   "k": "You're right. I'm sorry. Let's go inside.",
+   "v": "あなたの言う通りです。すみません。中へ入りましょう。"
+  },
+  {
+   "k": "No. Leave.",
+   "v": "いいえ。お帰りください。"
+  },
+  {
+   "k": "Very well.",
+   "v": "分かりました。"
+  },
+  {
+   "k": "I will not force your hand.",
+   "v": "無理強いはしません。"
+  },
+  {
+   "k": "May God forgive us both.",
+   "v": "神が我々二人をお許しくださいますように。"
+  },
+  {
+   "k": "Here we are.",
+   "v": "着きました。"
+  },
+  {
+   "k": "I would like you to enter inside and retrieve it for me. I will wait out here.",
+   "v": "中に入って、私の代わりに取ってきてほしいのです。私はここで待ちます。"
+  },
+  {
+   "k": "It is down the hall. Take the first door to your right.",
+   "v": "廊下の突き当たりです。右手の最初の扉を入ってください。"
+  },
+  {
+   "k": "It is a rather long staircase down to the basement. Just keep going until you reach the bottom.",
+   "v": "地下室までかなり長い階段です。一番下に着くまで降り続けてください。"
+  },
+  {
+   "k": "The ring should be left in a chest in the back corner.",
+   "v": "指輪は奥の隅の箱の中にあるはずです。"
+  },
+  {
+   "k": "Before you enter, I would like to give you some advice.",
+   "v": "入る前に、ひとつ助言を。"
+  },
+  {
+   "k": "When you go down the hall, do not enter the door on the left. No matter what.",
+   "v": "廊下を進む時、左の扉には入らないように。何があっても。"
+  },
+  {
+   "k": "Also, do not listen to any voices that may lead you astray. Stay on your path, and stay resolute.",
+   "v": "それから、あなたを惑わそうとする声には耳を貸さないこと。道を外れず、心を強く保ちなさい。"
+  },
+  {
+   "k": "Do you understand?",
+   "v": "分かりましたか？"
+  },
+  {
+   "k": "Okay. Thank you, father.",
+   "v": "分かりました。ありがとうございます、神父。"
+  },
+  {
+   "k": "I've changed my mind. You should leave.",
+   "v": "気が変わりました。お帰りください。"
+  },
+  {
+   "k": "Were you able to retrieve the ring?",
+   "v": "指輪は取り戻せましたか？"
+  },
+  {
+   "k": "Not yet. I'll go get it.",
+   "v": "まだです。取ってきます。"
+  },
+  {
+   "k": "Yo… you work here?",
+   "v": "よう... ここで働いてるのか？"
+  },
+  {
+   "k": "Listen, man, I can’t hang around long.",
+   "v": "なあ、長くはいられないんだ。"
+  },
+  {
+   "k": "I don’t even wanna come in.",
+   "v": "中に入る気もない。"
+  },
+  {
+   "k": "Just needed to give you a heads-up.",
+   "v": "ただ忠告しに来ただけだ。"
+  },
+  {
+   "k": "A heads-up?",
+   "v": "忠告？"
+  },
+  {
+   "k": "Yeah. A warning.",
+   "v": "ああ。警告だ。"
+  },
+  {
+   "k": "My brother’s been acting real strange lately.",
+   "v": "兄貴が最近、様子がおかしいんだ。"
+  },
+  {
+   "k": "Says he’s got some kind of “gig” involving this place.",
+   "v": "この場所に関わる「仕事」があるとか言ってる。"
+  },
+  {
+   "k": "Tried telling the cops, but they wouldn’t listen. They never take me seriously.",
+   "v": "警察に言ってみたが、聞いてもらえなかった。俺のことは誰も真に受けない。"
+  },
+  {
+   "k": "So I figured I’d come myself.",
+   "v": "だから自分で来ることにした。"
+  },
+  {
+   "k": "If my brother shows up here to “visit” a grave…",
+   "v": "もし兄貴が墓を「参りに」ここに現れたら..."
+  },
+  {
+   "k": "Do not let him in.",
+   "v": "入れるな。"
+  },
+  {
+   "k": "You hear me?",
+   "v": "分かったか？"
+  },
+  {
+   "k": "Why not?",
+   "v": "なぜだ？"
+  },
+  {
+   "k": "Alright, I understand. Can you give me any more details?",
+   "v": "分かった。もう少し詳しく教えてくれないか？"
+  },
+  {
+   "k": "I already told you, man.",
+   "v": "もう言っただろ。"
+  },
+  {
+   "k": "He’s been running with the wrong crowd.",
+   "v": "悪い連中とつるんでるんだ。"
+  },
+  {
+   "k": "Nothing but trouble.",
+   "v": "ろくなことがない。"
+  },
+  {
+   "k": "I don’t want him getting in deeper than he already is.",
+   "v": "これ以上、深みにはまってほしくないんだ。"
+  },
+  {
+   "k": "Just turn him away. Don’t let him in, and don’t let him talk you into it.",
+   "v": "とにかく追い返せ。入れるな、丸め込まれるな。"
+  },
+  {
+   "k": "Him and that weird, cult-like group he’s been hanging around lately…",
+   "v": "兄貴と、最近つるんでるカルトみたいな変な連中..."
+  },
+  {
+   "k": "I don’t know. Something’s off.",
+   "v": "分からない。何かがおかしいんだ。"
+  },
+  {
+   "k": "Okay. Thanks for the warning.",
+   "v": "分かった。忠告に感謝する。"
+  },
+  {
+   "k": "Sorry, but I’ll be handling security myself. You should go home.",
+   "v": "悪いが、警備は自分でやる。家に帰った方がいい。"
+  },
+  {
+   "k": "Name’s Reginald. My brother’s Shane.",
+   "v": "レジナルドだ。兄貴はシェーン。"
+  },
+  {
+   "k": "We’re part of the Deloitte family — live a few miles down the road.",
+   "v": "デロイト家の者だ。この道を数キロ行ったところに住んでる。"
+  },
+  {
+   "k": "I’m not here to cause trouble.",
+   "v": "面倒を起こしに来たんじゃない。"
+  },
+  {
+   "k": "I just want to stop him from doing something stupid… something he might regret.",
+   "v": "兄貴が馬鹿なことをするのを止めたいだけだ... 後悔するようなことを。"
+  },
+  {
+   "k": "He’s always been like this. Always pushing his luck.",
+   "v": "昔からああなんだ。いつも運試しばかりして。"
+  },
+  {
+   "k": "So please — can you promise me you won’t let him or his gang in?",
+   "v": "だから頼む。兄貴とその仲間を入れないと約束してくれるか？"
+  },
+  {
+   "k": "Thanks for hearing me out.",
+   "v": "聞いてくれてありがとう。"
+  },
+  {
+   "k": "We’re the Deloitte family — live not too far from here.",
+   "v": "俺たちはデロイト家だ。ここからそう遠くないところに住んでる。"
+  },
+  {
+   "k": "My brother looks a lot like me. Little shorter, but close enough you might mistake us.",
+   "v": "兄貴は俺によく似てる。少し背が低いが、見間違えるくらいには似てる。"
+  },
+  {
+   "k": "He’s been rolling with this strange group lately — all black clothes, weird rituals, causing problems wherever they go.",
+   "v": "最近、変な集団とつるんでるんだ。全身黒ずくめで、妙な儀式をやって、行く先々で問題を起こす。"
+  },
+  {
+   "k": "Real cult-like stuff.",
+   "v": "まさにカルトってやつだ。"
+  },
+  {
+   "k": "Before he took off, I heard him muttering about this graveyard being “important.”",
+   "v": "出ていく前、この墓地が「重要」だとかつぶやいてるのを聞いた。"
+  },
+  {
+   "k": "Didn’t like the sound of that.",
+   "v": "嫌な響きだった。"
+  },
+  {
+   "k": "Feels like he’s planning to mess with something buried out here.",
+   "v": "ここに埋まってる何かをいじるつもりな気がする。"
+  },
+  {
+   "k": "Just… don’t let him in.",
+   "v": "とにかく... 入れないでくれ。"
+  },
+  {
+   "k": "I don’t want to see him ruin his life any more than he already has.",
+   "v": "これ以上、あいつが自分の人生を台無しにするのを見たくないんだ。"
+  },
+  {
+   "k": "Can you promise me that?",
+   "v": "約束してくれるか？"
+  },
+  {
+   "k": "Thanks, man.",
+   "v": "ありがとな。"
+  },
+  {
+   "k": "I owe you one.",
+   "v": "借りができた。"
+  },
+  {
+   "k": "Yeah… figures.",
+   "v": "ああ... だと思ったよ。"
+  },
+  {
+   "k": "Nobody ever takes me seriously.",
+   "v": "誰も俺を真に受けない。"
+  },
+  {
+   "k": "Hope you all get what’s coming to you.",
+   "v": "お前ら全員、報いを受ければいい。"
+  },
+  {
+   "k": "Hey.",
+   "v": "よう。"
+  },
+  {
+   "k": "Didn't think anyone would be out here this late.",
+   "v": "こんな遅くに誰かいるとは思わなかった。"
+  },
+  {
+   "k": "You work this place?",
+   "v": "ここの管理人か？"
+  },
+  {
+   "k": "Listen… I don’t wanna make trouble.",
+   "v": "なあ... 面倒を起こす気はない。"
+  },
+  {
+   "k": "I just need a minute inside.",
+   "v": "少しだけ中に入りたいんだ。"
+  },
+  {
+   "k": "It's late. What do you want?",
+   "v": "遅い時間です。何の用ですか？"
+  },
+  {
+   "k": "My name's Shane.",
+   "v": "シェーンだ。"
+  },
+  {
+   "k": "Deloitte family. We live a ways down the road.",
+   "v": "デロイト家の者だ。この道の先に住んでる。"
+  },
+  {
+   "k": "I’m not here to steal anything or mess around.",
+   "v": "何かを盗んだり、いたずらしに来たんじゃない。"
+  },
+  {
+   "k": "There’s something in there that belongs to my family.",
+   "v": "中に、俺の家族のものがあるんだ。"
+  },
+  {
+   "k": "Something that never got handled right.",
+   "v": "きちんと処理されなかったものが。"
+  },
+  {
+   "k": "Handled how?",
+   "v": "処理とは？"
+  },
+  {
+   "k": "Rules are rules. I can’t let you in.",
+   "v": "規則は規則です。入れるわけにはいきません。"
+  },
+  {
+   "k": "I just need to see a grave.",
+   "v": "ただ墓を一つ見たいだけだ。"
+  },
+  {
+   "k": "It's unmarked.",
+   "v": "名前のない墓だ。"
+  },
+  {
+   "k": "Most folks don’t even know it’s there.",
+   "v": "ほとんどの人はそこにあることさえ知らない。"
+  },
+  {
+   "k": "I wouldn’t be here if I had another option.",
+   "v": "他に手があれば、ここには来てない。"
+  },
+  {
+   "k": "Why is it unmarked?",
+   "v": "なぜ名前がないんです？"
+  },
+  {
+   "k": "That doesn’t matter. You need to leave.",
+   "v": "関係ありません。帰ってください。"
+  },
+  {
+   "k": "They buried them in a hurry.",
+   "v": "急いで埋めたんだ。"
+  },
+  {
+   "k": "Didn’t ask questions. Didn’t put a name down.",
+   "v": "質問もせず。名前も残さず。"
+  },
+  {
+   "k": "Just wanted it done and forgotten.",
+   "v": "ただ済ませて忘れたかったんだ。"
+  },
+  {
+   "k": "That kind of thing sticks with a family.",
+   "v": "そういうことは家族に染みつく。"
+  },
+  {
+   "k": "Sticks with a place too.",
+   "v": "場所にもな。"
+  },
+  {
+   "k": "You’re talking in circles. Be straight with me.",
+   "v": "話が回りくどい。はっきり言ってください。"
+  },
+  {
+   "k": "I’m sorry, but I still can’t let you in.",
+   "v": "申し訳ありませんが、それでも入れるわけにはいきません。"
+  },
+  {
+   "k": "Because it was easier that way.",
+   "v": "その方が楽だったからだ。"
+  },
+  {
+   "k": "No paperwork or attention.",
+   "v": "書類も、人目もない。"
+  },
+  {
+   "k": "Just dirt over a problem.",
+   "v": "問題の上に土をかぶせただけだ。"
+  },
+  {
+   "k": "I know how this sounds.",
+   "v": "どう聞こえるかは分かってる。"
+  },
+  {
+   "k": "But I need to see it with my own eyes.",
+   "v": "だが自分の目で確かめたいんだ。"
+  },
+  {
+   "k": "Make sure nothing’s… wrong.",
+   "v": "何も... 問題がないことを。"
+  },
+  {
+   "k": "What could be wrong?",
+   "v": "何の問題があるというんです？"
+  },
+  {
+   "k": "No. You’re not going inside.",
+   "v": "だめです。中には入れません。"
+  },
+  {
+   "k": "…Alright.",
+   "v": "…分かった。"
+  },
+  {
+   "k": "Something’s been off lately.",
+   "v": "最近、何かがおかしいんだ。"
+  },
+  {
+   "k": "I haven't been able to sleep right. The guilt from the quick burial...",
+   "v": "まともに眠れない。急いで埋葬したことへの罪悪感で..."
+  },
+  {
+   "k": "I just wanna make sure the plot is alright.",
+   "v": "ただ、あの区画が無事か確かめたいだけなんだ。"
+  },
+  {
+   "k": "The paperwork doesn’t line up.",
+   "v": "書類の辻褄が合わない。"
+  },
+  {
+   "k": "Dates, plot number... even the depth’s different depending on who you ask.",
+   "v": "日付、区画番号... 深さまで、聞く相手によって違う。"
+  },
+  {
+   "k": "That usually means someone rushed it, or skipped steps they shouldn’t have.",
+   "v": "そういう時はたいてい、誰かが急いだか、省いちゃいけない手順を省いたかだ。"
+  },
+  {
+   "k": "If something was done wrong, it’s easier to fix it now than after it becomes a bigger problem.",
+   "v": "何か間違いがあったなら、大ごとになる前に直す方がずっと楽だ。"
+  },
+  {
+   "k": "I’ve learned that the hard way.",
+   "v": "身をもって学んだことだ。"
+  },
+  {
+   "k": "Will you let me come in and have a look?",
+   "v": "中に入って確かめさせてくれるか？"
+  },
+  {
+   "k": "Fine. You can go in, but be quick.",
+   "v": "分かりました。入っていいですが、手短に。"
+  },
+  {
+   "k": "My brother, Reginald.",
+   "v": "弟のレジナルドだ。"
+  },
+  {
+   "k": "It was very recent.",
+   "v": "ごく最近だ。"
+  },
+  {
+   "k": "A little over a week ago.",
+   "v": "一週間ちょっと前。"
+  },
+  {
+   "k": "You weren't working here when it happened.",
+   "v": "その時あんたはまだここで働いてなかった。"
+  },
+  {
+   "k": "He died close to here.",
+   "v": "この近くで死んだ。"
+  },
+  {
+   "k": "He was in a terrible shape when they found him. I don't want to recall the details.",
+   "v": "見つかった時はひどい有様だった。詳しくは思い出したくない。"
+  },
+  {
+   "k": "I don't know for certain.",
+   "v": "はっきりとは分からない。"
+  },
+  {
+   "k": "After my brother's death, it's just me.",
+   "v": "弟が死んで、残ったのは俺だけだ。"
+  },
+  {
+   "k": "Shane Deloitte.",
+   "v": "シェーン・デロイト。"
+  },
+  {
+   "k": "Really.",
+   "v": "本当に。"
+  },
+  {
+   "k": "I’ll be quick.",
+   "v": "すぐ済ませる。"
+  },
+  {
+   "k": "That figures.",
+   "v": "だろうな。"
+  },
+  {
+   "k": "Nobody ever wants to deal with things before they rot.",
+   "v": "誰も、腐る前に物事を片付けようとはしない。"
+  },
+  {
+   "k": "They just lock the gate and walk away.",
+   "v": "ただ門に鍵をかけて立ち去るだけだ。"
+  },
+  {
+   "k": "If this turns into a mess later, just remember I came by.",
+   "v": "後で厄介なことになったら、俺が来たことを思い出せ。"
+  },
+  {
+   "k": "I tried to handle this properly.",
+   "v": "俺はきちんと対処しようとした。"
+  },
+  {
+   "k": "…Yeah.",
+   "v": "…ああ。"
+  },
+  {
+   "k": "It’s still here.",
+   "v": "まだここにある。"
+  },
+  {
+   "k": "You can go.",
+   "v": "もう行っていい。"
+  },
+  {
+   "k": "I won’t need you watching anymore.",
+   "v": "もう見張ってもらう必要はない。"
+  },
+  {
+   "k": "You said you’d be quick.",
+   "v": "手短に済ませると言いましたよね。"
+  },
+  {
+   "k": "Yeah, I know.",
+   "v": "ああ、分かってる。"
+  },
+  {
+   "k": "Just needed to see it one more time.",
+   "v": "もう一度だけ見ておきたかった。"
+  },
+  {
+   "k": "I’m done.",
+   "v": "終わった。"
+  },
+  {
+   "k": "You won’t see me again tonight.",
+   "v": "今夜はもう俺を見ることはない。"
+  },
+  {
+   "k": "That depends.",
+   "v": "それは分からない。"
+  },
+  {
+   "k": "But it’s not your problem.",
+   "v": "だがあんたの問題じゃない。"
+  },
+  {
+   "k": "I’m finished here.",
+   "v": "ここでの用は済んだ。"
+  },
+  {
+   "k": "You must be the gravekeeper.",
+   "v": "あなたが墓守ね。"
+  },
+  {
+   "k": "My name is Tabitha.",
+   "v": "タビサといいます。"
+  },
+  {
+   "k": "I was hoping you’d be on duty tonight.",
+   "v": "今夜、あなたが勤務していることを願っていたの。"
+  },
+  {
+   "k": "I'm not interested.",
+   "v": "興味ありません。"
+  },
+  {
+   "k": "Can I help you with something?",
+   "v": "何かご用ですか？"
+  },
+  {
+   "k": "Curiosity keeps most people alive longer than confidence.",
+   "v": "好奇心は、自信よりも長く人を生かすものよ。"
+  },
+  {
+   "k": "I ask for a mere moment.",
+   "v": "ほんの少しだけ時間をちょうだい。"
+  },
+  {
+   "k": "I want to enter the graveyard.",
+   "v": "墓地に入りたいの。"
+  },
+  {
+   "k": "Not to disturb anything.",
+   "v": "何かを荒らすためじゃない。"
+  },
+  {
+   "k": "To protect it.",
+   "v": "守るためよ。"
+  },
+  {
+   "k": "There are… restless things.",
+   "v": "ここには... 落ち着かないものたちがいる。"
+  },
+  {
+   "k": "You don’t see them.",
+   "v": "あなたには見えない。"
+  },
+  {
+   "k": "But they notice places like this.",
+   "v": "でも、あれらはこういう場所に気づくの。"
+  },
+  {
+   "k": "That sounds like nonsense.",
+   "v": "戯言にしか聞こえませんね。"
+  },
+  {
+   "k": "Protect it how?",
+   "v": "守るとは、どうやって？"
+  },
+  {
+   "k": "You have a kind voice.",
+   "v": "優しい声をしているのね。"
+  },
+  {
+   "k": "That helps, in a place like this.",
+   "v": "こういう場所では、それが助けになる。"
+  },
+  {
+   "k": "I work with old rites.",
+   "v": "私は古い儀式を扱っているの。"
+  },
+  {
+   "k": "Small blessings.",
+   "v": "ささやかな祝福を。"
+  },
+  {
+   "k": "They keep bad spirits from wandering too close.",
+   "v": "悪い霊が近づきすぎないようにするのよ。"
+  },
+  {
+   "k": "This graveyard feels thin.",
+   "v": "この墓地は薄くなっている。"
+  },
+  {
+   "k": "Like a door left unlocked.",
+   "v": "鍵のかかっていない扉のように。"
+  },
+  {
+   "k": "You expect me to believe that?",
+   "v": "そんな話を信じろと？"
+  },
+  {
+   "k": "What kind of rites?",
+   "v": "どんな儀式です？"
+  },
+  {
+   "k": "You call it nonsense.",
+   "v": "戯言と呼ぶのね。"
+  },
+  {
+   "k": "That’s fine.",
+   "v": "構わないわ。"
+  },
+  {
+   "k": "Most people do.",
+   "v": "ほとんどの人がそう言う。"
+  },
+  {
+   "k": "Until something follows them home.",
+   "v": "何かが家までついてくるまではね。"
+  },
+  {
+   "k": "I don’t charge.",
+   "v": "お金は取らない。"
+  },
+  {
+   "k": "I don’t ask for thanks.",
+   "v": "感謝も求めない。"
+  },
+  {
+   "k": "Just permission.",
+   "v": "許可だけよ。"
+  },
+  {
+   "k": "Nothing dramatic.",
+   "v": "大げさなものじゃない。"
+  },
+  {
+   "k": "No candles. No blood. Just words said in the right places.",
+   "v": "蝋燭も血もいらない。正しい場所で、正しい言葉を唱えるだけ。"
+  },
+  {
+   "k": "The dead sleep better after, and the living too.",
+   "v": "そうすれば死者はよく眠れる。生者もね。"
+  },
+  {
+   "k": "You look tired.",
+   "v": "疲れているようね。"
+  },
+  {
+   "k": "That kind of tired doesn’t come from long shifts.",
+   "v": "その疲れは、長い勤務のせいじゃない。"
+  },
+  {
+   "k": "You won’t owe me anything.",
+   "v": "何も借りは作らない。"
+  },
+  {
+   "k": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest.",
+   "v": "簡単な手順よ。墓地の小道を歩いて、魂を安らがせるの。"
+  },
+  {
+   "k": "You will immediately feel at ease.",
+   "v": "すぐに楽になるはずよ。"
+  },
+  {
+   "k": "Let me inside.",
+   "v": "中に入れて。"
+  },
+  {
+   "k": "Alright. Go ahead, but I’m watching you.",
+   "v": "分かりました。どうぞ、ただし見張らせてもらいます。"
+  },
+  {
+   "k": "No. I can’t let you in.",
+   "v": "いいえ。入れるわけにはいきません。"
+  },
+  {
+   "k": "Ask away.",
+   "v": "どうぞ聞いて。"
+  },
+  {
+   "k": "Yes, unfortunately.",
+   "v": "ええ、残念ながら。"
+  },
+  {
+   "k": "My pestiferous sister, Maribel. She may try to come here and undo my work. Or make things worse.",
+   "v": "厄介な妹のマリベル。ここへ来て私の仕事を台無しにしようとするかもしれない。あるいは、もっと悪くするかも。"
+  },
+  {
+   "k": "I trust you are fit for your job and will make the correct decisions.",
+   "v": "あなたはこの仕事にふさわしく、正しい判断ができると信じているわ。"
+  },
+  {
+   "k": "I have other questions",
+   "v": "他にも質問があります"
+  },
+  {
+   "k": "Tabitha.",
+   "v": "タビサよ。"
+  },
+  {
+   "k": "I am here to ease the restless spirits in this graveyard.",
+   "v": "この墓地の落ち着かない霊たちを鎮めに来たの。"
+  },
+  {
+   "k": "You don't need to be afraid...",
+   "v": "怖がる必要はないわ..."
+  },
+  {
+   "k": "I am here to help.",
+   "v": "助けに来たのよ。"
+  },
+  {
+   "k": "Why did you choose this graveyard?",
+   "v": "なぜこの墓地を選んだのです？"
+  },
+  {
+   "k": "Are you attempting to deceive me?",
+   "v": "私を騙そうとしていますか？"
+  },
+  {
+   "k": "Don't get the wrong idea, gravekeeper.",
+   "v": "誤解しないで、墓守さん。"
+  },
+  {
+   "k": "I am merely a guardian, much like yourself. I happened to stumble upon a place that needed help, and you happened to be here.",
+   "v": "私はあなたと同じ、ただの守り手。助けを必要とする場所にたまたま出くわして、そこにたまたまあなたがいただけ。"
+  },
+  {
+   "k": "I offer my help. You may choose to accept it, or not.",
+   "v": "私は助けを差し出す。受け取るかどうかはあなた次第よ。"
+  },
+  {
+   "k": "Deceive you?",
+   "v": "騙す？"
+  },
+  {
+   "k": "If I were lying, what good would it help to ask me that?",
+   "v": "もし嘘をついているなら、そう尋ねて何になるの？"
+  },
+  {
+   "k": "I don't think you're thinking this through.",
+   "v": "あなた、ちゃんと考えていないようね。"
+  },
+  {
+   "k": "You made the right choice.",
+   "v": "正しい選択をしたわ。"
+  },
+  {
+   "k": "If tonight feels quieter than usual, that’s me helping.",
+   "v": "今夜がいつもより静かに感じたら、それは私のおかげよ。"
+  },
+  {
+   "k": "I see.",
+   "v": "そう。"
+  },
+  {
+   "k": "You guard the gate, but not what slips through cracks.",
+   "v": "あなたは門を守っているけれど、隙間から忍び込むものは守れない。"
+  },
+  {
+   "k": "Don’t say I didn’t offer.",
+   "v": "私が申し出なかったなんて言わないでね。"
+  },
+  {
+   "k": "Sleep lightly tonight.",
+   "v": "今夜は浅い眠りにしておきなさい。"
+  },
+  {
+   "k": "Ah! Yes! There it is...",
+   "v": "ああ！ええ！これよ..."
+  },
+  {
+   "k": "Did you feel that?",
+   "v": "感じた？"
+  },
+  {
+   "k": "They scattered so fast.",
+   "v": "あんなに速く散っていった。"
+  },
+  {
+   "k": "The old ones hate being named.",
+   "v": "古きものたちは、名を呼ばれるのを嫌うの。"
+  },
+  {
+   "k": "Especially out loud.",
+   "v": "特に声に出してね。"
+  },
+  {
+   "k": "You’re finished, right?",
+   "v": "終わったんですよね？"
+  },
+  {
+   "k": "Finished?",
+   "v": "終わった？"
+  },
+  {
+   "k": "No... completed.",
+   "v": "いいえ... 完了したのよ。"
+  },
+  {
+   "k": "This place will sleep better now.",
+   "v": "この場所はもっとよく眠れるようになる。"
+  },
+  {
+   "k": "You helped more than you know.",
+   "v": "あなたは思っている以上に役に立ったわ。"
+  },
+  {
+   "k": "Thank you, gravekeeper.",
+   "v": "ありがとう、墓守さん。"
+  },
+  {
+   "k": "For your cooperation.",
+   "v": "協力してくれて。"
+  },
+  {
+   "k": "We may speak again.",
+   "v": "また話すこともあるでしょう。"
+  },
+  {
+   "k": "Good. You’re still here.",
+   "v": "よかった。まだいたのね。"
+  },
+  {
+   "k": "I was worried I’d be too late.",
+   "v": "遅すぎたかと心配していたの。"
+  },
+  {
+   "k": "You’re the gravekeeper, yes?",
+   "v": "あなたが墓守ね？"
+  },
+  {
+   "k": "The graveyard is closed.",
+   "v": "墓地は閉まっています。"
+  },
+  {
+   "k": "My name is Maribel.",
+   "v": "マリベルよ。"
+  },
+  {
+   "k": "I’m looking for someone who came through here earlier.",
+   "v": "さっきここを通った人を探しているの。"
+  },
+  {
+   "k": "A woman named Tabitha.",
+   "v": "タビサという名の女。"
+  },
+  {
+   "k": "Thin. Quiet. Thinks she knows how the dead work.",
+   "v": "痩せていて、物静か。死者の仕組みを知っていると思い込んでいる。"
+  },
+  {
+   "k": "She’s my sister.",
+   "v": "私の姉よ。"
+  },
+  {
+   "k": "She was here earlier.",
+   "v": "さっき来ていました。"
+  },
+  {
+   "k": "No one like that came by.",
+   "v": "そんな人は来ていません。"
+  },
+  {
+   "k": "Closed.",
+   "v": "閉まっている。"
+  },
+  {
+   "k": "Yes, I heard that already.",
+   "v": "ええ、それはもう聞いたわ。"
+  },
+  {
+   "k": "But you see, I’m not here for the graveyard.",
+   "v": "でもね、私は墓地に用があるわけじゃないの。"
+  },
+  {
+   "k": "I’m here because my sister has a habit of interfering with things she doesn’t understand.",
+   "v": "姉には、自分の理解できないものに手を出す癖があるから来たのよ。"
+  },
+  {
+   "k": "And this place?",
+   "v": "そしてこの場所は？"
+  },
+  {
+   "k": "It attracts those things.",
+   "v": "そういうものを引き寄せるの。"
+  },
+  {
+   "k": "Interfering how?",
+   "v": "手を出す、とは？"
+  },
+  {
+   "k": "I still can’t let you in.",
+   "v": "それでも入れるわけにはいきません。"
+  },
+  {
+   "k": "I knew it.",
+   "v": "やっぱり。"
+  },
+  {
+   "k": "She never could resist places like this.",
+   "v": "姉はこういう場所には抗えなかった。"
+  },
+  {
+   "k": "Always trying to “fix” things.",
+   "v": "いつも物事を「直そう」として。"
+  },
+  {
+   "k": "Always making them worse.",
+   "v": "いつも悪化させる。"
+  },
+  {
+   "k": "If she performed her little rites here, then something of mine is now trapped inside.",
+   "v": "もしここでちょっとした儀式をしたのなら、私のものが今、中に閉じ込められている。"
+  },
+  {
+   "k": "That’s why I need to enter.",
+   "v": "だから入らなければならないの。"
+  },
+  {
+   "k": "Something of yours?",
+   "v": "あなたのもの？"
+  },
+  {
+   "k": "That’s not my problem.",
+   "v": "私には関係ありません。"
+  },
+  {
+   "k": "Then she plans to come later.",
+   "v": "なら、後で来るつもりね。"
+  },
+  {
+   "k": "Or she sent me ahead.",
+   "v": "それとも、私を先に行かせたか。"
+  },
+  {
+   "k": "Either way, the result is the same.",
+   "v": "どちらにせよ、結果は同じ。"
+  },
+  {
+   "k": "There’s something buried here that doesn’t belong to the dead.",
+   "v": "ここには、死者のものではない何かが埋まっている。"
+  },
+  {
+   "k": "And I can feel it breathing.",
+   "v": "そして、それが息をしているのを感じるの。"
+  },
+  {
+   "k": "Breathing?",
+   "v": "息を？"
+  },
+  {
+   "k": "You’re not making this better.",
+   "v": "話がますます怪しくなっていますよ。"
+  },
+  {
+   "k": "Tabitha believes in keeping doors closed.",
+   "v": "タビサは扉を閉ざしておくことを信じている。"
+  },
+  {
+   "k": "I believe in knowing what’s on the other side.",
+   "v": "私は、向こう側に何があるかを知ることを信じている。"
+  },
+  {
+   "k": "When she meddles, she binds things halfway.",
+   "v": "姉が手を出すと、物事は中途半端に縛られる。"
+  },
+  {
+   "k": "Not alive. Not gone.",
+   "v": "生きてもいない。去ってもいない。"
+  },
+  {
+   "k": "If I don’t retrieve what she disturbed, it will start calling out.",
+   "v": "姉が乱したものを私が回収しなければ、それは呼び始める。"
+  },
+  {
+   "k": "First to the dead, then to you.",
+   "v": "まず死者を、次にあなたを。"
+  },
+  {
+   "k": "I won’t need long.",
+   "v": "長くはかからないわ。"
+  },
+  {
+   "k": "I’ll find what my sister tangled up.",
+   "v": "姉が絡ませたものを見つける。"
+  },
+  {
+   "k": "I’ll take it with me.",
+   "v": "持ち帰る。"
+  },
+  {
+   "k": "And this place will finally be quiet.",
+   "v": "そうすれば、この場所はようやく静かになる。"
+  },
+  {
+   "k": "If you refuse…",
+   "v": "もし断るなら..."
+  },
+  {
+   "k": "Well.",
+   "v": "そうね。"
+  },
+  {
+   "k": "It will still get out eventually.",
+   "v": "いずれにせよ、それは外に出てくるわ。"
+  },
+  {
+   "k": "No. You’re not setting foot inside.",
+   "v": "だめです。一歩も中には入れません。"
+  },
+  {
+   "k": "Of course.",
+   "v": "もちろん。"
+  },
+  {
+   "k": "How can I trust you over your sister?",
+   "v": "お姉さんよりあなたを信じる理由は？"
+  },
+  {
+   "k": "Ah, I see Tabitha has gotten quite the hold on you.",
+   "v": "ああ、タビサにすっかり取り込まれているようね。"
+  },
+  {
+   "k": "It is a decision for you to make, gravekeeper.",
+   "v": "決めるのはあなたよ、墓守さん。"
+  },
+  {
+   "k": "If you have felt uneasy since my sister's appearance, that is because the spirits here are enraged.",
+   "v": "姉が現れてから不安を感じているなら、それはここの霊たちが怒っているから。"
+  },
+  {
+   "k": "Tabitha does not know how to control the spirits she claims to speak to.",
+   "v": "タビサは、自分が話しかけていると言う霊たちを制御する術を知らない。"
+  },
+  {
+   "k": "If you did indeed let her into these grounds, only I can undo her damage.",
+   "v": "本当に姉をこの地に入れたのなら、その害を元に戻せるのは私だけ。"
+  },
+  {
+   "k": "My sister dabbles in dark arts, but does not understand them.",
+   "v": "姉は闇の術をかじっているけれど、理解はしていない。"
+  },
+  {
+   "k": "This is why I must come in.",
+   "v": "だから私が入らなければならないの。"
+  },
+  {
+   "k": "You're quite inquistive. My name is Maribel.",
+   "v": "ずいぶん詮索好きね。マリベルよ。"
+  },
+  {
+   "k": "Likely for the same reason you are.",
+   "v": "たぶん、あなたと同じ理由。"
+  },
+  {
+   "k": "Fate.",
+   "v": "運命よ。"
+  },
+  {
+   "k": "This graveyard has quite the allure to it.",
+   "v": "この墓地には独特の魅力がある。"
+  },
+  {
+   "k": "It is a noisy place. I was drawn to it.",
+   "v": "騒がしい場所。私はそれに引き寄せられた。"
+  },
+  {
+   "k": "I don't mean to cause any harm to you or the spirits you protect.",
+   "v": "あなたにも、あなたが守る霊たちにも、害を加えるつもりはないわ。"
+  },
+  {
+   "k": "I feel them calling to me and I am obligated to respond.",
+   "v": "彼らが私を呼ぶのを感じる。応える義務があるの。"
+  },
+  {
+   "k": "You’re smarter than my sister.",
+   "v": "あなたは姉より賢いわ。"
+  },
+  {
+   "k": "She always begged.",
+   "v": "姉はいつも懇願していた。"
+  },
+  {
+   "k": "I prefer honesty.",
+   "v": "私は正直さの方が好き。"
+  },
+  {
+   "k": "Ah.",
+   "v": "ああ。"
+  },
+  {
+   "k": "So you’re like her after all.",
+   "v": "結局、あなたも姉と同じなのね。"
+  },
+  {
+   "k": "I’ll wait.",
+   "v": "待つわ。"
+  },
+  {
+   "k": "Things trapped between worlds get impatient.",
+   "v": "世界の狭間に囚われたものは、じれてくる。"
+  },
+  {
+   "k": "And impatience makes noise.",
+   "v": "そして、じれたものは音を立てる。"
+  },
+  {
+   "k": "I’ll see you again.",
+   "v": "また会いましょう。"
+  },
+  {
+   "k": "All done!",
+   "v": "終わったわ！"
+  },
+  {
+   "k": "Thank you for letting me in.",
+   "v": "入れてくれてありがとう。"
+  },
+  {
+   "k": "I appreciate it more than you know.",
+   "v": "あなたが思う以上に感謝しているわ。"
+  },
+  {
+   "k": "The graveyard feels just as it should now.",
+   "v": "墓地は今、あるべき姿に戻った。"
+  },
+  {
+   "k": "Unsuppressed.",
+   "v": "抑えられることなく。"
+  },
+  {
+   "k": "I’ll be on my way.",
+   "v": "もう行くわ。"
+  },
+  {
+   "k": "Take care of yourself, gravekeeper.",
+   "v": "お元気で、墓守さん。"
+  },
+  {
+   "k": "It's late to be out here.",
+   "v": "外にいるには遅い時間ですよ。"
+  },
+  {
+   "k": "Are you alright?",
+   "v": "大丈夫ですか？"
+  },
+  {
+   "k": "...Let me in.",
+   "v": "...入れて。"
+  },
+  {
+   "k": "Please...",
+   "v": "お願い..."
+  },
+  {
+   "k": "Just let me in.",
+   "v": "入れてちょうだい。"
+  },
+  {
+   "k": "Okay, come in.",
+   "v": "分かりました、どうぞ。"
+  },
+  {
+   "k": "I'm sorry ma'am, please go home.",
+   "v": "申し訳ありませんが、お帰りください。"
+  },
+  {
+   "k": "What is your name?",
+   "v": "お名前は？"
+  },
+  {
+   "k": "I have no more questions.",
+   "v": "他に質問はありません。"
+  },
+  {
+   "k": "Maria.",
+   "v": "マリア。"
+  },
+  {
+   "k": "Stop following me.",
+   "v": "ついてこないで。"
+  },
+  {
+   "k": "I think I heard something at the back gate.",
+   "v": "裏門で何か音がした気がする。"
+  },
+  {
+   "k": "Can you please go check?",
+   "v": "見に行ってもらえる？"
+  },
+  {
+   "k": "Chen Huang",
+   "v": "チェン・ファン"
+  },
+  {
+   "k": "Harold Vunderbilt",
+   "v": "ハロルド・ヴァンダービルト"
+  },
+  {
+   "k": "Hector",
+   "v": "ヘクター"
+  },
+  {
+   "k": "Maria",
+   "v": "マリア"
+  },
+  {
+   "k": "Maribel",
+   "v": "マリベル"
+  },
+  {
+   "k": "Mr. Huang",
+   "v": "ファンさん"
+  },
+  {
+   "k": "Tabitha",
+   "v": "タビサ"
+  }
+ ]
+}

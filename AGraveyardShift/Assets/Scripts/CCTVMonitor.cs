@@ -411,9 +411,10 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     private void UpdateLabel(int index)
     {
         if (screenLabel == null) return;
+        Loc.EnsureFontComponent(screenLabel);
         screenLabel.text = (feedNames != null && index >= 0 && index < feedNames.Length && !string.IsNullOrEmpty(feedNames[index]))
-            ? feedNames[index]
-            : ("CAMERA " + (index + 1));
+            ? Loc.Tr(feedNames[index])
+            : Loc.Format("ui.cctv.camera", "CAMERA {0}", index + 1);
     }
 
     // ---- low-sanity / low-protection scare ----

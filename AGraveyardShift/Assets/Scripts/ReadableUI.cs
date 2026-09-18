@@ -100,6 +100,9 @@ public class ReadableUI : MonoBehaviour
             defaultFontColor = contentText.color;
         }
 
+        // The page counter is set by code; this keeps its font in sync with the locale.
+        Loc.EnsureFontComponent(pageIndicatorText);
+
         // Capture the background panel's authored size so per-readable overrides can be reverted
         if (backgroundImage != null)
         {
@@ -192,7 +195,8 @@ public class ReadableUI : MonoBehaviour
             return;
         }
 
-        currentPages = pages;
+        // Localize the authored (English) pages; rich-text tags travel with the translation.
+        currentPages = Loc.TrAll(pages);
         currentPageIndex = 0;
         isOpen = true;
 
@@ -228,18 +232,19 @@ public class ReadableUI : MonoBehaviour
         // Apply text overrides
         if (contentText != null)
         {
-            if (overrides.font != null)
-                contentText.font = overrides.font;
             if (overrides.alignment.HasValue)
                 contentText.alignment = overrides.alignment.Value;
             if (overrides.margins.HasValue)
                 contentText.margin = overrides.margins.Value;
             if (overrides.lineSpacing.HasValue)
                 contentText.lineSpacing = overrides.lineSpacing.Value;
-            if (overrides.fontSize.HasValue)
-                contentText.fontSize = overrides.fontSize.Value;
             if (overrides.fontColor.HasValue)
                 contentText.color = overrides.fontColor.Value;
+
+            // Font + size go through the locale font map (handwritten/horror faces are ASCII-only).
+            Loc.ApplyFont(contentText,
+                overrides.font != null ? overrides.font : defaultFont,
+                overrides.fontSize.HasValue ? overrides.fontSize.Value : defaultFontSize);
         }
 
         // Two-page spread: the main content fills the left page and rightColumnPages[] fills the right page.
@@ -247,7 +252,7 @@ public class ReadableUI : MonoBehaviour
         // margin; the right area mirrors the formatting and uses its own right-page margin.
         twoPageActive = rightColumnPages != null && rightColumnPages.Length > 0
                         && contentTextRight != null && contentText != null;
-        currentRightPages = twoPageActive ? rightColumnPages : null;
+        currentRightPages = twoPageActive ? Loc.TrAll(rightColumnPages) : null;
         if (twoPageActive)
         {
             contentTextRight.font = contentText.font;
@@ -390,7 +395,7 @@ public class ReadableUI : MonoBehaviour
         {
             if (currentPages.Length > 1)
             {
-                pageIndicatorText.text = $"Page {currentPageIndex + 1}/{currentPages.Length}";
+                pageIndicatorText.text = Loc.Format("ui.readable.page", "Page {0}/{1}", currentPageIndex + 1, currentPages.Length);
                 pageIndicatorText.gameObject.SetActive(true);
             }
             else

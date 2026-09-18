@@ -34,7 +34,37 @@ public static class EndingInfo
         Ending.Father
     };
 
+    /// <summary>
+    /// Display data in the active language. The English text below is the source; each field
+    /// is looked up under "ending.&lt;id&gt;.title" / ".description" / ".type" in the string tables.
+    /// </summary>
     public static Data Get(Ending e)
+    {
+        Data d = GetEnglish(e);
+        string id = Id(e);
+        if (string.IsNullOrEmpty(id)) return d;
+        d.title = Loc.Get("ending." + id + ".title", d.title);
+        d.typeLabel = Loc.Get("ending." + id + ".type", d.typeLabel);
+        d.description = Loc.Get("ending." + id + ".description", d.description);
+        return d;
+    }
+
+    /// <summary>Stable id used to build the string-table keys.</summary>
+    public static string Id(Ending e)
+    {
+        switch (e)
+        {
+            case Ending.WrathfulSpirit: return "wrathfulSpirit";
+            case Ending.Ambush: return "ambush";
+            case Ending.WrongfulConviction: return "wrongfulConviction";
+            case Ending.HappilyEverAfter: return "happilyEverAfter";
+            case Ending.Father: return "father";
+            default: return null;
+        }
+    }
+
+    /// <summary>The authored (English) data — the source text for translators.</summary>
+    public static Data GetEnglish(Ending e)
     {
         switch (e)
         {
