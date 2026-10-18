@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.11, g: 0.037, b: 0.032, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.028
+  m_FogDensity: 0.0322
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.142, g: 0.142, b: 0.142, a: 1}
@@ -134993,7 +134993,8 @@ MonoBehaviour:
   enablePixelation: 1
   widthPixelation: 320
   heightPixelation: 240
-  colorPrecision: 32
+  colorPrecision: 128
+  blackPoint: 0.0135
   ditherShaderRef: {fileID: 4800000, guid: 0b3fbf35a693e2e42a255895e5be9dbd, type: 3}
   pixelShaderRef: {fileID: 4800000, guid: 6cc37f589a3171847bd1dc6f9224ccf3, type: 3}
 --- !u!114 &346989786
@@ -135021,15 +135022,15 @@ MonoBehaviour:
   scanlineSpeed: 0.8
   scanlineCount: 389
   scanlineSharpness: 0.986
-  vignetteIntensity: 0
-  vignetteSoftness: 0.1
-  vignetteRoundness: 0.5
+  vignetteIntensity: 2
+  vignetteSoftness: 0.4
+  vignetteRoundness: 1.3
   glitchIntensity: 0.095
   glitchSpeed: 2.14
   glitchBlockSize: 0.0292
   contrast: 1.006
-  saturation: 1.08
-  brightness: 0.021294117
+  saturation: 0.95
+  brightness: 0.015
   gamma: 1.05
   tapeNoise: 0.057
   tapeSpeed: 0.5
@@ -330583,7 +330584,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 0.52, g: 0.6, b: 0.82, a: 1}
-  m_Intensity: 0.22
+  m_Intensity: 0.187
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -585430,6 +585431,7 @@ MonoBehaviour:
     skyColor: {r: 0.16, g: 0.05, b: 0.05, a: 1}
     equatorColor: {r: 0.11, g: 0.035, b: 0.035, a: 1}
     groundColor: {r: 0.06, g: 0.02, b: 0.02, a: 1}
+  ambientScale: 0.85
   transitionDuration: 1
   smoothTransitions: 1
   showDebugUI: 0
@@ -608976,7 +608978,7 @@ MonoBehaviour:
   killerEventQueue: []
   autoStartOnAwake: 0
   startDelay: 1
-  eventTransitionDelay: 0.5
+  eventTransitionDelay: 1.5
   playerTransform: {fileID: 0}
   playerCamera: {fileID: 0}
   spawnConditionCheckInterval: 0.1
@@ -618593,15 +618595,15 @@ MonoBehaviour:
   scanlineSpeed: 0.8
   scanlineCount: 389
   scanlineSharpness: 0.986
-  vignetteIntensity: 0
-  vignetteSoftness: 0.1
-  vignetteRoundness: 0.5
+  vignetteIntensity: 2
+  vignetteSoftness: 0.4
+  vignetteRoundness: 1.3
   glitchIntensity: 0.095
   glitchSpeed: 2.14
   glitchBlockSize: 0.0292
   contrast: 1.006
-  saturation: 1.08
-  brightness: 0.021294117
+  saturation: 0.95
+  brightness: 0.015
   gamma: 1.05
   tapeNoise: 0.057
   tapeSpeed: 0.5
@@ -618640,7 +618642,8 @@ MonoBehaviour:
   enablePixelation: 1
   widthPixelation: 320
   heightPixelation: 240
-  colorPrecision: 32
+  colorPrecision: 128
+  blackPoint: 0.0135
   ditherShaderRef: {fileID: 4800000, guid: 0b3fbf35a693e2e42a255895e5be9dbd, type: 3}
   pixelShaderRef: {fileID: 4800000, guid: 6cc37f589a3171847bd1dc6f9224ccf3, type: 3}
 --- !u!1 &1618552797
@@ -783458,7 +783461,8 @@ MonoBehaviour:
   enablePixelation: 1
   widthPixelation: 320
   heightPixelation: 240
-  colorPrecision: 32
+  colorPrecision: 128
+  blackPoint: 0.0135
   ditherShaderRef: {fileID: 4800000, guid: 0b3fbf35a693e2e42a255895e5be9dbd, type: 3}
   pixelShaderRef: {fileID: 4800000, guid: 6cc37f589a3171847bd1dc6f9224ccf3, type: 3}
 --- !u!114 &2032531516
@@ -783486,15 +783490,15 @@ MonoBehaviour:
   scanlineSpeed: 0.8
   scanlineCount: 389
   scanlineSharpness: 0.986
-  vignetteIntensity: 0
-  vignetteSoftness: 0.1
-  vignetteRoundness: 0.5
+  vignetteIntensity: 2
+  vignetteSoftness: 0.4
+  vignetteRoundness: 1.3
   glitchIntensity: 0.095
   glitchSpeed: 2.14
   glitchBlockSize: 0.0292
   contrast: 1.006
-  saturation: 1.08
-  brightness: 0.021294117
+  saturation: 0.95
+  brightness: 0.015
   gamma: 1.05
   tapeNoise: 0.057
   tapeSpeed: 0.5

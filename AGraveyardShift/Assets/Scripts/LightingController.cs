@@ -76,6 +76,12 @@ public class LightingController : MonoBehaviour
         groundColor = new Color(0.04f, 0.05f, 0.05f)
     };
 
+    [Header("Night mood")]
+    [Tooltip("Scales the scene's ambient and every preset's ambient (sky, equator, ground) on top of the " +
+             "player's brightness setting. 1 = as authored; below 1 = a darker night.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float ambientScale = 1f;
+
     [Header("Transition")]
     [Tooltip("Duration of lighting transition in seconds")]
     [SerializeField] private float transitionDuration = 1f;
@@ -116,8 +122,10 @@ public class LightingController : MonoBehaviour
         currentSettings = CloneSettings(outdoorSettings);
 
         // The player's brightness setting controls the environment's ambient SKY colour
-        // (only the sky channel; equator/ground keep their scene values).
-        RenderSettings.ambientSkyColor = BrightnessSettings.SkyColor;
+        // (only the sky channel; equator/ground keep their scene values). ambientScale darkens all three.
+        RenderSettings.ambientSkyColor = Scaled(BrightnessSettings.SkyColor);
+        RenderSettings.ambientEquatorColor = Scaled(RenderSettings.ambientEquatorColor);
+        RenderSettings.ambientGroundColor = Scaled(RenderSettings.ambientGroundColor);
     }
 
     private void OnGUI()
@@ -145,11 +153,13 @@ public class LightingController : MonoBehaviour
 
         // Brightness shifts each area's sky by the same ±32 (0-255 units) around its own
         // default: outdoor is centred on 32 (0..64); cabin/crypt keep their authored centre
-        // (e.g. crypt 48 -> 16..80). Equator/ground are untouched.
+        // (e.g. crypt 48 -> 16..80). Brightness leaves equator/ground alone; ambientScale darkens all three.
         settings = CloneSettings(settings);
-        settings.skyColor = (preset == LightingPreset.Outdoor)
+        settings.skyColor = Scaled((preset == LightingPreset.Outdoor)
             ? BrightnessSettings.SkyColor
-            : BrightnessSettings.Shift(settings.skyColor);
+            : BrightnessSettings.Shift(settings.skyColor));
+        settings.equatorColor = Scaled(settings.equatorColor);
+        settings.groundColor = Scaled(settings.groundColor);
 
         ApplySettings(settings, preset);
     }
@@ -254,6 +264,13 @@ public class LightingController : MonoBehaviour
 
         isTransitioning = false;
         transitionCoroutine = null;
+    }
+
+    // Only authored values (the scene's and the presets') are scaled; custom settings passed to
+    // ApplySettings are used as given, since some are ambient captured earlier and already scaled.
+    private Color Scaled(Color c)
+    {
+        return new Color(c.r * ambientScale, c.g * ambientScale, c.b * ambientScale, c.a);
     }
 
     private LightingSettings CloneSettings(LightingSettings source)

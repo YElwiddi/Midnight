@@ -25,6 +25,9 @@ public class PSXPostProcessing : MonoBehaviour
     public float heightPixelation = 240f;
     [Tooltip("Number of color steps per channel (lower = more posterized)")]
     public float colorPrecision = 32f;
+    [Tooltip("Subtracted from every color before the steps. Fine steps keep near-black detail that coarse steps crush to black; this keeps the scene as dark (0.0135 matches 32 steps at 128)")]
+    [Range(0f, 0.1f)]
+    public float blackPoint = 0f;
 
     [Header("=== Shader References (assign these for builds) ===")]
     [Tooltip("Drag the Dithering.shader file here")]
@@ -43,6 +46,7 @@ public class PSXPostProcessing : MonoBehaviour
     private static readonly int WidthPixelation = Shader.PropertyToID("_WidthPixelation");
     private static readonly int HeightPixelation = Shader.PropertyToID("_HeightPixelation");
     private static readonly int ColorPrecision = Shader.PropertyToID("_ColorPrecision");
+    private static readonly int ColorBias = Shader.PropertyToID("_ColorBias");
 
     void OnEnable()
     {
@@ -77,6 +81,7 @@ public class PSXPostProcessing : MonoBehaviour
             _pixelMat.SetFloat(WidthPixelation, widthPixelation);
             _pixelMat.SetFloat(HeightPixelation, heightPixelation);
             _pixelMat.SetFloat(ColorPrecision, colorPrecision);
+            _pixelMat.SetFloat(ColorBias, blackPoint);
 
             var temp = RenderTexture.GetTemporary(source.width, source.height);
             Graphics.Blit(current, temp, _pixelMat);

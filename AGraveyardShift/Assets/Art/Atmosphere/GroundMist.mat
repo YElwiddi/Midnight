@@ -33,6 +33,7 @@ Material:
     - _CameraFadeStart: 1
     - _InvFade: 1
     - _Opacity: 1
+    - _RadialFade: 1
     m_Colors:
     - _Color: {r: 0.6, g: 0.4, b: 0.38, a: 1}
   m_BuildTextureStacks: []

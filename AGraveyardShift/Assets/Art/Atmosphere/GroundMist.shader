@@ -10,6 +10,7 @@ Shader "Custom/GroundMist"
         _Opacity ("Opacity", Range(0, 1)) = 1
         _CameraFadeStart ("Camera Fade Start (m)", Float) = 1.0
         _CameraFadeEnd ("Camera Fade End (m)", Float) = 6.0
+        [ToggleUI] _RadialFade ("Camera Fade By Distance (steady when turning)", Float) = 0
         _InvFade ("Soft Particles Factor", Range(0.01, 3.0)) = 1.0
     }
     SubShader
@@ -34,6 +35,7 @@ Shader "Custom/GroundMist"
             half _Opacity;
             float _CameraFadeStart;
             float _CameraFadeEnd;
+            float _RadialFade;
             float _InvFade;
             UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
 
@@ -61,7 +63,10 @@ Shader "Custom/GroundMist"
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.color = v.color;
                 o.uvDepth.xy = TRANSFORM_TEX(v.uv, _MainTex);
-                o.uvDepth.z = -UnityObjectToViewPos(v.vertex).z;
+                // Eye depth changes as the view turns; straight-line distance doesn't, so a puff near a
+                // player who is only looking around keeps its fade.
+                float3 viewPos = UnityObjectToViewPos(v.vertex);
+                o.uvDepth.z = lerp(-viewPos.z, length(viewPos), _RadialFade);
                 #ifdef SOFTPARTICLES_ON
                 o.projPos = ComputeScreenPos(o.pos);
                 COMPUTE_EYEDEPTH(o.projPos.z);

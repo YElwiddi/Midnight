@@ -14,8 +14,9 @@ using UnityEngine.UI;
 /// labels that warm and grow thin rules on hover, the endings as five stone tablets, and every
 /// pop-up on a dark stone slab with an incised border. Also builds the Settings screen as a prefab
 /// (Assets/Prefabs/UI/SettingsPanel.prefab) used here and by the pause menu (PauseMenuBuilder),
-/// and the launch splash. Idempotent: rebuilds MainMenuUI / the settings panel / the splash and
-/// saves the scene. Run via Tools > Graveyard > Build Main Menu.
+/// and the launch splash. At runtime the whole canvas is drawn on a low-res pixel grid (PixelCanvas).
+/// Idempotent: rebuilds MainMenuUI / the settings panel / the splash and saves the scene.
+/// Run via Tools > Graveyard > Build Main Menu.
 /// </summary>
 public static class MainMenuBuilder
 {
@@ -64,6 +65,14 @@ public static class MainMenuBuilder
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             scaler.matchWidthOrHeight = 0.5f;
         }
+
+        // Text and art on one low-res pixel grid to match the PSX backdrop (applied at runtime).
+        var pixel = canvas.GetComponent<PixelCanvas>();
+        if (pixel == null) pixel = canvas.AddComponent<PixelCanvas>();
+        var pixelSo = new SerializedObject(pixel);
+        pixelSo.FindProperty("textShader").objectReferenceValue = Shader.Find(PixelCanvas.TextShaderName);
+        pixelSo.FindProperty("imageShader").objectReferenceValue = Shader.Find(PixelCanvas.ImageShaderName);
+        pixelSo.ApplyModifiedPropertiesWithoutUndo();
 
         // ---- clean up previous builds (direct children of Canvas only)
         foreach (string n in new[] { "MainMenuUI", "OptionsPanel", "SettingsPanel", "Panel" })

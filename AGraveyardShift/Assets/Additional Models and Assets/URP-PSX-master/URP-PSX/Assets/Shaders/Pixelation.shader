@@ -16,6 +16,9 @@
         
         //for color precision
         float _ColorPrecision;
+        //subtracted before the steps: fine steps keep near-black detail that coarse steps crush to black,
+        //so this keeps the image as dark (PSXPostProcessing.blackPoint)
+        float _ColorBias;
         
         struct appdata
         {
@@ -47,6 +50,7 @@
             
             float4 Color = tex2D(_MainTex, uv) ;
             //color precision
+            Color.rgb = max(Color.rgb - _ColorBias, 0);
             Color = floor(Color * _ColorPrecision)/_ColorPrecision;
             return Color;
         }

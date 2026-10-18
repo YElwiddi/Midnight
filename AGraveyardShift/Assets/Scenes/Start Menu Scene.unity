@@ -16940,6 +16940,7 @@ GameObject:
   - component: {fileID: 1012136417}
   - component: {fileID: 1012136416}
   - component: {fileID: 1012136415}
+  - component: {fileID: 1012136419}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -17033,6 +17034,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1012136419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012136414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b802a8f820a2f8f4885ecac12a2fad0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelCanvas
+  pixelLines: 360
+  hardEdges: 1
+  coverageThreshold: 0.25
+  minPixelsPerEm: 12
+  textShader: {fileID: 4800000, guid: 4f00848d0295b844da14f23953356fff, type: 3}
+  imageShader: {fileID: 4800000, guid: a4c08bd27d1fdf144bf653d258f6819d, type: 3}
 --- !u!1 &1017478625
 GameObject:
   m_ObjectHideFlags: 0
@@ -22024,7 +22043,8 @@ MonoBehaviour:
   enablePixelation: 1
   widthPixelation: 320
   heightPixelation: 240
-  colorPrecision: 32
+  colorPrecision: 128
+  blackPoint: 0.0135
   ditherShaderRef: {fileID: 4800000, guid: 0b3fbf35a693e2e42a255895e5be9dbd, type: 3}
   pixelShaderRef: {fileID: 4800000, guid: 6cc37f589a3171847bd1dc6f9224ccf3, type: 3}
 --- !u!1 &1275583436
