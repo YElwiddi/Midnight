@@ -1,4 +1,4 @@
-Missing translation report — 2026-10-18 04:38
+Missing translation report — 2026-10-18 15:21
 Source strings: 1221
 
 == zh-Hans: 1221/1221 translated, 0 missing, 19 unused entries

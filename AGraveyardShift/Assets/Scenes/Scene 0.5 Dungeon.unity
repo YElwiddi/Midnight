@@ -47953,20 +47953,11 @@ MonoBehaviour:
     Adel, 5, Deceased\nMaria Adel, 31, Alive\nMonroe Adel, 31, Deceased\n\nJason
     is interred within these grounds.\n\nCause of death: Suffocation\n\nTime of death:
     December 28th, 1998, Tuesday 8:04 PM"
-  - 'Jason and Monroe Adel were found dead in their home with clear signs of a struggle.
-    Monroe had bled to death from multiple stab wounds including one to a fatal artery
-    in his neck. Jason had died from a clear neck injury inflicted from what appeared
-    to be his father.
-
-
-    Maria was interred within a mental asylum immediately
-    after the event, but was released some time after. She was subsequently permanently
-    banned from entering these grounds after a psychosis-fueled attempt to break
-    through the gates to visit the grave.
-
-
-    Maria is not allowed entry under
-    any circumstances.'
+  - "Jason and Monroe Adel were found dead at home after a struggle. Monroe had bled
+    out from multiple stab wounds; Jason died of a neck injury that appeared to be
+    his father\u2019s doing.\n\nMaria was committed to an asylum, later released,
+    then banned for life after a psychotic attempt to break through the gates to
+    reach the grave.\n\nMaria is not allowed entry under any circumstances."
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
@@ -173377,23 +173368,16 @@ MonoBehaviour:
     Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within
     these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death:
     October 11, 1988, Tuesday 12:03 AM"
-  - 'Anthony Anderson, his wife Diane, and their two sons were recovered from their
-    home following a fire reported shortly after midnight. The blaze was attributed
-    to an electrical malfunction near the rear stairwell, where damage was most concentrated.
-    The victims were found together in an upstairs bedroom, smoke inhalation listed
-    as the cause of death. One child survived, having exited the house before responders
-    arrived, and was later placed into foster care. The official record notes no
-    evidence of forced entry or outside involvement.
+  - 'Anthony, Diane, and their two sons died in a house fire shortly after midnight.
+    It was blamed on an electrical fault by the rear stairwell, though inspections
+    found no prior faults. The victims were found together in an upstairs bedroom.
+    One child survived, having exited the house before responders arrived, and was
+    later placed into foster care.
 
 
-    Neighbors recalled the
-    family had kept irregular hours in the weeks preceding the fire and had gradually
-    removed items from the upper rooms, though no reason was given. Utility inspections
-    showed no prior faults, and the surviving child declined to describe events before
-    the flames were visible, stating only that her father instructed them to remain
-    together. A lighter was cataloged among the debris near the stairwell, dismissed
-    as incidental due to fire damage. The matter was closed as accidental loss, and
-    no further inquiry was pursued.'
+    She would say only that her father told
+    them to stay together. A lighter was found by the stairwell and dismissed. The
+    case was closed as an accident.'
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
@@ -263188,23 +263172,13 @@ MonoBehaviour:
     Holmes, 45, Alive\n\nEdward and Zackary are interred within these grounds.\n\nCause
     of death: Unknown; alleged accident\n\nTime of death: April 12, 1998, Sunday
     3:45 AM"
-  - 'Zackary and Edward Holmes were laid to rest here following an accident reported
-    along the county road. Official accounts describe a single-vehicle collision,
-    the car discovered overturned beyond the tree line, engine still warm when authorities
-    arrived. Elisabeth was found nearby in a state of shock and later released without
-    charge. The surviving family declined further inquiry, and the matter was recorded
-    as misfortune rather than malice.
-
-
-    In the weeks prior, neighbors noted unusual
-    hours kept within the Holmes residence and the steady removal of furnishings
-    from the basement to an unseen location. Parish records show Zackary and Edward
-    had not attended services for some time, though candles and ash were later found
-    among their personal effects. The gravekeeper records that the vehicle showed
-    little damage consistent with the severity described, and that Elisabeth never
-    returned to these grounds after the burial. What occurred before 3:45 that morning
-    remains officially unexamined, though the silence maintained by the living suggests
-    a conclusion reached long before the report was written.'
+  - "Zackary and Edward Holmes were buried here after a reported single-car accident
+    on the county road: the car found overturned beyond the tree line, engine still
+    warm. Elisabeth was found nearby in shock and released without charge. The family
+    declined any inquiry.\n\nIn the weeks before, the household kept odd hours and
+    moved furniture out of the basement. Candles and ash were later found among Zackary
+    and Edward\u2019s belongings. The car was barely damaged. Elisabeth never returned
+    to these grounds after the burial."
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
@@ -374300,28 +374274,18 @@ MonoBehaviour:
     centuries old, the church has recently been abandoned. A remark has been made
     about the coincedental timing of the abandonment of the church and the anamolous
     circumstances that have began since its abandonment."
-  - 'For information regarding the last caretaker of the church and his mysterious
-    disappearance:
+  - 'On the last caretaker of the church and his disappearance:
 
 
-    Father Joseph would frequent these grounds many years ago
-    and was welcomed in. The atmosphere was often peaceful with his presence.
+    Father Joseph
+    was once welcomed on these grounds; his presence brought peace. His denomination
+    forbids its clergy to marry. He defied this, feuded with the ministry, and later
+    denounced the clergy.
 
 
-    He
-    comes from a denomination that does not allow for marriage amongst the clergy.
-    He appears to have gone against this rule and started a feud amongst the ministry
-    over certain interpretations being too strict. He later denounced the clergy.
-
-
-    He
-    was set to marry his betrothed but did not appear at the altar on the wedding
-    day. Previous recordings mention that his betrothed passed away from grief when
-    she allegedly learned about the fate of Father Joseph.
-
-
-    There has not yet
-    since been a clarification on his fate. '
+    He was to marry his betrothed but never appeared
+    at the altar. She is said to have died of grief on learning his fate. That fate
+    remains unknown.'
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
@@ -462070,18 +462034,14 @@ MonoBehaviour:
     Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane
     Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of
     death: December 22, 1985, Sunday 3:21 AM"
-  - "Jane Adams rests here after a life defined by order and restraint. She worked
-    for many years as a bookkeeper at the municipal works office, kept her home immaculate,
-    and raised her son, Edwin, with strict routines and clear expectations. When
-    Edwin was seven, she sent him to live with close family friends out of state,
-    telling neighbors it was for better schooling. After his departure, Jane\u2019s
-    attendance at work faltered, and she resigned quietly.\n\nJane took her own life
-    weeks later. The gravekeeper notes that Edwin was never informed of her death,
-    and those responsible agreed it was best he not be recalled or told the circumstances.
-    The consequences of her actions, and the disgrace they carried, were more than
-    she was willing to answer for in the open. She ended her life in solitude, ensuring
-    that her son\u2019s memory of her would remain unburdened by the truth she could
-    not endure."
+  - 'Jane Adams raised her son, Edwin, by strict routine. When he was seven, she
+    sent him to family friends out of state, telling neighbors it was for better
+    schooling.
+
+
+    Weeks later, Jane took her own life. Edwin was never told of
+    her death or called back. Whatever she had done, she would not answer for it
+    openly; she died alone so her son would never learn the truth.'
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
@@ -463945,17 +463905,14 @@ MonoBehaviour:
     Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22,
     Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death:
     Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM"
-  - "Aaron Vanderbilt is remembered here as a man whose life carried the weight of
-    absence and missteps. His brother disappeared many years ago under circumstances
-    no one could trace, leaving Aaron to navigate the world alone. Though capable
-    and clever, he found himself drawn into circles that promised opportunity but
-    delivered danger, aligning with people whose loyalties were fleeting and whose
-    intentions were rarely honest.\n\nThose who knew him speak of quiet struggles
-    hidden behind a confident exterior. Aaron\u2019s dealings with the wrong company
-    shaped much of his later years, leaving him isolated and wary. The fate of his
-    brother remains a lingering shadow over his life, a reminder of paths lost and
-    choices that carry consequences beyond one\u2019s control.\n\nAaron Vanderbilt
-    rests here alone. "
+  - 'Aaron Vanderbilt carried the weight of absence. His brother disappeared many
+    years ago under circumstances no one could trace, leaving Aaron alone. Capable
+    and clever, he still fell in with dangerous people whose loyalties never lasted,
+    and his last years left him isolated and wary.
+
+
+    Aaron Vanderbilt rests here
+    alone.'
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
@@ -474613,19 +474570,12 @@ MonoBehaviour:
     Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang
     is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime
     of death: March 27, 1993, Saturday 4:00 PM"
-  - "There is only one grave under the Huang name, though the arrangements suggest
-    a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi
-    himself; he arrived with the paperwork prepared and spoke clearly, though not
-    always consistently, occasionally repeating details already settled. Madam Huang
-    was brought at dawn. No extended family attended. When I asked whether the son
-    would come, Wenqi said the family was complete as it stood, then paused, as if
-    uncertain why the answer mattered. The cause of death was recorded, a crime resolved,
-    and the matter accepted without dispute.\n\nMei Huang lived quietly, known for
-    small kindnesses that left little record. In her final months, that attention
-    faded, and with it her protection. I was told only that a matter of dishonor
-    had been resolved; no details were given. No offerings are permitted in the son\u2019s
-    name. Wenqi visits alone now, sometimes repeating himself, always checking the
-    stone before leaving, as if expecting it to say something different."
+  - "Huang Wenqi chose the plot himself and brought the paperwork, repeating details
+    already settled. No other family attended. When I asked whether the son would
+    come, Wenqi said the family was complete as it stood, then paused.\n\nMei\u2019s
+    death was recorded as a crime resolved, a matter of dishonor settled; no details
+    were given. No offerings are permitted in the son\u2019s name. Wenqi visits alone
+    now, repeating himself, always checking the stone before he leaves."
   rightColumnPages: []
   overrideRightColumnMargin: 0
   rightColumnMargin: {x: 0, y: 0, z: 0, w: 0}
