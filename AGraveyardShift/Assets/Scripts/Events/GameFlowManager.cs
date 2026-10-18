@@ -109,6 +109,8 @@ public class GameFlowManager : MonoBehaviour
             int oldPhase = currentPhase;
             currentPhase = phase;
             Debug.Log($"GameFlowManager: Phase changed from {oldPhase} to {currentPhase}");
+            // Reaching a watch unlocks starting there from the main menu.
+            PhaseSelect.MarkReached(currentPhase);
             OnPhaseChanged?.Invoke(currentPhase);
         }
     }
@@ -155,9 +157,33 @@ public class GameFlowManager : MonoBehaviour
         }
 
         hasStartedFirstEvent = true;
-        currentEventIndex = 0;
+        currentEventIndex = GetPhaseStartIndex(PhaseSelect.StartPhase);
         previouslySelectedEvents.Clear();
+        if (currentEventIndex > 0)
+        {
+            Debug.Log($"GameFlowManager: Phase select - starting at phase {PhaseSelect.StartPhase} (queue index {currentEventIndex})");
+        }
         StartCurrentEvent();
+    }
+
+    /// <summary>
+    /// Queue index of the entry that begins the given phase (its setPhaseOnStart), or 0 for
+    /// phase 1 / a phase the queue doesn't define. Used by phase select to skip ahead.
+    /// </summary>
+    public int GetPhaseStartIndex(int phase)
+    {
+        if (phase <= PhaseSelect.FirstPhase) return 0;
+
+        for (int i = 0; i < eventQueue.Count; i++)
+        {
+            if (eventQueue[i] != null && eventQueue[i].setPhaseOnStart == phase)
+            {
+                return i;
+            }
+        }
+
+        Debug.LogWarning($"GameFlowManager: No queue entry starts phase {phase}; starting from the beginning.");
+        return 0;
     }
 
     /// <summary>
@@ -652,6 +678,7 @@ public class GameFlowManager : MonoBehaviour
             currentEvent.dialogueSoundEveryN,
             currentEvent.postDialogueCinematic
         );
+        currentNPC.EnableTravelPacing(currentEvent.speedUpWhenFar);
 
         // Fire event started
         OnEventStarted?.Invoke(currentEvent.eventName);
@@ -883,6 +910,7 @@ public class GameFlowManager : MonoBehaviour
             bgNPC.dialogueSoundEveryN,
             null   // No cinematic for background NPCs
         );
+        eventNPC.EnableTravelPacing(currentEvent != null && currentEvent.speedUpWhenFar);
 
         // Handle blocking behavior - track the NPC and subscribe to its completion
         // For OnWaypointReached triggers, SetWaitingForBackgroundNPC was already called in HandleMainNPCWaypointReached

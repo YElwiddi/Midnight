@@ -74,8 +74,23 @@ public class Movement : MonoBehaviour
     private float configuredZoomFOV; // The FOV set by the event/NPC (before distance adjustment)
     private bool useCustomZoom = false;
 
+    // Mouse sensitivity and invert look come from the Settings screen (menu or pause menu).
+    private void ApplyLookSettings()
+    {
+        lookSpeed = GameSettings.MouseSensitivity;
+        invertMouseY = GameSettings.InvertLook;
+    }
+
+    void OnDestroy()
+    {
+        GameSettings.Changed -= ApplyLookSettings;
+    }
+
     void Start()
     {
+        ApplyLookSettings();
+        GameSettings.Changed += ApplyLookSettings;
+
         characterController = GetComponent<CharacterController>();
 
         // Lock cursor

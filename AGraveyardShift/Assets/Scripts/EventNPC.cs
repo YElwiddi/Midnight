@@ -77,6 +77,25 @@ public class EventNPC : MonoBehaviour, IInteractable
     [Tooltip("Reminder typewriter speed (characters per second)")]
     [SerializeField] private float idleNudgeTypewriterSpeed = 30f;
 
+    [Header("Travel Pacing (only for events with GameEvent.speedUpWhenFar)")]
+    [Tooltip("Within this distance of the player the NPC always moves at its authored speed")]
+    [SerializeField] private float paceNearDistance = 20f;
+
+    [Tooltip("Top speed multiplier while far from the player. The walk animation is sped up to match.")]
+    [SerializeField] private float paceMaxSpeedMultiplier = 3f;
+
+    [Tooltip("Out of the player's view, the NPC reaches the top multiplier at this distance")]
+    [SerializeField] private float paceHiddenFullDistance = 28f;
+
+    [Tooltip("In the player's view, the NPC reaches the top multiplier at this distance (0 = where the scene fog hides it)")]
+    [SerializeField] private float paceVisibleFullDistance = 0f;
+
+    [Tooltip("Once the NPC has nothing left to say and is walking away, it despawns (ending its event early) when it's out of view and at least this far from the player, or hidden by fog")]
+    [SerializeField] private float leaveDespawnDistance = 35f;
+
+    [Tooltip("How fast the speed multiplier eases toward its target (multiplier units per second)")]
+    [SerializeField] private float paceBlendRate = 4f;
+
     #endregion
 
     #region Events
@@ -136,6 +155,15 @@ public class EventNPC : MonoBehaviour, IInteractable
     // Partial path handling
     private Coroutine partialPathCoroutine;
     private Vector3 partialPathTarget;
+
+    // Travel pacing (opt-in via EnableTravelPacing)
+    private bool travelPacingEnabled = false;
+    private float baseMoveSpeed = 3f;
+    private float baseAngularSpeed = 120f;
+    private float paceMultiplier = 1f;
+    private bool paceInView = true;
+    private float nextPaceViewCheckTime = 0f;
+    private CCTVMonitor cctvMonitor;
     #endregion
 
     #region Unity Lifecycle
@@ -143,6 +171,7 @@ public class EventNPC : MonoBehaviour, IInteractable
     {
         agent = GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = false;
+        baseAngularSpeed = agent.angularSpeed;
 
         // Look for Animator on this object or any children (model is often a child)
         animator = GetComponentInChildren<Animator>();
@@ -211,6 +240,8 @@ public class EventNPC : MonoBehaviour, IInteractable
                 }
                 if (!isTraversingLink)
                 {
+                    // Pacing may despawn a departing NPC, which ends this NPC's event
+                    if (UpdateTravelPacing()) return;
                     CheckArrival();
                 }
                 break;
@@ -311,6 +342,23 @@ public class EventNPC : MonoBehaviour, IInteractable
     public bool IsWaitingForBackgroundNPC()
     {
         return isWaitingForBackgroundNPC;
+    }
+
+    /// <summary>
+    /// Opts this NPC into travel pacing so the player isn't left waiting on long walks:
+    /// while far from the player it moves faster (much faster when out of view), timed pauses
+    /// pass quicker when nobody is watching, and once it has nothing left to say it despawns
+    /// as soon as it's far away and out of sight. Called by GameFlowManager for events with
+    /// GameEvent.speedUpWhenFar. Never used for cinematic walks.
+    /// </summary>
+    public void EnableTravelPacing(bool enable)
+    {
+        travelPacingEnabled = enable && postDialogueCinematic == null;
+        if (travelPacingEnabled && cctvMonitor == null)
+        {
+            cctvMonitor = FindFirstObjectByType<CCTVMonitor>();
+        }
+        ResetTravelPacing();
     }
     #endregion
 
@@ -592,7 +640,8 @@ public class EventNPC : MonoBehaviour, IInteractable
                   $"NPC Pos={transform.position} AgentPos={agent.nextPosition} " +
                   $"AgentOnNavMesh={agent.isOnNavMesh} Speed={waypoint.moveSpeed}");
 
-        agent.speed = waypoint.moveSpeed;
+        baseMoveSpeed = waypoint.moveSpeed;
+        agent.speed = baseMoveSpeed * paceMultiplier;
         agent.acceleration = 999f; // Instant acceleration
         agent.SetDestination(targetPosition);
 
@@ -918,7 +967,15 @@ public class EventNPC : MonoBehaviour, IInteractable
         string wpName = (waypoints != null && currentWaypointIndex < waypoints.Length)
             ? waypoints[currentWaypointIndex].waypointName : "?";
         Debug.Log($"EventNPC {npcName}: Starting {waitTime}s wait at waypoint {currentWaypointIndex} '{wpName}', NPC Pos={transform.position}");
-        yield return new WaitForSeconds(waitTime);
+
+        // Timed pauses pass faster while the player is far away and can't see them (travel pacing)
+        float elapsed = 0f;
+        while (elapsed < waitTime)
+        {
+            elapsed += Time.deltaTime * GetUnwatchedTimeScale();
+            yield return null;
+        }
+
         Debug.Log($"EventNPC {npcName}: Wait finished at waypoint {currentWaypointIndex} '{wpName}', NPC Pos={transform.position}, isOnNavMesh={agent.isOnNavMesh}");
         shouldTrackPlayer = false; // Stop tracking player when done waiting
 
@@ -1278,7 +1335,8 @@ public class EventNPC : MonoBehaviour, IInteractable
         }
 
         currentState = NPCState.Exiting;
-        agent.speed = waypoints.Length > 0 ? waypoints[waypoints.Length - 1].moveSpeed : 3f;
+        baseMoveSpeed = waypoints.Length > 0 ? waypoints[waypoints.Length - 1].moveSpeed : 3f;
+        agent.speed = baseMoveSpeed * paceMultiplier;
         agent.acceleration = 999f; // Instant acceleration
         agent.SetDestination(exitObj.transform.position);
 
@@ -1343,6 +1401,12 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     private void SetWalkingState(bool isWalking)
     {
+        if (!isWalking)
+        {
+            // Back to authored speed whenever the NPC stops, so idles and arrival anims play normally
+            ResetTravelPacing();
+        }
+
         if (animator != null)
         {
             animator.SetBool(IsWalkingHash, isWalking);
@@ -1567,6 +1631,187 @@ public class EventNPC : MonoBehaviour, IInteractable
                lowerName.Contains("sit") ||
                lowerName.Contains("squat") ||
                lowerName.Contains("bow");
+    }
+    #endregion
+
+    #region Travel Pacing
+    /// <summary>
+    /// Speeds the walk up with distance from the player, and ends the event early once a
+    /// departing NPC is out of sight. Returns true if the NPC despawned this frame.
+    /// </summary>
+    private bool UpdateTravelPacing()
+    {
+        if (!travelPacingEnabled || playerTransform == null) return false;
+
+        if (Time.time >= nextPaceViewCheckTime)
+        {
+            nextPaceViewCheckTime = Time.time + 0.1f;
+            paceInView = IsInPlayerView();
+        }
+
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        float fogHiddenDistance = GetFogHiddenDistance();
+        bool watchingCameras = cctvMonitor != null && cctvMonitor.IsViewing;
+
+        // Walking away with nothing left to say and nobody can see it: end the event now
+        // instead of making the player wait out the rest of the walk.
+        if (!watchingCameras && !isWaitingForBackgroundNPC && HasNothingLeftToSay()
+            && (distance >= fogHiddenDistance || (!paceInView && distance >= leaveDespawnDistance)))
+        {
+            DespawnEarly();
+            return true;
+        }
+
+        float target = 1f;
+        if (!watchingCameras && distance > paceNearDistance)
+        {
+            float visibleFullDistance = paceVisibleFullDistance > 0f ? paceVisibleFullDistance
+                : float.IsInfinity(fogHiddenDistance) ? 60f : fogHiddenDistance;
+
+            // Squared ramp: stays close to normal speed while the NPC is still easy to see
+            float t = Mathf.InverseLerp(paceNearDistance, visibleFullDistance, distance);
+            t *= t;
+            if (!paceInView)
+            {
+                t = Mathf.Max(t, Mathf.InverseLerp(paceNearDistance, paceHiddenFullDistance, distance));
+            }
+            target = Mathf.Lerp(1f, paceMaxSpeedMultiplier, t);
+        }
+
+        paceMultiplier = Mathf.MoveTowards(paceMultiplier, target, paceBlendRate * Time.deltaTime);
+        agent.speed = baseMoveSpeed * paceMultiplier;
+        agent.angularSpeed = baseAngularSpeed * paceMultiplier;
+        if (animator != null)
+        {
+            animator.speed = paceMultiplier;
+        }
+        return false;
+    }
+
+    private void ResetTravelPacing()
+    {
+        // Only undo what UpdateTravelPacing changed, so non-paced NPCs are never touched
+        if (paceMultiplier == 1f) return;
+
+        paceMultiplier = 1f;
+        agent.speed = baseMoveSpeed;
+        agent.angularSpeed = baseAngularSpeed;
+        if (animator != null)
+        {
+            animator.speed = 1f;
+        }
+    }
+
+    /// <summary>
+    /// How much faster a timed pause runs: sped up while the player is far away and can't see
+    /// the NPC, normal otherwise.
+    /// </summary>
+    private float GetUnwatchedTimeScale()
+    {
+        if (!travelPacingEnabled || playerTransform == null) return 1f;
+        if (cctvMonitor != null && cctvMonitor.IsViewing) return 1f;
+
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        bool unseen = distance >= GetFogHiddenDistance()
+                      || (distance >= paceHiddenFullDistance && !IsInPlayerView());
+        return unseen ? paceMaxSpeedMultiplier : 1f;
+    }
+
+    /// <summary>
+    /// True when the rest of the route (following branches as they'd resolve right now) has no
+    /// conversation, hold or timed pause left - i.e. the NPC is just walking away.
+    /// </summary>
+    private bool HasNothingLeftToSay()
+    {
+        if (waypoints == null) return true;
+
+        if (exitDialogues != null)
+        {
+            foreach (var exitDialogue in exitDialogues)
+            {
+                if (exitDialogue != null && !string.IsNullOrEmpty(exitDialogue.dialogueText)) return false;
+            }
+        }
+
+        // While walking, currentWaypointIndex is the waypoint being walked TO
+        int index = currentWaypointIndex;
+        for (int steps = 0; index >= 0 && index < waypoints.Length; steps++)
+        {
+            if (steps > waypoints.Length) return false; // branch loop - play it safe
+
+            WaypointData waypoint = waypoints[index];
+            if (waypoint.waitForInteraction || waypoint.autoStartDialogue ||
+                waypoint.holdAfterDialogue || waypoint.waitTime > 0f)
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(waypoint.branchVariable) &&
+                !string.IsNullOrEmpty(waypoint.branchToWaypoint) &&
+                EventVariables.CheckVariable(waypoint.branchVariable, waypoint.branchValue))
+            {
+                int branchIndex = FindWaypointIndex(waypoint.branchToWaypoint);
+                if (branchIndex >= 0)
+                {
+                    index = branchIndex;
+                    continue;
+                }
+            }
+            index++;
+        }
+        return true;
+    }
+
+    private void DespawnEarly()
+    {
+        Debug.Log($"EventNPC {npcName}: Leaving out of sight - despawning early");
+
+        if (partialPathCoroutine != null)
+        {
+            StopCoroutine(partialPathCoroutine);
+            partialPathCoroutine = null;
+        }
+        if (agent.isOnNavMesh)
+        {
+            agent.ResetPath();
+        }
+        SetWalkingState(false);
+        currentState = NPCState.Idle;
+
+        if (exitBehavior == NPCExitBehavior.Disable)
+        {
+            gameObject.SetActive(false);
+        }
+        CompleteEvent();
+    }
+
+    /// <summary>Cheap "could the player see me" test: inside the main camera's view, with a margin.</summary>
+    private bool IsInPlayerView()
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+        if (mainCamera == null) return false;
+
+        Vector3 viewport = mainCamera.WorldToViewportPoint(transform.position + Vector3.up * 1.5f);
+        const float margin = 0.15f;
+        return viewport.z > 0f &&
+               viewport.x > -margin && viewport.x < 1f + margin &&
+               viewport.y > -margin && viewport.y < 1f + margin;
+    }
+
+    /// <summary>Distance at which the scene fog has hidden ~95% of the NPC (infinity when fog is off).</summary>
+    private static float GetFogHiddenDistance()
+    {
+        if (!RenderSettings.fog) return float.PositiveInfinity;
+
+        switch (RenderSettings.fogMode)
+        {
+            case FogMode.Linear:
+                return RenderSettings.fogEndDistance;
+            case FogMode.Exponential:
+                return RenderSettings.fogDensity > 0f ? 3f / RenderSettings.fogDensity : float.PositiveInfinity;
+            default: // ExponentialSquared
+                return RenderSettings.fogDensity > 0f ? 1.73f / RenderSettings.fogDensity : float.PositiveInfinity;
+        }
     }
     #endregion
 

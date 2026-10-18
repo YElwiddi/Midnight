@@ -29,12 +29,24 @@ MonoBehaviour:
     waypointName: YureiMiniJumpscare
     moveSpeed: 25
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 6.66
+    facePlayerWhileWaiting: 0
+    backToPlayerWhileWaiting: 0
+    playerTrackingRotationSpeed: 120
     inkDialogue: {fileID: 0}
     dialogueKnot: 
+    cameraHeight: -1
+    cameraZoom: -1
+    dialogueSoundClip: {fileID: 0}
+    dialogueSoundVolume: -1
+    dialogueSoundBasePitch: -1
+    dialogueSoundPitchVariation: -1
+    dialogueSoundEveryN: -1
     movementAnimationTrigger: IsWalking
     arrivalAnimationTrigger: 
     idleAnimationBool: 
@@ -42,14 +54,28 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    holdAfterDialogue: 0
     proximitySound: {fileID: 0}
     proximitySoundRange: 40
     proximitySoundVolume: 1
     proximitySoundTrigger: 2
     requirePlayerLooking: 0
+    proximitySoundConditionVariable: 
+    proximitySoundConditionValue: 
   inkDialogue: {fileID: 0}
   dialogueKnot: 
+  typewriterSpeed: 0
+  cameraHeight: -1
+  cameraZoom: -1
+  dialogueSoundClip: {fileID: 0}
+  dialogueSoundVolume: -1
+  dialogueSoundBasePitch: -1
+  dialogueSoundPitchVariation: -1
+  dialogueSoundEveryN: -1
   exitBehavior: 0
   exitPointName: FrontOfCrypt
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0
+  speedUpWhenFar: 0

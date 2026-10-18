@@ -19,7 +19,7 @@ using UnityEngine.UI;
 ///   • Setup Main Menu      — language dropdown in Settings, LocalizedText on every static label,
 ///                            plate+label versions of the sprite buttons, localized headphones note.
 ///   • Setup Gameplay Scene — LocalizedText on the pause menu labels.
-/// Safe to re-run; MainMenuBuilder.Build() calls SetupMainMenu() so a menu rebuild keeps this.
+/// Safe to re-run. The main menu binds its own keys in MainMenuBuilder (Epitaph rework, 2026-10-18).
 /// </summary>
 public static class LocalizationSetup
 {
@@ -201,76 +201,10 @@ public static class LocalizationSetup
 
     public static void SetupMainMenu()
     {
-        var canvas = GameObject.Find("Canvas");
-        if (canvas == null) { Debug.LogError("LocalizationSetup: no Canvas in scene"); return; }
-        var canvasTf = canvas.transform;
-        var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(HelpMeFontPath);
-        var menu = Object.FindFirstObjectByType<GameMainMenu>();
-
-        // ---- main buttons: art in English, plate + label elsewhere
-        var root = canvasTf.Find("MainMenuUI");
-        if (root != null)
-        {
-            var buttons = root.Find("Buttons");
-            if (buttons != null)
-            {
-                MakeSprite(buttons.Find("PlayButton"), "PLAY", "ui.menu.play", font, 0.30f);
-                MakeSprite(buttons.Find("EndingsButton"), "ENDINGS", "ui.menu.endings", font, 0.30f);
-                MakeSprite(buttons.Find("SettingsButton"), "SETTINGS", "ui.menu.settings", font, 0.30f);
-                MakeSprite(buttons.Find("QuitButton"), "QUIT", "ui.menu.quit", font, 0.30f);
-            }
-
-            var endings = root.Find("EndingsPanel/Modal");
-            if (endings != null)
-            {
-                MakeSprite(endings.Find("EndingsHeader"), "ENDINGS", "ui.menu.endings", font, 0.30f);
-                MakeSprite(endings.Find("CancelButton"), "CANCEL", "ui.menu.cancel", font, 0.30f);
-                FontOnly(endings.Find("Subtitle"));
-                FontOnly(endings.Find("CryptFiendsTeaser/CryptFiendsTeaserLabel"));
-                foreach (Transform slot in endings)
-                {
-                    if (!slot.name.StartsWith("Slot_")) continue;
-                    FontOnly(slot.Find("Num"));
-                    FontOnly(slot.Find("Value"));
-                    FontOnly(slot.Find("Type"));
-                }
-            }
-
-            var fiends = root.Find("CryptFiendsPanel/Modal");
-            if (fiends != null)
-            {
-                MakeSprite(fiends.Find("CancelButton"), "CANCEL", "ui.menu.cancel", font, 0.30f);
-                FontOnly(fiends.Find("CryptFiendsHeader"));
-                FontOnly(fiends.Find("Subtitle"));
-                foreach (Transform slot in fiends)
-                    if (slot.name == "FiendSlot") FontOnly(slot.Find("Name"));
-                var detail = fiends.Find("FiendDetail");
-                if (detail != null)
-                {
-                    FontOnly(detail.Find("DetailName"));
-                    FontOnly(detail.Find("DetailBody"));
-                    KeyText(detail.Find("BackButton"), "ui.menu.back");
-                    // Longer languages wrap the lore onto more lines; shrink rather than overlap BACK.
-                    var body = detail.Find("DetailBody")?.GetComponent<TMP_Text>();
-                    if (body != null) { body.enableAutoSizing = true; body.fontSizeMin = 22f; body.fontSizeMax = 36f; EditorUtility.SetDirty(body); }
-                    var dname = detail.Find("DetailName")?.GetComponent<TMP_Text>();
-                    if (dname != null) { dname.enableAutoSizing = true; dname.fontSizeMin = 30f; dname.fontSizeMax = 66f; EditorUtility.SetDirty(dname); }
-                }
-                FontOnly(fiends.Find("CryptFiendsHeader"));
-                var fh = fiends.Find("CryptFiendsHeader")?.GetComponent<TMP_Text>();
-                if (fh != null) { fh.enableAutoSizing = true; fh.fontSizeMin = 30f; fh.fontSizeMax = 64f; EditorUtility.SetDirty(fh); }
-            }
-        }
-
-        // ---- options panel
-        var options = canvasTf.Find("OptionsPanel");
-        if (options != null) SetupOptions(options, font, menu);
-
-        // ---- headphones disclaimer
-        var disclaimer = canvasTf.Find("DisclaimerPanel");
-        if (disclaimer != null) SetupDisclaimer(disclaimer);
-
-        Debug.Log("LocalizationSetup: main menu localized.");
+        // The Epitaph menu (MainMenuBuilder) is plain TMP text in Cinzel / Cormorant and binds its own
+        // string keys and font components while it builds, so there is nothing left to convert here.
+        // (The old brush-plate conversion below would break the new splash and buttons.)
+        Debug.Log("LocalizationSetup: the main menu is localized by MainMenuBuilder (Tools > Graveyard > Build Main Menu).");
     }
 
     static void SetupOptions(Transform options, TMP_FontAsset font, GameMainMenu menu)

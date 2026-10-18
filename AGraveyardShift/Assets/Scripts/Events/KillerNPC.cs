@@ -1853,6 +1853,8 @@ public class KillerNPC : MonoBehaviour
         // Load game over scene if specified
         if (!string.IsNullOrEmpty(gameOverSceneName))
         {
+            // A death without an ending: the menu still offers to return to this watch.
+            LastDeathSave.RecordDeath(DeathCauses.Night, DeathCauses.CurrentWatch());
             SceneManager.LoadScene(gameOverSceneName);
         }
 

@@ -29,9 +29,11 @@ MonoBehaviour:
     waypointName: LeftOfGate
     moveSpeed: 13
     waitForInteraction: 0
+    autoStartDialogue: 0
     timeUntilInteractable: 0
     waitingDialogueText: 
     waitingDialogueSpeaker: 
+    suppressIdleNudge: 0
     waitTime: 0
     facePlayerWhileWaiting: 0
     backToPlayerWhileWaiting: 0
@@ -52,6 +54,7 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    holdAfterDialogue: 0
     proximitySound: {fileID: 8300000, guid: e231cdd7c37e1c6449032c852ea81d79, type: 3}
     proximitySoundRange: 30
     proximitySoundVolume: 1
@@ -73,3 +76,6 @@ MonoBehaviour:
   exitPointName: LeftOfGate
   exitDialogues: []
   backgroundNPCs: []
+  postDialogueCinematic: {fileID: 0}
+  disablePlayerControlOnStart: 0
+  speedUpWhenFar: 0

@@ -34,6 +34,30 @@
    "v": "Ending"
   },
   {
+   "k": "fieldnote.beast.title",
+   "v": "The Beast"
+  },
+  {
+   "k": "fieldnote.bride.title",
+   "v": "The Bride"
+  },
+  {
+   "k": "fieldnote.friend.title",
+   "v": "The Friend"
+  },
+  {
+   "k": "fieldnote.graverobber.title",
+   "v": "The Grave Robber"
+  },
+  {
+   "k": "fieldnote.wraith.title",
+   "v": "The Wraith"
+  },
+  {
+   "k": "fieldnote.yurei.title",
+   "v": "The Yurei"
+  },
+  {
    "k": "ending.wrongfulConviction.description",
    "v": "The Graveyard is at peace."
   },
@@ -178,8 +202,20 @@
    "v": "{0} / {1}  DISCOVERED"
   },
   {
+   "k": "ui.endings.fieldNotesTeaser",
+   "v": "{0} / {1}  FIELD NOTES"
+  },
+  {
    "k": "ui.endings.fiendsTeaserLocked",
    "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.fieldnotes.found",
+   "v": "{0} / {1}  RECOVERED"
+  },
+  {
+   "k": "ui.fieldnotes.header",
+   "v": "FIELD NOTES"
   },
   {
    "k": "ui.endings.fiendsTeaser",
@@ -206,6 +242,38 @@
    "v": "Resume"
   },
   {
+   "k": "ui.phase.first",
+   "v": "FIRST WATCH"
+  },
+  {
+   "k": "ui.phase.first.desc",
+   "v": "The whole night."
+  },
+  {
+   "k": "ui.phase.second",
+   "v": "SECOND WATCH"
+  },
+  {
+   "k": "ui.phase.second.desc",
+   "v": "Skip the first three visitors."
+  },
+  {
+   "k": "ui.phase.subtitle",
+   "v": "Starting later skips the earlier visitors. Your stats start fresh."
+  },
+  {
+   "k": "ui.phase.third",
+   "v": "THIRD WATCH"
+  },
+  {
+   "k": "ui.phase.third.desc",
+   "v": "Skip ahead to the last visitors of the night."
+  },
+  {
+   "k": "ui.phase.title",
+   "v": "BEGIN YOUR SHIFT"
+  },
+  {
    "k": "ui.pause.exit",
    "v": "Exit"
   },
@@ -216,6 +284,70 @@
   {
    "k": "ui.cctv.camera",
    "v": "CAMERA {0}"
+  },
+  {
+   "k": "ui.menu.newNight",
+   "v": "NEW NIGHT"
+  },
+  {
+   "k": "ui.menu.return.2",
+   "v": "RETURN TO THE SECOND WATCH"
+  },
+  {
+   "k": "ui.menu.return.3",
+   "v": "RETURN TO THE THIRD WATCH"
+  },
+  {
+   "k": "death.cause.spirit",
+   "v": "Taken by the Wrathful Spirit"
+  },
+  {
+   "k": "death.cause.graverobber",
+   "v": "Taken by the Grave Robber"
+  },
+  {
+   "k": "death.cause.bride",
+   "v": "Taken by the Bride"
+  },
+  {
+   "k": "death.cause.father",
+   "v": "Taken by the Father"
+  },
+  {
+   "k": "death.cause.night",
+   "v": "Taken by the night"
+  },
+  {
+   "k": "ui.settings.mouseSensitivity",
+   "v": "MOUSE SENSITIVITY"
+  },
+  {
+   "k": "ui.settings.invertLook",
+   "v": "INVERT LOOK"
+  },
+  {
+   "k": "ui.settings.masterVolume",
+   "v": "MASTER VOLUME"
+  },
+  {
+   "k": "ui.settings.music",
+   "v": "MUSIC"
+  },
+  {
+   "k": "ui.settings.effects",
+   "v": "EFFECTS"
+  },
+  {
+   "k": "ui.phase.locked",
+   "v": "Reach this watch to unlock it."
+  },
+  {
+   "k": "ui.endings.found",
+   "v": "FOUND {0}"
+  },
+  {
+   "k": "ui.pause.title",
+   "v": "PAUSED"
   },
   {
    "k": "??????",
@@ -270,6 +402,10 @@
    "v": "The door is locked."
   },
   {
+   "k": "Someone left more notes in the cabin.",
+   "v": "Someone left more notes in the cabin."
+  },
+  {
    "k": "The door is locked. There is a cold chill coming from the other side.",
    "v": "The door is locked. There is a cold chill coming from the other side."
   },
@@ -308,6 +444,10 @@
   {
    "k": "The door won't budge.",
    "v": "The door won't budge."
+  },
+  {
+   "k": "No Deloitte is buried on these grounds.",
+   "v": "No Deloitte is buried on these grounds."
   },
   {
    "k": "FRONT GATE",
@@ -542,8 +682,28 @@
    "v": "Jason and Monroe Adel were found dead in their home with clear signs of a struggle. Monroe had bled to death from multiple stab wounds including one to a fatal artery in his neck. Jason had died from a clear neck injury inflicted from what appeared to be his father.\n\nMaria was interred within a mental asylum immediately after the event, but was released some time after. She was subsequently permanently banned from entering these grounds after a psychosis-fueled attempt to break through the gates to visit the grave.\n\nMaria is not allowed entry under any circumstances."
   },
   {
+   "k": "Lily, the only survivor, went into foster care.",
+   "v": "Lily, the only survivor, went into foster care."
+  },
+  {
    "k": "I should let her in",
    "v": "I should let her in"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
+   "v": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in."
+  },
+  {
+   "k": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
+   "v": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does."
+  },
+  {
+   "k": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
+   "v": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her."
+  },
+  {
+   "k": "Never invite her.",
+   "v": "Never invite her."
   },
   {
    "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
@@ -566,6 +726,18 @@
    "v": "This entry appears to be empty."
   },
   {
+   "k": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
+   "v": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
+   "v": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
+   "v": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>"
+  },
+  {
    "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
    "v": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented."
   },
@@ -580,6 +752,10 @@
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
    "v": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM"
+  },
+  {
+   "k": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+   "v": "One child survived, having exited the house before responders arrived, and was later placed into foster care."
   },
   {
    "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
@@ -604,6 +780,18 @@
   {
    "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
    "v": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written."
+  },
+  {
+   "k": "Elisabeth never returned to these grounds after the burial.",
+   "v": "Elisabeth never returned to these grounds after the burial."
+  },
+  {
+   "k": "No offerings are permitted in the son’s name.",
+   "v": "No offerings are permitted in the son’s name."
+  },
+  {
+   "k": "Wenqi, the husband, visits alone. He repeats himself.",
+   "v": "Wenqi, the husband, visits alone. He repeats himself."
   },
   {
    "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
@@ -678,8 +866,16 @@
    "v": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure."
   },
   {
+   "k": "Maria is not allowed entry under any circumstances.",
+   "v": "Maria is not allowed entry under any circumstances."
+  },
+  {
    "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
    "v": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM"
+  },
+  {
+   "k": "His brother disappeared many years ago under circumstances no one could trace",
+   "v": "His brother disappeared many years ago under circumstances no one could trace"
   },
   {
    "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
@@ -688,6 +884,14 @@
   {
    "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
    "v": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>"
+  },
+  {
+   "k": "Always cross reference any information they provide you.",
+   "v": "Always cross reference any information they provide you."
+  },
+  {
+   "k": "You must only allow for visitors who are directly related to the deceased.",
+   "v": "You must only allow for visitors who are directly related to the deceased."
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
@@ -708,6 +912,18 @@
   {
    "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
    "v": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different."
+  },
+  {
+   "k": "Wenqi said the family was complete as it stood",
+   "v": "Wenqi said the family was complete as it stood"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
+   "v": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
+   "v": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>"
   },
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
@@ -762,6 +978,10 @@
    "v": "Here lies Jane Adams\nMother, sister, beloved friend.\n1931-1985"
   },
   {
+   "k": "Harold, the younger brother, vanished years ago and was never traced.",
+   "v": "Harold, the younger brother, vanished years ago and was never traced."
+  },
+  {
    "k": "SELFISH",
    "v": "SELFISH"
   },
@@ -808,6 +1028,14 @@
   {
    "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
    "v": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long."
+  },
+  {
+   "k": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+   "v": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave."
+  },
+  {
+   "k": "Elisabeth, the widow, never came back after the burial.",
+   "v": "Elisabeth, the widow, never came back after the burial."
   },
   {
    "k": "I'M FREE",
@@ -3534,6 +3762,10 @@
    "v": "Yo… you work here?"
   },
   {
+   "k": "Her son, Edwin, was never told how she died.",
+   "v": "Her son, Edwin, was never told how she died."
+  },
+  {
    "k": "Listen, man, I can’t hang around long.",
    "v": "Listen, man, I can’t hang around long."
   },
@@ -4158,6 +4390,10 @@
    "v": "It will be a simple procedure. I'll walk the paths of the graveyard, and put the souls to rest."
   },
   {
+   "k": "Just a few minutes.",
+   "v": "Just a few minutes."
+  },
+  {
    "k": "You will immediately feel at ease.",
    "v": "You will immediately feel at ease."
   },
@@ -4466,6 +4702,10 @@
    "v": "When she meddles, she binds things halfway."
   },
   {
+   "k": "Will you invite me in?",
+   "v": "Will you invite me in?"
+  },
+  {
    "k": "Not alive. Not gone.",
    "v": "Not alive. Not gone."
   },
@@ -4496,6 +4736,10 @@
   {
    "k": "If you refuse…",
    "v": "If you refuse…"
+  },
+  {
+   "k": "Invite me in, gravekeeper.",
+   "v": "Invite me in, gravekeeper."
   },
   {
    "k": "Well.",

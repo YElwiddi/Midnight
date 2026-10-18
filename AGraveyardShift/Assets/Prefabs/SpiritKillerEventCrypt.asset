@@ -23,10 +23,12 @@ MonoBehaviour:
   protectionComparison: 5
   protectionThreshold: 25
   killerPrefab: {fileID: 3767055355421772689, guid: ce9aac46c6936044fb11e98bd6c747b3, type: 3}
+  sequenceDirectorPrefab: {fileID: 0}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
   spawnPointName: CryptFront
+  spawnOnLockedDoorInteract: 0
   facePlayerOnSpawn: 1
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
@@ -38,12 +40,13 @@ MonoBehaviour:
   useAmbushMode: 1
   idleAnimationBool: 
   activationDistance: 15
+  ignoreActivationDistance: 0
   requirePlayerLooking: 1
   lookDurationRequired: 0
   playerLookAngle: 15
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
-  chaseSpeed: 18
+  chaseSpeed: 21
   instantAcceleration: 0
   idleLoopSound: {fileID: 0}
   idleLoopVolume: 0.5
@@ -59,10 +62,12 @@ MonoBehaviour:
   faceHeightOffset: 1.6
   faceLookVerticalOffset: 0
   jumpscareSound: {fileID: 8300000, guid: 473d9b060ca7e244d938fa6339f1207f, type: 3}
+  muteAmbientOnJumpscare: 0
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
   jumpscarePlayerHeightOffset: -0.54
+  causesFlashlightFlicker: 1
   lockFlashlightOnDuringJumpscare: 1
   flashlightTargetHeight: 2.04
   jumpscareFlashlightIntensity: 3
@@ -83,11 +88,17 @@ MonoBehaviour:
   headShakeTurnAmount: 15
   headShakeSpeed: 30
   headShakeRandomness: 10
-  headShakeActiveDuration: 1.5
-  headShakePauseDuration: 0.6
-  headShakeTimingVariance: 0.3
-  headShakeStuckChance: 0.5
-  headShakeStuckMaxAngle: 25
+  headSpinEnabled: 0
+  headSpinInterval: 4
+  headSpinDuration: 0.5
+  headDoubleSpinChance: 0
+  headTripleSpinChance: 0
+  chaseContortion: 0
+  contortionSpeed: 24
+  contortionAngle: 115
+  contortionJitter: 45
+  chaseFloatHeight: 0.35
+  contortionStretch: 0.4
   showJumpscareDialogue: 0
   jumpscareDialogueText: 
   jumpscareDialogueFont: {fileID: 0}
@@ -96,6 +107,9 @@ MonoBehaviour:
   jumpscareDialogueDelay: 0.5
   jumpscareDialogueShakeIntensity: 0
   jumpscareDialogueShakeSpeed: 25
+  jumpscareDialogueFlash: 0
+  jumpscareDialogueFlashSpeed: 4
+  jumpscareDialogueFlashMinAlpha: 0
   gameOverSceneName: Start Menu Scene
   unlocksEnding: 1
   endingToUnlock: 0

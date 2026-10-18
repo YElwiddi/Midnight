@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834a8aa0d9fb3ba46ad7fb1c568e6512, type: 3}
+  m_Name: FieldNoteArchive
+  m_EditorClassIdentifier: Assembly-CSharp::FieldNoteArchive
+  entries:
+  - id: graverobber
+    title: The Grave Robber
+    pages:
+    - "Recovered Field Note, Provisional Designation:\n\u201CThe Grave Robber\u201D\nSource
+      redacted\n\nA recurring human presence has been connected to the majority of
+      grave disturbances. The individual is believed to be a local resident who acts
+      as the primary point of contact for outsiders engaging in theft and desecration.
+      His true identity remains unknown.\n\nHe does not work alone. His accomplices
+      are frequently observed scouting the cemetery during off hours, testing sightlines
+      and response times. These individuals retreat when illuminated and have been
+      successfully deterred with sustained use of flashlights. Constant vigilance
+      is required, as their activity is ongoing and deliberate."
+    - 'Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns,
+      and access routes, despite having no prior connection to the area. This information
+      is presumed to be supplied by him. Activity increases sharply following his
+      arrival and disperses once he leaves.
+
+
+      The Grave Robber is violent.
+      Evidence suggests intentional intimidation rather than necessity. Damaged tools,
+      excessive force, and signs of internal conflict among accomplices indicate
+      a leadership role maintained through fear.
+
+
+      Previous gravekeepers have
+      reported encounters. In each case, documentation ends shortly afterward. One
+      keeper abandoned the post without notice. Another was hospitalized with injuries
+      inconsistent with a fall. A third recorded a sighting but the final entry was
+      torn from the log.'
+    - He avoids identification. Facial details vary between reports, and no reliable
+      image has been captured. Despite this, his presence is unmistakable. Continued
+      observation is necessary. Direct confrontation is not advised.
+  - id: yurei
+    title: The Yurei
+    pages:
+    - "Recovered Field Note, Informal Designation:\n\u201CThe Yurei\u201D\n\nA new
+      presence has been identified within the cemetery. The timing suggests a recent
+      burial, though the associated grave has not been confirmed. Activity began
+      abruptly, as if the role was assumed rather than developed over time.\n\nThe
+      entity demonstrates heightened emotional sensitivity. Human presence produces
+      variable effects that appear personal in nature. Some visitors report a sense
+      of calm or hesitation, as though gently encouraged to remain. Others experience
+      unease, intrusive thoughts, and a strong impression of being unwelcome."
+    - 'Behavior indicates selective judgment. Entry is sometimes impeded without
+      physical obstruction, while access is quietly permitted in other cases. These
+      decisions do not appear consistent, suggesting internal conflict rather than
+      intent to harm.
+
+
+      Disrespect toward the grounds results in immediate
+      mental disturbance among those responsible. The effect subsides once order
+      is restored. No physical damage has been attributed directly to the entity.
+
+
+      The
+      Yurei appears bound to the cemetery and invested in its preservation. She seeks
+      rest, yet remains vigilant. Her attachment to certain individuals complicates
+      her function. Continued observation is necessary.'
+  - id: wraith
+    title: The Wraith
+    pages:
+    - "Recovered Field Note, Informal Designation:\n\u201CThe Wraith\u201D\nLocation
+      withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked
+      these grounds for years, and yet the air changes when it passes. It is not
+      seen, not in the way one expects a creature to appear. Only the silence gives
+      it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle.
+      By the time anyone notices, it has already claimed them. There is no mistaking
+      it; this entity appears to be the most dangerous among the documented."
+    - "It is drawn to strength. The capable, the defiant, the prepared, they are
+      its prey. The weak may go unnoticed, but the strong... those it deems worthy,
+      are ended with precision. No survivor can recount the encounter. Only the evidence
+      remains, subtle and cruel.\n\nI do not know how it moves, or where it comes
+      from. \nReports only conclude that encounters with this creature will not result
+      in a conventional hunt."
+  - id: friend
+    title: The Friend
+    pages:
+    - "Recovered Field Note, Informal Designation:\n\u201CThe Friend\u201D\nStrange
+      encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly
+      without explanation. Small objects were found displaced as though something
+      had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere
+      is a sensation, difficult to describe, of being observed. Shadows appear heavier,
+      and sometimes I feel a presence just beyond the edge of vision. It moves cautiously,
+      avoiding direct light, and does not make sound unless provoked. The pattern
+      is inconsistent, yet deliberate enough to suggest awareness."
+    - 'I observed subtle traces that cannot be accounted for. Surfaces that were
+      previously still show signs of disturbance. The air often feels dense afterward,
+      as if retaining a memory of motion. The changes are not violent but are repeated
+      with unnerving regularity.
+
+
+      I recorded these anomalies carefully. There
+      is no structural damage, no sign of interference by humans, and no explanation
+      that fits the observations. Yet the events continue, and each instance leaves
+      the same oppressive, lingering impression.
+
+
+      I cannot explain it. Whatever
+      it is, it does not appear fully aware of its actions, yet its presence affects
+      the space profoundly. The true threat from this creature is felt from their
+      absence. I will continue to note any further occurrences and record patterns
+      as they emerge.'
+  - id: beast
+    title: The Beast
+    pages:
+    - "Recovered Field Note, Informal Designation: \n\u201CThe Beast\u201D\nSource
+      redacted\n\nSurvivors agree on this much: the creature does not announce itself.
+      It waits until it has judged you. Signs of weakness of mind appear to draw
+      it closer. It watches for hesitation. For the moment your thoughts slow and
+      your will folds inward.\n\nThose who never realize they were being hunted often
+      report nothing at all. They vanish quietly. No screams or signs of pursuit.
+      The Beast does not waste energy on panic."
+    - 'When it does show itself, it is deliberate and brief. A silhouette where there
+      should be none.
+
+
+      It favors concealment over speed, patience over force.
+      It will remain unseen for hours, sometimes days, tracking the same individual
+      until the prey convinces it - through fear, isolation, or doubt, that the kill
+      will be effortless.
+
+
+      Those who stare at it lose their mind. It is also
+      known to interfere with electronic equipment.'
+  - id: bride
+    title: The Bride
+    pages:
+    - "Recovered Field Note, Provisional Designation:\n\u201CThe Bride\u201D\nUnknown
+      encounter\n\n"
+    - This entry appears to be empty.

@@ -88,6 +88,16 @@ public class NotePulseHighlight : MonoBehaviour
         subscribed = false;
     }
 
+    /// <summary>
+    /// Starts pulsing if this note's visitor is already the running event. For notes that are
+    /// switched on mid-event (CabinNoteSchedule reveals), which missed the event-started signal.
+    /// </summary>
+    public void SyncWithCurrentEvent()
+    {
+        TrySubscribe();
+        HandleEventStarted(null);
+    }
+
     private void HandleEventStarted(string _)
     {
         if (triggeringEvents == null || triggeringEvents.Length == 0) return;

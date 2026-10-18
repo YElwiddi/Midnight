@@ -23,8 +23,10 @@ public class OptionsPanel : MonoBehaviour
     public Button resolutionLeftButton;
     public Button resolutionRightButton;
 
-    [Header("Sensitivity")]
+    [Header("Look")]
     public Slider mouseSensitivitySlider;
+    [Tooltip("Inverts vertical mouse look (GameSettings.InvertLook).")]
+    public Toggle invertLookToggle;
 
     [Header("Brightness")]
     public Slider brightnessSlider;
@@ -45,6 +47,9 @@ public class OptionsPanel : MonoBehaviour
 
     private Resolution[] resolutionOptions;
     private int currentResolutionIndex;
+
+    /// <summary>Raised when the panel closes (Accept or Cancel), e.g. so the pause menu can come back.</summary>
+    public event System.Action Closed;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void ApplySavedSettingsOnLaunch()
@@ -99,6 +104,9 @@ public class OptionsPanel : MonoBehaviour
         if (mouseSensitivitySlider != null)
             mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
 
+        if (invertLookToggle != null)
+            invertLookToggle.onValueChanged.AddListener(SetInvertLook);
+
         if (brightnessSlider != null)
             brightnessSlider.onValueChanged.AddListener(SetBrightness);
     }
@@ -116,16 +124,16 @@ public class OptionsPanel : MonoBehaviour
         // Load music volume
         if (musicVolumeSlider != null)
         {
-            float musicVol = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 0.75f);
-            musicVolumeSlider.value = musicVol;
+            float musicVol = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, AudioRouter.DefaultVolume);
+            musicVolumeSlider.SetValueWithoutNotify(musicVol);
             SetMusicVolume(musicVol);
         }
 
         // Load SFX volume
         if (sfxVolumeSlider != null)
         {
-            float sfxVol = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 0.75f);
-            sfxVolumeSlider.value = sfxVol;
+            float sfxVol = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, AudioRouter.DefaultVolume);
+            sfxVolumeSlider.SetValueWithoutNotify(sfxVol);
             SetSFXVolume(sfxVol);
         }
 
@@ -143,12 +151,12 @@ public class OptionsPanel : MonoBehaviour
             qualityDropdown.value = qualityLevel;
         }
 
-        // Load mouse sensitivity
+        // Load mouse sensitivity / invert look
         if (mouseSensitivitySlider != null)
-        {
-            float sensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_KEY, 2f);
-            mouseSensitivitySlider.value = sensitivity;
-        }
+            mouseSensitivitySlider.SetValueWithoutNotify(GameSettings.MouseSensitivity);
+
+        if (invertLookToggle != null)
+            invertLookToggle.SetIsOnWithoutNotify(GameSettings.InvertLook);
 
         // Load brightness (drives the gameplay ambient sky; see BrightnessSettings).
         if (brightnessSlider != null)
@@ -162,24 +170,15 @@ public class OptionsPanel : MonoBehaviour
         PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, value);
     }
 
+    // Music / Effects go through MainMixer's Music and SFX groups (AudioRouter routes every source).
     public void SetMusicVolume(float value)
     {
-        if (audioMixer != null)
-        {
-            float dB = value > 0.001f ? Mathf.Log10(value) * 20f : -80f;
-            audioMixer.SetFloat("MusicVolume", dB);
-        }
-        PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, value);
+        AudioRouter.SetMusicVolume(value);
     }
 
     public void SetSFXVolume(float value)
     {
-        if (audioMixer != null)
-        {
-            float dB = value > 0.001f ? Mathf.Log10(value) * 20f : -80f;
-            audioMixer.SetFloat("SFXVolume", dB);
-        }
-        PlayerPrefs.SetFloat(SFX_VOLUME_KEY, value);
+        AudioRouter.SetSfxVolume(value);
     }
 
     public void SetFullscreen(bool isFullscreen)
@@ -285,30 +284,39 @@ public class OptionsPanel : MonoBehaviour
         PlayerPrefs.SetInt(QUALITY_KEY, qualityIndex);
     }
 
+    // Movement listens to GameSettings.Changed, so this applies immediately in the pause menu too.
     public void SetMouseSensitivity(float value)
     {
-        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_KEY, value);
+        GameSettings.MouseSensitivity = value;
+    }
 
-        // Apply to Movement script if player exists
-        Movement movement = FindFirstObjectByType<Movement>();
-        if (movement != null)
-        {
-            movement.lookSpeed = value;
-        }
+    public void SetInvertLook(bool invert)
+    {
+        GameSettings.InvertLook = invert;
     }
 
     public void SetBrightness(float value)
     {
-        // Drives the gameplay environment ambient sky colour. Applied when the gameplay
-        // scene's LightingController initialises (this panel lives in the main menu, which
-        // keeps its own lighting) — see BrightnessSettings.
+        // Drives the gameplay environment ambient sky colour (see BrightnessSettings). From the
+        // pause menu, re-apply the current area's preset so the change shows right away; the main
+        // menu keeps its own lighting.
         BrightnessSettings.Save(value);
+        var lighting = LightingController.Instance;
+        if (lighting != null && lighting.CurrentPreset != LightingPreset.Custom && lighting.CurrentPreset != LightingPreset.None)
+            lighting.ApplyPreset(lighting.CurrentPreset);
     }
 
     public void SaveAndClose()
     {
         PlayerPrefs.Save();
+        Close();
+    }
+
+    /// <summary>Hides the panel (Cancel). Settings already applied stay applied.</summary>
+    public void Close()
+    {
         gameObject.SetActive(false);
+        Closed?.Invoke();
     }
 
     public void ResetToDefaults()
@@ -319,7 +327,8 @@ public class OptionsPanel : MonoBehaviour
         if (sfxVolumeSlider != null) sfxVolumeSlider.value = 0.75f;
         if (fullscreenToggle != null) fullscreenToggle.isOn = true;
         if (qualityDropdown != null) qualityDropdown.value = QualitySettings.names.Length - 1;
-        if (mouseSensitivitySlider != null) mouseSensitivitySlider.value = 2f;
+        if (mouseSensitivitySlider != null) mouseSensitivitySlider.value = GameSettings.DefaultSensitivity;
+        if (invertLookToggle != null) invertLookToggle.isOn = false;
         if (brightnessSlider != null) brightnessSlider.value = BrightnessSettings.Default;
 
         PlayerPrefs.Save();

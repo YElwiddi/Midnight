@@ -1,7 +1,8 @@
-Missing translation report — 2026-09-18 14:36
-Source strings: 1165
+Missing translation report — 2026-10-18 04:38
+Source strings: 1221
 
-== zh-Hans: 1165/1165 translated, 0 missing, 14 unused entries
+== zh-Hans: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -9,6 +10,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -17,7 +22,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== ru: 1165/1165 translated, 0 missing, 14 unused entries
+== ru: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -25,6 +31,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -33,7 +43,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== es: 1165/1165 translated, 0 missing, 14 unused entries
+== es: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -41,6 +52,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -49,7 +64,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== pt-BR: 1165/1165 translated, 0 missing, 14 unused entries
+== pt-BR: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -57,6 +73,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -65,7 +85,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== de: 1165/1165 translated, 0 missing, 14 unused entries
+== de: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -73,6 +94,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -81,7 +106,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== ja: 1165/1165 translated, 0 missing, 14 unused entries
+== ja: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -89,6 +115,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -97,7 +127,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== fr: 1165/1165 translated, 0 missing, 14 unused entries
+== fr: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -105,6 +136,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -113,7 +148,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== pl: 1165/1165 translated, 0 missing, 14 unused entries
+== pl: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -121,6 +157,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector
@@ -129,7 +169,8 @@ Source strings: 1165
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== ko: 1165/1165 translated, 0 missing, 14 unused entries
+== ko: 1221/1221 translated, 0 missing, 19 unused entries
+   UNUSED   ??????
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -137,6 +178,10 @@ Source strings: 1165
    UNUSED   Are you sure you want to enter?
    UNUSED   A single rose, perfectly preserved. Should I take it?
    UNUSED   I can't... I can't think straight...
+   UNUSED   Excerpt from the Gravekeeper’s Notes⏎Unregistered visitors⏎⏎There are two women who period…
+   UNUSED   The other asks about boundaries. About what is held and what is trapped. She speaks of wei…
+   UNUSED   The other is allowed in under specific circumstances. Weather, time, and recent burials al…
+   UNUSED   Just permission.
    UNUSED   Chen Huang
    UNUSED   Harold Vunderbilt
    UNUSED   Hector

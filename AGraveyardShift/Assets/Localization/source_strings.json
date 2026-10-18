@@ -1,6 +1,41 @@
 {
-    "generated": "2026-09-18 14:36",
+    "generated": "2026-10-18 04:38",
     "entries": [
+        {
+            "key": "death.cause.bride",
+            "text": "Taken by the Bride",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "death.cause.father",
+            "text": "Taken by the Father",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "death.cause.graverobber",
+            "text": "Taken by the Grave Robber",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "death.cause.night",
+            "text": "Taken by the night",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "death.cause.spirit",
+            "text": "Taken by the Wrathful Spirit",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
         {
             "key": "ending.ambush.description",
             "text": "You didn't secure the Graveyard. Patrol the graveyard and check the cameras more often. Don't be too trusting.",
@@ -102,6 +137,48 @@
         {
             "key": "ending.wrongfulConviction.type",
             "text": "Ending",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "fieldnote.beast.title",
+            "text": "The Beast",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "fieldnote.bride.title",
+            "text": "The Bride",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "fieldnote.friend.title",
+            "text": "The Friend",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "fieldnote.graverobber.title",
+            "text": "The Grave Robber",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "fieldnote.wraith.title",
+            "text": "The Wraith",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "fieldnote.yurei.title",
+            "text": "The Yurei",
             "context": "code",
             "count": 1,
             "isKey": true
@@ -226,6 +303,13 @@
             "isKey": true
         },
         {
+            "key": "ui.endings.fieldNotesTeaser",
+            "text": "{0} / {1}  FIELD NOTES",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
             "key": "ui.endings.fiendsTeaser",
             "text": "{0} / {1}  CRYPT FIENDS FOUND",
             "context": "code",
@@ -235,6 +319,27 @@
         {
             "key": "ui.endings.fiendsTeaserLocked",
             "text": "{0} / {1}  ?????",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.endings.found",
+            "text": "FOUND {0}",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.fieldnotes.found",
+            "text": "{0} / {1}  RECOVERED",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.fieldnotes.header",
+            "text": "FIELD NOTES",
             "context": "code",
             "count": 1,
             "isKey": true
@@ -289,6 +394,13 @@
             "isKey": true
         },
         {
+            "key": "ui.menu.newNight",
+            "text": "NEW NIGHT",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
             "key": "ui.menu.play",
             "text": "PLAY",
             "context": "code",
@@ -298,6 +410,20 @@
         {
             "key": "ui.menu.quit",
             "text": "QUIT",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.menu.return.2",
+            "text": "RETURN TO THE SECOND WATCH",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.menu.return.3",
+            "text": "RETURN TO THE THIRD WATCH",
             "context": "code",
             "count": 1,
             "isKey": true
@@ -324,6 +450,76 @@
             "isKey": true
         },
         {
+            "key": "ui.pause.title",
+            "text": "PAUSED",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.first",
+            "text": "FIRST WATCH",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.first.desc",
+            "text": "The whole night.",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.locked",
+            "text": "Reach this watch to unlock it.",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.second",
+            "text": "SECOND WATCH",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.second.desc",
+            "text": "Skip the first three visitors.",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.subtitle",
+            "text": "Starting later skips the earlier visitors. Your stats start fresh.",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.third",
+            "text": "THIRD WATCH",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.third.desc",
+            "text": "Skip ahead to the last visitors of the night.",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.phase.title",
+            "text": "BEGIN YOUR SHIFT",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
             "key": "ui.readable.page",
             "text": "Page {0}/{1}",
             "context": "code",
@@ -345,6 +541,13 @@
             "isKey": true
         },
         {
+            "key": "ui.settings.effects",
+            "text": "EFFECTS",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
             "key": "ui.settings.fullscreen",
             "text": "Fullscreen",
             "context": "code",
@@ -352,8 +555,36 @@
             "isKey": true
         },
         {
+            "key": "ui.settings.invertLook",
+            "text": "INVERT LOOK",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
             "key": "ui.settings.language",
             "text": "Language",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.settings.masterVolume",
+            "text": "MASTER VOLUME",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.settings.mouseSensitivity",
+            "text": "MOUSE SENSITIVITY",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.settings.music",
+            "text": "MUSIC",
             "context": "code",
             "count": 1,
             "isKey": true
@@ -1475,6 +1706,83 @@
             "key": "You did it, my friend.",
             "text": "You did it, my friend.",
             "context": "EndingDialogue.json (line)",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+            "text": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+            "text": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+            "text": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+            "text": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+            "text": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+            "text": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+            "text": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+            "text": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+            "text": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+            "text": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+            "text": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
+            "context": "FieldNoteArchive.asset (FieldNoteArchive.entries[].pages[])",
             "count": 1,
             "isKey": false
         },
@@ -3239,7 +3547,7 @@
             "key": "May I come in?",
             "text": "May I come in?",
             "context": "HuangDialogue.json (line, Mr. Huang)",
-            "count": 2,
+            "count": 1,
             "isKey": false
         },
         {
@@ -5658,6 +5966,13 @@
             "isKey": false
         },
         {
+            "key": "Her son, Edwin, was never told how she died.",
+            "text": "Her son, Edwin, was never told how she died.",
+            "context": "Scene 0.5 Dungeon/Adams Note (ReadableTrigger.keeperRemarks[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
             "text": "Excerpt from the Gravekeeper’s Notes\nAdams family\n\nFamily members:\nEdwin Adams, 21, Alive\nJane Adams, 54, Deceased\nRebecca Adams, 48, Alive\n\nJane Adams is interred within these grounds.\n\nCause of death: Suicide\n\nTime of death: December 22, 1985, Sunday 3:21 AM",
             "context": "Scene 0.5 Dungeon/Adams Note (ReadableTrigger.pages[])",
@@ -5669,6 +5984,13 @@
             "text": "Jane Adams rests here after a life defined by order and restraint. She worked for many years as a bookkeeper at the municipal works office, kept her home immaculate, and raised her son, Edwin, with strict routines and clear expectations. When Edwin was seven, she sent him to live with close family friends out of state, telling neighbors it was for better schooling. After his departure, Jane’s attendance at work faltered, and she resigned quietly.\n\nJane took her own life weeks later. The gravekeeper notes that Edwin was never informed of her death, and those responsible agreed it was best he not be recalled or told the circumstances. The consequences of her actions, and the disgrace they carried, were more than she was willing to answer for in the open. She ended her life in solitude, ensuring that her son’s memory of her would remain unburdened by the truth she could not endure.",
             "context": "Scene 0.5 Dungeon/Adams Note (ReadableTrigger.pages[])",
             "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Maria is not allowed entry under any circumstances.",
+            "text": "Maria is not allowed entry under any circumstances.",
+            "context": "Scene 0.5 Dungeon/Adel Note (ReadableTrigger.keeperRemarks[])",
+            "count": 2,
             "isKey": false
         },
         {
@@ -5686,6 +6008,13 @@
             "isKey": false
         },
         {
+            "key": "Lily, the only survivor, went into foster care.",
+            "text": "Lily, the only survivor, went into foster care.",
+            "context": "Scene 0.5 Dungeon/Anderson Note (ReadableTrigger.keeperRemarks[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
             "text": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
             "context": "Scene 0.5 Dungeon/Anderson Note (ReadableTrigger.pages[])",
@@ -5696,6 +6025,13 @@
             "key": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
             "text": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
             "context": "Scene 0.5 Dungeon/Anderson Note (ReadableTrigger.pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+            "text": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+            "context": "Scene 0.5 Dungeon/Anderson Note (ReadableTrigger.redPenPhrases[])",
             "count": 1,
             "isKey": false
         },
@@ -5756,6 +6092,13 @@
             "isKey": false
         },
         {
+            "key": "Someone left more notes in the cabin.",
+            "text": "Someone left more notes in the cabin.",
+            "context": "Scene 0.5 Dungeon/CabinNoteSchedule (CabinNoteSchedule.newNotesText)",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "It's locked.",
             "text": "It's locked.",
             "context": "Scene 0.5 Dungeon/Chest (ChestInteractable.lockedText)",
@@ -5787,6 +6130,13 @@
             "key": "The door won't budge.",
             "text": "The door won't budge.",
             "context": "Scene 0.5 Dungeon/CryptDoorOutside (LockedTeleportInteractable.lockedDialogueText)",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "No Deloitte is buried on these grounds.",
+            "text": "No Deloitte is buried on these grounds.",
+            "context": "Scene 0.5 Dungeon/Deloitte Note (ReadableTrigger.keeperRemarks[])",
             "count": 1,
             "isKey": false
         },
@@ -5917,6 +6267,20 @@
             "isKey": false
         },
         {
+            "key": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+            "text": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+            "context": "Scene 0.5 Dungeon/Holmes Note (1) (ReadableTrigger.redPenPhrases[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Elisabeth, the widow, never came back after the burial.",
+            "text": "Elisabeth, the widow, never came back after the burial.",
+            "context": "Scene 0.5 Dungeon/Holmes Note (ReadableTrigger.keeperRemarks[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "HE IS A LYING BASTARD DO NOT TRUST HIM",
             "text": "HE IS A LYING BASTARD DO NOT TRUST HIM",
             "context": "Scene 0.5 Dungeon/Holmes Note (ReadableTrigger.lowSanityOverrides.pages[])",
@@ -5938,6 +6302,27 @@
             "isKey": false
         },
         {
+            "key": "Elisabeth never returned to these grounds after the burial.",
+            "text": "Elisabeth never returned to these grounds after the burial.",
+            "context": "Scene 0.5 Dungeon/Holmes Note (ReadableTrigger.redPenPhrases[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "No offerings are permitted in the son’s name.",
+            "text": "No offerings are permitted in the son’s name.",
+            "context": "Scene 0.5 Dungeon/Huang Note (ReadableTrigger.keeperRemarks[])",
+            "count": 2,
+            "isKey": false
+        },
+        {
+            "key": "Wenqi, the husband, visits alone. He repeats himself.",
+            "text": "Wenqi, the husband, visits alone. He repeats himself.",
+            "context": "Scene 0.5 Dungeon/Huang Note (ReadableTrigger.keeperRemarks[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
             "text": "Excerpt from the Gravekeeper’s Notes\nHuang family\n\nFamily members:\nWenqi Huang, 73, Alive\nMei Huang, 70, Deceased\nChen Huang, 48, Alive\n\nMei Huang is interred within these grounds.\n\nCause of death: Lethal injection\n\nTime of death: March 27, 1993, Saturday 4:00 PM",
             "context": "Scene 0.5 Dungeon/Huang Note (ReadableTrigger.pages[])",
@@ -5952,29 +6337,22 @@
             "isKey": false
         },
         {
-            "key": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
-            "text": "It is drawn to strength. The capable, the defiant, the prepared, they are its prey. The weak may go unnoticed, but the strong... those it deems worthy, are ended with precision. No survivor can recount the encounter. Only the evidence remains, subtle and cruel.\n\nI do not know how it moves, or where it comes from. \nReports only conclude that encounters with this creature will not result in a conventional hunt.",
+            "key": "Wenqi said the family was complete as it stood",
+            "text": "Wenqi said the family was complete as it stood",
+            "context": "Scene 0.5 Dungeon/Huang Note (ReadableTrigger.redPenPhrases[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
+            "text": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
             "context": "Scene 0.5 Dungeon/ID1067 (1) (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
         },
         {
-            "key": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
-            "text": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
-            "context": "Scene 0.5 Dungeon/ID1067 (1) (ReadableTrigger.pages[])",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
-            "text": "I observed subtle traces that cannot be accounted for. Surfaces that were previously still show signs of disturbance. The air often feels dense afterward, as if retaining a memory of motion. The changes are not violent but are repeated with unnerving regularity.\n\nI recorded these anomalies carefully. There is no structural damage, no sign of interference by humans, and no explanation that fits the observations. Yet the events continue, and each instance leaves the same oppressive, lingering impression.\n\nI cannot explain it. Whatever it is, it does not appear fully aware of its actions, yet its presence affects the space profoundly. The true threat from this creature is felt from their absence. I will continue to note any further occurrences and record patterns as they emerge.",
-            "context": "Scene 0.5 Dungeon/ID1067 (2) (ReadableTrigger.pages[])",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
-            "text": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
+            "key": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
+            "text": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
             "context": "Scene 0.5 Dungeon/ID1067 (2) (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
@@ -5983,61 +6361,33 @@
             "key": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
             "text": "Recovered Field Note, Provisional Designation:\n“The Bride”\nUnknown encounter",
             "context": "Scene 0.5 Dungeon/ID1067 (3) (ReadableTrigger.pages[])",
-            "count": 1,
+            "count": 2,
             "isKey": false
         },
         {
             "key": "This entry appears to be empty.",
             "text": "This entry appears to be empty.",
             "context": "Scene 0.5 Dungeon/ID1067 (3) (ReadableTrigger.pages[])",
-            "count": 1,
+            "count": 2,
             "isKey": false
         },
         {
-            "key": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
-            "text": "Recovered Field Note, Informal Designation: \n“The Beast”\nSource redacted\n\nSurvivors agree on this much: the creature does not announce itself. It waits until it has judged you. Signs of weakness of mind appear to draw it closer. It watches for hesitation. For the moment your thoughts slow and your will folds inward.\n\nThose who never realize they were being hunted often report nothing at all. They vanish quietly. No screams or signs of pursuit. The Beast does not waste energy on panic.",
+            "key": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
+            "text": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
             "context": "Scene 0.5 Dungeon/ID1067 (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
         },
         {
-            "key": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
-            "text": "When it does show itself, it is deliberate and brief. A silhouette where there should be none.\n\nIt favors concealment over speed, patience over force. It will remain unseen for hours, sometimes days, tracking the same individual until the prey convinces it - through fear, isolation, or doubt, that the kill will be effortless.\n\nThose who stare at it lose their mind. It is also known to interfere with electronic equipment.",
-            "context": "Scene 0.5 Dungeon/ID1067 (ReadableTrigger.pages[])",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
-            "text": "Behavior indicates selective judgment. Entry is sometimes impeded without physical obstruction, while access is quietly permitted in other cases. These decisions do not appear consistent, suggesting internal conflict rather than intent to harm.\n\nDisrespect toward the grounds results in immediate mental disturbance among those responsible. The effect subsides once order is restored. No physical damage has been attributed directly to the entity.\n\nThe Yurei appears bound to the cemetery and invested in its preservation. She seeks rest, yet remains vigilant. Her attachment to certain individuals complicates her function. Continued observation is necessary.",
+            "key": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
+            "text": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
             "context": "Scene 0.5 Dungeon/ID1087 (1) (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
         },
         {
-            "key": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
-            "text": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA new presence has been identified within the cemetery. The timing suggests a recent burial, though the associated grave has not been confirmed. Activity began abruptly, as if the role was assumed rather than developed over time.\n\nThe entity demonstrates heightened emotional sensitivity. Human presence produces variable effects that appear personal in nature. Some visitors report a sense of calm or hesitation, as though gently encouraged to remain. Others experience unease, intrusive thoughts, and a strong impression of being unwelcome.",
-            "context": "Scene 0.5 Dungeon/ID1087 (1) (ReadableTrigger.pages[])",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
-            "text": "Foreigners arrive with detailed knowledge of the cemetery layout, patrol patterns, and access routes, despite having no prior connection to the area. This information is presumed to be supplied by him. Activity increases sharply following his arrival and disperses once he leaves.\n\nThe Grave Robber is violent. Evidence suggests intentional intimidation rather than necessity. Damaged tools, excessive force, and signs of internal conflict among accomplices indicate a leadership role maintained through fear.\n\nPrevious gravekeepers have reported encounters. In each case, documentation ends shortly afterward. One keeper abandoned the post without notice. Another was hospitalized with injuries inconsistent with a fall. A third recorded a sighting but the final entry was torn from the log.",
-            "context": "Scene 0.5 Dungeon/ID1087 (2) (ReadableTrigger.pages[])",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
-            "text": "He avoids identification. Facial details vary between reports, and no reliable image has been captured. Despite this, his presence is unmistakable. Continued observation is necessary. Direct confrontation is not advised.",
-            "context": "Scene 0.5 Dungeon/ID1087 (2) (ReadableTrigger.pages[])",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
-            "text": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\nSource redacted\n\nA recurring human presence has been connected to the majority of grave disturbances. The individual is believed to be a local resident who acts as the primary point of contact for outsiders engaging in theft and desecration. His true identity remains unknown.\n\nHe does not work alone. His accomplices are frequently observed scouting the cemetery during off hours, testing sightlines and response times. These individuals retreat when illuminated and have been successfully deterred with sustained use of flashlights. Constant vigilance is required, as their activity is ongoing and deliberate.",
+            "key": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
+            "text": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
             "context": "Scene 0.5 Dungeon/ID1087 (2) (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
@@ -6179,6 +6529,20 @@
             "key": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
             "text": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
             "context": "Scene 0.5 Dungeon/Rulebook (ReadableTrigger.pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Always cross reference any information they provide you.",
+            "text": "Always cross reference any information they provide you.",
+            "context": "Scene 0.5 Dungeon/Rulebook (ReadableTrigger.redPenPhrases[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "You must only allow for visitors who are directly related to the deceased.",
+            "text": "You must only allow for visitors who are directly related to the deceased.",
+            "context": "Scene 0.5 Dungeon/Rulebook (ReadableTrigger.redPenPhrases[])",
             "count": 1,
             "isKey": false
         },
@@ -6421,6 +6785,13 @@
             "isKey": false
         },
         {
+            "key": "Harold, the younger brother, vanished years ago and was never traced.",
+            "text": "Harold, the younger brother, vanished years ago and was never traced.",
+            "context": "Scene 0.5 Dungeon/Vanderbilt Note (ReadableTrigger.keeperRemarks[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
             "text": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
             "context": "Scene 0.5 Dungeon/Vanderbilt Note (ReadableTrigger.pages[])",
@@ -6435,6 +6806,13 @@
             "isKey": false
         },
         {
+            "key": "His brother disappeared many years ago under circumstances no one could trace",
+            "text": "His brother disappeared many years ago under circumstances no one could trace",
+            "context": "Scene 0.5 Dungeon/Vanderbilt Note (ReadableTrigger.redPenPhrases[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "I should let her in",
             "text": "I should let her in",
             "context": "Scene 0.5 Dungeon/Witch note (ReadableTrigger.lowSanityOverrides.pages[])",
@@ -6442,23 +6820,30 @@
             "isKey": false
         },
         {
-            "key": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
-            "text": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
+            "key": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
+            "text": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
             "context": "Scene 0.5 Dungeon/Witch note (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
         },
         {
-            "key": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
-            "text": "The other asks about boundaries. About what is held and what is trapped. She speaks of weight, pressure, the cost of keeping certain things in place. When refused, she looks surprised, then relieved, then disappointed. She does not argue. She simply adjusts her request the next time.\n\nI do not record which woman makes which request. It changes depending on who is listening.\n\nOne of them is never permitted entry. This decision is simple and does not vary. She knows this and tests it regardless, offering reasons that contradict one another. Sometimes she claims permission already granted. Sometimes she claims necessity. Once, she claimed I had asked her to come.",
+            "key": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
+            "text": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
             "context": "Scene 0.5 Dungeon/Witch note (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false
         },
         {
-            "key": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
-            "text": "The other is allowed in under specific circumstances. Weather, time, and recent burials all factor into this. I do not explain my reasoning to her. When turned away, she accepts it as provisional. When admitted, she does not linger.\n\nEach accuses the other of dishonesty. Each provides evidence. Both sets are convincing. Neither elaborate much.\n\nOne never fails to mention the other by implication. The other does not acknowledge their sister unless asked. \n\nThe one who is lying should never be let in.",
+            "key": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
+            "text": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
             "context": "Scene 0.5 Dungeon/Witch note (ReadableTrigger.pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Never invite her.",
+            "text": "Never invite her.",
+            "context": "Scene 0.5 Dungeon/Witch note (ReadableTrigger.redPenPhrases[])",
             "count": 1,
             "isKey": false
         },
@@ -6977,14 +7362,7 @@
             "key": "???",
             "text": "???",
             "context": "Start Menu Scene/CryptFiendsPanel (CryptFiendsMenuDisplay.lockedText)",
-            "count": 1,
-            "isKey": false
-        },
-        {
-            "key": "??????",
-            "text": "??????",
-            "context": "Start Menu Scene/EndingsPanel (EndingsMenuDisplay.lockedText)",
-            "count": 1,
+            "count": 2,
             "isKey": false
         },
         {
@@ -7345,8 +7723,8 @@
             "isKey": false
         },
         {
-            "key": "Just permission.",
-            "text": "Just permission.",
+            "key": "Just a few minutes.",
+            "text": "Just a few minutes.",
             "context": "TabithaDialogue.json (line, Tabitha)",
             "count": 1,
             "isKey": false
@@ -7355,7 +7733,7 @@
             "key": "Let me inside.",
             "text": "Let me inside.",
             "context": "TabithaDialogue.json (line, Tabitha)",
-            "count": 2,
+            "count": 1,
             "isKey": false
         },
         {
@@ -7856,6 +8234,13 @@
             "isKey": false
         },
         {
+            "key": "Invite me in, gravekeeper.",
+            "text": "Invite me in, gravekeeper.",
+            "context": "TabithaSisterDialogue.json (line, Maribel)",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "It attracts those things.",
             "text": "It attracts those things.",
             "context": "TabithaSisterDialogue.json (line, Maribel)",
@@ -8068,6 +8453,13 @@
         {
             "key": "When she meddles, she binds things halfway.",
             "text": "When she meddles, she binds things halfway.",
+            "context": "TabithaSisterDialogue.json (line, Maribel)",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "Will you invite me in?",
+            "text": "Will you invite me in?",
             "context": "TabithaSisterDialogue.json (line, Maribel)",
             "count": 1,
             "isKey": false

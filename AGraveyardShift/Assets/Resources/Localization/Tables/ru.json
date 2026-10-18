@@ -34,6 +34,30 @@
    "v": "Концовка"
   },
   {
+   "k": "fieldnote.beast.title",
+   "v": "Зверь"
+  },
+  {
+   "k": "fieldnote.bride.title",
+   "v": "Невеста"
+  },
+  {
+   "k": "fieldnote.friend.title",
+   "v": "Друг"
+  },
+  {
+   "k": "fieldnote.graverobber.title",
+   "v": "Расхититель могил"
+  },
+  {
+   "k": "fieldnote.wraith.title",
+   "v": "Призрак"
+  },
+  {
+   "k": "fieldnote.yurei.title",
+   "v": "Юрэй"
+  },
+  {
    "k": "ending.wrongfulConviction.description",
    "v": "На кладбище воцарился покой."
   },
@@ -178,8 +202,20 @@
    "v": "{0} / {1}  ОТКРЫТО"
   },
   {
+   "k": "ui.endings.fieldNotesTeaser",
+   "v": "{0} / {1}  ПОЛЕВЫЕ ЗАМЕТКИ"
+  },
+  {
    "k": "ui.endings.fiendsTeaserLocked",
    "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.fieldnotes.found",
+   "v": "{0} / {1}  НАЙДЕНО"
+  },
+  {
+   "k": "ui.fieldnotes.header",
+   "v": "ПОЛЕВЫЕ ЗАМЕТКИ"
   },
   {
    "k": "ui.endings.fiendsTeaser",
@@ -206,6 +242,38 @@
    "v": "Продолжить"
   },
   {
+   "k": "ui.phase.first",
+   "v": "ПЕРВЫЙ ДОЗОР"
+  },
+  {
+   "k": "ui.phase.first.desc",
+   "v": "Вся ночь целиком."
+  },
+  {
+   "k": "ui.phase.second",
+   "v": "ВТОРОЙ ДОЗОР"
+  },
+  {
+   "k": "ui.phase.second.desc",
+   "v": "Пропуск первых трёх посетителей."
+  },
+  {
+   "k": "ui.phase.subtitle",
+   "v": "Начав позже, вы пропустите ранних посетителей. Показатели сбрасываются."
+  },
+  {
+   "k": "ui.phase.third",
+   "v": "ТРЕТИЙ ДОЗОР"
+  },
+  {
+   "k": "ui.phase.third.desc",
+   "v": "Сразу к последним посетителям ночи."
+  },
+  {
+   "k": "ui.phase.title",
+   "v": "НАЧАЛО СМЕНЫ"
+  },
+  {
    "k": "ui.pause.exit",
    "v": "Выход"
   },
@@ -216,6 +284,70 @@
   {
    "k": "ui.cctv.camera",
    "v": "КАМЕРА {0}"
+  },
+  {
+   "k": "ui.menu.newNight",
+   "v": "НОВАЯ НОЧЬ"
+  },
+  {
+   "k": "ui.menu.return.2",
+   "v": "ВЕРНУТЬСЯ КО ВТОРОМУ ДОЗОРУ"
+  },
+  {
+   "k": "ui.menu.return.3",
+   "v": "ВЕРНУТЬСЯ К ТРЕТЬЕМУ ДОЗОРУ"
+  },
+  {
+   "k": "death.cause.spirit",
+   "v": "Вас забрал Гневный дух"
+  },
+  {
+   "k": "death.cause.graverobber",
+   "v": "Вас забрал Расхититель могил"
+  },
+  {
+   "k": "death.cause.bride",
+   "v": "Вас забрала Невеста"
+  },
+  {
+   "k": "death.cause.father",
+   "v": "Вас забрал Отец"
+  },
+  {
+   "k": "death.cause.night",
+   "v": "Вас забрала ночь"
+  },
+  {
+   "k": "ui.settings.mouseSensitivity",
+   "v": "ЧУВСТВИТЕЛЬНОСТЬ МЫШИ"
+  },
+  {
+   "k": "ui.settings.invertLook",
+   "v": "ИНВЕРСИЯ ОСИ Y"
+  },
+  {
+   "k": "ui.settings.masterVolume",
+   "v": "ОБЩАЯ ГРОМКОСТЬ"
+  },
+  {
+   "k": "ui.settings.music",
+   "v": "МУЗЫКА"
+  },
+  {
+   "k": "ui.settings.effects",
+   "v": "ЭФФЕКТЫ"
+  },
+  {
+   "k": "ui.phase.locked",
+   "v": "Дойдите до этого дозора, чтобы открыть его."
+  },
+  {
+   "k": "ui.endings.found",
+   "v": "НАЙДЕНО {0}"
+  },
+  {
+   "k": "ui.pause.title",
+   "v": "ПАУЗА"
   },
   {
    "k": "??????",
@@ -270,6 +402,10 @@
    "v": "Дверь заперта."
   },
   {
+   "k": "Someone left more notes in the cabin.",
+   "v": "Кто-то оставил в хижине ещё записки."
+  },
+  {
    "k": "The door is locked. There is a cold chill coming from the other side.",
    "v": "Дверь заперта. С той стороны тянет ледяным холодом."
   },
@@ -308,6 +444,10 @@
   {
    "k": "The door won't budge.",
    "v": "Дверь не поддаётся."
+  },
+  {
+   "k": "No Deloitte is buried on these grounds.",
+   "v": "На этой земле не похоронен ни один Делойт."
   },
   {
    "k": "FRONT GATE",
@@ -542,8 +682,28 @@
    "v": "Джейсон и Монро Адель были найдены мёртвыми в своём доме с явными следами борьбы. Монро истёк кровью от множественных ножевых ранений, включая одно в жизненно важную артерию на шее. Джейсон умер от явной травмы шеи, нанесённой, судя по всему, его отцом.\n\nМария была помещена в психиатрическую лечебницу сразу после случившегося, но спустя некоторое время выпущена. Затем ей навсегда запретили входить на эту территорию после того, как в приступе психоза она попыталась прорваться через ворота, чтобы посетить могилу.\n\nМарию нельзя впускать ни при каких обстоятельствах."
   },
   {
+   "k": "Lily, the only survivor, went into foster care.",
+   "v": "Лили, единственную выжившую, отдали в приёмную семью."
+  },
+  {
    "k": "I should let her in",
    "v": "Мне стоит впустить её"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
+   "v": "Выдержка из записей смотрителя кладбища\nНезарегистрированные посетительницы\n\nДве сестры приходят к воротам, но никогда в одну и ту же ночь. Ни у одной из них здесь не похоронены родные, и каждая скажет вам, что другой нельзя доверять.\n\nОдна из них лжёт. Её нельзя впускать ни в коем случае."
+  },
+  {
+   "k": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
+   "v": "Другая никогда не просит приглашения. Она просит впустить её, и то, что она предлагает, — настоящее.\n\nЕё обряды успокаивают мёртвых и укрепляют рассудок смотрителя, но истончают обереги, что не пускают расхитителей могил. Впускайте её, только если вашим нервам это нужнее, чем кладбищу."
+  },
+  {
+   "k": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
+   "v": "Вы узнаете её по тому, как она просит.\n\nТа, что лжёт, не может переступить порог сама. Её должны пригласить, и она это знает. Она будет просить вас пригласить её войти — ласково и не один раз.\n\nНикогда не приглашайте её.\n\nКамера у ворот ни разу её не засняла."
+  },
+  {
+   "k": "Never invite her.",
+   "v": "Никогда не приглашайте её."
   },
   {
    "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
@@ -566,6 +726,18 @@
    "v": "Эта запись, похоже, пуста."
   },
   {
+   "k": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Зверь»\n\nОн ждёт во тьме, пока не вынесет вам приговор. Рядом с ним отказывает электроника.\n\n<b>Он погасит ваш фонарь. Не смотрите на него пристально: каждая секунда взгляда стоит вам рассудка.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Юрэй»\n\nСкорбящее присутствие, привязанное к этой земле. Она является тем, чей разум неспокоен.\n\n<b>Держите лампы зажжёнными, а распятие — на двери хижины. Лишь ваш рассудок удерживает её в покое.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
+   "v": "Найденная полевая заметка, предварительное обозначение:\n«Расхититель могил»\n\nМестный житель, который продаёт это кладбище ворам. Первыми, по ночам, приходят его разведчики и наблюдают.\n\n<b>Каждое мгновение их наблюдения делает кладбище менее защищённым. Держите на них луч фонаря, пока они не убегут.</b>"
+  },
+  {
    "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
    "v": "Найденная полевая заметка, неофициальное обозначение:\n«Призрак»\nМесто не указано\n\nВ книге появляется его отметка прежде, чем я вижу тело.\n\nЯ хожу по этой земле годами, и всё же воздух меняется, когда он проходит. Его не видно - не так, как ожидаешь увидеть тварь. Его выдаёт лишь тишина.\n\nТе, кого он выбирает, не бегут. Нет погони. Нет борьбы. К тому моменту, как кто-то замечает, он уже забрал их. Ошибки быть не может: эта сущность, похоже, самая опасная из всех описанных."
   },
@@ -580,6 +752,10 @@
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
    "v": "Выдержка из записей смотрителя кладбища\nСемья Андерсон\n\n\nЧлены семьи:\nЭнтони Андерсон, 41 год, умер\nДайан Андерсон, 39 лет, умерла\nДжеймс Андерсон, 9 лет, умер\nДерек Андерсон, 10 лет, умер\nЛили Андерсон, 6 лет, жива\n\nЭнтони погребён на этой земле.\n\nПричина смерти: сгорел при пожаре в доме\n\nВремя смерти: вторник, 11 октября 1988 года, 00:03"
+  },
+  {
+   "k": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+   "v": "Один ребёнок выжил, покинув дом до прибытия спасателей, и позже был передан в приёмную семью."
   },
   {
    "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
@@ -604,6 +780,18 @@
   {
    "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
    "v": "Закари и Эдвард Холмс были похоронены здесь после аварии, о которой сообщили на окружной дороге. Официальные отчёты описывают столкновение с участием одной машины: автомобиль нашли перевёрнутым за линией деревьев, двигатель был ещё тёплым, когда прибыли власти. Элизабет обнаружили неподалёку в состоянии шока и позже отпустили без обвинений. Оставшиеся родственники отказались от дальнейшего расследования, и дело было записано как несчастье, а не злой умысел.\n\nВ предшествующие недели соседи отмечали странный распорядок в доме Холмсов и постоянный вынос мебели из подвала в неизвестное место. Приходские книги показывают, что Закари и Эдвард давно не посещали службы, хотя позже среди их личных вещей нашли свечи и пепел. Смотритель отмечает, что машина была повреждена слабо для описанной тяжести аварии и что Элизабет после погребения никогда не возвращалась на эту землю. Что произошло до 3:45 тем утром, официально так и не выяснили, хотя молчание живых говорит о выводе, сделанном задолго до написания отчёта."
+  },
+  {
+   "k": "Elisabeth never returned to these grounds after the burial.",
+   "v": "Элизабет после погребения никогда не возвращалась на эту землю."
+  },
+  {
+   "k": "No offerings are permitted in the son’s name.",
+   "v": "Подношения от имени сына не допускаются."
+  },
+  {
+   "k": "Wenqi, the husband, visits alone. He repeats himself.",
+   "v": "Вэньци, муж, приходит один. Он повторяется."
   },
   {
    "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
@@ -678,8 +866,16 @@
    "v": "Джейн Адамс покоится здесь после жизни, определённой порядком и сдержанностью. Много лет она работала бухгалтером в городском управлении, содержала дом в безупречной чистоте и воспитывала сына Эдвина в строгом распорядке и с ясными требованиями. Когда Эдвину было семь, она отправила его жить к близким друзьям семьи в другой штат, сказав соседям, что ради лучшей школы. После его отъезда Джейн стала пропускать работу и тихо уволилась.\n\nСпустя несколько недель Джейн покончила с собой. Смотритель отмечает, что Эдвину так и не сообщили о её смерти, а ответственные сочли за лучшее не возвращать его и не рассказывать об обстоятельствах. Последствия её поступков и связанный с ними позор были большим, чем она готова была ответить открыто. Она ушла из жизни в одиночестве, позаботившись о том, чтобы память сына о ней осталась не отягощённой правдой, которую она не могла вынести."
   },
   {
+   "k": "Maria is not allowed entry under any circumstances.",
+   "v": "Марию нельзя впускать ни при каких обстоятельствах."
+  },
+  {
    "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
    "v": "Выдержка из записей смотрителя кладбища\nСемья Вандербильт\n\nЧлены семьи:\nАарон Вандербильт, 69 лет, умер\nГарольд Вандербильт, 42 года, неизвестно\nЭрик Вандербильт, 22 года, жив\n\nАарон Вандербильт погребён на этой земле.\n\nПричина смерти: огнестрельное ранение\n\nВремя смерти: воскресенье, 27 июня 1993 года, 19:48"
+  },
+  {
+   "k": "His brother disappeared many years ago under circumstances no one could trace",
+   "v": "Его брат исчез много лет назад при обстоятельствах, которые никто не смог установить"
   },
   {
    "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
@@ -688,6 +884,14 @@
   {
    "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
    "v": "<size=145%><b>ЗАПИСКИ СТОРОЖА</b></size>\n<size=85%>1999</size>\n\n<i>В этой книге вы найдёте указания о том, как охранять это кладбище. Не отступайте от этих указаний. В книге собраны все записи предыдущих сторожей.</i>\n\n<i>Этому месту упокоения не одна сотня лет, и его нельзя тревожить. Как смотритель кладбища, вы прочтёте следующие указания и будете им следовать.</i>"
+  },
+  {
+   "k": "Always cross reference any information they provide you.",
+   "v": "Всегда сверяйте любые сведения, которые они вам сообщают."
+  },
+  {
+   "k": "You must only allow for visitors who are directly related to the deceased.",
+   "v": "Впускайте только посетителей, состоящих в прямом родстве с усопшими."
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
@@ -708,6 +912,18 @@
   {
    "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
    "v": "Под фамилией Хуан здесь только одна могила, хотя всё указывает на решение, принятое в спешке и исполненное с заботой. Участок выбрал сам Хуан Вэньци; он пришёл с готовыми бумагами и говорил ясно, хоть и не всегда последовательно, порой повторяя уже оговорённые детали. Госпожу Хуан привезли на рассвете. Дальних родственников не было. Когда я спросил, придёт ли сын, Вэньци сказал, что семья и так в полном составе, а затем замолчал, словно не понимая, почему этот ответ важен. Причина смерти была записана, преступление сочтено раскрытым, и дело приняли без возражений.\n\nМэй Хуан жила тихо, известная мелкими добрыми делами, от которых почти не осталось следов. В последние месяцы это внимание угасло, а с ним и её защита. Мне сказали лишь, что дело о бесчестье было улажено; подробностей не сообщили. Подношения от имени сына не допускаются. Теперь Вэньци приходит один, порой повторяясь, и всегда осматривает камень перед уходом, будто ждёт, что тот скажет что-то другое."
+  },
+  {
+   "k": "Wenqi said the family was complete as it stood",
+   "v": "Вэньци сказал, что семья и так в полном составе"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Призрак»\n\nОн не преследует долго. К тому моменту, как вы его заметите, он уже всё решил.\n\n<b>Не дайте ему себя увидеть. От него не убежать: скройтесь из его поля зрения и не высовывайтесь.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
+   "v": "Найденная полевая заметка, неофициальное обозначение:\n«Друг»\n\nМедленный, терпеливый и всегда рядом. Он идёт на свет.\n\n<b>Он находит вас по свету. Выключите фонарь — и он потеряет вас.</b>"
   },
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
@@ -762,6 +978,10 @@
    "v": "Здесь покоится Джейн Адамс\nМать, сестра, любимая подруга.\n1931-1985"
   },
   {
+   "k": "Harold, the younger brother, vanished years ago and was never traced.",
+   "v": "Гарольд, младший брат, пропал много лет назад, и его так и не нашли."
+  },
+  {
    "k": "SELFISH",
    "v": "ЭГОИСТКА"
   },
@@ -808,6 +1028,14 @@
   {
    "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
    "v": "Судьба отца Джозефа\n\nЯ пишу это дрожащими руками. Я открыл ужасную правду об этом месте и о тех, кто здесь обитает. Отца Джозефа и впрямь постигла участь хуже смерти.\n\nПока это место таково, отец Джозеф обречён оставаться на этом кладбище. Надгробие, стёртое из памяти, изуродованное безбожниками. Дар, который должен был быть посажен как последнее прощание от его возлюбленной.\n\nЕсли какая-нибудь милосердная душа найдёт последнее подношение, сорванное его возлюбленной, пусть возложит его на его забытую могилу. Лишь тогда отец Джозеф наконец получит прощание, в котором ему было отказано, и, быть может, обретёт покой, так долго ускользавший от него."
+  },
+  {
+   "k": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+   "v": "Если какая-нибудь милосердная душа найдёт последнее подношение, сорванное его возлюбленной, пусть возложит его на его забытую могилу."
+  },
+  {
+   "k": "Elisabeth, the widow, never came back after the burial.",
+   "v": "Вдова, Элизабет, после похорон больше не возвращалась."
   },
   {
    "k": "I'M FREE",
@@ -3534,6 +3762,10 @@
    "v": "Йоу... ты здесь работаешь?"
   },
   {
+   "k": "Her son, Edwin, was never told how she died.",
+   "v": "Её сыну, Эдвину, так и не сказали, как она умерла."
+  },
+  {
    "k": "Listen, man, I can’t hang around long.",
    "v": "Слушай, чувак, я не могу долго тут торчать."
   },
@@ -4158,6 +4390,10 @@
    "v": "Это простая процедура. Я пройду по дорожкам кладбища и упокою души."
   },
   {
+   "k": "Just a few minutes.",
+   "v": "Лишь несколько минут."
+  },
+  {
    "k": "You will immediately feel at ease.",
    "v": "Вы сразу почувствуете облегчение."
   },
@@ -4466,6 +4702,10 @@
    "v": "Когда она вмешивается, она связывает вещи наполовину."
   },
   {
+   "k": "Will you invite me in?",
+   "v": "Вы пригласите меня войти?"
+  },
+  {
    "k": "Not alive. Not gone.",
    "v": "Не живые. Не ушедшие."
   },
@@ -4496,6 +4736,10 @@
   {
    "k": "If you refuse…",
    "v": "Если откажете..."
+  },
+  {
+   "k": "Invite me in, gravekeeper.",
+   "v": "Пригласите меня войти, смотритель."
   },
   {
    "k": "Well.",

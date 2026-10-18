@@ -34,6 +34,30 @@
    "v": "エンディング"
   },
   {
+   "k": "fieldnote.beast.title",
+   "v": "獣"
+  },
+  {
+   "k": "fieldnote.bride.title",
+   "v": "花嫁"
+  },
+  {
+   "k": "fieldnote.friend.title",
+   "v": "友"
+  },
+  {
+   "k": "fieldnote.graverobber.title",
+   "v": "墓荒らし"
+  },
+  {
+   "k": "fieldnote.wraith.title",
+   "v": "亡霊"
+  },
+  {
+   "k": "fieldnote.yurei.title",
+   "v": "ユウレイ"
+  },
+  {
    "k": "ending.wrongfulConviction.description",
    "v": "墓地に安らぎが戻った。"
   },
@@ -178,8 +202,20 @@
    "v": "{0} / {1}  発見済み"
   },
   {
+   "k": "ui.endings.fieldNotesTeaser",
+   "v": "{0} / {1}  調査記録"
+  },
+  {
    "k": "ui.endings.fiendsTeaserLocked",
    "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.fieldnotes.found",
+   "v": "{0} / {1}  回収済み"
+  },
+  {
+   "k": "ui.fieldnotes.header",
+   "v": "調査記録"
   },
   {
    "k": "ui.endings.fiendsTeaser",
@@ -206,6 +242,38 @@
    "v": "再開"
   },
   {
+   "k": "ui.phase.first",
+   "v": "第一の見張り"
+  },
+  {
+   "k": "ui.phase.first.desc",
+   "v": "一晩まるごと。"
+  },
+  {
+   "k": "ui.phase.second",
+   "v": "第二の見張り"
+  },
+  {
+   "k": "ui.phase.second.desc",
+   "v": "最初の三人の訪問者を飛ばす。"
+  },
+  {
+   "k": "ui.phase.subtitle",
+   "v": "後から始めると、それ以前の訪問者は飛ばされる。ステータスは初期状態に戻る。"
+  },
+  {
+   "k": "ui.phase.third",
+   "v": "第三の見張り"
+  },
+  {
+   "k": "ui.phase.third.desc",
+   "v": "その夜の最後の訪問者たちまで飛ばす。"
+  },
+  {
+   "k": "ui.phase.title",
+   "v": "勤務の始まり"
+  },
+  {
    "k": "ui.pause.exit",
    "v": "終了"
   },
@@ -216,6 +284,70 @@
   {
    "k": "ui.cctv.camera",
    "v": "カメラ {0}"
+  },
+  {
+   "k": "ui.menu.newNight",
+   "v": "新たな夜"
+  },
+  {
+   "k": "ui.menu.return.2",
+   "v": "第二の見張りに戻る"
+  },
+  {
+   "k": "ui.menu.return.3",
+   "v": "第三の見張りに戻る"
+  },
+  {
+   "k": "death.cause.spirit",
+   "v": "怒れる霊に連れ去られた"
+  },
+  {
+   "k": "death.cause.graverobber",
+   "v": "墓荒らしに連れ去られた"
+  },
+  {
+   "k": "death.cause.bride",
+   "v": "花嫁に連れ去られた"
+  },
+  {
+   "k": "death.cause.father",
+   "v": "神父に連れ去られた"
+  },
+  {
+   "k": "death.cause.night",
+   "v": "夜に呑まれた"
+  },
+  {
+   "k": "ui.settings.mouseSensitivity",
+   "v": "マウス感度"
+  },
+  {
+   "k": "ui.settings.invertLook",
+   "v": "上下反転"
+  },
+  {
+   "k": "ui.settings.masterVolume",
+   "v": "マスター音量"
+  },
+  {
+   "k": "ui.settings.music",
+   "v": "音楽"
+  },
+  {
+   "k": "ui.settings.effects",
+   "v": "効果音"
+  },
+  {
+   "k": "ui.phase.locked",
+   "v": "この見張りに到達すると解放される。"
+  },
+  {
+   "k": "ui.endings.found",
+   "v": "{0} に到達"
+  },
+  {
+   "k": "ui.pause.title",
+   "v": "一時停止"
   },
   {
    "k": "??????",
@@ -270,6 +402,10 @@
    "v": "ドアには鍵がかかっている。"
   },
   {
+   "k": "Someone left more notes in the cabin.",
+   "v": "誰かが小屋に新しいメモを置いていった。"
+  },
+  {
    "k": "The door is locked. There is a cold chill coming from the other side.",
    "v": "ドアには鍵がかかっている。向こう側から冷たい気配が漂ってくる。"
   },
@@ -308,6 +444,10 @@
   {
    "k": "The door won't budge.",
    "v": "ドアはびくともしない。"
+  },
+  {
+   "k": "No Deloitte is buried on these grounds.",
+   "v": "この墓地にデロイト家の者は一人も埋葬されていない。"
   },
   {
    "k": "FRONT GATE",
@@ -542,8 +682,28 @@
    "v": "ジェイソンとモンロー・アデルは、明らかな争いの跡のある自宅で遺体となって発見された。モンローは首の主要動脈への一撃を含む複数の刺し傷により失血死。ジェイソンは首への明白な損傷により死亡しており、父親によるものと見られる。\n\nマリアは事件直後に精神病院へ収容されたが、しばらくして退院した。その後、錯乱状態で墓を訪れようと門を突破しようとしたため、当墓地への立ち入りを永久に禁じられた。\n\nマリアはいかなる場合も入場を許可してはならない。"
   },
   {
+   "k": "Lily, the only survivor, went into foster care.",
+   "v": "唯一の生存者リリーは里親に預けられた。"
+  },
+  {
    "k": "I should let her in",
    "v": "彼女を入れてあげるべきだ"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
+   "v": "墓守の手記より抜粋\n登録されていない訪問者\n\n門には二人の姉妹がやって来るが、同じ夜に現れることはない。どちらもここに家族が眠っているわけではなく、どちらも「もう一人は信用できない」と言うだろう。\n\nそのうち一人は嘘をついている。彼女を決して中に入れてはならない。"
+  },
+  {
+   "k": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
+   "v": "もう一人は、招いてほしいとは決して言わない。中に入れてほしいと頼むだけで、彼女の申し出は本物だ。\n\n彼女の儀式は死者を鎮め、墓守の心を落ち着かせる。だが、墓荒らしを締め出す結界を弱めてしまう。彼女を入れるのは、墓地よりもあなたの神経のほうがそれを必要とする時だけにすること。"
+  },
+  {
+   "k": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
+   "v": "彼女の頼み方で見分けられる。\n\n嘘をついている方は、自分の力では敷居をまたげない。招かれなければならず、彼女はそれを知っている。だから、招き入れてほしいと頼んでくる。甘い声で、何度も。\n\n決して彼女を招き入れてはならない。\n\n門のカメラは、一度も彼女の姿を記録したことがない。"
+  },
+  {
+   "k": "Never invite her.",
+   "v": "決して彼女を招き入れてはならない。"
   },
   {
    "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
@@ -566,6 +726,18 @@
    "v": "この記述は空白のようだ。"
   },
   {
+   "k": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
+   "v": "回収された調査記録、仮称：\n「獣」\n\nそれは闇の中で、あなたを見定めるまで待っている。それが近くにいると電子機器が故障する。\n\n<b>それは懐中電灯を使えなくする。じっと見つめてはならない。見つめる一秒ごとに正気が削られる。</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
+   "v": "回収された調査記録、仮称：\n「ユウレイ」\n\nこの地に縛られた、嘆きに満ちた存在。乱れた心の持ち主の前に姿を現す。\n\n<b>灯りを絶やさず、十字架を小屋の扉に掛けておくこと。彼女を鎮めているのは、あなたの正気だけだ。</b>"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
+   "v": "回収された調査記録、暫定名称：\n「墓荒らし」\n\nこの墓地を盗人どもに売り渡す地元の男。夜、まず彼の偵察役がやって来て様子をうかがう。\n\n<b>彼らが見張っている間、墓地の安全は刻一刻と損なわれる。逃げ去るまで懐中電灯の光を当て続けること。</b>"
+  },
+  {
    "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
    "v": "回収された調査記録、仮称：\n「亡霊」\n場所は非公開\n\n遺体を見るより先に、台帳にその印が刻まれる。\n\nこの地を何年も歩いてきたが、それが通ると空気が変わる。姿は見えない。生き物が現れるというような形では。静寂だけがそれを物語る。\n\nそれに選ばれた者は逃げない。追跡はない。抵抗もない。誰かが気づく頃には、すでに奪われている。間違いようがない。この存在は、記録されたものの中で最も危険と思われる。"
   },
@@ -580,6 +752,10 @@
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
    "v": "墓守の手記より抜粋\nアンダーソン家\n\n\n家族構成：\nアンソニー・アンダーソン、41歳、死亡\nダイアン・アンダーソン、39歳、死亡\nジェームズ・アンダーソン、9歳、死亡\nデレク・アンダーソン、10歳、死亡\nリリー・アンダーソン、6歳、生存\n\nアンソニーは当墓地に埋葬されている。\n\n死因：住宅火災による焼死\n\n死亡時刻：1988年10月11日（火）午前0時03分"
+  },
+  {
+   "k": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+   "v": "子供一人が生き残り、救助隊の到着前に家から脱出しており、後に里親に預けられた。"
   },
   {
    "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
@@ -604,6 +780,18 @@
   {
    "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
    "v": "ザッカリーとエドワード・ホームズは、郡道で報告された事故の後、ここに埋葬された。公式記録によれば単独車両の事故で、車は林の向こうで横転した状態で見つかり、当局が到着した時にはエンジンがまだ温かかったという。エリザベスは近くで放心状態で発見され、後に不起訴で解放された。遺族はそれ以上の調査を拒み、この件は悪意ではなく不運として記録された。\n\nその数週間前、近隣住民はホームズ家の不規則な生活と、地下室から家具が絶えずどこかへ運び出されていたことに気づいていた。教区の記録によれば、ザッカリーとエドワードはしばらく礼拝に出ておらず、後に遺品の中から蝋燭と灰が見つかった。墓守は、車両の損傷が報告された事故の重大さに比して軽微であったこと、そしてエリザベスが埋葬後二度とこの地に戻らなかったことを記している。あの朝の3時45分以前に何が起きたのかは公式には調べられていないが、生者たちが守り続ける沈黙は、報告書が書かれるずっと前に結論が出ていたことを物語っている。"
+  },
+  {
+   "k": "Elisabeth never returned to these grounds after the burial.",
+   "v": "エリザベスが埋葬後二度とこの地に戻らなかった"
+  },
+  {
+   "k": "No offerings are permitted in the son’s name.",
+   "v": "息子の名での供物は許されていない。"
+  },
+  {
+   "k": "Wenqi, the husband, visits alone. He repeats himself.",
+   "v": "夫のウェンチーは一人で来る。同じことを繰り返す。"
   },
   {
    "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
@@ -678,8 +866,16 @@
    "v": "ジェーン・アダムスは、秩序と節制に貫かれた生涯を終え、ここに眠る。長年、市の公共事業局で経理を務め、家を常に清潔に保ち、息子エドウィンを厳格な日課と明確な期待のもとで育てた。エドウィンが七歳の時、彼女は彼を州外の親しい友人一家に預け、近所には「良い学校に通わせるため」と説明した。息子が去った後、ジェーンの勤務は途絶えがちになり、彼女は静かに退職した。\n\n数週間後、ジェーンは自ら命を絶った。墓守の記録によれば、エドウィンには彼女の死は知らされず、関係者は彼を呼び戻さず、事情も伝えないのが最善だと同意した。自らの行いがもたらした結果と、それに伴う不名誉は、彼女が公に負う覚悟のできる範囲を超えていた。彼女は孤独のうちに生涯を閉じ、息子の中の母の記憶が、彼女が耐えられなかった真実に汚されないようにした。"
   },
   {
+   "k": "Maria is not allowed entry under any circumstances.",
+   "v": "マリアはいかなる場合も入場を許可してはならない。"
+  },
+  {
    "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
    "v": "墓守の手記より抜粋\nヴァンダービルト家\n\n家族構成：\nアーロン・ヴァンダービルト、69歳、死亡\nハロルド・ヴァンダービルト、42歳、不明\nエリック・ヴァンダービルト、22歳、生存\n\nアーロン・ヴァンダービルトは当墓地に埋葬されている。\n\n死因：銃創\n\n死亡時刻：1993年6月27日（日）午後7時48分"
+  },
+  {
+   "k": "His brother disappeared many years ago under circumstances no one could trace",
+   "v": "彼の兄弟は何年も前、誰にも辿れない状況で姿を消し"
   },
   {
    "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
@@ -688,6 +884,14 @@
   {
    "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
    "v": "<size=145%><b>見張り番の手記</b></size>\n<size=85%>1999</size>\n\n<i>この書には、この墓地の見守り方が記されている。この指示から逸脱してはならない。この書には歴代の墓の見張り番による記録がすべてまとめられている。</i>\n\n<i>この安息の地は数世紀の歴史を持ち、手を加えてはならない。墓守として、以下の指示を読み、これに従うこと。</i>"
+  },
+  {
+   "k": "Always cross reference any information they provide you.",
+   "v": "彼らの話す情報は必ず照合すること。"
+  },
+  {
+   "k": "You must only allow for visitors who are directly related to the deceased.",
+   "v": "故人と直接の血縁関係にある訪問者のみを通すこと。"
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
@@ -708,6 +912,18 @@
   {
    "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
    "v": "ファン姓の墓は一つしかないが、その手配は急いで決められ、丁寧に守られてきた決断を思わせる。区画はファン・ウェンチー本人が選んだ。彼は書類を整えて現れ、明瞭に話したが、常に一貫しているわけではなく、時折すでに決まった事柄を繰り返した。ファン夫人は夜明けに運ばれてきた。遠縁の者は誰も参列しなかった。息子は来るのかと尋ねると、ウェンチーは「家族はこれで全員だ」と答え、そして、なぜその答えが重要なのか分からないというように言葉を止めた。死因は記録され、罪は解決済みとされ、この件は異議なく受け入れられた。\n\nメイ・ファンは静かに暮らし、記録にほとんど残らない小さな親切で知られていた。最後の数か月、その気配りは薄れ、それとともに彼女の守りも失われた。私が聞かされたのは、不名誉に関わる問題が解決されたということだけで、詳細は語られなかった。息子の名での供物は許されていない。ウェンチーは今、一人で訪れる。時に同じことを繰り返し、帰る前には必ず墓石を確かめる。まるで、それが違う言葉を語るのを待っているかのように。"
+  },
+  {
+   "k": "Wenqi said the family was complete as it stood",
+   "v": "ウェンチーは「家族はこれで全員だ」と答え"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
+   "v": "回収された調査記録、仮称：\n「亡霊」\n\nそれは長く付け狙ったりはしない。気づいた時には、もう決めているのだ。\n\n<b>決して姿を見られてはならない。走って逃げ切ることはできない。視線を遮り、身を隠し続けること。</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
+   "v": "回収された調査記録、仮称：\n「友」\n\n遅く、辛抱強く、いつもすぐそばにいる。それは光を追う。\n\n<b>それはあなたの光を頼りにあなたを見つける。懐中電灯を消せば、あなたを見失う。</b>"
   },
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
@@ -762,6 +978,10 @@
    "v": "ジェーン・アダムス ここに眠る\n母、姉妹、愛された友。\n1931-1985"
   },
   {
+   "k": "Harold, the younger brother, vanished years ago and was never traced.",
+   "v": "弟のハロルドは何年も前に姿を消し、行方は知れないままだ。"
+  },
+  {
    "k": "SELFISH",
    "v": "身勝手"
   },
@@ -808,6 +1028,14 @@
   {
    "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
    "v": "ジョセフ神父の運命\n\n震える手でこれを書いている。私はこの場所と、ここに住まう者たちの恐ろしい真実を知ってしまった。ジョセフ神父は、確かに死よりも恐ろしい運命をたどった。\n\nこの場所がこのままである限り、ジョセフ神父はこの墓地に囚われ続ける。記憶から失われ、信仰なき者たちに傷つけられた墓石。愛する人からの最後の別れとして植えられるはずだった贈り物。\n\nもし慈悲深い魂が、彼の愛する人が摘んだ最後の供物を見つけたなら、それを忘れられた彼の墓に供えてほしい。その時初めて、ジョセフ神父は拒まれた別れをようやく受け取り、長く彼から逃れ続けた安らぎを見出せるかもしれない。"
+  },
+  {
+   "k": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+   "v": "もし慈悲深い魂が、彼の愛する人が摘んだ最後の供物を見つけたなら、それを忘れられた彼の墓に供えてほしい。"
+  },
+  {
+   "k": "Elisabeth, the widow, never came back after the burial.",
+   "v": "未亡人のエリザベスは、埋葬の後一度も戻ってこない。"
   },
   {
    "k": "I'M FREE",
@@ -3534,6 +3762,10 @@
    "v": "よう... ここで働いてるのか？"
   },
   {
+   "k": "Her son, Edwin, was never told how she died.",
+   "v": "息子のエドウィンは、彼女の死因を知らされていない。"
+  },
+  {
    "k": "Listen, man, I can’t hang around long.",
    "v": "なあ、長くはいられないんだ。"
   },
@@ -4158,6 +4390,10 @@
    "v": "簡単な手順よ。墓地の小道を歩いて、魂を安らがせるの。"
   },
   {
+   "k": "Just a few minutes.",
+   "v": "ほんの数分だけ。"
+  },
+  {
    "k": "You will immediately feel at ease.",
    "v": "すぐに楽になるはずよ。"
   },
@@ -4466,6 +4702,10 @@
    "v": "姉が手を出すと、物事は中途半端に縛られる。"
   },
   {
+   "k": "Will you invite me in?",
+   "v": "私を招き入れてくれる？"
+  },
+  {
    "k": "Not alive. Not gone.",
    "v": "生きてもいない。去ってもいない。"
   },
@@ -4496,6 +4736,10 @@
   {
    "k": "If you refuse…",
    "v": "もし断るなら..."
+  },
+  {
+   "k": "Invite me in, gravekeeper.",
+   "v": "私を招き入れて、墓守さん。"
   },
   {
    "k": "Well.",

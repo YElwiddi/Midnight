@@ -23,6 +23,7 @@ MonoBehaviour:
   protectionComparison: 0
   protectionThreshold: 0
   killerPrefab: {fileID: 3767055355421772689, guid: c2e27aa65c315034dba5a5dc47a09b8b, type: 3}
+  sequenceDirectorPrefab: {fileID: 0}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
@@ -45,7 +46,7 @@ MonoBehaviour:
   playerLookAngle: 30
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
-  chaseSpeed: 12
+  chaseSpeed: 15
   instantAcceleration: 0
   idleLoopSound: {fileID: 0}
   idleLoopVolume: 0.5
@@ -61,6 +62,7 @@ MonoBehaviour:
   faceHeightOffset: 1.6
   faceLookVerticalOffset: 0.4
   jumpscareSound: {fileID: 8300000, guid: 546b100181552704fb959787f463535c, type: 3}
+  muteAmbientOnJumpscare: 0
   gameOverDelay: 0
   shakeIntensity: 2
   shakeDuration: 2.16
@@ -91,6 +93,12 @@ MonoBehaviour:
   headSpinDuration: 0.5
   headDoubleSpinChance: 0
   headTripleSpinChance: 0
+  chaseContortion: 0
+  contortionSpeed: 24
+  contortionAngle: 115
+  contortionJitter: 45
+  chaseFloatHeight: 0.35
+  contortionStretch: 0.4
   showJumpscareDialogue: 0
   jumpscareDialogueText: 
   jumpscareDialogueFont: {fileID: 0}

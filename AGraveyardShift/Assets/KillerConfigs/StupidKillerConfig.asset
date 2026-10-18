@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CryptKillerConfig
   killerPrefab: {fileID: 0}
   behaviorType: 2
-  roamSpeed: 2
-  chaseSpeed: 5
+  roamSpeed: 3
+  chaseSpeed: 7.5
   fastChaserSpeedMultiplier: 1.5
   minRoamDistance: 5
   maxRoamDistance: 15

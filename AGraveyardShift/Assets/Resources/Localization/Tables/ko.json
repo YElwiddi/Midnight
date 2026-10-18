@@ -34,6 +34,30 @@
    "v": "엔딩"
   },
   {
+   "k": "fieldnote.beast.title",
+   "v": "짐승"
+  },
+  {
+   "k": "fieldnote.bride.title",
+   "v": "신부"
+  },
+  {
+   "k": "fieldnote.friend.title",
+   "v": "친구"
+  },
+  {
+   "k": "fieldnote.graverobber.title",
+   "v": "도굴꾼"
+  },
+  {
+   "k": "fieldnote.wraith.title",
+   "v": "망령"
+  },
+  {
+   "k": "fieldnote.yurei.title",
+   "v": "유레이"
+  },
+  {
    "k": "ending.wrongfulConviction.description",
    "v": "묘지에 평화가 찾아왔습니다."
   },
@@ -178,8 +202,20 @@
    "v": "{0} / {1}  발견"
   },
   {
+   "k": "ui.endings.fieldNotesTeaser",
+   "v": "{0} / {1}  현장 기록"
+  },
+  {
    "k": "ui.endings.fiendsTeaserLocked",
    "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.fieldnotes.found",
+   "v": "{0} / {1}  회수함"
+  },
+  {
+   "k": "ui.fieldnotes.header",
+   "v": "현장 기록"
   },
   {
    "k": "ui.endings.fiendsTeaser",
@@ -206,6 +242,38 @@
    "v": "계속하기"
   },
   {
+   "k": "ui.phase.first",
+   "v": "첫 번째 불침번"
+  },
+  {
+   "k": "ui.phase.first.desc",
+   "v": "밤 전체."
+  },
+  {
+   "k": "ui.phase.second",
+   "v": "두 번째 불침번"
+  },
+  {
+   "k": "ui.phase.second.desc",
+   "v": "처음 세 명의 방문객을 건너뜁니다."
+  },
+  {
+   "k": "ui.phase.subtitle",
+   "v": "나중 시점에서 시작하면 그 이전의 방문객은 건너뜁니다. 능력치는 초기화됩니다."
+  },
+  {
+   "k": "ui.phase.third",
+   "v": "세 번째 불침번"
+  },
+  {
+   "k": "ui.phase.third.desc",
+   "v": "그날 밤의 마지막 방문객들로 바로 건너뜁니다."
+  },
+  {
+   "k": "ui.phase.title",
+   "v": "근무 시작"
+  },
+  {
    "k": "ui.pause.exit",
    "v": "나가기"
   },
@@ -216,6 +284,70 @@
   {
    "k": "ui.cctv.camera",
    "v": "카메라 {0}"
+  },
+  {
+   "k": "ui.menu.newNight",
+   "v": "새로운 밤"
+  },
+  {
+   "k": "ui.menu.return.2",
+   "v": "두 번째 불침번으로 돌아가기"
+  },
+  {
+   "k": "ui.menu.return.3",
+   "v": "세 번째 불침번으로 돌아가기"
+  },
+  {
+   "k": "death.cause.spirit",
+   "v": "분노한 영혼에게 끌려감"
+  },
+  {
+   "k": "death.cause.graverobber",
+   "v": "도굴꾼에게 끌려감"
+  },
+  {
+   "k": "death.cause.bride",
+   "v": "신부에게 끌려감"
+  },
+  {
+   "k": "death.cause.father",
+   "v": "사제에게 끌려감"
+  },
+  {
+   "k": "death.cause.night",
+   "v": "밤에 삼켜짐"
+  },
+  {
+   "k": "ui.settings.mouseSensitivity",
+   "v": "마우스 감도"
+  },
+  {
+   "k": "ui.settings.invertLook",
+   "v": "상하 반전"
+  },
+  {
+   "k": "ui.settings.masterVolume",
+   "v": "전체 음량"
+  },
+  {
+   "k": "ui.settings.music",
+   "v": "음악"
+  },
+  {
+   "k": "ui.settings.effects",
+   "v": "효과음"
+  },
+  {
+   "k": "ui.phase.locked",
+   "v": "이 불침번에 도달하면 해금됩니다."
+  },
+  {
+   "k": "ui.endings.found",
+   "v": "{0} 발견"
+  },
+  {
+   "k": "ui.pause.title",
+   "v": "일시 정지"
   },
   {
    "k": "??????",
@@ -270,6 +402,10 @@
    "v": "문이 잠겨 있다."
   },
   {
+   "k": "Someone left more notes in the cabin.",
+   "v": "누군가 오두막에 메모를 더 남겨 두었어."
+  },
+  {
    "k": "The door is locked. There is a cold chill coming from the other side.",
    "v": "문이 잠겨 있다. 반대편에서 서늘한 기운이 흘러나온다."
   },
@@ -308,6 +444,10 @@
   {
    "k": "The door won't budge.",
    "v": "문이 꿈쩍도 하지 않는다."
+  },
+  {
+   "k": "No Deloitte is buried on these grounds.",
+   "v": "이곳에 묻힌 들로이트 가 사람은 아무도 없다."
   },
   {
    "k": "FRONT GATE",
@@ -542,8 +682,28 @@
    "v": "제이슨과 먼로 아델은 명백한 몸싸움의 흔적이 남은 자택에서 숨진 채 발견되었다. 먼로는 목의 주요 동맥을 포함한 여러 자상으로 인해 과다 출혈로 사망했다. 제이슨은 목에 입은 명백한 상처로 사망했으며, 그 상처는 그의 아버지가 입힌 것으로 보인다.\n\n마리아는 사건 직후 정신병원에 수용되었으나 얼마 후 퇴원했다. 이후 그녀는 정신착란 상태에서 무덤을 찾기 위해 문을 부수고 들어오려 한 일로 이곳 출입이 영구 금지되었다.\n\n마리아는 어떠한 경우에도 출입이 허용되지 않는다."
   },
   {
+   "k": "Lily, the only survivor, went into foster care.",
+   "v": "유일한 생존자 릴리는 위탁 가정에 맡겨졌다."
+  },
+  {
    "k": "I should let her in",
    "v": "그녀를 들여보내야 해"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
+   "v": "묘지기의 기록 발췌\n미등록 방문객\n\n두 자매가 정문을 찾아오지만, 같은 밤에 오는 법은 없다. 둘 다 이곳에 묻힌 가족이 없으며, 각자 상대를 믿어서는 안 된다고 말할 것이다.\n\n그중 한 명은 거짓말을 하고 있다. 그녀는 절대 들여보내서는 안 된다."
+  },
+  {
+   "k": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
+   "v": "다른 한 명은 결코 초대를 청하지 않는다. 그저 들여보내 달라고 할 뿐이며, 그녀가 베푸는 것은 진짜다.\n\n그녀의 의식은 죽은 자들을 잠재우고 묘지기의 정신을 안정시키지만, 도굴꾼을 막아 주는 결계를 약하게 만든다. 묘지보다 당신의 신경이 그것을 더 필요로 할 때에만 그녀를 들여보낼 것."
+  },
+  {
+   "k": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
+   "v": "그녀가 부탁하는 방식으로 알아볼 수 있다.\n\n거짓말하는 쪽은 스스로 문턱을 넘지 못한다. 반드시 초대를 받아야 하고, 그녀도 그 사실을 안다. 그래서 자신을 안으로 초대해 달라고 부탁할 것이다. 달콤하게, 그리고 한 번이 아니라.\n\n절대 그녀를 초대하지 말 것.\n\n정문 카메라에는 단 한 번도 그녀가 찍힌 적이 없다."
+  },
+  {
+   "k": "Never invite her.",
+   "v": "절대 그녀를 초대하지 말 것."
   },
   {
    "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
@@ -566,6 +726,18 @@
    "v": "이 항목은 비어 있는 듯하다."
   },
   {
+   "k": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「짐승」\n\n그것은 당신을 판단할 때까지 어둠 속에서 기다린다. 그것이 가까이 있으면 전자 기기가 고장 난다.\n\n<b>그것은 당신의 손전등을 망가뜨린다. 그것을 빤히 쳐다보지 말 것. 바라보는 매 순간 정신력이 깎여 나간다.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「유레이」\n\n이 땅에 묶인 슬픔에 잠긴 존재. 그녀는 흔들리는 정신 앞에 모습을 드러낸다.\n\n<b>등불을 켜 두고, 십자가를 오두막 문에 걸어 둘 것. 그녀를 잠재우는 것은 오직 당신의 정신력뿐이다.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
+   "v": "회수된 현장 기록, 임시 명칭:\n「도굴꾼」\n\n이 묘지를 도둑들에게 팔아넘기는 지역 남자. 밤이면 그의 정찰꾼들이 먼저 와서 지켜본다.\n\n<b>그들이 지켜보는 동안 묘지는 점점 덜 안전해진다. 그들이 달아날 때까지 손전등을 계속 비출 것.</b>"
+  },
+  {
    "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
    "v": "회수된 현장 기록, 비공식 명칭:\n「망령」\n장소 비공개\n\n내가 시신을 보기도 전에 장부에 그것의 흔적이 남는다.\n\n이 땅을 수년째 걸어 다녔건만, 그것이 지나갈 때면 공기가 달라진다. 그것은 보이지 않는다. 생물이 나타나리라 기대하는 방식으로는. 오직 정적만이 그것을 드러낸다.\n\n그것이 고른 자들은 도망치지 않는다. 추격도 없다. 몸부림도 없다. 누군가 알아차릴 즈음이면 이미 그것이 데려간 뒤다. 의심의 여지가 없다. 이 존재는 기록된 것들 중 가장 위험해 보인다."
   },
@@ -580,6 +752,10 @@
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
    "v": "묘지기의 기록 발췌\n앤더슨 가족\n\n\n가족 구성원:\n앤서니 앤더슨, 41세, 사망\n다이앤 앤더슨, 39세, 사망\n제임스 앤더슨, 9세, 사망\n데릭 앤더슨, 10세, 사망\n릴리 앤더슨, 6세, 생존\n\n앤서니는 이곳에 안치되어 있다.\n\n사인: 주택 화재로 인한 소사\n\n사망 시각: 1988년 10월 11일 화요일 오전 12시 03분"
+  },
+  {
+   "k": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+   "v": "아이 하나가 구조대 도착 전에 집을 빠져나와 살아남았고, 이후 위탁 가정에 맡겨졌다."
   },
   {
    "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
@@ -604,6 +780,18 @@
   {
    "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
    "v": "재커리와 에드워드 홈즈는 군도(郡道)에서 신고된 사고 후 이곳에 안장되었다. 공식 기록은 단독 차량 사고로 기술하며, 차량은 수목 경계선 너머에서 전복된 채 발견되었고 당국이 도착했을 때 엔진은 아직 따뜻했다. 엘리자베스는 근처에서 충격에 빠진 상태로 발견되어 이후 기소 없이 풀려났다. 남은 가족은 추가 조사를 거부했고, 사건은 악의가 아닌 불운으로 기록되었다.\n\n그 몇 주 전, 이웃들은 홈즈 가 저택의 이상한 생활 시간과, 지하실의 가구가 어딘가로 꾸준히 옮겨지는 것을 알아차렸다. 교구 기록에 따르면 재커리와 에드워드는 한동안 예배에 참석하지 않았으나, 이후 그들의 유품 중에서 양초와 재가 발견되었다. 묘지기는 차량의 손상이 기술된 심각성에 비해 경미했으며, 엘리자베스가 매장 후 다시는 이곳에 돌아오지 않았다고 기록한다. 그날 새벽 3시 45분 이전에 무슨 일이 있었는지는 공식적으로 조사되지 않았으나, 산 자들이 지키는 침묵은 보고서가 쓰이기 훨씬 전에 결론이 나 있었음을 시사한다."
+  },
+  {
+   "k": "Elisabeth never returned to these grounds after the burial.",
+   "v": "엘리자베스가 매장 후 다시는 이곳에 돌아오지 않았다"
+  },
+  {
+   "k": "No offerings are permitted in the son’s name.",
+   "v": "아들의 이름으로 된 공물은 허용되지 않는다."
+  },
+  {
+   "k": "Wenqi, the husband, visits alone. He repeats himself.",
+   "v": "남편 원치는 혼자 찾아온다. 같은 말을 되풀이한다."
   },
   {
    "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
@@ -678,8 +866,16 @@
    "v": "제인 애덤스는 질서와 절제로 규정된 삶을 마치고 이곳에 잠들었다. 그녀는 오랜 세월 시 공공사업소에서 경리로 일했고, 집을 티 없이 관리했으며, 아들 에드윈을 엄격한 일과와 분명한 기대 속에서 키웠다. 에드윈이 일곱 살이 되자 그녀는 아들을 다른 주에 사는 가까운 지인 가족에게 보냈고, 이웃에게는 더 나은 교육을 위해서라고 말했다. 아들이 떠난 뒤 제인은 직장에 나가지 않는 날이 잦아졌고, 조용히 사직했다.\n\n몇 주 후 제인은 스스로 목숨을 끊었다. 묘지기는 에드윈이 그녀의 죽음을 끝내 통보받지 못했으며, 관계자들이 그를 불러들이지도, 사정을 알리지도 않는 것이 최선이라는 데 동의했다고 기록한다. 자신의 행동이 낳은 결과와 그에 따른 불명예는 그녀가 공개적으로 감당할 수 있는 수준을 넘어섰다. 그녀는 고독 속에서 생을 마감했고, 그로써 아들의 기억 속 어머니는 그녀가 견딜 수 없었던 진실로부터 자유롭게 남게 되었다."
   },
   {
+   "k": "Maria is not allowed entry under any circumstances.",
+   "v": "마리아는 어떠한 경우에도 출입이 허용되지 않는다."
+  },
+  {
    "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
    "v": "묘지기의 기록 발췌\n밴더빌트 가족\n\n가족 구성원:\n애런 밴더빌트, 69세, 사망\n해럴드 밴더빌트, 42세, 불명\n에릭 밴더빌트, 22세, 생존\n\n애런 밴더빌트는 이곳에 안치되어 있다.\n\n사인: 총상\n\n사망 시각: 1993년 6월 27일 일요일 오후 7시 48분"
+  },
+  {
+   "k": "His brother disappeared many years ago under circumstances no one could trace",
+   "v": "그의 형제는 오래전 누구도 추적할 수 없는 상황에서 사라졌고"
   },
   {
    "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
@@ -688,6 +884,14 @@
   {
    "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
    "v": "<size=145%><b>파수꾼의 수기</b></size>\n<size=85%>1999</size>\n\n<i>이 책에는 이 묘지를 지키는 방법에 대한 지침이 담겨 있다. 이 지침에서 벗어나지 말 것. 이 책은 역대 묘지 파수꾼들의 모든 기록을 모은 것이다.</i>\n\n<i>이 안식처는 수백 년의 역사를 지녔으며 함부로 손대서는 안 된다. 묘지기로서 다음 지침을 읽고 이를 준수할 것.</i>"
+  },
+  {
+   "k": "Always cross reference any information they provide you.",
+   "v": "그들이 제공하는 모든 정보를 반드시 대조 확인할 것."
+  },
+  {
+   "k": "You must only allow for visitors who are directly related to the deceased.",
+   "v": "고인과 직접적인 혈연관계가 있는 방문객만 들여보낼 것."
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
@@ -708,6 +912,18 @@
   {
    "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
    "v": "황 씨 성으로 된 무덤은 하나뿐이지만, 그 준비 과정은 서둘러 내렸으되 정성껏 지켜진 결정을 짐작케 한다. 묘역은 황원치 본인이 골랐다. 그는 서류를 준비해 왔고 또렷하게 말했으나 늘 일관되지는 않았으며, 이미 정해진 세부 사항을 이따금 되풀이했다. 황 부인은 새벽에 옮겨져 왔다. 다른 친척은 아무도 참석하지 않았다. 아들이 오느냐고 묻자 원치는 가족은 이대로 다 왔다고 답한 뒤, 왜 그 대답이 중요한지 모르겠다는 듯 잠시 말을 멈췄다. 사인은 기록되었고, 하나의 범죄는 해결되었으며, 이 일은 이의 없이 받아들여졌다.\n\n황메이는 기록에 거의 남지 않은 작은 친절들로 알려진, 조용한 삶을 살았다. 마지막 몇 달 동안 그 배려는 희미해졌고, 그와 함께 그녀를 지켜 주던 것도 사라졌다. 나는 불명예에 관한 문제가 해결되었다는 말만 들었을 뿐, 자세한 내용은 듣지 못했다. 아들의 이름으로 된 공물은 허용되지 않는다. 원치는 이제 혼자 찾아오며, 때로 같은 말을 되풀이하고, 떠나기 전에는 언제나 묘비를 확인한다. 마치 그것이 다른 말을 해 주기를 기대하는 것처럼."
+  },
+  {
+   "k": "Wenqi said the family was complete as it stood",
+   "v": "원치는 가족은 이대로 다 왔다고 답한"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「망령」\n\n그것은 오래 뒤쫓지 않는다. 당신이 알아차렸을 때는 이미 결정을 내린 뒤다.\n\n<b>절대 그것에게 들키지 말 것. 달려서 따돌릴 수 없다. 시야를 끊고 숨어 있을 것.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
+   "v": "회수된 현장 기록, 비공식 명칭:\n「친구」\n\n느리고, 참을성 있으며, 언제나 가까이 있다. 그것은 빛을 따라온다.\n\n<b>그것은 당신의 빛으로 당신을 찾는다. 손전등을 끄면 당신을 놓친다.</b>"
   },
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
@@ -762,6 +978,10 @@
    "v": "제인 애덤스 여기 잠들다\n어머니, 자매, 사랑받은 친구.\n1931-1985"
   },
   {
+   "k": "Harold, the younger brother, vanished years ago and was never traced.",
+   "v": "동생 해럴드는 수년 전 사라졌고, 끝내 행방을 찾지 못했다."
+  },
+  {
    "k": "SELFISH",
    "v": "이기적인"
   },
@@ -808,6 +1028,14 @@
   {
    "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
    "v": "조지프 신부의 운명\n\n떨리는 손으로 이 글을 쓴다. 나는 이곳과 이곳에 깃든 자들의 끔찍한 진실을 알아냈다. 조지프 신부는 정말로 죽음보다 끔찍한 운명을 맞았다.\n\n이곳이 지금 이대로인 한, 조지프 신부는 이 묘지에 매여 있는 신세다. 기억에서 잊히고, 믿음 없는 자들에게 훼손된 묘비. 그의 연인이 남긴 마지막 작별 인사로 심어져야 했던 선물.\n\n자비로운 영혼이 그의 연인이 꺾은 마지막 공물을 찾게 된다면, 잊힌 그의 무덤 위에 놓아 주기를. 그때에야 비로소 조지프 신부는 자신에게 허락되지 않았던 작별을 받고, 그토록 오래 그를 비껴간 안식을 찾을 수 있을지도 모른다."
+  },
+  {
+   "k": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+   "v": "자비로운 영혼이 그의 연인이 꺾은 마지막 공물을 찾게 된다면, 잊힌 그의 무덤 위에 놓아 주기를."
+  },
+  {
+   "k": "Elisabeth, the widow, never came back after the burial.",
+   "v": "미망인 엘리자베스는 매장 이후 한 번도 돌아오지 않았다."
   },
   {
    "k": "I'M FREE",
@@ -3534,6 +3762,10 @@
    "v": "어이... 여기서 일하는 사람이야?"
   },
   {
+   "k": "Her son, Edwin, was never told how she died.",
+   "v": "아들 에드윈은 그녀가 어떻게 죽었는지 듣지 못했다."
+  },
+  {
    "k": "Listen, man, I can’t hang around long.",
    "v": "잘 들어, 난 오래 못 있어."
   },
@@ -4158,6 +4390,10 @@
    "v": "간단한 절차예요. 묘지의 길을 걸으며 영혼들을 잠재울 거예요."
   },
   {
+   "k": "Just a few minutes.",
+   "v": "몇 분이면 돼요."
+  },
+  {
    "k": "You will immediately feel at ease.",
    "v": "곧바로 마음이 편해질 거예요."
   },
@@ -4466,6 +4702,10 @@
    "v": "언니가 참견하면 모든 게 반쯤만 묶여요."
   },
   {
+   "k": "Will you invite me in?",
+   "v": "저를 안으로 초대해 주시겠어요?"
+  },
+  {
    "k": "Not alive. Not gone.",
    "v": "살아 있지도, 떠나지도 못한 채로."
   },
@@ -4496,6 +4736,10 @@
   {
    "k": "If you refuse…",
    "v": "거절하신다면..."
+  },
+  {
+   "k": "Invite me in, gravekeeper.",
+   "v": "저를 안으로 초대해 주세요, 묘지기님."
   },
   {
    "k": "Well.",

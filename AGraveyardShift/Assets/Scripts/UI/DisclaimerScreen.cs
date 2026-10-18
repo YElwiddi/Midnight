@@ -1,28 +1,50 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
+/// <summary>
+/// The launch splash (it replaced the plain headphones card): the Epitaph logo comes up out of
+/// the dark while a slow light crosses the carving, then the headphones line appears under it.
+/// Any key or click skips it. Shown once per session; <see cref="HasShown"/> also starts the
+/// menu music and the menu's own entrance, and EndingScreenUI marks it shown when returning
+/// from an ending.
+/// </summary>
 public class DisclaimerScreen : MonoBehaviour
 {
-    [Header("Timing")]
-    public float textFadeInDuration = 1f;
-    public float holdDuration = 2f;
-    public float textFadeOutDuration = 1f;
-    public float backgroundFadeOutDuration = 1f;
+    [Header("Parts")]
+    [Tooltip("Full-screen black behind the splash (usually this object's Image).")]
+    public Image background;
+    public CanvasGroup logoGroup;
+    [Tooltip("The logo image; its material uses the UI/Epitaph Sweep shader.")]
+    public Image logo;
+    public CanvasGroup headphonesGroup;
+
+    [Header("Timing (seconds)")]
+    public float logoFadeIn = 1.2f;
+    public float sweepDelay = 0.5f;
+    public float sweepDuration = 2.2f;
+    public float headphonesDelay = 2.0f;
+    public float headphonesFadeIn = 0.8f;
+    public float hold = 1.2f;
+    public float fadeOut = 0.7f;
+    public float backgroundFadeOut = 0.8f;
 
     public static bool HasShown { get; private set; }
 
     /// <summary>
-    /// Marks the disclaimer as already shown so it won't replay (e.g. when returning
-    /// to the menu from an ending — the player has been playing, no need to warn again).
+    /// Marks the splash as already shown so it won't replay (e.g. when returning to the menu
+    /// from an ending — the player has been playing, no need to show it again).
     /// </summary>
     public static void MarkAsShown()
     {
         HasShown = true;
     }
 
-    private Image backgroundImage;
-    private CanvasGroup textCanvasGroup;
+    private static readonly int SweepPos = Shader.PropertyToID("_SweepPos");
+
+    private Material sweepMaterial;
+    private bool skip;
+    private float startTime;
 
     void Awake()
     {
@@ -32,67 +54,76 @@ public class DisclaimerScreen : MonoBehaviour
             return;
         }
 
-        backgroundImage = GetComponent<Image>();
+        if (background == null) background = GetComponent<Image>();
+        if (background != null) background.color = Color.black;
+        if (logoGroup != null) logoGroup.alpha = 0f;
+        if (headphonesGroup != null) headphonesGroup.alpha = 0f;
 
-        // Find CanvasGroup on the first child (the disclaimer text)
-        if (transform.childCount > 0)
-            textCanvasGroup = transform.GetChild(0).GetComponent<CanvasGroup>();
-
-        // Background starts fully visible, text starts invisible
-        if (backgroundImage != null)
-            backgroundImage.color = Color.black;
-
-        if (textCanvasGroup != null)
-            textCanvasGroup.alpha = 0f;
+        // Own copy of the sweep material so the animated property never touches the asset.
+        if (logo != null && logo.material != null && logo.material.HasProperty(SweepPos))
+        {
+            sweepMaterial = new Material(logo.material);
+            sweepMaterial.SetFloat(SweepPos, -1f);
+            logo.material = sweepMaterial;
+        }
     }
 
     void Start()
     {
-        StartCoroutine(ShowDisclaimer());
+        startTime = Time.unscaledTime;
+        StartCoroutine(Show());
     }
 
-    private IEnumerator ShowDisclaimer()
+    void Update()
     {
-        // Fade in text
-        yield return FadeCanvasGroup(textCanvasGroup, 0f, 1f, textFadeInDuration);
+        if (!skip && Time.unscaledTime - startTime > 0.25f && Input.anyKeyDown)
+            skip = true;
+    }
 
-        // Hold both solid
-        yield return new WaitForSeconds(holdDuration);
+    void OnDestroy()
+    {
+        if (sweepMaterial != null) Destroy(sweepMaterial);
+    }
 
-        // Fade out text
-        yield return FadeCanvasGroup(textCanvasGroup, 1f, 0f, textFadeOutDuration);
+    private IEnumerator Show()
+    {
+        float total = Mathf.Max(logoFadeIn, Mathf.Max(sweepDelay + sweepDuration, headphonesDelay + headphonesFadeIn)) + hold;
+        for (float t = 0f; t < total && !skip; t += Time.unscaledDeltaTime)
+        {
+            if (logoGroup != null) logoGroup.alpha = Smooth(t / logoFadeIn);
+            if (sweepMaterial != null) sweepMaterial.SetFloat(SweepPos, Mathf.Lerp(-0.35f, 1.35f, Mathf.Clamp01((t - sweepDelay) / sweepDuration)));
+            if (headphonesGroup != null) headphonesGroup.alpha = Smooth((t - headphonesDelay) / headphonesFadeIn);
+            yield return null;
+        }
 
-        // Fade out black background
-        yield return FadeImageAlpha(backgroundImage, 1f, 0f, backgroundFadeOutDuration);
+        // Content out, then the black lifts on the menu.
+        float logoFrom = logoGroup != null ? logoGroup.alpha : 0f;
+        float phonesFrom = headphonesGroup != null ? headphonesGroup.alpha : 0f;
+        float d = skip ? 0.3f : fadeOut;
+        for (float f = 0f; f < 1f; )
+        {
+            f = Mathf.Min(1f, f + Time.unscaledDeltaTime / d);
+            if (logoGroup != null) logoGroup.alpha = Mathf.Lerp(logoFrom, 0f, f);
+            if (headphonesGroup != null) headphonesGroup.alpha = Mathf.Lerp(phonesFrom, 0f, f);
+            yield return null;
+        }
 
         HasShown = true;
+
+        float bd = skip ? 0.4f : backgroundFadeOut;
+        for (float f = 0f; f < 1f; )
+        {
+            f = Mathf.Min(1f, f + Time.unscaledDeltaTime / bd);
+            if (background != null) background.color = new Color(0f, 0f, 0f, 1f - f);
+            yield return null;
+        }
+
         gameObject.SetActive(false);
     }
 
-    private IEnumerator FadeCanvasGroup(CanvasGroup group, float from, float to, float duration)
+    private static float Smooth(float x)
     {
-        if (group == null) yield break;
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            group.alpha = Mathf.Lerp(from, to, elapsed / duration);
-            yield return null;
-        }
-        group.alpha = to;
-    }
-
-    private IEnumerator FadeImageAlpha(Image image, float from, float to, float duration)
-    {
-        if (image == null) yield break;
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float a = Mathf.Lerp(from, to, elapsed / duration);
-            image.color = new Color(0f, 0f, 0f, a);
-            yield return null;
-        }
-        image.color = new Color(0f, 0f, 0f, to);
+        x = Mathf.Clamp01(x);
+        return x * x * (3f - 2f * x);
     }
 }

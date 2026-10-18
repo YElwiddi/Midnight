@@ -343,6 +343,7 @@ public class CinematicPlayerController : MonoBehaviour
         if (musicAudioSource == null)
         {
             musicAudioSource = gameObject.AddComponent<AudioSource>();
+            AudioRouter.RouteMusic(musicAudioSource);
         }
 
         musicAudioSource.clip = currentCinematic.cinematicMusic;

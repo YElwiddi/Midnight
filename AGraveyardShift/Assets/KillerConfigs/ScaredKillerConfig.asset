@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CryptKillerConfig
   killerPrefab: {fileID: 3767055355421772689, guid: 2a34c505445d3e141ae4d1691b54fe24, type: 3}
   behaviorType: 1
-  roamSpeed: 1.5
-  chaseSpeed: 4
+  roamSpeed: 2.25
+  chaseSpeed: 6
   fastChaserSpeedMultiplier: 1.5
   minRoamDistance: 5
   maxRoamDistance: 15
@@ -42,6 +42,15 @@ MonoBehaviour:
   roamAnimationBool: IsWalking
   chaseAnimationBool: IsRunning
   spotPlayerTrigger: SpotPlayer
+  enableSanityDrain: 0
+  sanityDrainPerSecond: 5
+  drainWhenLookingAt: 0
+  drainWhenInTerrorRadius: 0
+  lookingAtAngle: 15
+  lookingAtMaxDistance: 0
+  lookingAtBlockingLayers:
+    serializedVersion: 2
+    m_Bits: 0
   flashlightDisabledDialogue: The flashlight won't turn on...
   flashlightDisabledSpeaker: 
   flashlightDialogueDuration: 2

@@ -44,6 +44,27 @@ public class MenuIntroFX : MonoBehaviour
         StartCoroutine(Play());
     }
 
+    /// <summary>Keeps the group hidden (e.g. while the splash or a camera move is still playing).</summary>
+    public void Hold()
+    {
+        StopAllCoroutines();
+        if (group == null) group = GetComponent<CanvasGroup>();
+        if (basePositions == null) CaptureBases();
+        group.alpha = 0f;
+        group.interactable = false;
+        group.blocksRaycasts = false;
+        SetOffset(1f);
+    }
+
+    /// <summary>Plays the entrance again (after <see cref="Hold"/>).</summary>
+    public void Replay()
+    {
+        StopAllCoroutines();
+        if (group == null) group = GetComponent<CanvasGroup>();
+        group.blocksRaycasts = true;
+        StartCoroutine(Play());
+    }
+
     private IEnumerator Play()
     {
         group.alpha = 0f;

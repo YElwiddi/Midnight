@@ -403,4 +403,10 @@ public class GameEvent : ScriptableObject
     [Header("Player Control")]
     [Tooltip("If true, disables player movement and camera control when this event starts (useful for cinematic sequences)")]
     public bool disablePlayerControlOnStart = false;
+
+    [Header("Travel Pacing")]
+    [Tooltip("If true, this event's NPCs walk faster while far from the player (much faster when out of view), timed pauses pass quicker when nobody is watching, " +
+             "and once an NPC has nothing left to say it despawns as soon as it's far away and out of sight - so the next visitor arrives sooner. " +
+             "Turn off for scripted walks that must play out in full. Tunables live on EventNPC.")]
+    public bool speedUpWhenFar = true;
 }

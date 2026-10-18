@@ -240,8 +240,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KillerJumpscare
   killerFace: {fileID: 0}
   faceHeightOffset: 1.6
+  aimHeadAtPlayer: 0
+  headFaceAxis: {x: 0, y: 0, z: -1}
+  neckCraneAngle: 0
+  neckCraneSpeed: 5
+  neckBoneName: Neck
   killStopDistance: 3
+  jumpscareBodyPullback: 0
   playerHeightOffset: 1.7
+  raiseCameraToFaceBone: 0
+  raiseCameraFaceGap: 2
   killAnimationTrigger: Jumpscare
   jumpscareSound: {fileID: 8300000, guid: cef6b5fcf35bb2d46b3e3d78daf7e7c2, type: 3}
   jumpscareSoundVolume: 1
@@ -251,6 +259,18 @@ MonoBehaviour:
   slowMotionDuration: 2
   shakeIntensity: 0
   shakeDuration: 2
+  screenFlash: 0
+  flashBlackDuration: 0.07
+  flashVisibleDuration: 0.18
+  flashCount: 4
+  finalCloseupDistance: 1.8
+  finalCloseupFOV: 0
+  finalCloseupHold: 1
+  finalCloseupAimUp: 0
+  cutSoundObjectName: 
+  freezeFramePoses: 0
+  neckContortRange: 40
+  finalTargetBoneName: 
   jumpscareCameraFOV: 30
   jumpscareZoomShakeAmount: 10
   jumpscareZoomShakeSpeed: 22
@@ -260,9 +280,11 @@ MonoBehaviour:
   jumpscareLimbShakeFrequency: 20
   jumpscareLimbShakeBones: []
   flashlightTargetHeight: 4.2
+  aimFlashlightAtFaceBone: 0
   jumpscareFlashlightIntensity: 5
   jumpscareFlashlightRange: 22
   intensifyVHSOnKill: 1
+  disableVHSDuringJumpscare: 0
   killGlitchIntensity: 0.7
   killRGBShift: 0.04
   killNoiseIntensity: 0.25
@@ -297,8 +319,8 @@ MonoBehaviour:
   fleeDuration: 1.5
   graceBetweenPhases: 10
   executionTimeout: 5
-  walkSpeed: 2.6
-  farWalkSpeed: 6.5
+  walkSpeed: 3.8999999
+  farWalkSpeed: 9.75
   nearWalkDistance: 6
   farWalkDistance: 26
   fleeSpeed: 16
@@ -307,6 +329,7 @@ MonoBehaviour:
   executionRange: 9
   executionStartDistance: 14
   dartDistance: 16
+  dartEndDistance: 40
   dartViewportFraction: 0.72
   dartDuration: 0.7
   dartStartHold: 0.3

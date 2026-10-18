@@ -16,6 +16,10 @@ public static class EndingFlow
     {
         EndingsSave.Unlock(ending);
 
+        // Every ending that comes through here is a death: the menu will offer to return to that watch.
+        if (ending != Ending.WrongfulConviction)
+            LastDeathSave.RecordDeath(DeathCauses.FromEnding(ending), DeathCauses.CurrentWatch());
+
         // Make sure the menu/reveal is usable regardless of gameplay state.
         Time.timeScale = 1f;
         Cursor.visible = true;

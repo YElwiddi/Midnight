@@ -8,11 +8,13 @@ using UnityEngine;
 /// (the head follows it over), held for about half a second, then snaps back to normal
 /// as if nothing happened.
 ///
-/// Built for Maribel (TabithaSister): when the player reaches her "May I come in?"
-/// decision screen (let her in / refuse / a few more questions / be right back), the snap
-/// is armed. A fixed delay later (default 12s) her neck cracks sideways — regardless of
-/// which choice the player picks or which dialogue node they move to next, and even if the
-/// conversation has ended by then. The countdown is not cancelled by progressing the dialogue.
+/// Built for Maribel (TabithaSister). Two triggers:
+///  • Opening (what Maribel uses): a couple of seconds into her FIRST conversation, while the
+///    camera is still on her face, her neck cracks sideways once — the tell that she's the liar.
+///  • Decision screen: when the player reaches her let-in decision screen (let her in / refuse /
+///    a few more questions / be right back), the snap is armed and fires a fixed delay later
+///    (default 12s) regardless of which choice the player picks or where they navigate, even if
+///    the conversation has ended by then.
 ///
 /// Place this on the NPC root (the transform DialogueManager treats as the current
 /// speaker - for event NPCs that is the spawned prefab root). The neck bone is rotated
@@ -36,6 +38,14 @@ public class CreepyNeckSnap : MonoBehaviour
 
     [Tooltip("Only arm once per conversation (re-arms when the dialogue ends). A snap already counting down is never cancelled.")]
     [SerializeField] private bool oncePerConversation = true;
+
+    [Header("Opening Trigger")]
+    [Tooltip("If true, the snap fires during the opening close-up instead: 'Delay After Opening' seconds after this NPC's " +
+             "FIRST conversation starts, once. The decision-screen trigger above is then ignored.")]
+    [SerializeField] private bool triggerOnOpening = false;
+
+    [Tooltip("Seconds after the first conversation starts before the neck snaps (lets the camera settle on her face).")]
+    [SerializeField] private float delayAfterOpening = 2f;
 
     [Header("Neck Bend")]
     [Tooltip("Neck bone to bend. Auto-found by name in children if left unset.")]
@@ -69,6 +79,7 @@ public class CreepyNeckSnap : MonoBehaviour
     private Coroutine pendingSnap;
     private bool isBending;
     private bool firedThisConversation;
+    private bool openingSnapArmed;
     private float bendWeight; // 0..1 strength currently applied in LateUpdate
 
     private void Awake()
@@ -98,6 +109,7 @@ public class CreepyNeckSnap : MonoBehaviour
             dialogueManager.OnChoicesPresented -= HandleChoicesPresented;
             dialogueManager.OnDialogueTextChanged -= HandleDialogueTextChanged;
             dialogueManager.OnDialogueEnded -= HandleDialogueEnded;
+            dialogueManager.OnDialogueStarted -= HandleDialogueStarted;
         }
         dialogueManager = null;
     }
@@ -111,6 +123,17 @@ public class CreepyNeckSnap : MonoBehaviour
         dialogueManager.OnChoicesPresented += HandleChoicesPresented;
         dialogueManager.OnDialogueTextChanged += HandleDialogueTextChanged;
         dialogueManager.OnDialogueEnded += HandleDialogueEnded;
+        dialogueManager.OnDialogueStarted += HandleDialogueStarted;
+    }
+
+    private void HandleDialogueStarted()
+    {
+        // Opening trigger: snap once, early in the first conversation, while the camera is on her face.
+        if (!triggerOnOpening || openingSnapArmed) return;
+        if (dialogueManager == null || dialogueManager.CurrentNPC != transform) return;
+
+        openingSnapArmed = true;
+        if (pendingSnap == null) pendingSnap = StartCoroutine(DelayedSnap(delayAfterOpening));
     }
 
     private void HandleDialogueTextChanged(string _)
@@ -129,6 +152,9 @@ public class CreepyNeckSnap : MonoBehaviour
 
     private void HandleChoicesPresented(List<string> choices)
     {
+        // The opening trigger replaces the decision-screen trigger.
+        if (triggerOnOpening) return;
+
         // Only arm when THIS NPC is the one being talked to and the trigger screen is shown.
         if (dialogueManager == null || dialogueManager.CurrentNPC != transform) return;
 
@@ -143,19 +169,19 @@ public class CreepyNeckSnap : MonoBehaviour
         if (pendingSnap != null) return;
 
         firedThisConversation = true;
-        pendingSnap = StartCoroutine(DelayedSnap());
+        pendingSnap = StartCoroutine(DelayedSnap(delayBeforeSnap));
     }
 
-    private IEnumerator DelayedSnap()
+    private IEnumerator DelayedSnap(float delay)
     {
         float t = 0f;
         bool crackPlayed = false;
         // Moment within the countdown to fire the crack, so it leads the snap by soundLeadTime.
-        float crackAt = Mathf.Clamp(delayBeforeSnap - soundLeadTime, 0f, delayBeforeSnap);
+        float crackAt = Mathf.Clamp(delay - soundLeadTime, 0f, delay);
 
-        // Count down independently of the dialogue: the snap fires delayBeforeSnap after the
-        // trigger node was reached, no matter which node the player moves to (or if it ends).
-        while (t < delayBeforeSnap)
+        // Count down independently of the dialogue: the snap fires 'delay' after the trigger,
+        // no matter which node the player moves to (or if it ends).
+        while (t < delay)
         {
             // Anticipatory crack: play it ahead of the snap when a lead time is set.
             if (!crackPlayed && soundLeadTime > 0f && t >= crackAt)

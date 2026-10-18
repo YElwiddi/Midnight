@@ -59,7 +59,6 @@ public static class LocalizationExtractor
         { "DialogueTeleportInteractable", new[] { "lockedDialogueText", "lockedSpeakerName", "confirmationMessage", "yesOptionText", "noOptionText" } },
         { "DigPenaltyConfig", new[] { "shovelBrokenDialogue", "tryDigWithBrokenShovelDialogue" } },
         { "DirtPileInteractable", new[] { "noShovelMessage", "confirmationMessage", "correctDigMessage", "incorrectDigMessage" } },
-        { "EndingsMenuDisplay", new[] { "lockedText" } },
         { "CryptFiendsMenuDisplay", new[] { "lockedText" } },
         { "EventNPC", new[] { "idleNudgeText" } },
         { "GameEvent", new[] { "dialogueText", "speakerName", "waitingDialogueText", "waitingDialogueSpeaker",
@@ -72,7 +71,10 @@ public static class LocalizationExtractor
         { "IntroTextUI", new[] { "pages[].text", "continueText" } },
         { "LockedTeleportInteractable", new[] { "lockedDialogueText", "lockedSpeakerName" } },
         { "MaintainedLampsLitDialogueCue", new[] { "dialogueText", "speakerName" } },
-        { "ReadableTrigger", new[] { "pages[]", "rightColumnPages[]", "lowSanityOverrides.pages[]" } },
+        { "ReadableTrigger", new[] { "pages[]", "rightColumnPages[]", "lowSanityOverrides.pages[]", "keeperRemarks[]", "redPenPhrases[]" } },
+        { "CabinNoteSchedule", new[] { "newNotesText" } },
+        { "FieldNoteArchive", new[] { "entries[].pages[]" } },
+        { "FieldNotesMenuDisplay", new[] { "lockedText" } },
         { "RoseInteractable", new[] { "prompt", "yesText", "noText", "speakerName" } },
         { "SanityEffectsController", new[] { "lowSanityDialogue", "lowSanityDialogueSpeaker" } },
         { "SecretKeyInteractable", new[] { "keyPrompt", "yesText", "noText", "speakerName" } },
@@ -109,6 +111,30 @@ public static class LocalizationExtractor
         yield return new KeyValuePair<string, string>("fiend.label.ability", "Unique ability:");
         yield return new KeyValuePair<string, string>("fiend.label.spawn", "Spawn condition:");
 
+        // Field notes archive (full creature notes in the main menu)
+        var archive = FieldNoteArchive.Load();
+        if (archive != null && archive.entries != null)
+        {
+            foreach (var entry in archive.entries)
+            {
+                if (entry != null && !string.IsNullOrEmpty(entry.id))
+                    yield return new KeyValuePair<string, string>("fieldnote." + entry.id + ".title", entry.title);
+            }
+        }
+        yield return new KeyValuePair<string, string>("ui.fieldnotes.header", "FIELD NOTES");
+        yield return new KeyValuePair<string, string>("ui.fieldnotes.found", "{0} / {1}  RECOVERED");
+        yield return new KeyValuePair<string, string>("ui.endings.fieldNotesTeaser", "{0} / {1}  FIELD NOTES");
+
+        // Phase select (unlocked after beating the game)
+        yield return new KeyValuePair<string, string>("ui.phase.title", "BEGIN YOUR SHIFT");
+        yield return new KeyValuePair<string, string>("ui.phase.subtitle", "Starting later skips the earlier visitors. Your stats start fresh.");
+        yield return new KeyValuePair<string, string>("ui.phase.first", "FIRST WATCH");
+        yield return new KeyValuePair<string, string>("ui.phase.first.desc", "The whole night.");
+        yield return new KeyValuePair<string, string>("ui.phase.second", "SECOND WATCH");
+        yield return new KeyValuePair<string, string>("ui.phase.second.desc", "Skip the first three visitors.");
+        yield return new KeyValuePair<string, string>("ui.phase.third", "THIRD WATCH");
+        yield return new KeyValuePair<string, string>("ui.phase.third.desc", "Skip ahead to the last visitors of the night.");
+
         // Main menu / options
         yield return new KeyValuePair<string, string>("ui.menu.play", "PLAY");
         yield return new KeyValuePair<string, string>("ui.menu.endings", "ENDINGS");
@@ -135,6 +161,24 @@ public static class LocalizationExtractor
         yield return new KeyValuePair<string, string>("ui.pause.exit", "Exit");
         yield return new KeyValuePair<string, string>("ui.readable.page", "Page {0}/{1}");
         yield return new KeyValuePair<string, string>("ui.cctv.camera", "CAMERA {0}");
+
+        // Epitaph menu rework: return offer after a death, new settings rows, pause title.
+        yield return new KeyValuePair<string, string>("ui.menu.newNight", "NEW NIGHT");
+        yield return new KeyValuePair<string, string>("ui.menu.return.2", "RETURN TO THE SECOND WATCH");
+        yield return new KeyValuePair<string, string>("ui.menu.return.3", "RETURN TO THE THIRD WATCH");
+        yield return new KeyValuePair<string, string>("death.cause.spirit", "Taken by the Wrathful Spirit");
+        yield return new KeyValuePair<string, string>("death.cause.graverobber", "Taken by the Grave Robber");
+        yield return new KeyValuePair<string, string>("death.cause.bride", "Taken by the Bride");
+        yield return new KeyValuePair<string, string>("death.cause.father", "Taken by the Father");
+        yield return new KeyValuePair<string, string>("death.cause.night", "Taken by the night");
+        yield return new KeyValuePair<string, string>("ui.settings.mouseSensitivity", "MOUSE SENSITIVITY");
+        yield return new KeyValuePair<string, string>("ui.settings.invertLook", "INVERT LOOK");
+        yield return new KeyValuePair<string, string>("ui.settings.masterVolume", "MASTER VOLUME");
+        yield return new KeyValuePair<string, string>("ui.settings.music", "MUSIC");
+        yield return new KeyValuePair<string, string>("ui.settings.effects", "EFFECTS");
+        yield return new KeyValuePair<string, string>("ui.phase.locked", "Reach this watch to unlock it.");
+        yield return new KeyValuePair<string, string>("ui.endings.found", "FOUND {0}");
+        yield return new KeyValuePair<string, string>("ui.pause.title", "PAUSED");
     }
 
     [MenuItem("Tools/Graveyard/Localization/1. Extract Source Strings")]

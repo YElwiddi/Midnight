@@ -105,6 +105,19 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
     [SerializeField] private bool overrideRightColumnMargin;
     [SerializeField] private Vector4 rightColumnMargin;
 
+    [Header("Keeper's Red Pen (Optional)")]
+    [Tooltip("Short lines that decide things, added by the previous keeper in red pen at the bottom of the FIRST page. Hidden while low-sanity pages are showing.")]
+    [TextArea(1, 3)]
+    [SerializeField] private string[] keeperRemarks;
+
+    [Tooltip("Phrases (copied exactly from the pages) the previous keeper underlined in red pen. Each is translated and underlined wherever it appears in the shown pages.")]
+    [TextArea(1, 3)]
+    [SerializeField] private string[] redPenPhrases;
+
+    [Header("Field Note Archive (Optional)")]
+    [Tooltip("Entry id in the FieldNoteArchive. Reading this note unlocks its full text in the main menu's Field Notes.")]
+    [SerializeField] private string fieldNoteId;
+
     [Header("Low Sanity Override")]
     [Tooltip("Enable alternate content/appearance when player sanity is low")]
     [SerializeField] private bool enableLowSanityOverride;
@@ -145,12 +158,22 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
 
         bool useLowSanity = IsLowSanity();
 
-        // Resolve pages: low-sanity pages -> normal pages
+        // Resolve pages: low-sanity pages -> normal pages. The keeper's red pen belongs to the
+        // real note, so it's left off the low-sanity hallucination.
         string[] resolvedPages = pages;
+        string[] resolvedRemarks = keeperRemarks;
+        string[] resolvedRedPen = redPenPhrases;
         if (useLowSanity && lowSanityOverrides.overridePages
             && lowSanityOverrides.pages != null && lowSanityOverrides.pages.Length > 0)
         {
             resolvedPages = lowSanityOverrides.pages;
+            resolvedRemarks = null;
+            resolvedRedPen = null;
+        }
+
+        if (!string.IsNullOrEmpty(fieldNoteId))
+        {
+            FieldNotesSave.Unlock(fieldNoteId);
         }
 
         // Resolve background: low-sanity background -> normal background
@@ -166,7 +189,8 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
         Vector2? resolvedBackgroundSize = overrideBackgroundSize ? backgroundSize : (Vector2?)null;
         Vector4? resolvedRightMargin = overrideRightColumnMargin ? rightColumnMargin : (Vector4?)null;
 
-        readableUI.Open(resolvedPages, resolvedBackground, overrides, resolvedBackgroundSize, rightColumnPages, resolvedRightMargin);
+        readableUI.Open(resolvedPages, resolvedBackground, overrides, resolvedBackgroundSize, rightColumnPages, resolvedRightMargin,
+                        resolvedRemarks, resolvedRedPen);
     }
 
     public string GetInteractionPrompt()

@@ -32,6 +32,13 @@ public class ReadableUI : MonoBehaviour
     private float defaultLineSpacing;
     private float defaultFontSize;
     private Color defaultFontColor;
+    private bool defaultAutoSizing;
+    private float defaultFontSizeMin;
+    private float defaultFontSizeMax;
+
+    // A page that would overflow the paper (long translations, the keeper's red-pen remarks)
+    // shrinks to fit, down to this fraction of its authored size.
+    private const float MinFitScale = 0.7f;
 
     // Background panel sizing (so differently-shaped readables, e.g. an open book,
     // aren't squashed into the default note rect). Captured once, restored after each readable.
@@ -98,6 +105,9 @@ public class ReadableUI : MonoBehaviour
             defaultLineSpacing = contentText.lineSpacing;
             defaultFontSize = contentText.fontSize;
             defaultFontColor = contentText.color;
+            defaultAutoSizing = contentText.enableAutoSizing;
+            defaultFontSizeMin = contentText.fontSizeMin;
+            defaultFontSizeMax = contentText.fontSizeMax;
         }
 
         // The page counter is set by code; this keeps its font in sync with the locale.
@@ -187,7 +197,10 @@ public class ReadableUI : MonoBehaviour
     /// fill the right page, and each click flips both together.</param>
     /// <param name="rightColumnMargin">Margin (l,t,r,b) for the right-page text area. The left page uses the
     /// normal margins from <paramref name="overrides"/>.</param>
-    public void Open(string[] pages, Sprite background = null, TextOverrides overrides = default, Vector2? backgroundSize = null, string[] rightColumnPages = null, Vector4? rightColumnMargin = null)
+    /// <param name="keeperRemarks">Optional red-pen lines appended to the bottom of the first page.</param>
+    /// <param name="redPenPhrases">Optional English phrases to underline in red wherever they appear (translated first).</param>
+    public void Open(string[] pages, Sprite background = null, TextOverrides overrides = default, Vector2? backgroundSize = null, string[] rightColumnPages = null, Vector4? rightColumnMargin = null,
+                     string[] keeperRemarks = null, string[] redPenPhrases = null)
     {
         if (pages == null || pages.Length == 0)
         {
@@ -197,6 +210,8 @@ public class ReadableUI : MonoBehaviour
 
         // Localize the authored (English) pages; rich-text tags travel with the translation.
         currentPages = Loc.TrAll(pages);
+        ApplyRedPen(currentPages, redPenPhrases);
+        AppendKeeperRemarks(currentPages, keeperRemarks);
         currentPageIndex = 0;
         isOpen = true;
 
@@ -221,12 +236,7 @@ public class ReadableUI : MonoBehaviour
         // Reset to defaults before applying overrides
         if (contentText != null)
         {
-            contentText.font = defaultFont;
-            contentText.alignment = defaultAlignment;
-            contentText.margin = defaultMargins;
-            contentText.lineSpacing = defaultLineSpacing;
-            contentText.fontSize = defaultFontSize;
-            contentText.color = defaultFontColor;
+            RestoreDefaultTextSettings();
         }
 
         // Apply text overrides
@@ -245,6 +255,9 @@ public class ReadableUI : MonoBehaviour
             Loc.ApplyFont(contentText,
                 overrides.font != null ? overrides.font : defaultFont,
                 overrides.fontSize.HasValue ? overrides.fontSize.Value : defaultFontSize);
+
+            // Keep the authored size, but let an overflowing page shrink to fit the paper.
+            EnableShrinkToFit(contentText, contentText.fontSize);
         }
 
         // Two-page spread: the main content fills the left page and rightColumnPages[] fills the right page.
@@ -253,12 +266,13 @@ public class ReadableUI : MonoBehaviour
         twoPageActive = rightColumnPages != null && rightColumnPages.Length > 0
                         && contentTextRight != null && contentText != null;
         currentRightPages = twoPageActive ? Loc.TrAll(rightColumnPages) : null;
+        ApplyRedPen(currentRightPages, redPenPhrases);
         if (twoPageActive)
         {
             contentTextRight.font = contentText.font;
             contentTextRight.alignment = contentText.alignment;
             contentTextRight.lineSpacing = contentText.lineSpacing;
-            contentTextRight.fontSize = contentText.fontSize;
+            EnableShrinkToFit(contentTextRight, contentText.fontSizeMax);
             contentTextRight.color = contentText.color;
             contentTextRight.richText = contentText.richText;
             if (rightColumnMargin.HasValue)
@@ -312,12 +326,7 @@ public class ReadableUI : MonoBehaviour
         // Restore default text settings
         if (contentText != null)
         {
-            contentText.font = defaultFont;
-            contentText.alignment = defaultAlignment;
-            contentText.margin = defaultMargins;
-            contentText.lineSpacing = defaultLineSpacing;
-            contentText.fontSize = defaultFontSize;
-            contentText.color = defaultFontColor;
+            RestoreDefaultTextSettings();
         }
 
         // Restore the default background size so the next readable isn't affected
@@ -354,6 +363,68 @@ public class ReadableUI : MonoBehaviour
     #endregion
 
     #region Private Methods
+    // The previous keeper's red pen: underlines on the lines that matter, and remarks under the first page.
+    private const string RedPenUnderlineOpen = "<u color=#B3261E>";
+    private const string RedPenRemarkOpen = "<b><color=#8E1B12>";
+    private const string RedPenRemarkClose = "</color></b>";
+
+    private void RestoreDefaultTextSettings()
+    {
+        contentText.font = defaultFont;
+        contentText.alignment = defaultAlignment;
+        contentText.margin = defaultMargins;
+        contentText.lineSpacing = defaultLineSpacing;
+        contentText.enableAutoSizing = defaultAutoSizing;
+        contentText.fontSizeMin = defaultFontSizeMin;
+        contentText.fontSizeMax = defaultFontSizeMax;
+        contentText.fontSize = defaultFontSize;
+        contentText.color = defaultFontColor;
+    }
+
+    /// <summary>Authored size as the ceiling; TMP only shrinks the page when it wouldn't fit.</summary>
+    private static void EnableShrinkToFit(TextMeshProUGUI text, float size)
+    {
+        text.fontSizeMax = size;
+        text.fontSizeMin = size * MinFitScale;
+        text.fontSize = size;
+        text.enableAutoSizing = true;
+    }
+
+    /// <summary>Underlines each (translated) phrase in red where it first appears on each page.</summary>
+    private static void ApplyRedPen(string[] pages, string[] phrases)
+    {
+        if (pages == null || phrases == null) return;
+
+        foreach (string phrase in phrases)
+        {
+            string translated = Loc.Tr(phrase);
+            if (string.IsNullOrEmpty(translated)) continue;
+
+            for (int i = 0; i < pages.Length; i++)
+            {
+                if (string.IsNullOrEmpty(pages[i])) continue;
+                int at = pages[i].IndexOf(translated, System.StringComparison.Ordinal);
+                if (at < 0) continue;
+                pages[i] = pages[i].Substring(0, at) + RedPenUnderlineOpen + translated + "</u>" + pages[i].Substring(at + translated.Length);
+            }
+        }
+    }
+
+    /// <summary>Adds the keeper's red-pen remarks (translated) under the first page's text.</summary>
+    private static void AppendKeeperRemarks(string[] pages, string[] remarks)
+    {
+        if (pages == null || pages.Length == 0 || remarks == null) return;
+
+        var sb = new System.Text.StringBuilder();
+        foreach (string remark in remarks)
+        {
+            if (string.IsNullOrWhiteSpace(remark)) continue;
+            sb.Append(sb.Length == 0 ? "\n\n" : "\n");
+            sb.Append(RedPenRemarkOpen).Append(Loc.Tr(remark)).Append(RedPenRemarkClose);
+        }
+        if (sb.Length > 0) pages[0] = pages[0].TrimEnd() + sb;
+    }
+
     private void AdvanceOrClose()
     {
         if (!isOpen) return;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6435114597555198389}
   - component: {fileID: 7763651187610702037}
   - component: {fileID: 4852974557489296878}
+  - component: {fileID: 1668930573965762162}
   m_Layer: 6
   m_Name: TabithaSister
   m_TagString: Untagged
@@ -107,6 +108,8 @@ MonoBehaviour:
   requiredChoiceCount: 4
   delayBeforeSnap: 12
   oncePerConversation: 1
+  triggerOnOpening: 1
+  delayAfterOpening: 2
   neckBone: {fileID: 881823090788193251}
   neckBoneName: mixamorig:Head
   bendAngleDegrees: 90
@@ -117,6 +120,18 @@ MonoBehaviour:
   volume: 0.645
   spatialBlend: 0
   soundLeadTime: 0.33
+--- !u!114 &1668930573965762162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767055355421772689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873682840565c134d89006eb51c224b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HiddenFromCCTV
 --- !u!1001 &6762989265611826827
 PrefabInstance:
   m_ObjectHideFlags: 0

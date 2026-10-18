@@ -34,6 +34,30 @@
    "v": "Fin"
   },
   {
+   "k": "fieldnote.beast.title",
+   "v": "La Bête"
+  },
+  {
+   "k": "fieldnote.bride.title",
+   "v": "La Mariée"
+  },
+  {
+   "k": "fieldnote.friend.title",
+   "v": "L'Ami"
+  },
+  {
+   "k": "fieldnote.graverobber.title",
+   "v": "Le Pilleur de tombes"
+  },
+  {
+   "k": "fieldnote.wraith.title",
+   "v": "Le Spectre"
+  },
+  {
+   "k": "fieldnote.yurei.title",
+   "v": "La Yūrei"
+  },
+  {
    "k": "ending.wrongfulConviction.description",
    "v": "Le cimetière est en paix."
   },
@@ -178,8 +202,20 @@
    "v": "{0} / {1}  DÉCOUVERTES"
   },
   {
+   "k": "ui.endings.fieldNotesTeaser",
+   "v": "{0} / {1}  NOTES DE TERRAIN"
+  },
+  {
    "k": "ui.endings.fiendsTeaserLocked",
    "v": "{0} / {1}  ?????"
+  },
+  {
+   "k": "ui.fieldnotes.found",
+   "v": "{0} / {1}  RÉCUPÉRÉES"
+  },
+  {
+   "k": "ui.fieldnotes.header",
+   "v": "NOTES DE TERRAIN"
   },
   {
    "k": "ui.endings.fiendsTeaser",
@@ -206,6 +242,38 @@
    "v": "Reprendre"
   },
   {
+   "k": "ui.phase.first",
+   "v": "PREMIER QUART"
+  },
+  {
+   "k": "ui.phase.first.desc",
+   "v": "Toute la nuit."
+  },
+  {
+   "k": "ui.phase.second",
+   "v": "DEUXIÈME QUART"
+  },
+  {
+   "k": "ui.phase.second.desc",
+   "v": "Passe les trois premiers visiteurs."
+  },
+  {
+   "k": "ui.phase.subtitle",
+   "v": "Commencer plus tard fait passer les premiers visiteurs. Vos statistiques sont réinitialisées."
+  },
+  {
+   "k": "ui.phase.third",
+   "v": "TROISIÈME QUART"
+  },
+  {
+   "k": "ui.phase.third.desc",
+   "v": "Passe directement aux derniers visiteurs de la nuit."
+  },
+  {
+   "k": "ui.phase.title",
+   "v": "DÉBUT DE LA GARDE"
+  },
+  {
    "k": "ui.pause.exit",
    "v": "Quitter"
   },
@@ -216,6 +284,70 @@
   {
    "k": "ui.cctv.camera",
    "v": "CAMÉRA {0}"
+  },
+  {
+   "k": "ui.menu.newNight",
+   "v": "NOUVELLE NUIT"
+  },
+  {
+   "k": "ui.menu.return.2",
+   "v": "RETOURNER AU DEUXIÈME QUART"
+  },
+  {
+   "k": "ui.menu.return.3",
+   "v": "RETOURNER AU TROISIÈME QUART"
+  },
+  {
+   "k": "death.cause.spirit",
+   "v": "Victime de l'esprit vengeur"
+  },
+  {
+   "k": "death.cause.graverobber",
+   "v": "Victime du Pilleur de tombes"
+  },
+  {
+   "k": "death.cause.bride",
+   "v": "Victime de la Mariée"
+  },
+  {
+   "k": "death.cause.father",
+   "v": "Victime du Père"
+  },
+  {
+   "k": "death.cause.night",
+   "v": "Victime de la nuit"
+  },
+  {
+   "k": "ui.settings.mouseSensitivity",
+   "v": "SENSIBILITÉ DE LA SOURIS"
+  },
+  {
+   "k": "ui.settings.invertLook",
+   "v": "INVERSER L'AXE Y"
+  },
+  {
+   "k": "ui.settings.masterVolume",
+   "v": "VOLUME GÉNÉRAL"
+  },
+  {
+   "k": "ui.settings.music",
+   "v": "MUSIQUE"
+  },
+  {
+   "k": "ui.settings.effects",
+   "v": "EFFETS"
+  },
+  {
+   "k": "ui.phase.locked",
+   "v": "Atteignez ce quart pour le débloquer."
+  },
+  {
+   "k": "ui.endings.found",
+   "v": "DÉCOUVERTE LE {0}"
+  },
+  {
+   "k": "ui.pause.title",
+   "v": "PAUSE"
   },
   {
    "k": "??????",
@@ -270,6 +402,10 @@
    "v": "La porte est verrouillée."
   },
   {
+   "k": "Someone left more notes in the cabin.",
+   "v": "Quelqu'un a laissé d'autres notes dans la cabane."
+  },
+  {
    "k": "The door is locked. There is a cold chill coming from the other side.",
    "v": "La porte est verrouillée. Un froid glacial s'en dégage de l'autre côté."
   },
@@ -308,6 +444,10 @@
   {
    "k": "The door won't budge.",
    "v": "La porte ne bouge pas."
+  },
+  {
+   "k": "No Deloitte is buried on these grounds.",
+   "v": "Aucun Deloitte n'est enterré dans ce cimetière."
   },
   {
    "k": "FRONT GATE",
@@ -542,8 +682,28 @@
    "v": "Jason et Monroe Adel ont été retrouvés morts à leur domicile, avec des signes évidents de lutte. Monroe s'est vidé de son sang après de multiples coups de couteau, dont un à une artère vitale du cou. Jason est mort d'une blessure manifeste au cou, infligée, semble-t-il, par son père.\n\nMaria a été internée dans un asile psychiatrique immédiatement après les faits, puis relâchée quelque temps après. Elle a ensuite été définitivement interdite d'accès à ce cimetière après avoir tenté, en pleine psychose, de forcer les portails pour se rendre sur la tombe.\n\nMaria ne doit être admise en aucune circonstance."
   },
   {
+   "k": "Lily, the only survivor, went into foster care.",
+   "v": "Lily, l'unique survivante, a été placée en famille d'accueil."
+  },
+  {
    "k": "I should let her in",
    "v": "Je devrais la laisser entrer"
+  },
+  {
+   "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nTwo sisters come to the gate, never on the same night. Neither has family buried here, and each will tell you the other cannot be trusted.\n\nOne of them is lying. She must never be let in.",
+   "v": "Extrait des notes du gardien\nVisiteuses non enregistrées\n\nDeux sœurs se présentent au portail, jamais la même nuit. Aucune n'a de famille enterrée ici, et chacune vous dira qu'on ne peut pas se fier à l'autre.\n\nL'une d'elles ment. Elle ne doit jamais entrer."
+  },
+  {
+   "k": "The other never asks for an invitation. She asks to be let inside, and what she offers is real.\n\nHer rites quiet the dead and steady the keeper’s mind, but they thin the wards that keep the grave robbers out. Let her in only when your nerves need it more than the graveyard does.",
+   "v": "L'autre ne demande jamais à être invitée. Elle demande qu'on la laisse entrer, et ce qu'elle offre est réel.\n\nSes rites apaisent les morts et raffermissent l'esprit du gardien, mais ils affaiblissent les protections qui tiennent les pilleurs de tombes à distance. Ne la laissez entrer que lorsque vos nerfs en ont plus besoin que le cimetière."
+  },
+  {
+   "k": "You will know her by how she asks.\n\nThe one who lies cannot cross the threshold on her own. She must be invited, and she knows it. She will ask you to invite her in, sweetly, and more than once.\n\nNever invite her.\n\nThe gate camera has never once recorded her.",
+   "v": "Vous la reconnaîtrez à sa façon de demander.\n\nCelle qui ment ne peut pas franchir le seuil d'elle-même. Elle doit y être invitée, et elle le sait. Elle vous demandera de l'inviter à entrer, d'une voix douce, et plus d'une fois.\n\nNe l'invitez jamais.\n\nLa caméra du portail ne l'a jamais filmée, pas une seule fois."
+  },
+  {
+   "k": "Never invite her.",
+   "v": "Ne l'invitez jamais."
   },
   {
    "k": "Recovered Field Note, Informal Designation:\n“The Friend”\nStrange encounter\n\nToday I noticed unusual changes. Temperatures dropped suddenly without explanation. Small objects were found displaced as though something had passed through. Movements were slight, almost imperceptible, but persistent.\n\nThere is a sensation, difficult to describe, of being observed. Shadows appear heavier, and sometimes I feel a presence just beyond the edge of vision. It moves cautiously, avoiding direct light, and does not make sound unless provoked. The pattern is inconsistent, yet deliberate enough to suggest awareness.",
@@ -566,6 +726,18 @@
    "v": "Cette entrée semble vide."
   },
   {
+   "k": "Recovered Field Note, Informal Designation:\n“The Beast”\n\nIt waits in the dark until it has judged you. Electronics fail when it is near.\n\n<b>It will kill your flashlight. Do not stare at it: every second you look costs you your mind.</b>",
+   "v": "Note de terrain récupérée, désignation informelle :\n« La Bête »\n\nElle attend dans le noir jusqu'à vous avoir jugé. L'électronique tombe en panne à son approche.\n\n<b>Elle mettra votre lampe hors d'usage. Ne la fixez pas : chaque seconde de regard vous coûte votre raison.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Yurei”\n\nA grieving presence bound to these grounds. She shows herself to a troubled mind.\n\n<b>Keep the lamps lit and the crucifix on the cabin door. Your sanity is all that keeps her at rest.</b>",
+   "v": "Note de terrain récupérée, désignation informelle :\n« La Yūrei »\n\nUne présence endeuillée, liée à ce cimetière. Elle se montre aux esprits troublés.\n\n<b>Gardez les lampes allumées et le crucifix sur la porte de la cabane. Votre raison est tout ce qui la maintient en repos.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Provisional Designation:\n“The Grave Robber”\n\nA local man who sells these grounds to thieves. His scouts come first, at night, to watch.\n\n<b>Every moment they watch leaves the graveyard less secure. Hold your flashlight on them until they run.</b>",
+   "v": "Note de terrain récupérée, désignation provisoire :\n« Le Pilleur de tombes »\n\nUn homme du coin qui vend ce cimetière aux voleurs. Ses éclaireurs viennent d'abord, la nuit, pour observer.\n\n<b>Chaque instant passé à observer rend le cimetière moins sûr. Gardez votre lampe braquée sur eux jusqu'à ce qu'ils fuient.</b>"
+  },
+  {
    "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\nLocation withheld\n\nThe ledger bears its mark before I see a body.\n\nI have walked these grounds for years, and yet the air changes when it passes. It is not seen, not in the way one expects a creature to appear. Only the silence gives it away.\n\nThose it chooses do not flee. There is no chase. There is no struggle. By the time anyone notices, it has already claimed them. There is no mistaking it; this entity appears to be the most dangerous among the documented.",
    "v": "Note de terrain récupérée, désignation informelle :\n« Le Spectre »\nLieu non divulgué\n\nLe registre porte sa marque avant que je ne voie un corps.\n\nJ'arpente ces lieux depuis des années, et pourtant l'air change lorsqu'il passe. On ne le voit pas, pas comme on s'attend à voir apparaître une créature. Seul le silence le trahit.\n\nCeux qu'il choisit ne fuient pas. Il n'y a pas de poursuite. Pas de lutte. Le temps que quelqu'un s'en aperçoive, il les a déjà pris. Impossible de s'y tromper : cette entité semble être la plus dangereuse de toutes celles répertoriées."
   },
@@ -580,6 +752,10 @@
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nAnderson family\n\n\nFamily members:\nAnthony Anderson, 41, Deceased\nDiane Anderson, 39, Deceased\nJames Anderson, 9, Deceased\nDerek Anderson, 10, Deceased\nLily Anderson, 6, Alive\n\nAnthony is interred within these grounds.\n\nCause of death: Burned to death in house fire\n\nTime of death: October 11, 1988, Tuesday 12:03 AM",
    "v": "Extrait des notes du gardien\nFamille Anderson\n\n\nMembres de la famille :\nAnthony Anderson, 41 ans, décédé\nDiane Anderson, 39 ans, décédée\nJames Anderson, 9 ans, décédé\nDerek Anderson, 10 ans, décédé\nLily Anderson, 6 ans, en vie\n\nAnthony est inhumé dans ce cimetière.\n\nCause du décès : mort dans l'incendie de sa maison\n\nHeure du décès : mardi 11 octobre 1988, 0 h 03"
+  },
+  {
+   "k": "One child survived, having exited the house before responders arrived, and was later placed into foster care.",
+   "v": "Une enfant a survécu, ayant quitté la maison avant l'arrivée des secours ; elle a ensuite été placée en famille d'accueil."
   },
   {
    "k": "Anthony Anderson, his wife Diane, and their two sons were recovered from their home following a fire reported shortly after midnight. The blaze was attributed to an electrical malfunction near the rear stairwell, where damage was most concentrated. The victims were found together in an upstairs bedroom, smoke inhalation listed as the cause of death. One child survived, having exited the house before responders arrived, and was later placed into foster care. The official record notes no evidence of forced entry or outside involvement.\n\nNeighbors recalled the family had kept irregular hours in the weeks preceding the fire and had gradually removed items from the upper rooms, though no reason was given. Utility inspections showed no prior faults, and the surviving child declined to describe events before the flames were visible, stating only that her father instructed them to remain together. A lighter was cataloged among the debris near the stairwell, dismissed as incidental due to fire damage. The matter was closed as accidental loss, and no further inquiry was pursued.",
@@ -604,6 +780,18 @@
   {
    "k": "Zackary and Edward Holmes were laid to rest here following an accident reported along the county road. Official accounts describe a single-vehicle collision, the car discovered overturned beyond the tree line, engine still warm when authorities arrived. Elisabeth was found nearby in a state of shock and later released without charge. The surviving family declined further inquiry, and the matter was recorded as misfortune rather than malice.\n\nIn the weeks prior, neighbors noted unusual hours kept within the Holmes residence and the steady removal of furnishings from the basement to an unseen location. Parish records show Zackary and Edward had not attended services for some time, though candles and ash were later found among their personal effects. The gravekeeper records that the vehicle showed little damage consistent with the severity described, and that Elisabeth never returned to these grounds after the burial. What occurred before 3:45 that morning remains officially unexamined, though the silence maintained by the living suggests a conclusion reached long before the report was written.",
    "v": "Zackary et Edward Holmes reposent ici à la suite d'un accident signalé sur la route du comté. Les rapports officiels décrivent une collision impliquant un seul véhicule, la voiture retrouvée retournée au-delà de la lisière des arbres, le moteur encore chaud à l'arrivée des autorités. Elisabeth a été retrouvée à proximité, en état de choc, puis relâchée sans poursuite. La famille survivante a refusé toute enquête complémentaire, et l'affaire a été consignée comme un malheur plutôt qu'un acte de malveillance.\n\nDans les semaines précédentes, les voisins avaient remarqué des horaires inhabituels dans la résidence des Holmes ainsi que le déménagement régulier du mobilier du sous-sol vers un lieu inconnu. Les registres paroissiaux montrent que Zackary et Edward n'assistaient plus aux offices depuis un certain temps, bien que des bougies et des cendres aient ensuite été retrouvées parmi leurs effets personnels. Le gardien note que le véhicule présentait peu de dégâts au regard de la gravité décrite, et qu'Elisabeth n'est jamais revenue dans ce cimetière après l'enterrement. Ce qui s'est passé avant 3 h 45 ce matin-là n'a jamais été officiellement examiné, bien que le silence des vivants suggère une conclusion tirée bien avant la rédaction du rapport."
+  },
+  {
+   "k": "Elisabeth never returned to these grounds after the burial.",
+   "v": "Elisabeth n'est jamais revenue dans ce cimetière après l'enterrement."
+  },
+  {
+   "k": "No offerings are permitted in the son’s name.",
+   "v": "Aucune offrande n'est autorisée au nom du fils."
+  },
+  {
+   "k": "Wenqi, the husband, visits alone. He repeats himself.",
+   "v": "Wenqi, le mari, vient seul. Il se répète."
   },
   {
    "k": "HE IS A LYING BASTARD DO NOT TRUST HIM",
@@ -678,8 +866,16 @@
    "v": "Jane Adams repose ici après une vie faite d'ordre et de retenue. Elle a travaillé de longues années comme comptable au service des travaux municipaux, tenait sa maison impeccable et a élevé son fils, Edwin, selon des routines strictes et des attentes claires. Quand Edwin avait sept ans, elle l'a envoyé vivre chez des amis proches de la famille dans un autre État, expliquant aux voisins que c'était pour une meilleure scolarité. Après son départ, l'assiduité de Jane au travail a faibli, et elle a démissionné discrètement.\n\nJane s'est donné la mort quelques semaines plus tard. Le gardien note qu'Edwin n'a jamais été informé de sa mort, et que les personnes responsables ont convenu qu'il valait mieux ne pas le faire revenir ni lui révéler les circonstances. Les conséquences de ses actes, et le déshonneur qu'ils portaient, étaient plus qu'elle n'était prête à assumer au grand jour. Elle a mis fin à ses jours dans la solitude, s'assurant que le souvenir que son fils garderait d'elle resterait libéré de la vérité qu'elle ne pouvait supporter."
   },
   {
+   "k": "Maria is not allowed entry under any circumstances.",
+   "v": "Maria ne doit être admise en aucune circonstance."
+  },
+  {
    "k": "Excerpt from the Gravekeeper’s Notes\nVanderbilt family\n\nFamily members:\nAaron Vanderbilt, 69, Deceased\nHarold Vanderbilt, 42, Unknown\nErick Vanderbilt, 22, Alive\n\nAaron Vanderbilt is interred within these grounds.\n\nCause of death: Gunshot wound\n\nTime of death: June 27, 1993, Sunday 7:48 PM",
    "v": "Extrait des notes du gardien\nFamille Vanderbilt\n\nMembres de la famille :\nAaron Vanderbilt, 69 ans, décédé\nHarold Vanderbilt, 42 ans, inconnu\nErick Vanderbilt, 22 ans, en vie\n\nAaron Vanderbilt est inhumé dans ce cimetière.\n\nCause du décès : blessure par balle\n\nHeure du décès : dimanche 27 juin 1993, 19 h 48"
+  },
+  {
+   "k": "His brother disappeared many years ago under circumstances no one could trace",
+   "v": "Son frère a disparu il y a bien des années, dans des circonstances que personne n'a pu élucider"
   },
   {
    "k": "Aaron Vanderbilt is remembered here as a man whose life carried the weight of absence and missteps. His brother disappeared many years ago under circumstances no one could trace, leaving Aaron to navigate the world alone. Though capable and clever, he found himself drawn into circles that promised opportunity but delivered danger, aligning with people whose loyalties were fleeting and whose intentions were rarely honest.\n\nThose who knew him speak of quiet struggles hidden behind a confident exterior. Aaron’s dealings with the wrong company shaped much of his later years, leaving him isolated and wary. The fate of his brother remains a lingering shadow over his life, a reminder of paths lost and choices that carry consequences beyond one’s control.\n\nAaron Vanderbilt rests here alone.",
@@ -688,6 +884,14 @@
   {
    "k": "<size=145%><b>THE WATCHMAN'S NOTES</b></size>\n<size=85%>1999</size>\n\n<i>In this book you will find instructions on how to watch over this graveyard. Do not deviate from these instructions. This book contains a compilation of all recordings from previous grave watchers.</i>\n\n<i>This resting place is centuries old and should not be tampered with. As the gravekeeper, you will read the following instructions and abide by them.</i>",
    "v": "<size=145%><b>LES NOTES DU VEILLEUR</b></size>\n<size=85%>1999</size>\n\n<i>Dans ce livre, vous trouverez les instructions pour veiller sur ce cimetière. Ne vous écartez pas de ces instructions. Ce livre rassemble l'ensemble des relevés des précédents veilleurs.</i>\n\n<i>Ce lieu de repos est vieux de plusieurs siècles et ne doit pas être altéré. En tant que gardien, vous lirez les instructions suivantes et vous vous y conformerez.</i>"
+  },
+  {
+   "k": "Always cross reference any information they provide you.",
+   "v": "Recoupez toujours les informations qu'ils vous donnent."
+  },
+  {
+   "k": "You must only allow for visitors who are directly related to the deceased.",
+   "v": "Vous ne devez admettre que les visiteurs directement liés au défunt."
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
@@ -708,6 +912,18 @@
   {
    "k": "There is only one grave under the Huang name, though the arrangements suggest a decision made in haste and upheld with care. The plot was chosen by Huang Wenqi himself; he arrived with the paperwork prepared and spoke clearly, though not always consistently, occasionally repeating details already settled. Madam Huang was brought at dawn. No extended family attended. When I asked whether the son would come, Wenqi said the family was complete as it stood, then paused, as if uncertain why the answer mattered. The cause of death was recorded, a crime resolved, and the matter accepted without dispute.\n\nMei Huang lived quietly, known for small kindnesses that left little record. In her final months, that attention faded, and with it her protection. I was told only that a matter of dishonor had been resolved; no details were given. No offerings are permitted in the son’s name. Wenqi visits alone now, sometimes repeating himself, always checking the stone before leaving, as if expecting it to say something different.",
    "v": "Il n'y a qu'une seule tombe au nom de Huang, bien que les dispositions suggèrent une décision prise à la hâte et maintenue avec soin. La concession a été choisie par Huang Wenqi lui-même ; il est arrivé avec les papiers préparés et s'est exprimé clairement, quoique pas toujours de manière cohérente, répétant parfois des détails déjà réglés. Madame Huang a été amenée à l'aube. Aucun membre de la famille élargie n'était présent. Quand j'ai demandé si le fils viendrait, Wenqi a répondu que la famille était au complet telle quelle, puis a marqué une pause, comme s'il ne savait pas pourquoi la réponse importait. La cause du décès a été consignée, un crime résolu, et l'affaire acceptée sans contestation.\n\nMei Huang a vécu discrètement, connue pour de petites bontés qui ont laissé peu de traces. Dans ses derniers mois, cette attention s'est estompée, et avec elle sa protection. On m'a seulement dit qu'une affaire de déshonneur avait été réglée ; aucun détail n'a été donné. Aucune offrande n'est autorisée au nom du fils. Wenqi vient seul désormais, se répétant parfois, vérifiant toujours la pierre avant de partir, comme s'il s'attendait à ce qu'elle dise autre chose."
+  },
+  {
+   "k": "Wenqi said the family was complete as it stood",
+   "v": "Wenqi a répondu que la famille était au complet telle quelle"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Wraith”\n\nIt does not stalk you for long. By the time you notice it, it has already decided.\n\n<b>Never let it see you. You cannot outrun it: break its line of sight and stay hidden.</b>",
+   "v": "Note de terrain récupérée, désignation informelle :\n« Le Spectre »\n\nIl ne vous traque pas longtemps. Lorsque vous le remarquez, il a déjà décidé.\n\n<b>Ne le laissez jamais vous voir. Vous ne pouvez pas le distancer : sortez de son champ de vision et restez caché.</b>"
+  },
+  {
+   "k": "Recovered Field Note, Informal Designation:\n“The Friend”\n\nSlow, patient, and always close. It follows the light.\n\n<b>It finds you by your light. Switch your flashlight off and it loses you.</b>",
+   "v": "Note de terrain récupérée, désignation informelle :\n« L'Ami »\n\nLent, patient, et toujours tout près. Il suit la lumière.\n\n<b>Il vous trouve grâce à votre lumière. Éteignez votre lampe et il vous perd.</b>"
   },
   {
    "k": "Excerpt from the Gravekeeper’s Notes\nUnregistered visitors\n\nThere are two women who periodically arrive at the gates.\n\nThey never arrive together, though each insists the other has already been allowed through.\n\nBoth claim familiarity with the dead. Each knows names not written on stone. When asked how, one answers immediately and incorrectly; the other answers slowly and with details that do not improve clarity. I have learned that correcting either of them is a mistake.\n\nOne always asks about access. Locks, patrols, times when the soil is softest. She speaks of inheritance, of what is owed, of what should not be left unattended. When refused, she smiles as though refusal were expected. She returns anyway.",
@@ -762,6 +978,10 @@
    "v": "Ci-gît Jane Adams\nMère, sœur, amie bien-aimée.\n1931-1985"
   },
   {
+   "k": "Harold, the younger brother, vanished years ago and was never traced.",
+   "v": "Harold, le frère cadet, a disparu il y a des années sans jamais être retrouvé."
+  },
+  {
    "k": "SELFISH",
    "v": "ÉGOÏSTE"
   },
@@ -808,6 +1028,14 @@
   {
    "k": "The fate of Father Joseph\n\nI write this as my handles tremble. I have discovered the horrible truth of this place, and those who reside here. Father Joseph indeed met a fate worse than death.\n\nAs this site stands, Father Joseph is condemned to this burial ground. A tombstone lost to memory, mangled by the faithless. A gift to be planted as a lasting goodbye from his beloved.\n\nShould some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave. Only then may Father Joseph finally receive the farewell denied to him, and perhaps find the peace that has eluded him for so long.",
    "v": "Le sort du père Joseph\n\nJ'écris ceci les mains tremblantes. J'ai découvert l'horrible vérité sur ce lieu et sur ceux qui y demeurent. Le père Joseph a bel et bien connu un sort pire que la mort.\n\nEn l'état de ce site, le père Joseph est condamné à ce cimetière. Une pierre tombale perdue pour la mémoire, mutilée par les sans-foi. Un présent à planter, ultime adieu de sa bien-aimée.\n\nSi une âme charitable venait à trouver l'ultime offrande cueillie par sa bien-aimée, qu'elle la dépose sur sa tombe oubliée. Alors seulement le père Joseph pourra enfin recevoir l'adieu qui lui a été refusé, et peut-être trouver la paix qui lui échappe depuis si longtemps."
+  },
+  {
+   "k": "Should some merciful soul find the final offering picked by his beloved, place it upon his forgotten grave.",
+   "v": "Si une âme charitable venait à trouver l'ultime offrande cueillie par sa bien-aimée, qu'elle la dépose sur sa tombe oubliée."
+  },
+  {
+   "k": "Elisabeth, the widow, never came back after the burial.",
+   "v": "Elisabeth, la veuve, n'est jamais revenue après l'enterrement."
   },
   {
    "k": "I'M FREE",
@@ -3534,6 +3762,10 @@
    "v": "Yo... vous bossez ici ?"
   },
   {
+   "k": "Her son, Edwin, was never told how she died.",
+   "v": "Son fils, Edwin, n'a jamais su comment elle était morte."
+  },
+  {
    "k": "Listen, man, I can’t hang around long.",
    "v": "Écoutez, mec, je peux pas traîner longtemps."
   },
@@ -4158,6 +4390,10 @@
    "v": "Ce sera une procédure simple. Je parcourrai les allées du cimetière et j'apaiserai les âmes."
   },
   {
+   "k": "Just a few minutes.",
+   "v": "Juste quelques minutes."
+  },
+  {
    "k": "You will immediately feel at ease.",
    "v": "Vous vous sentirez immédiatement soulagé."
   },
@@ -4466,6 +4702,10 @@
    "v": "Quand elle s'en mêle, elle lie les choses à moitié."
   },
   {
+   "k": "Will you invite me in?",
+   "v": "M'inviterez-vous à entrer ?"
+  },
+  {
    "k": "Not alive. Not gone.",
    "v": "Ni vivantes. Ni disparues."
   },
@@ -4496,6 +4736,10 @@
   {
    "k": "If you refuse…",
    "v": "Si vous refusez..."
+  },
+  {
+   "k": "Invite me in, gravekeeper.",
+   "v": "Invitez-moi à entrer, gardien."
   },
   {
    "k": "Well.",

@@ -54,6 +54,7 @@ MonoBehaviour:
     branchValue: 
     branchToWaypoint: 
     waypointId: 
+    holdAfterDialogue: 0
     proximitySound: {fileID: 0}
     proximitySoundRange: 40
     proximitySoundVolume: 1
@@ -77,3 +78,4 @@ MonoBehaviour:
   backgroundNPCs: []
   postDialogueCinematic: {fileID: 0}
   disablePlayerControlOnStart: 0
+  speedUpWhenFar: 0

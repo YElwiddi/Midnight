@@ -16,6 +16,14 @@ public static class EndingsSave
         public bool wrongfulConviction;
         public bool happilyEverAfter;
         public bool father;
+
+        // First time each ending was reached (yyyy-MM-dd), shown on its tablet in the menu.
+        // Empty for endings unlocked before dates were recorded.
+        public string wrathfulSpiritDate;
+        public string ambushDate;
+        public string wrongfulConvictionDate;
+        public string happilyEverAfterDate;
+        public string fatherDate;
     }
 
     private const string FileName = "endings.json";
@@ -83,9 +91,35 @@ public static class EndingsSave
         }
         if (changed)
         {
+            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            switch (e)
+            {
+                case Ending.WrathfulSpirit: data.wrathfulSpiritDate = today; break;
+                case Ending.Ambush: data.ambushDate = today; break;
+                case Ending.WrongfulConviction: data.wrongfulConvictionDate = today; break;
+                case Ending.HappilyEverAfter: data.happilyEverAfterDate = today; break;
+                case Ending.Father: data.fatherDate = today; break;
+            }
             WriteToDisk();
             Debug.Log("EndingsSave: unlocked " + e + " (" + FilePath + ")");
         }
+    }
+
+    /// <summary>When the ending was first reached, if that was recorded.</summary>
+    public static bool TryGetUnlockDate(Ending e, out DateTime date)
+    {
+        EnsureLoaded();
+        string s = null;
+        switch (e)
+        {
+            case Ending.WrathfulSpirit: s = data.wrathfulSpiritDate; break;
+            case Ending.Ambush: s = data.ambushDate; break;
+            case Ending.WrongfulConviction: s = data.wrongfulConvictionDate; break;
+            case Ending.HappilyEverAfter: s = data.happilyEverAfterDate; break;
+            case Ending.Father: s = data.fatherDate; break;
+        }
+        return DateTime.TryParseExact(s, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture,
+            System.Globalization.DateTimeStyles.None, out date);
     }
 
     public static int UnlockedCount()
