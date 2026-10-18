@@ -53,7 +53,8 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
   activationSoundVolume: 1
   activationSoundConstant: 0
-  killStopDistance: 1
+  killSequence: {fileID: 11400000, guid: 7db7f11b2a5956746b8cb0a68e943aaa, type: 2}
+  killStopDistance: 1.6
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914

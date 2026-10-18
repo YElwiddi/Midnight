@@ -289,6 +289,12 @@ public class KillerNPC : MonoBehaviour
     // Mute the ambient bed (e.g. the church ambience) the instant the jumpscare fires. Set from the event in Initialize().
     private bool muteAmbientOnJumpscare = false;
 
+    // Scripted kill (the Spirit's Lights Out, the Grave Robber's burial). Set from the event in Initialize();
+    // when set it plays the whole kill instead of JumpscareSequence.
+    private KillSequence killSequence;
+    private KillSequenceRig killRig;
+    private float killSequenceStart;
+
 
     private void Awake()
     {
@@ -366,6 +372,19 @@ public class KillerNPC : MonoBehaviour
 
     private void LateUpdate()
     {
+        // A scripted kill poses the killer and drives the camera after the animators have run.
+        if (killRig != null)
+        {
+            // The chase spasm stretched the limbs; restore them before the sequence poses her.
+            if (contortionWasActive)
+            {
+                ResetContortion();
+                contortionWasActive = false;
+            }
+            killSequence.Evaluate(killRig, Time.time - killSequenceStart);
+            return;
+        }
+
         // Violent procedural limb/head contortion while running at the player (spirit-only). Runs after
         // the Animator has written this frame's walk pose, and is captured fresh each frame so it can't drift.
         bool contortNow = chaseContortion && !hasTriggeredGameOver && currentState == KillerState.Chasing;
@@ -572,6 +591,12 @@ public class KillerNPC : MonoBehaviour
 
     private void Update()
     {
+        // The scripted kill owns the camera, the torch and the killer (see LateUpdate).
+        if (killRig != null)
+        {
+            return;
+        }
+
         if (hasTriggeredGameOver)
         {
             if (playerCamera != null)
@@ -961,6 +986,7 @@ public class KillerNPC : MonoBehaviour
         endGameOnPlayerTouch = killerEvent.endGameOnPlayerTouch;
         killDistance = killerEvent.killDistance;
         useJumpscare = killerEvent.useJumpscare;
+        killSequence = killerEvent.killSequence;
 
         // Kill sequence settings
         killStopDistance = killerEvent.killStopDistance;
@@ -1194,6 +1220,12 @@ public class KillerNPC : MonoBehaviour
             return;
         }
 
+        if (killSequence != null)
+        {
+            StartCoroutine(KillSequenceRoutine());
+            return;
+        }
+
         if (useJumpscare)
         {
             StartCoroutine(JumpscareSequence());
@@ -1229,25 +1261,7 @@ public class KillerNPC : MonoBehaviour
             animator.SetBool(chaseAnimationBool, false);
         }
 
-        // Close any open ReadableUI (notes, books, etc.)
-        if (ReadableUI.Instance != null && ReadableUI.Instance.IsOpen)
-        {
-            ReadableUI.Instance.Close();
-        }
-
-        // Close any active dialogues
-        SimpleDialogueTrigger.CancelActiveSimpleDialogue();
-        DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
-        if (dialogueUI != null && dialogueUI.IsVisible)
-        {
-            dialogueUI.ClearChoices();
-            dialogueUI.Hide();
-        }
-        DialogueManager dialogueManager = DialogueManager.GetInstance();
-        if (dialogueManager != null && dialogueManager.IsDialoguePlaying())
-        {
-            dialogueManager.ExitDialogueMode();
-        }
+        CloseOpenUI();
 
         // Freeze player movement (including mouse look on children)
         FreezePlayer(true);
@@ -1398,6 +1412,113 @@ public class KillerNPC : MonoBehaviour
 
         // Execute game over
         ExecuteGameOver();
+    }
+
+    /// <summary>
+    /// Plays the event's scripted kill. The sequence drives the camera, the killer, the torch, the lanterns and
+    /// the screen effects every LateUpdate (as a function of the seconds since the kill started), then the
+    /// ending screen takes over exactly like after a jumpscare.
+    /// </summary>
+    private IEnumerator KillSequenceRoutine()
+    {
+        currentState = KillerState.Killing;
+
+        if (navAgent != null && navAgent.isOnNavMesh)
+        {
+            navAgent.isStopped = true;
+            navAgent.velocity = Vector3.zero;
+        }
+        if (animator != null && !string.IsNullOrEmpty(chaseAnimationBool))
+        {
+            animator.SetBool(chaseAnimationBool, false);
+        }
+
+        CloseOpenUI();
+        FreezePlayer(true);
+        HideCrosshair();
+
+        // Hold the player's input as well: the pause menu checks it (the old jumpscare's slow motion blocked
+        // pausing; this sequence runs at normal speed), and resuming would free the player mid-kill.
+        Movement movement = playerTransform != null ? playerTransform.GetComponent<Movement>() : null;
+        if (movement != null)
+        {
+            movement.DisableAllInput();
+        }
+
+        // Stage the kill in front of the player, turned toward open ground if a wall is in the way.
+        Vector3 stage = playerCamera.transform.forward;
+        stage.y = 0f;
+        if (stage.sqrMagnitude < 0.001f)
+        {
+            stage = transform.position - playerCamera.transform.position;
+            stage.y = 0f;
+        }
+        stage.Normalize();
+        if (SceneryAhead(playerCamera.transform.position, stage, killStopDistance + 0.3f))
+        {
+            stage = FindOpenDirection(playerCamera.transform.position, stage);
+        }
+
+        // The chase stinger stops dead; the sequence brings its own sound.
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+
+        killRig = KillSequenceRig.Create(transform, playerCamera, playerTransform, stage, killSequence.screenFxShader);
+        killSequence.Begin(killRig);
+        // Game time (no slow motion here): pausing pauses the kill.
+        killSequenceStart = Time.time;
+        killSequence.Evaluate(killRig, 0f);
+        if (killSequence.sound != null && audioSource != null)
+        {
+            audioSource.spatialBlend = 0f;
+            audioSource.PlayOneShot(killSequence.sound, killSequence.soundVolume);
+        }
+        Debug.Log($"KillerNPC: Scripted kill '{killSequence.name}' started ({killSequence.Duration:F2}s)");
+
+        // Same clock the sequence is evaluated on, so a hitch can't end the kill early.
+        while (Time.time - killSequenceStart < killSequence.Duration)
+        {
+            yield return null;
+        }
+
+        killSequence.End(killRig);
+        ExecuteGameOver();
+    }
+
+    /// <summary>True if solid scenery (not this killer, not the player, not a trigger) is within <paramref name="distance"/>.</summary>
+    private bool SceneryAhead(Vector3 origin, Vector3 direction, float distance)
+    {
+        foreach (RaycastHit hit in Physics.RaycastAll(origin, direction, distance, ~0, QueryTriggerInteraction.Ignore))
+        {
+            if (hit.collider.transform.IsChildOf(transform)) continue;
+            if (playerTransform != null && hit.collider.transform.IsChildOf(playerTransform)) continue;
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>Closes notes, books and dialogue so nothing sits over the kill.</summary>
+    private void CloseOpenUI()
+    {
+        if (ReadableUI.Instance != null && ReadableUI.Instance.IsOpen)
+        {
+            ReadableUI.Instance.Close();
+        }
+
+        SimpleDialogueTrigger.CancelActiveSimpleDialogue();
+        DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
+        if (dialogueUI != null && dialogueUI.IsVisible)
+        {
+            dialogueUI.ClearChoices();
+            dialogueUI.Hide();
+        }
+        DialogueManager dialogueManager = DialogueManager.GetInstance();
+        if (dialogueManager != null && dialogueManager.IsDialoguePlaying())
+        {
+            dialogueManager.ExitDialogueMode();
+        }
     }
 
     private void StartCameraShake()

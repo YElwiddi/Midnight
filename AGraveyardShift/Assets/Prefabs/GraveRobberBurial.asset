@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12bf65e968835d4ba1dc48bc2102df3, type: 3}
+  m_Name: GraveRobberBurial
+  m_EditorClassIdentifier: Assembly-CSharp::GraveRobberBurialSequence
+  sound: {fileID: 8300000, guid: 529b8507c35ce0841adfc62bb5d22554, type: 3}
+  soundVolume: 1
+  screenFxShader: {fileID: 4800000, guid: e5cc0419c4b311f498d6bb3c63c25b0e, type: 3}
+  eyeUp: 0.4
+  eyeForward: 0.08
+  reach: {fileID: -203655887218126122, guid: 5cec51021a608e342a1186260cda651a, type: 3}
+  attack: {fileID: -203655887218126122, guid: 3b30058b46cb4f144b0fc4cc5ef87dfd, type: 3}
+  armsUp: {fileID: -203655887218126122, guid: 4235ac555a40c2a42a39862c1a8e0ef9, type: 3}
+  startDistance: 1.6
+  grab: 0.12
+  holdDistance: 0.74
+  flashImage: {fileID: 2800000, guid: 3eb79b9064f73294086e1d0f91663865, type: 3}
+  flashTimes:
+  - 0.4
+  - 0.71
+  flashLength: 0.066
+  headbutt: 1.05
+  hit: 1.15
+  wake: 1.94
+  shovelfuls:
+  - 2.44
+  - 3.29
+  - 4.14
+  - 4.99
+  cover:
+  - 0.3
+  - 0.6
+  - 0.87
+  - 1
+  landAfter: 0.8
+  end: 5.89
+  blackHold: 0.3
+  gravePosition: {x: 900, y: 40, z: 500}
+  graveDirt: {fileID: 2100000, guid: 06b6336d15ca3cf44b12234198c04eca, type: 2}
+  graveSky: {fileID: 2100000, guid: 0915f6a7381aecd4da651e88f7a69f51, type: 2}
+  lensDirt: {fileID: 2800000, guid: af447979447df6c46983746b4375eb88, type: 3}
+  shovelMesh: {fileID: 8556253635750604653, guid: e35043ef4a2342148a156dff0e1bd650, type: 3}
+  shovelMaterial: {fileID: -6782570643876408150, guid: e35043ef4a2342148a156dff0e1bd650, type: 3}
+  shovelScale: 30

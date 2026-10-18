@@ -156,6 +156,10 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("If true, activation sound plays at constant volume (2D) instead of from the killer's position")]
     public bool activationSoundConstant = false;
 
+    [Header("Scripted Kill")]
+    [Tooltip("If set, this sequence plays the whole kill (camera, killer, torch, lanterns, sound) instead of the jumpscare settings below. It starts when the killer is killStopDistance away.")]
+    public KillSequence killSequence;
+
     [Header("Kill Sequence Settings")]
     [Tooltip("Distance from player where killer stops to perform kill animation")]
     [Range(0.5f, 5f)]
