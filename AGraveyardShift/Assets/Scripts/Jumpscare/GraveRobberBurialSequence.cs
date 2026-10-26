@@ -151,31 +151,41 @@ public class GraveRobberBurialSequence : KillSequence
         Vector3 floor = gravePosition;
         Vector3 cam = floor + new Vector3(0f, 0.3f, -0.8f);
 
-        // He stands at the head of the grave, toes at the edge, shovelling: scoop, lift, tip it in.
+        // He stands at the head of the grave, toes at the edge, and shovels from the pile on his right: scoop, lift it
+        // over the grave, turn the blade and tip it in. The shovel moves and his hands follow it (left at the grip,
+        // right low on the shaft), so it is always in his hands.
         rig.Visible(true);
         rig.Place(floor + new Vector3(0f, PitDepth, PitLength / 2f + 0.35f), Vector3.back);
         int k = 0;
         for (int i = 0; i < shovelfuls.Length; i++) if (t >= shovelfuls[i] - 0.25f) k = i;
         float phase = Seg(t, shovelfuls[k] - 0.25f, shovelfuls[k] + 0.55f);
-        float lift = Mathf.Sin(Mathf.PI * Seg(phase, 0.25f, 0.8f));
+        float lift = InOut(Seg(phase, 0.25f, 0.55f)) * (1f - InOut(Seg(phase, 0.88f, 1f)));
         float tip = InOut(Seg(phase, 0.55f, 0.85f)) * (1f - Seg(phase, 0.9f, 1f));
-        rig.Pose(("reach", 0.45f + 0.25f * tip, 1f - 0.4f * lift), ("armsUp", 0.4f, 0.4f * lift));
-        rig.LeanTo(cam, 0.5f + 0.25f * tip);
+        rig.Pose(("reach", 0.45f + 0.2f * lift, 1f));
+        Vector3 r = rig.killer.right, f = rig.killer.forward, u = Vector3.up, feet = rig.killer.position;
+        Vector3 handle = feet + Vector3.Lerp(r * -0.25f + u * 1.95f + f * 0.3f, r * -0.45f + u * 1.85f - f * 0.05f, lift);
+        Vector3 down = Vector3.Slerp((r - u * 1.3f + f * 0.3f).normalized, (r * 0.35f - u * 0.2f + f * 0.92f).normalized, lift);
+        float bladeTip = shovelMesh != null ? -shovelMesh.bounds.min.y : 0.0328f;   // mesh units below its origin
+        float length = (bladeTip + (shovelMesh != null ? shovelMesh.bounds.max.y : 0.04f)) * shovelScale;
+        Vector3 blade = handle + down * length;
+        Vector3 leftGrip = handle + down * 0.15f * length / 2.18f, rightGrip = handle + down * 1.05f * length / 2.18f;
+        rig.LeanTo(rightGrip, 0.6f * (1f - lift));
         rig.Stare(cam, 0.8f);
-
-        Transform rightHand = rig.animator.GetBoneTransform(HumanBodyBones.RightHand);
-        Transform leftHand = rig.animator.GetBoneTransform(HumanBodyBones.LeftHand);
-        Vector3 grip = (rightHand.position + leftHand.position) * 0.5f;
-        Vector3 bladeDir = Vector3.Slerp((Vector3.down * 0.6f + Vector3.back * 0.8f).normalized,
-                                         (Vector3.down + Vector3.back * 0.25f).normalized, tip);
-        if (s.shovel != null) s.shovel.transform.SetPositionAndRotation(grip, Quaternion.LookRotation(Vector3.right, -bladeDir));
+        Vector3 leftShoulder = rig.animator.GetBoneTransform(HumanBodyBones.LeftUpperArm).position;
+        Vector3 rightShoulder = rig.animator.GetBoneTransform(HumanBodyBones.RightUpperArm).position;
+        rig.Reach(HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm, HumanBodyBones.LeftHand, leftGrip, 1f, leftShoulder - r * 0.7f - u * 0.5f + f * 0.2f);
+        rig.Reach(HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm, HumanBodyBones.RightHand, rightGrip, 1f, rightShoulder + r * 0.7f - u * 0.5f + f * 0.2f);
+        // the blade's face up while it scoops, turned over to tip the dirt in
+        Vector3 faceUp = (u - down * Vector3.Dot(u, down)).normalized;
+        Vector3 face = Quaternion.AngleAxis(-115f * tip, down) * faceUp;
+        if (s.shovel != null) s.shovel.transform.SetPositionAndRotation(blade - down * (bladeTip * shovelScale), Quaternion.LookRotation(face, -down));
 
         // The dirt leaves the blade as it tips and lands on the lens landAfter seconds after the shovelful starts.
         for (int j = s.lastThrow + 1; j < shovelfuls.Length; j++)
         {
             float release = shovelfuls[j] + landAfter - 0.36f;
             if (t < release) break;
-            ThrowClods(rig, s, j, grip - bladeDir * 1.6f, cam, release);
+            ThrowClods(rig, s, j, blade - down * 0.2f, cam, release);
             s.lastThrow = j;
         }
         foreach (Clod c in s.clods)

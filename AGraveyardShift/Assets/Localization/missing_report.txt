@@ -1,8 +1,17 @@
-Missing translation report — 2026-10-18 15:21
-Source strings: 1221
+Missing translation report — 2026-10-26 18:45
+Source strings: 1220
 
-== zh-Hans: 1221/1221 translated, 0 missing, 19 unused entries
+== zh-Hans: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -22,8 +31,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== ru: 1221/1221 translated, 0 missing, 19 unused entries
+== ru: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -43,8 +61,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== es: 1221/1221 translated, 0 missing, 19 unused entries
+== es: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -64,8 +91,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== pt-BR: 1221/1221 translated, 0 missing, 19 unused entries
+== pt-BR: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -85,8 +121,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== de: 1221/1221 translated, 0 missing, 19 unused entries
+== de: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -106,8 +151,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== ja: 1221/1221 translated, 0 missing, 19 unused entries
+== ja: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -127,8 +181,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== fr: 1221/1221 translated, 0 missing, 19 unused entries
+== fr: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -148,8 +211,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== pl: 1221/1221 translated, 0 missing, 19 unused entries
+== pl: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.
@@ -169,8 +241,17 @@ Source strings: 1221
    UNUSED   Mr. Huang
    UNUSED   Tabitha
 
-== ko: 1221/1221 translated, 0 missing, 19 unused entries
+== ko: 1220/1220 translated, 0 missing, 28 unused entries
    UNUSED   ??????
+   UNUSED   I shouldn't be here
+   UNUSED   I shouldn't be here...
+   UNUSED   Why am I here?
+   UNUSED   I need to leave.
+   UNUSED   I'm not safe here
+   UNUSED   It's not safe
+   UNUSED   I CAN'T KEEP GOING
+   UNUSED   STOP
+   UNUSED   I'M GOING TO DIE
    UNUSED   I found something...
    UNUSED   Nothing here... just bones.
    UNUSED   I picked up the shovel.

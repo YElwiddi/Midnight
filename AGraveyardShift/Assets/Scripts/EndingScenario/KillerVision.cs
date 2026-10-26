@@ -38,10 +38,11 @@ public class KillerVision : MonoBehaviour
 
     /// <summary>
     /// Configure vision settings from a CryptKillerConfig.
+    /// rangeMultiplier scales the vision distance (below 1 once the player has died, see CryptKiller.ApplyPlayerHelp).
     /// </summary>
-    public void Configure(CryptKillerConfig config)
+    public void Configure(CryptKillerConfig config, float rangeMultiplier = 1f)
     {
-        visionDistance = config.visionDistance;
+        visionDistance = config.visionDistance * rangeMultiplier;
         visionAngle = config.visionAngle;
         rayCount = config.visionRayCount;
         blockingLayers = config.visionBlockingLayers;

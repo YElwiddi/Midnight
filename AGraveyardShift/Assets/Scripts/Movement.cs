@@ -354,16 +354,7 @@ public class Movement : MonoBehaviour
         canMove = true;
         canControlCamera = true;
         canJump = true;
-
-        // Only re-enable sprint if sanity system hasn't disabled it
-        if (SanityEffectsController.Instance != null && SanityEffectsController.Instance.IsSprintDisabledBySanity)
-        {
-            canRun = false;
-        }
-        else
-        {
-            canRun = true;
-        }
+        canRun = true;
     }
     
     // Public method to disable only camera control

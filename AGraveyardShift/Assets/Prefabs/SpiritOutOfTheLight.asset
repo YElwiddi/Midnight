@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d72a8dd69b0876489ee83fc552cb7bb, type: 3}
+  m_Name: SpiritOutOfTheLight
+  m_EditorClassIdentifier: Assembly-CSharp::SpiritDraggedSequence
+  sound: {fileID: 8300000, guid: 15bff9f1a5fbdfd4aaa7da54dec38352, type: 3}
+  soundVolume: 1
+  screenFxShader: {fileID: 4800000, guid: e5cc0419c4b311f498d6bb3c63c25b0e, type: 3}
+  eyeUp: 0.42
+  eyeForward: 0.05
+  ending: 1
+  eclipseFinale: 2
+  scuttle: {fileID: -203655887218126122, guid: ee9515a564d470140b1076b1ec1e0f16, type: 3}
+  reach: {fileID: -203655887218126122, guid: 5cec51021a608e342a1186260cda651a, type: 3}
+  idle: {fileID: -203655887218126122, guid: e978c4624c97ff9479ca21c164975316, type: 3}
+  walk: {fileID: -203655887218126122, guid: b76c576d8840a8e44bff3c060f2da600, type: 3}
+  startDistance: 4
+  scuttleAt: 0.06
+  vanish: 0.3
+  yank: 0.36
+  impact: 0.56
+  torchLands: {x: 2.1, y: 0.35}
+  torchFlight: 0.42
+  pulls:
+  - 1.35
+  - 1.8
+  - 2.25
+  - 2.7
+  - 3.1
+  pullLength: 1.6
+  pullTime: 0.28
+  craneBack: 2
+  craneReturn: 2.55
+  release: 2.98
+  torchDies: 3.3
+  face: 3.72
+  faceDistance: 0.28
+  cut: 4.45
+  eclipseAppear: 3.35
+  eclipseDistance: 3.1
+  eclipseStep: 0.13
+  eclipseRush: 4.15
+  eclipseCut: 4.6
+  finaleAt: 4
+  armDrop: 4.12
+  armArrive: 4.62
+  armHit: 4.72
+  unfoldGrown: 4.6
+  unfoldOver: 4.92
+  takeReach: 4.48
+  takeHold: 4.62
+  takeAim: 4.82
+  takeGlare: 4.95
+  takeOff: 5.3
+  bridgeLookBack: 3
+  bridgeLookDown: 3.25
+  bridgeSnaps:
+  - 3.6
+  - 3.78
+  - 3.96
+  - 4.14
+  bridgeStand: 1.8
+  bridgeBends:
+  - 0
+  - 40
+  - 75
+  - 100
+  - 118
+  bridgeDark: 4.3
+  bridgeCut: 4.45
+  neckLookUp: 3
+  neckHands: 3.25
+  neckTwists:
+  - 3.35
+  - 3.5
+  - 3.65
+  neckTwistAngles:
+  - 70
+  - 145
+  - 205
+  neckLetGo: 3.98
+  neckTorchOff: 4.5
+  neckCut: 4.75
+  blackHold: 0.3
+  torchMesh: {fileID: 0}
+  torchMaterial: {fileID: 0}
+  litShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  unlitShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  additiveShader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}

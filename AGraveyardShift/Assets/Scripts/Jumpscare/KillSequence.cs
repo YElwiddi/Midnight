@@ -18,6 +18,11 @@ public abstract class KillSequence : ScriptableObject
     [Tooltip("Hidden/JumpscareScreenFX (referenced here so builds include it).")]
     public Shader screenFxShader;
 
+    [Header("Line")]
+    [Tooltip("Seconds into the kill when the killer's event shows its jumpscare line (its text, font, shake and " +
+             "flash), if the event has one. Negative = never.")]
+    public float lineAt = -1f;
+
     [Header("Killer Face")]
     [Tooltip("Eye height between the head bone and the top of the head (0..1).")]
     public float eyeUp = 0.42f;
@@ -62,4 +67,67 @@ public abstract class KillSequence : ScriptableObject
 
     /// <summary>True for a random share (<paramref name="chance"/>) of 1/<paramref name="rate"/> s slots.</summary>
     protected static bool Spike(float t, float rate, float chance, float seed) => Hash(Mathf.Floor(t * rate) * 3.7f + seed) < chance;
+
+    /// <summary>Time held in steps of 1/<paramref name="fps"/> s: stop-motion, for movement that jerks from pose to pose.</summary>
+    protected static float Steps(float t, float fps) => Mathf.Floor(t * fps) / fps;
+
+    // ------------------------------------------------------------------ unnatural bodies
+
+    /// <summary>Points a limb's two segments along world directions (each blended by <paramref name="amount"/>).</summary>
+    protected static void AimLimb(KillSequenceRig rig, HumanBodyBones upper, HumanBodyBones lower, HumanBodyBones end,
+        Vector3 upperDir, Vector3 lowerDir, float amount = 1f)
+    {
+        Transform b = rig.Bone(lower), c = rig.Bone(end);
+        if (b == null || c == null || amount <= 0f) return;
+        rig.AimBone(upper, b.position, upperDir, amount);
+        rig.AimBone(lower, c.position, lowerDir, amount);
+    }
+
+    /// <summary>Bends a joint (elbow or knee) the wrong way: straight, then <paramref name="degrees"/> past straight.</summary>
+    protected static void Hyperextend(KillSequenceRig rig, HumanBodyBones upper, HumanBodyBones lower, HumanBodyBones end, float degrees, float amount = 1f)
+    {
+        Transform a = rig.Bone(upper), b = rig.Bone(lower), c = rig.Bone(end);
+        if (a == null || b == null || c == null || amount <= 0f) return;
+        Vector3 u = b.position - a.position, l = c.position - b.position;
+        Vector3 hinge = Vector3.Cross(u, l);
+        if (hinge.sqrMagnitude < 1e-8f) hinge = rig.killer.right;
+        float bend = Vector3.Angle(u, l);
+        b.rotation = Quaternion.AngleAxis(-(bend + degrees) * amount, hinge.normalized) * b.rotation;
+    }
+
+    /// <summary>A juddering fit: every joint shakes about its pose, elbows and knees hardest.</summary>
+    protected static void Spasm(KillSequenceRig rig, float t, float amount, float rate = 26f)
+    {
+        if (amount <= 0f) return;
+        HumanBodyBones[] bones =
+        {
+            HumanBodyBones.Head, HumanBodyBones.Neck, HumanBodyBones.Chest, HumanBodyBones.Spine,
+            HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm, HumanBodyBones.LeftHand,
+            HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm, HumanBodyBones.RightHand,
+            HumanBodyBones.LeftUpperLeg, HumanBodyBones.LeftLowerLeg, HumanBodyBones.RightUpperLeg, HumanBodyBones.RightLowerLeg,
+        };
+        float[] weight = { 1f, 0.6f, 0.25f, 0.2f, 0.45f, 1f, 1f, 0.45f, 1f, 1f, 0.25f, 0.7f, 0.25f, 0.7f };
+        float ct = t * rate;
+        for (int i = 0; i < bones.Length; i++)
+        {
+            Transform b = rig.Bone(bones[i]);
+            if (b == null) continue;
+            float p = i * 1.37f;
+            Vector3 e = new Vector3(Mathf.Sin(ct + p) + 0.6f * Mathf.Sin(ct * 2.3f + p * 1.7f),
+                                    Mathf.Sin(ct * 1.4f + p * 2.1f) + 0.6f * Mathf.Sin(ct * 3.1f + p),
+                                    Mathf.Sin(ct * 1.7f + p * 0.7f) + 0.6f * Mathf.Sin(ct * 2.9f + p * 1.3f)) * 20f;
+            e += new Vector3(Jitter(t, 30f, i), Jitter(t, 30f, i + 40), Jitter(t, 30f, i + 80)) * 14f;
+            b.localRotation = b.localRotation * Quaternion.Euler(e * weight[i] * amount);
+        }
+    }
+
+    /// <summary>The head shaking side to side faster than the eye can follow (a new angle every frame).</summary>
+    protected static void Vibrate(KillSequenceRig rig, Vector3 cam, float t, float amount)
+    {
+        if (amount <= 0f) return;
+        float yaw = (Mathf.Sin(t * 2f * Mathf.PI * 19f) * 32f + Jitter(t, 60f, 31) * 22f) * amount;
+        float roll = (Mathf.Sin(t * 2f * Mathf.PI * 23f + 1f) * 18f + Jitter(t, 60f, 32) * 18f) * amount;
+        float pitch = Jitter(t, 60f, 33) * 10f * amount;
+        rig.HeadTurn(cam, roll, yaw, pitch, 0.25f);
+    }
 }

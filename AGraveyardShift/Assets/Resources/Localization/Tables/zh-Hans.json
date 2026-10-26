@@ -350,6 +350,30 @@
    "v": "已暂停"
   },
   {
+   "k": "ui.controls.move",
+   "v": "移动"
+  },
+  {
+   "k": "ui.controls.sprint",
+   "v": "奔跑"
+  },
+  {
+   "k": "ui.controls.jump",
+   "v": "跳跃"
+  },
+  {
+   "k": "ui.controls.interact",
+   "v": "互动"
+  },
+  {
+   "k": "ui.controls.flashlight",
+   "v": "手电筒"
+  },
+  {
+   "k": "ui.controls.cameras",
+   "v": "切换摄像头"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },
@@ -444,6 +468,10 @@
   {
    "k": "The door won't budge.",
    "v": "门纹丝不动。"
+  },
+  {
+   "k": "Those who have been interred with no punishment must be saved. Exhume them and place their souls to rest.",
+   "v": "未受惩罚而下葬者，必须得到拯救。将他们掘出，让他们的灵魂安息。"
   },
   {
    "k": "No Deloitte is buried on these grounds.",
@@ -894,8 +922,8 @@
    "v": "只允许与逝者有直接亲属关系的访客进入。"
   },
   {
-   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
-   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  确保墓园各处的灯始终亮着。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  确保十字架始终牢固地挂在小屋门上。十字架决定你的理智。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  如需休息，请回到小屋。只要十字架在门上，小屋就始终安全。</align>"
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix reflects your sanity. If it hangs upside down, your mind is slipping, and it cannot be turned upright by hand.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  确保墓园各处的灯始终亮着。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  确保十字架始终牢固地挂在小屋门上。十字架映照着你的理智。若它倒挂着，说明你的理智正在流失，而且无法用手把它扶正。\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  如需休息，请回到小屋。只要十字架在门上，小屋就始终安全。</align>"
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
@@ -948,6 +976,10 @@
   {
    "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
    "v": "在这些走廊里转过足够多的圈之后，某些缺失就再也无法忽视。\n本应在此安息的逝者，没有得到应有的礼遇。这个地方是惩罚的场所。"
+  },
+  {
+   "k": "There's no end to this. I think I should turn around.",
+   "v": "这没有尽头。我想我该回头了。"
   },
   {
    "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",

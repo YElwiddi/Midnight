@@ -30,7 +30,7 @@ public class VHSEffectLevel
 
 /// <summary>
 /// Controls visual and gameplay effects based on sanity thresholds.
-/// Handles VHS intensification, sprint removal, crucifix flipping, and dialogue triggers.
+/// Handles VHS intensification, crucifix flipping, and dialogue triggers.
 /// </summary>
 public class SanityEffectsController : MonoBehaviour
 {
@@ -94,13 +94,6 @@ public class SanityEffectsController : MonoBehaviour
     [Tooltip("Reference to VHSRetroFeature component on camera (auto-finds if not set)")]
     [SerializeField] private VHSRetroFeature vhsEffect;
 
-    [Header("Sprint Control")]
-    [Tooltip("If true, sprint is disabled when sanity drops below the level 3 threshold")]
-    [SerializeField] private bool disableSprintAtLowSanity = true;
-
-    [Tooltip("Reference to player Movement component (auto-finds if not set)")]
-    [SerializeField] private Movement playerMovement;
-
     [Header("Dialogue Settings")]
     [Tooltip("Dialogue text to show at sanity 25")]
     [TextArea(2, 4)]
@@ -121,15 +114,8 @@ public class SanityEffectsController : MonoBehaviour
     [SerializeField] private string threshold25Id = "vhs_level_3_sprint";
     #endregion
 
-    #region Properties
-    /// <summary>Returns true if sprint is currently disabled by the sanity system.</summary>
-    public bool IsSprintDisabledBySanity => sprintDisabled;
-    #endregion
-
     #region Private Fields
     private int currentEffectLevel = 0;
-    private bool sprintDisabled = false;
-    private bool wasSprintEnabled = true;
     #endregion
 
     #region Unity Lifecycle
@@ -187,16 +173,6 @@ public class SanityEffectsController : MonoBehaviour
             Debug.Log("SanityEffectsController: VHS effect manually assigned");
         }
 
-        // Auto-find player movement if not assigned
-        if (playerMovement == null)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                playerMovement = player.GetComponent<Movement>();
-            }
-        }
-
         // Subscribe to sanity events
         if (SanityManager.Instance != null)
         {
@@ -233,33 +209,6 @@ public class SanityEffectsController : MonoBehaviour
     }
 
     /// <summary>
-    /// Disable player sprint.
-    /// </summary>
-    public void DisableSprint()
-    {
-        if (playerMovement != null && !sprintDisabled)
-        {
-            wasSprintEnabled = playerMovement.canRun;
-            playerMovement.canRun = false;
-            sprintDisabled = true;
-            Debug.Log("SanityEffectsController: Sprint disabled");
-        }
-    }
-
-    /// <summary>
-    /// Re-enable player sprint.
-    /// </summary>
-    public void EnableSprint()
-    {
-        if (playerMovement != null && sprintDisabled)
-        {
-            playerMovement.canRun = wasSprintEnabled;
-            sprintDisabled = false;
-            Debug.Log("SanityEffectsController: Sprint re-enabled");
-        }
-    }
-
-    /// <summary>
     /// Show the low sanity dialogue.
     /// </summary>
     public void ShowLowSanityDialogue()
@@ -285,7 +234,6 @@ public class SanityEffectsController : MonoBehaviour
     public void ResetEffects()
     {
         SetVHSLevel(0);
-        EnableSprint();
         currentEffectLevel = 0;
 
         // Reset crucifix if needed
@@ -320,12 +268,11 @@ public class SanityEffectsController : MonoBehaviour
         }
         else if (thresholdId == threshold25Id)
         {
-            // Sanity 25: VHS level 3 + disable sprint + dialogue
+            // Sanity 25: VHS level 3 + dialogue
             if (enableLevel3VHS)
             {
                 SetVHSLevel(3);
             }
-            if (disableSprintAtLowSanity) DisableSprint();
             ShowLowSanityDialogue();
         }
     }
@@ -354,7 +301,7 @@ public class SanityEffectsController : MonoBehaviour
         }
         else if (thresholdId == threshold25Id)
         {
-            // Recovered above 25: VHS level 2 (if enabled), re-enable sprint
+            // Recovered above 25: VHS level 2 (if enabled)
             if (enableLevel2VHS)
             {
                 SetVHSLevel(2);
@@ -367,7 +314,6 @@ public class SanityEffectsController : MonoBehaviour
             {
                 SetVHSLevel(0);
             }
-            if (disableSprintAtLowSanity) EnableSprint();
         }
     }
 

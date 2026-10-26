@@ -43,6 +43,8 @@ public class KillSequenceRig
     private readonly List<AnimationClipPlayable> clipInputs = new List<AnimationClipPlayable>();
     private Vector3 faceLocal;
     private float eyeUp = 0.42f, eyeForward = 0.05f;
+    // limb segments that Stretch can lengthen: their rest scale and the local axis that points down the bone
+    private readonly Dictionary<HumanBodyBones, (Transform bone, Vector3 rest, int axis)> segments = new Dictionary<HumanBodyBones, (Transform, Vector3, int)>();
     private float baseGlitch, baseRgb, baseScan, baseTrack, baseDrop;
 
     // ------------------------------------------------------------------ setup
@@ -129,7 +131,27 @@ public class KillSequenceRig
         spine = animator.GetBoneTransform(HumanBodyBones.Spine);
         chest = animator.GetBoneTransform(HumanBodyBones.Chest);
         headTop = FindChild(killer, "mixamorig:HeadTop_End");
+        foreach (var (seg, child) in new[] {
+            (HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm), (HumanBodyBones.LeftLowerArm, HumanBodyBones.LeftHand),
+            (HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm), (HumanBodyBones.RightLowerArm, HumanBodyBones.RightHand),
+            (HumanBodyBones.LeftUpperLeg, HumanBodyBones.LeftLowerLeg), (HumanBodyBones.LeftLowerLeg, HumanBodyBones.LeftFoot),
+            (HumanBodyBones.RightUpperLeg, HumanBodyBones.RightLowerLeg), (HumanBodyBones.RightLowerLeg, HumanBodyBones.RightFoot),
+            (HumanBodyBones.Neck, HumanBodyBones.Head) })
+        {
+            Transform bone = animator.GetBoneTransform(seg), next = animator.GetBoneTransform(child);
+            if (bone == null || next == null) continue;
+            Vector3 lp = next.localPosition;
+            int axis = Mathf.Abs(lp.y) >= Mathf.Abs(lp.x) && Mathf.Abs(lp.y) >= Mathf.Abs(lp.z) ? 1 : (Mathf.Abs(lp.z) >= Mathf.Abs(lp.x) ? 2 : 0);
+            segments[seg] = (bone, bone.localScale, axis);
+        }
         faceLocal = RestFaceLocal(animator, head);
+        // The sequences bend and stretch the killer far outside its imported bounds; generous bounds keep small
+        // lights placed next to it (a ghost light, a fill on her hands) from being culled away from it.
+        foreach (SkinnedMeshRenderer smr in killer.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+        {
+            smr.updateWhenOffscreen = false;
+            smr.localBounds = new Bounds(Vector3.zero, Vector3.one * 8f);
+        }
     }
 
     private void SetForward(Vector3 f)
@@ -194,6 +216,9 @@ public class KillSequenceRig
     /// <summary>Poses the killer from a blend of its clips: (clip key, seconds into the clip, weight).</summary>
     public void Pose(params (string clip, float time, float weight)[] layers)
     {
+        foreach (var seg in segments.Values) seg.bone.localScale = seg.rest;   // undo the last frame's Stretch
+        foreach (var kv in endRest) { Transform e = animator.GetBoneTransform(kv.Key); if (e != null) e.localScale = kv.Value; }
+        stretch.Clear();
         for (int i = 0; i < clipInputs.Count; i++) mixer.SetInputWeight(i, 0f);
         float sum = 0f;
         foreach (var layer in layers) sum += Mathf.Max(0f, layer.weight);
@@ -294,6 +319,106 @@ public class KillSequenceRig
     {
         foreach (Renderer r in killer.GetComponentsInChildren<Renderer>(true)) r.enabled = on;
     }
+
+    /// <summary>Moves the killer (any orientation) so its face lands exactly on <paramref name="point"/>.</summary>
+    public void PutFace(Vector3 point)
+    {
+        killer.position += point - Face;
+    }
+
+    public Transform Bone(HumanBodyBones b) => animator.GetBoneTransform(b);
+
+    /// <summary>Moves the killer so one bone lands on <paramref name="point"/>.</summary>
+    public void PutBone(HumanBodyBones b, Vector3 point)
+    {
+        Transform t = Bone(b);
+        if (t != null) killer.position += point - t.position;
+    }
+
+    /// <summary>Turns a bone about a world axis (degrees), on top of its pose.</summary>
+    public void Bend(HumanBodyBones b, Vector3 axis, float degrees)
+    {
+        Transform t = Bone(b);
+        if (t == null || Mathf.Abs(degrees) < 0.01f) return;
+        t.rotation = Quaternion.AngleAxis(degrees, axis) * t.rotation;
+    }
+
+    /// <summary>Lengthens limb segments (1 = as built). Undone by the next Pose. A child bone inherits its parent's
+    /// scale, so each stretch is divided back out of the next bone down: the segment gets longer, the hand or foot
+    /// at the end of it keeps its size.</summary>
+    public void Stretch(float factor, params HumanBodyBones[] bones)
+    {
+        foreach (HumanBodyBones b in bones) if (segments.ContainsKey(b)) stretch[b] = factor;
+        foreach (var (upper, lower, end) in Chains)
+        {
+            float ku = stretch.TryGetValue(upper, out float a) ? a : 1f;
+            float kl = stretch.TryGetValue(lower, out float c) ? c : 1f;
+            if (ku == 1f && kl == 1f) continue;
+            if (segments.TryGetValue(upper, out var su)) { Vector3 sc = su.rest; sc[su.axis] *= ku; su.bone.localScale = sc; }
+            if (segments.TryGetValue(lower, out var sl)) { Vector3 sc = sl.rest; sc[sl.axis] *= kl / ku; sl.bone.localScale = sc; }
+            Transform e = animator.GetBoneTransform(end);
+            if (e != null && sl.bone != null)
+            {
+                if (!endRest.ContainsKey(end)) endRest[end] = e.localScale;
+                Vector3 sc = endRest[end]; sc[sl.axis] /= kl; e.localScale = sc;
+            }
+        }
+        if (stretch.TryGetValue(HumanBodyBones.Neck, out float kn) && segments.TryGetValue(HumanBodyBones.Neck, out var sn))
+        {
+            Vector3 sc = sn.rest; sc[sn.axis] *= kn; sn.bone.localScale = sc;
+        }
+    }
+
+    private static readonly (HumanBodyBones, HumanBodyBones, HumanBodyBones)[] Chains =
+    {
+        (HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm, HumanBodyBones.LeftHand),
+        (HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm, HumanBodyBones.RightHand),
+        (HumanBodyBones.LeftUpperLeg, HumanBodyBones.LeftLowerLeg, HumanBodyBones.LeftFoot),
+        (HumanBodyBones.RightUpperLeg, HumanBodyBones.RightLowerLeg, HumanBodyBones.RightFoot),
+    };
+    private readonly Dictionary<HumanBodyBones, float> stretch = new Dictionary<HumanBodyBones, float>();
+    private readonly Dictionary<HumanBodyBones, Vector3> endRest = new Dictionary<HumanBodyBones, Vector3>();
+
+    public static readonly HumanBodyBones[] Limbs =
+    {
+        HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm, HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm,
+        HumanBodyBones.LeftUpperLeg, HumanBodyBones.LeftLowerLeg, HumanBodyBones.RightUpperLeg, HumanBodyBones.RightLowerLeg,
+    };
+
+    /// <summary>
+    /// Two-bone IK: bends upper/lower so the end bone reaches <paramref name="target"/>. The elbow (or knee) bends
+    /// toward <paramref name="pole"/>; without one it keeps the side the animation had it on. Call after Pose.
+    /// </summary>
+    public void Reach(HumanBodyBones upper, HumanBodyBones lower, HumanBodyBones end, Vector3 target, float weight = 1f, Vector3? pole = null)
+    {
+        Transform a = animator.GetBoneTransform(upper), b = animator.GetBoneTransform(lower), c = animator.GetBoneTransform(end);
+        if (a == null || b == null || c == null || weight <= 0f) return;
+        Vector3 A = a.position, B = b.position, C = c.position;
+        Vector3 T = Vector3.Lerp(C, target, Mathf.Clamp01(weight));
+        float l1 = (B - A).magnitude, l2 = (C - B).magnitude;
+        Vector3 toT = T - A;
+        float d = Mathf.Clamp(toT.magnitude, Mathf.Abs(l1 - l2) + 0.001f, l1 + l2 - 0.001f);
+        Vector3 dir = toT.sqrMagnitude > 1e-8f ? toT.normalized : (C - A).normalized;
+        Vector3 bend = (pole ?? B) - A;
+        bend -= dir * Vector3.Dot(bend, dir);
+        if (bend.sqrMagnitude < 1e-8f) bend = Vector3.Cross(dir, Vector3.right);
+        bend.Normalize();
+        float cosA = Mathf.Clamp((l1 * l1 + d * d - l2 * l2) / (2f * l1 * d), -1f, 1f);
+        Vector3 elbow = A + dir * (l1 * cosA) + bend * (l1 * Mathf.Sqrt(1f - cosA * cosA));
+        a.rotation = Quaternion.FromToRotation(B - A, elbow - A) * a.rotation;
+        b.rotation = Quaternion.FromToRotation(c.position - b.position, (A + dir * d) - b.position) * b.rotation;
+    }
+
+    /// <summary>Turns the end bone so the direction from it to <paramref name="toward"/> (its child chain, e.g. the
+    /// fingers) points along <paramref name="dir"/>.</summary>
+    public void AimBone(HumanBodyBones bone, Vector3 childPoint, Vector3 dir, float amount = 1f)
+    {
+        Transform t = animator.GetBoneTransform(bone);
+        if (t == null || amount <= 0f) return;
+        Quaternion q = Quaternion.FromToRotation(childPoint - t.position, dir);
+        t.rotation = Quaternion.Slerp(Quaternion.identity, q, amount) * t.rotation;
+    }
+
 
     // ------------------------------------------------------------------ camera, light, picture
 

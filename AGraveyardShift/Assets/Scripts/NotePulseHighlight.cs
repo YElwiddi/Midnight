@@ -19,6 +19,9 @@ public class NotePulseHighlight : MonoBehaviour
     [Tooltip("While any of these GameEvents is the active event, this note pulses its glow.")]
     [SerializeField] private GameEvent[] triggeringEvents;
 
+    [Tooltip("Pulse the whole time this note is enabled, without waiting for an event (e.g. the crypt hint note that appears after a death).")]
+    [SerializeField] private bool pulseWhileEnabled;
+
     [Header("Glow")]
     [Tooltip("Glow color (kept subtle by Peak Intensity)")]
     [SerializeField] private Color glowColor = Color.white;
@@ -48,11 +51,19 @@ public class NotePulseHighlight : MonoBehaviour
 
     private void OnEnable()
     {
+        if (pulseWhileEnabled)
+        {
+            StartPulse();
+            return;
+        }
+
         TrySubscribe();
     }
 
     private void Start()
     {
+        if (pulseWhileEnabled) return;
+
         // Managers set their singletons in Awake; Start guarantees they exist.
         TrySubscribe();
     }

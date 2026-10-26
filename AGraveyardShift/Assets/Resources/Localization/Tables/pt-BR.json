@@ -350,6 +350,30 @@
    "v": "PAUSADO"
   },
   {
+   "k": "ui.controls.move",
+   "v": "Mover"
+  },
+  {
+   "k": "ui.controls.sprint",
+   "v": "Correr"
+  },
+  {
+   "k": "ui.controls.jump",
+   "v": "Pular"
+  },
+  {
+   "k": "ui.controls.interact",
+   "v": "Interagir"
+  },
+  {
+   "k": "ui.controls.flashlight",
+   "v": "Lanterna"
+  },
+  {
+   "k": "ui.controls.cameras",
+   "v": "Trocar de câmera"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },
@@ -444,6 +468,10 @@
   {
    "k": "The door won't budge.",
    "v": "A porta não se mexe."
+  },
+  {
+   "k": "Those who have been interred with no punishment must be saved. Exhume them and place their souls to rest.",
+   "v": "Aqueles que foram sepultados sem punição devem ser salvos. Exume-os e deixe que suas almas descansem."
   },
   {
    "k": "No Deloitte is buried on these grounds.",
@@ -894,8 +922,8 @@
    "v": "Você só deve permitir a entrada de visitantes que sejam parentes diretos do falecido."
   },
   {
-   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
-   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Garanta que as luzes estejam acesas o tempo todo em todo o cemitério.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Garanta que o crucifixo esteja devidamente fixado na porta da cabana o tempo todo. O crucifixo determinará sua sanidade.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Se precisar de uma pausa, volte para a cabana. Ela é sempre segura enquanto o crucifixo estiver na porta.</align>"
+   "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix reflects your sanity. If it hangs upside down, your mind is slipping, and it cannot be turned upright by hand.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+   "v": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Garanta que as luzes estejam acesas o tempo todo em todo o cemitério.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Garanta que o crucifixo esteja devidamente fixado na porta da cabana o tempo todo. O crucifixo reflete sua sanidade. Se ele estiver de cabeça para baixo, sua mente está se perdendo, e não é possível desvirá-lo com as mãos.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Se precisar de uma pausa, volte para a cabana. Ela é sempre segura enquanto o crucifixo estiver na porta.</align>"
   },
   {
    "k": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  You must only allow for visitors who are directly related to the deceased.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Do not blindly trust visitors. Always cross reference any information they provide you.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  You will stand guard at the gate to prevent unwanted visitors from tampering with the gravesites. You must also patrol the grounds.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If someone is trespassing, use your flashlight to deter them. Check near the gravesites for trespassers at all times.</align>\n\n<size=72%><i>(continued)</i></size>",
@@ -948,6 +976,10 @@
   {
    "k": "After enough circuits of these halls, certain omissions become impossible to ignore.\nThe dead that should be laid to rest here are without the courtesies usually afforded. This site stands as a host to punishment.",
    "v": "Depois de voltas suficientes por estes corredores, certas omissões se tornam impossíveis de ignorar.\nOs mortos que deveriam descansar aqui estão sem as cortesias normalmente concedidas. Este lugar serve de palco para punição."
+  },
+  {
+   "k": "There's no end to this. I think I should turn around.",
+   "v": "Isso não tem fim. Acho que eu deveria dar meia-volta."
   },
   {
    "k": "Here lies Anthony Anderson\nFather of three, husband\n1947-1988",

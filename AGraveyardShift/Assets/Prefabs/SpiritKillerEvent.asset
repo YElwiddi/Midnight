@@ -53,7 +53,7 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
   activationSoundVolume: 1
   activationSoundConstant: 0
-  killSequence: {fileID: 11400000, guid: bbe1e970dd06a3b4596760cbf04f927e, type: 2}
+  killSequence: {fileID: 11400000, guid: 8565a5d4a767d434eb1a8a9e904e4882, type: 2}
   killStopDistance: 4
   killAnimationTrigger: Kill
   useSlowMotion: 1

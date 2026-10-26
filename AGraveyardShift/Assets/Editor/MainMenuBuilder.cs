@@ -1000,6 +1000,8 @@ public static class MainMenuBuilder
         Place((RectTransform)quit.transform, new Vector2(0.5f, 0.5f), new Vector2(0f, -136f), new Vector2(560f, 80f));
         Bind(ql, "ui.pause.exit");
 
+        BuildPauseControls(panel);
+
         var old = canvasTf.Find("SettingsPanel");
         if (old != null) Object.DestroyImmediate(old.gameObject);
         var settings = (GameObject)PrefabUtility.InstantiatePrefab(settingsPrefab, scene);
@@ -1021,7 +1023,60 @@ public static class MainMenuBuilder
         EditorSceneManager.SaveScene(scene);
         if (opened) EditorSceneManager.CloseScene(scene, true);
         Debug.Log("MainMenuBuilder: pause menu rebuilt with Settings.");
-        return "OK: pause menu rebuilt (Resume / Settings / Exit + Settings screen) and " + GameScenePath + " saved.";
+        return "OK: pause menu rebuilt (Resume / Settings / Exit + controls + Settings screen) and " + GameScenePath + " saved.";
+    }
+
+    // The keys the intro's controls card shows, plus the CCTV: { key, localization key, English }.
+    static readonly string[][] PauseControls =
+    {
+        new[] { "WASD", "ui.controls.move", "Move" },
+        new[] { "SHIFT", "ui.controls.sprint", "Sprint" },
+        new[] { "SPACE", "ui.controls.jump", "Jump" },
+        new[] { "E", "ui.controls.interact", "Interact" },
+        new[] { "F", "ui.controls.flashlight", "Flashlight" },
+        new[] { "← →", "ui.controls.cameras", "Switch cameras" },
+    };
+
+    /// <summary>
+    /// The controls in two centred rows along the bottom of the pause screen. Layout groups size each
+    /// key + action pair to its text, so a longer translation only widens its row.
+    /// </summary>
+    static void BuildPauseControls(RectTransform panel)
+    {
+        var block = NewRect("Controls", panel);
+        Place(block, new Vector2(0.5f, 0f), new Vector2(0f, 130f), new Vector2(1500f, 104f));
+        var rows = block.gameObject.AddComponent<VerticalLayoutGroup>();
+        rows.childAlignment = TextAnchor.MiddleCenter;
+        rows.spacing = 18f;
+        rows.childControlWidth = rows.childControlHeight = true;
+        rows.childForceExpandWidth = rows.childForceExpandHeight = false;
+
+        for (int r = 0; r < 2; r++)
+        {
+            var row = NewRect("Row" + (r + 1), block);
+            var across = row.gameObject.AddComponent<HorizontalLayoutGroup>();
+            across.childAlignment = TextAnchor.MiddleCenter;
+            across.spacing = 56f;
+            across.childControlWidth = across.childControlHeight = true;
+            across.childForceExpandWidth = across.childForceExpandHeight = false;
+
+            for (int i = r * 3; i < r * 3 + 3; i++)
+            {
+                var pair = NewRect("Control", row);
+                var inner = pair.gameObject.AddComponent<HorizontalLayoutGroup>();
+                inner.childAlignment = TextAnchor.MiddleCenter;
+                inner.spacing = 14f;
+                inner.childControlWidth = inner.childControlHeight = true;
+                inner.childForceExpandWidth = inner.childForceExpandHeight = false;
+
+                var key = NewText("Key", pair, PauseControls[i][0], cinzelBold, 26f, Bone, TextAlignmentOptions.Center);
+                key.enableWordWrapping = false;
+                var action = NewText("Action", pair, PauseControls[i][2], cinzel, 26f, Muted, TextAlignmentOptions.Left);
+                action.enableWordWrapping = false;
+                action.characterSpacing = 4f;
+                Bind(action, PauseControls[i][1]);
+            }
+        }
     }
 
     // ------------------------------------------------------------------ test helpers

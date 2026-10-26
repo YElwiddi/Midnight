@@ -115,6 +115,11 @@ public class StaircaseDialogueController : MonoBehaviour
 
     private StopTriggerListener stopListener;
 
+    // Lines on screen right now, across every controller. The staircase's segments each carry a controller and more
+    // than one can be listening when the player loops, so the same line would otherwise show twice over itself.
+    private static readonly HashSet<string> linesShowing = new HashSet<string>();
+    private readonly List<string> myLines = new List<string>();
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"StaircaseDialogue: OnTriggerEnter hit by '{other.name}' (tag: {other.tag})");
@@ -302,6 +307,13 @@ public class StaircaseDialogueController : MonoBehaviour
 
     private IEnumerator PlayEntry(StaircaseDialogueEntry entry)
     {
+        if (!linesShowing.Add(entry.text))
+        {
+            completedEntryCount++;
+            yield break;
+        }
+        myLines.Add(entry.text);
+
         // Resolve font size and color
         float size = entry.fontSize > 0f ? entry.fontSize : defaultFontSize;
         Color color = entry.textColor.a > 0f ? entry.textColor : defaultTextColor;
@@ -410,6 +422,8 @@ public class StaircaseDialogueController : MonoBehaviour
         spawnedObjects.Remove(textObj);
         activeTextRects.Remove(textObj);
         Destroy(textObj);
+        linesShowing.Remove(entry.text);
+        myLines.Remove(entry.text);
 
         completedEntryCount++;
         Debug.Log($"StaircaseDialogue: Entry complete ({completedEntryCount}/{totalEntryCount})");
@@ -526,6 +540,11 @@ public class StaircaseDialogueController : MonoBehaviour
         }
 
         StopAllCoroutines();
+        foreach (string line in myLines)
+        {
+            linesShowing.Remove(line);
+        }
+        myLines.Clear();
 
         foreach (GameObject obj in spawnedObjects)
         {

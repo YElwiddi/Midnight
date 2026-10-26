@@ -179,6 +179,14 @@ public static class LocalizationExtractor
         yield return new KeyValuePair<string, string>("ui.phase.locked", "Reach this watch to unlock it.");
         yield return new KeyValuePair<string, string>("ui.endings.found", "FOUND {0}");
         yield return new KeyValuePair<string, string>("ui.pause.title", "PAUSED");
+
+        // Pause screen controls (MainMenuBuilder.PauseControls).
+        yield return new KeyValuePair<string, string>("ui.controls.move", "Move");
+        yield return new KeyValuePair<string, string>("ui.controls.sprint", "Sprint");
+        yield return new KeyValuePair<string, string>("ui.controls.jump", "Jump");
+        yield return new KeyValuePair<string, string>("ui.controls.interact", "Interact");
+        yield return new KeyValuePair<string, string>("ui.controls.flashlight", "Flashlight");
+        yield return new KeyValuePair<string, string>("ui.controls.cameras", "Switch cameras");
     }
 
     [MenuItem("Tools/Graveyard/Localization/1. Extract Source Strings")]

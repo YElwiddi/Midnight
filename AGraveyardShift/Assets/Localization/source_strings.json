@@ -1,5 +1,5 @@
 {
-    "generated": "2026-10-18 15:21",
+    "generated": "2026-10-26 18:44",
     "entries": [
         {
             "key": "death.cause.bride",
@@ -284,6 +284,48 @@
         {
             "key": "ui.cctv.camera",
             "text": "CAMERA {0}",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.controls.cameras",
+            "text": "Switch cameras",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.controls.flashlight",
+            "text": "Flashlight",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.controls.interact",
+            "text": "Interact",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.controls.jump",
+            "text": "Jump",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.controls.move",
+            "text": "Move",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.controls.sprint",
+            "text": "Sprint",
             "context": "code",
             "count": 1,
             "isKey": true
@@ -6134,6 +6176,13 @@
             "isKey": false
         },
         {
+            "key": "Those who have been interred with no punishment must be saved. Exhume them and place their souls to rest.",
+            "text": "Those who have been interred with no punishment must be saved. Exhume them and place their souls to rest.",
+            "context": "Scene 0.5 Dungeon/CryptHintNote (ReadableTrigger.pages[])",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "No Deloitte is buried on these grounds.",
             "text": "No Deloitte is buried on these grounds.",
             "context": "Scene 0.5 Dungeon/Deloitte Note (ReadableTrigger.keeperRemarks[])",
@@ -6435,65 +6484,9 @@
             "isKey": false
         },
         {
-            "key": "I CAN'T KEEP GOING",
-            "text": "I CAN'T KEEP GOING",
+            "key": "There's no end to this. I think I should turn around.",
+            "text": "There's no end to this. I think I should turn around.",
             "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 3,
-            "isKey": false
-        },
-        {
-            "key": "I need to leave.",
-            "text": "I need to leave.",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 3,
-            "isKey": false
-        },
-        {
-            "key": "I shouldn't be here...",
-            "text": "I shouldn't be here...",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 6,
-            "isKey": false
-        },
-        {
-            "key": "I'M GOING TO DIE",
-            "text": "I'M GOING TO DIE",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 3,
-            "isKey": false
-        },
-        {
-            "key": "I'm not safe here",
-            "text": "I'm not safe here",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 3,
-            "isKey": false
-        },
-        {
-            "key": "It's not safe",
-            "text": "It's not safe",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 15,
-            "isKey": false
-        },
-        {
-            "key": "STOP",
-            "text": "STOP",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 6,
-            "isKey": false
-        },
-        {
-            "key": "Why am I here?",
-            "text": "Why am I here?",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.dialogueEntries[].text)",
-            "count": 21,
-            "isKey": false
-        },
-        {
-            "key": "I shouldn't be here",
-            "text": "I shouldn't be here",
-            "context": "Scene 0.5 Dungeon/InsaneDialogue (StaircaseDialogueController.finalText)",
             "count": 3,
             "isKey": false
         },
@@ -6519,8 +6512,8 @@
             "isKey": false
         },
         {
-            "key": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
-            "text": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix will determine your sanity.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+            "key": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix reflects your sanity. If it hangs upside down, your mind is slipping, and it cannot be turned upright by hand.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
+            "text": "<align=center><font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the lights are on at all times throughout the graveyard.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  Ensure that the crucifix is properly affixed onto the door of the cabin at all times. The crucifix reflects your sanity. If it hangs upside down, your mind is slipping, and it cannot be turned upright by hand.\n<font=\"LiberationSans SDF\"><size=115%>•</size></font>  If you need a break, return to the cabin. It is always safe so long as the crucifix is on the door.</align>",
             "context": "Scene 0.5 Dungeon/Rulebook (ReadableTrigger.pages[])",
             "count": 1,
             "isKey": false

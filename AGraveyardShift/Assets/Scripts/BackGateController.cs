@@ -81,6 +81,16 @@ public class BackGateController : MonoBehaviour
     [Tooltip("World-space direction from the gate toward the INSIDE (graveyard) side. The jam only triggers while the player is on this side, NEVER while they are outside the gate. In this scene the graveyard is +Z.")]
     [SerializeField] private Vector3 insideDirectionWorld = new Vector3(0f, 0f, 1f);
 
+    [Header("Creak Sound")]
+    [Tooltip("Played from the creaking leaf's hinge as the gate creaks ajar and jams. The jam waits until the player is far away (see Creak Min Player Distance), so this is heard from a distance.")]
+    [SerializeField] private AudioClip creakSound;
+    [Range(0f, 1f)]
+    [SerializeField] private float creakVolume = 0.8f;
+    [Tooltip("Within this distance (m) the creak plays at full volume; it fades with distance beyond it.")]
+    [SerializeField] private float creakMinDistance = 10f;
+    [Tooltip("Beyond this distance (m) the creak stops getting quieter.")]
+    [SerializeField] private float creakMaxDistance = 80f;
+
     // Runtime
     private DialogueUI dialogueUI;
     private Movement playerMovement;
@@ -93,6 +103,7 @@ public class BackGateController : MonoBehaviour
     private bool keyLost;           // sticky: the key vanished at low protection -> locked prompt changes
     private Transform playerTransform;
     private Action<int> activeChoiceHandler;
+    private AudioSource creakAudio;
 
     private void Start()
     {
@@ -101,6 +112,7 @@ public class BackGateController : MonoBehaviour
         if (playerMovement != null) playerTransform = playerMovement.transform;
         crosshairManager = FindObjectOfType<CrosshairManager>();
         if (creakingGate == null) creakingGate = gate1;
+        SetUpCreakAudio();
 
         protection = GraveyardProtectionManager.Instance;
         if (protection != null)
@@ -268,6 +280,27 @@ public class BackGateController : MonoBehaviour
         SwingingGate other = creakingGate == gate1 ? gate2 : gate1;
         if (other != null) other.SetOpen(false);
         if (creakingGate != null) creakingGate.SwingToAngle(creakOpenAngle);
+        if (creakAudio != null) creakAudio.Play();
+    }
+
+    /// <summary>
+    /// A 3D source on the creaking leaf's hinge for the jam's creak. Made at start, so AudioRouter has
+    /// put it on the Effects volume long before the jam.
+    /// </summary>
+    private void SetUpCreakAudio()
+    {
+        if (creakSound == null) return;
+        var go = new GameObject("GateCreakAudio");
+        go.transform.SetParent(creakingGate != null ? creakingGate.transform : transform, false);
+        creakAudio = go.AddComponent<AudioSource>();
+        creakAudio.playOnAwake = false;
+        creakAudio.clip = creakSound;
+        creakAudio.volume = creakVolume;
+        creakAudio.spatialBlend = 1f;
+        creakAudio.rolloffMode = AudioRolloffMode.Logarithmic;
+        creakAudio.minDistance = creakMinDistance;
+        creakAudio.maxDistance = creakMaxDistance;
+        creakAudio.dopplerLevel = 0f;
     }
 
     /// <summary>

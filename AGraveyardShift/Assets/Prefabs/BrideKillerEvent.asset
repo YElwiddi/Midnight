@@ -23,6 +23,7 @@ MonoBehaviour:
   protectionComparison: 5
   protectionThreshold: 25
   killerPrefab: {fileID: 3767055355421772689, guid: dd9d25ae734ccdd4099822f136c4cea6, type: 3}
+  sequenceDirectorPrefab: {fileID: 0}
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
@@ -52,7 +53,16 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: fad23a8a17790634ca5993475213b3dc, type: 3}
   activationSoundVolume: 1
   activationSoundConstant: 1
-  killStopDistance: 0.85
+  ambushTurnTime: 0.28
+  ambushHeadTurnTime: 0.08
+  ambushBodyDelay: 0.04
+  ambushBodyTurnTime: 0.12
+  ambushTurnSound: {fileID: 8300000, guid: 4aa972415dd02144e9c471c0c12bb80c, type: 3}
+  ambushTurnSoundVolume: 1
+  ambushHairOnHead: 1
+  idleSobAngle: 8
+  killSequence: {fileID: 11400000, guid: 891a1573cd6bf5048ba981c05601047a, type: 2}
+  killStopDistance: 2.6
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914

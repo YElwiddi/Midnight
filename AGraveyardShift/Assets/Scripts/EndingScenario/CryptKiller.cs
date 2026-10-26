@@ -361,10 +361,10 @@ public class CryptKiller : MonoBehaviour
         navAgent.acceleration = 8f;
         navAgent.angularSpeed = 120f;
 
-        // Apply vision settings
+        // Apply vision settings (with player help multiplier for consistency)
         if (vision != null)
         {
-            vision.Configure(cfg);
+            vision.Configure(cfg, visionRangeMultiplier);
         }
 
         // Apply terror radius settings
@@ -505,8 +505,8 @@ public class CryptKiller : MonoBehaviour
 
     private void UpdatePersistentStalker()
     {
-        // Check if flashlight is on
-        bool flashlightOn = playerFlashlight != null && playerFlashlight.IsFlashlightOn();
+        // Check if flashlight is on (and close enough to sense, once the player has had help)
+        bool flashlightOn = IsFlashlightSensed();
 
         // If direct pursuit is enabled (from 3 incorrect digs), always chase
         if (forceDirectPursuit)
@@ -577,6 +577,18 @@ public class CryptKiller : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A lit flashlight gives the player away - from anywhere, or only within
+    /// flashlightSenseRange once the player has had help (see ApplyPlayerHelp).
+    /// </summary>
+    private bool IsFlashlightSensed()
+    {
+        if (playerFlashlight == null || !playerFlashlight.IsFlashlightOn()) return false;
+
+        return flashlightSenseRange <= 0f
+            || Vector3.Distance(transform.position, playerTransform.position) <= flashlightSenseRange;
+    }
+
     private void EnterPersistentStalkerSearch()
     {
         stalkerMode = StalkerMode.Searching;
@@ -591,7 +603,7 @@ public class CryptKiller : MonoBehaviour
     private void UpdatePersistentStalkerSearch()
     {
         // If flashlight turns back on during search, go back to chasing
-        bool flashlightOn = playerFlashlight != null && playerFlashlight.IsFlashlightOn();
+        bool flashlightOn = IsFlashlightSensed();
         if (flashlightOn)
         {
             UpdatePersistentStalkerChase();
@@ -1098,6 +1110,10 @@ public class CryptKiller : MonoBehaviour
     private float speedMultiplier = 1f;
     private bool forceDirectPursuit = false;
 
+    // Help after the player has died to this killer (see ApplyPlayerHelp)
+    private float visionRangeMultiplier = 1f;
+    private float flashlightSenseRange = 0f; // 0 = a lit flashlight is sensed from anywhere
+
     /// <summary>
     /// Applies a speed multiplier to the killer (stacks multiplicatively).
     /// </summary>
@@ -1121,6 +1137,27 @@ public class CryptKiller : MonoBehaviour
         {
             EnterChasingState(skipSpotSound: true);
         }
+    }
+
+    /// <summary>
+    /// Eases this killer after the player has died to it: slower, sees less far, and a
+    /// Persistent Stalker only senses a lit flashlight within stalkerFlashlightRange (0 = anywhere).
+    /// Dig penalties still stack on top of the slower speed.
+    /// </summary>
+    public void ApplyPlayerHelp(float speedScale, float visionScale, float stalkerFlashlightRange)
+    {
+        ApplySpeedMultiplier(speedScale);
+        navAgent.speed *= speedScale; // the current state set its speed before the multiplier changed
+
+        visionRangeMultiplier = visionScale;
+        if (vision != null && config != null)
+        {
+            vision.Configure(config, visionRangeMultiplier);
+        }
+
+        flashlightSenseRange = stalkerFlashlightRange;
+
+        Debug.Log($"CryptKiller: Player help applied - speed x{speedScale}, vision x{visionScale}, stalker flashlight range {stalkerFlashlightRange}");
     }
 
     /// <summary>

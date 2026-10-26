@@ -156,6 +156,33 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("If true, activation sound plays at constant volume (2D) instead of from the killer's position")]
     public bool activationSoundConstant = false;
 
+    [Header("Ambush Turn (optional)")]
+    [Tooltip("Seconds she takes to turn round to you before she comes (0 = she snaps round and comes at once). Her head comes round first, then her body; the activation sound plays as she comes.")]
+    [Range(0f, 2f)]
+    public float ambushTurnTime = 0f;
+
+    [Tooltip("How long her head takes to come round (s).")]
+    public float ambushHeadTurnTime = 0.08f;
+
+    [Tooltip("How long after her head her body starts to follow (s).")]
+    public float ambushBodyDelay = 0.04f;
+
+    [Tooltip("How long her body takes to come round (s).")]
+    public float ambushBodyTurnTime = 0.12f;
+
+    [Tooltip("Played (2D) as she starts to turn, e.g. a crack. Optional.")]
+    public AudioClip ambushTurnSound;
+
+    [Range(0f, 1f)]
+    public float ambushTurnSoundVolume = 1f;
+
+    [Tooltip("While her head is turned further round than her body, her long hair rides on her head alone (hair skinned to her back as well would twist across it). Uses the submeshes whose material name starts with 'Hair'; the model needs Read/Write.")]
+    public bool ambushHairOnHead = false;
+
+    [Tooltip("While she waits, her head and shoulders shake with sobs (degrees; 0 = still).")]
+    [Range(0f, 20f)]
+    public float idleSobAngle = 0f;
+
     [Header("Scripted Kill")]
     [Tooltip("If set, this sequence plays the whole kill (camera, killer, torch, lanterns, sound) instead of the jumpscare settings below. It starts when the killer is killStopDistance away.")]
     public KillSequence killSequence;

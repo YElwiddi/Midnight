@@ -6,6 +6,8 @@ using UnityEngine;
 /// Manages checkpoint respawning for the crypt area.
 /// When the player dies to a crypt killer, they respawn outside the crypt
 /// with all crypt objects (shovel, dirt piles, killer) reset to their initial state.
+/// After a death the crypt also eases up: a hint note appears, the shovel moves next to it
+/// (if the player had found it) and the killer is slower and sees less far.
 /// </summary>
 public class CryptCheckpointManager : MonoBehaviour
 {
@@ -70,6 +72,24 @@ public class CryptCheckpointManager : MonoBehaviour
     [Range(0f, 1f)]
     public float respawnSoundVolume = 0.5f;
 
+    [Header("Help After A Death")]
+    [Tooltip("Hint note (inactive in the scene) that appears after the player's first death to the crypt killer and stays for the rest of the run")]
+    public GameObject hintNote;
+
+    [Tooltip("Where the shovel respawns after a death if the player had already found it (next to the hint note). Players who never found it get it at Shovel Spawn Point as usual.")]
+    public Transform hintShovelSpawnPoint;
+
+    [Tooltip("Killer speed multiplier after a death (0.85 = 15% slower). Dig penalties still stack on top.")]
+    [Range(0.5f, 1f)]
+    public float helpKillerSpeedMultiplier = 0.85f;
+
+    [Tooltip("Killer sight range multiplier after a death (0.75 = sees 25% less far)")]
+    [Range(0.3f, 1f)]
+    public float helpKillerVisionMultiplier = 0.75f;
+
+    [Tooltip("After a death, the Persistent Stalker only senses a lit flashlight within this distance (normally it senses it from anywhere). 0 = anywhere.")]
+    public float helpStalkerFlashlightRange = 20f;
+
     // Tracking spawned objects for cleanup
     private GameObject currentShovel;
     private List<GameObject> currentDirtPiles = new List<GameObject>();
@@ -78,6 +98,8 @@ public class CryptCheckpointManager : MonoBehaviour
 
     // State
     private bool isRespawning = false;
+    private int deathCount = 0;
+    private bool shovelFoundBefore = false;
 
     // Captured VHS settings (captured on Start for restoration after respawn)
     private bool vhsSettingsCaptured = false;
@@ -202,6 +224,13 @@ public class CryptCheckpointManager : MonoBehaviour
     {
         isRespawning = true;
         Debug.Log("CryptCheckpointManager: Starting respawn sequence");
+
+        // Remember this death, and whether the shovel was found, before the crypt stats are reset
+        deathCount++;
+        if (GameManager.Instance != null && GameManager.Instance.ShovelPickedUp)
+        {
+            shovelFoundBefore = true;
+        }
 
         // Fade to black
         yield return StartCoroutine(FadeOut());
@@ -556,11 +585,12 @@ public class CryptCheckpointManager : MonoBehaviour
 
     private void SpawnCryptObjects()
     {
-        // Spawn shovel
-        if (shovelPrefab != null && shovelSpawnPoint != null)
+        // Spawn shovel (next to the hint note if the player had already found it)
+        Transform shovelPoint = shovelFoundBefore && hintShovelSpawnPoint != null ? hintShovelSpawnPoint : shovelSpawnPoint;
+        if (shovelPrefab != null && shovelPoint != null)
         {
-            currentShovel = Instantiate(shovelPrefab, shovelSpawnPoint.position, shovelSpawnPoint.rotation);
-            Debug.Log("CryptCheckpointManager: Spawned shovel");
+            currentShovel = Instantiate(shovelPrefab, shovelPoint.position, shovelPoint.rotation);
+            Debug.Log($"CryptCheckpointManager: Spawned shovel at {shovelPoint.name}");
         }
 
         // Spawn dirt piles
@@ -620,6 +650,29 @@ public class CryptCheckpointManager : MonoBehaviour
             }
 
             Debug.Log("CryptCheckpointManager: Spawned killer manually");
+        }
+
+        ApplyDeathHelp();
+    }
+
+    /// <summary>
+    /// After a death the crypt eases up so players don't get stuck: the hint note appears
+    /// and the respawned killer is slower and sees less far.
+    /// </summary>
+    private void ApplyDeathHelp()
+    {
+        if (deathCount < 1) return;
+
+        if (hintNote != null && !hintNote.activeSelf)
+        {
+            hintNote.SetActive(true);
+            Debug.Log("CryptCheckpointManager: Hint note revealed");
+        }
+
+        CryptKiller killer = currentKiller != null ? currentKiller.GetComponent<CryptKiller>() : null;
+        if (killer != null)
+        {
+            killer.ApplyPlayerHelp(helpKillerSpeedMultiplier, helpKillerVisionMultiplier, helpStalkerFlashlightRange);
         }
     }
 

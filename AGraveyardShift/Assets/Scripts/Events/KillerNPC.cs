@@ -295,6 +295,22 @@ public class KillerNPC : MonoBehaviour
     private KillSequenceRig killRig;
     private float killSequenceStart;
 
+    // Ambush turn: she turns round to you, her head first and then her body, before she comes. Set from the event in
+    // Initialize(); off when ambushTurnTime is 0.
+    private float ambushTurnTime, ambushHeadTurnTime, ambushBodyDelay, ambushBodyTurnTime;
+    private AudioClip ambushTurnSound;
+    private float ambushTurnSoundVolume = 1f;
+    private bool ambushHairOnHead;
+    private float idleSobAngle;
+    private bool ambushTurning, ambushTurned;
+    private float ambushTurnStart, ambushTurnAngle;
+    private Quaternion ambushTurnFrom;
+
+    // Her long hair rides on her head while it is turned further round than her body: a copy of her mesh with the
+    // hair skinned to the head alone (her own hair hangs from her back as well, and would twist across it).
+    private SkinnedMeshRenderer hairSkin;
+    private Mesh hairMesh, hairOnHeadMesh;
+
 
     private void Awake()
     {
@@ -383,6 +399,16 @@ public class KillerNPC : MonoBehaviour
             }
             killSequence.Evaluate(killRig, Time.time - killSequenceStart);
             return;
+        }
+
+        // The ambush: her head comes round ahead of her body; before that, she sobs.
+        if (ambushTurning)
+        {
+            TurnHeadAhead();
+        }
+        else if (idleSobAngle > 0f && currentState == KillerState.Idle && !hasTriggeredGameOver)
+        {
+            Sob();
         }
 
         // Violent procedural limb/head contortion while running at the player (spirit-only). Runs after
@@ -594,6 +620,7 @@ public class KillerNPC : MonoBehaviour
         // The scripted kill owns the camera, the torch and the killer (see LateUpdate).
         if (killRig != null)
         {
+            AnimateJumpscareDialogue();
             return;
         }
 
@@ -616,20 +643,7 @@ public class KillerNPC : MonoBehaviour
             // Keep spotlight pointed at killer throughout jumpscare
             UpdateSpotlightTarget();
 
-            // Apply text shake to jumpscare dialogue
-            if (jumpscareDialogueTMP != null && jumpscareDialogueShakeIntensity > 0f)
-            {
-                ApplyJumpscareTextShake();
-            }
-
-            // Flash (blink) the jumpscare dialogue on/off
-            if (jumpscareDialogueCanvasGroup != null && jumpscareDialogueFlash)
-            {
-                float cycle = Mathf.Repeat(Time.unscaledTime * jumpscareDialogueFlashSpeed, 1f);
-                float on = cycle < 0.5f ? 1f : 0f;
-                jumpscareDialogueCanvasGroup.alpha = Mathf.Lerp(jumpscareDialogueFlashMinAlpha, 1f, on);
-            }
-
+            AnimateJumpscareDialogue();
             return;
         }
 
@@ -658,6 +672,11 @@ public class KillerNPC : MonoBehaviour
 
     private void UpdateIdleState(float distanceToPlayer)
     {
+        if (ambushTurning)
+        {
+            return;
+        }
+
         // Check if player is within activation distance (skipped when ignoreActivationDistance is set — the player only needs to SEE the killer)
         if (!ignoreActivationDistance && distanceToPlayer > activationDistance)
         {
@@ -921,6 +940,16 @@ public class KillerNPC : MonoBehaviour
 
     private void ActivateChase()
     {
+        if (ambushTurning)
+        {
+            return;
+        }
+        if (ambushTurnTime > 0f && !ambushTurned)
+        {
+            StartCoroutine(AmbushTurnRoutine());
+            return;
+        }
+
         Debug.Log($"KillerNPC '{gameObject.name}': Player detected! Activating chase!");
 
         // Stop idle loop sound BEFORE playing activation sound
@@ -1100,6 +1129,14 @@ public class KillerNPC : MonoBehaviour
         activationSound = killerEvent.activationSound;
         activationSoundVolume = killerEvent.activationSoundVolume;
         activationSoundConstant = killerEvent.activationSoundConstant;
+        ambushTurnTime = killerEvent.ambushTurnTime;
+        ambushHeadTurnTime = killerEvent.ambushHeadTurnTime;
+        ambushBodyDelay = killerEvent.ambushBodyDelay;
+        ambushBodyTurnTime = killerEvent.ambushBodyTurnTime;
+        ambushTurnSound = killerEvent.ambushTurnSound;
+        ambushTurnSoundVolume = killerEvent.ambushTurnSoundVolume;
+        ambushHairOnHead = killerEvent.ambushHairOnHead;
+        idleSobAngle = killerEvent.idleSobAngle;
 
         // Try to find the face object by name (search recursively)
         if (!string.IsNullOrEmpty(killerEvent.killerFaceObjectName))
@@ -1147,6 +1184,11 @@ public class KillerNPC : MonoBehaviour
         endingToUnlock = killerEvent.endingToUnlock;
 
         // Mark as initialized so Start() doesn't re-initialize
+        if (ambushHairOnHead)
+        {
+            PrepareHairOnHead();
+        }
+
         hasBeenInitialized = true;
 
         Debug.Log($"KillerNPC Initialize: useAmbushMode={useAmbushMode}, chaseAnimationBool='{chaseAnimationBool}', animator={(animator != null ? "found" : "NULL")}");
@@ -1465,11 +1507,21 @@ public class KillerNPC : MonoBehaviour
             audioSource.Stop();
         }
 
+        // ...and the ambient bed goes too, where the event asks (the church ambience under the Bride).
+        if (muteAmbientOnJumpscare)
+        {
+            AmbientSoundManager.Instance?.Mute("killerJumpscare");
+        }
+
         killRig = KillSequenceRig.Create(transform, playerCamera, playerTransform, stage, killSequence.screenFxShader);
         killSequence.Begin(killRig);
         // Game time (no slow motion here): pausing pauses the kill.
         killSequenceStart = Time.time;
         killSequence.Evaluate(killRig, 0f);
+        if (showJumpscareDialogue && !string.IsNullOrEmpty(jumpscareDialogueText) && killSequence.lineAt >= 0f)
+        {
+            StartCoroutine(KillSequenceLine(killSequence.lineAt));
+        }
         if (killSequence.sound != null && audioSource != null)
         {
             audioSource.spatialBlend = 0f;
@@ -1485,6 +1537,192 @@ public class KillerNPC : MonoBehaviour
 
         killSequence.End(killRig);
         ExecuteGameOver();
+    }
+
+    /// <summary>The event's line, shown when the scripted kill says; it shakes and flashes from Update.</summary>
+    private IEnumerator KillSequenceLine(float at)
+    {
+        while (Time.time - killSequenceStart < at)
+        {
+            yield return null;
+        }
+        yield return ShowJumpscareDialogue();
+    }
+
+    /// <summary>
+    /// The ambush turn: her crying stops, a crack, and she turns round to you, her head first and then her body
+    /// (the head's lead is drawn in LateUpdate); then she comes, with the activation sound.
+    /// </summary>
+    private IEnumerator AmbushTurnRoutine()
+    {
+        ambushTurning = true;
+        Debug.Log($"KillerNPC '{gameObject.name}': Player detected! Turning round...");
+
+        if (audioSource != null && audioSource.isPlaying && audioSource.clip == idleLoopSound)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+            audioSource.clip = null;
+        }
+        if (ambushTurnSound != null && audioSource != null)
+        {
+            audioSource.spatialBlend = 0f;
+            audioSource.PlayOneShot(ambushTurnSound, ambushTurnSoundVolume);
+        }
+
+        Vector3 toPlayer = playerTransform != null ? playerTransform.position - transform.position : transform.forward;
+        toPlayer.y = 0f;
+        ambushTurnFrom = transform.rotation;
+        ambushTurnAngle = toPlayer.sqrMagnitude > 0.0001f ? Vector3.SignedAngle(transform.forward, toPlayer, Vector3.up) : 0f;
+        ambushTurnStart = Time.time;
+        while (Time.time - ambushTurnStart < ambushTurnTime)
+        {
+            transform.rotation = Quaternion.AngleAxis(ambushTurnAngle * AmbushBody(Time.time - ambushTurnStart), Vector3.up) * ambushTurnFrom;
+            yield return null;
+        }
+        transform.rotation = Quaternion.AngleAxis(ambushTurnAngle, Vector3.up) * ambushTurnFrom;
+
+        ambushTurning = false;
+        ambushTurned = true;
+        SetHairOnHead(false);
+        ActivateChase();
+    }
+
+    private float AmbushHead(float u) => Smooth01(u / Mathf.Max(0.001f, ambushHeadTurnTime));
+    private float AmbushBody(float u) => Smooth01((u - ambushBodyDelay) / Mathf.Max(0.001f, ambushBodyTurnTime));
+    private static float Smooth01(float x) { x = Mathf.Clamp01(x); return x * x * (3f - 2f * x); }
+
+    /// <summary>Her head turned round ahead of her body (a share of it in the neck), over the animator's pose.</summary>
+    private void TurnHeadAhead()
+    {
+        float u = Time.time - ambushTurnStart;
+        float lead = ambushTurnAngle * (AmbushHead(u) - AmbushBody(u));
+        SetHairOnHead(Mathf.Abs(lead) > 0.5f);
+        if (Mathf.Abs(lead) < 0.01f || animator == null || !animator.isHuman)
+        {
+            return;
+        }
+        Transform neck = animator.GetBoneTransform(HumanBodyBones.Neck);
+        Transform head = animator.GetBoneTransform(HumanBodyBones.Head);
+        if (neck != null)
+        {
+            neck.rotation = Quaternion.AngleAxis(lead * 0.3f, Vector3.up) * neck.rotation;
+        }
+        if (head != null)
+        {
+            head.rotation = Quaternion.AngleAxis(neck != null ? lead * 0.7f : lead, Vector3.up) * head.rotation;
+        }
+    }
+
+    /// <summary>While she waits: her head and shoulders shake with sobs, over the animator's pose.</summary>
+    private void Sob()
+    {
+        if (animator == null || !animator.isHuman)
+        {
+            return;
+        }
+        float sob = Mathf.Max(0f, Mathf.Sin(Time.time * 9f));
+        Transform chest = animator.GetBoneTransform(HumanBodyBones.Chest);
+        Transform head = animator.GetBoneTransform(HumanBodyBones.Head);
+        if (chest != null)
+        {
+            chest.rotation = Quaternion.AngleAxis(idleSobAngle * 0.375f * sob, transform.right) * chest.rotation;
+        }
+        if (head != null)
+        {
+            head.rotation = Quaternion.AngleAxis(idleSobAngle * sob, transform.right) * head.rotation;
+        }
+    }
+
+    /// <summary>Builds the copy of her mesh with the hair (submeshes whose material starts with "Hair") on her head alone.</summary>
+    private void PrepareHairOnHead()
+    {
+        Transform head = animator != null && animator.isHuman ? animator.GetBoneTransform(HumanBodyBones.Head) : null;
+        if (head == null)
+        {
+            return;
+        }
+        foreach (SkinnedMeshRenderer smr in GetComponentsInChildren<SkinnedMeshRenderer>(true))
+        {
+            Mesh mesh = smr.sharedMesh;
+            int headIndex = mesh != null ? System.Array.IndexOf(smr.bones, head) : -1;
+            if (headIndex < 0)
+            {
+                continue;
+            }
+            if (!mesh.isReadable)
+            {
+                Debug.LogWarning($"KillerNPC: '{mesh.name}' needs Read/Write for its hair to ride on its head; leaving it as it is.");
+                return;
+            }
+            Material[] materials = smr.sharedMaterials;
+            Mesh copy = null;
+            BoneWeight[] weights = null;
+            for (int sub = 0; sub < mesh.subMeshCount && sub < materials.Length; sub++)
+            {
+                if (materials[sub] == null || !materials[sub].name.StartsWith("Hair"))
+                {
+                    continue;
+                }
+                if (copy == null)
+                {
+                    copy = Instantiate(mesh);
+                    copy.name = mesh.name + " (hair on head)";
+                    weights = copy.boneWeights;
+                }
+                foreach (int v in copy.GetTriangles(sub))
+                {
+                    weights[v] = new BoneWeight { boneIndex0 = headIndex, weight0 = 1f };
+                }
+            }
+            if (copy == null)
+            {
+                continue;
+            }
+            copy.boneWeights = weights;
+            hairSkin = smr;
+            hairMesh = mesh;
+            hairOnHeadMesh = copy;
+            return;
+        }
+    }
+
+    private void SetHairOnHead(bool onHead)
+    {
+        if (hairSkin == null || hairOnHeadMesh == null)
+        {
+            return;
+        }
+        Mesh want = onHead ? hairOnHeadMesh : hairMesh;
+        if (hairSkin.sharedMesh != want)
+        {
+            hairSkin.sharedMesh = want;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (hairOnHeadMesh != null)
+        {
+            Destroy(hairOnHeadMesh);
+        }
+    }
+
+    /// <summary>The jumpscare line's shake and flash.</summary>
+    private void AnimateJumpscareDialogue()
+    {
+        if (jumpscareDialogueTMP != null && jumpscareDialogueShakeIntensity > 0f)
+        {
+            ApplyJumpscareTextShake();
+        }
+
+        // Flash (blink) the line on/off
+        if (jumpscareDialogueCanvasGroup != null && jumpscareDialogueFlash)
+        {
+            float cycle = Mathf.Repeat(Time.unscaledTime * jumpscareDialogueFlashSpeed, 1f);
+            float on = cycle < 0.5f ? 1f : 0f;
+            jumpscareDialogueCanvasGroup.alpha = Mathf.Lerp(jumpscareDialogueFlashMinAlpha, 1f, on);
+        }
     }
 
     /// <summary>True if solid scenery (not this killer, not the player, not a trigger) is within <paramref name="distance"/>.</summary>
