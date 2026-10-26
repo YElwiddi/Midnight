@@ -1,27 +1,23 @@
-[2026-10-18 16:59:55]: Starting build for depot 4897201, content path is "C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds\", build flags 0x0
-[2026-10-18 16:59:55]: Building file listing for depot 4897201 ...
-[2026-10-18 16:59:55]: Found 201 files for mapping: C:\Users\Nikko\Documents\Midnight\AGraveyardShift\Builds * -> .
-[2026-10-18 16:59:55]: Found 201 files (431 MB) for depot 4897201
-[2026-10-18 16:59:56]: Building depot 4897201, baseline manifest 2685820538255435918 (201 files)
-[2026-10-18 16:59:57]: Found 599 new chunks ( 577 used previously ) for depot 4897201, took 0 minutes, 1 seconds
-[2026-10-18 16:59:57]: Changes to baseline manifest 2685820538255435918 :
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\boot.config" 1 KB size, 1 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\globalgamemanagers" 226 KB size, 226 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\globalgamemanagers.assets" 427 KB size, 427 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\level0" 336 KB size, 336 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\level1" 9636 KB size, 9636 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\level1.resS" 48820 KB size, 7169 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\Managed\Assembly-CSharp.dll" 804 KB size, 804 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\resources.assets" 48424 KB size, 35112 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\resources.assets.resS" 5381 KB size, 2309 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\RuntimeInitializeOnLoads.json" 4 KB size, 4 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\sharedassets0.assets" 8246 KB size, 7222 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\sharedassets0.assets.resS" 61157 KB size, 19642 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\sharedassets0.resource" 12734 KB size, 1470 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\sharedassets1.assets" 28735 KB size, 16447 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\sharedassets1.assets.resS" 121688 KB size, 28934 KB changed 
-[2026-10-18 16:59:57]: Changed: "A Graveyard Shift_Data\sharedassets1.resource" 3856 KB size, 3856 KB changed 
-[2026-10-18 16:59:57]: Summary: 0 files added (0 bytes), 16 files changed (130.46 MB), 0 files removed (0 bytes)
-[2026-10-18 16:59:57]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 17028687239807859287, 45291 bytes).
-[2026-10-18 16:59:58]: Uploading 150 out of 150 missing chunks.
-[2026-10-18 17:00:04]: Success! New manifestID 9112948205625830203 created and 150 new chunks uploaded.
+[2026-10-26 19:02:52]: Starting build for depot 4897201, content path is "C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds\", build flags 0x0
+[2026-10-26 19:02:52]: Building file listing for depot 4897201 ...
+[2026-10-26 19:02:52]: Found 201 files for mapping: C:\Users\Nikko\Documents\Midnight\AGraveyardShift\Builds * -> .
+[2026-10-26 19:02:53]: Found 201 files (432 MB) for depot 4897201
+[2026-10-26 19:02:54]: Building depot 4897201, baseline manifest 9112948205625830203 (201 files)
+[2026-10-26 19:02:55]: Found 596 new chunks ( 599 used previously ) for depot 4897201, took 0 minutes, 0 seconds
+[2026-10-26 19:02:55]: Changes to baseline manifest 9112948205625830203 :
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\boot.config" 1 KB size, 1 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\globalgamemanagers" 226 KB size, 226 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\globalgamemanagers.assets" 427 KB size, 427 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\level0" 336 KB size, 336 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\level1" 9647 KB size, 9647 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\level1.resS" 48837 KB size, 22528 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\Managed\Assembly-CSharp.dll" 877 KB size, 877 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\resources.assets" 48433 KB size, 3607 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\sharedassets0.assets" 8246 KB size, 2048 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\sharedassets1.assets" 28747 KB size, 13387 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\sharedassets1.assets.resS" 121684 KB size, 2240 KB changed 
+[2026-10-26 19:02:55]: Changed: "A Graveyard Shift_Data\sharedassets1.resource" 4583 KB size, 3800 KB changed 
+[2026-10-26 19:02:55]: Summary: 0 files added (0 bytes), 12 files changed (57.73 MB), 0 files removed (0 bytes)
+[2026-10-26 19:02:55]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 1632351612746844382, 45107 bytes).
+[2026-10-26 19:02:55]: Uploading 49 out of 49 missing chunks.
+[2026-10-26 19:03:00]: Success! New manifestID 6697928903527306194 created and 49 new chunks uploaded.
