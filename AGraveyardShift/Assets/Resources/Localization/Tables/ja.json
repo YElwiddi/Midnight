@@ -374,6 +374,22 @@
    "v": "カメラ切り替え"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "映像"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "ビデオテープ"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "ひかえめ"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "クラシックピクセル"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

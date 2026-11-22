@@ -61,6 +61,9 @@ public class EventNPC : MonoBehaviour, IInteractable
     [Tooltip("Waypoint name treated as the gate. The nudge never fires here - that's where the visitor is let in, not after.")]
     [SerializeField] private string gateWaypointName = "NPCGatePoint";
 
+    /// <summary>Raised when a visitor leaves the gate: true if they were let in, false if turned away.</summary>
+    public static event System.Action<EventNPC, bool> GateDecided;
+
     [Tooltip("Seconds the player can linger before the first reminder fires")]
     [SerializeField] private float idleNudgeDelay = 30f;
 
@@ -95,6 +98,14 @@ public class EventNPC : MonoBehaviour, IInteractable
 
     [Tooltip("How fast the speed multiplier eases toward its target (multiplier units per second)")]
     [SerializeField] private float paceBlendRate = 4f;
+
+    [Header("Gate Facing (only while a visitor waits at the gate)")]
+    [Tooltip("Trigger zone over the cabin interior. While the player is inside it, a visitor waiting at the gate faces the gate, " +
+             "so the cameras show them looking in instead of turned toward the cabin set below the map. Anywhere else they face the player.")]
+    [SerializeField] private string cabinZoneName = "CabinInterior";
+
+    [Tooltip("The front gate's leaves. A visitor facing the gate looks at the point between them.")]
+    [SerializeField] private string[] gateObjectNames = { "FrontGate1", "FrontGate2" };
 
     #endregion
 
@@ -164,6 +175,13 @@ public class EventNPC : MonoBehaviour, IInteractable
     private bool paceInView = true;
     private float nextPaceViewCheckTime = 0f;
     private CCTVMonitor cctvMonitor;
+
+    // Gate facing (looked up the first time this NPC waits at the gate)
+    private const float DefaultGateTurnSpeed = 120f;
+    private bool gateFacingResolved = false;
+    private Collider cabinZone;
+    private bool hasGateLookPoint = false;
+    private Vector3 gateLookPoint;
     #endregion
 
     #region Unity Lifecycle
@@ -247,10 +265,18 @@ public class EventNPC : MonoBehaviour, IInteractable
                 break;
         }
 
-        // Handle continuous player tracking rotation
-        if (shouldTrackPlayer && (currentState == NPCState.Idle || currentState == NPCState.WaitingForInteraction))
+        // Handle continuous facing while waiting. At the gate a visitor always faces the player
+        // (or the gate itself while the player is in the cabin); elsewhere the waypoint decides.
+        if (currentState == NPCState.Idle || currentState == NPCState.WaitingForInteraction)
         {
-            RotateRelativeToPlayer();
+            if (IsAtGateWaypoint())
+            {
+                FaceWhileWaitingAtGate();
+            }
+            else if (shouldTrackPlayer)
+            {
+                RotateRelativeToPlayer();
+            }
         }
 
         CheckProximitySound();
@@ -962,6 +988,86 @@ public class EventNPC : MonoBehaviour, IInteractable
         );
     }
 
+    /// <summary>True when this NPC's current waypoint is the gate. Only called while Idle/WaitingForInteraction,
+    /// i.e. once it has arrived there.</summary>
+    private bool IsAtGateWaypoint()
+    {
+        if (string.IsNullOrEmpty(gateWaypointName)) return false;
+        if (waypoints == null || currentWaypointIndex < 0 || currentWaypointIndex >= waypoints.Length) return false;
+        WaypointData waypoint = waypoints[currentWaypointIndex];
+        return !waypoint.usePlayerRelativePosition && waypoint.waypointName == gateWaypointName;
+    }
+
+    /// <summary>
+    /// A visitor waiting at the gate faces the player, except while the player is in the cabin. The cabin interior
+    /// is a set below the map, so turning toward the player there left visitors facing off to the side on the gate
+    /// cameras; they face the gate instead. Overrides the gate waypoint's own face/back-to-player flags.
+    /// </summary>
+    private void FaceWhileWaitingAtGate()
+    {
+        if (playerTransform == null) return;
+        ResolveGateFacing();
+
+        Vector3 direction;
+        if (cabinZone != null && cabinZone.bounds.Contains(playerTransform.position))
+        {
+            if (!hasGateLookPoint) return; // gate not found: keep the heading they walked up with
+            direction = gateLookPoint - transform.position;
+        }
+        else
+        {
+            direction = playerTransform.position - transform.position;
+        }
+
+        direction.y = 0f;
+        if (direction.sqrMagnitude < 0.001f) return;
+
+        float turnSpeed = waypoints[currentWaypointIndex].playerTrackingRotationSpeed;
+        if (turnSpeed <= 0f) turnSpeed = DefaultGateTurnSpeed;
+
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            Quaternion.LookRotation(direction),
+            turnSpeed * Time.deltaTime
+        );
+    }
+
+    private void ResolveGateFacing()
+    {
+        if (gateFacingResolved) return;
+        gateFacingResolved = true;
+
+        GameObject zone = string.IsNullOrEmpty(cabinZoneName) ? null : GameObject.Find(cabinZoneName);
+        cabinZone = zone != null ? zone.GetComponent<Collider>() : null;
+        if (cabinZone == null)
+        {
+            Debug.LogWarning($"EventNPC {npcName}: Cabin zone '{cabinZoneName}' not found - at the gate they will face the player even while the player is in the cabin");
+        }
+
+        Vector3 sum = Vector3.zero;
+        int found = 0;
+        if (gateObjectNames != null)
+        {
+            foreach (string gateName in gateObjectNames)
+            {
+                GameObject gate = string.IsNullOrEmpty(gateName) ? null : GameObject.Find(gateName);
+                if (gate == null) continue;
+                sum += gate.transform.position;
+                found++;
+            }
+        }
+
+        hasGateLookPoint = found > 0;
+        if (hasGateLookPoint)
+        {
+            gateLookPoint = sum / found;
+        }
+        else
+        {
+            Debug.LogWarning($"EventNPC {npcName}: Gate objects not found - at the gate they will keep their heading while the player is in the cabin");
+        }
+    }
+
     private IEnumerator WaitAtWaypoint(float waitTime)
     {
         string wpName = (waypoints != null && currentWaypointIndex < waypoints.Length)
@@ -1228,6 +1334,16 @@ public class EventNPC : MonoBehaviour, IInteractable
     private void AdvanceToNextWaypoint()
     {
         WaypointData currentWaypoint = waypoints[currentWaypointIndex];
+
+        // Tell listeners how the gate went (the night's extra scares remember who you turned away and who you let in)
+        if (currentWaypoint.waypointName == gateWaypointName && currentWaypoint.branchVariable == "allowed_inside" &&
+            !string.IsNullOrEmpty(currentWaypoint.branchToWaypoint))
+        {
+            bool branchTaken = EventVariables.CheckVariable(currentWaypoint.branchVariable, currentWaypoint.branchValue);
+            bool letIn = currentWaypoint.branchValue == "true" ? branchTaken : !branchTaken;
+            try { GateDecided?.Invoke(this, letIn); }
+            catch (System.Exception e) { Debug.LogException(e); }
+        }
 
         // Check for branching condition
         if (!string.IsNullOrEmpty(currentWaypoint.branchVariable) &&

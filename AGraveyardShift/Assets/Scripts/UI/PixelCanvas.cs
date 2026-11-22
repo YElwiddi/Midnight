@@ -12,7 +12,9 @@ using UnityEngine.UI;
 /// whenever something swaps a stock material in (a language change assigns another font, the
 /// endings panel restyles its tablets). Text whose em would drop below
 /// <see cref="minPixelsPerEm"/> virtual pixels moves to a finer grid on its own, so small labels
-/// stay readable. Runtime only: the canvas stays crisp in edit mode.
+/// stay readable; a text with a <see cref="PixelTextDensity"/> sets its own minimum (reading text
+/// in a fine serif needs more pixels than carved capitals). Runtime only: the canvas stays crisp
+/// in edit mode.
 /// </summary>
 [DisallowMultipleComponent]
 public class PixelCanvas : MonoBehaviour
@@ -32,7 +34,8 @@ public class PixelCanvas : MonoBehaviour
     [Range(0.05f, 0.95f)]
     [SerializeField] private float coverageThreshold = 0.25f;
 
-    [Tooltip("Smallest em, in virtual pixels, that text is drawn at; smaller text gets a finer grid")]
+    [Tooltip("Smallest em, in virtual pixels, that text is drawn at; smaller text gets a finer grid. " +
+             "A PixelTextDensity on a text overrides this for that text.")]
     [SerializeField] private float minPixelsPerEm = 12f;
 
     [Header("Shaders (referenced so builds include them)")]
@@ -45,8 +48,10 @@ public class PixelCanvas : MonoBehaviour
     private static readonly int PixelMinEmId = Shader.PropertyToID("_PixelMinEm");
     private static readonly int PixelEmTexelsId = Shader.PropertyToID("_PixelEmTexels");
 
-    private readonly Dictionary<Material, Material> textCopies = new Dictionary<Material, Material>();
+    // One pixel copy per source material and density (0 = the canvas default).
+    private readonly Dictionary<(Material source, float minEm), Material> textCopies = new Dictionary<(Material, float), Material>();
     private readonly List<TMP_Text> texts = new List<TMP_Text>();
+    private readonly List<float> textMinEm = new List<float>();
     private readonly List<Image> images = new List<Image>();
     private Material imageMaterial;
     private float nextScan;
@@ -56,8 +61,8 @@ public class PixelCanvas : MonoBehaviour
     private void OnValidate()
     {
         FindShaders();
-        foreach (var copy in textCopies.Values)
-            if (copy != null) Configure(copy);
+        foreach (var pair in textCopies)
+            if (pair.Value != null) Configure(pair.Value, pair.Key.minEm);
         if (imageMaterial != null) imageMaterial.SetFloat(PixelLinesId, pixelLines);
     }
 
@@ -106,6 +111,9 @@ public class PixelCanvas : MonoBehaviour
         nextScan = Time.unscaledTime + 0.5f;
         GetComponentsInChildren(true, texts);
         GetComponentsInChildren(true, images);
+        textMinEm.Clear();
+        for (int i = 0; i < texts.Count; i++)
+            textMinEm.Add(texts[i] != null && texts[i].TryGetComponent(out PixelTextDensity density) ? density.minPixelsPerEm : 0f);
     }
 
     // Puts the pixel materials wherever a stock one is (back) in place; cheap when nothing changed.
@@ -117,7 +125,7 @@ public class PixelCanvas : MonoBehaviour
             if (text == null) continue;
             var material = text.fontSharedMaterial;
             if (material == null || material.shader == textShader) continue;
-            text.fontSharedMaterial = TextCopy(material, text.font);
+            text.fontSharedMaterial = TextCopy(material, text.font, textMinEm[i]);
         }
 
         for (int i = 0; i < images.Count; i++)
@@ -142,7 +150,7 @@ public class PixelCanvas : MonoBehaviour
             foreach (var pair in textCopies)
             {
                 if (text.fontSharedMaterial != pair.Value) continue;
-                text.fontSharedMaterial = pair.Key;
+                text.fontSharedMaterial = pair.Key.source;
                 break;
             }
         }
@@ -151,27 +159,29 @@ public class PixelCanvas : MonoBehaviour
             if (images[i] != null && images[i].material == imageMaterial) images[i].material = null;
     }
 
-    private Material TextCopy(Material source, TMP_FontAsset font)
+    private Material TextCopy(Material source, TMP_FontAsset font, float minEm)
     {
-        if (!textCopies.TryGetValue(source, out var copy) || copy == null)
+        var key = (source, minEm);
+        if (!textCopies.TryGetValue(key, out var copy) || copy == null)
         {
             copy = new Material(source) { name = source.name + " (Pixel)", hideFlags = HideFlags.DontSave };
             copy.shader = textShader;
             copy.shaderKeywords = source.shaderKeywords;
             // The em in atlas texels, so the shader can tell how big the text is on screen.
             copy.SetFloat(PixelEmTexelsId, font != null ? font.faceInfo.pointSize : 90f);
-            Configure(copy);
-            textCopies[source] = copy;
+            Configure(copy, minEm);
+            textCopies[key] = copy;
         }
         return copy;
     }
 
-    private void Configure(Material copy)
+    // minEm 0 = the canvas default, so tuning minPixelsPerEm in play mode still reaches every copy.
+    private void Configure(Material copy, float minEm)
     {
         copy.SetFloat(PixelLinesId, pixelLines);
         copy.SetFloat(PixelHardId, hardEdges ? 1f : 0f);
         copy.SetFloat(PixelThresholdId, coverageThreshold);
-        copy.SetFloat(PixelMinEmId, minPixelsPerEm);
+        copy.SetFloat(PixelMinEmId, minEm > 0f ? minEm : minPixelsPerEm);
     }
 
     // Grid values set at runtime must never land in a material asset (the editor would save them).

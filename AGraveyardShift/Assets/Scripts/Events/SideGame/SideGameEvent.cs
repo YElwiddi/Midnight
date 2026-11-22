@@ -35,6 +35,16 @@ public enum WatcherRetreatMode
 }
 
 /// <summary>
+/// How a watcher held in the torch goes (with Use Crackle Retreat on).
+/// </summary>
+public enum WatcherCrackStyle
+{
+    NeckStretch,    // It freezes, its neck stretches out and cracks a few times, then it glides back and is gone
+    HeadShake,      // A slight crack, its head cracks back and forth, then it sinks into the ground or runs off
+    Vanish          // It is simply gone, the moment the torch has held it long enough: no animation, no sound
+}
+
+/// <summary>
 /// Configuration for a spawn location that can be randomly selected.
 /// </summary>
 [System.Serializable]
@@ -263,6 +273,156 @@ public class SideGameEvent : ScriptableObject
 
     [Tooltip("Animation bool to set while staring (e.g., 'IsStaring')")]
     public string staringAnimationBool = "IsStaring";
+
+    [Header("Caught in the Torch (neck crack, then gone)")]
+    [Tooltip("If true, a watcher held in the torch does not use Retreat Behavior above. Once the torch has been on it for Flashlight Exposure Required it cracks (see Crack Style) and is gone. Looking away before that lets it recover. If false, the old retreat plays as soon as Flashlight Exposure Required is reached.")]
+    public bool useCrackleRetreat = false;
+
+    [Tooltip("Neck Stretch: it freezes, its neck stretches out and cracks a few times, then it glides back and is gone. Head Shake: a slight crack, its head cracks back and forth, then it sinks into the ground or runs off. Vanish: it is simply gone, with no animation and no sound.")]
+    public WatcherCrackStyle crackStyle = WatcherCrackStyle.NeckStretch;
+
+    [Tooltip("If true, the head follows the player while it stares (the body already turns to face you).")]
+    public bool headTracksPlayer = true;
+
+    [Header("Changed (later appearances)")]
+    [Tooltip("From this appearance on (counting every watcher that has come into the yard since the scene loaded), watchers stand changed: frozen dead still, neck stretched out, head hanging over. The CCTV stand-ins follow the same count. 0 = never.")]
+    [Min(0)]
+    public int changedFromAppearance = 2;
+
+    [Tooltip("How far a changed watcher's neck is stretched out (metres).")]
+    [Range(0f, 1.5f)]
+    public float changedNeckStretch = 0.68f;
+
+    [Tooltip("How a changed watcher's head hangs, in degrees: x = nod down, y = turn, z = tip toward a shoulder. It still looks at you.")]
+    public Vector3 changedHeadPose = new Vector3(19f, 13f, 32f);
+
+    [Tooltip("Where in its standing animation a changed watcher is frozen (seconds; wraps round the clip). The stretch and the head pose sit on top of this pose, so it changes which way the head seems to hang.")]
+    [Min(0f)]
+    public float changedPoseTime = 4.27f;
+
+    [Header("Neck Stretch (Crack Style = Neck Stretch)")]
+    [Tooltip("How far its neck stretches out (metres).")]
+    [Range(0f, 1.5f)]
+    public float neckStretchLength = 0.55f;
+
+    [Tooltip("Seconds the neck takes to stretch out.")]
+    [Range(0.05f, 2f)]
+    public float neckStretchTime = 0.4f;
+
+    [Tooltip("How many times the stretched neck cracks. Each crack throws the head over to a new wrong angle and draws the neck out a little further.")]
+    [Range(0, 8)]
+    public int neckStretchCracks = 3;
+
+    [Tooltip("Seconds between those cracks (each gap varies a little).")]
+    [Range(0.05f, 1f)]
+    public float neckStretchCrackGap = 0.2f;
+
+    [Tooltip("How far each of those cracks throws the head over (degrees).")]
+    [Range(0f, 70f)]
+    public float neckStretchCrackAngle = 36f;
+
+    [Tooltip("Seconds it holds still, stretched and cracked, before it goes.")]
+    [Range(0f, 2f)]
+    public float neckStretchHold = 0.3f;
+
+    [Tooltip("Longest it glides back, still facing you, before it is gone (seconds). It is gone sooner if you lose sight of it or it backs into something.")]
+    [Range(0f, 3f)]
+    public float glideBackTime = 1f;
+
+    [Tooltip("How hard it is pulled back (m/s per second): it starts slow and goes faster and faster.")]
+    [Range(1f, 30f)]
+    public float glideBackAcceleration = 9f;
+
+    [Tooltip("The stretch and the glide move in held frames, this many a second (stop-motion). 0 = smooth.")]
+    [Range(0f, 30f)]
+    public float stopMotionRate = 12f;
+
+    [Tooltip("Seconds of torn tape over the moment it vanishes, when you can still see it. 0 = it just vanishes.")]
+    [Range(0f, 0.5f)]
+    public float vanishGlitchTime = 0.12f;
+
+    [Header("Head Shake (Crack Style = Head Shake)")]
+    [Tooltip("How far the first crack tips its head over toward a shoulder (degrees). Kept small: a slight crack.")]
+    [Range(0f, 40f)]
+    public float neckCrackAngle = 15f;
+
+    [Tooltip("Seconds it holds still after the first crack, before its head starts cracking back and forth.")]
+    [Range(0f, 1.5f)]
+    public float neckCrackHold = 0.35f;
+
+    [Tooltip("Seconds its head cracks back and forth.")]
+    [Range(0f, 2f)]
+    public float headShakeTime = 0.5f;
+
+    [Tooltip("Cracks a second while its head goes back and forth. Each crack throws the head over to the other side; the gaps between them vary a little.")]
+    [Range(4f, 30f)]
+    public float headShakeRate = 15f;
+
+    [Tooltip("How far each of those cracks throws its head over (degrees).")]
+    [Range(0f, 70f)]
+    public float headShakeAngle = 48f;
+
+    [Tooltip("Chance it sinks into the ground rather than running out of sight. With no quick way out of sight it always sinks, and if it runs and is still in sight where its run ends, it sinks there.")]
+    [Range(0f, 1f)]
+    public float sinkChance = 0.5f;
+
+    [Tooltip("Seconds it takes to sink into the ground. It drops faster and faster.")]
+    [Range(0.1f, 2f)]
+    public float sinkTime = 0.35f;
+
+    [Tooltip("How far down it goes before it is gone (metres). More than its height.")]
+    public float sinkDepth = 3f;
+
+    [Tooltip("All-fours run cycle used when it runs (optional; without it the watcher keeps its pose while it moves).")]
+    public AnimationClip fleeClip;
+
+    [Tooltip("Ground speed (m/s) at which Flee Clip's hands and feet do not slide when played at normal speed.")]
+    public float fleeClipSpeed = 4.45f;
+
+    [Tooltip("How fast it runs (m/s).")]
+    [Range(2f, 20f)]
+    public float fleeSpeed = 13f;
+
+    [Tooltip("Furthest it runs (metres). It takes the way that gets it out of the player's sight soonest (out of the picture, or behind something), never toward the player, and is gone the moment the player cannot see it. If no way gets it out of sight within this distance, it sinks instead.")]
+    [Range(4f, 40f)]
+    public float fleeDistance = 16f;
+
+    [Header("Caught in the Torch: Sound")]
+    [Tooltip("The first crack of its neck (Head Shake: the slight crack; Neck Stretch: the pop as the neck lets go).")]
+    public AudioClip neckCrackSound;
+
+    [Range(0f, 1f)]
+    public float neckCrackVolume = 0.8f;
+
+    [Tooltip("One of these plays on every crack of its head or its stretched neck (never the same one twice running).")]
+    public AudioClip[] headCrackSounds;
+
+    [Range(0f, 1f)]
+    public float headCrackVolume = 0.9f;
+
+    [Tooltip("Neck Stretch: played as its neck stretches out.")]
+    public AudioClip neckStretchSound;
+
+    [Range(0f, 1f)]
+    public float neckStretchVolume = 0.9f;
+
+    [Tooltip("Neck Stretch: played the moment it vanishes (optional).")]
+    public AudioClip vanishSound;
+
+    [Range(0f, 1f)]
+    public float vanishVolume = 0.8f;
+
+    [Tooltip("Head Shake: played as it sinks into the ground.")]
+    public AudioClip sinkSound;
+
+    [Range(0f, 1f)]
+    public float sinkVolume = 0.8f;
+
+    [Tooltip("Head Shake: played once as it runs (optional; empty = it runs silently).")]
+    public AudioClip fleeSound;
+
+    [Range(0f, 1f)]
+    public float fleeVolume = 0.9f;
 
     [Header("Timeout")]
     [Tooltip("Maximum time (seconds) the event can last before auto-despawning. 0 = no timeout.")]

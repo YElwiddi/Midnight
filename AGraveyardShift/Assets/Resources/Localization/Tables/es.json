@@ -374,6 +374,22 @@
    "v": "Cambiar de cámara"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "IMAGEN"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "CINTA"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "SUAVE"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "PÍXELES CLÁSICOS"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

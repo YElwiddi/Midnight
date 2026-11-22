@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 /// <summary>
 /// Manages the ending scenario when the player enters the crypt.
-/// Spawns a killer based on player stats (mean, scared, stupid).
+/// Spawns a killer based on player stats (mean, scared, stupid) - not right away, but once
+/// the player walks out of the crypt's arrival nook (the grace zone).
 /// </summary>
 public class EndingScenarioManager : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class EndingScenarioManager : MonoBehaviour
     [Tooltip("Where to spawn the killer in the crypt")]
     [SerializeField] private Transform killerSpawnPoint;
 
+    [Header("Grace Period")]
+    [Tooltip("The crypt's arrival nook. The killer only spawns once the player has been in here and steps back out - when they first enter the crypt and again after every checkpoint respawn. Leave empty to spawn the killer the moment the player enters.")]
+    [SerializeField] private CryptGraceZone graceZone;
+
     [Header("Sanity")]
     [Tooltip("If true, restores player sanity to full when entering the crypt")]
     [SerializeField] private bool restoreSanityOnEnter = true;
@@ -55,6 +60,12 @@ public class EndingScenarioManager : MonoBehaviour
     private bool hasStarted = false;
     private GameObject spawnedKiller;
 
+    // Grace period: a queued spawn waits until the player has been in the nook and walked out of it
+    private bool killerSpawnPending = false;
+    private bool pendingSpawnIsRespawn = false;
+    private bool playerSeenInGraceZone = false;
+    private Transform playerTransform;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -63,6 +74,42 @@ public class EndingScenarioManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if (!killerSpawnPending) return;
+
+        // The good ending (3 correct graves) removes the killer for good - never bring it back
+        if (GameManager.Instance != null && GameManager.Instance.GraveyardEndingTriggered)
+        {
+            killerSpawnPending = false;
+            return;
+        }
+
+        if (playerTransform == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) return;
+            playerTransform = player.transform;
+        }
+
+        if (graceZone != null)
+        {
+            if (graceZone.Contains(playerTransform.position))
+            {
+                // In the nook (just arrived, or came back): the killer waits until they leave
+                playerSeenInGraceZone = true;
+                return;
+            }
+
+            // Not in the crypt yet (e.g. respawned at the entrance): wait for them to come down
+            if (!playerSeenInGraceZone) return;
+        }
+
+        killerSpawnPending = false;
+        Debug.Log("EndingScenarioManager: Player left the arrival nook - releasing the killer");
+        SpawnQueuedKiller();
     }
 
     /// <summary>
@@ -108,8 +155,43 @@ public class EndingScenarioManager : MonoBehaviour
 
         Debug.Log($"EndingScenarioManager: Dominant stat is '{dominantStat}'");
 
-        // Spawn the appropriate killer
-        SpawnKiller(dominantStat);
+        // Spawn the appropriate killer once the player leaves the arrival nook
+        QueueKillerSpawn(false);
+    }
+
+    /// <summary>
+    /// Spawns the killer (for lastDominantStat) as soon as the player has been in the grace zone
+    /// and stepped out of it - or right away if there is no grace zone.
+    /// </summary>
+    private void QueueKillerSpawn(bool isRespawn)
+    {
+        pendingSpawnIsRespawn = isRespawn;
+
+        if (graceZone == null)
+        {
+            killerSpawnPending = false;
+            SpawnQueuedKiller();
+            return;
+        }
+
+        killerSpawnPending = true;
+        playerSeenInGraceZone = false;
+        Debug.Log("EndingScenarioManager: Killer queued - it spawns once the player leaves the arrival nook");
+    }
+
+    private void SpawnQueuedKiller()
+    {
+        SpawnKiller(lastDominantStat);
+
+        // Configure a respawned killer for checkpoint respawn
+        if (pendingSpawnIsRespawn && spawnedKiller != null)
+        {
+            KillerJumpscare jumpscare = spawnedKiller.GetComponent<KillerJumpscare>();
+            if (jumpscare != null)
+            {
+                jumpscare.SetUseCheckpointRespawn(true);
+            }
+        }
     }
 
     /// <summary>
@@ -231,7 +313,12 @@ public class EndingScenarioManager : MonoBehaviour
     public bool HasStarted() => hasStarted;
 
     /// <summary>
-    /// Force start the ending scenario (for testing).
+    /// True while a killer is queued and waiting for the player to leave the arrival nook.
+    /// </summary>
+    public bool IsKillerSpawnPending() => killerSpawnPending;
+
+    /// <summary>
+    /// Force start the ending scenario (for testing). The killer still waits for the player to leave the nook.
     /// </summary>
     [ContextMenu("Force Start Ending Scenario")]
     public void ForceStart()
@@ -241,8 +328,20 @@ public class EndingScenarioManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Spawns a queued killer right now, wherever the player is (for testing).
+    /// </summary>
+    [ContextMenu("Release Queued Killer Now")]
+    public void ReleaseQueuedKillerNow()
+    {
+        if (!killerSpawnPending) return;
+        killerSpawnPending = false;
+        SpawnQueuedKiller();
+    }
+
+    /// <summary>
     /// Respawns the killer using the same dominant stat that was determined on crypt entry.
-    /// Used by checkpoint respawn system.
+    /// Used by checkpoint respawn system. Like the first spawn, it waits until the player is back
+    /// in the crypt and has walked out of the arrival nook.
     /// </summary>
     public void RespawnKiller()
     {
@@ -277,17 +376,7 @@ public class EndingScenarioManager : MonoBehaviour
         }
 
         Debug.Log($"EndingScenarioManager: Respawning killer for dominant stat '{lastDominantStat}'");
-        SpawnKiller(lastDominantStat);
-
-        // Configure the spawned killer for checkpoint respawn
-        if (spawnedKiller != null)
-        {
-            KillerJumpscare jumpscare = spawnedKiller.GetComponent<KillerJumpscare>();
-            if (jumpscare != null)
-            {
-                jumpscare.SetUseCheckpointRespawn(true);
-            }
-        }
+        QueueKillerSpawn(true);
     }
 
     /// <summary>
@@ -297,8 +386,9 @@ public class EndingScenarioManager : MonoBehaviour
     public void ResetForRespawn()
     {
         // Don't reset hasStarted - we want to keep the same dominant stat
-        // Just clean up the current killer reference
+        // Just clean up the current killer reference (and any spawn still waiting on the nook)
         spawnedKiller = null;
+        killerSpawnPending = false;
     }
 
     /// <summary>

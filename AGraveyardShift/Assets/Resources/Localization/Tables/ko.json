@@ -374,6 +374,22 @@
    "v": "카메라 전환"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "화면"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "비디오테이프"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "약하게"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "클래식 픽셀"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

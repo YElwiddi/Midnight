@@ -374,6 +374,22 @@
    "v": "Switch cameras"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "PICTURE"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "TAPE"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "LIGHT"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "CLASSIC PIXELS"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

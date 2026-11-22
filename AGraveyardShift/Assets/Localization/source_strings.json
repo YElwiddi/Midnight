@@ -632,6 +632,34 @@
             "isKey": true
         },
         {
+            "key": "ui.settings.picture",
+            "text": "PICTURE",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.settings.picture.classic",
+            "text": "CLASSIC PIXELS",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.settings.picture.light",
+            "text": "LIGHT",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
+            "key": "ui.settings.picture.tape",
+            "text": "TAPE",
+            "context": "code",
+            "count": 1,
+            "isKey": true
+        },
+        {
             "key": "ui.settings.resolution",
             "text": "Resolution",
             "context": "code",

@@ -48,8 +48,13 @@ public class PSXPostProcessing : MonoBehaviour
     private static readonly int ColorPrecision = Shader.PropertyToID("_ColorPrecision");
     private static readonly int ColorBias = Shader.PropertyToID("_ColorBias");
 
+    // The tape effect on the same camera, if there is one (the player cameras and the menu camera have it).
+    private VHSRetroFeature _tape;
+
     void OnEnable()
     {
+        _tape = GetComponent<VHSRetroFeature>();
+
         // Use serialized references first; fall back to Shader.Find for editor convenience
         var dShader = ditherShaderRef != null ? ditherShaderRef : Shader.Find("PostEffect/Dithering");
         var pShader = pixelShaderRef != null ? pixelShaderRef : Shader.Find("PostEffect/Pixelation");
@@ -73,6 +78,25 @@ public class PSXPostProcessing : MonoBehaviour
 
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
+        // Picture setting Tape / Light: the tape picture takes the place of the pixel grid on this camera.
+        if (PictureSettings.IsTape && TapeRenderer.Supported)
+        {
+            if (_tape == null && !Application.isPlaying) _tape = GetComponent<VHSRetroFeature>();
+            if (_tape != null && _tape.RendersTape)
+            {
+                // the tape effect just before this one already drew the picture
+                Graphics.Blit(source, destination);
+                return;
+            }
+            if (_tape != null && !_tape.enabled)
+            {
+                // a script switched the tape effect off (a jumpscare that wants a clean face):
+                // stay on tape, without the wear, instead of dropping to bare pixels
+                _tape.RenderCalmTape(source, destination);
+                return;
+            }
+        }
+
         RenderTexture current = source;
 
         // Pass 1: Pixelation + Color Precision

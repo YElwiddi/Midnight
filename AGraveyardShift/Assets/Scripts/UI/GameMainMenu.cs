@@ -118,6 +118,13 @@ public class GameMainMenu : MonoBehaviour
         // Fade up from black when the menu opens (or just start transparent)
         if (fadeOverlay != null)
         {
+            // Cover the whole screen at any aspect ratio. The scene's overlay is a fixed 1920x1080 box, which left
+            // the edges of screens wider than 16:9 unfaded while Play faded to black.
+            RectTransform fadeRect = fadeOverlay.rectTransform;
+            fadeRect.anchorMin = Vector2.zero;
+            fadeRect.anchorMax = Vector2.one;
+            fadeRect.offsetMin = Vector2.zero;
+            fadeRect.offsetMax = Vector2.zero;
             fadeOverlay.gameObject.SetActive(true);
             if (fadeInOnStart)
             {

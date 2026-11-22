@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1845477580277643547}
   - component: {fileID: 6435114597555198389}
   - component: {fileID: 932939321492489818}
+  - component: {fileID: 8537563910766670422}
   m_Layer: 6
   m_Name: Watcher
   m_TagString: Untagged
@@ -90,6 +91,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3006eda2c8094d549a5b76696013a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCAntiPush
+--- !u!114 &8537563910766670422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767055355421772689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66d925dddd3417da16545172477bdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WatcherEyes
+  glintMaterial: {fileID: 2100000, guid: ac9b2872ee6b4e5a9f85cc74a2429a45, type: 2}
+  glintColor: {r: 0.95, g: 0.55, b: 0.32, a: 1}
+  brightness: 0.45
+  eyeHeight: 0.125
+  eyeDepth: 0.26
+  eyeHalfSpacing: 0.055
+  clearance: 0.14
+  coneAngle: 22
+  fullAngle: 9
+  maxDistance: 45
+  facingRange: {x: 0.15, y: 0.6}
+  trueSize: {x: 0.04, y: 0.03}
+  classicPixels: {x: 1, y: 1, z: 1.8}
+  tapePixels: {x: 2, y: 1.4, z: 4.5}
+  feedPixels: {x: 2, y: 1.7, z: 4.2}
 --- !u!1001 &7446807912502985990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,9 +183,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2592893398910480205, guid: 094f58cdf6a10b6418943ea041f22b7b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2592893398910480205, guid: 094f58cdf6a10b6418943ea041f22b7b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -850765909263032591, guid: e04a5c8dd298c4348a573ec4d6086184, type: 3}
+      objectReference: {fileID: 2100000, guid: ae5367bee0c64c6d9d3448de57d54928, type: 2}
     - target: {fileID: 919132149155446097, guid: 094f58cdf6a10b6418943ea041f22b7b, type: 3}
       propertyPath: m_Name
       value: Character_15

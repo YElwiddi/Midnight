@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac593fbff541064e865e6dd1b769e26, type: 3}
+  m_Name: TapeProfile
+  m_EditorClassIdentifier: Assembly-CSharp::TapeProfile
+  lines: 480
+  crunch: 0
+  softness: 1.15
+  chromaSmearDown: 0.5
+  grainLength: 2.2
+  lumaLag: 0.06
+  blackLift: 0.012
+  beam: 0.5
+  interlace: 0.25
+  bloomThreshold: 0.75
+  bloomAmount: 0.35
+  bloomSpread: 1
+  whiteKnee: 0.8
+  nightGain: 0
+  tape:
+    sharpness: 0.55
+    chromaBlur: 6.5
+    chromaDelay: 2.2
+    chromaLag: 0.35
+    saturation: 1.08
+    hue: 0
+    lumaNoise: 0.035
+    lineNoise: 0.006
+    chromaNoise: 0.032
+    dropout: 0.00004
+    wobble: 0.35
+    jitter: 0.22
+    headLines: 0
+    headShift: 14
+    bandAmount: 0
+    bandEvery: 9
+    bandSeconds: 1.7
+    glitch: 0
+    glitchEvery: 2.3
+    glitchSeconds: 0.4
+  light:
+    sharpness: 0.4
+    chromaBlur: 4.5
+    chromaDelay: 2.2
+    chromaLag: 0.2
+    saturation: 1.08
+    hue: 0
+    lumaNoise: 0.018
+    lineNoise: 0.003
+    chromaNoise: 0.015
+    dropout: 0
+    wobble: 0.2
+    jitter: 0.1
+    headLines: 0
+    headShift: 14
+    bandAmount: 0
+    bandEvery: 9
+    bandSeconds: 1.7
+    glitch: 0
+    glitchEvery: 2.3
+    glitchSeconds: 0.4
+  worn:
+    sharpness: 0.55
+    chromaBlur: 6.5
+    chromaDelay: 2.8
+    chromaLag: 0.35
+    saturation: 1.05
+    hue: 0
+    lumaNoise: 0.045
+    lineNoise: 0.008
+    chromaNoise: 0.045
+    dropout: 0.0004
+    wobble: 0.57
+    jitter: 0.34
+    headLines: 0
+    headShift: 22
+    bandAmount: 0.22
+    bandEvery: 14
+    bandSeconds: 1.5
+    glitch: 0
+    glitchEvery: 2.3
+    glitchSeconds: 0.4
+  failing:
+    sharpness: 0.55
+    chromaBlur: 6.5
+    chromaDelay: 3.9
+    chromaLag: 0.35
+    saturation: 0.96
+    hue: 0.04
+    lumaNoise: 0.058
+    lineNoise: 0.012
+    chromaNoise: 0.062
+    dropout: 0.0015
+    wobble: 0.92
+    jitter: 0.52
+    headLines: 0
+    headShift: 34
+    bandAmount: 0.45
+    bandEvery: 7
+    bandSeconds: 1.4
+    glitch: 0.25
+    glitchEvery: 5.5
+    glitchSeconds: 0.3
+  kill:
+    sharpness: 0.55
+    chromaBlur: 6.5
+    chromaDelay: 6
+    chromaLag: 0.35
+    saturation: 0.8
+    hue: 0.08
+    lumaNoise: 0.08
+    lineNoise: 0.02
+    chromaNoise: 0.09
+    dropout: 0.004
+    wobble: 1.6
+    jitter: 0.9
+    headLines: 14
+    headShift: 34
+    bandAmount: 1
+    bandEvery: 1.6
+    bandSeconds: 1.1
+    glitch: 1
+    glitchEvery: 0
+    glitchSeconds: 0.4
+  lightWearScale: 0.5
+  noiseSteps: {x: 0.08, y: 0.142, z: 0.216, w: 0.481}
+  scanlineKill: 0.8
+  wearRelease: 0.35
+  glitchHit: {x: 0.3, y: 1}
+  hitJitter: 1.2
+  hitWobble: 1.5
+  hitNoise: 0.03
+  hitChromaDelay: 3
+  trackingBand: {x: 0.1, y: 0.25}
+  trackingBandEvery: 1.6
+  trackingBandSeconds: 1.1
+  rgbShiftToDelay: 150
+  dropoutRest: 0.024
+  dropoutScale: 0.2

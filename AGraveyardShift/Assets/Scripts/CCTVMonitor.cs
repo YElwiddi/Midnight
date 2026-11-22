@@ -111,6 +111,26 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     public AudioClip watcherDartSound;
     [Range(0f, 1f)] public float watcherDartVolume = 0.7f;
 
+    [Header("Watchers on the feeds (phase 2+)")]
+    [Tooltip("Chance that a watcher is standing in a gate feed's view when that feed comes up on the screen (stepping up to the monitor, or switching to it). It does nothing: it looks up at the lens, and once its feed has been on the screen for Feed Watcher Watch Time its neck cracks, its head cracks back and forth, and it sinks into the ground or runs out of the picture (the watcher event's crack settings). Uses the figure of the watcher event in the SideGameEventManager's pool, and only appears while watchers are allowed in the yard. 0 = never.")]
+    [Range(0f, 1f)] public float feedWatcherChance = 0.3f;
+    [Tooltip("Earliest game phase a watcher can appear on the feeds.")]
+    public int feedWatcherMinPhase = 2;
+    [Tooltip("Seconds after one has gone before another can appear on the feeds.")]
+    public float feedWatcherCooldown = 90f;
+    [Tooltip("Seconds its feed must be on the screen before its neck cracks.")]
+    public float feedWatcherWatchTime = 2.2f;
+    [Tooltip("How far from the feed camera it may stand, along the ground (metres): x nearest, y furthest.")]
+    public Vector2 feedWatcherDistance = new Vector2(6f, 13f);
+    [Tooltip("Furthest it runs, if it runs (metres). It is gone as soon as it leaves the picture.")]
+    public float feedWatcherRunDistance = 16f;
+    [Tooltip("Static on the TV speaker while it cracks and as it vanishes (uses Scare Static Clip). 0 = silent.")]
+    [Range(0f, 1f)] public float feedWatcherStaticVolume = 0.3f;
+    [Tooltip("Picture interference while it cracks and as it vanishes (0 = a clean picture).")]
+    [Range(0f, 1f)] public float feedWatcherGlitch = 0.2f;
+    [Tooltip("Its cracks (and the rest of its sounds), heard through the TV speaker while its feed is up. 0 = silent.")]
+    [Range(0f, 1f)] public float feedWatcherCrackVolume = 0.7f;
+
     [Header("Protection restore (while watching)")]
     [Tooltip("Watching the cameras tops up graveyard protection: +protectionRestoreAmount for every this many seconds spent watching.")]
     public float protectionRestoreInterval = 10f;
@@ -148,6 +168,15 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     private float watcherDartStartTime;
     private Vector3 watcherDartFrom;
     private Vector3 watcherDartTo;
+
+    // a watcher standing on one of the feeds
+    private WatcherNPC feedWatcher;
+    private int feedWatcherIndex = -1;
+    private float feedWatcherWatched;
+    private bool feedWatcherScared;
+    private bool feedWatcherFx;
+    private AudioSource feedWatcherSpeaker;
+    private float feedWatcherNextTime;
 
     // protection restore
     private float protectionRestoreTimer;
@@ -205,6 +234,15 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         scareAudio.spatialBlend = 0f;
         scareAudio.loop = true;
 
+        // The TV's own small speaker, for a watcher on the feeds: on its own object, so its filters touch nothing else.
+        var speakerObject = new GameObject("Feed watcher speaker");
+        speakerObject.transform.SetParent(transform, false);
+        feedWatcherSpeaker = speakerObject.AddComponent<AudioSource>();
+        feedWatcherSpeaker.playOnAwake = false;
+        feedWatcherSpeaker.spatialBlend = 0f;
+        speakerObject.AddComponent<AudioHighPassFilter>().cutoffFrequency = 300f;
+        speakerObject.AddComponent<AudioLowPassFilter>().cutoffFrequency = 5000f;
+
         if (screenLabel != null) screenLabel.gameObject.SetActive(false);
 
         // The watcher-dart runner stays hidden until it sprints across the back-gate feed.
@@ -261,6 +299,7 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         activeIndex = Mathf.Clamp(activeIndex, 0, feedCameras.Length - 1);
         if (screenLabel != null) screenLabel.gameObject.SetActive(true);
         ShowFeed(activeIndex);
+        MaybePlaceFeedWatcher(activeIndex);
 
         StopAllCoroutines();
         StartCoroutine(MoveCamera(viewAnchor.position, viewAnchor.rotation, viewFOV > 0f ? viewFOV : savedFOV, true));
@@ -320,6 +359,7 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
             scareActive = false;
             if (scareAudio != null) scareAudio.Stop();
             EndWatcherDart();
+            ClearFeedWatcher();
             EnableFeeds(false);
             SetScreenOff();
             if (screenLabel != null) screenLabel.gameObject.SetActive(false);
@@ -349,6 +389,8 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
         if (watcherDartActive)
             UpdateWatcherDart();
 
+        UpdateFeedWatcher();
+
         if (!isViewing || transitioning) return;
 
         // Monitoring the cameras slowly restores graveyard protection (capped lifetime total).
@@ -372,12 +414,14 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
             activeIndex = (activeIndex - 1 + feedCameras.Length) % feedCameras.Length;
             ShowFeed(activeIndex);
             PlayChangeChannel();
+            MaybePlaceFeedWatcher(activeIndex);
         }
         else if (Input.GetKeyDown(nextKey))
         {
             activeIndex = (activeIndex + 1) % feedCameras.Length;
             ShowFeed(activeIndex);
             PlayChangeChannel();
+            MaybePlaceFeedWatcher(activeIndex);
         }
     }
 
@@ -430,7 +474,7 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     {
         // While either effect is already on screen, hold the roll timer. This is what guarantees
         // the grave-robber scare and the watcher dart can never play at the same time.
-        if (scareActive || watcherDartActive) { scareRollTimer = 0f; return; }
+        if (scareActive || watcherDartActive || feedWatcher != null) { scareRollTimer = 0f; return; }
 
         scareRollTimer += Time.unscaledDeltaTime;
         if (scareRollTimer < 1f) return;
@@ -514,6 +558,240 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
     {
         watcherDartActive = false;
         if (watcherDartRunner != null) watcherDartRunner.SetActive(false);
+    }
+
+    // ---- a watcher on the feeds (it stands and looks up at the lens; watched for a moment, its neck cracks and it goes) ----
+
+    private void MaybePlaceFeedWatcher(int index)
+    {
+        if (feedWatcher != null || scareActive || watcherDartActive) return;
+        if (feedWatcherChance <= 0f || Time.time < feedWatcherNextTime) return;
+        if (feedCameras == null || index < 0 || index >= feedCameras.Length || feedCameras[index] == null) return;
+
+        var flow = GameFlowManager.Instance;
+        if (flow == null || flow.CurrentPhase < feedWatcherMinPhase) return;
+        var side = SideGameEventManager.Instance;
+        if (side == null || !side.WatchersAllowedNow) return;
+        SideGameEvent config = side.WatcherEvent;
+        if (config == null || config.npcPrefab == null) return;
+        if (Random.value > feedWatcherChance) return;
+
+        Camera cam = feedCameras[index];
+        if (!FindFeedStand(cam, out Vector3 stand)) return;
+
+        feedWatcher = WatcherNPC.SpawnOnFeed(config, stand, cam.transform, side.WatchersSpawned);
+        if (feedWatcher == null) return;
+        feedWatcherIndex = index;
+        feedWatcherWatched = 0f;
+        feedWatcherScared = false;
+        feedWatcher.OnEventCompleted += HandleFeedWatcherGone;
+    }
+
+    // Somewhere on open ground in the camera's view, the whole figure in the picture, nothing between it and the lens.
+    private bool FindFeedStand(Camera cam, out Vector3 stand)
+    {
+        stand = Vector3.zero;
+        Transform lens = cam.transform;
+        Vector3 forward = lens.forward;
+        forward.y = 0f;
+        if (forward.sqrMagnitude < 1e-4f) return false;
+        forward.Normalize();
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+
+        for (int attempt = 0; attempt < 30; attempt++)
+        {
+            float along = Random.Range(feedWatcherDistance.x, feedWatcherDistance.y);
+            float across = Random.Range(-0.35f, 0.35f) * along;
+            Vector3 probe = lens.position + forward * along + right * across;
+
+            if (!FirstVisibleHit(new Vector3(probe.x, lens.position.y + 1f, probe.z), Vector3.down, 40f, out RaycastHit ground)) continue;
+            if (ground.normal.y < 0.75f) continue;
+            Vector3 feet = ground.point;
+            if (TerrainHeightAt(feet, out float terrainY) && Mathf.Abs(terrainY - feet.y) > 0.6f) continue;    // a roof or the top of a wall
+
+            Vector3 low = cam.WorldToViewportPoint(feet);
+            Vector3 high = cam.WorldToViewportPoint(feet + Vector3.up * 2.8f);
+            if (low.z <= 0f || high.z <= 0f) continue;
+            if (low.x < 0.15f || low.x > 0.85f || high.x < 0.15f || high.x > 0.85f) continue;
+            if (low.y < 0.08f || high.y > 0.9f) continue;
+
+            if (Crowded(feet)) continue;
+            if (SightBlocked(lens.position, feet + Vector3.up * 1.4f) || SightBlocked(lens.position, feet + Vector3.up * 2.4f)) continue;
+            if (FeedEscape(cam, feet, out _) > 10f) continue;      // it must have a clear way out of the picture
+
+            stand = feet;
+            return true;
+        }
+        return false;
+    }
+
+    // The way out of the picture from a spot on a feed: of the directions that do not run at the lens, the one
+    // that leaves the picture soonest with nothing in the way. Returns the run in metres until it is out of the
+    // picture (float.MaxValue if there is no way out within 10 m).
+    private static float FeedEscape(Camera cam, Vector3 at, out Vector3 run)
+    {
+        Transform lens = cam.transform;
+        Vector3 view = at - lens.position;
+        view.y = 0f;
+        view = view.sqrMagnitude > 1e-4f ? view.normalized : Vector3.forward;
+        run = view;
+        float best = float.MaxValue;
+        float turn = Random.value * 22.5f;      // so two equal ways out do not always resolve the same way
+        for (int i = 0; i < 16; i++)
+        {
+            Vector3 dir = Quaternion.Euler(0f, turn + i * 22.5f, 0f) * view;
+            if (Vector3.Dot(dir, view) < -0.5f) continue;                        // never at the lens
+            float exit = ExitDistance(cam, at, dir, 10f);
+            if (exit >= best) continue;
+            float clear = WatcherNPC.ClearRunLength(at, dir, exit + 1f, null, null, true);
+            if (clear < exit + 0.5f) continue;
+            best = exit;
+            run = dir;
+        }
+        return best;
+    }
+
+    // Metres along dir until a figure standing at `at` is out of the camera's picture (or too far to be seen).
+    private static float ExitDistance(Camera cam, Vector3 at, Vector3 dir, float max)
+    {
+        for (float s = 0.5f; s <= max; s += 0.5f)
+        {
+            Vector3 v = cam.WorldToViewportPoint(at + dir * s + Vector3.up * 1.2f);
+            if (v.z <= 0f || v.z > 20f || v.x < -0.1f || v.x > 1.1f || v.y < -0.1f || v.y > 1.1f) return s;
+        }
+        return float.MaxValue;
+    }
+
+    // The feeds look out past the walls, where only the player is kept in: colliders nothing draws (the invisible
+    // barriers) neither hide the figure nor stand in its way.
+    private static readonly RaycastHit[] sightHits = new RaycastHit[16];
+    private static readonly Collider[] crowdHits = new Collider[16];
+
+    private static bool FirstVisibleHit(Vector3 from, Vector3 direction, float length, out RaycastHit first)
+    {
+        first = default;
+        int count = Physics.RaycastNonAlloc(from, direction, sightHits, length, ~0, QueryTriggerInteraction.Ignore);
+        float best = float.MaxValue;
+        for (int i = 0; i < count; i++)
+        {
+            if (WatcherNPC.IsInvisible(sightHits[i].collider) || sightHits[i].distance >= best) continue;
+            best = sightHits[i].distance;
+            first = sightHits[i];
+        }
+        return best < float.MaxValue;
+    }
+
+    private static bool SightBlocked(Vector3 from, Vector3 to)
+    {
+        Vector3 d = to - from;
+        float length = d.magnitude;
+        return length > 1e-3f && FirstVisibleHit(from, d / length, length, out _);
+    }
+
+    private static bool Crowded(Vector3 feet)
+    {
+        int count = Physics.OverlapCapsuleNonAlloc(feet + Vector3.up * 0.5f, feet + Vector3.up * 2.4f, 0.35f, crowdHits, ~0, QueryTriggerInteraction.Ignore);
+        for (int i = 0; i < count; i++)
+        {
+            if (!WatcherNPC.IsInvisible(crowdHits[i])) return true;
+        }
+        return false;
+    }
+
+    private static bool TerrainHeightAt(Vector3 p, out float height)
+    {
+        foreach (Terrain terrain in Terrain.activeTerrains)
+        {
+            if (terrain == null || terrain.terrainData == null) continue;
+            Vector3 origin = terrain.transform.position;
+            Vector3 size = terrain.terrainData.size;
+            if (p.x < origin.x || p.z < origin.z || p.x > origin.x + size.x || p.z > origin.z + size.z) continue;
+            height = terrain.SampleHeight(p) + origin.y;
+            return true;
+        }
+        height = 0f;
+        return false;
+    }
+
+    private void UpdateFeedWatcher()
+    {
+        if (feedWatcher == null) return;
+        bool onScreen = isViewing && activeIndex == feedWatcherIndex && !scareActive;
+        if (feedWatcherSpeaker != null) feedWatcherSpeaker.volume = onScreen ? 1f : 0f;     // heard only while its feed is up
+
+        if (!feedWatcherScared)
+        {
+            if (onScreen && !transitioning)
+            {
+                feedWatcherWatched += Time.deltaTime;
+                if (feedWatcherWatched >= feedWatcherWatchTime) ScareOffFeedWatcher();
+            }
+            return;
+        }
+
+        // While it cracks, and the moment it vanishes, the picture breaks up a little and the speaker hisses.
+        if ((feedWatcher.IsShaking || feedWatcher.IsVanishing) && onScreen)
+        {
+            if (!feedWatcherFx && feedWatcherStaticVolume > 0f && scareStaticClip != null && scareAudio != null)
+            {
+                scareAudio.clip = scareStaticClip;
+                scareAudio.volume = feedWatcherStaticVolume;
+                scareAudio.time = 0f;
+                scareAudio.Play();
+            }
+            if (screenMat != null && screenMat.HasProperty("_GlitchAmount"))
+                screenMat.SetFloat("_GlitchAmount", feedWatcherGlitch * (0.4f + 0.6f * Random.value));
+            feedWatcherFx = true;
+        }
+        else if (feedWatcherFx)
+        {
+            StopFeedWatcherFx();
+        }
+
+        // Once it is running, it is gone as soon as it leaves the picture.
+        if (feedWatcher != null && feedWatcher.IsRunning && !InFeedPicture(feedWatcher))
+        {
+            feedWatcher.ForceDespawn();
+        }
+    }
+
+    private void ScareOffFeedWatcher()
+    {
+        feedWatcherScared = true;
+
+        FeedEscape(feedCameras[feedWatcherIndex], feedWatcher.transform.position, out Vector3 run);
+        feedWatcher.SetSpeaker(feedWatcherSpeaker, feedWatcherCrackVolume);
+        feedWatcher.ScareOff(run, feedWatcherRunDistance);
+    }
+
+    private bool InFeedPicture(WatcherNPC watcher)
+    {
+        if (feedWatcherIndex < 0 || feedWatcherIndex >= feedCameras.Length || feedCameras[feedWatcherIndex] == null) return false;
+        Vector3 v = feedCameras[feedWatcherIndex].WorldToViewportPoint(watcher.transform.position + Vector3.up * 1.2f);
+        return v.z > 0f && v.z < 20f && v.x > -0.05f && v.x < 1.05f && v.y > -0.05f && v.y < 1.05f;     // past 20 m the feed's lamp no longer reaches
+    }
+
+    private void StopFeedWatcherFx()
+    {
+        if (!feedWatcherFx) return;
+        feedWatcherFx = false;
+        if (scareAudio != null && !scareActive) scareAudio.Stop();
+        if (screenMat != null && screenMat.HasProperty("_GlitchAmount") && !scareActive) screenMat.SetFloat("_GlitchAmount", 0f);
+    }
+
+    private void HandleFeedWatcherGone()
+    {
+        if (feedWatcher != null) feedWatcher.OnEventCompleted -= HandleFeedWatcherGone;
+        feedWatcher = null;
+        feedWatcherIndex = -1;
+        feedWatcherNextTime = Time.time + feedWatcherCooldown;
+        StopFeedWatcherFx();
+    }
+
+    private void ClearFeedWatcher()
+    {
+        if (feedWatcher != null) feedWatcher.ForceDespawn();   // calls HandleFeedWatcherGone
+        StopFeedWatcherFx();
     }
 
     // ---- protection restore (watching the cameras slowly tops up graveyard protection) ----

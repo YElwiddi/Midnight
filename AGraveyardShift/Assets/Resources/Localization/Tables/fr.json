@@ -374,6 +374,22 @@
    "v": "Changer de caméra"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "IMAGE"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "CASSETTE"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "LÉGER"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "PIXELS CLASSIQUES"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

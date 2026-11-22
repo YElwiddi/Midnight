@@ -374,6 +374,22 @@
    "v": "Смена камеры"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "ИЗОБРАЖЕНИЕ"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "ВИДЕОКАССЕТА"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "ЛЁГКИЙ"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "КЛАССИЧЕСКИЕ ПИКСЕЛИ"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

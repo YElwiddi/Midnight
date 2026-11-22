@@ -374,22 +374,32 @@ public static class MainMenuBuilder
 
         BackButton(modal, new Vector2(0f, 62f), menu.CloseCryptFiends, new Vector2(0.5f, 0f));
 
-        // Detail view: shown when an unlocked fiend is clicked.
-        var detail = NewImage("FiendDetail", modal, slab, true);
-        detail.type = Image.Type.Sliced;
-        Place(detail.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, -20f), new Vector2(1240f, 640f));
-        var dName = NewText("DetailName", detail.transform, "", cinzelBold, 56f, Bone, TextAlignmentOptions.Top);
+        // Detail page: shown when an unlocked fiend is clicked. It takes over the slab (the list's
+        // title, count, slots and BACK hide while it is open, see ModalDetailPage), so it has no slab
+        // of its own: the name sits where the title does and BACK where the list's BACK does.
+        var detail = NewRect("FiendDetail", modal);
+        Stretch(detail);
+        var dName = NewText("DetailName", detail, "", cinzelBold, 56f, Bone, TextAlignmentOptions.Center);
         dName.characterSpacing = 10f;
         dName.enableAutoSizing = true; dName.fontSizeMin = 28f; dName.fontSizeMax = 56f;
-        Place(dName.rectTransform, new Vector2(0.5f, 1f), new Vector2(0f, -56f), new Vector2(1060f, 84f));
+        Place(dName.rectTransform, new Vector2(0.5f, 1f), new Vector2(0f, -70f), new Vector2(1200f, 84f));
         FontOnly(dName);
-        var dBody = NewText("DetailBody", detail.transform, "", cormorant, 36f, new Color(Bone.r, Bone.g, Bone.b, 0.92f), TextAlignmentOptions.Top);
+        // The lore is sentences in a fine serif: larger than the labels, on a finer pixel grid, and
+        // centred between the name and BACK the way the list centres its slots.
+        var dBody = NewText("DetailBody", detail, "", cormorant, 42f, Bone, TextAlignmentOptions.Center);
         dBody.enableWordWrapping = true;
-        dBody.enableAutoSizing = true; dBody.fontSizeMin = 22f; dBody.fontSizeMax = 36f;
-        dBody.lineSpacing = 4f;
-        Place(dBody.rectTransform, new Vector2(0.5f, 1f), new Vector2(0f, -170f), new Vector2(1020f, 320f));
+        dBody.enableAutoSizing = true; dBody.fontSizeMin = 24f; dBody.fontSizeMax = 42f;
+        dBody.characterSpacing = 2f;
+        dBody.lineSpacing = 8f;
+        var bodyRt = dBody.rectTransform;
+        bodyRt.anchorMin = new Vector2(0.5f, 0f);
+        bodyRt.anchorMax = new Vector2(0.5f, 1f);
+        bodyRt.pivot = new Vector2(0.5f, 0.5f);
+        bodyRt.offsetMin = new Vector2(-590f, 130f);
+        bodyRt.offsetMax = new Vector2(590f, -150f);
+        dBody.gameObject.AddComponent<PixelTextDensity>().minPixelsPerEm = 18f;
         FontOnly(dBody);
-        var dBack = BackButton(detail.transform, new Vector2(0f, 54f), null, new Vector2(0.5f, 0f));
+        var dBack = BackButton(detail, new Vector2(0f, 62f), null, new Vector2(0.5f, 0f));
         detail.gameObject.SetActive(false);
 
         var disp = panel.gameObject.AddComponent<CryptFiendsMenuDisplay>();
@@ -441,10 +451,10 @@ public static class MainMenuBuilder
 
         BackButton(modal, new Vector2(0f, 62f), menu.CloseFieldNotes, new Vector2(0.5f, 0f));
 
-        // Detail: the note itself on the cabin's paper, paged.
-        var detail = NewImage("NoteDetail", modal, slab, true);
-        detail.type = Image.Type.Sliced;
-        Place(detail.rectTransform, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1400f, 930f));
+        // Detail: the note itself on the cabin's paper, paged. It takes over the slab (the list hides
+        // while it is open, see ModalDetailPage), so it has no slab of its own.
+        var detail = NewRect("NoteDetail", modal);
+        Stretch(detail);
         var paperSprite = LoadSpriteAt(NotePaperPath);
         var paper = NewImage("Paper", detail.transform, paperSprite, false);
         Place(paper.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 50f), new Vector2(570f, 760f));
@@ -463,7 +473,7 @@ public static class MainMenuBuilder
         page.characterSpacing = 6f;
         Place(page.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, -360f), new Vector2(400f, 40f));
         FontOnly(page);
-        var back = BackButton(detail.transform, new Vector2(0f, 26f), null, new Vector2(0.5f, 0f));
+        var back = BackButton(detail, new Vector2(0f, 62f), null, new Vector2(0.5f, 0f));
         detail.gameObject.SetActive(false);
 
         var disp = panel.gameObject.AddComponent<FieldNotesMenuDisplay>();
@@ -559,7 +569,7 @@ public static class MainMenuBuilder
         Bind(title, "ui.settings.title");
 
         float y = 300f;
-        const float step = 66f;
+        const float step = 62f;   // ten rows on the 960-high slab
         op.mouseSensitivitySlider = SliderRow(m, "Row_MouseSensitivity", "MOUSE SENSITIVITY", "ui.settings.mouseSensitivity", y, GameSettings.MinSensitivity, GameSettings.MaxSensitivity, false, true); y -= step;
         op.invertLookToggle = ToggleRow(m, "Row_InvertLook", "INVERT LOOK", "ui.settings.invertLook", y, true); y -= step;
         op.masterVolumeSlider = SliderRow(m, "Row_MasterVolume", "MASTER VOLUME", "ui.settings.masterVolume", y, 0f, 1f, true, false); y -= step;
@@ -572,6 +582,14 @@ public static class MainMenuBuilder
         note.fontStyle = FontStyles.Italic;
         Bind(note, "ui.settings.brightnessNote");
         y -= step + 18f;
+
+        // Picture: Tape / Light / Classic pixels (PictureSettings; applied at once by the camera effects).
+        Button picLeft, picRight;
+        var picLabel = CyclerRow(m, "Row_Picture", "PICTURE", "ui.settings.picture", y, "TAPE", out picLeft, out picRight); y -= step;
+        var picture = picLabel.transform.parent.gameObject.AddComponent<PictureCycler>();
+        picture.label = picLabel;
+        picture.previousButton = picLeft;
+        picture.nextButton = picRight;
 
         Button resLeft, resRight;
         op.resolutionLabel = CyclerRow(m, "Row_Resolution", "RESOLUTION", "ui.settings.resolution", y, "1920 x 1080", out resLeft, out resRight); y -= step;

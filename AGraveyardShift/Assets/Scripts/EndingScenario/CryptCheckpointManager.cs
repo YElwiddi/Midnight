@@ -7,7 +7,8 @@ using UnityEngine;
 /// When the player dies to a crypt killer, they respawn outside the crypt
 /// with all crypt objects (shovel, dirt piles, killer) reset to their initial state.
 /// After a death the crypt also eases up: a hint note appears, the shovel moves next to it
-/// (if the player had found it) and the killer is slower and sees less far.
+/// (if the player had found it) and the killer is slower and sees less far. After a second
+/// death, red arrows on the floor lead toward the general areas of the correct graves.
 /// </summary>
 public class CryptCheckpointManager : MonoBehaviour
 {
@@ -90,6 +91,13 @@ public class CryptCheckpointManager : MonoBehaviour
     [Tooltip("After a death, the Persistent Stalker only senses a lit flashlight within this distance (normally it senses it from anywhere). 0 = anywhere.")]
     public float helpStalkerFlashlightRange = 20f;
 
+    [Tooltip("Red floor arrows (inactive in the scene) leading from the arrival nook toward the general areas of the correct graves. They appear once the player has died this many times and stay for the rest of the run.")]
+    public GameObject hintArrows;
+
+    [Tooltip("Deaths to the crypt killer before the hint arrows appear")]
+    [Min(1)]
+    public int arrowsAfterDeaths = 2;
+
     // Tracking spawned objects for cleanup
     private GameObject currentShovel;
     private List<GameObject> currentDirtPiles = new List<GameObject>();
@@ -148,6 +156,30 @@ public class CryptCheckpointManager : MonoBehaviour
 
         // Track initially placed objects in the scene
         TrackExistingCryptObjects();
+
+        // The killer spawns later (once the player leaves the crypt's arrival nook), so pick it up then
+        if (EndingScenarioManager.Instance != null)
+        {
+            EndingScenarioManager.Instance.OnKillerSpawned.AddListener(HandleKillerSpawned);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (EndingScenarioManager.Instance != null)
+        {
+            EndingScenarioManager.Instance.OnKillerSpawned.RemoveListener(HandleKillerSpawned);
+        }
+    }
+
+    /// <summary>
+    /// A crypt killer just spawned (EndingScenarioManager releases it once the player leaves the
+    /// arrival nook): track it for cleanup and ease it if the player has died before.
+    /// </summary>
+    private void HandleKillerSpawned(GameObject killer)
+    {
+        currentKiller = killer;
+        ApplyKillerHelp(killer);
     }
 
     /// <summary>
@@ -617,10 +649,10 @@ public class CryptCheckpointManager : MonoBehaviour
         // Spawn killer
         if (useEndingScenarioManager && EndingScenarioManager.Instance != null)
         {
-            // Use EndingScenarioManager to respawn the correct killer based on player stats
+            // Use EndingScenarioManager to respawn the correct killer based on player stats. It waits until
+            // the player is back in the crypt and walks out of the arrival nook; HandleKillerSpawned picks it up.
             EndingScenarioManager.Instance.RespawnKiller();
-            currentKiller = EndingScenarioManager.Instance.GetSpawnedKiller();
-            Debug.Log("CryptCheckpointManager: Respawned killer via EndingScenarioManager");
+            Debug.Log("CryptCheckpointManager: Killer respawn queued via EndingScenarioManager");
         }
         else if (killerPrefab != null && killerSpawnPoint != null)
         {
@@ -649,6 +681,8 @@ public class CryptCheckpointManager : MonoBehaviour
                 jumpscare.SetUseCheckpointRespawn(true);
             }
 
+            ApplyKillerHelp(currentKiller);
+
             Debug.Log("CryptCheckpointManager: Spawned killer manually");
         }
 
@@ -656,8 +690,9 @@ public class CryptCheckpointManager : MonoBehaviour
     }
 
     /// <summary>
-    /// After a death the crypt eases up so players don't get stuck: the hint note appears
-    /// and the respawned killer is slower and sees less far.
+    /// After a death the crypt eases up so players don't get stuck: the hint note appears, and
+    /// after enough deaths red arrows on the floor point toward the correct graves' general areas.
+    /// (The killer's own help is applied when it spawns, see ApplyKillerHelp.)
     /// </summary>
     private void ApplyDeathHelp()
     {
@@ -669,7 +704,21 @@ public class CryptCheckpointManager : MonoBehaviour
             Debug.Log("CryptCheckpointManager: Hint note revealed");
         }
 
-        CryptKiller killer = currentKiller != null ? currentKiller.GetComponent<CryptKiller>() : null;
+        if (deathCount >= arrowsAfterDeaths && hintArrows != null && !hintArrows.activeSelf)
+        {
+            hintArrows.SetActive(true);
+            Debug.Log($"CryptCheckpointManager: Hint arrows revealed after {deathCount} deaths");
+        }
+    }
+
+    /// <summary>
+    /// Once the player has died, every respawned killer is slower and sees less far.
+    /// </summary>
+    private void ApplyKillerHelp(GameObject killerObject)
+    {
+        if (deathCount < 1 || killerObject == null) return;
+
+        CryptKiller killer = killerObject.GetComponent<CryptKiller>();
         if (killer != null)
         {
             killer.ApplyPlayerHelp(helpKillerSpeedMultiplier, helpKillerVisionMultiplier, helpStalkerFlashlightRange);

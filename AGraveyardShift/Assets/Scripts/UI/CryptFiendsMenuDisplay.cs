@@ -5,8 +5,10 @@ using UnityEngine.UI;
 /// <summary>
 /// Fills the main-menu Crypt Fiends panel from saved unlocks. Locked fiends show "???"
 /// and are not clickable; unlocked fiends show their name and open a detail view with
-/// the fiend's lore when clicked. Slot order is Friend, Wraith, Beast (CryptFiendInfo.InOrder).
-/// Refreshes every time the panel is enabled. Mirrors EndingsMenuDisplay.
+/// the fiend's lore when clicked. The detail page has the slab to itself: the title, count,
+/// slots and BACK of the list hide while it is open (ModalDetailPage). Slot order is Friend,
+/// Wraith, Beast (CryptFiendInfo.InOrder). Refreshes every time the panel is enabled.
+/// Mirrors EndingsMenuDisplay.
 /// </summary>
 public class CryptFiendsMenuDisplay : MonoBehaviour
 {
@@ -24,7 +26,7 @@ public class CryptFiendsMenuDisplay : MonoBehaviour
     public TextMeshProUGUI header;
 
     [Header("Detail View")]
-    [Tooltip("Container shown when an unlocked fiend is clicked. Hidden by default.")]
+    [Tooltip("Detail page shown when an unlocked fiend is clicked (hidden by default). The other children of its parent hide while it is open.")]
     public GameObject detailPanel;
     [Tooltip("Big fiend name shown in the detail view.")]
     public TextMeshProUGUI detailName;
@@ -42,6 +44,7 @@ public class CryptFiendsMenuDisplay : MonoBehaviour
     public Color lockedColor = new Color(0.6f, 0.6f, 0.6f, 0.8f);
 
     private bool wiredBack;
+    private readonly ModalDetailPage page = new ModalDetailPage();
 
     private void Awake()
     {
@@ -122,11 +125,11 @@ public class CryptFiendsMenuDisplay : MonoBehaviour
         CryptFiendInfo.Data info = CryptFiendInfo.Get(fiend);
         if (detailName != null) detailName.text = info.title;
         if (detailBody != null) detailBody.text = CryptFiendInfo.Body(fiend);
-        if (detailPanel != null) detailPanel.SetActive(true);
+        page.Open(detailPanel);
     }
 
     public void HideDetail()
     {
-        if (detailPanel != null) detailPanel.SetActive(false);
+        page.Close(detailPanel);
     }
 }

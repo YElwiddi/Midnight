@@ -374,6 +374,22 @@
    "v": "切换摄像头"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "画面"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "录像带"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "轻度"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "经典像素"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

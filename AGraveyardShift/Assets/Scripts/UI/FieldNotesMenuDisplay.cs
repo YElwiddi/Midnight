@@ -5,7 +5,8 @@ using UnityEngine.UI;
 /// <summary>
 /// Fills the main-menu Field Notes panel: the full creature field notes the player has read in
 /// the cabin (FieldNotesSave). Unread notes show "???" and are not clickable; read notes open a
-/// paper detail view with the complete text, one page at a time.
+/// paper detail view with the complete text, one page at a time. The detail page has the slab to
+/// itself: the title, count, slots and BACK of the list hide while it is open (ModalDetailPage).
 /// Slot order follows FieldNoteArchive.entries. Refreshes every time the panel is enabled.
 /// Mirrors CryptFiendsMenuDisplay.
 /// </summary>
@@ -22,7 +23,7 @@ public class FieldNotesMenuDisplay : MonoBehaviour
     public TextMeshProUGUI header;
 
     [Header("Detail View")]
-    [Tooltip("Container shown when a read note is clicked. Hidden by default.")]
+    [Tooltip("Detail page shown when a read note is clicked (hidden by default). The other children of its parent hide while it is open.")]
     public GameObject detailPanel;
     public TextMeshProUGUI detailBody;
     public TextMeshProUGUI detailPage;
@@ -39,6 +40,7 @@ public class FieldNotesMenuDisplay : MonoBehaviour
     private string[] currentPages;
     private int currentPage;
     private bool wired;
+    private readonly ModalDetailPage page = new ModalDetailPage();
 
     private void Awake()
     {
@@ -123,14 +125,14 @@ public class FieldNotesMenuDisplay : MonoBehaviour
 
         currentPages = Loc.TrAll(entry.pages);
         currentPage = 0;
-        if (detailPanel != null) detailPanel.SetActive(true);
+        page.Open(detailPanel);
         ShowPage();
     }
 
     public void HideDetail()
     {
         currentPages = null;
-        if (detailPanel != null) detailPanel.SetActive(false);
+        page.Close(detailPanel);
     }
 
     private void PreviousPage()

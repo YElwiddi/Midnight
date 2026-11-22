@@ -81,6 +81,39 @@ public class SideGameEventManager : MonoBehaviour
 
     /// <summary>Time until next event attempt (may not spawn if conditions not met).</summary>
     public float TimeUntilNextEvent => nextEventTime - Time.time;
+
+    /// <summary>How many watchers have come into the yard since the scene loaded (the CCTV's stand-ins are not counted).</summary>
+    public int WatchersSpawned => watchersSpawned;
+
+    /// <summary>The first watcher event in the pool (the CCTV borrows its figure for the gate feeds). Null if there is none.</summary>
+    public SideGameEvent WatcherEvent
+    {
+        get
+        {
+            foreach (SideGameEvent evt in eventPool)
+            {
+                if (evt != null && evt.eventType == SideGameEventType.Watcher) return evt;
+            }
+            return null;
+        }
+    }
+
+    /// <summary>True when watchers may be out right now: side events running and enabled, and the current phase allowed.</summary>
+    public bool WatchersAllowedNow
+    {
+        get
+        {
+            if (!hasStarted || !isEnabled) return false;
+            int phase = GameFlowManager.Instance != null ? GameFlowManager.Instance.CurrentPhase : 0;
+            if (requirePhaseGreaterThanZero && phase <= 0) return false;
+            foreach (int disabledPhase in disabledPhases)
+            {
+                if (disabledPhase == phase) return false;
+            }
+            SideGameEvent evt = WatcherEvent;
+            return evt != null && evt.CanSpawnInPhase(phase);
+        }
+    }
     #endregion
 
     #region Private Fields
@@ -88,6 +121,7 @@ public class SideGameEventManager : MonoBehaviour
     private WatcherNPC currentWatcher;
     private float nextEventTime;
     private bool hasStarted = false;
+    private int watchersSpawned;
     private bool jumpscareTriggered = false;
     #endregion
 
@@ -521,6 +555,8 @@ public class SideGameEventManager : MonoBehaviour
 
         // Initialize (caches config values but does not start entrance/staring)
         currentWatcher.Initialize(sideEvent);
+        watchersSpawned++;
+        currentWatcher.SetAppearance(watchersSpawned);
 
         // Apply per-location overrides after Initialize so they take effect
         if (locationData.overrideEntrance || locationData.overrideRetreat)

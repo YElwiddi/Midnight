@@ -374,6 +374,22 @@
    "v": "Zmiana kamery"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "OBRAZ"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "TAŚMA"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "LEKKI"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "KLASYCZNE PIKSELE"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

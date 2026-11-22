@@ -187,6 +187,12 @@ public static class LocalizationExtractor
         yield return new KeyValuePair<string, string>("ui.controls.interact", "Interact");
         yield return new KeyValuePair<string, string>("ui.controls.flashlight", "Flashlight");
         yield return new KeyValuePair<string, string>("ui.controls.cameras", "Switch cameras");
+
+        // Settings > Picture (PictureCycler): the tape picture, a lighter one, or the original pixel grid.
+        yield return new KeyValuePair<string, string>("ui.settings.picture", "PICTURE");
+        yield return new KeyValuePair<string, string>("ui.settings.picture.tape", "TAPE");
+        yield return new KeyValuePair<string, string>("ui.settings.picture.light", "LIGHT");
+        yield return new KeyValuePair<string, string>("ui.settings.picture.classic", "CLASSIC PIXELS");
     }
 
     [MenuItem("Tools/Graveyard/Localization/1. Extract Source Strings")]

@@ -374,6 +374,22 @@
    "v": "Trocar de câmera"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "IMAGEM"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "FITA"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "LEVE"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "PIXELS CLÁSSICOS"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

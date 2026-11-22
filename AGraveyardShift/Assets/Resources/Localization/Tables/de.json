@@ -374,6 +374,22 @@
    "v": "Kamera wechseln"
   },
   {
+   "k": "ui.settings.picture",
+   "v": "BILD"
+  },
+  {
+   "k": "ui.settings.picture.tape",
+   "v": "VIDEOBAND"
+  },
+  {
+   "k": "ui.settings.picture.light",
+   "v": "LEICHT"
+  },
+  {
+   "k": "ui.settings.picture.classic",
+   "v": "KLASSISCHE PIXEL"
+  },
+  {
    "k": "??????",
    "v": "??????"
   },

@@ -330,6 +330,7 @@ public class OptionsPanel : MonoBehaviour
         if (mouseSensitivitySlider != null) mouseSensitivitySlider.value = GameSettings.DefaultSensitivity;
         if (invertLookToggle != null) invertLookToggle.isOn = false;
         if (brightnessSlider != null) brightnessSlider.value = BrightnessSettings.Default;
+        PictureSettings.Mode = PictureSettings.Default;   // the Picture row (PictureCycler) follows
 
         PlayerPrefs.Save();
     }

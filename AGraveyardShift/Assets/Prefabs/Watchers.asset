@@ -101,4 +101,45 @@ MonoBehaviour:
   playIdleSoundOnSpawn: 0
   playerTrackingSpeed: 90
   staringAnimationBool: 
+  useCrackleRetreat: 1
+  crackStyle: 2
+  headTracksPlayer: 1
+  changedFromAppearance: 2
+  changedNeckStretch: 0.68
+  changedHeadPose: {x: 19, y: 13, z: 32}
+  changedPoseTime: 4.27
+  neckStretchLength: 0.55
+  neckStretchTime: 0.4
+  neckStretchCracks: 3
+  neckStretchCrackGap: 0.2
+  neckStretchCrackAngle: 36
+  neckStretchHold: 0.3
+  glideBackTime: 1
+  glideBackAcceleration: 9
+  stopMotionRate: 12
+  vanishGlitchTime: 0.12
+  neckCrackAngle: 15
+  neckCrackHold: 0.35
+  headShakeTime: 0.5
+  headShakeRate: 15
+  headShakeAngle: 48
+  sinkChance: 0.5
+  sinkTime: 0.35
+  sinkDepth: 3
+  fleeClip: {fileID: -203655887218126122, guid: ee9515a564d470140b1076b1ec1e0f16, type: 3}
+  fleeClipSpeed: 4.45
+  fleeSpeed: 13
+  fleeDistance: 16
+  neckCrackSound: {fileID: 0}
+  neckCrackVolume: 1
+  headCrackSounds: []
+  headCrackVolume: 0.9
+  neckStretchSound: {fileID: 0}
+  neckStretchVolume: 0.8
+  vanishSound: {fileID: 0}
+  vanishVolume: 0.8
+  sinkSound: {fileID: 0}
+  sinkVolume: 0.7
+  fleeSound: {fileID: 0}
+  fleeVolume: 0.9
   eventTimeout: 120
