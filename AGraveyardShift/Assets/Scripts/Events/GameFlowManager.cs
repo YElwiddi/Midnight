@@ -1278,8 +1278,101 @@ public class GameFlowManager : MonoBehaviour
         currentKillerEvent = killerEvent;
         Debug.Log($"GameFlowManager: Starting killer event '{killerEvent.eventName}'");
 
+        if (killerEvent.spawnOutOfSight && !killerEvent.spawnInFrontOfPlayer)
+        {
+            StartCoroutine(SpawnKillerWhenUnseen(killerEvent));
+            return;
+        }
+
         SpawnKillerNPC(killerEvent);
         FireKillerEventStarted(killerEvent);
+    }
+
+    /// <summary>
+    /// spawnOutOfSight: holds the killer back until nobody is watching its spawn point, then spawns it (and fires
+    /// the event's start) exactly as StartKillerEventDirectly would have.
+    /// </summary>
+    private IEnumerator SpawnKillerWhenUnseen(ConditionalKillerEvent killerEvent)
+    {
+        GameObject spawnPoint = GameObject.Find(killerEvent.spawnPointName);
+        if (spawnPoint != null)
+        {
+            Vector3 feet = spawnPoint.transform.position;
+            bool waited = false;
+            while (SpawnPointWatched(feet, killerEvent.outOfSightMinDistance))
+            {
+                if (!waited)
+                {
+                    Debug.Log($"GameFlowManager: Killer '{killerEvent.eventName}' waits to appear until '{killerEvent.spawnPointName}' is out of sight.");
+                    waited = true;
+                }
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+
+        if (currentKillerEvent != killerEvent)
+        {
+            yield break;   // another killer event took over while this one waited
+        }
+        SpawnKillerNPC(killerEvent);
+        FireKillerEventStarted(killerEvent);
+    }
+
+    // Past this the fog hides a figure (ExpSquared 0.032 leaves about 5% of it at 55 m).
+    private const float SpawnSightDistance = 55f;
+    private CCTVMonitor cctvMonitor;
+
+    /// <summary>
+    /// True while the player could see something standing at <paramref name="feet"/>: they are within
+    /// <paramref name="minDistance"/> of it, it is on their screen short of the fog, or it is on the CCTV feed they
+    /// are watching. Walls aren't checked (bars and fences hide less than their colliders say), so this errs on the
+    /// side of waiting.
+    /// </summary>
+    private bool SpawnPointWatched(Vector3 feet, float minDistance)
+    {
+        if (playerTransform == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerTransform = player.transform;
+            }
+        }
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+        if (playerTransform != null && Vector3.Distance(playerTransform.position, feet) < minDistance)
+        {
+            return true;
+        }
+        if (cctvMonitor == null)
+        {
+            cctvMonitor = FindObjectOfType<CCTVMonitor>();
+        }
+        if (cctvMonitor != null && cctvMonitor.IsViewing)
+        {
+            return OnScreen(cctvMonitor.ActiveFeed, feet);
+        }
+        return OnScreen(playerCamera, feet);
+    }
+
+    /// <summary>Whether a figure standing at <paramref name="feet"/> (shins, waist or head) is in this camera's view, short of the fog.</summary>
+    private static bool OnScreen(Camera cam, Vector3 feet)
+    {
+        if (cam == null)
+        {
+            return false;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 v = cam.WorldToViewportPoint(feet + Vector3.up * (0.3f + 1.0f * i));
+            if (v.z > 0f && v.z < SpawnSightDistance && v.x > -0.1f && v.x < 1.1f && v.y > -0.1f && v.y < 1.1f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>

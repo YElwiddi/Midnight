@@ -86,6 +86,14 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("If true, uses the custom spawnRotationOffset instead of the spawn point's rotation")]
     public bool useCustomRotation = false;
 
+    [Header("Spawn Out Of Sight (optional)")]
+    [Tooltip("If true, the killer waits to appear until nobody is watching its spawn point: the point is off the player's screen or lost in the fog, the player is at least outOfSightMinDistance away, and the CCTV feed the player is watching doesn't show it. For a killer that waits somewhere the player often looks (the front gate), so it never pops in under their eyes.")]
+    public bool spawnOutOfSight = false;
+
+    [Tooltip("With spawnOutOfSight: how far (m) the player must be from the spawn point.")]
+    [Range(0f, 30f)]
+    public float outOfSightMinDistance = 8f;
+
     [Header("Waypoints")]
     [Tooltip("Ordered list of waypoints the killer NPC will travel through")]
     public WaypointData[] waypoints;
@@ -182,6 +190,14 @@ public class ConditionalKillerEvent : ScriptableObject
     [Tooltip("While she waits, her head and shoulders shake with sobs (degrees; 0 = still).")]
     [Range(0f, 20f)]
     public float idleSobAngle = 0f;
+
+    [Header("Ambush Camera Lock (optional)")]
+    [Tooltip("When the ambush starts (her turn, or her charge if she has no turn), the player's view swings onto her face and stays on it until the kill takes over. The player can still walk.")]
+    public bool lockCameraOnAmbush = false;
+
+    [Tooltip("Seconds the player's view takes to swing onto her (0 = it snaps).")]
+    [Range(0f, 1f)]
+    public float ambushCameraTurnTime = 0.15f;
 
     [Header("Scripted Kill")]
     [Tooltip("If set, this sequence plays the whole kill (camera, killer, torch, lanterns, sound) instead of the jumpscare settings below. It starts when the killer is killStopDistance away.")]

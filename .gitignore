@@ -87,3 +87,12 @@ Thumbs.db
 # Plastic SCM
 *.ignore.conf
 AGraveyardShift.zip
+
+# ---- Bought assets whose licence forbids sharing the raw files (this repo is public) ----
+# Ice Ching "Provincial Church" (church-PSX.zip, bought 2026-11-24). The .meta files stay in git so the GUIDs
+# and import settings survive; put the files themselves back from the zip. The 12-bay shell mesh is made from
+# the pack's model, so it stays local too (regenerate it with Tools > Graveyard > Church Rework > Apply).
+/AGraveyardShift/Assets/Church Rework/Provincial Church/**
+!/AGraveyardShift/Assets/Church Rework/Provincial Church/**/
+!/AGraveyardShift/Assets/Church Rework/Provincial Church/**/*.meta
+/AGraveyardShift/Assets/Church Rework/Generated/Church shell (12 bays).asset

@@ -27,12 +27,14 @@ MonoBehaviour:
   spawnInFrontOfPlayer: 0
   spawnDistanceFromPlayer: 5
   spawnHeightOffset: 0
-  spawnPointName: CryptFront
+  spawnPointName: SpiritGateSpawn
   spawnOnLockedDoorInteract: 0
-  facePlayerOnSpawn: 1
+  facePlayerOnSpawn: 0
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 0, z: 0}
   useCustomRotation: 0
+  spawnOutOfSight: 1
+  outOfSightMinDistance: 8
   waypoints: []
   endGameOnPlayerTouch: 1
   killDistance: 4
@@ -53,7 +55,18 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: 8e786d26d4dfd5645aeb77d45b757bd3, type: 3}
   activationSoundVolume: 1
   activationSoundConstant: 0
-  killStopDistance: 1.26
+  ambushTurnTime: 0
+  ambushHeadTurnTime: 0.08
+  ambushBodyDelay: 0.04
+  ambushBodyTurnTime: 0.12
+  ambushTurnSound: {fileID: 0}
+  ambushTurnSoundVolume: 1
+  ambushHairOnHead: 0
+  idleSobAngle: 0
+  lockCameraOnAmbush: 0
+  ambushCameraTurnTime: 0.15
+  killSequence: {fileID: 11400000, guid: a0a788c815a6444a8fae2df1e088b0e9, type: 2}
+  killStopDistance: 4
   killAnimationTrigger: Kill
   useSlowMotion: 1
   slowMotionTimeScale: 0.914

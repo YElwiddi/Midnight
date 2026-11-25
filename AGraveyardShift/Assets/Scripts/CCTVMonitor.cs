@@ -149,6 +149,9 @@ public class CCTVMonitor : MonoBehaviour, IInteractable
 
     /// <summary>True while the player is watching the feeds (EventNPC pauses its travel pacing so visitors look normal on camera).</summary>
     public bool IsViewing => isViewing;
+
+    /// <summary>The feed camera the player is watching, or null while they aren't watching.</summary>
+    public Camera ActiveFeed => isViewing && feedCameras != null && activeIndex >= 0 && activeIndex < feedCameras.Length ? feedCameras[activeIndex] : null;
     private float inputLockUntil;
     private AudioSource audioSource;
     private bool hintShown;

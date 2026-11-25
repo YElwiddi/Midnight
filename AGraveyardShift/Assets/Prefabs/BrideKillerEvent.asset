@@ -33,16 +33,18 @@ MonoBehaviour:
   backToPlayerOnSpawn: 0
   spawnRotationOffset: {x: 0, y: 270, z: 0}
   useCustomRotation: 0
+  spawnOutOfSight: 0
+  outOfSightMinDistance: 8
   waypoints: []
   endGameOnPlayerTouch: 1
   killDistance: 4
   useJumpscare: 1
   useAmbushMode: 1
   idleAnimationBool: 
-  activationDistance: 20
+  activationDistance: 15
   ignoreActivationDistance: 0
   requirePlayerLooking: 1
-  lookDurationRequired: 2
+  lookDurationRequired: 1.25
   playerLookAngle: 30
   chaseAnimationTrigger: 
   chaseAnimationBool: IsWalking
@@ -61,6 +63,8 @@ MonoBehaviour:
   ambushTurnSoundVolume: 1
   ambushHairOnHead: 1
   idleSobAngle: 8
+  lockCameraOnAmbush: 1
+  ambushCameraTurnTime: 0.15
   killSequence: {fileID: 11400000, guid: 891a1573cd6bf5048ba981c05601047a, type: 2}
   killStopDistance: 2.6
   killAnimationTrigger: Kill

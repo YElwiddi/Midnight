@@ -306,6 +306,15 @@ public class KillerNPC : MonoBehaviour
     private float ambushTurnStart, ambushTurnAngle;
     private Quaternion ambushTurnFrom;
 
+    // The ambush pulls the player's view onto her face and holds it there until the kill takes over (Initialize).
+    private bool lockCameraOnAmbush;
+    private float ambushCameraTurnTime;
+    private bool cameraLocked;
+    private float cameraLockStart;
+    private Quaternion cameraLockFrom;
+    private Transform cameraLockTarget;
+    private Movement cameraLockMovement;
+
     // Her long hair rides on her head while it is turned further round than her body: a copy of her mesh with the
     // hair skinned to the head alone (her own hair hangs from her back as well, and would twist across it).
     private SkinnedMeshRenderer hairSkin;
@@ -417,6 +426,12 @@ public class KillerNPC : MonoBehaviour
         if (contortNow) ApplyChaseContortion();
         else if (contortionWasActive) ResetContortion(); // restore limb scales (rotation + float self-correct via the Animator)
         contortionWasActive = contortNow;
+
+        // The ambush holds the player's view on her face (after her head has turned this frame) until the kill takes over.
+        if (cameraLocked && !hasTriggeredGameOver)
+        {
+            HoldCameraOnAmbush();
+        }
 
         if (!hasTriggeredGameOver || !jumpscareHeadShake || headShakeBone == null)
             return;
@@ -944,6 +959,10 @@ public class KillerNPC : MonoBehaviour
         {
             return;
         }
+        if (lockCameraOnAmbush && !cameraLocked && !hasTriggeredGameOver)
+        {
+            LockCameraOnAmbush();
+        }
         if (ambushTurnTime > 0f && !ambushTurned)
         {
             StartCoroutine(AmbushTurnRoutine());
@@ -1137,6 +1156,8 @@ public class KillerNPC : MonoBehaviour
         ambushTurnSoundVolume = killerEvent.ambushTurnSoundVolume;
         ambushHairOnHead = killerEvent.ambushHairOnHead;
         idleSobAngle = killerEvent.idleSobAngle;
+        lockCameraOnAmbush = killerEvent.lockCameraOnAmbush;
+        ambushCameraTurnTime = killerEvent.ambushCameraTurnTime;
 
         // Try to find the face object by name (search recursively)
         if (!string.IsNullOrEmpty(killerEvent.killerFaceObjectName))
@@ -1700,11 +1721,59 @@ public class KillerNPC : MonoBehaviour
         }
     }
 
+    /// <summary>The ambush starts: the player's view swings onto her and stays there (HoldCameraOnAmbush).</summary>
+    private void LockCameraOnAmbush()
+    {
+        if (playerCamera == null || playerTransform == null)
+        {
+            return;
+        }
+        cameraLocked = true;
+        cameraLockStart = Time.time;
+        cameraLockFrom = playerCamera.transform.rotation;
+        // Her real head (the event's face object can be a fixed marker above it, as the Bride's is).
+        cameraLockTarget = animator != null && animator.isHuman ? animator.GetBoneTransform(HumanBodyBones.Head) : null;
+        cameraLockMovement = playerTransform.GetComponent<Movement>();
+        if (cameraLockMovement != null)
+        {
+            cameraLockMovement.DisableCameraControl();
+        }
+    }
+
+    /// <summary>Turns the player's body (yaw) and camera (pitch), the way Movement turns them, to look at her face.</summary>
+    private void HoldCameraOnAmbush()
+    {
+        if (playerCamera == null || playerTransform == null)
+        {
+            return;
+        }
+        Vector3 face = cameraLockTarget != null
+            ? cameraLockTarget.position
+            : (killerFace != null ? killerFace.position : transform.position + Vector3.up * faceHeightOffset) + Vector3.up * faceLookVerticalOffset;
+        Vector3 look = face - playerCamera.transform.position;
+        if (look.sqrMagnitude < 0.0001f)
+        {
+            return;
+        }
+        float u = ambushCameraTurnTime > 0f ? Smooth01((Time.time - cameraLockStart) / ambushCameraTurnTime) : 1f;
+        Vector3 e = Quaternion.Slerp(cameraLockFrom, Quaternion.LookRotation(look), u).eulerAngles;
+        float pitch = Mathf.Clamp(e.x > 180f ? e.x - 360f : e.x, -85f, 85f);
+        playerTransform.rotation = Quaternion.Euler(0f, e.y, 0f);
+        playerCamera.transform.rotation = Quaternion.Euler(pitch, e.y, 0f);
+    }
+
     private void OnDestroy()
     {
         if (hairOnHeadMesh != null)
         {
             Destroy(hairOnHeadMesh);
+        }
+
+        // Removed without a kill while it held the player's view: give the view back.
+        if (cameraLocked && !hasTriggeredGameOver && cameraLockMovement != null)
+        {
+            cameraLockMovement.SyncRotationFromCamera();
+            cameraLockMovement.EnableCameraControl();
         }
     }
 
