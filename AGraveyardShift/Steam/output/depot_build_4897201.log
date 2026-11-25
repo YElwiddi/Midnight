@@ -1,59 +1,23 @@
-[2026-11-22 15:38:35]: Starting build for depot 4897201, content path is "C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds\", build flags 0x0
-[2026-11-22 15:38:35]: Building file listing for depot 4897201 ...
-[2026-11-22 15:38:35]: Found 199 files for mapping: C:\Users\Nikko\Documents\Midnight\AGraveyardShift\Builds * -> .
-[2026-11-22 15:38:35]: Found 199 files (432 MB) for depot 4897201
-[2026-11-22 15:38:35]: Building depot 4897201, baseline manifest 6697928903527306194 (201 files)
-[2026-11-22 15:38:36]: Found 601 new chunks ( 596 used previously ) for depot 4897201, took 0 minutes, 0 seconds
-[2026-11-22 15:38:36]: Changes to baseline manifest 6697928903527306194 :
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\boot.config" 1 KB size, 1 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\globalgamemanagers" 236 KB size, 236 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\globalgamemanagers.assets" 422 KB size, 422 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\level0" 344 KB size, 344 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\level1" 9670 KB size, 9670 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\level1.resS" 48820 KB size, 25268 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Assembly-CSharp-firstpass.dll" 16 KB size, 16 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Assembly-CSharp.dll" 1035 KB size, 1035 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\glTFast.dll" 293 KB size, 293 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\glTFast.Documentation.Examples.dll" 20 KB size, 20 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\glTFast.dots.dll" 4 KB size, 4 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\glTFast.Export.dll" 93 KB size, 93 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\glTFast.Newtonsoft.dll" 4 KB size, 4 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Ink-Libraries.dll" 262 KB size, 262 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.AI.Navigation.dll" 24 KB size, 24 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.Collections.dll" 440 KB size, 440 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.Mathematics.dll" 735 KB size, 735 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.Multiplayer.Center.Common.dll" 11 KB size, 11 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.Rendering.LightTransport.Runtime.dll" 299 KB size, 299 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll" 9 KB size, 9 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll" 907 KB size, 907 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Core.Runtime.Shared.dll" 6 KB size, 6 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll" 5 KB size, 5 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.GPUDriven.Runtime.dll" 229 KB size, 229 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" 5 KB size, 5 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.2D.Runtime.dll" 245 KB size, 245 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.Config.Runtime.dll" 6 KB size, 6 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll" 792 KB size, 792 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll" 5 KB size, 5 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.TextMeshPro.dll" 436 KB size, 436 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.Timeline.dll" 130 KB size, 130 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.VisualScripting.Core.dll" 614 KB size, 614 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.VisualScripting.Flow.dll" 395 KB size, 395 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\Unity.VisualScripting.State.dll" 32 KB size, 32 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Managed\UnityEngine.UI.dll" 270 KB size, 270 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Plugins\x86_64\lib_burst_generated.dll" 552 KB size, 552 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\resources.assets" 50290 KB size, 12396 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\resources.assets.resS" 8392 KB size, 3272 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\resources.resource" 634 KB size, 634 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\Resources\unity_builtin_extra" 357 KB size, 357 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\RuntimeInitializeOnLoads.json" 4 KB size, 4 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\ScriptingAssemblies.json" 5 KB size, 5 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\sharedassets0.assets" 8251 KB size, 3534 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\sharedassets1.assets" 26961 KB size, 14155 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\sharedassets1.assets.resS" 118805 KB size, 3757 KB changed 
-[2026-11-22 15:38:36]: Changed: "A Graveyard Shift_Data\sharedassets1.resource" 4191 KB size, 3408 KB changed 
-[2026-11-22 15:38:36]: Removed: A Graveyard Shift_Data\Managed\MCPForUnity.Runtime.dll (33 KB)
-[2026-11-22 15:38:36]: Removed: A Graveyard Shift_Data\Managed\Newtonsoft.Json.dll (676 KB)
-[2026-11-22 15:38:36]: Summary: 0 files added (0 bytes), 46 files changed (83.32 MB), 2 files removed (708 KB)
-[2026-11-22 15:38:36]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 16476193193831589608, 45246 bytes).
-[2026-11-22 15:38:37]: Uploading 108 out of 108 missing chunks.
-[2026-11-22 15:38:41]: Success! New manifestID 1974645933021016364 created and 108 new chunks uploaded.
+[2026-11-25 00:41:35]: Starting build for depot 4897201, content path is "C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds\", build flags 0x0
+[2026-11-25 00:41:35]: Building file listing for depot 4897201 ...
+[2026-11-25 00:41:35]: Found 199 files for mapping: C:\Users\Nikko\Documents\Midnight\AGraveyardShift\Builds * -> .
+[2026-11-25 00:41:39]: Found 199 files (456 MB) for depot 4897201
+[2026-11-25 00:41:40]: Building depot 4897201, baseline manifest 1974645933021016364 (199 files)
+[2026-11-25 00:41:42]: Found 627 new chunks ( 601 used previously ) for depot 4897201, took 0 minutes, 1 seconds
+[2026-11-25 00:41:42]: Changes to baseline manifest 1974645933021016364 :
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\boot.config" 1 KB size, 1 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\globalgamemanagers" 236 KB size, 236 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\globalgamemanagers.assets" 436 KB size, 436 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\level1" 11666 KB size, 11666 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\level1.resS" 67040 KB size, 45536 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\Managed\Assembly-CSharp.dll" 1038 KB size, 1038 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\resources.assets" 50290 KB size, 3416 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\sharedassets0.assets" 8251 KB size, 2049 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\sharedassets0.resource" 14217 KB size, 5001 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\sharedassets1.assets" 27115 KB size, 14309 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\sharedassets1.assets.resS" 120760 KB size, 14293 KB changed 
+[2026-11-25 00:41:42]: Changed: "A Graveyard Shift_Data\sharedassets1.resource" 4738 KB size, 2595 KB changed 
+[2026-11-25 00:41:42]: Summary: 0 files added (0 bytes), 12 files changed (98.21 MB), 0 files removed (0 bytes)
+[2026-11-25 00:41:42]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 4856081729779037069, 46071 bytes).
+[2026-11-25 00:41:42]: Uploading 105 out of 105 missing chunks.
+[2026-11-25 00:41:47]: Success! New manifestID 8565337677254797005 created and 105 new chunks uploaded.
