@@ -47,7 +47,7 @@ MonoBehaviour:
     folder: Crypt
     accentFolder: 
     accentChance: 0
-    volume: 0.4859
+    volume: 0.243
   - surface: 7
     folder: Forest
     accentFolder: 

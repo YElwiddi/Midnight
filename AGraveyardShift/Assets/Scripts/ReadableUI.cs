@@ -81,7 +81,8 @@ public class ReadableUI : MonoBehaviour
     private float currentShakeSpeed;
 
     // A note held in the hands instead of shown on this panel (HeldNote). IsOpen stays true while it is held,
-    // so everything that waits for the reader to close keeps working.
+    // so everything that waits for the reader to close keeps working. Its keys are read in HeldNoteKeys, which the
+    // held note runs: this component sits on the panel, and the panel stays switched off while a note is held.
     private HeldNote held;
     private bool heldClosing;
     private int heldOpenFrame;
@@ -168,14 +169,8 @@ public class ReadableUI : MonoBehaviour
     {
         if (!isOpen) return;
 
-        if (held != null)
-        {
-            // the press that picked the note up must not also put it down
-            if (heldClosing || Time.frameCount == heldOpenFrame) return;
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E)) RequestClose();
-            else if (Input.GetMouseButtonDown(0)) Advance();
-            return;
-        }
+        // A held note's keys are read in HeldNoteKeys (run by the note itself).
+        if (held != null) return;
 
         // Allow closing with Escape or E key
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
@@ -340,7 +335,7 @@ public class ReadableUI : MonoBehaviour
         AppendKeeperRemarks(currentPages, keeperRemarks);
         currentPageIndex = 0;
 
-        held = HeldNote.Begin(wall, style, paper, currentPages, overrides, lowSanity, CloseQuietly);
+        held = HeldNote.Begin(wall, style, paper, currentPages, overrides, lowSanity, HeldNoteKeys, CloseQuietly);
         if (held == null) { currentPages = null; return; }
         heldClosing = false;
         heldOpenFrame = Time.frameCount;
@@ -371,6 +366,16 @@ public class ReadableUI : MonoBehaviour
         if (heldClosing) return;
         heldClosing = true;
         held.PutBack(() => { held = null; heldClosing = false; Close(); });
+    }
+
+    // The keys while a note is held: E or Escape puts it back, a click turns it over. The held note runs this every
+    // frame it is in the hands, since this component's own Update is off along with the hidden panel.
+    private void HeldNoteKeys()
+    {
+        // the press that picked the note up must not also put it down
+        if (!isOpen || held == null || heldClosing || Time.frameCount == heldOpenFrame) return;
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E)) RequestClose();
+        else if (Input.GetMouseButtonDown(0)) Advance();
     }
 
     // Something else took the camera while a note was held (a kill, a cinematic): stop reading without

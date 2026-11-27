@@ -88,7 +88,8 @@ public class FootstepSettings : ScriptableObject
     {
         var s = CreateInstance<FootstepSettings>();
         s.name = "FootstepSettings";
-        // volumes reproduce the levels of the Graveyard Footfalls pitch (2026-11-26) at the player's position
+        // volumes reproduce the levels of the Graveyard Footfalls pitch (2026-11-26) at the player's position,
+        // except the crypt, halved on 2026-11-27 (it was too loud)
         s.sounds = new[]
         {
             Sound(FootSurface.Grass, "Grass", 0.0722f),
@@ -97,7 +98,7 @@ public class FootstepSettings : ScriptableObject
             Sound(FootSurface.CabinWood, "CabinHollow", 0.0675f, "CabinCreak", 0.3f),
             Sound(FootSurface.ChapelWood, "Chapel", 0.1556f),
             Sound(FootSurface.Staircase, "Staircase", 0.1913f),
-            Sound(FootSurface.Crypt, "Crypt", 0.4859f),
+            Sound(FootSurface.Crypt, "Crypt", 0.243f),
             Sound(FootSurface.Forest, "Forest", 0.1343f),
         };
         s.pathRules = new[]

@@ -39,8 +39,9 @@ public class HeldNote : MonoBehaviour
         return true;
     }
 
-    /// <summary>Starts holding a note. Pages are final (translated, red pen applied).</summary>
-    public static HeldNote Begin(Renderer wall, Style style, Texture paper, string[] pages, ReadableUI.TextOverrides overrides, bool lowSanity, Action onTakenOver)
+    /// <summary>Starts holding a note. Pages are final (translated, red pen applied). <paramref name="whileHeld"/> runs every
+    /// frame the note is in the hands (the reader's keys); <paramref name="onTakenOver"/> when something else takes the camera.</summary>
+    public static HeldNote Begin(Renderer wall, Style style, Texture paper, string[] pages, ReadableUI.TextOverrides overrides, bool lowSanity, Action whileHeld, Action onTakenOver)
     {
         var settings = HeldNoteSettings.Load();
         var movement = FindFirstObjectByType<Movement>();
@@ -48,7 +49,7 @@ public class HeldNote : MonoBehaviour
         if (settings == null || cam == null) return null;
         var go = new GameObject("Held note");
         var held = go.AddComponent<HeldNote>();
-        held.Init(settings, cam, wall, style, paper, pages, overrides, lowSanity, onTakenOver);
+        held.Init(settings, cam, wall, style, paper, pages, overrides, lowSanity, whileHeld, onTakenOver);
         return held;
     }
 
@@ -62,7 +63,7 @@ public class HeldNote : MonoBehaviour
     private string[] pages;
     private ReadableUI.TextOverrides overrides;
     private bool lowSanity;
-    private Action onTakenOver;
+    private Action whileHeld, onTakenOver;
 
     private GameObject sheet, front, back;
     private Material frontMat, backMat;
@@ -79,15 +80,16 @@ public class HeldNote : MonoBehaviour
     private enum Phase { Lift, Hold, Back, Done }
     private Phase phase = Phase.Lift;
     private float phaseTime, life;
+    private float head, backHead = 1f;                      // how far the head has come up (0..1); where it was when put down
     private float flip, flipFrom, flipTo, flipTime = -1f;   // 0 = front facing the reader, 1 = back
     private int shownPage;
     private Action onPutBack;
     private bool shaking;
     private float shakeIntensity, shakeSpeed;
 
-    private void Init(HeldNoteSettings s, Camera c, Renderer w, Style st, Texture p, string[] pg, ReadableUI.TextOverrides ov, bool low, Action takenOver)
+    private void Init(HeldNoteSettings s, Camera c, Renderer w, Style st, Texture p, string[] pg, ReadableUI.TextOverrides ov, bool low, Action keys, Action takenOver)
     {
-        settings = s; cam = c; wall = w; style = st; paper = p; pages = pg; overrides = ov; lowSanity = low; onTakenOver = takenOver;
+        settings = s; cam = c; wall = w; style = st; paper = p; pages = pg; overrides = ov; lowSanity = low; whileHeld = keys; onTakenOver = takenOver;
         bool crypt = style == Style.Crypt;
         sheetSize = crypt ? settings.cryptSheet : settings.cabinSheet;
         holdDist = crypt ? settings.cryptHold : settings.cabinHold;
@@ -360,7 +362,10 @@ public class HeldNote : MonoBehaviour
     {
         if (phase == Phase.Back || phase == Phase.Done) return;
         onPutBack = done;
-        phase = Phase.Back; phaseTime = 0f;
+        // put down while still coming up: it goes back from where it got to (the put-back curve mirrors the lift's)
+        float up = phase == Phase.Lift ? Mathf.Clamp01(phaseTime / settings.liftSeconds) : 1f;
+        backHead = head;
+        phase = Phase.Back; phaseTime = (1f - up) * settings.putBackSeconds;
         Play(settings.putBackSound);
     }
 
@@ -370,6 +375,12 @@ public class HeldNote : MonoBehaviour
         if (phase == Phase.Done) return;
         phase = Phase.Done;
         Cleanup();
+    }
+
+    // The reader's keys (put it back, turn it over), every frame the note is in the hands.
+    private void Update()
+    {
+        if (phase == Phase.Lift || phase == Phase.Hold) whileHeld?.Invoke();
     }
 
     private void LateUpdate()
@@ -393,7 +404,9 @@ public class HeldNote : MonoBehaviour
         else lift = 1f - Smooth(phaseTime / settings.putBackSeconds);
 
         // the head comes up a little while the page is held, and goes back with it
-        float head = Smooth(Mathf.Clamp01(phase == Phase.Lift ? phaseTime / (settings.liftSeconds + 0.1f) : phase == Phase.Hold ? 1f : 1f - phaseTime / settings.putBackSeconds));
+        // (put down early, it starts down from where it got to)
+        head = phase == Phase.Lift ? Smooth(phaseTime / (settings.liftSeconds + 0.1f)) : phase == Phase.Hold ? 1f
+             : Mathf.Min(backHead, Smooth(1f - phaseTime / settings.putBackSeconds));
         ct.localRotation = Quaternion.Slerp(restLocalRot, liftLocalRot, head);
         lastRot = ct.rotation;
 
