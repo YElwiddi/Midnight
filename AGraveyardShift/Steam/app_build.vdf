@@ -6,7 +6,7 @@
 "AppBuild"
 {
 	"AppID"		"4897200"			// Steam App ID
-	"Desc"		"A Graveyard Shift - gates & footsteps update: Epitaph gates + title backdrop, darker mist/fog + hand-held torch, floor-aware footsteps, held notes, tombstone kneel, crypt fiend kills + death cards (commit 0b0b5b7), 2026-11-27"		// internal build note - only shown in the Steamworks admin builds list
+	"Desc"		"A Graveyard Shift - gates & footsteps update, fixed: held notes can be put back again (E/Esc), crypt footsteps halved, 13 third-attempt crypt arrows instead of 33 (commit 4d391b6 on top of 0b0b5b7; replaces 26966110), 2026-11-27"		// internal build note - only shown in the Steamworks admin builds list
 
 	// Absolute path to the finished Unity build. The whole folder ships (no DoNotShip cruft in it):
 	"ContentRoot"	"C:\\Users\\Nikko\\Documents\\Midnight\\AGraveyardShift\\Builds"
