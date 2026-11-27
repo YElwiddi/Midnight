@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f28756844c33f48afe99549b130de9, type: 3}
+  m_Name: FootstepSettings
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSettings
+  sounds:
+  - surface: 0
+    folder: Grass
+    accentFolder: 
+    accentChance: 0
+    volume: 0.0722
+  - surface: 1
+    folder: Dirt
+    accentFolder: 
+    accentChance: 0
+    volume: 0.1321
+  - surface: 2
+    folder: Stone
+    accentFolder: 
+    accentChance: 0
+    volume: 0.1257
+  - surface: 3
+    folder: CabinHollow
+    accentFolder: CabinCreak
+    accentChance: 0.3
+    volume: 0.0675
+  - surface: 4
+    folder: Chapel
+    accentFolder: 
+    accentChance: 0
+    volume: 0.1556
+  - surface: 5
+    folder: Staircase
+    accentFolder: 
+    accentChance: 0
+    volume: 0.1913
+  - surface: 6
+    folder: Crypt
+    accentFolder: 
+    accentChance: 0
+    volume: 0.4859
+  - surface: 7
+    folder: Forest
+    accentFolder: 
+    accentChance: 0
+    volume: 0.1343
+  masterVolume: 1
+  pitchJitter: 0.04
+  volumeJitterDb: 1.5
+  runGainDb: 2
+  runPitch: 0.02
+  landGainDb: 3
+  landPitch: -0.04
+  minAirTime: 0.3
+  minDropHeight: 1
+  pathRules:
+  - match: Interior Cabin
+    surface: 3
+  - match: eglise-sketchfab5/Interior PSX
+    surface: 4
+  - match: eglise-sketchfab5/SecretRoom
+    surface: 5
+  - match: InfiniteStaircase
+    surface: 5
+  - match: MapFBXFile
+    surface: 6
+  - match: The Forest/ProceduralRocks/AbandonedHouse
+    surface: 2
+  - match: The Forest
+    surface: 7
+  nameRules:
+  - match: road
+    surface: 1
+  - match: horror_misc_06
+    surface: 1
+  - match: dirt
+    surface: 1
+  - match: path
+    surface: 1
+  - match: farmland
+    surface: 1
+  - match: grass
+    surface: 0
+  - match: ground
+    surface: 0
+  - match: stairs
+    surface: 2
+  - match: fountain
+    surface: 2
+  - match: mausoleum
+    surface: 2
+  - match: stone
+    surface: 2
+  - match: rock
+    surface: 2
+  - match: brick
+    surface: 2
+  - match: wall
+    surface: 2
+  - match: concrete
+    surface: 2
+  - match: pillar
+    surface: 2
+  - match: gate
+    surface: 2
+  - match: metal
+    surface: 2
+  - match: fance
+    surface: 2
+  fallback: 1

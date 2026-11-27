@@ -28,6 +28,8 @@ public class KillSequenceRig
     public Vector3 startLook;
     public float baseFov = 60f;
     public Light torch;
+    /// <summary>The torch's own beam pattern (taken off it while a sequence drives it; a sequence can put it back).</summary>
+    public Texture torchCookie;
     public readonly List<Light> lanterns = new List<Light>();
     public VHSRetroFeature vhs;
     public JumpscareScreenFX fx;
@@ -74,6 +76,7 @@ public class KillSequenceRig
         SimpleFlashlight flashlight = Object.FindObjectOfType<SimpleFlashlight>();
         if (flashlight != null)
         {
+            if (flashlight.spotLight != null) rig.torchCookie = flashlight.spotLight.cookie;
             flashlight.enabled = false;
             rig.torch = flashlight.spotLight;
         }

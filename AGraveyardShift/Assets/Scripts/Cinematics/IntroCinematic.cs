@@ -287,6 +287,13 @@ public class IntroCinematic : MonoBehaviour
 
     private void PlayFootstepSound()
     {
+        // Floor-aware footsteps (PlayerFootsteps) when they are running; Movement's single set otherwise
+        if (playerMovement != null && playerMovement.surfaceFootsteps != null && playerMovement.surfaceFootsteps.Active)
+        {
+            playerMovement.surfaceFootsteps.PlayStepNow();
+            return;
+        }
+
         if (playerMovement != null && playerMovement.footstepAudioSource != null)
         {
             AudioClip[] clips = playerMovement.walkingFootstepSounds;

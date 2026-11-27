@@ -35,6 +35,6 @@ Material:
     - _Opacity: 1
     - _RadialFade: 1
     m_Colors:
-    - _Color: {r: 0.6, g: 0.4, b: 0.38, a: 1}
+    - _Color: {r: 0.438, g: 0.292, b: 0.2774, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

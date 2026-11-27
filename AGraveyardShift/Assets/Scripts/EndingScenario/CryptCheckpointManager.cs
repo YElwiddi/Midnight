@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages checkpoint respawning for the crypt area.
 /// When the player dies to a crypt killer, they respawn outside the crypt
 /// with all crypt objects (shovel, dirt piles, killer) reset to their initial state.
+/// While the screen is black, two message cards tell the player what happened
+/// ("The Crypt Fiend has claimed your soul." / "You have been returned to the surface...").
 /// After a death the crypt also eases up: a hint note appears, the shovel moves next to it
 /// (if the player had found it) and the killer is slower and sees less far. After a second
 /// death, red arrows on the floor lead toward the general areas of the correct graves.
@@ -36,6 +40,34 @@ public class CryptCheckpointManager : MonoBehaviour
     [Header("Fade Overlay")]
     [Tooltip("Full-screen black overlay for fade effect (should be a UI Image)")]
     public CanvasGroup fadeOverlay;
+
+    [Header("Death Message")]
+    [Tooltip("First card on the black screen after a crypt fiend catches the player. Written in English; other languages come from the localization tables, so a changed line needs translating again. Empty = no card.")]
+    [TextArea(1, 3)]
+    public string claimedMessage = "The Crypt Fiend has claimed your soul.";
+
+    [Tooltip("Second card, on a fresh black screen after the first one fades away (the player is moved to the surface in between). Empty = no card.")]
+    [TextArea(2, 4)]
+    public string returnedMessage = "You have been returned to the surface.\nEnter the crypt and try again.";
+
+    [Tooltip("Font of both cards. Empty = Caslon Antique like the intro pages (the good ending's font in Resources/EndingFontConfig). Other languages swap it through the localization font map.")]
+    public TMP_FontAsset messageFont;
+
+    public float messageFontSize = 48f;
+
+    public Color messageColor = new Color(0.93f, 0.91f, 0.87f, 1f);
+
+    [Tooltip("Silent black beat before each card (seconds)")]
+    public float messagePause = 0.6f;
+
+    [Tooltip("Seconds each card takes to fade in, and again to fade out")]
+    public float messageFadeDuration = 0.8f;
+
+    [Tooltip("Seconds the first card stays fully visible")]
+    public float claimedMessageHold = 2.2f;
+
+    [Tooltip("Seconds the second card stays fully visible")]
+    public float returnedMessageHold = 3.2f;
 
     [Header("Shovel Respawn")]
     [Tooltip("Prefab for the shovel pickup")]
@@ -103,6 +135,10 @@ public class CryptCheckpointManager : MonoBehaviour
     private List<GameObject> currentDirtPiles = new List<GameObject>();
     private GameObject currentKiller;
     private AudioSource audioSource;
+
+    // Death message cards (built on first use, on their own canvas above the HUD)
+    private GameObject messageRoot;
+    private TextMeshProUGUI messageText;
 
     // State
     private bool isRespawning = false;
@@ -264,8 +300,19 @@ public class CryptCheckpointManager : MonoBehaviour
             shovelFoundBefore = true;
         }
 
+        // Hold the player until the screen comes back. This also keeps the pause menu shut
+        // (PauseMenu.CanPause checks these flags): resuming would hand control back mid-sequence.
+        LockPlayerInput();
+
         // Fade to black
         yield return StartCoroutine(FadeOut());
+
+        // The death message takes over the black screen (its own canvas, above the HUD)
+        bool showMessage = !string.IsNullOrWhiteSpace(claimedMessage) || !string.IsNullOrWhiteSpace(returnedMessage);
+        if (showMessage)
+        {
+            ShowMessageScreen();
+        }
 
         // Clean up existing crypt objects
         CleanupCryptObjects();
@@ -273,8 +320,14 @@ public class CryptCheckpointManager : MonoBehaviour
         // Reset GameManager crypt-related stats
         ResetCryptStats();
 
+        // "The Crypt Fiend has claimed your soul." (still down in the crypt)
+        yield return StartCoroutine(ShowMessageCard(claimedMessage, claimedMessageHold));
+
         // Teleport player to checkpoint
         TeleportPlayerToCheckpoint();
+
+        // "You have been returned to the surface..." on a fresh black screen, now on the surface
+        yield return StartCoroutine(ShowMessageCard(returnedMessage, returnedMessageHold));
 
         // Re-enable player controls and flashlight
         RestorePlayerState();
@@ -291,7 +344,11 @@ public class CryptCheckpointManager : MonoBehaviour
             audioSource.PlayOneShot(respawnSound, respawnSoundVolume);
         }
 
-        // Fade in
+        // Hand the black screen back to the fade overlay, then fade in
+        if (showMessage)
+        {
+            HideMessageScreen();
+        }
         yield return StartCoroutine(FadeIn());
 
         isRespawning = false;
@@ -324,6 +381,122 @@ public class CryptCheckpointManager : MonoBehaviour
             yield return null;
         }
         fadeOverlay.alpha = 0f;
+    }
+
+    /// <summary>
+    /// Freezes movement and look until RestorePlayerState. The jumpscare already switched the
+    /// Movement component off; these flags also tell the pause menu that the player is held.
+    /// </summary>
+    private void LockPlayerInput()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Movement movement = player != null ? player.GetComponent<Movement>() : null;
+        if (movement != null)
+        {
+            movement.DisableAllInput();
+        }
+    }
+
+    /// <summary>Puts up the death message's own black screen (at once: the fade overlay is already black).</summary>
+    private void ShowMessageScreen()
+    {
+        EnsureMessageUI();
+
+        // Applied on every death, so a language picked in the pause menu since the last one is honoured
+        TMP_FontAsset authoredFont = messageFont != null ? messageFont : EndingFonts.Get(Ending.WrongfulConviction);
+        Loc.ApplyFont(messageText, authoredFont, messageFontSize);
+        messageText.color = messageColor;
+        messageText.alpha = 0f;
+        messageText.text = string.Empty;
+        messageRoot.SetActive(true);
+    }
+
+    private void HideMessageScreen()
+    {
+        if (messageRoot != null)
+        {
+            messageRoot.SetActive(false);
+        }
+    }
+
+    /// <summary>One card: a silent beat, then the line fades in, holds, and fades out again.</summary>
+    private IEnumerator ShowMessageCard(string englishText, float hold)
+    {
+        if (string.IsNullOrWhiteSpace(englishText) || messageText == null) yield break;
+
+        yield return StartCoroutine(WaitUnscaled(messagePause));
+
+        messageText.text = Loc.Tr(englishText);
+        yield return StartCoroutine(FadeMessage(0f, 1f));
+        yield return StartCoroutine(WaitUnscaled(hold));
+        yield return StartCoroutine(FadeMessage(1f, 0f));
+        messageText.text = string.Empty;
+    }
+
+    private IEnumerator FadeMessage(float from, float to)
+    {
+        float elapsed = 0f;
+        while (elapsed < messageFadeDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            messageText.alpha = Mathf.SmoothStep(from, to, elapsed / messageFadeDuration);
+            yield return null;
+        }
+        messageText.alpha = to;
+    }
+
+    // Counts frame time like the fades do, so the cards keep their pacing frame for frame
+    private IEnumerator WaitUnscaled(float seconds)
+    {
+        float elapsed = 0f;
+        while (elapsed < seconds)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+    }
+
+    /// <summary>Builds the death message UI once: a black screen with one centred block of text.</summary>
+    private void EnsureMessageUI()
+    {
+        if (messageRoot != null) return;
+
+        messageRoot = new GameObject("CryptDeathMessage", typeof(RectTransform));
+        messageRoot.transform.SetParent(transform, false);
+
+        Canvas canvas = messageRoot.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 1000; // above the HUD and the respawn fade overlay (sorting order 0)
+
+        CanvasScaler scaler = messageRoot.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+        scaler.matchWidthOrHeight = 0.5f;
+
+        GameObject backdrop = new GameObject("Black", typeof(RectTransform));
+        backdrop.transform.SetParent(messageRoot.transform, false);
+        Image black = backdrop.AddComponent<Image>();
+        black.color = Color.black;
+        black.raycastTarget = false;
+        Stretch(black.rectTransform, Vector2.zero, Vector2.one);
+
+        GameObject textObject = new GameObject("Message", typeof(RectTransform));
+        textObject.transform.SetParent(messageRoot.transform, false);
+        messageText = textObject.AddComponent<TextMeshProUGUI>();
+        messageText.alignment = TextAlignmentOptions.Center;
+        messageText.lineSpacing = 20f;
+        messageText.raycastTarget = false;
+        Stretch(messageText.rectTransform, new Vector2(0.1f, 0.2f), new Vector2(0.9f, 0.8f));
+
+        messageRoot.SetActive(false);
+    }
+
+    private static void Stretch(RectTransform rect, Vector2 anchorMin, Vector2 anchorMax)
+    {
+        rect.anchorMin = anchorMin;
+        rect.anchorMax = anchorMax;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
     }
 
     private void CleanupCryptObjects()

@@ -36,7 +36,7 @@ public static class MenuBackdropBuilder
 
     static readonly Vector3 VisitorPos = new Vector3(-120.6f, 17.29f, 144.8f);
 
-    static readonly System.Type[] KeepBehaviours = { typeof(LampHalo) };
+    static readonly System.Type[] KeepBehaviours = { typeof(LampHalo), typeof(GateLanternLink) };   // gate lanterns follow the menu lamp
 
     [MenuItem("Tools/Graveyard/Menu/Build Gate Backdrop")]
     public static string Build()

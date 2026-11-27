@@ -490,6 +490,14 @@
    "v": "Ceux qui ont été inhumés sans châtiment doivent être sauvés. Exhumez-les et laissez leurs âmes reposer en paix."
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "Le Démon de la crypte s'est emparé de votre âme."
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "Vous avez été ramené à la surface.\nEntrez dans la crypte et réessayez."
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "Aucun Deloitte n'est enterré dans ce cimetière."
   },

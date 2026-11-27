@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0542f5f5bb5fcd48affc57618ea2906, type: 3}
+  m_Name: HeldNoteSettings
+  m_EditorClassIdentifier: Assembly-CSharp::HeldNoteSettings
+  standardBackground: {fileID: 21300000, guid: 5face2da520a6fa4fa8eff1c614aff70, type: 3}
+  cryptRoots:
+  - MapFBXFile
+  cabinPaper: {fileID: 2800000, guid: 690417a24d4d0d94185236be06f45ea9, type: 3}
+  cryptPaper: {fileID: 2800000, guid: 0f28c18b8d7d2774686616245e35896e, type: 3}
+  cryptFont: {fileID: 11400000, guid: 5176f624db3a3bf488f77e927f08c338, type: 2}
+  inkColor: {r: 0.035, g: 0.028, b: 0.026, a: 1}
+  pencilColor: {r: 0.2, g: 0.2, b: 0.22, a: 1}
+  textScale: 1.28
+  cryptTextScale: 1.67
+  sheetMaterial: {fileID: 2100000, guid: b90d347f7b3b73347a9842d62df8ba87, type: 2}
+  cabinGlow: {r: 0.34, g: 0.25, b: 0.16, a: 1}
+  cryptGlow: {r: 0.22, g: 0.2, b: 0.18, a: 1}
+  cabinSheet: {x: 0.43, y: 0.62}
+  cabinHold: 0.7
+  cryptSheet: {x: 0.3, y: 0.381}
+  cryptHold: 0.48
+  pageLayer: 30
+  liftSeconds: 0.7
+  turnSeconds: 0.55
+  putBackSeconds: 0.6
+  maxLookDown: 25
+  vignette: 0.7
+  readingHand: {x: 0.06, y: -0.1, z: 0.05}
+  readingAimMin: 0.25
+  pickUpSound: {fileID: 8300000, guid: 6965593fba58ef4428024823e51802b4, type: 3}
+  turnSound: {fileID: 8300000, guid: 354f58b4685b62342a09938175152f4b, type: 3}
+  putBackSound: {fileID: 8300000, guid: 08cb1f0590624664798baafd2b2d6a2c, type: 3}
+  soundVolume: 0.7

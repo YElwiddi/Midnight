@@ -490,6 +490,14 @@
    "v": "Тех, кто погребён без наказания, нужно спасти. Извлеките их и упокойте их души."
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "Тварь склепа забрала вашу душу."
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "Вас вернули на поверхность.\nВойдите в склеп и попробуйте снова."
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "На этой земле не похоронен ни один Делойт."
   },

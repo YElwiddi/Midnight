@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fdbc64b8f30bd45932be3877eb4e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KillerJumpscare
+  killSequence: {fileID: 11400000, guid: 053a9b462eadd124f9094b718c82ca3d, type: 2}
   killerFace: {fileID: 0}
   faceHeightOffset: 1
   killStopDistance: 2

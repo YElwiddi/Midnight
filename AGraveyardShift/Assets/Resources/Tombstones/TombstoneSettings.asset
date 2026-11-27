@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0834ce5c3d7011547a638b2e8b884632, type: 3}
+  m_Name: TombstoneSettings
+  m_EditorClassIdentifier: Assembly-CSharp::TombstoneSettings
+  faces:
+  - mesh: Gravestone1
+    center: {x: -0.00005200988, y: 0.0020127464, z: 0.0016947899}
+    normal: {x: 0.000000018506437, y: 0.99586016, z: 0.09089871}
+    up: {x: -0.000000001689201, y: -0.09089875, z: 0.99586016}
+    size: {x: 0.007262138, y: 0.0065593505}
+    textScale: 1
+  - mesh: Gravestone1
+    center: {x: -0.00005200988, y: -0.00200953, z: 0.0016947892}
+    normal: {x: 0.0000000054179887, y: -0.9958601, z: 0.09089906}
+    up: {x: -4.9453847e-10, y: 0.09089906, z: 0.9958601}
+    size: {x: 0.007262138, y: 0.0065593505}
+    textScale: 1
+  - mesh: Stone_03
+    center: {x: 0, y: -0.0004154208, z: 0.003170363}
+    normal: {x: 0.00018206598, y: -0.99999213, z: 0.003968418}
+    up: {x: -0.0000007225467, y: 0.003968418, z: 0.99999213}
+    size: {x: 0.0059340745, y: 0.0071999757}
+    textScale: 1.45
+  - mesh: Stone_03
+    center: {x: 0, y: 0.0004154203, z: 0.003170363}
+    normal: {x: 0.0002212775, y: 0.99999213, z: 0.0039558415}
+    up: {x: -0.0000008753187, y: -0.003955782, z: 0.9999922}
+    size: {x: 0.0059340745, y: 0.0071999757}
+    textScale: 1.45
+  nameFont: {fileID: 11400000, guid: 12bd334b8164d874192466924bf8fcb2, type: 2}
+  textFont: {fileID: 11400000, guid: 212007813ea1ae34ab42d21c0aecc43d, type: 2}
+  carvedTemplate: {fileID: 2100000, guid: 26edebaeb7131d04a81db906c7da1b35, type: 2}
+  panelMaterial: {fileID: 2100000, guid: 4a63a3537593b794bbb4350d851cb7f8, type: 2}
+  grooveColor: {r: 0.16, g: 0.155, b: 0.145, a: 1}
+  panelColor: {r: 1, g: 1, b: 1, a: 0.42}
+  prefixCap: 0.051
+  nameCap: 0.093
+  textCap: 0.055
+  datesCap: 0.058
+  maxLineWidth: 0.82
+  kneelSeconds: 0.95
+  standSeconds: 0.85
+  distance: 1.65
+  height: 0.79
+  minEyeHeight: 0.95
+  maxPitch: 42
+  framing: 0.58
+  minFov: 38
+  kneelHand: {x: 0.06, y: -0.1, z: 0.05}
+  kneelAimMin: 0.25
+  rereadDelay: 0.25
+  kneelSound: {fileID: 8300000, guid: 47252651ccf84104da6859db76aaed5c, type: 3}
+  standSound: {fileID: 8300000, guid: fdb2fb4f3f12c2c4eb489724010ffdfe, type: 3}
+  soundVolume: 0.7
+  turnDelay: 0.35
+  turnSeconds: 0.6
+  shakeScale: 0.022
+  lowSanityCap: 0.18

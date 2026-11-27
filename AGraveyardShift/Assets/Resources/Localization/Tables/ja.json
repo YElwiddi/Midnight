@@ -490,6 +490,14 @@
    "v": "罰を受けることなく埋葬された者たちは、救われねばならない。彼らを掘り起こし、その魂を安らかに眠らせよ。"
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "地下聖堂の魔物に魂を奪われた。"
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "地上に戻された。\n地下聖堂に入り、もう一度挑もう。"
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "この墓地にデロイト家の者は一人も埋葬されていない。"
   },

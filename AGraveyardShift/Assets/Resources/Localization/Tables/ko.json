@@ -490,6 +490,14 @@
    "v": "형벌 없이 매장된 자들은 구원받아야 한다. 그들을 파내어 그 영혼을 안식에 들게 하라."
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "지하 묘실의 악귀가 당신의 영혼을 앗아갔습니다."
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "지상으로 돌려보내졌습니다.\n지하 묘실에 들어가 다시 도전하세요."
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "이곳에 묻힌 들로이트 가 사람은 아무도 없다."
   },

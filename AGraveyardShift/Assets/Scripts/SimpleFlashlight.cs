@@ -16,6 +16,28 @@ public class SimpleFlashlight : MonoBehaviour
     public float spotAngle = 55f;
     public Color lightColor = Color.white;
     
+    [Header("Beam")]
+    [Tooltip("A soft beam: bright core, broad body, dim rim, instead of a hard-edged disc")]
+    public bool softBeam = true;
+    [Tooltip("Optional cookie for the beam. Empty = the built-in soft beam")]
+    public Texture beamCookie;
+
+    [Header("Hand-held")]
+    [Tooltip("Hold the torch in the hand instead of at the eyes, so whatever it lights throws a shadow that swings as you move")]
+    public bool handHeld = true;
+    [Tooltip("Where the hand holds the torch, in metres from the eyes (right, up, forward). The player's scale doesn't stretch it")]
+    public Vector3 handOffset = new Vector3(0.35f, -0.8f, 0.2f);
+    [Tooltip("The beam aims at what you look at, no nearer than this (metres)")]
+    public float aimMinDistance = 3f;
+    [Tooltip("...and no further than this (metres)")]
+    public float aimMaxDistance = 15f;
+    [Tooltip("Where the beam aims when nothing is in front within the furthest distance (metres)")]
+    public float aimOpenDistance = 8f;
+    [Tooltip("Seconds the beam takes to catch up with a turn")]
+    public float aimLag = 0.08f;
+    [Tooltip("Hard shadows from the hand-held torch")]
+    public bool castShadows = true;
+
     [Header("Audio")]
     public AudioClip toggleOnSound;
     public AudioClip toggleOffSound;
@@ -56,7 +78,16 @@ public class SimpleFlashlight : MonoBehaviour
     private float disabledDialogueTypewriterSpeed;
     private float disabledDialogueCooldown;
     private float lastDialogueTime = -999f;
-    
+
+    // Hand-held aim
+    private bool started;
+    private bool aimSet;
+    private Quaternion aimRotation;
+    private Vector3 lastCameraPosition;
+    private Quaternion lastCameraRotation;
+    private static readonly RaycastHit[] aimHits = new RaycastHit[8];
+    private static Texture2D softCookie;
+
     void Start()
     {
         // Make sure we have a spotlight assigned
@@ -120,8 +151,28 @@ public class SimpleFlashlight : MonoBehaviour
         // Set initial state (without playing sound)
         isOn = startsEnabled;
         SetFlashlightState(isOn, playSound: false);
+        started = true;
     }
-    
+
+    void OnEnable()
+    {
+        // Back from a kill sequence or cinematic that switched this off: the hand-held beam again.
+        if (!started) return;
+        aimSet = false;
+        ConfigureLight();
+    }
+
+    void OnDisable()
+    {
+        // Whatever takes the torch over (kill sequences, jumpscares) gets the eye-level beam it was framed with:
+        // at the camera, no cookie, no shadows. They set their own range, angle and intensity.
+        if (spotLight == null) return;
+        spotLight.cookie = null;
+        spotLight.shadows = LightShadows.None;
+        if (playerCamera != null)
+            spotLight.transform.SetPositionAndRotation(playerCamera.transform.position, playerCamera.transform.rotation);
+    }
+
     void Update()
     {
         // Toggle flashlight with key press (if controls not disabled)
@@ -130,32 +181,65 @@ public class SimpleFlashlight : MonoBehaviour
             ToggleFlashlight();
         }
 
-        // Update flashlight position and rotation to follow camera
-        UpdateFlashlightTransform();
-
         // Update killer proximity flicker
         if (enableKillerFlicker && isOn && !isDisabledByKiller)
         {
             UpdateKillerFlicker();
         }
     }
-    
+
+    // After the camera has moved and turned this frame
+    void LateUpdate()
+    {
+        UpdateFlashlightTransform();
+    }
+
     // Update the flashlight to follow the camera view
     private void UpdateFlashlightTransform()
     {
-        if (playerCamera != null && spotLight != null)
-        {
-            // Option 1: Mount the spotlight directly on the camera
-            // This makes the light follow exactly where the camera is looking
-            spotLight.transform.position = playerCamera.transform.position;
-            spotLight.transform.rotation = playerCamera.transform.rotation;
+        if (playerCamera == null || spotLight == null) return;
 
-            // Optional offset to make the light come from a slightly different position
-            // Uncomment and adjust these values if you want the light slightly offset from camera
-            // Vector3 offset = playerCamera.transform.right * 0.2f; // Slight offset to the right
-            // offset += playerCamera.transform.up * -0.1f; // Slight offset downward
-            // spotLight.transform.position += offset;
+        Transform cam = playerCamera.transform;
+        if (!handHeld)
+        {
+            // Mounted on the camera: the light follows exactly where the camera is looking
+            spotLight.transform.SetPositionAndRotation(cam.position, cam.rotation);
+            return;
         }
+
+        // Held in the hand, aimed at what the player looks at, catching up with turns a moment late
+        Vector3 hand = cam.position + cam.rotation * handOffset;
+        Vector3 target = cam.position + cam.forward * AimDistance(cam);
+        Quaternion want = Quaternion.LookRotation(target - hand, cam.up);
+        // a teleport or a cut (doors, respawns, cinematics) snaps the beam instead of swinging it round
+        bool jumped = aimSet && ((cam.position - lastCameraPosition).sqrMagnitude > 9f || Quaternion.Angle(cam.rotation, lastCameraRotation) > 60f);
+        lastCameraPosition = cam.position;
+        lastCameraRotation = cam.rotation;
+        if (!aimSet || jumped || aimLag <= 0f)
+        {
+            aimRotation = want;
+            aimSet = true;
+        }
+        else
+        {
+            aimRotation = Quaternion.Slerp(aimRotation, want, 1f - Mathf.Exp(-Time.deltaTime / aimLag));
+        }
+        spotLight.transform.SetPositionAndRotation(hand, aimRotation);
+    }
+
+    // How far ahead the beam converges: the first solid thing in view (not the player), within limits
+    private float AimDistance(Transform cam)
+    {
+        int count = Physics.RaycastNonAlloc(cam.position, cam.forward, aimHits, aimMaxDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+        float nearest = float.MaxValue;
+        Transform self = transform.root;
+        for (int i = 0; i < count; i++)
+        {
+            if (aimHits[i].collider.transform.IsChildOf(self)) continue;
+            nearest = Mathf.Min(nearest, aimHits[i].distance);
+        }
+        if (nearest == float.MaxValue) return aimOpenDistance;
+        return Mathf.Clamp(nearest, aimMinDistance, aimMaxDistance);
     }
 
     // Update flicker effect based on killer proximity
@@ -271,7 +355,56 @@ public class SimpleFlashlight : MonoBehaviour
             spotLight.range = range;
             spotLight.spotAngle = spotAngle;
             spotLight.intensity = intensity;
+            spotLight.cookie = softBeam ? (beamCookie != null ? beamCookie : SoftCookie()) : null;
+
+            bool shadows = handHeld && castShadows;
+            spotLight.shadows = shadows ? LightShadows.Hard : LightShadows.None;
+            if (shadows)
+            {
+                spotLight.shadowStrength = 1f;
+                spotLight.shadowBias = 0.03f;
+                spotLight.shadowNormalBias = 0.3f;
+                spotLight.shadowNearPlane = 0.1f;
+            }
         }
+    }
+
+    // The soft beam, drawn once: a bright core, a broad body and a dim spill, black at the edge (spot cookies need that).
+    private static Texture2D SoftCookie()
+    {
+        if (softCookie != null) return softCookie;
+
+        const int n = 256;
+        var tex = new Texture2D(n, n, TextureFormat.RGBA32, true, true)
+        {
+            name = "Torch soft beam",
+            wrapMode = TextureWrapMode.Clamp,
+            hideFlags = HideFlags.DontSave
+        };
+        var pixels = new Color32[n * n];
+        for (int y = 0; y < n; y++)
+        {
+            for (int x = 0; x < n; x++)
+            {
+                float u = (x + 0.5f) / n * 2f - 1f, v = (y + 0.5f) / n * 2f - 1f;
+                float r = Mathf.Sqrt(u * u + v * v);
+                float a = 0.35f * Mathf.Pow(Fall(0.5f, 0f, r), 1.2f) + 0.5f * Fall(0.8f, 0.42f, r) + 0.15f * Fall(1f, 0.62f, r);
+                if (r >= 0.985f || x == 0 || y == 0 || x == n - 1 || y == n - 1) a = 0f;
+                byte b = (byte)Mathf.RoundToInt(Mathf.Clamp01(a) * 255f);
+                pixels[y * n + x] = new Color32(b, b, b, b);
+            }
+        }
+        tex.SetPixels32(pixels);
+        tex.Apply(true, true);
+        softCookie = tex;
+        return tex;
+    }
+
+    // smoothstep that also runs downhill (edge0 > edge1)
+    private static float Fall(float edge0, float edge1, float x)
+    {
+        float t = Mathf.Clamp01((x - edge0) / (edge1 - edge0));
+        return t * t * (3f - 2f * t);
     }
     
     // Toggle the flashlight on/off

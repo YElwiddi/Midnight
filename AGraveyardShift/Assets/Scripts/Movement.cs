@@ -42,6 +42,10 @@ public class Movement : MonoBehaviour
     public float runningFootstepInterval = 0.3f;
     [Range(0f, 1f)]
     public float footstepVolume = 0.7f;
+
+    // Floor-aware footsteps (Scripts/Footsteps/PlayerFootsteps) attach themselves at runtime and set this.
+    // While they run, the sounds above are only the fallback for a missing Resources/Footsteps/FootstepSettings.
+    [System.NonSerialized] public PlayerFootsteps surfaceFootsteps;
     
     // Private variables
     private CharacterController characterController;
@@ -264,6 +268,9 @@ public class Movement : MonoBehaviour
     
     private void UpdateFootsteps(bool isMoving, bool isRunning)
     {
+        if (surfaceFootsteps != null && surfaceFootsteps.Active)
+            return;
+
         // Only play footsteps when grounded and moving
         if (!characterController.isGrounded || !isMoving)
             return;
@@ -308,6 +315,9 @@ public class Movement : MonoBehaviour
 
     private void TryPlayLandingSound()
     {
+        if (surfaceFootsteps != null && surfaceFootsteps.Active)
+            return;
+
         // Respect cooldown to prevent sounds on movement re-enable
         if (Time.time < footstepCooldownUntil)
             return;
@@ -337,6 +347,8 @@ public class Movement : MonoBehaviour
         }
         footstepCooldownUntil = Time.time + 0.5f;
         lastFootstepTime = 0f;
+        if (surfaceFootsteps != null)
+            surfaceFootsteps.Hush(0.5f);
     }
     
     public void DisableAllInput()

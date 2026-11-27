@@ -6288,6 +6288,20 @@
             "isKey": false
         },
         {
+            "key": "The Crypt Fiend has claimed your soul.",
+            "text": "The Crypt Fiend has claimed your soul.",
+            "context": "Scene 0.5 Dungeon/EndingScenarioManager (CryptCheckpointManager.claimedMessage)",
+            "count": 1,
+            "isKey": false
+        },
+        {
+            "key": "You have been returned to the surface.\nEnter the crypt and try again.",
+            "text": "You have been returned to the surface.\nEnter the crypt and try again.",
+            "context": "Scene 0.5 Dungeon/EndingScenarioManager (CryptCheckpointManager.returnedMessage)",
+            "count": 1,
+            "isKey": false
+        },
+        {
             "key": "Are you sure you want to exhume this site?",
             "text": "Are you sure you want to exhume this site?",
             "context": "Scene 0.5 Dungeon/Farmland (1) (DirtPileInteractable.confirmationMessage)",

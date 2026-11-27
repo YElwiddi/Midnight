@@ -11,6 +11,10 @@ using UnityEngine.UI;
 /// </summary>
 public class KillerJumpscare : MonoBehaviour
 {
+    [Header("Scripted Kill")]
+    [Tooltip("If set, this kill sequence plays instead of the jumpscare configured below: it drives the camera, the killer, the torch, the picture and the sound itself. Only the Game Over, Endings and Checkpoint settings at the bottom still apply. Empty = the jumpscare below.")]
+    [SerializeField] private KillSequence killSequence;
+
     [Header("Killer Face Target")]
     [Tooltip("Transform to look at during jumpscare. If not set, uses faceHeightOffset.")]
     [SerializeField] private Transform killerFace;
@@ -179,6 +183,15 @@ public class KillerJumpscare : MonoBehaviour
     private float limbShakeTimer;
     private bool limbShakeReady;
 
+    // Scripted-kill state. A checkpoint respawn keeps the scene, so what the kill changed on the player is put back.
+    private bool scriptedKill;
+    private KillSequenceRig killRig;
+    private float killSequenceStart;
+    private Vector3 cameraLocalPosition;
+    private Quaternion cameraLocalRotation;
+    private float cameraFOV;
+    private float cameraNearClip;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -241,7 +254,7 @@ public class KillerJumpscare : MonoBehaviour
 
     private void Update()
     {
-        if (!jumpscareActive) return;
+        if (!jumpscareActive || scriptedKill) return;
 
         jumpscareZoomElapsed += Time.unscaledDeltaTime;
 
@@ -324,6 +337,13 @@ public class KillerJumpscare : MonoBehaviour
     {
         if (!jumpscareActive) return;
 
+        // A scripted kill is a function of the seconds since it started; it poses everything after the Animator.
+        if (scriptedKill)
+        {
+            if (killRig != null) killSequence.Evaluate(killRig, Time.time - killSequenceStart);
+            return;
+        }
+
         // Neck: freeze-frame mode holds a per-flash random contortion; otherwise weave continuously.
         // Either runs before the head-aim so the face still re-locks onto the player on top of it.
         if (freezeFramePoses)
@@ -386,6 +406,12 @@ public class KillerJumpscare : MonoBehaviour
 
         FindPlayer();
         jumpscareActive = true;
+        if (killSequence != null && playerCamera != null)
+        {
+            scriptedKill = true;
+            StartCoroutine(KillSequenceRoutine());
+            return;
+        }
         StartCoroutine(JumpscareSequence());
     }
 
@@ -555,6 +581,166 @@ public class KillerJumpscare : MonoBehaviour
         // Execute game over
         ExecuteGameOver();
     }
+
+    #region Scripted Kill
+
+    private IEnumerator KillSequenceRoutine()
+    {
+        Debug.Log($"KillerJumpscare: Starting scripted kill '{killSequence.name}'");
+
+        CloseReadableUI();
+        CloseAllDialogues();
+
+        if (navAgent != null && navAgent.isOnNavMesh)
+        {
+            navAgent.isStopped = true;
+            navAgent.velocity = Vector3.zero;
+        }
+
+        FreezePlayer(true);
+        // Also keeps the pause menu shut: resuming would hand control back mid-kill.
+        Movement movement = playerTransform != null ? playerTransform.GetComponent<Movement>() : null;
+        if (movement != null) movement.DisableAllInput();
+
+        CrosshairManager crosshair = FindObjectOfType<CrosshairManager>();
+        if (crosshair != null) crosshair.Hide();
+
+        Transform cam = playerCamera.transform;
+        cameraLocalPosition = cam.localPosition;
+        cameraLocalRotation = cam.localRotation;
+        cameraFOV = playerCamera.fieldOfView;
+        cameraNearClip = playerCamera.nearClipPlane;
+
+        killRig = KillSequenceRig.Create(transform, playerCamera, playerTransform, FindStageDirection(cam), killSequence.screenFxShader);
+        killSequence.Begin(killRig);
+        killSequenceStart = Time.time;
+        killSequence.Evaluate(killRig, 0f);
+
+        // The kill's sound is mixed to its timeline: it starts on this frame, in the player's ears.
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            if (killSequence.sound != null)
+            {
+                audioSource.spatialBlend = 0f;
+                audioSource.PlayOneShot(killSequence.sound, killSequence.soundVolume);
+            }
+        }
+
+        while (Time.time - killSequenceStart < killSequence.Duration)
+        {
+            yield return null;
+        }
+
+        EndScriptedKill(true);
+        ExecuteGameOver();
+    }
+
+    /// <summary>
+    /// The horizontal direction the kill is staged along: the way the player looks, turned toward open space when a
+    /// wall stands inside the room the kill needs in front of (or behind) the player.
+    /// </summary>
+    private Vector3 FindStageDirection(Transform cam)
+    {
+        Vector3 forward = cam.forward;
+        forward.y = 0f;
+        if (forward.sqrMagnitude < 0.001f)
+        {
+            forward = transform.position - cam.position;
+            forward.y = 0f;
+        }
+        if (forward.sqrMagnitude < 0.001f) forward = Vector3.forward;
+        forward.Normalize();
+
+        float ahead = killStopDistance + 0.3f;
+        float behind = 0f;
+        if (killSequence is CryptScreamSequence scream)
+        {
+            ahead = scream.clearAhead;
+            behind = scream.clearBehind;
+        }
+
+        // Smallest turn first
+        float[] turns = { 0f, 45f, -45f, 90f, -90f, 135f, -135f, 180f };
+        foreach (float turn in turns)
+        {
+            Vector3 direction = Quaternion.Euler(0f, turn, 0f) * forward;
+            if (!SceneryWithin(cam.position, direction, ahead) && !SceneryWithin(cam.position, -direction, behind))
+            {
+                return direction;
+            }
+        }
+
+        Debug.LogWarning("KillerJumpscare: No open direction for the scripted kill, staging it the way the player looks");
+        return forward;
+    }
+
+    // True when something solid (not this killer, not the player) stands within the distance along the direction.
+    private bool SceneryWithin(Vector3 origin, Vector3 direction, float distance)
+    {
+        if (distance <= 0f) return false;
+
+        foreach (RaycastHit hit in Physics.RaycastAll(origin, direction, distance, ~0, QueryTriggerInteraction.Ignore))
+        {
+            if (hit.collider.transform.IsChildOf(transform)) continue;
+            if (playerTransform != null && hit.collider.transform.IsChildOf(playerTransform)) continue;
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Ends the scripted kill and puts back what it changed on the player: the camera, the tape, the torch.
+    /// With holdBlack the screen stays black for whatever follows (the respawn fade, the ending screen).
+    /// </summary>
+    private void EndScriptedKill(bool holdBlack)
+    {
+        if (killRig == null) return;
+
+        KillSequenceRig rig = killRig;
+        killRig = null;
+
+        killSequence.End(rig);
+        rig.BeginFrame(); // the tape as it was, screen effects off
+        rig.fx.hold = false;
+        rig.fx.overlay = null;
+        if (holdBlack)
+        {
+            rig.fx.flashColor = Color.black;
+            rig.fx.flash = 1f;
+        }
+        rig.Dispose();
+
+        if (playerCamera != null)
+        {
+            Transform cam = playerCamera.transform;
+            cam.localPosition = cameraLocalPosition;
+            cam.localRotation = cameraLocalRotation;
+            playerCamera.fieldOfView = cameraFOV;
+            playerCamera.nearClipPlane = cameraNearClip;
+        }
+
+        // The torch back in the player's hand, lit (SimpleFlashlight takes its beam back when the respawn re-enables it).
+        SimpleFlashlight flashlight = FindObjectOfType<SimpleFlashlight>();
+        if (flashlight != null) flashlight.SetFlashlightState(true, playSound: false);
+    }
+
+    private void OnDestroy()
+    {
+        if (!scriptedKill) return;
+
+        // Destroyed mid-kill (the scene ended): put the player back as they were
+        EndScriptedKill(false);
+
+        // By now the respawn's own black screen has taken over from the kill's
+        if (playerCamera != null)
+        {
+            JumpscareScreenFX fx = playerCamera.GetComponent<JumpscareScreenFX>();
+            if (fx != null) fx.Clear();
+        }
+    }
+
+    #endregion
 
     private void PositionKillerInFrontOfPlayer()
     {

@@ -490,6 +490,14 @@
    "v": "Wer ohne Strafe beigesetzt wurde, muss gerettet werden. Exhumiere sie und bette ihre Seelen zur Ruhe."
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "Der Gruftdämon hat deine Seele geholt."
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "Du wurdest an die Oberfläche zurückgebracht.\nBetritt die Gruft und versuch es noch einmal."
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "Auf diesem Gelände ist kein Deloitte begraben."
   },

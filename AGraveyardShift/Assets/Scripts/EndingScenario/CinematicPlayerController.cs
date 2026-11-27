@@ -224,6 +224,13 @@ public class CinematicPlayerController : MonoBehaviour
 
     private void PlayFootstepSound()
     {
+        // Floor-aware footsteps (PlayerFootsteps) when they are running; Movement's single set otherwise
+        if (playerMovement != null && playerMovement.surfaceFootsteps != null && playerMovement.surfaceFootsteps.Active)
+        {
+            playerMovement.surfaceFootsteps.PlayStepNow();
+            return;
+        }
+
         // Try to use the Movement component's footstep system
         if (playerMovement != null && playerMovement.footstepAudioSource != null)
         {

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e341c9b96c81ef84ca4258b05b1b87bc, type: 3}
+  m_Name: WraithSprint
+  m_EditorClassIdentifier: Assembly-CSharp::WraithSprintSequence
+  sound: {fileID: 8300000, guid: b8647d3317dda6449beb285225434025, type: 3}
+  soundVolume: 1
+  screenFxShader: {fileID: 4800000, guid: e5cc0419c4b311f498d6bb3c63c25b0e, type: 3}
+  lineAt: -1
+  eyeUp: 0.42
+  eyeForward: 0.05
+  fieldOfView: 60
+  clearAhead: 1.8
+  clearBehind: 0
+  overlayShader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  litShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  additiveShader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  stand: {fileID: -203655887218126122, guid: 3b30058b46cb4f144b0fc4cc5ef87dfd, type: 3}
+  cut: 1
+  faceDistance: 1
+  faceUp: 0.1
+  killLight: 3.2
+  killLightBack: 1.1
+  slashTexture: {fileID: 2800000, guid: 994074ef91592b346a391c25753095c3, type: 3}
+  firstSlash: 0.36
+  secondSlash: 0.62
+  bladesHeld: {x: 0.5, y: 0.5, z: 0.26}
+  afterimage: 0.75
+  blackHold: 0.2

@@ -129,9 +129,43 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
     [Tooltip("Alternate content and formatting to use when sanity is below the threshold. Any field NOT enabled here falls back to the normal settings above.")]
     [SerializeField] private ReadableOverrideSet lowSanityOverrides = new ReadableOverrideSet();
 
+    /// <summary>The authored (English) pages; the first one is a headstone's inscription.</summary>
+    public string[] Pages => pages;
+
+    /// <summary>True while this readable's low-sanity pages apply (it has them and sanity is below its threshold).</summary>
+    public bool LowSanityApplies => HasLowSanityPages && IsLowSanity();
+
+    private bool HasLowSanityPages => enableLowSanityOverride && lowSanityOverrides.overridePages
+                                      && lowSanityOverrides.pages != null && lowSanityOverrides.pages.Length > 0;
+
+    /// <summary>
+    /// The low-sanity version of this readable: by default only when sanity is below its threshold right now;
+    /// with <paramref name="onlyWhenLow"/> false, whenever it has one. Unset parts fall back the way
+    /// <see cref="Interact"/> resolves them (pages, font, colour; no shake).
+    /// </summary>
+    public bool TryGetLowSanity(out string[] lowPages, out TMP_FontAsset font, out Color color, out float shakeIntensity, out float shakeSpeed, bool onlyWhenLow = true)
+    {
+        lowPages = null; font = null; color = Color.red; shakeIntensity = 0f; shakeSpeed = 25f;
+        if (!HasLowSanityPages || (onlyWhenLow && !IsLowSanity()))
+            return false;
+        lowPages = lowSanityOverrides.pages;
+        font = lowSanityOverrides.fontOverride != null ? lowSanityOverrides.fontOverride : fontOverride;
+        color = lowSanityOverrides.overrideFontColor ? lowSanityOverrides.fontColor : (overrideFontColor ? fontColor : Color.red);
+        if (lowSanityOverrides.enableShake) { shakeIntensity = lowSanityOverrides.shakeIntensity; shakeSpeed = lowSanityOverrides.shakeSpeed; }
+        return true;
+    }
+
     #region IInteractable Implementation
     public void Interact()
     {
+        // Headstones are read by kneeling in front of them (TombstoneKneel adds itself at runtime).
+        var kneel = GetComponent<TombstoneKneel>();
+        if (kneel != null && kneel.isActiveAndEnabled)
+        {
+            kneel.Read();
+            return;
+        }
+
         if (pages == null || pages.Length == 0)
         {
             Debug.LogWarning($"ReadableTrigger on {gameObject.name}: No pages configured");
@@ -185,6 +219,14 @@ public class ReadableTrigger : MonoBehaviour, IInteractable
 
         // Resolve text overrides with three-tier fallback
         var overrides = BuildTextOverrides(useLowSanity);
+
+        // A flat note on a wall is held in the hands and read by the torch (HeldNote); books and two-page spreads keep the panel.
+        if ((rightColumnPages == null || rightColumnPages.Length == 0)
+            && HeldNote.TryStyle(this, resolvedBackground, out HeldNote.Style heldStyle, out Renderer heldWall, out Texture heldPaper))
+        {
+            readableUI.OpenHeld(heldWall, heldStyle, heldPaper, resolvedPages, overrides, resolvedRemarks, resolvedRedPen, useLowSanity);
+            if (readableUI.IsOpen) return;
+        }
 
         Vector2? resolvedBackgroundSize = overrideBackgroundSize ? backgroundSize : (Vector2?)null;
         Vector4? resolvedRightMargin = overrideRightColumnMargin ? rightColumnMargin : (Vector4?)null;

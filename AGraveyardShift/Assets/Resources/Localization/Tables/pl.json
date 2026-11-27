@@ -490,6 +490,14 @@
    "v": "Ci, których pochowano bez kary, muszą zostać ocaleni. Ekshumuj ich i pozwól ich duszom zaznać spokoju."
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "Demon Krypty zabrał twoją duszę."
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "Zostałeś odesłany na powierzchnię.\nWejdź do krypty i spróbuj ponownie."
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "Na tym terenie nie pochowano żadnego Deloitte'a."
   },

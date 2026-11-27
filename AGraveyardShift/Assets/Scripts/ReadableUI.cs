@@ -79,6 +79,12 @@ public class ReadableUI : MonoBehaviour
     private bool shakeActive;
     private float currentShakeIntensity;
     private float currentShakeSpeed;
+
+    // A note held in the hands instead of shown on this panel (HeldNote). IsOpen stays true while it is held,
+    // so everything that waits for the reader to close keeps working.
+    private HeldNote held;
+    private bool heldClosing;
+    private int heldOpenFrame;
     #endregion
 
     #region Unity Lifecycle
@@ -161,6 +167,15 @@ public class ReadableUI : MonoBehaviour
     private void Update()
     {
         if (!isOpen) return;
+
+        if (held != null)
+        {
+            // the press that picked the note up must not also put it down
+            if (heldClosing || Time.frameCount == heldOpenFrame) return;
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E)) RequestClose();
+            else if (Input.GetMouseButtonDown(0)) Advance();
+            return;
+        }
 
         // Allow closing with Escape or E key
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
@@ -312,11 +327,76 @@ public class ReadableUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Holds a note in the world instead of showing it on the panel (see <see cref="HeldNote"/>): it comes off its wall
+    /// into the hands, is read by the torch, a click turns it over to the next page, E or Escape puts it back.
+    /// </summary>
+    public void OpenHeld(Renderer wall, HeldNote.Style style, Texture paper, string[] pages, TextOverrides overrides,
+                         string[] keeperRemarks, string[] redPenPhrases, bool lowSanity)
+    {
+        if (pages == null || pages.Length == 0 || isOpen) return;
+
+        currentPages = Loc.TrAll(pages);
+        ApplyRedPen(currentPages, redPenPhrases);
+        AppendKeeperRemarks(currentPages, keeperRemarks);
+        currentPageIndex = 0;
+
+        held = HeldNote.Begin(wall, style, paper, currentPages, overrides, lowSanity, CloseQuietly);
+        if (held == null) { currentPages = null; return; }
+        heldClosing = false;
+        heldOpenFrame = Time.frameCount;
+        isOpen = true;
+        PausePlayer(false);
+        Debug.Log($"ReadableUI: Holding a note with {pages.Length} page(s)");
+    }
+
+    /// <summary>Next page, or closes on the last one (a click).</summary>
+    public void Advance()
+    {
+        if (!isOpen) return;
+        if (held == null) { AdvanceOrClose(); return; }
+        if (heldClosing) return;
+        if (currentPageIndex < currentPages.Length - 1)
+        {
+            currentPageIndex++;
+            held.ShowPage(currentPageIndex);
+        }
+        else RequestClose();
+    }
+
+    /// <summary>Closes the way the player does (E or Escape): a held note is put back first.</summary>
+    public void RequestClose()
+    {
+        if (!isOpen) return;
+        if (held == null) { Close(); return; }
+        if (heldClosing) return;
+        heldClosing = true;
+        held.PutBack(() => { held = null; heldClosing = false; Close(); });
+    }
+
+    // Something else took the camera while a note was held (a kill, a cinematic): stop reading without
+    // handing control back, since whoever took it now owns the player.
+    private void CloseQuietly()
+    {
+        held = null;
+        heldClosing = false;
+        isOpen = false;
+        currentPages = null;
+        currentPageIndex = 0;
+    }
+
+    /// <summary>
     /// Closes the readable UI.
     /// </summary>
     public void Close()
     {
         if (!isOpen) return;
+
+        if (held != null)
+        {
+            held.Abort();   // a kill closing the reader: the note is back on its wall at once
+            held = null;
+            heldClosing = false;
+        }
 
         isOpen = false;
         currentPages = null;
@@ -509,7 +589,7 @@ public class ReadableUI : MonoBehaviour
         }
     }
 
-    private void PausePlayer()
+    private void PausePlayer(bool showCursor = true)
     {
         // Disable player movement and camera
         if (playerMovement != null)
@@ -529,9 +609,12 @@ public class ReadableUI : MonoBehaviour
             crosshairObject.SetActive(false);
         }
 
-        // Show cursor and unlock it
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Show cursor and unlock it (a held note has nothing to point at)
+        if (showCursor)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void ResumePlayer()

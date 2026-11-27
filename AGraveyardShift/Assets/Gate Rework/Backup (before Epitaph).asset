@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468eff86f6024f14d859b6c4b5e3d3d1, type: 3}
+  m_Name: Backup (before Epitaph)
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::GateReworkBackup
+  leaves:
+  - name: FrontGate1
+    position: {x: -126.22742, y: 19.0161, z: 143.71556}
+    localRotation: {x: -0, y: -0, z: -0, w: 1}
+    localScale: {x: 3, y: 3, z: 3}
+    mesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    materials:
+    - {fileID: 4872108141399753925, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    colliderMesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    boxCenter: {x: 0.501601, y: 0.34655797, z: 0.013573591}
+    boxSize: {x: 1.192225, y: 2.0036225, z: 0.14439598}
+    obstacleCenter: {x: 0.50200003, y: 0.347, z: 0.014}
+    obstacleSize: {x: 1.192, y: 2.0040002, z: 0.14400001}
+  - name: FrontGate2
+    position: {x: -119.04742, y: 18.9561, z: 143.90556}
+    localRotation: {x: -0, y: 0.9063079, z: -0, w: 0.42261827}
+    localScale: {x: 3, y: 3, z: 3}
+    mesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    materials:
+    - {fileID: 4872108141399753925, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    colliderMesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    boxCenter: {x: 0.501601, y: 0.34655797, z: 0.013573591}
+    boxSize: {x: 1.192225, y: 2.0036225, z: 0.14439598}
+    obstacleCenter: {x: 0.50200003, y: 0.347, z: 0.014}
+    obstacleSize: {x: 1.192, y: 2.0040002, z: 0.14400001}
+  - name: BackGate1
+    position: {x: -114.077415, y: 19.1261, z: 98}
+    localRotation: {x: -0, y: -0, z: -0, w: 1}
+    localScale: {x: 3, y: 3, z: 3}
+    mesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    materials:
+    - {fileID: 4872108141399753925, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    colliderMesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    boxCenter: {x: 0.501601, y: 0.34655797, z: 0.013573591}
+    boxSize: {x: 1.192225, y: 2.0036225, z: 0.14439598}
+    obstacleCenter: {x: 0.50200003, y: 0.347, z: 0.014}
+    obstacleSize: {x: 1.192, y: 2.0040002, z: 0.14400001}
+  - name: BackGate2
+    position: {x: -108, y: 19.1261, z: 98}
+    localRotation: {x: 0, y: 1, z: 0, w: 0}
+    localScale: {x: 3, y: 3, z: 3}
+    mesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    materials:
+    - {fileID: 4872108141399753925, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    colliderMesh: {fileID: 7043187610256507283, guid: 3b47df021ba357f44992301f20331e21, type: 3}
+    boxCenter: {x: 0.501601, y: 0.34655797, z: 0.013573591}
+    boxSize: {x: 1.192225, y: 2.0036225, z: 0.14439598}
+    obstacleCenter: {x: 0.50200003, y: 0.347, z: 0.014}
+    obstacleSize: {x: 1.192, y: 2.0040002, z: 0.14400001}
+  frontPropPosition: {x: -126.708, y: 22.5961, z: 144.89557}
+  frontPropRotation: {x: 0.10097949, y: -0.44702625, z: -0.050871342, w: 0.8873459}
+  hasFeed: 1
+  frontFeedPosition: {x: -126.292, y: 23.952, z: 144.745}
+  lampNames:
+  - VicLamp (1)
+  - VicLamp
+  lampShadowNear:
+  - 0.2
+  - 0.2

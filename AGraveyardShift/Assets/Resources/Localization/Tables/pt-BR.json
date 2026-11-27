@@ -490,6 +490,14 @@
    "v": "Aqueles que foram sepultados sem punição devem ser salvos. Exume-os e deixe que suas almas descansem."
   },
   {
+   "k": "The Crypt Fiend has claimed your soul.",
+   "v": "O Demônio da Cripta levou sua alma."
+  },
+  {
+   "k": "You have been returned to the surface.\nEnter the crypt and try again.",
+   "v": "Você foi levado de volta à superfície.\nEntre na cripta e tente novamente."
+  },
+  {
    "k": "No Deloitte is buried on these grounds.",
    "v": "Nenhum Deloitte está enterrado nestes terrenos."
   },

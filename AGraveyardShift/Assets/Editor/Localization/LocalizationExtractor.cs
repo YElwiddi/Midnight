@@ -55,6 +55,7 @@ public static class LocalizationExtractor
         { "ChestInteractable", new[] { "lockedText", "unlockPrompt", "yesText", "noText", "speakerName" } },
         { "CinematicEndingData", new[] { "endingTitle", "endingDescription" } },
         { "ConditionalKillerEvent", new[] { "jumpscareDialogueText" } },
+        { "CryptCheckpointManager", new[] { "claimedMessage", "returnedMessage" } },
         { "CryptKillerConfig", new[] { "flashlightDisabledDialogue", "flashlightDisabledSpeaker" } },
         { "DialogueTeleportInteractable", new[] { "lockedDialogueText", "lockedSpeakerName", "confirmationMessage", "yesOptionText", "noOptionText" } },
         { "DigPenaltyConfig", new[] { "shovelBrokenDialogue", "tryDigWithBrokenShovelDialogue" } },
